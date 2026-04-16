@@ -1,0 +1,58 @@
+[
+  {
+    "id": "search-typescript",
+    "input": "Search for documents about TypeScript",
+    "expectedTool": "searchDocuments",
+    "expectedFields": ["results"],
+    "description": "Basic search query should invoke searchDocuments tool"
+  },
+  {
+    "id": "search-setup",
+    "input": "Find me articles about setting up Next.js",
+    "expectedTool": "searchDocuments",
+    "expectedFields": ["results"],
+    "description": "Find/lookup queries should invoke searchDocuments"
+  },
+  {
+    "id": "ask-language",
+    "input": "What programming language should I use for my next project?",
+    "expectedTool": "askQuestion",
+    "expectedFields": ["question", "options"],
+    "description": "Ambiguous question should prompt user for clarification via askQuestion"
+  },
+  {
+    "id": "ask-framework",
+    "input": "Help me choose between React and Vue",
+    "expectedTool": "askQuestion",
+    "expectedFields": ["question", "options"],
+    "description": "Comparison/choice questions should use askQuestion"
+  },
+  {
+    "id": "update-theme",
+    "input": "Update the theme to dark mode",
+    "expectedTool": "updateSettings",
+    "expectedFields": ["success"],
+    "description": "Setting change should invoke updateSettings"
+  },
+  {
+    "id": "update-language",
+    "input": "Change the language setting to Spanish",
+    "expectedTool": "updateSettings",
+    "expectedFields": ["success"],
+    "description": "Configuration change should invoke updateSettings"
+  },
+  {
+    "id": "search-ai-sdk",
+    "input": "Look up the AI SDK v6 migration guide",
+    "expectedTool": "searchDocuments",
+    "expectedFields": ["results"],
+    "description": "Look up queries should invoke searchDocuments"
+  },
+  {
+    "id": "update-notification",
+    "input": "Turn off email notifications",
+    "expectedTool": "updateSettings",
+    "expectedFields": ["success"],
+    "description": "Toggle settings should invoke updateSettings"
+  }
+]

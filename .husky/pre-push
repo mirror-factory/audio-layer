@@ -1,0 +1,3 @@
+echo "Running pre-push validation..."
+pnpm typecheck && pnpm test
+pnpm compliance 2>/dev/null || echo "Compliance check not configured yet"

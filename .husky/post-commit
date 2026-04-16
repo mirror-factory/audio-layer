@@ -1,0 +1,1 @@
+node scripts/auto-version.mjs 2>/dev/null || true

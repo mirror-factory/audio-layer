@@ -1,0 +1,64 @@
+# llms.txt — Machine-readable project description for AI agents
+# Standard: https://llmstxt.org
+#
+# This file gives AI coding tools (Claude Code, Cursor, Copilot, etc.)
+# instant context about your project without reading every file.
+#
+# CUSTOMIZE: Replace all placeholders below with your project details.
+# REGENERATE: Run `pnpm docs:generate` to rebuild from registries.
+
+> Project: [Your Project Name]
+> Version: 0.0.1
+> Stack: Next.js 15, React 19, TypeScript, Tailwind CSS v4, Vercel AI SDK v6
+> Database: Supabase (PostgreSQL + pgvector)
+> Testing: Vitest (unit), Playwright (E2E), Expect CLI (AI browser)
+> Package Manager: pnpm
+
+## Architecture
+- AI SDK v6 with tool system (client-side + server-side tools)
+- Dynamic registries: TOOL_META, API_ROUTES (single source of truth)
+- Tiered context: Tier 1 (always), Tier 2 (summary), Tier 3 (on-demand)
+- Multi-provider: Vercel AI Gateway (Anthropic, Google, OpenAI)
+
+## Key Files
+- AGENTS.md — Agent context (always in context, compressed registry)
+- CLAUDE.md — Project instructions for Claude Code
+- lib/ai/tool-meta.ts — Tool registry (single source of truth)
+- lib/registry/api-routes.ts — API route registry
+- app/api/chat/route.ts — Main chat endpoint
+- lib/ai/prompts/ — System prompts
+
+## Testing
+- `pnpm typecheck` — TypeScript validation (must pass)
+- `pnpm test` — Unit tests (must pass)
+- `pnpm test:e2e` — Playwright E2E (must pass)
+- `pnpm compliance` — Pattern enforcement checker
+- `pnpm eval:tools:live` — Real AI tool tests (~$0.01)
+
+## Docs
+- docs/architecture/ — System design
+- docs/guides/ — How-to guides
+- docs/reference/ — Auto-generated from registries
+
+## AI SDK v6 Patterns (CRITICAL)
+- Use `inputSchema` NOT `parameters`
+- Use `toUIMessageStreamResponse()` NOT `toDataStreamResponse()`
+- Message format: `message.parts[]` NOT `message.content`
+- Tool states: input-streaming | input-available | output-available | output-error
+- `addToolOutput` NOT `addToolResult`; `sendMessage` NOT `append`
+
+## Registries
+All registries are dynamic — add in one place, everything derives:
+- New tool → TOOL_META → tests, docs, renderers auto-update
+- New route → API_ROUTES → tests, docs auto-update
+- Run `pnpm docs:generate` to rebuild reference docs
+
+## Compliance
+Run `pnpm compliance` to check:
+- Telemetry on all AI calls
+- No @ts-nocheck in tests
+- Smoke tests exist
+- Reasoning display implemented
+- Nightly CI configured
+- Docs are fresh
+- llms.txt exists

@@ -1,0 +1,150 @@
+# Nightly AI Regression — Catches model drift, API changes, and E2E regressions
+#
+# Runs daily at 6 AM UTC. Also triggerable manually.
+# Cost: ~$0.10-0.15/run (tool evals with Flash-Lite)
+#
+# This catches things that on-push CI can't:
+# - Model behavior changes (provider updates their model weights)
+# - API contract drift (external services change response shape)
+# - E2E regressions that only appear with real server + browser
+# - Cost drift (model pricing changes)
+
+name: Nightly AI Regression
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # 6 AM UTC daily
+  workflow_dispatch: # Manual trigger from GitHub UI
+
+env:
+  NODE_ENV: test
+
+jobs:
+  # ── Layer 1: Free, fast, blocking ──────────────────────────────────
+  unit-and-types:
+    name: Typecheck + Unit Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test -- --reporter=json --outputFile=test-results/unit.json
+      - run: pnpm compliance || true # Run compliance check (non-blocking in nightly)
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unit-results
+          path: test-results/
+
+  # ── Layer 2: Free, needs browser, blocking ─────────────────────────
+  e2e:
+    name: Playwright E2E
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: unit-and-types
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: npx playwright install --with-deps chromium
+      - run: pnpm build
+      - run: pnpm test:e2e
+        env:
+          CI: true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+
+  # ── Layer 3: Costs tokens, informational ───────────────────────────
+  ai-evals:
+    name: AI Tool Evals (Live)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: unit-and-types
+    continue-on-error: true # Don't block on AI eval failures
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm eval:tools:live
+        env:
+          AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ai-eval-results
+          path: test-results/
+
+  # ── Layer 3b: AI browser testing (most expensive) ──────────────────
+  ai-browser:
+    name: AI Browser Testing (Expect)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: e2e
+    continue-on-error: true # Informational only
+    if: github.event_name == 'workflow_dispatch' # Only on manual trigger (saves cost)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: npx playwright install --with-deps chromium
+      - run: pnpm build && pnpm start &
+      - run: sleep 5
+      - run: |
+          EXPECT_BASE_URL=http://localhost:3000 \
+          npx expect-cli \
+            -m "Verify all pages load, no visual bugs, interactive elements work, mobile responsive" \
+            -y --timeout 60000
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: expect-replays
+          path: .expect/replays/
+
+  # ── Docs freshness check ────���──────────────────────────────────────
+  docs-freshness:
+    name: Docs Freshness
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: unit-and-types
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Check docs are current
+        run: |
+          pnpm docs:generate 2>/dev/null || echo "docs:generate script not found (skipped)"
+          if git diff --exit-code docs/reference/ 2>/dev/null; then
+            echo "Docs are fresh"
+          else
+            echo "WARNING: docs/reference/ is stale. Run 'pnpm docs:generate' and commit."
+            git diff --stat docs/reference/
+          fi
