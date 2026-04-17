@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.1] — 2026-04-17
+
+### Fixed
+- fix: break infinite loop in post-commit auto-version hook (`1cd3010`)
+
+
 ## [Unreleased]
 
 ### Added
