@@ -123,6 +123,10 @@ GET /api/meetings/[id]  → Meeting
 - AudioWorklet is served from `public/worklets/pcm-downsampler.js`; pre-filtered by a BiquadFilter low-pass at 7 kHz to prevent decimation aliasing.
 - Browser mic only for V1. System-audio capture requires native bridges — comes with the Tauri shell.
 
+## Export
+
+`/meetings/[id]` has an "Export Markdown" button (`GET /api/meetings/[id]/export?format=md`). Output is GitHub-flavored Markdown with action items rendered as `- [ ]` checkboxes. PDF is deferred — use the browser's Print → Save as PDF on the detail page until we add a server-side renderer.
+
 ## Next up
 
-Tauri shell with native system-audio capture (Core Audio / ScreenCaptureKit / WASAPI). Then Capacitor for iOS/Android mic-only. Auth (Clerk or Supabase Auth). Export (MD / PDF / audio). Stripe.
+Intake-form extraction (structured data per call). Tauri shell with native system-audio capture (Core Audio / ScreenCaptureKit / WASAPI). Then Capacitor for iOS/Android mic-only. Stripe + pricing.
