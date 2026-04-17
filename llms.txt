@@ -30,7 +30,7 @@
 - `POST /api/transcribe/stream/finalize`  Persist streaming transcript + summary at session end
 - `GET  /api/meetings`                    List recent meetings (limit=50, max=200)
 - `GET  /api/meetings/[id]`               Fetch single persisted meeting
-- `GET  /api/meetings/[id]/export`        Download meeting as Markdown (`?format=md`); PDF deferred — use browser print
+- `GET  /api/meetings/[id]/export`        Download meeting as Markdown (`?format=md`) or PDF (`?format=pdf`)
 - `POST /api/chat`                        Streaming chat endpoint
 - `GET  /api/ai-logs`                     Observability log feed (list/stats/errors)
 - `/pricing`                              Three-tier landing (Free / Core $15 / Pro $25)
@@ -69,8 +69,9 @@
 - app/api/transcribe/stream/finalize/route.ts        POST: summarize + persist at stream end
 - app/api/meetings/route.ts                          GET list
 - app/api/meetings/[id]/route.ts                     GET single
-- app/api/meetings/[id]/export/route.ts              GET ?format=md → text/markdown attachment
+- app/api/meetings/[id]/export/route.ts              GET ?format=md|pdf → text/markdown or application/pdf attachment
 - lib/meetings/export.ts                             Pure meetingToMarkdown() + meetingFilenameStem() helpers
+- lib/meetings/pdf.tsx                               meetingToPdfBuffer() via @react-pdf/renderer (server-only)
 - app/record/page.tsx                                Batch UI (upload + mic recorder); redirects to /meetings/[id]
 - app/record/live/page.tsx                           Streaming UI (u3-rt-pro)
 - app/meetings/page.tsx                              Recent meetings list

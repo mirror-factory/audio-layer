@@ -114,8 +114,9 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - `app/api/meetings/[id]/route.ts` — GET single
 - `app/meetings/page.tsx` — server-rendered recent-meetings list
 - `app/meetings/[id]/page.tsx` — detail view; `components/meeting-detail-poller.tsx` keeps non-terminal rows live
-- `app/api/meetings/[id]/export/route.ts` — GET `?format=md` → markdown attachment
-- `lib/meetings/export.ts` — `meetingToMarkdown()` + `meetingFilenameStem()` (pure, fully unit-tested). PDF intentionally deferred — browser Print → Save as PDF works on the detail page.
+- `app/api/meetings/[id]/export/route.ts` — GET `?format=md|pdf`. PDF lazy-loads `lib/meetings/pdf.tsx` to keep `@react-pdf/renderer` out of the markdown cold-start.
+- `lib/meetings/export.ts` — `meetingToMarkdown()` + `meetingFilenameStem()` (pure, fully unit-tested).
+- `lib/meetings/pdf.tsx` — server-only `meetingToPdfBuffer()` via `@react-pdf/renderer`. Same section ordering / emptiness rules as the markdown render so both formats stay in lockstep.
 
 ### Streaming pipeline (V2 live)
 - `app/api/transcribe/stream/token/route.ts` — POST mints AssemblyAI ephemeral token (10 min TTL, 1 hr max session), allocates UUID meetingId, inserts Meetings row with status=processing

@@ -48,13 +48,22 @@ export default async function MeetingDetailPage({ params }: Props) {
           </div>
           <div className="flex items-center gap-3 text-xs">
             {meeting.status === "completed" ? (
-              <a
-                href={`/api/meetings/${meeting.id}/export?format=md`}
-                className="rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-neutral-200 hover:bg-neutral-800"
-                download
-              >
-                Export Markdown
-              </a>
+              <>
+                <a
+                  href={`/api/meetings/${meeting.id}/export?format=md`}
+                  className="rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-neutral-200 hover:bg-neutral-800"
+                  download
+                >
+                  Export MD
+                </a>
+                <a
+                  href={`/api/meetings/${meeting.id}/export?format=pdf`}
+                  className="rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-neutral-200 hover:bg-neutral-800"
+                  download
+                >
+                  Export PDF
+                </a>
+              </>
             ) : null}
             <Link
               href="/meetings"

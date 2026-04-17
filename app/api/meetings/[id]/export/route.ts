@@ -20,6 +20,8 @@ import {
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+const SUPPORTED = new Set(["md", "markdown", "pdf"]);
+
 export async function GET(
   request: Request,
   context: { params: Promise<{ id: string }> },
@@ -28,11 +30,10 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const format = (searchParams.get("format") ?? "md").toLowerCase();
 
-  if (format !== "md" && format !== "markdown") {
+  if (!SUPPORTED.has(format)) {
     return NextResponse.json(
       {
-        error:
-          `Unsupported export format '${format}'. Supported: md. PDF: print this page from the browser.`,
+        error: `Unsupported export format '${format}'. Supported: md, pdf.`,
       },
       { status: 400 },
     );
@@ -44,13 +45,27 @@ export async function GET(
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 
-  const body = meetingToMarkdown(meeting);
-  const filename = `${meetingFilenameStem(meeting)}.md`;
+  const stem = meetingFilenameStem(meeting);
 
+  if (format === "pdf") {
+    // Lazy-load to keep @react-pdf/renderer (heavy) out of the cold-
+    // start path for the markdown export.
+    const { meetingToPdfBuffer } = await import("@/lib/meetings/pdf");
+    const buffer = await meetingToPdfBuffer(meeting);
+    return new Response(new Uint8Array(buffer), {
+      headers: {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": `attachment; filename="${stem}.pdf"`,
+        "Cache-Control": "no-store",
+      },
+    });
+  }
+
+  const body = meetingToMarkdown(meeting);
   return new Response(body, {
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
-      "Content-Disposition": `attachment; filename="${filename}"`,
+      "Content-Disposition": `attachment; filename="${stem}.md"`,
       "Cache-Control": "no-store",
     },
   });

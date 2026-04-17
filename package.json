@@ -39,6 +39,7 @@
     "@ai-sdk/react": "^3.0.0",
     "@langfuse/otel": "^4.6.1",
     "@opentelemetry/sdk-node": "^0.205.0",
+    "@react-pdf/renderer": "^4.5.1",
     "@supabase/ssr": "^0.10.2",
     "@supabase/supabase-js": "^2.47.0",
     "ai": "^6.0.167",

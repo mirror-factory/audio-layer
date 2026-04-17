@@ -125,7 +125,10 @@ GET /api/meetings/[id]  → Meeting
 
 ## Export
 
-`/meetings/[id]` has an "Export Markdown" button (`GET /api/meetings/[id]/export?format=md`). Output is GitHub-flavored Markdown with action items rendered as `- [ ]` checkboxes. PDF is deferred — use the browser's Print → Save as PDF on the detail page until we add a server-side renderer.
+`/meetings/[id]` exports the recording in two formats:
+
+- **Markdown** — `GET /api/meetings/[id]/export?format=md`. GitHub-flavored, action items as `- [ ]` checkboxes.
+- **PDF** — `GET /api/meetings/[id]/export?format=pdf`. Server-rendered with `@react-pdf/renderer`; same sections and ordering as the Markdown output. Lazy-loaded so the heavier PDF deps don't slow the Markdown path.
 
 ## Intake-form extraction
 
