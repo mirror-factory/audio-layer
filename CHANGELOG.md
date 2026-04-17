@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.7] — 2026-04-17
+
+### Added
+- feat: markdown export for /meetings/[id] (2/5) (`2073486`)
+
+
 ## [0.1.6] — 2026-04-17
 
 ### Added
