@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.15] — 2026-04-17
+
+### Added
+- feat: Capacitor mobile shell scaffold (5/6) (`056d75e`)
+
+
 ## [0.1.14] — 2026-04-17
 
 ### Added
