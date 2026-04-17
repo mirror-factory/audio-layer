@@ -18,6 +18,7 @@
 import { NextResponse } from "next/server";
 import { getAssemblyAI, getBatchModel } from "@/lib/assemblyai/client";
 import type { TranscribeStartResponse } from "@/lib/assemblyai/types";
+import { getMeetingsStore } from "@/lib/meetings/store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -91,10 +92,20 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 
-  const body: TranscribeStartResponse = {
-    id: transcript.id,
-    status: mapStatus(transcript.status),
-  };
+  const status = mapStatus(transcript.status);
+
+  // Persist a placeholder row so the meeting is visible in the list UI
+  // while AssemblyAI processes the audio. The [id] GET route fills in
+  // the transcript + summary on completion.
+  try {
+    await getMeetingsStore().insert({ id: transcript.id, status });
+  } catch (err) {
+    console.error("Meetings store insert failed", err);
+    // Non-fatal: fall through with the AssemblyAI id. Subsequent GETs
+    // will create the row lazily if it's still missing.
+  }
+
+  const body: TranscribeStartResponse = { id: transcript.id, status };
   return NextResponse.json(body, { status: 202 });
 }
 

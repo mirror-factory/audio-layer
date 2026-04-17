@@ -13,14 +13,18 @@
 > Package Manager: pnpm
 
 ## Routes
-- `/`                      Hub
-- `/record`                V1 pipeline: upload or mic-record audio → transcript + structured summary
-- `/chat`                  Reference chat with tool calls (from starter kit)
-- `/observability`         AI call logs / costs / errors dashboard
-- `POST /api/transcribe`   Upload audio → create AssemblyAI job → return id
-- `GET  /api/transcribe/[id]`  Poll job status; on completion, summarize + cache
-- `POST /api/chat`         Streaming chat endpoint
-- `GET  /api/ai-logs`      Observability log feed (list/stats/errors)
+- `/`                            Hub
+- `/record`                      V1 pipeline: upload or mic-record → redirects to /meetings/[id] on completion
+- `/meetings`                    Recent recordings (persisted)
+- `/meetings/[id]`               Single-meeting detail (transcript + summary); polls while non-terminal
+- `/chat`                        Reference chat with tool calls (from starter kit)
+- `/observability`               AI call logs / costs / errors dashboard
+- `POST /api/transcribe`         Upload audio → submit AssemblyAI job → insert Meetings row → return id
+- `GET  /api/transcribe/[id]`    Poll job; on completion summarize + persist into MeetingsStore
+- `GET  /api/meetings`           List recent meetings (limit=50, max=200)
+- `GET  /api/meetings/[id]`      Fetch single persisted meeting
+- `POST /api/chat`               Streaming chat endpoint
+- `GET  /api/ai-logs`            Observability log feed (list/stats/errors)
 
 ## Key Files
 - AGENTS.md                          Agent context (locked stack, do-not-do list)
@@ -29,19 +33,30 @@
 - lib/ai/telemetry.ts                withTelemetry() config + in-memory log ring buffer
 - lib/ai/tool-meta.ts                Tool registry (single source of truth)
 - lib/assemblyai/client.ts           AssemblyAI SDK factory (cached)
-- lib/assemblyai/schema.ts           Zod schema for MeetingSummary
+- lib/assemblyai/schema.ts           Zod schema for MeetingSummary (title, summary, bullets, action items, decisions, participants)
 - lib/assemblyai/summary.ts          generateObject through Gateway with telemetry
-- lib/assemblyai/cache.ts            In-memory summary cache (FIFO, 500 entries)
 - lib/assemblyai/types.ts            Client↔Server transcribe response types
-- app/api/transcribe/route.ts        POST: upload + submit
-- app/api/transcribe/[id]/route.ts   GET: poll + summarize on completion
-- app/record/page.tsx                /record UI (upload + mic recorder)
+- lib/supabase/server.ts             Server-side Supabase client factory (service-role; null if env missing)
+- lib/supabase/schema.sql            `meetings` table DDL — run once via SQL editor / psql
+- lib/meetings/store.ts              MeetingsStore interface + auto-selecting factory
+- lib/meetings/store-supabase.ts     Supabase-backed MeetingsStore implementation
+- lib/meetings/store-in-memory.ts    Dev fallback (FIFO 500 entries)
+- lib/meetings/types.ts              Meeting, MeetingListItem, MeetingInsert, MeetingUpdate
+- app/api/transcribe/route.ts        POST: upload + submit + insert Meetings row
+- app/api/transcribe/[id]/route.ts   GET: poll + summarize on completion + persist
+- app/api/meetings/route.ts          GET list
+- app/api/meetings/[id]/route.ts     GET single
+- app/record/page.tsx                /record UI (upload + mic recorder); redirects to /meetings/[id]
+- app/meetings/page.tsx              Recent meetings list
+- app/meetings/[id]/page.tsx         Meeting detail (server-rendered + client poller)
+- components/meeting-detail-poller.tsx   Polls /api/transcribe/[id] then router.refresh() on completion
 - components/audio-recorder.tsx      MediaRecorder wrapper (browser mic)
 - components/transcript-view.tsx     Speaker-segmented transcript + summary panel
 
 ## Locked Decisions (do not re-debate)
 - Transcription engine: AssemblyAI Universal-3 Pro. Batch uses `speech_model: 'best'`. Streaming uses `u3-rt-pro` (next PR).
 - Vercel AI Gateway does NOT route STT providers as of April 2026. AssemblyAI goes DIRECT.
+- Persistence: Supabase `meetings` table. Dev can run without it (in-memory fallback); production MUST set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY and run schema.sql.
 - Desktop shell: Tauri (not Electron).
 - Mobile shell: Capacitor.
 - Every `generateText` / `generateObject` / `streamText` call spreads `withTelemetry({ label })` — enforced by `pnpm compliance`.

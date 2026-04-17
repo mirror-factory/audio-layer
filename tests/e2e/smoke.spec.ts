@@ -32,6 +32,7 @@ import { test, expect, type Page } from '@playwright/test';
 const PAGES = [
   { path: '/', name: 'Home' },
   { path: '/record', name: 'Record' },
+  { path: '/meetings', name: 'Meetings' },
   { path: '/chat', name: 'Chat' },
   { path: '/observability', name: 'Observability' },
 ];

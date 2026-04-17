@@ -20,6 +20,11 @@ export const ActionItemSchema = z.object({
 });
 
 export const MeetingSummarySchema = z.object({
+  title: z
+    .string()
+    .describe(
+      "A 3-8 word headline for the meeting (no period). If unclear, use 'Untitled recording'.",
+    ),
   summary: z
     .string()
     .describe("A 2-3 sentence neutral overview of what the meeting was about"),

@@ -13,6 +13,7 @@ import {
 describe("MeetingSummarySchema", () => {
   it("accepts a fully populated, realistic summary", () => {
     const sample = {
+      title: "Q2 audio-layer kickoff",
       summary:
         "Kickoff call for the Q2 audio-layer launch. Team aligned on scope and owners.",
       keyPoints: [
@@ -47,6 +48,7 @@ describe("MeetingSummarySchema", () => {
 
   it("accepts empty arrays on optional sections", () => {
     const empty = {
+      title: "Silent recording",
       summary: "Silent recording — no speech.",
       keyPoints: [],
       actionItems: [],
@@ -61,8 +63,20 @@ describe("MeetingSummarySchema", () => {
     expect(() => MeetingSummarySchema.parse(bad)).toThrow();
   });
 
+  it("rejects missing title", () => {
+    const bad = {
+      summary: "ok",
+      keyPoints: [],
+      actionItems: [],
+      decisions: [],
+      participants: [],
+    };
+    expect(() => MeetingSummarySchema.parse(bad)).toThrow();
+  });
+
   it("rejects wrong types for keyPoints", () => {
     const bad = {
+      title: "ok",
       summary: "ok",
       keyPoints: "not an array",
       actionItems: [],

@@ -10,22 +10,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AudioRecorder } from "@/components/audio-recorder";
-import { TranscriptView } from "@/components/transcript-view";
 import type {
   TranscribeResultResponse,
   TranscribeStartResponse,
 } from "@/lib/assemblyai/types";
 
-type UiStage = "idle" | "uploading" | "processing" | "done" | "error";
+type UiStage = "idle" | "uploading" | "processing" | "error";
 
 const POLL_INTERVAL_MS = 3000;
 const POLL_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
 
 export default function RecordPage() {
+  const router = useRouter();
   const [stage, setStage] = useState<UiStage>("idle");
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<TranscribeResultResponse | null>(null);
   const [progress, setProgress] = useState<string>("");
   const pollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -39,14 +39,12 @@ export default function RecordPage() {
     if (pollTimerRef.current) clearTimeout(pollTimerRef.current);
     setStage("idle");
     setError(null);
-    setResult(null);
     setProgress("");
   };
 
   const startTranscription = async (blob: Blob, filename: string) => {
     setStage("uploading");
     setError(null);
-    setResult(null);
     setProgress("Uploading to AssemblyAI…");
 
     const form = new FormData();
@@ -88,9 +86,9 @@ export default function RecordPage() {
         }
         const data = (await res.json()) as TranscribeResultResponse;
         if (data.status === "completed") {
-          setResult(data);
-          setStage("done");
-          setProgress("");
+          // Persistence already happened server-side during this GET.
+          // Hand off to the detail page.
+          router.push(`/meetings/${id}`);
           return;
         }
         if (data.status === "error") {
@@ -141,12 +139,20 @@ export default function RecordPage() {
               summary.
             </p>
           </div>
-          <Link
-            href="/"
-            className="text-xs text-neutral-500 hover:text-neutral-300"
-          >
-            ← Hub
-          </Link>
+          <div className="flex items-center gap-3 text-xs">
+            <Link
+              href="/meetings"
+              className="text-neutral-500 hover:text-neutral-300"
+            >
+              All meetings
+            </Link>
+            <Link
+              href="/"
+              className="text-neutral-500 hover:text-neutral-300"
+            >
+              ← Hub
+            </Link>
+          </div>
         </header>
 
         <section
@@ -205,14 +211,6 @@ export default function RecordPage() {
           </section>
         ) : null}
 
-        {stage === "done" && result ? (
-          <TranscriptView
-            utterances={result.utterances ?? []}
-            text={result.text}
-            durationSeconds={result.durationSeconds}
-            summary={result.summary}
-          />
-        ) : null}
       </div>
     </div>
   );

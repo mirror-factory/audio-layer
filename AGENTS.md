@@ -66,24 +66,36 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 
 ### Transcribe pipeline (V1 batch)
 - `lib/assemblyai/client.ts` — AssemblyAI SDK factory (reads `ASSEMBLYAI_API_KEY`)
-- `lib/assemblyai/schema.ts` — Zod `MeetingSummarySchema` (summary, keyPoints, actionItems, decisions, participants)
+- `lib/assemblyai/schema.ts` — Zod `MeetingSummarySchema` (title, summary, keyPoints, actionItems, decisions, participants)
 - `lib/assemblyai/summary.ts` — `summarizeMeeting()` via `generateObject` through Gateway with `withTelemetry`
-- `lib/assemblyai/cache.ts` — In-memory FIFO cache (500 entries) for completed summaries
 - `lib/assemblyai/types.ts` — Transcribe API response types (shared by route + page)
-- `app/api/transcribe/route.ts` — POST: multipart form → upload to AssemblyAI → submit job → return id
-- `app/api/transcribe/[id]/route.ts` — GET: fetch job; on completion summarize + cache + return
-- `app/record/page.tsx` — UI: mic recorder + file upload, polls every 3s
+- `app/api/transcribe/route.ts` — POST: multipart form → upload → submit → insert Meetings row → return id
+- `app/api/transcribe/[id]/route.ts` — GET: fast-path from store; else poll AssemblyAI; on completion summarize + persist
+- `app/record/page.tsx` — UI: mic recorder + file upload, polls, redirects to `/meetings/[id]`
 - `components/audio-recorder.tsx` — MediaRecorder browser mic wrapper
 - `components/transcript-view.tsx` — Speaker-segmented transcript + summary sidebar
+
+### Meetings persistence + list/detail
+- `lib/supabase/schema.sql` — `meetings` table DDL (run manually once via SQL editor or psql)
+- `lib/supabase/server.ts` — server-side Supabase client (service-role key, null if env missing)
+- `lib/meetings/types.ts` — `Meeting`, `MeetingListItem`, `MeetingInsert`, `MeetingUpdate`
+- `lib/meetings/store.ts` — `MeetingsStore` interface + `getMeetingsStore()` (auto-selects impl)
+- `lib/meetings/store-in-memory.ts` — dev fallback (FIFO, 500 entries)
+- `lib/meetings/store-supabase.ts` — prod impl against `meetings` table
+- `app/api/meetings/route.ts` — GET list (limit 50, max 200)
+- `app/api/meetings/[id]/route.ts` — GET single
+- `app/meetings/page.tsx` — server-rendered recent-meetings list
+- `app/meetings/[id]/page.tsx` — detail view; `components/meeting-detail-poller.tsx` keeps non-terminal rows live
 
 ## Common Gotchas
 - Client-side tools (askQuestion) have NO execute function — they pause the stream
 - Tool parts have `part.type === 'tool-{toolName}'`, strip the 'tool-' prefix to get the name
 - Silent tools should render nothing in the chat UI
 - Use `sendMessage({ text })` not `append`
-- Transcribe routes use `runtime = 'nodejs'` (AssemblyAI SDK needs Node APIs; edge won't work)
+- Transcribe + meetings routes use `runtime = 'nodejs'` (Supabase / AssemblyAI SDK need Node APIs; edge won't work)
 - `/api/transcribe` accepts files up to 100MB (sanity cap). Larger files need storage-backed flow (future PR).
-- Summary cache is per-process in-memory — lost on redeploy; production needs Supabase meetings table.
+- MeetingsStore falls back to in-memory when SUPABASE_URL is unset — state is lost on redeploy. Production MUST configure Supabase and run `lib/supabase/schema.sql`.
+- `getSupabaseServer()` uses the service-role key and bypasses RLS. Never import it from client components.
 
 ## Audio Capture Rules (per platform)
 - Web (browser): mic only via `getUserMedia` — no system audio available

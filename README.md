@@ -8,13 +8,25 @@ Bootstrapped from [mirror-factory/vercel-ai-starter-kit](https://github.com/mirr
 
 ```bash
 pnpm install
-cp .env.example .env.local   # fill in AI_GATEWAY_API_KEY, LANGFUSE_*, etc.
+cp .env.example .env.local   # fill in AI_GATEWAY_API_KEY, ASSEMBLYAI_API_KEY, LANGFUSE_*, SUPABASE_*
 pnpm dev
+```
+
+Optional — set up Supabase persistence (otherwise runs against an
+in-memory dev store; state lost on redeploy):
+
+```bash
+# In the Supabase SQL Editor, run:
+cat lib/supabase/schema.sql
+# Or:
+psql "$SUPABASE_DB_URL" -f lib/supabase/schema.sql
 ```
 
 Then open:
 - http://localhost:3000 — Hub
-- http://localhost:3000/record — upload or record audio → transcript + summary
+- http://localhost:3000/record — upload or record audio → routed to detail on completion
+- http://localhost:3000/meetings — recent recordings (persisted)
+- http://localhost:3000/meetings/[id] — single meeting detail
 - http://localhost:3000/chat — reference chat with tool calls
 - http://localhost:3000/observability — AI call logs / costs / errors
 
@@ -58,9 +70,23 @@ All front-ends (web, mobile, desktop) call the same hosted `https://<app>.vercel
 
 ## V1 pipeline (shipped)
 
-`/record` → `POST /api/transcribe` → AssemblyAI Universal-3 Pro batch (`speech_model: 'best'`) → `GET /api/transcribe/[id]` (poll every 3s) → on completion, Gateway-routed Claude Sonnet 4.6 runs `generateObject` against `MeetingSummarySchema` → render speaker-segmented transcript + structured summary (key points, decisions, action items, participants).
+```
+/record
+  └→ POST /api/transcribe        (AssemblyAI upload + submit, insert Meetings row)
+  └→ GET  /api/transcribe/[id]   (poll every 3s; on completion: summarize + persist)
+  └→ redirect /meetings/[id]     (detail view)
 
-Every LLM call goes through `withTelemetry()` → Langfuse + `/observability`.
+/meetings             — list, most recent first
+/meetings/[id]        — speaker-segmented transcript + structured summary
+                         (while processing, polls until terminal, then refresh)
+GET /api/meetings       → MeetingListItem[]
+GET /api/meetings/[id]  → Meeting
+```
+
+- **Transcription** — AssemblyAI Universal-3 Pro batch (`speech_model: 'best'`, `speaker_labels`, `entity_detection`). Direct, not via the Gateway.
+- **Summary** — Gateway Claude Sonnet 4.6 via `generateObject(MeetingSummarySchema)`: `title`, `summary`, `keyPoints`, `actionItems`, `decisions`, `participants`.
+- **Persistence** — `meetings` table in Supabase (`lib/supabase/schema.sql`). If `SUPABASE_URL` is unset, falls back to an in-memory store for zero-setup local dev.
+- **Observability** — every LLM call goes through `withTelemetry()` → Langfuse + `/observability`.
 
 ## Next up
 

@@ -48,6 +48,7 @@ export async function summarizeMeeting(
   if (!body.trim()) {
     // Guard against empty input — the LLM would hallucinate without grounding.
     return {
+      title: "Silent recording",
       summary: "No speech was detected in this recording.",
       keyPoints: [],
       actionItems: [],

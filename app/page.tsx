@@ -93,7 +93,13 @@ export default function Home() {
                 href="/record"
                 className="rounded-full bg-emerald-400 px-4 py-2 text-sm font-medium text-neutral-950 transition hover:bg-emerald-300"
               >
-                Open Record
+                New recording
+              </Link>
+              <Link
+                href="/meetings"
+                className="rounded-full border border-emerald-500/40 px-4 py-2 text-sm font-medium text-emerald-200 transition hover:border-emerald-400 hover:bg-emerald-950/30"
+              >
+                All meetings
               </Link>
               <Link
                 href="/chat"
@@ -216,6 +222,13 @@ export default function Home() {
                     Upload or record audio, transcribe via AssemblyAI
                     Universal-3 Pro, and get a structured meeting summary from
                     the Gateway.
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-neutral-950/80 p-4">
+                  <p className="font-medium text-neutral-100">/meetings</p>
+                  <p className="mt-1">
+                    Recent recordings persisted in Supabase (or the dev
+                    in-memory store). Click any row for the detail view.
                   </p>
                 </div>
                 <div className="rounded-2xl bg-neutral-950/80 p-4">
