@@ -131,6 +131,23 @@ GET /api/meetings/[id]  → Meeting
 
 Every completed meeting (batch and streaming) now also runs through `extractIntakeForm()` — a second `generateObject` call against `IntakeFormSchema`: intent, primary participant, organization, contact info, budget, timeline, decision makers, requirements, pain points, next steps. Both calls run in parallel via `Promise.allSettled` so a failure in one doesn't block the other. The intake panel renders on `/meetings/[id]` only when at least one field has content; the prompt explicitly tells the LLM to leave fields blank rather than invent CRM data.
 
+## Pricing & billing
+
+`/pricing` shows Free / Core $15 / Pro $25 tiers (matches the product brief). Subscribe buttons hit `POST /api/stripe/checkout` and redirect to Stripe-hosted Checkout. Webhook at `POST /api/stripe/webhook` validates signatures and syncs subscription state into the `profiles` table.
+
+For local dev:
+
+```bash
+# Install Stripe CLI then:
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+# Copy the printed whsec_* into STRIPE_WEBHOOK_SECRET.
+# Create monthly products + prices for Core $15 and Pro $25 in the
+# Stripe dashboard, then drop the price ids into STRIPE_PRICE_CORE
+# and STRIPE_PRICE_PRO.
+```
+
+The meeting routes are NOT paywalled yet — that ships when we have real customers and a clear "free 25 meetings" cutoff to enforce.
+
 ## Next up
 
-Stripe + pricing page. Tauri shell with native system-audio capture (Core Audio / ScreenCaptureKit / WASAPI). Then Capacitor for iOS/Android mic-only.
+Tauri shell with native system-audio capture (Core Audio / ScreenCaptureKit / WASAPI). Then Capacitor for iOS/Android mic-only.

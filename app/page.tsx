@@ -108,6 +108,12 @@ export default function Home() {
                 Open Chat Demo
               </Link>
               <Link
+                href="/pricing"
+                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+              >
+                Pricing
+              </Link>
+              <Link
                 href="/observability"
                 className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >

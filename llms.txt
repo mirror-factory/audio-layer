@@ -29,6 +29,9 @@
 - `GET  /api/meetings/[id]/export`        Download meeting as Markdown (`?format=md`); PDF deferred — use browser print
 - `POST /api/chat`                        Streaming chat endpoint
 - `GET  /api/ai-logs`                     Observability log feed (list/stats/errors)
+- `/pricing`                              Three-tier landing (Free / Core $15 / Pro $25)
+- `POST /api/stripe/checkout`             Create Stripe Checkout Session for the current user + tier
+- `POST /api/stripe/webhook`              Signature-verified Stripe webhook → upserts profiles row
 
 ## Key Files
 - AGENTS.md                          Agent context (locked stack, do-not-do list)
@@ -41,6 +44,12 @@
 - lib/assemblyai/summary.ts          generateObject through Gateway with telemetry
 - lib/assemblyai/intake.ts           IntakeFormSchema + extractIntakeForm() — second generateObject per meeting
 - lib/assemblyai/types.ts            Client↔Server transcribe response types
+- lib/stripe/client.ts               getStripe() factory (null when env missing) + tier↔price-id mapping
+- lib/stripe/profiles.ts             Service-role profile helpers: getOrCreateProfile, setStripeCustomerId, setSubscriptionState
+- app/api/stripe/checkout/route.ts   POST { tier } → Checkout Session URL
+- app/api/stripe/webhook/route.ts    Raw-body signature verification → setSubscriptionState
+- app/pricing/page.tsx               Pricing landing
+- app/pricing/pricing-buttons.tsx    Client subscribe button
 - middleware.ts                      Per-request Supabase session refresh + anonymous sign-in on first visit
 - lib/supabase/user.ts               getSupabaseUser() + getCurrentUserId() — cookie-bound anon-role client
 - lib/supabase/server.ts             Server-side Supabase client factory (service-role; bypasses RLS)

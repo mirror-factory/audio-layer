@@ -76,6 +76,16 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - `components/audio-recorder.tsx` — MediaRecorder browser mic wrapper
 - `components/transcript-view.tsx` — Speaker-segmented transcript + summary sidebar
 
+### Billing (Stripe)
+- `lib/stripe/client.ts` — `getStripe()` (null when STRIPE_SECRET_KEY missing) + `priceIdForTier()` / `tierForPriceId()` (env-driven)
+- `lib/stripe/profiles.ts` — service-role helpers: `getOrCreateProfile()`, `setStripeCustomerId()`, `setSubscriptionState()`. Why service-role: webhook is anonymous from the user's perspective so the cookie-bound anon client can't satisfy RLS on writes.
+- `lib/supabase/schema.sql` — `profiles` table mirrors auth.users + Stripe customer/subscription columns; SELECT-only RLS for the user (writes are server-only)
+- `app/api/stripe/checkout/route.ts` — POST `{ tier }` → creates/reuses Stripe customer, opens Checkout Session, returns URL
+- `app/api/stripe/webhook/route.ts` — POST raw-body signature check; handles `checkout.session.completed` + `customer.subscription.{created,updated,deleted}`; idempotent state sync
+- `app/pricing/page.tsx` — static three-tier landing (Free / Core $15 / Pro $25)
+- `app/pricing/pricing-buttons.tsx` — client subscribe button; surfaces 503 messaging when Stripe env is missing
+- **No paywall is wired yet** — the meeting routes stay open. Gating is intentionally deferred until we have real customers; the data is in place when we add it.
+
 ### Auth (anonymous Supabase sessions)
 - `middleware.ts` — runs on every non-static request; calls `signInAnonymously()` on first visit so the user has a stable id before any meetings-table interaction. No-ops when Supabase env is missing.
 - `lib/supabase/user.ts` — `getSupabaseUser()` and `getCurrentUserId()` helpers. Per-request, cookie-bound, anon-role client (RLS does the filtering).
