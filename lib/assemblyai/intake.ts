@@ -14,6 +14,7 @@
 import { z } from "zod";
 import { generateObject } from "ai";
 import { withTelemetry } from "@/lib/ai/telemetry";
+import { getSettings } from "@/lib/settings";
 import type { UtteranceLike } from "./summary";
 import { formatTranscriptForPrompt } from "./summary";
 
@@ -75,8 +76,6 @@ export const IntakeFormSchema = z.object({
 
 export type IntakeForm = z.infer<typeof IntakeFormSchema>;
 
-const DEFAULT_MODEL = "anthropic/claude-sonnet-4-6";
-
 interface ExtractOptions {
   transcriptId: string;
   utterances: UtteranceLike[];
@@ -125,8 +124,9 @@ export async function extractIntakeForm(
     "Transcript:\n" +
     body;
 
+  const settings = await getSettings();
   const { object } = await generateObject({
-    model: modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL,
+    model: modelId ?? settings.summaryModel,
     schema: IntakeFormSchema,
     prompt,
     ...withTelemetry({

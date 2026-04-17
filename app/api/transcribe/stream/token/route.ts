@@ -17,7 +17,7 @@
 
 import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";
-import { getAssemblyAI } from "@/lib/assemblyai/client";
+import { getAssemblyAI, getStreamingSpeechModel } from "@/lib/assemblyai/client";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import { checkQuota } from "@/lib/billing/quota";
 
@@ -27,8 +27,6 @@ export const dynamic = "force-dynamic";
 const TOKEN_TTL_SECONDS = 600;          // 10 minutes — room to set up mic
 const MAX_SESSION_SECONDS = 60 * 60;    // 1 hour per session
 const SAMPLE_RATE = 16000;
-const SPEECH_MODEL =
-  process.env.ASSEMBLYAI_STREAMING_MODEL ?? "u3-rt-pro";
 
 export async function POST(): Promise<NextResponse> {
   const quota = await checkQuota();
@@ -72,11 +70,13 @@ export async function POST(): Promise<NextResponse> {
     // Non-fatal: /api/transcribe/stream/finalize will upsert.
   }
 
+  const speechModel = await getStreamingSpeechModel();
+
   return NextResponse.json({
     token,
     meetingId,
     expiresAt: Date.now() + TOKEN_TTL_SECONDS * 1000,
     sampleRate: SAMPLE_RATE,
-    speechModel: SPEECH_MODEL,
+    speechModel,
   });
 }

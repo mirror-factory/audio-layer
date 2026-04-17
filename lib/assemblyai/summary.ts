@@ -9,8 +9,7 @@
 import { generateObject } from "ai";
 import { withTelemetry } from "@/lib/ai/telemetry";
 import { MeetingSummarySchema, type MeetingSummary } from "./schema";
-
-const DEFAULT_MODEL = "anthropic/claude-sonnet-4-6";
+import { getSettings } from "@/lib/settings";
 
 export interface UtteranceLike {
   speaker: string | null;
@@ -64,8 +63,9 @@ export async function summarizeMeeting(
     "Transcript:\n" +
     body;
 
+  const settings = await getSettings();
   const { object } = await generateObject({
-    model: modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL,
+    model: modelId ?? settings.summaryModel,
     schema: MeetingSummarySchema,
     prompt,
     ...withTelemetry({

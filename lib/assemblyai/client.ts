@@ -12,6 +12,7 @@
 
 import { AssemblyAI } from "assemblyai";
 import type { TranscriptParams } from "assemblyai";
+import { getSettings } from "@/lib/settings";
 
 function getApiKey(): string {
   const key = process.env.ASSEMBLYAI_API_KEY;
@@ -37,9 +38,26 @@ export function __resetAssemblyAIClient(): void {
 }
 
 /** Map legacy env value to the new speech_models array. */
-export function getBatchSpeechModels(): TranscriptParams["speech_models"] {
-  const env = process.env.ASSEMBLYAI_BATCH_MODEL ?? "best";
+export function getBatchSpeechModels(
+  override?: string,
+): TranscriptParams["speech_models"] {
+  const model =
+    override ?? process.env.ASSEMBLYAI_BATCH_MODEL ?? "universal-3-pro";
   // "best" was the old alias for Universal-3 Pro pre-recorded
-  if (env === "best") return ["universal-3-pro"];
-  return [env];
+  if (model === "best") return ["universal-3-pro"];
+  return [model];
+}
+
+/** Read batch speech model from user settings (cookie). */
+export async function getBatchSpeechModelsFromSettings(): Promise<
+  TranscriptParams["speech_models"]
+> {
+  const settings = await getSettings();
+  return getBatchSpeechModels(settings.batchSpeechModel);
+}
+
+/** Read streaming speech model from user settings (cookie). */
+export async function getStreamingSpeechModel(): Promise<string> {
+  const settings = await getSettings();
+  return settings.streamingSpeechModel;
 }
