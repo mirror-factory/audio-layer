@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.9] — 2026-04-17
+
+### Added
+- feat: pricing page + Stripe checkout/webhook (4/5) (`ae1c992`)
+
+
 ## [0.1.8] — 2026-04-17
 
 ### Added
