@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.16] — 2026-04-17
+
+### Documentation
+- docs: VERIFICATION_GAPS.md — what's NOT verified end-to-end (6/6) (`d11f7e5`)
+
+
 ## [0.1.15] — 2026-04-17
 
 ### Added
