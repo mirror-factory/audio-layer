@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.10] — 2026-04-17
+
+### Added
+- feat: Tauri 2.x desktop scaffold (5/5) (`9675677`)
+
+
 ## [0.1.9] — 2026-04-17
 
 ### Added
