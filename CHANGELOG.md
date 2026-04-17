@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.18] — 2026-04-17
+
+### Fixed
+- fix: migrate AssemblyAI from deprecated speech_model to speech_models array (`38c3a35`)
+
+
 ## [0.1.17] — 2026-04-17
 
 ### Documentation
