@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.19] — 2026-04-17
+
+### Added
+- feat: add settings page for picking AssemblyAI and summarization models (`ff6c20b`)
+
+
 ## [0.1.18] — 2026-04-17
 
 ### Fixed
