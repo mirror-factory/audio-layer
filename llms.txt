@@ -39,6 +39,7 @@
 - lib/assemblyai/client.ts           AssemblyAI SDK factory (cached)
 - lib/assemblyai/schema.ts           Zod schema for MeetingSummary (title, summary, bullets, action items, decisions, participants)
 - lib/assemblyai/summary.ts          generateObject through Gateway with telemetry
+- lib/assemblyai/intake.ts           IntakeFormSchema + extractIntakeForm() — second generateObject per meeting
 - lib/assemblyai/types.ts            Client↔Server transcribe response types
 - middleware.ts                      Per-request Supabase session refresh + anonymous sign-in on first visit
 - lib/supabase/user.ts               getSupabaseUser() + getCurrentUserId() — cookie-bound anon-role client
@@ -65,6 +66,7 @@
 - components/live-recorder.tsx                       AudioContext+Worklet+StreamingTranscriber session
 - components/live-transcript-view.tsx                Finalized + partial turn rendering
 - components/transcript-view.tsx                     Speaker-segmented transcript + summary panel
+- components/intake-form-view.tsx                    Structured IntakeForm panel (hidden when all-empty)
 - public/worklets/pcm-downsampler.js                 AudioWorklet: 48k/44.1k → 16k int16 LE, 150 ms chunks
 
 ## Locked Decisions (do not re-debate)

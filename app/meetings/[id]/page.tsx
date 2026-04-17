@@ -11,6 +11,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import { TranscriptView } from "@/components/transcript-view";
+import { IntakeFormView } from "@/components/intake-form-view";
 import { MeetingDetailPoller } from "@/components/meeting-detail-poller";
 
 export const runtime = "nodejs";
@@ -76,12 +77,17 @@ export default async function MeetingDetailPage({ params }: Props) {
         ) : null}
 
         {meeting.status === "completed" ? (
-          <TranscriptView
-            utterances={meeting.utterances}
-            text={meeting.text ?? undefined}
-            durationSeconds={meeting.durationSeconds ?? undefined}
-            summary={meeting.summary ?? undefined}
-          />
+          <>
+            {meeting.intakeForm ? (
+              <IntakeFormView intake={meeting.intakeForm} />
+            ) : null}
+            <TranscriptView
+              utterances={meeting.utterances}
+              text={meeting.text ?? undefined}
+              durationSeconds={meeting.durationSeconds ?? undefined}
+              summary={meeting.summary ?? undefined}
+            />
+          </>
         ) : null}
       </div>
     </div>

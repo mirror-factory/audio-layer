@@ -14,6 +14,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { summarizeMeeting } from "@/lib/assemblyai/summary";
+import { extractIntakeForm } from "@/lib/assemblyai/intake";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import type {
   TranscribeResultResponse,
@@ -53,20 +54,34 @@ export async function POST(request: Request): Promise<NextResponse> {
   const store = await getMeetingsStore();
   const utterances: TranscribeUtterance[] = body.utterances;
 
-  // Generate summary. Partial success — if the LLM call fails we still
-  // persist the transcript so the user doesn't lose their live notes.
-  let summary = null;
-  try {
-    summary = await summarizeMeeting({
+  // Run summary + intake extraction in parallel. Partial success —
+  // either may fail without losing the transcript.
+  const utterancesForLlm = utterances.map((u) => ({
+    speaker: u.speaker,
+    text: u.text,
+  }));
+  const [summaryRes, intakeRes] = await Promise.allSettled([
+    summarizeMeeting({
       transcriptId: body.meetingId,
-      utterances: utterances.map((u) => ({
-        speaker: u.speaker,
-        text: u.text,
-      })),
+      utterances: utterancesForLlm,
       fullText: body.text,
-    });
-  } catch (err) {
-    console.error("Streaming summary failed", err);
+    }),
+    extractIntakeForm({
+      transcriptId: body.meetingId,
+      utterances: utterancesForLlm,
+      fullText: body.text,
+    }),
+  ]);
+
+  const summary =
+    summaryRes.status === "fulfilled" ? summaryRes.value : null;
+  if (summaryRes.status === "rejected") {
+    console.error("Streaming summary failed", summaryRes.reason);
+  }
+  const intakeForm =
+    intakeRes.status === "fulfilled" ? intakeRes.value : null;
+  if (intakeRes.status === "rejected") {
+    console.error("Streaming intake extraction failed", intakeRes.reason);
   }
 
   // Upsert: if the token endpoint's insert failed we still recover.
@@ -84,6 +99,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     utterances,
     durationSeconds: body.durationSeconds ?? null,
     summary,
+    intakeForm,
   });
 
   const response: TranscribeResultResponse = {
@@ -94,6 +110,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     durationSeconds:
       updated?.durationSeconds ?? body.durationSeconds ?? undefined,
     summary: updated?.summary ?? summary ?? undefined,
+    intakeForm: updated?.intakeForm ?? intakeForm ?? undefined,
   };
   return NextResponse.json(response);
 }

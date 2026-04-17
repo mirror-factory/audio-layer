@@ -7,6 +7,21 @@
  */
 
 import type { Meeting } from "./types";
+import type { IntakeForm } from "@/lib/assemblyai/intake";
+
+function intakeHasContent(intake: IntakeForm): boolean {
+  if (intake.intent && intake.intent !== "unclear") return true;
+  if (intake.primaryParticipant) return true;
+  if (intake.organization) return true;
+  if (intake.contactInfo.email || intake.contactInfo.phone) return true;
+  if (intake.budgetMentioned) return true;
+  if (intake.timeline) return true;
+  if (intake.decisionMakers.length > 0) return true;
+  if (intake.requirements.length > 0) return true;
+  if (intake.painPoints.length > 0) return true;
+  if (intake.nextSteps.length > 0) return true;
+  return false;
+}
 
 export function meetingToMarkdown(meeting: Meeting): string {
   const lines: string[] = [];
@@ -49,6 +64,53 @@ export function meetingToMarkdown(meeting: Meeting): string {
     if (summary.participants.length > 0) {
       lines.push("## Participants", "");
       for (const p of summary.participants) lines.push(`- ${p}`);
+      lines.push("");
+    }
+  }
+
+  const intake = meeting.intakeForm;
+  if (intake && intakeHasContent(intake)) {
+    lines.push("## Intake", "");
+    if (intake.intent && intake.intent !== "unclear") {
+      lines.push(`- **Intent:** ${intake.intent}`);
+    }
+    if (intake.primaryParticipant) {
+      lines.push(`- **Primary participant:** ${intake.primaryParticipant}`);
+    }
+    if (intake.organization) {
+      lines.push(`- **Organization:** ${intake.organization}`);
+    }
+    if (intake.contactInfo.email) {
+      lines.push(`- **Email:** ${intake.contactInfo.email}`);
+    }
+    if (intake.contactInfo.phone) {
+      lines.push(`- **Phone:** ${intake.contactInfo.phone}`);
+    }
+    if (intake.budgetMentioned) {
+      lines.push(`- **Budget:** ${intake.budgetMentioned}`);
+    }
+    if (intake.timeline) {
+      lines.push(`- **Timeline:** ${intake.timeline}`);
+    }
+    lines.push("");
+    if (intake.decisionMakers.length > 0) {
+      lines.push("### Decision makers", "");
+      for (const d of intake.decisionMakers) lines.push(`- ${d}`);
+      lines.push("");
+    }
+    if (intake.requirements.length > 0) {
+      lines.push("### Requirements", "");
+      for (const r of intake.requirements) lines.push(`- ${r}`);
+      lines.push("");
+    }
+    if (intake.painPoints.length > 0) {
+      lines.push("### Pain points", "");
+      for (const p of intake.painPoints) lines.push(`- ${p}`);
+      lines.push("");
+    }
+    if (intake.nextSteps.length > 0) {
+      lines.push("### Next steps", "");
+      for (const n of intake.nextSteps) lines.push(`- ${n}`);
       lines.push("");
     }
   }

@@ -33,6 +33,7 @@ export class InMemoryMeetingsStore implements MeetingsStore {
       utterances: [],
       durationSeconds: null,
       summary: null,
+      intakeForm: null,
       error: null,
       createdAt: now,
       updatedAt: now,

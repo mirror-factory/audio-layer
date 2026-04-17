@@ -20,6 +20,7 @@ create table if not exists meetings (
   utterances       jsonb       not null default '[]'::jsonb,    -- speaker-segmented turns
   duration_seconds real,
   summary          jsonb,                                       -- MeetingSummarySchema output
+  intake_form      jsonb,                                       -- IntakeFormSchema output
   error            text,
   created_at       timestamptz not null default now(),
   updated_at       timestamptz not null default now()
@@ -30,6 +31,9 @@ create index if not exists meetings_created_at_idx
 
 create index if not exists meetings_user_id_idx
   on meetings (user_id);
+
+-- Idempotent migration step for existing rows.
+alter table meetings add column if not exists intake_form jsonb;
 
 -- Keep updated_at fresh on every write.
 create or replace function meetings_touch_updated_at()

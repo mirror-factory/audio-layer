@@ -11,6 +11,7 @@ import type {
   TranscribeUtterance,
 } from "@/lib/assemblyai/types";
 import type { MeetingSummary } from "@/lib/assemblyai/schema";
+import type { IntakeForm } from "@/lib/assemblyai/intake";
 
 export interface Meeting {
   id: string;
@@ -20,6 +21,7 @@ export interface Meeting {
   utterances: TranscribeUtterance[];
   durationSeconds: number | null;
   summary: MeetingSummary | null;
+  intakeForm: IntakeForm | null;
   error: string | null;
   createdAt: string;
   updatedAt: string;
@@ -46,5 +48,6 @@ export interface MeetingUpdate {
   utterances?: TranscribeUtterance[];
   durationSeconds?: number | null;
   summary?: MeetingSummary | null;
+  intakeForm?: IntakeForm | null;
   error?: string | null;
 }

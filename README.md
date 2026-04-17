@@ -127,6 +127,10 @@ GET /api/meetings/[id]  → Meeting
 
 `/meetings/[id]` has an "Export Markdown" button (`GET /api/meetings/[id]/export?format=md`). Output is GitHub-flavored Markdown with action items rendered as `- [ ]` checkboxes. PDF is deferred — use the browser's Print → Save as PDF on the detail page until we add a server-side renderer.
 
+## Intake-form extraction
+
+Every completed meeting (batch and streaming) now also runs through `extractIntakeForm()` — a second `generateObject` call against `IntakeFormSchema`: intent, primary participant, organization, contact info, budget, timeline, decision makers, requirements, pain points, next steps. Both calls run in parallel via `Promise.allSettled` so a failure in one doesn't block the other. The intake panel renders on `/meetings/[id]` only when at least one field has content; the prompt explicitly tells the LLM to leave fields blank rather than invent CRM data.
+
 ## Next up
 
-Intake-form extraction (structured data per call). Tauri shell with native system-audio capture (Core Audio / ScreenCaptureKit / WASAPI). Then Capacitor for iOS/Android mic-only. Stripe + pricing.
+Stripe + pricing page. Tauri shell with native system-audio capture (Core Audio / ScreenCaptureKit / WASAPI). Then Capacitor for iOS/Android mic-only.

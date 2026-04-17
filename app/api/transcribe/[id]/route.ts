@@ -15,6 +15,7 @@
 import { NextResponse } from "next/server";
 import { getAssemblyAI } from "@/lib/assemblyai/client";
 import { summarizeMeeting } from "@/lib/assemblyai/summary";
+import { extractIntakeForm } from "@/lib/assemblyai/intake";
 import { getMeetingsStore, type MeetingsStore } from "@/lib/meetings/store";
 import type {
   TranscribeResultResponse,
@@ -82,23 +83,36 @@ export async function GET(
     }),
   );
 
-  // Generate summary if we don't already have one cached in the store.
+  // Generate summary + intake form in parallel. Either may fail
+  // independently — partial success is preferable to a 500.
+  const utterancesForLlm = utterances.map((u) => ({
+    speaker: u.speaker,
+    text: u.text,
+  }));
+
   let summary = existing?.summary ?? null;
-  if (!summary) {
-    try {
-      summary = await summarizeMeeting({
-        transcriptId: id,
-        utterances: utterances.map((u) => ({
-          speaker: u.speaker,
-          text: u.text,
-        })),
-        fullText: transcript.text ?? undefined,
-      });
-    } catch (err) {
-      console.error("Summary generation failed", err);
-      // Partial success is more useful than a 500 — we still have the
-      // transcript. Leave summary null; the UI renders gracefully.
-    }
+  let intakeForm = existing?.intakeForm ?? null;
+  if (!summary || !intakeForm) {
+    const [summaryResult, intakeResult] = await Promise.allSettled([
+      summary
+        ? Promise.resolve(summary)
+        : summarizeMeeting({
+            transcriptId: id,
+            utterances: utterancesForLlm,
+            fullText: transcript.text ?? undefined,
+          }),
+      intakeForm
+        ? Promise.resolve(intakeForm)
+        : extractIntakeForm({
+            transcriptId: id,
+            utterances: utterancesForLlm,
+            fullText: transcript.text ?? undefined,
+          }),
+    ]);
+    if (summaryResult.status === "fulfilled") summary = summaryResult.value;
+    else console.error("Summary generation failed", summaryResult.reason);
+    if (intakeResult.status === "fulfilled") intakeForm = intakeResult.value;
+    else console.error("Intake extraction failed", intakeResult.reason);
   }
 
   // Persist everything we know so future polls short-circuit.
@@ -109,6 +123,7 @@ export async function GET(
     utterances,
     durationSeconds: transcript.audio_duration ?? null,
     summary,
+    intakeForm,
   });
 
   return NextResponse.json(meetingToResponse(persisted));
@@ -159,6 +174,7 @@ async function upsertCompleted(
       utterances: patch.utterances ?? [],
       durationSeconds: patch.durationSeconds ?? null,
       summary: patch.summary ?? null,
+      intakeForm: patch.intakeForm ?? null,
       error: null,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -173,6 +189,7 @@ function meetingToResponse(m: {
   utterances: TranscribeUtterance[];
   durationSeconds: number | null;
   summary: TranscribeResultResponse["summary"] | null;
+  intakeForm: TranscribeResultResponse["intakeForm"] | null;
   error: string | null;
 }): TranscribeResultResponse {
   return {
@@ -182,6 +199,7 @@ function meetingToResponse(m: {
     utterances: m.utterances,
     durationSeconds: m.durationSeconds ?? undefined,
     summary: m.summary ?? undefined,
+    intakeForm: m.intakeForm ?? undefined,
     error: m.error ?? undefined,
   };
 }

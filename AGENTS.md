@@ -68,6 +68,7 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - `lib/assemblyai/client.ts` — AssemblyAI SDK factory (reads `ASSEMBLYAI_API_KEY`)
 - `lib/assemblyai/schema.ts` — Zod `MeetingSummarySchema` (title, summary, keyPoints, actionItems, decisions, participants)
 - `lib/assemblyai/summary.ts` — `summarizeMeeting()` via `generateObject` through Gateway with `withTelemetry`
+- `lib/assemblyai/intake.ts` — Zod `IntakeFormSchema` + `extractIntakeForm()`. Runs in parallel with `summarizeMeeting()` after every completion (batch + streaming). Strict prompt: leave fields blank rather than invent.
 - `lib/assemblyai/types.ts` — Transcribe API response types (shared by route + page)
 - `app/api/transcribe/route.ts` — POST: multipart form → upload → submit → insert Meetings row → return id
 - `app/api/transcribe/[id]/route.ts` — GET: fast-path from store; else poll AssemblyAI; on completion summarize + persist

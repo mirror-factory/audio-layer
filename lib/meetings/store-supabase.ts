@@ -9,6 +9,7 @@
 
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { MeetingSummary } from "@/lib/assemblyai/schema";
+import type { IntakeForm } from "@/lib/assemblyai/intake";
 import type { TranscribeUtterance } from "@/lib/assemblyai/types";
 import type {
   Meeting,
@@ -29,6 +30,7 @@ interface MeetingRow {
   utterances: TranscribeUtterance[] | null;
   duration_seconds: number | null;
   summary: MeetingSummary | null;
+  intake_form: IntakeForm | null;
   error: string | null;
   created_at: string;
   updated_at: string;
@@ -43,6 +45,7 @@ function fromRow(row: MeetingRow): Meeting {
     utterances: row.utterances ?? [],
     durationSeconds: row.duration_seconds,
     summary: row.summary,
+    intakeForm: row.intake_form,
     error: row.error,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
@@ -79,6 +82,7 @@ export class SupabaseMeetingsStore implements MeetingsStore {
     if (patch.durationSeconds !== undefined)
       payload.duration_seconds = patch.durationSeconds;
     if (patch.summary !== undefined) payload.summary = patch.summary;
+    if (patch.intakeForm !== undefined) payload.intake_form = patch.intakeForm;
     if (patch.error !== undefined) payload.error = patch.error;
 
     const { data, error } = await this.client

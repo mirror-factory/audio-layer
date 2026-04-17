@@ -6,6 +6,7 @@
  */
 
 import type { MeetingSummary } from "./schema";
+import type { IntakeForm } from "./intake";
 
 export type TranscribeStatus = "queued" | "processing" | "completed" | "error";
 
@@ -30,6 +31,7 @@ export interface TranscribeResultResponse {
   utterances?: TranscribeUtterance[];
   durationSeconds?: number;
   summary?: MeetingSummary;
+  intakeForm?: IntakeForm;
   /** Present when status === 'error' */
   error?: string;
 }
