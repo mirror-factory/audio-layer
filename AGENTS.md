@@ -93,11 +93,16 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - `app/pricing/pricing-buttons.tsx` — client subscribe button; surfaces 503 messaging when Stripe env is missing
 - **No paywall is wired yet** — the meeting routes stay open. Gating is intentionally deferred until we have real customers; the data is in place when we add it.
 
-### Auth (anonymous Supabase sessions)
+### Auth (anonymous + email magic link)
 - `middleware.ts` — runs on every non-static request; calls `signInAnonymously()` on first visit so the user has a stable id before any meetings-table interaction. No-ops when Supabase env is missing.
 - `lib/supabase/user.ts` — `getSupabaseUser()` and `getCurrentUserId()` helpers. Per-request, cookie-bound, anon-role client (RLS does the filtering).
-- `lib/supabase/server.ts` — service-role client (bypasses RLS). Use sparingly — only for cross-user admin tasks. Currently unused.
-- Real sign-in (email magic link / OAuth) is NOT wired. Anonymous Supabase accounts can be upgraded in place via `linkIdentity()` when we add it; existing meetings stay attached.
+- `lib/supabase/browser.ts` — client-component Supabase factory (uses `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY`).
+- `lib/supabase/server.ts` — service-role client (bypasses RLS). Used by the Stripe profile helpers; never import from client components.
+- `app/sign-in/page.tsx` — magic-link form (`signInWithOtp` + `emailRedirectTo` → `/auth/callback`).
+- `app/auth/callback/route.ts` — exchanges the OTP code for a session, sets cookies, redirects.
+- `app/auth/sign-out/route.ts` — POST-only sign-out, redirects to `/`.
+- `app/profile/page.tsx` — server-rendered current identity + subscription state from `profiles`.
+- **Known V1 gap:** an anonymous user who signs in with email gets a NEW user_id; their previous anonymous-session meetings become unreachable via RLS. Migration path is `linkIdentity()` (or a server-side re-parent on the service-role client) — flagged in the profile UI.
 
 ### Meetings persistence + list/detail
 - `lib/supabase/schema.sql` — `meetings` table DDL with RLS policies (run manually once via SQL editor or psql)

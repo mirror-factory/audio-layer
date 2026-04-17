@@ -18,6 +18,10 @@
 - `/record/live`                          V2 streaming (u3-rt-pro): live transcript, persists on Stop
 - `/meetings`                             Recent recordings (persisted)
 - `/meetings/[id]`                        Single-meeting detail (transcript + summary); polls while non-terminal
+- `/sign-in`                              Magic-link sign-in
+- `/auth/callback`                        OTP exchange + redirect
+- `/auth/sign-out` (POST)                 Sign out + redirect home
+- `/profile`                              Identity + subscription state
 - `/chat`                                 Reference chat with tool calls (from starter kit)
 - `/observability`                        AI call logs / costs / errors dashboard
 - `POST /api/transcribe`                  Upload audio → submit AssemblyAI job → insert Meetings row → return id
