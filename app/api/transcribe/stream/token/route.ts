@@ -48,7 +48,7 @@ export async function POST(): Promise<NextResponse> {
 
   const meetingId = randomUUID();
   try {
-    await getMeetingsStore().insert({
+    await (await getMeetingsStore()).insert({
       id: meetingId,
       status: "processing",
     });

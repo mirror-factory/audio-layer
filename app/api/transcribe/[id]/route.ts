@@ -15,12 +15,13 @@
 import { NextResponse } from "next/server";
 import { getAssemblyAI } from "@/lib/assemblyai/client";
 import { summarizeMeeting } from "@/lib/assemblyai/summary";
-import { getMeetingsStore } from "@/lib/meetings/store";
+import { getMeetingsStore, type MeetingsStore } from "@/lib/meetings/store";
 import type {
   TranscribeResultResponse,
   TranscribeStatus,
   TranscribeUtterance,
 } from "@/lib/assemblyai/types";
+import type { MeetingUpdate } from "@/lib/meetings/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -35,7 +36,7 @@ export async function GET(
     return NextResponse.json({ error: "Missing id" }, { status: 400 });
   }
 
-  const store = getMeetingsStore();
+  const store = await getMeetingsStore();
 
   // Fast path: meeting is already completed in the store — return it.
   const existing = await store.get(id);
@@ -121,7 +122,7 @@ function mapStatus(s: string | null | undefined): TranscribeStatus {
 }
 
 async function upsertStatus(
-  store: ReturnType<typeof getMeetingsStore>,
+  store: MeetingsStore,
   id: string,
   status: TranscribeStatus,
   error: string | null,
@@ -138,9 +139,9 @@ async function upsertStatus(
 }
 
 async function upsertCompleted(
-  store: ReturnType<typeof getMeetingsStore>,
+  store: MeetingsStore,
   id: string,
-  patch: Parameters<ReturnType<typeof getMeetingsStore>["update"]>[1],
+  patch: MeetingUpdate,
 ) {
   const existing = await store.get(id);
   if (!existing) {

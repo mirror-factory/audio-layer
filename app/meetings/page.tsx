@@ -17,7 +17,7 @@ export default async function MeetingsPage() {
   let items: MeetingListItem[] = [];
   let loadError: string | null = null;
   try {
-    items = await getMeetingsStore().list(50);
+    items = await (await getMeetingsStore()).list(50);
   } catch (err) {
     loadError = (err as Error).message;
   }

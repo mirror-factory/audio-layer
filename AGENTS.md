@@ -75,11 +75,16 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - `components/audio-recorder.tsx` — MediaRecorder browser mic wrapper
 - `components/transcript-view.tsx` — Speaker-segmented transcript + summary sidebar
 
+### Auth (anonymous Supabase sessions)
+- `middleware.ts` — runs on every non-static request; calls `signInAnonymously()` on first visit so the user has a stable id before any meetings-table interaction. No-ops when Supabase env is missing.
+- `lib/supabase/user.ts` — `getSupabaseUser()` and `getCurrentUserId()` helpers. Per-request, cookie-bound, anon-role client (RLS does the filtering).
+- `lib/supabase/server.ts` — service-role client (bypasses RLS). Use sparingly — only for cross-user admin tasks. Currently unused.
+- Real sign-in (email magic link / OAuth) is NOT wired. Anonymous Supabase accounts can be upgraded in place via `linkIdentity()` when we add it; existing meetings stay attached.
+
 ### Meetings persistence + list/detail
-- `lib/supabase/schema.sql` — `meetings` table DDL (run manually once via SQL editor or psql)
-- `lib/supabase/server.ts` — server-side Supabase client (service-role key, null if env missing)
+- `lib/supabase/schema.sql` — `meetings` table DDL with RLS policies (run manually once via SQL editor or psql)
 - `lib/meetings/types.ts` — `Meeting`, `MeetingListItem`, `MeetingInsert`, `MeetingUpdate`
-- `lib/meetings/store.ts` — `MeetingsStore` interface + `getMeetingsStore()` (auto-selects impl)
+- `lib/meetings/store.ts` — `MeetingsStore` interface + **async** `getMeetingsStore()`: returns user-scoped Supabase store when configured, in-memory singleton otherwise. Always `await` it.
 - `lib/meetings/store-in-memory.ts` — dev fallback (FIFO, 500 entries)
 - `lib/meetings/store-supabase.ts` — prod impl against `meetings` table
 - `app/api/meetings/route.ts` — GET list (limit 50, max 200)
@@ -103,7 +108,9 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - Transcribe + meetings routes use `runtime = 'nodejs'` (Supabase / AssemblyAI SDK need Node APIs; edge won't work)
 - `/api/transcribe` accepts files up to 100MB (sanity cap). Larger files need storage-backed flow (future PR).
 - MeetingsStore falls back to in-memory when SUPABASE_URL is unset — state is lost on redeploy. Production MUST configure Supabase and run `lib/supabase/schema.sql`.
-- `getSupabaseServer()` uses the service-role key and bypasses RLS. Never import it from client components.
+- `getMeetingsStore()` is **async** — always `await` before calling `.list/.get/.insert/.update`. The double-await on callers is intentional: `(await getMeetingsStore()).list(...)`.
+- `getSupabaseServer()` uses the service-role key and bypasses RLS. Never import it from client components. Prefer `getSupabaseUser()` (anon-role + cookies) for normal app code.
+- Anonymous Supabase Sign-Ins must be enabled in the Supabase dashboard (Authentication → Providers) for middleware.ts to succeed.
 - Streaming: import `StreamingTranscriber` from `'assemblyai'` (main entry), NOT `'assemblyai/streaming'` — the subpath only re-exports the old v2 RealtimeTranscriber.
 - Streaming sample rate is locked at 16 kHz; higher mic rates MUST go through the AudioWorklet + BiquadFilter anti-alias chain.
 - Ephemeral tokens are minted server-side ONLY. Never send `ASSEMBLYAI_API_KEY` to the browser.

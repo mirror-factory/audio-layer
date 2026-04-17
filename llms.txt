@@ -39,8 +39,10 @@
 - lib/assemblyai/schema.ts           Zod schema for MeetingSummary (title, summary, bullets, action items, decisions, participants)
 - lib/assemblyai/summary.ts          generateObject through Gateway with telemetry
 - lib/assemblyai/types.ts            Client↔Server transcribe response types
-- lib/supabase/server.ts             Server-side Supabase client factory (service-role; null if env missing)
-- lib/supabase/schema.sql            `meetings` table DDL — run once via SQL editor / psql
+- middleware.ts                      Per-request Supabase session refresh + anonymous sign-in on first visit
+- lib/supabase/user.ts               getSupabaseUser() + getCurrentUserId() — cookie-bound anon-role client
+- lib/supabase/server.ts             Server-side Supabase client factory (service-role; bypasses RLS)
+- lib/supabase/schema.sql            `meetings` table DDL + RLS policies — run once via SQL editor / psql
 - lib/meetings/store.ts              MeetingsStore interface + auto-selecting factory
 - lib/meetings/store-supabase.ts     Supabase-backed MeetingsStore implementation
 - lib/meetings/store-in-memory.ts    Dev fallback (FIFO 500 entries)
@@ -65,7 +67,8 @@
 ## Locked Decisions (do not re-debate)
 - Transcription engine: AssemblyAI Universal-3 Pro. Batch uses `speech_model: 'best'`. Streaming uses `u3-rt-pro` (next PR).
 - Vercel AI Gateway does NOT route STT providers as of April 2026. AssemblyAI goes DIRECT.
-- Persistence: Supabase `meetings` table. Dev can run without it (in-memory fallback); production MUST set SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY and run schema.sql.
+- Persistence: Supabase `meetings` table with RLS. Dev can run without it (in-memory fallback); production MUST set SUPABASE_URL + SUPABASE_ANON_KEY, run schema.sql, and enable Anonymous Sign-Ins in the Supabase dashboard.
+- Auth: anonymous Supabase sessions via middleware.ts. Real sign-in flow (email/OAuth) deferred; existing rows stay attached via linkIdentity() when we add it.
 - Desktop shell: Tauri (not Electron).
 - Mobile shell: Capacitor.
 - Every `generateText` / `generateObject` / `streamText` call spreads `withTelemetry({ label })` — enforced by `pnpm compliance`.

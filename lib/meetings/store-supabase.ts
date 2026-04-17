@@ -1,9 +1,10 @@
 /**
- * Supabase-backed MeetingsStore implementation.
+ * Supabase-backed MeetingsStore.
  *
- * Active when SUPABASE_URL + a Supabase key are set. Uses the service-role
- * key (see lib/supabase/server.ts) so RLS doesn't block writes; we'll
- * scope by user_id once auth lands.
+ * Active when SUPABASE_URL + SUPABASE_ANON_KEY are set. Bound to the
+ * current user via `userId` — RLS handles SELECT/UPDATE/DELETE
+ * filtering, while insert() explicitly stamps `user_id` so the
+ * INSERT WITH CHECK policy passes.
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -21,6 +22,7 @@ const TABLE = "meetings";
 
 interface MeetingRow {
   id: string;
+  user_id: string | null;
   status: string;
   title: string | null;
   text: string | null;
@@ -48,13 +50,17 @@ function fromRow(row: MeetingRow): Meeting {
 }
 
 export class SupabaseMeetingsStore implements MeetingsStore {
-  constructor(private readonly client: SupabaseClient) {}
+  constructor(
+    private readonly client: SupabaseClient,
+    private readonly userId: string,
+  ) {}
 
   async insert(row: MeetingInsert): Promise<Meeting> {
     const { data, error } = await this.client
       .from(TABLE)
       .insert({
         id: row.id,
+        user_id: this.userId,
         status: row.status ?? "processing",
         title: row.title ?? null,
       })

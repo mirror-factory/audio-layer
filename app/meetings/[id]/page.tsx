@@ -22,7 +22,7 @@ interface Props {
 
 export default async function MeetingDetailPage({ params }: Props) {
   const { id } = await params;
-  const meeting = await getMeetingsStore().get(id);
+  const meeting = await (await getMeetingsStore()).get(id);
   if (!meeting) notFound();
 
   const isTerminal =

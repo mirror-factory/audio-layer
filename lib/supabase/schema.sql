@@ -12,7 +12,8 @@
 -- jsonb to avoid relational bloat for V1. Tighten later if queries grow.
 
 create table if not exists meetings (
-  id               text        primary key,           -- AssemblyAI transcript id
+  id               text        primary key,           -- AssemblyAI id (batch) or UUID (streaming)
+  user_id          uuid        references auth.users (id) on delete cascade,
   status           text        not null default 'processing',  -- queued | processing | completed | error
   title            text,                                        -- generated 3-8 word headline
   text             text,                                        -- full joined transcript
@@ -26,6 +27,9 @@ create table if not exists meetings (
 
 create index if not exists meetings_created_at_idx
   on meetings (created_at desc);
+
+create index if not exists meetings_user_id_idx
+  on meetings (user_id);
 
 -- Keep updated_at fresh on every write.
 create or replace function meetings_touch_updated_at()
@@ -41,7 +45,31 @@ create trigger meetings_touch
 before update on meetings
 for each row execute function meetings_touch_updated_at();
 
--- RLS is disabled for V1 because the only writer is our server
--- (service-role key). When we add user auth, enable RLS and scope by
--- a user_id column.
-alter table meetings disable row level security;
+-- ── Row level security ─────────────────────────────────────────────
+-- Each authenticated user (including anonymous Supabase auth users)
+-- can only see and modify their own meetings. The server-side
+-- `getSupabaseUser()` client uses the anon key + the request cookie,
+-- so RLS does the filtering automatically.
+
+alter table meetings enable row level security;
+
+drop policy if exists "meetings_owner_select" on meetings;
+create policy "meetings_owner_select"
+  on meetings for select
+  using (auth.uid() = user_id);
+
+drop policy if exists "meetings_owner_insert" on meetings;
+create policy "meetings_owner_insert"
+  on meetings for insert
+  with check (auth.uid() = user_id);
+
+drop policy if exists "meetings_owner_update" on meetings;
+create policy "meetings_owner_update"
+  on meetings for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+drop policy if exists "meetings_owner_delete" on meetings;
+create policy "meetings_owner_delete"
+  on meetings for delete
+  using (auth.uid() = user_id);

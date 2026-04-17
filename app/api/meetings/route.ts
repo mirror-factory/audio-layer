@@ -25,7 +25,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     : DEFAULT_LIMIT;
 
   try {
-    const items = await getMeetingsStore().list(limit);
+    const items = await (await getMeetingsStore()).list(limit);
     return NextResponse.json({ items });
   } catch (err) {
     console.error("Meetings list failed", err);

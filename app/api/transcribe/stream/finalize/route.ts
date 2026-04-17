@@ -50,7 +50,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 
-  const store = getMeetingsStore();
+  const store = await getMeetingsStore();
   const utterances: TranscribeUtterance[] = body.utterances;
 
   // Generate summary. Partial success — if the LLM call fails we still

@@ -22,7 +22,7 @@ export async function GET(
   }
 
   try {
-    const meeting = await getMeetingsStore().get(id);
+    const meeting = await (await getMeetingsStore()).get(id);
     if (!meeting) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }

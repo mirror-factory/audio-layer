@@ -98,7 +98,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   // while AssemblyAI processes the audio. The [id] GET route fills in
   // the transcript + summary on completion.
   try {
-    await getMeetingsStore().insert({ id: transcript.id, status });
+    await (await getMeetingsStore()).insert({ id: transcript.id, status });
   } catch (err) {
     console.error("Meetings store insert failed", err);
     // Non-fatal: fall through with the AssemblyAI id. Subsequent GETs

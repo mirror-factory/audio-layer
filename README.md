@@ -12,15 +12,26 @@ cp .env.example .env.local   # fill in AI_GATEWAY_API_KEY, ASSEMBLYAI_API_KEY, L
 pnpm dev
 ```
 
-Optional — set up Supabase persistence (otherwise runs against an
-in-memory dev store; state lost on redeploy):
+Optional — set up Supabase persistence + auth (otherwise runs
+against an in-memory dev store; state lost on redeploy):
 
 ```bash
-# In the Supabase SQL Editor, run:
+# 1. In the Supabase SQL Editor, run:
 cat lib/supabase/schema.sql
 # Or:
 psql "$SUPABASE_DB_URL" -f lib/supabase/schema.sql
+
+# 2. Enable Anonymous Sign-Ins:
+#    Supabase dashboard → Authentication → Providers →
+#    "Allow anonymous sign-ins" = ON
 ```
+
+When Supabase is configured, every visitor gets an anonymous user id
+on first request (via `middleware.ts`). RLS policies on the
+`meetings` table enforce per-user isolation automatically — no UI
+sign-in flow yet. Real sign-in (email magic link / OAuth) can be
+added later without breaking existing rows; Supabase supports
+upgrading anonymous accounts in place via `linkIdentity()`.
 
 Then open:
 - http://localhost:3000 — Hub

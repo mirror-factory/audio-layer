@@ -1,13 +1,16 @@
 /**
  * MeetingsStore — single entry point for meeting persistence.
  *
- * When SUPABASE_URL + a Supabase key are set, writes go to the
- * `meetings` table. Otherwise falls back to an in-memory store so
- * local dev works with zero external setup. Production must configure
- * Supabase — state is lost on redeploy otherwise.
+ * When SUPABASE_URL + SUPABASE_ANON_KEY are set, every request gets a
+ * user-scoped Supabase client (via the cookie session) so RLS policies
+ * on the `meetings` table enforce ownership automatically. We stamp
+ * `user_id` on inserts so the WITH CHECK clause passes.
+ *
+ * Without Supabase env vars, falls back to a process-wide in-memory
+ * store for single-user local dev. Production must configure Supabase.
  */
 
-import { getSupabaseServer } from "@/lib/supabase/server";
+import { getSupabaseUser, getCurrentUserId } from "@/lib/supabase/user";
 import type {
   Meeting,
   MeetingInsert,
@@ -24,28 +27,46 @@ export interface MeetingsStore {
   list(limit: number): Promise<MeetingListItem[]>;
 }
 
-let cached: MeetingsStore | null = null;
+let inMemorySingleton: InMemoryMeetingsStore | null = null;
 let loggedFallback = false;
 
-export function getMeetingsStore(): MeetingsStore {
-  if (cached) return cached;
-  const client = getSupabaseServer();
-  if (client) {
-    cached = new SupabaseMeetingsStore(client);
-  } else {
+function isSupabaseConfigured(): boolean {
+  return Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY);
+}
+
+/**
+ * Returns the right MeetingsStore implementation for the current
+ * request. Async because Supabase needs the cookie store before the
+ * client can be built.
+ *
+ * Throws when Supabase is configured but the request has no user
+ * session — middleware should have signed an anonymous user in, so
+ * this only fires on misconfiguration (e.g., missing middleware).
+ */
+export async function getMeetingsStore(): Promise<MeetingsStore> {
+  if (!isSupabaseConfigured()) {
     if (!loggedFallback) {
       console.warn( // keep: one-time warning, not debug noise
         "[meetings] SUPABASE_URL not set — using in-memory store. State will be lost on redeploy.",
       );
       loggedFallback = true;
     }
-    cached = new InMemoryMeetingsStore();
+    inMemorySingleton ??= new InMemoryMeetingsStore();
+    return inMemorySingleton;
   }
-  return cached;
+
+  const supabase = await getSupabaseUser();
+  const userId = await getCurrentUserId();
+  if (!supabase || !userId) {
+    throw new Error(
+      "Supabase is configured but no user session — check middleware.ts.",
+    );
+  }
+  return new SupabaseMeetingsStore(supabase, userId);
 }
 
-/** Test seam: reset the cached store. */
+/** Test seam: clear the in-memory singleton. */
 export function __resetMeetingsStore(): void {
-  cached = null;
+  inMemorySingleton = null;
   loggedFallback = false;
 }
