@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.8] — 2026-04-17
+
+### Added
+- feat: intake-form extraction (3/5) (`0758a8c`)
+
+
 ## [0.1.7] — 2026-04-17
 
 ### Added
