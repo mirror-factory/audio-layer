@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.32] — 2026-04-18
+
+### Added
+- feat: dynamic model list from Vercel AI Gateway with live pricing (`600a859`)
+
+
 ## [0.1.31] — 2026-04-18
 
 ### Fixed
