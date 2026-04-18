@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.47] — 2026-04-18
+
+### Fixed
+- fix: Tauri dark titlebar background + drag region + rename to Layer One (`4c0641a`)
+
+
 ## [0.1.46] — 2026-04-18
 
 ### Fixed
