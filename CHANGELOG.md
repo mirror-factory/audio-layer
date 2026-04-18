@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.41] — 2026-04-18
+
+### Fixed
+- fix: middleware reads NEXT_PUBLIC_ env vars for Vercel Edge compatibility (`8861bd0`)
+
+
 ## [0.1.40] — 2026-04-18
 
 ### Other
