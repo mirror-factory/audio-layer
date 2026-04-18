@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.20] — 2026-04-18
+
+### Other
+- chore: upgrade ai-dev-kit to v0.1.5 — adopt + onboard + connect (`8bddc3c`)
+
+
 ## [0.0.19] — 2026-04-18
 
 ### Fixed
