@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.11] — 2026-04-18
+
+### Added
+- feat: vendor registries + project spec for ai-dev-kit harness (`cb35ed9`)
+
+
 ## [0.0.10] — 2026-04-18
 
 ### Other
