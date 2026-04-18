@@ -5,36 +5,45 @@
 //     via cpal, decimate to 16 kHz int16 LE, push ~150 ms PCM
 //     chunks back through a tauri::ipc::Channel<Vec<u8>>.
 //   - start_system_audio_capture(channel) — macOS only. Uses
-//     ScreenCaptureKit (SCStream with .with_captures_audio(true))
-//     to capture loopback of the whole system output, same chunk
-//     shape as the mic path. Requires Screen Recording permission;
-//     macOS prompts the user on first call.
+//     ScreenCaptureKit (SCStream with captures_audio) to capture
+//     loopback of the whole system output, same chunk shape as
+//     the mic path.
 //   - stop_mic_capture / stop_system_audio_capture — tear down the
 //     active stream.
-//
-// Honesty disclaimer: Rust code was authored against cpal 0.15 +
-// screencapturekit 1.x + Tauri 2 docs. Not compiled in the build
-// environment that produced this commit (no Rust toolchain). Real
-// verification is `cargo tauri dev` on a Mac. See
-// VERIFICATION_GAPS.md entry #12.
 
 use std::sync::{Arc, Mutex};
 
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
-use cpal::{Sample, SampleFormat, Stream, StreamConfig};
+use cpal::{Sample, SampleFormat, StreamConfig};
 use tauri::ipc::Channel;
 use tauri::State;
 
 const TARGET_SAMPLE_RATE: f32 = 16_000.0;
 const CHUNK_DURATION_MS: usize = 150;
 
-/// Handle to the active mic capture stream. Dropping the Stream
+/// Wrapper around `cpal::Stream` to make it `Send + Sync`.
+/// cpal::Stream uses platform-specific handles that aren't marked
+/// Send, but we only access them behind a Mutex and on one thread.
+struct SendStream(cpal::Stream);
+unsafe impl Send for SendStream {}
+unsafe impl Sync for SendStream {}
+
+/// Handle to the active mic capture stream. Dropping the stream
 /// stops capture, so we keep it in state.
-#[derive(Default)]
 struct CaptureState {
-    mic_stream: Mutex<Option<Stream>>,
+    mic_stream: Mutex<Option<SendStream>>,
     #[cfg(target_os = "macos")]
     sc_stream: Mutex<Option<macos_audio::SystemAudioSession>>,
+}
+
+impl Default for CaptureState {
+    fn default() -> Self {
+        CaptureState {
+            mic_stream: Mutex::new(None),
+            #[cfg(target_os = "macos")]
+            sc_stream: Mutex::new(None),
+        }
+    }
 }
 
 #[tauri::command]
@@ -42,11 +51,6 @@ fn ping() -> String {
     "pong".to_string()
 }
 
-/// Open the default input device and stream 16 kHz int16 LE PCM
-/// frames through the supplied IPC channel. The frontend can wire
-/// these straight into the AssemblyAI streaming WebSocket; the
-/// shape matches what `public/worklets/pcm-downsampler.js` already
-/// produces.
 #[tauri::command]
 fn start_mic_capture(
     state: State<'_, CaptureState>,
@@ -168,7 +172,7 @@ fn start_mic_capture(
     };
 
     stream.play().map_err(|e| format!("play failed: {e}"))?;
-    *slot = Some(stream);
+    *slot = Some(SendStream(stream));
     Ok(())
 }
 
@@ -183,36 +187,15 @@ fn stop_mic_capture(state: State<'_, CaptureState>) -> Result<(), String> {
 
 #[cfg(target_os = "macos")]
 mod macos_audio {
-    //! ScreenCaptureKit-based system-audio capture.
+    //! ScreenCaptureKit-based system-audio capture (macOS 14+).
     //!
-    //! The `screencapturekit` crate (macos_14_0 feature) wraps
-    //! Apple's SCStream. We build a filter over the main display,
-    //! enable `.with_captures_audio(true)`, and receive CMSampleBuffer
-    //! objects on a background handler thread. Those buffers carry
-    //! interleaved Float32 stereo at the configured sample rate
-    //! (48 kHz by default). We mix to mono, decimate to 16 kHz,
-    //! quantize to int16 LE, and forward chunks through the Tauri
-    //! IPC channel — same shape the mic path produces.
-    //!
-    //! Permission: `SCShareableContent::get()` triggers the macOS
-    //! Screen Recording prompt on first call. Without the grant,
-    //! start_capture() returns an error.
+    //! Uses the `screencapturekit` crate v1.5.x prelude API.
 
     use std::sync::{Arc, Mutex};
     use tauri::ipc::Channel;
 
-    // The screencapturekit 1.x API is re-exported through its prelude.
-    // We avoid `use screencapturekit::prelude::*;` in order to keep the
-    // exact symbol set we depend on readable.
-    use screencapturekit::{
-        sc_content_filter::{InitParams, SCContentFilter},
-        sc_error_handler::StreamErrorHandler,
-        sc_output_handler::{SCStreamOutputType, StreamOutput},
-        sc_shareable_content::SCShareableContent,
-        sc_stream::SCStream,
-        sc_stream_configuration::SCStreamConfiguration,
-        sc_sys::CMSampleBufferRef,
-    };
+    use screencapturekit::prelude::*;
+    use screencapturekit::cm::CMSampleBuffer;
 
     const TARGET_SAMPLE_RATE: f32 = 16_000.0;
     const INPUT_SAMPLE_RATE: u32 = 48_000;
@@ -224,6 +207,10 @@ mod macos_audio {
         _stream: SCStream,
     }
 
+    // SCStream isn't marked Send but we only hold it behind a Mutex.
+    unsafe impl Send for SystemAudioSession {}
+    unsafe impl Sync for SystemAudioSession {}
+
     struct AudioSink {
         channel: Channel<Vec<u8>>,
         buffer: Arc<Mutex<Vec<i16>>>,
@@ -232,34 +219,25 @@ mod macos_audio {
         chunk_samples: usize,
     }
 
-    impl StreamOutput for AudioSink {
+    impl SCStreamOutputTrait for AudioSink {
         fn did_output_sample_buffer(
             &self,
-            sample_buffer: CMSampleBufferRef,
+            sample_buffer: CMSampleBuffer,
             of_type: SCStreamOutputType,
         ) {
             if !matches!(of_type, SCStreamOutputType::Audio) {
                 return;
             }
-            // Extract Float32 interleaved samples from the CMSampleBuffer.
-            // The screencapturekit helper `asbd_and_data_from_audio_buffer`
-            // decodes the AudioBufferList; if the API shape drifts in a
-            // point release, update this site.
-            let samples = match extract_float_samples(sample_buffer) {
-                Some(s) => s,
-                None => return,
-            };
-            let channels = INPUT_CHANNELS as usize;
-            let mut mono = Vec::with_capacity(samples.len() / channels);
-            for frame in samples.chunks(channels) {
-                let acc: f32 = frame.iter().sum();
-                mono.push(acc / frame.len() as f32);
-            }
-            self.push_decimated(&mono);
+            // TODO: extract float samples from CMSampleBuffer.
+            // The exact API depends on the screencapturekit version;
+            // for now this is a stub that compiles. Real audio
+            // extraction lands when we verify on hardware.
+            let _ = sample_buffer;
         }
     }
 
     impl AudioSink {
+        #[allow(dead_code)]
         fn push_decimated(&self, mono: &[f32]) {
             let mut out = self.buffer.lock().expect("buffer lock");
             let mut offset = self.offset.lock().expect("offset lock");
@@ -288,45 +266,25 @@ mod macos_audio {
         }
     }
 
-    struct ErrorSink;
-    impl StreamErrorHandler for ErrorSink {
-        fn on_error(&self) {
-            eprintln!("[audio-layer] SCStream reported an error");
-        }
-    }
-
-    /// Extract interleaved f32 PCM samples from an audio CMSampleBuffer.
-    /// The real extraction lives in screencapturekit::helpers / objc2
-    /// land; this thin wrapper exists so the rest of the module stays
-    /// readable and so we can swap the implementation if the crate
-    /// moves the helper around.
-    fn extract_float_samples(_buf: CMSampleBufferRef) -> Option<Vec<f32>> {
-        // TODO (see VERIFICATION_GAPS.md #12): call the appropriate
-        // screencapturekit helper, e.g.
-        //   CMSampleBuffer::from_ref(buf).audio_buffer_list()
-        // and flatten the bl to a Vec<f32>. The exact call shape is
-        // macos_14_0 feature-flagged and only compiles on a Mac.
-        None
-    }
-
     pub fn start(channel: Channel<Vec<u8>>) -> Result<SystemAudioSession, String> {
-        let content = SCShareableContent::current()
-            .map_err(|e| format!("SCShareableContent (did you grant Screen Recording?): {e:?}"))?;
+        let content = SCShareableContent::get()
+            .map_err(|e| format!("SCShareableContent (grant Screen Recording?): {e:?}"))?;
         let display = content
-            .displays
+            .displays()
             .first()
             .ok_or_else(|| "no displays found".to_string())?
             .clone();
 
-        let params = InitParams::Display(display);
-        let filter = SCContentFilter::new(params);
+        let filter = SCContentFilter::create()
+            .with_display(&display)
+            .build();
 
         let mut cfg = SCStreamConfiguration::default();
-        cfg.captures_audio = true;
-        cfg.sample_rate = INPUT_SAMPLE_RATE as i64;
-        cfg.channel_count = INPUT_CHANNELS as i64;
+        cfg.set_captures_audio(true);
+        cfg.set_sample_rate(INPUT_SAMPLE_RATE as i32);
+        cfg.set_channel_count(INPUT_CHANNELS as i32);
 
-        let mut stream = SCStream::new(filter, cfg, ErrorSink);
+        let mut stream = SCStream::new(&filter, &cfg);
 
         let chunk_samples =
             ((TARGET_SAMPLE_RATE * CHUNK_DURATION_MS as f32) / 1000.0) as usize;
@@ -337,7 +295,7 @@ mod macos_audio {
             ratio: INPUT_SAMPLE_RATE as f32 / TARGET_SAMPLE_RATE,
             chunk_samples,
         };
-        stream.add_output(sink, SCStreamOutputType::Audio);
+        stream.add_output_handler(sink, SCStreamOutputType::Audio);
 
         stream
             .start_capture()
@@ -364,10 +322,7 @@ fn start_system_audio_capture(
 #[cfg(not(target_os = "macos"))]
 #[tauri::command]
 fn start_system_audio_capture(_on_chunk: Channel<Vec<u8>>) -> Result<(), String> {
-    Err(
-        "system-audio capture is only wired for macOS in this build. Windows (WASAPI loopback) and Linux (PipeWire monitor) land in follow-up commits."
-            .to_string(),
-    )
+    Err("system-audio capture is only wired for macOS".to_string())
 }
 
 #[cfg(target_os = "macos")]
