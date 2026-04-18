@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.8] — 2026-04-18
+
+### Other
+- ci: GitHub Actions build pipeline for Android APK + Windows EXE (`f4a5dc9`)
+
+
 ## [0.0.7] — 2026-04-18
 
 ### Added
