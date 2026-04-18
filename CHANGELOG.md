@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.50] — 2026-04-18
+
+### Fixed
+- fix: Tauri productName → Layer One, hex backgroundColor #0a0a0a (`c2ddcc5`)
+
+
 ## [0.1.49] — 2026-04-18
 
 ### Fixed
