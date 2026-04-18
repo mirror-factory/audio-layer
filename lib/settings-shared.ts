@@ -13,7 +13,7 @@ export interface ModelSettings {
 }
 
 export const DEFAULTS: ModelSettings = {
-  summaryModel: "google/gemini-2.5-flash-lite",
+  summaryModel: "openai/gpt-5.4-nano",
   batchSpeechModel: "universal-3-pro",
   streamingSpeechModel: "u3-rt-pro",
 };

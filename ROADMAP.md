@@ -69,6 +69,23 @@ Complete feature plan for shipping V1. Organized by priority tier.
 
 ## Core Features (P2 — V1 completeness)
 
+### P2-0: Meeting detail chat + templates
+**What**: Chat window on `/meetings/[id]` where users query the transcript with natural language. "What was the budget?" or "Rewrite as a sales brief." The AI restructures the display using typed output schemas.
+**How**:
+1. Add `useObject` (AI SDK) on the meeting detail page with `streamObject`
+2. Define Zod schemas for different views: sales brief, action items, CRM card, interview debrief, standup notes
+3. Pre-built **templates** as prompt presets:
+   - Sales Discovery → extracts budget, timeline, decision makers, objections
+   - Interview Debrief → key answers, red/green flags, next steps
+   - Standup Notes → blockers, progress, plans
+   - Custom → free-form query
+4. API: `POST /api/meetings/[id]/chat` — streams structured output back
+5. UI: Chat input below the transcript + template selector dropdown
+6. The response replaces/augments the summary panel with the new structured view
+7. Uses the user's selected summarization model from settings
+**Why this matters**: This is the key differentiator — competitors show static summaries, we let users reshape the output. The MCP-ready structured data can flow into CRM, Notion, Slack, etc.
+**Effort**: Medium-Large
+
 ### P2-1: Meeting search & filter
 **What**: Search meetings by keyword, filter by date range and status.
 **How**:

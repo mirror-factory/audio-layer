@@ -20,7 +20,7 @@ import {
 } from "@/lib/ai/telemetry";
 import { flushLangfuse } from "@/lib/langfuse-setup";
 
-const MODEL_ID = "openai/gpt-4.1-nano";
+const MODEL_ID = "openai/gpt-5.4-nano";
 
 export async function POST(req: Request) {
   const startTime = Date.now();
