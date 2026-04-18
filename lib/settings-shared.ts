@@ -47,7 +47,9 @@ export const MODEL_OPTIONS = {
     { value: "nano", label: "Nano", price: "$0.09/hr" },
   ] as ModelOption[],
   streamingSpeech: [
-    { value: "u3-rt-pro", label: "Universal-3 Pro RT", price: "$0.45/hr" },
-    { value: "u3-rt", label: "Universal-3 RT", price: "$0.15/hr" },
+    { value: "u3-rt-pro", label: "Universal-3 Pro RT (best quality)", price: "$0.45/hr" },
+    { value: "u3-rt-agent", label: "Universal-3 RT Agent (low latency)", price: "$0.45/hr" },
+    { value: "universal-streaming-multilingual", label: "Universal Streaming (multilingual)", price: "$0.15/hr" },
+    { value: "universal-streaming-english", label: "Universal Streaming (English only)", price: "$0.15/hr" },
   ] as ModelOption[],
 } as const;

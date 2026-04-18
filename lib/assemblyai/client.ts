@@ -56,8 +56,21 @@ export async function getBatchSpeechModelsFromSettings(): Promise<
   return getBatchSpeechModels(settings.batchSpeechModel);
 }
 
+/** Valid AssemblyAI streaming model IDs. */
+const VALID_STREAMING_MODELS = new Set([
+  "u3-rt-pro",
+  "u3-rt-agent",
+  "universal-streaming-english",
+  "universal-streaming-multilingual",
+  "whisper-rt",
+  "alpha-english",
+]);
+
 /** Read streaming speech model from user settings (cookie). */
 export async function getStreamingSpeechModel(): Promise<string> {
   const settings = await getSettings();
-  return settings.streamingSpeechModel;
+  const model = settings.streamingSpeechModel;
+  // Validate against known models — fall back to u3-rt-pro if invalid
+  if (VALID_STREAMING_MODELS.has(model)) return model;
+  return "u3-rt-pro";
 }
