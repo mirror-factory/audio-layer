@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.14] — 2026-04-18
+
+### Added
+- feat: install full starter kit dashboards — observability + tests + cost (`61e71ce`)
+
+
 ## [0.0.13] — 2026-04-18
 
 ### Added
