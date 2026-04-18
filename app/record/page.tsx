@@ -180,7 +180,7 @@ export default function RecordPage() {
             <AudioRecorder disabled={busy} onRecorded={onRecorded} />
             <div className="text-xs text-neutral-600">or</div>
             <label className="flex cursor-pointer items-center gap-2 text-sm text-neutral-300 hover:text-neutral-100">
-              <span className="rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 hover:bg-neutral-800">
+              <span className="min-h-[44px] flex items-center rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 hover:bg-neutral-800">
                 Upload audio file
               </span>
               <input
@@ -196,7 +196,7 @@ export default function RecordPage() {
               <button
                 type="button"
                 onClick={reset}
-                className="ml-auto text-xs text-neutral-500 hover:text-neutral-300"
+                className="ml-auto min-h-[44px] flex items-center text-xs text-neutral-500 hover:text-neutral-300"
               >
                 Reset
               </button>

@@ -117,14 +117,14 @@ export default function SignInPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={stage === "sending"}
-                className="w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-600 focus:border-emerald-500 focus:outline-none"
+                className="min-h-[44px] w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-600 focus:border-emerald-500 focus:outline-none"
                 placeholder="you@example.com"
               />
             </label>
             <button
               type="submit"
               disabled={stage === "sending" || !email.trim()}
-              className="w-full rounded-md bg-emerald-400 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-50"
+              className="min-h-[44px] w-full rounded-md bg-emerald-400 px-4 py-2 text-sm font-semibold text-neutral-950 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {stage === "sending" ? "Sending…" : "Send magic link"}
             </button>
@@ -136,8 +136,8 @@ export default function SignInPage() {
           </form>
         )}
 
-        <footer className="flex items-center justify-between text-xs text-neutral-500">
-          <Link href="/" className="hover:text-neutral-300">
+        <footer className="flex flex-wrap items-center justify-between gap-2 text-xs text-neutral-500">
+          <Link href="/" className="min-h-[44px] flex items-center hover:text-neutral-300">
             &larr; Back to hub
           </Link>
           <Link
