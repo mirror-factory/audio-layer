@@ -162,6 +162,30 @@ Critically, AssemblyAI offers both batch AND streaming in a single API with spea
 
 **Switchability**: The app's settings page lets users select their transcription model. Adding Deepgram as an alternative provider requires only a new API client — the architecture doesn't lock us to AssemblyAI.
 
+### Competitor Transcription Accuracy (Independent Testing)
+
+The following data comes from [SummarizeMeeting.com's 2026 WER Benchmark](https://summarizemeeting.com/en/comparison/transcription-accuracy) — an independent test using real meeting audio across multiple conditions (clean, noisy, multi-speaker, accented):
+
+| Tool / Engine | Clean Audio Accuracy | Noisy/Multi-Speaker | WER (Clean) | Notes |
+|---|---|---|---|---|
+| **AssemblyAI Universal-3 Pro** | 97.9% | 94% | 2.1% | Lowest WER in clean conditions. Our chosen engine. |
+| **Otter.ai** (proprietary) | 97.9% | 85-94% | 2.1-15% | Matches AssemblyAI on clean audio, degrades more in noise |
+| **Deepgram Nova-3** | 96-98% | 92-96% | 2-4% | Best real-time latency. Holds up well in noise. |
+| **Fireflies** (proprietary) | 92-94% | 85-90% | 6-15% | Drops significantly with accents and crosstalk |
+| **OpenAI Whisper Large-v3** | 96.8-97.9% | 90-96% | 2.1-10% | Best multilingual (99 languages). No real-time streaming. |
+| **Fathom** (proprietary) | ~92% | ~85% | ~8-15% | Limited independent data available |
+| **Granola** (proprietary) | ~93-95% | ~88-92% | ~5-12% | Uses device mic + system audio; accuracy depends on capture quality |
+| **Google Chirp 2** | ~88% | ~80-85% | ~12-20% | Most expensive ($0.96/hr). Worst accuracy of major providers. |
+
+**Key findings:**
+- All tools claim 95-99% accuracy but this only holds for clean, single-speaker English audio. Real-world meeting accuracy is 15-20% lower (multiple speakers, accents, background noise).
+- Otter leads among the closed-source competitors on raw transcription accuracy.
+- Granola's accuracy is more variable because it captures via device mic/system audio — the transcription engine is only as good as the audio input.
+- Using noise cancellation (e.g., Krisp) before transcription reduces WER by up to 39% across all tools.
+- Professional human transcribers achieve 99%+ accuracy — AI still has a gap, but it's closing.
+
+**Sources:** [SummarizeMeeting WER Benchmarks (2026)](https://summarizemeeting.com/en/comparison/transcription-accuracy), [Krisp Data-Backed Reviews (2026)](https://krisp.ai/blog/best-ai-meeting-assistant/), [Meetily Accuracy Ranking (2026)](https://meetily.ai/blog/best-meeting-notes-software-2026), [Convo Comparison (2026)](https://www.itsconvo.com/blog/granola-vs-otter-vs-fathom)
+
 ---
 
 ## Decision 4: LLM Integration — Vercel AI SDK + Gateway vs LangChain vs Direct Provider APIs vs OpenRouter
