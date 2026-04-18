@@ -218,7 +218,7 @@ export function configuredSinks(cwd: string): Record<UnifiedEvent['source'], boo
   );
   const hasLangfuse = Boolean(process.env.LANGFUSE_PUBLIC_KEY && process.env.LANGFUSE_SECRET_KEY);
   let projectName = 'project';
-  try { projectName = (JSON.parse(readFileSync(join(cwd, 'package.json'), 'utf-8')) as { name?: string }).name ?? 'project'; } catch {}
+  try { projectName = (JSON.parse(readFileSync(join(cwd, 'package.json'), 'utf-8')) as { name?: string }).name ?? 'project'; } catch { /* ignore */ }
   const hasDev3000 = existsSync(join(homedir(), '.d3k', projectName.replace(/[^\w.-]/g, '_'), 'd3k.log'));
   return { stdout: true, file: hasFile, supabase: hasSupabase, langfuse: hasLangfuse, dev3000: hasDev3000 };
 }

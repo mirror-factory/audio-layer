@@ -6,7 +6,6 @@ import { SILENT_TOOLS } from "@/lib/registry";
 
 export interface ChatMessageProps {
   message: UIMessage;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   addToolOutput: (params: {
     tool: string;
     toolCallId: string;

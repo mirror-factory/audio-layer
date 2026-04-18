@@ -7,7 +7,6 @@
  * full reload.
  */
 
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TopBar } from "@/components/top-bar";
 import { getMeetingsStore } from "@/lib/meetings/store";

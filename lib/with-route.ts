@@ -39,14 +39,13 @@ type Handler = (
   ctx: RouteContext,
 ) => Promise<Response> | Response;
 
-type NextRouteContext = { params?: Promise<Record<string, string | string[]>> } | undefined;
-
 function generateRequestId(): string {
   return `req_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
 }
 
 export function withRoute(handler: Handler) {
-  return async (req: NextRequest, nextCtx?: NextRouteContext): Promise<Response> => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return async (req: NextRequest, nextCtx?: any): Promise<Response> => {
     const requestId = req.headers.get('x-request-id') ?? generateRequestId();
     const startedAt = Date.now();
     const path = new URL(req.url).pathname;

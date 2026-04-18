@@ -65,7 +65,7 @@ export function otpEmail(params: {
 }
 
 /** Welcome email after first sign-in. */
-export function welcomeEmail(params: {
+export function welcomeEmail(_params: {
   email: string;
 }): { subject: string; html: string } {
   return {
