@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.19] — 2026-04-18
+
+### Fixed
+- fix: stub supabase-queries for dev-kit dashboard + type fixes (`5c2084b`)
+
+
 ## [0.0.18] — 2026-04-18
 
 ### Other
