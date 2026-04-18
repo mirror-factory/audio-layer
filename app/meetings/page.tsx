@@ -23,9 +23,9 @@ export default async function MeetingsPage() {
   }
 
   return (
-    <div className="min-h-dvh bg-neutral-950 p-4 md:p-6">
+    <div className="min-h-dvh bg-neutral-950 px-4 pb-20 pt-4 md:px-6 md:pt-6">
       <div className="mx-auto max-w-4xl space-y-6">
-        <header className="flex items-center justify-between">
+        <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-lg font-semibold text-neutral-200">Meetings</h1>
             <p className="text-xs text-neutral-500">
@@ -36,13 +36,13 @@ export default async function MeetingsPage() {
           <div className="flex items-center gap-3 text-xs">
             <Link
               href="/record"
-              className="rounded-md border border-emerald-700 bg-emerald-900/30 px-3 py-1.5 text-emerald-200 hover:bg-emerald-900/50"
+              className="min-h-[44px] flex items-center rounded-md border border-emerald-700 bg-emerald-900/30 px-3 py-1.5 text-emerald-200 hover:bg-emerald-900/50"
             >
               + New recording
             </Link>
             <Link
               href="/"
-              className="text-neutral-500 hover:text-neutral-300"
+              className="min-h-[44px] flex items-center text-neutral-500 hover:text-neutral-300"
             >
               ← Hub
             </Link>
@@ -73,7 +73,7 @@ export default async function MeetingsPage() {
               <li key={m.id}>
                 <Link
                   href={`/meetings/${m.id}`}
-                  className="flex items-center justify-between gap-4 px-4 py-3 hover:bg-neutral-800/40"
+                  className="flex min-h-[48px] w-full items-center justify-between gap-4 px-4 py-3 hover:bg-neutral-800/40"
                 >
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium text-neutral-100">

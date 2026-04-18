@@ -100,13 +100,15 @@ export default function ChatPage() {
         </div>
       </div>
 
-      {/* Input */}
-      <ChatInput
-        input={input}
-        onInputChange={setInput}
-        onSubmit={handleSubmit}
-        isLoading={isLoading}
-      />
+      {/* Input — pb-16 keeps it above the fixed bottom nav */}
+      <div className="pb-16">
+        <ChatInput
+          input={input}
+          onInputChange={setInput}
+          onSubmit={handleSubmit}
+          isLoading={isLoading}
+        />
+      </div>
     </div>
   );
 }

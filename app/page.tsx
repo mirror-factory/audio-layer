@@ -68,9 +68,9 @@ function Section({
 export default function Home() {
   return (
     <main className="min-h-dvh bg-[radial-gradient(circle_at_top,hsl(205_70%_18%),transparent_32%),linear-gradient(180deg,hsl(224_25%_8%),hsl(224_24%_5%))] text-neutral-100">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-8">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-6 pb-20 md:px-6 md:py-8">
         <header className="rounded-[28px] border border-cyan-500/20 bg-neutral-950/75 p-6 shadow-[0_24px_80px_rgba(8,145,178,0.12)]">
-          <div className="flex flex-wrap items-start gap-4">
+          <div className="flex flex-col gap-4 md:flex-row md:flex-wrap md:items-start">
             <div className="max-w-3xl">
               <p className="text-xs uppercase tracking-[0.24em] text-cyan-300/80">
                 Vercel AI Starter Kit{" "}
@@ -78,7 +78,7 @@ export default function Home() {
                   v0.0.4
                 </span>
               </p>
-              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white">
+              <h1 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-4xl">
                 One place to see what the starter installs, enforces, and proves.
               </h1>
               <p className="mt-4 max-w-2xl text-sm leading-6 text-neutral-300">
@@ -88,52 +88,52 @@ export default function Home() {
                 up with after install.
               </p>
             </div>
-            <div className="ml-auto flex flex-wrap gap-3">
+            <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 md:ml-auto md:flex md:w-auto md:flex-wrap">
               <Link
                 href="/record"
-                className="rounded-full bg-emerald-400 px-4 py-2 text-sm font-medium text-neutral-950 transition hover:bg-emerald-300"
+                className="flex min-h-[44px] items-center justify-center rounded-full bg-emerald-400 px-4 py-2 text-sm font-medium text-neutral-950 transition hover:bg-emerald-300"
               >
                 New recording
               </Link>
               <Link
                 href="/meetings"
-                className="rounded-full border border-emerald-500/40 px-4 py-2 text-sm font-medium text-emerald-200 transition hover:border-emerald-400 hover:bg-emerald-950/30"
+                className="flex min-h-[44px] items-center justify-center rounded-full border border-emerald-500/40 px-4 py-2 text-sm font-medium text-emerald-200 transition hover:border-emerald-400 hover:bg-emerald-950/30"
               >
                 All meetings
               </Link>
               <Link
                 href="/chat"
-                className="rounded-full bg-cyan-400 px-4 py-2 text-sm font-medium text-neutral-950 transition hover:bg-cyan-300"
+                className="flex min-h-[44px] items-center justify-center rounded-full bg-cyan-400 px-4 py-2 text-sm font-medium text-neutral-950 transition hover:bg-cyan-300"
               >
                 Open Chat Demo
               </Link>
               <Link
                 href="/pricing"
-                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+                className="flex min-h-[44px] items-center justify-center rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >
                 Pricing
               </Link>
               <Link
                 href="/usage"
-                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+                className="flex min-h-[44px] items-center justify-center rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >
                 Usage
               </Link>
               <Link
                 href="/profile"
-                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+                className="flex min-h-[44px] items-center justify-center rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >
                 Profile
               </Link>
               <Link
                 href="/settings"
-                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+                className="flex min-h-[44px] items-center justify-center rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >
                 Settings
               </Link>
               <Link
                 href="/observability"
-                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+                className="flex min-h-[44px] items-center justify-center rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >
                 Open Observability
               </Link>
@@ -141,7 +141,7 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           <StatCard
             label="Tools"
             value={String(TOOL_REGISTRY.length)}

@@ -27,9 +27,9 @@ export default async function UsagePage() {
     : "Free";
 
   return (
-    <main className="min-h-dvh bg-neutral-950 p-4 md:p-6">
+    <main className="min-h-dvh bg-neutral-950 px-4 pb-20 pt-4 md:px-6 md:pt-6">
       <div className="mx-auto max-w-5xl space-y-6">
-        <header className="flex items-center justify-between">
+        <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-lg font-semibold text-neutral-200">Usage</h1>
             <p className="text-xs text-neutral-500">
@@ -45,17 +45,17 @@ export default async function UsagePage() {
           <div className="flex items-center gap-3 text-xs">
             <Link
               href="/pricing"
-              className="rounded-md border border-emerald-700 bg-emerald-900/30 px-3 py-1.5 text-emerald-200 hover:bg-emerald-900/50"
+              className="min-h-[44px] flex items-center rounded-md border border-emerald-700 bg-emerald-900/30 px-3 py-1.5 text-emerald-200 hover:bg-emerald-900/50"
             >
               {subActive ? "Manage plan" : "Upgrade"}
             </Link>
             <Link
               href="/meetings"
-              className="text-neutral-500 hover:text-neutral-300"
+              className="min-h-[44px] flex items-center text-neutral-500 hover:text-neutral-300"
             >
               All meetings
             </Link>
-            <Link href="/" className="text-neutral-500 hover:text-neutral-300">
+            <Link href="/" className="min-h-[44px] flex items-center text-neutral-500 hover:text-neutral-300">
               ← Hub
             </Link>
           </div>
@@ -63,7 +63,7 @@ export default async function UsagePage() {
 
         <section
           aria-label="Headline totals"
-          className="grid gap-3 md:grid-cols-4"
+          className="grid grid-cols-2 gap-3 md:grid-cols-4"
         >
           <Tile
             label="Meetings"

@@ -31,9 +31,9 @@ export default async function MeetingDetailPage({ params }: Props) {
     meeting.status === "completed" || meeting.status === "error";
 
   return (
-    <div className="min-h-dvh bg-neutral-950 p-4 md:p-6">
+    <div className="min-h-dvh bg-neutral-950 px-4 pb-20 pt-4 md:px-6 md:pt-6">
       <div className="mx-auto max-w-5xl space-y-6">
-        <header className="flex items-center justify-between gap-4">
+        <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
             <h1 className="truncate text-lg font-semibold text-neutral-100">
               {meeting.title ?? "Untitled recording"}
@@ -47,19 +47,19 @@ export default async function MeetingDetailPage({ params }: Props) {
               <span className="uppercase tracking-wide">{meeting.status}</span>
             </p>
           </div>
-          <div className="flex items-center gap-3 text-xs">
+          <div className="flex flex-wrap items-center gap-3 text-xs">
             {meeting.status === "completed" ? (
               <>
                 <a
                   href={`/api/meetings/${meeting.id}/export?format=md`}
-                  className="rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-neutral-200 hover:bg-neutral-800"
+                  className="min-h-[44px] flex items-center rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-neutral-200 hover:bg-neutral-800"
                   download
                 >
                   Export MD
                 </a>
                 <a
                   href={`/api/meetings/${meeting.id}/export?format=pdf`}
-                  className="rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-neutral-200 hover:bg-neutral-800"
+                  className="min-h-[44px] flex items-center rounded-md border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-neutral-200 hover:bg-neutral-800"
                   download
                 >
                   Export PDF
@@ -68,7 +68,7 @@ export default async function MeetingDetailPage({ params }: Props) {
             ) : null}
             <Link
               href="/meetings"
-              className="text-neutral-500 hover:text-neutral-300"
+              className="min-h-[44px] flex items-center text-neutral-500 hover:text-neutral-300"
             >
               ← All meetings
             </Link>

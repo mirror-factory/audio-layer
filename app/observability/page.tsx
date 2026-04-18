@@ -11,7 +11,7 @@
 
 export default function ObservabilityPage() {
   return (
-    <div className="min-h-dvh bg-neutral-950 p-6">
+    <div className="min-h-dvh bg-neutral-950 px-4 pb-20 pt-4 md:px-6 md:pt-6">
       <div className="mx-auto max-w-4xl space-y-6">
         <header>
           <h1 className="text-lg font-semibold text-neutral-200">
@@ -28,7 +28,7 @@ export default function ObservabilityPage() {
         </header>
 
         {/* Placeholder cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {[
             { label: "Total Calls", value: "--" },
             { label: "Total Cost", value: "$--" },
@@ -46,7 +46,7 @@ export default function ObservabilityPage() {
           ))}
         </div>
 
-        <div className="rounded-lg border border-neutral-800 bg-neutral-900 p-6 text-center text-sm text-neutral-500">
+        <div className="rounded-lg border border-neutral-800 bg-neutral-900 p-4 text-center text-sm text-neutral-500 md:p-6">
           <p>No log data available.</p>
           <p className="mt-2 text-xs text-neutral-600">
             AI calls are logged to{" "}
@@ -64,7 +64,7 @@ export default function ObservabilityPage() {
 
         <a
           href="/chat"
-          className="inline-block rounded-lg border border-neutral-700 px-4 py-2 text-xs text-neutral-400 hover:border-neutral-500 hover:text-neutral-200"
+          className="inline-flex min-h-[44px] items-center rounded-lg border border-neutral-700 px-4 py-2 text-xs text-neutral-400 hover:border-neutral-500 hover:text-neutral-200"
         >
           Back to Chat
         </a>

@@ -54,3 +54,4 @@ android/
 
 # TypeScript
 tsconfig.tsbuildinfo
+.vercel
