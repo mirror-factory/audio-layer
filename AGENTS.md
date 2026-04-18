@@ -92,6 +92,23 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - No `cargo`/`tauri` scripts in package.json (keeps Rust toolchain off the critical path for web devs). Build with `cargo tauri dev` / `cargo tauri build` from the repo root.
 - **Verification gap:** the Rust code was not compiled in CI / the build environment that produced this branch — no Rust toolchain available. Verify with `cargo tauri dev` on a real workstation before shipping.
 
+### Cost + usage tracking
+- `lib/billing/llm-pricing.ts` — `COST_PER_M_TOKENS` map (Claude, GPT, Gemini) + `pricingForModel()` + `estimateLlmCost()` (handles cached-input discount) + `formatUsd()` (sensible-precision money display).
+- `lib/billing/assemblyai-pricing.ts` — per-hour base rates × (batch | streaming), add-on stacks (diarization, summarization, entities, etc.), multi-channel billing. Convenience wrappers for our standard batch/streaming configs.
+- `lib/billing/types.ts` — `MeetingCostBreakdown` (STT + LLM per-call + total) and `UsageSummary` (what the /usage page renders).
+- `lib/billing/usage.ts` — `getUsageSummary()`: aggregates `meetings.cost_breakdown` rows locally, then overlays Langfuse Daily Metrics when the keys are configured AND Langfuse reports traces for this user. Falls back to local numbers automatically.
+- `lib/observability/langfuse-api.ts` — thin wrapper around `GET /api/public/metrics/daily` with Basic auth + userId filter. Null-safe factory, explicit error throws so callers can log + fall back.
+- Schema: `meetings.cost_breakdown jsonb` persists per-meeting STT + LLM cost. Round-tripped through both store impls.
+- `app/usage/page.tsx` — server-rendered tiles: meetings, minutes, STT spend, LLM spend, all lifetime + this-month. Subscription section from the `profiles` row.
+- `components/meeting-cost-panel.tsx` — per-meeting panel rendered on `/meetings/[id]`. Shows 3 headline tiles + per-LLM-call breakdown table. Hidden when `cost_breakdown` is null.
+- Pricing sources: April 2026 AssemblyAI published rates for STT; `COST_PER_M_TOKENS` for LLMs. Review quarterly — no live price feed wired.
+
+### Langfuse serverless flush (critical)
+- **Langfuse shows zeros without this.** On Vercel, OTel span processors buffer spans in memory; when the function freezes, buffered spans never upload. Result: `countTraces > 0` but `totalCost === 0`.
+- Fix: `lib/langfuse-setup.ts` exports `flushLangfuse()`. Every AI-calling route ends with `after(flushLangfuse)` — Next.js 15's `after()` runs after the response is sent, giving the processor time to upload.
+- Routes wired: `/api/chat`, `/api/transcribe/[id]`, `/api/transcribe/stream/finalize`.
+- When Langfuse isn't configured the flush is a no-op.
+
 ### Quota / paywall
 - `lib/billing/quota.ts` — `checkQuota()` + `FREE_TIER_MEETING_LIMIT = 25`. Counts the current user's meetings via the user-scoped Supabase client (RLS does the scoping). Active / trialing subscriptions bypass.
 - Enforced server-side in `app/api/transcribe/route.ts` (batch) and `app/api/transcribe/stream/token/route.ts` (live). Returns HTTP 402 + `{ code: "free_limit_reached", upgradeUrl: "/pricing" }`.

@@ -114,6 +114,12 @@ export default function Home() {
                 Pricing
               </Link>
               <Link
+                href="/usage"
+                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+              >
+                Usage
+              </Link>
+              <Link
                 href="/profile"
                 className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >

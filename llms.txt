@@ -49,6 +49,13 @@
 - lib/assemblyai/intake.ts           IntakeFormSchema + extractIntakeForm() — second generateObject per meeting
 - lib/assemblyai/types.ts            Client↔Server transcribe response types
 - lib/billing/quota.ts               checkQuota() — 25 free meetings, subscription bypass, HTTP 402 contract
+- lib/billing/types.ts               MeetingCostBreakdown + UsageSummary shapes
+- lib/billing/llm-pricing.ts         COST_PER_M_TOKENS + estimateLlmCost() + formatUsd()
+- lib/billing/assemblyai-pricing.ts  STT per-hour rates + add-on stacking + convenience wrappers
+- lib/billing/usage.ts               getUsageSummary() — local aggregation + Langfuse overlay
+- lib/observability/langfuse-api.ts  Daily Metrics API client (Basic auth, userId filter)
+- app/usage/page.tsx                 /usage — lifetime + this-month tiles, subscription card
+- components/meeting-cost-panel.tsx  Per-meeting STT + LLM + total panel on /meetings/[id]
 - lib/stripe/client.ts               getStripe() factory (null when env missing) + tier↔price-id mapping
 - lib/stripe/profiles.ts             Service-role profile helpers: getOrCreateProfile, setStripeCustomerId, setSubscriptionState
 - app/api/stripe/checkout/route.ts   POST { tier } → Checkout Session URL

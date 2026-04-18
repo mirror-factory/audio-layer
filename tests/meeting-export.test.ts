@@ -38,6 +38,7 @@ const baseMeeting: Meeting = {
   durationSeconds: 65,
   summary: null,
   intakeForm: null,
+  costBreakdown: null,
   error: null,
   createdAt: "2026-04-17T10:00:00.000Z",
   updatedAt: "2026-04-17T10:00:00.000Z",

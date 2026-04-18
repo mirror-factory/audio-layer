@@ -9,6 +9,7 @@
  */
 
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
+import { after } from "next/server";
 import { gateway } from "@ai-sdk/gateway";
 import { allTools } from "@/lib/ai/tools";
 import {
@@ -17,6 +18,7 @@ import {
   logError,
   type TelemetryContext,
 } from "@/lib/ai/telemetry";
+import { flushLangfuse } from "@/lib/langfuse-setup";
 
 const MODEL_ID = "openai/gpt-4.1-nano";
 
@@ -107,6 +109,9 @@ Be concise. Use tools when appropriate.`,
       },
     });
 
+    // Flush spans after the stream ends so Langfuse captures token
+    // + cost data before the Vercel function freezes.
+    after(flushLangfuse);
     return result.toUIMessageStreamResponse();
   } catch (error) {
     const durationMs = Date.now() - startTime;

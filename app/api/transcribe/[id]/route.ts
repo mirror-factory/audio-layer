@@ -12,10 +12,17 @@
  * of re-billing AssemblyAI + the LLM.
  */
 
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { getAssemblyAI } from "@/lib/assemblyai/client";
 import { summarizeMeeting } from "@/lib/assemblyai/summary";
 import { extractIntakeForm } from "@/lib/assemblyai/intake";
+import { estimateLlmCost } from "@/lib/billing/llm-pricing";
+import { estimateBatchMeetingCost } from "@/lib/billing/assemblyai-pricing";
+import { flushLangfuse } from "@/lib/langfuse-setup";
+import type {
+  LlmCallRecord,
+  MeetingCostBreakdown,
+} from "@/lib/billing/types";
 import { getMeetingsStore, type MeetingsStore } from "@/lib/meetings/store";
 import type {
   TranscribeResultResponse,
@@ -92,28 +99,101 @@ export async function GET(
 
   let summary = existing?.summary ?? null;
   let intakeForm = existing?.intakeForm ?? null;
+  const llmCalls: LlmCallRecord[] = [];
+
   if (!summary || !intakeForm) {
     const [summaryResult, intakeResult] = await Promise.allSettled([
       summary
-        ? Promise.resolve(summary)
+        ? Promise.resolve(null)
         : summarizeMeeting({
             transcriptId: id,
             utterances: utterancesForLlm,
             fullText: transcript.text ?? undefined,
           }),
       intakeForm
-        ? Promise.resolve(intakeForm)
+        ? Promise.resolve(null)
         : extractIntakeForm({
             transcriptId: id,
             utterances: utterancesForLlm,
             fullText: transcript.text ?? undefined,
           }),
     ]);
-    if (summaryResult.status === "fulfilled") summary = summaryResult.value;
-    else console.error("Summary generation failed", summaryResult.reason);
-    if (intakeResult.status === "fulfilled") intakeForm = intakeResult.value;
-    else console.error("Intake extraction failed", intakeResult.reason);
+    if (summaryResult.status === "fulfilled" && summaryResult.value) {
+      summary = summaryResult.value.summary;
+      if (!summaryResult.value.skipped) {
+        const cost = estimateLlmCost(
+          summaryResult.value.model,
+          summaryResult.value.usage,
+        );
+        llmCalls.push({
+          label: "meeting-summary",
+          model: summaryResult.value.model,
+          inputTokens: summaryResult.value.usage.inputTokens,
+          outputTokens: summaryResult.value.usage.outputTokens,
+          cachedInputTokens: summaryResult.value.usage.cachedInputTokens,
+          costUsd: cost,
+        });
+      }
+    } else if (summaryResult.status === "rejected") {
+      console.error("Summary generation failed", summaryResult.reason);
+    }
+    if (intakeResult.status === "fulfilled" && intakeResult.value) {
+      intakeForm = intakeResult.value.intake;
+      if (!intakeResult.value.skipped) {
+        const cost = estimateLlmCost(
+          intakeResult.value.model,
+          intakeResult.value.usage,
+        );
+        llmCalls.push({
+          label: "intake-form",
+          model: intakeResult.value.model,
+          inputTokens: intakeResult.value.usage.inputTokens,
+          outputTokens: intakeResult.value.usage.outputTokens,
+          cachedInputTokens: intakeResult.value.usage.cachedInputTokens,
+          costUsd: cost,
+        });
+      }
+    } else if (intakeResult.status === "rejected") {
+      console.error("Intake extraction failed", intakeResult.reason);
+    }
   }
+
+  // Build the cost breakdown: STT price from AssemblyAI price table +
+  // every LLM call we made. Existing cost data is preserved when we're
+  // just re-rendering a previously-completed meeting.
+  const sttDuration = transcript.audio_duration ?? 0;
+  const sttEstimate = estimateBatchMeetingCost(sttDuration, "best");
+  const existingCost = existing?.costBreakdown ?? null;
+  const mergedLlmCalls: LlmCallRecord[] = existingCost
+    ? [...existingCost.llm.calls, ...llmCalls]
+    : llmCalls;
+  const llmTotalInput = mergedLlmCalls.reduce(
+    (a, c) => a + c.inputTokens,
+    0,
+  );
+  const llmTotalOutput = mergedLlmCalls.reduce(
+    (a, c) => a + c.outputTokens,
+    0,
+  );
+  const llmTotalCost = mergedLlmCalls.reduce((a, c) => a + c.costUsd, 0);
+  const costBreakdown: MeetingCostBreakdown = {
+    stt: {
+      mode: "batch",
+      model: "best",
+      durationSeconds: sttDuration,
+      ratePerHour: sttEstimate.ratePerHour,
+      baseCostUsd: sttEstimate.baseCostUsd,
+      addonCostUsd: sttEstimate.addonCostUsd,
+      totalCostUsd: sttEstimate.totalCostUsd,
+    },
+    llm: {
+      totalInputTokens: llmTotalInput,
+      totalOutputTokens: llmTotalOutput,
+      totalCostUsd: llmTotalCost,
+      calls: mergedLlmCalls,
+    },
+    totalCostUsd: sttEstimate.totalCostUsd + llmTotalCost,
+  };
 
   // Persist everything we know so future polls short-circuit.
   const persisted = await upsertCompleted(store, id, {
@@ -124,7 +204,13 @@ export async function GET(
     durationSeconds: transcript.audio_duration ?? null,
     summary,
     intakeForm,
+    costBreakdown,
   });
+
+  // Flush Langfuse spans AFTER the response so the serverless
+  // freeze doesn't drop token + cost data. Without this, Langfuse
+  // reports zeros on fast-returning routes.
+  after(flushLangfuse);
 
   return NextResponse.json(meetingToResponse(persisted));
 }
@@ -175,6 +261,7 @@ async function upsertCompleted(
       durationSeconds: patch.durationSeconds ?? null,
       summary: patch.summary ?? null,
       intakeForm: patch.intakeForm ?? null,
+      costBreakdown: patch.costBreakdown ?? null,
       error: null,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),

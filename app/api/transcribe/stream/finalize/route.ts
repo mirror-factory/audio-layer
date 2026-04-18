@@ -11,10 +11,17 @@
  * does for batch jobs.
  */
 
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { z } from "zod";
 import { summarizeMeeting } from "@/lib/assemblyai/summary";
 import { extractIntakeForm } from "@/lib/assemblyai/intake";
+import { estimateLlmCost } from "@/lib/billing/llm-pricing";
+import { estimateStreamingMeetingCost } from "@/lib/billing/assemblyai-pricing";
+import { flushLangfuse } from "@/lib/langfuse-setup";
+import type {
+  LlmCallRecord,
+  MeetingCostBreakdown,
+} from "@/lib/billing/types";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import type {
   TranscribeResultResponse,
@@ -73,16 +80,66 @@ export async function POST(request: Request): Promise<NextResponse> {
     }),
   ]);
 
-  const summary =
+  const summaryResult =
     summaryRes.status === "fulfilled" ? summaryRes.value : null;
   if (summaryRes.status === "rejected") {
     console.error("Streaming summary failed", summaryRes.reason);
   }
-  const intakeForm =
+  const intakeResult =
     intakeRes.status === "fulfilled" ? intakeRes.value : null;
   if (intakeRes.status === "rejected") {
     console.error("Streaming intake extraction failed", intakeRes.reason);
   }
+
+  const summary = summaryResult?.summary ?? null;
+  const intakeForm = intakeResult?.intake ?? null;
+
+  // Roll up LLM costs from the calls we actually made.
+  const llmCalls: LlmCallRecord[] = [];
+  if (summaryResult && !summaryResult.skipped) {
+    llmCalls.push({
+      label: "meeting-summary",
+      model: summaryResult.model,
+      inputTokens: summaryResult.usage.inputTokens,
+      outputTokens: summaryResult.usage.outputTokens,
+      cachedInputTokens: summaryResult.usage.cachedInputTokens,
+      costUsd: estimateLlmCost(summaryResult.model, summaryResult.usage),
+    });
+  }
+  if (intakeResult && !intakeResult.skipped) {
+    llmCalls.push({
+      label: "intake-form",
+      model: intakeResult.model,
+      inputTokens: intakeResult.usage.inputTokens,
+      outputTokens: intakeResult.usage.outputTokens,
+      cachedInputTokens: intakeResult.usage.cachedInputTokens,
+      costUsd: estimateLlmCost(intakeResult.model, intakeResult.usage),
+    });
+  }
+
+  const sttDuration = body.durationSeconds ?? 0;
+  const sttEstimate = estimateStreamingMeetingCost(sttDuration, "u3-rt-pro");
+  const llmTotalInput = llmCalls.reduce((a, c) => a + c.inputTokens, 0);
+  const llmTotalOutput = llmCalls.reduce((a, c) => a + c.outputTokens, 0);
+  const llmTotalCost = llmCalls.reduce((a, c) => a + c.costUsd, 0);
+  const costBreakdown: MeetingCostBreakdown = {
+    stt: {
+      mode: "streaming",
+      model: "u3-rt-pro",
+      durationSeconds: sttDuration,
+      ratePerHour: sttEstimate.ratePerHour,
+      baseCostUsd: sttEstimate.baseCostUsd,
+      addonCostUsd: sttEstimate.addonCostUsd,
+      totalCostUsd: sttEstimate.totalCostUsd,
+    },
+    llm: {
+      totalInputTokens: llmTotalInput,
+      totalOutputTokens: llmTotalOutput,
+      totalCostUsd: llmTotalCost,
+      calls: llmCalls,
+    },
+    totalCostUsd: sttEstimate.totalCostUsd + llmTotalCost,
+  };
 
   // Upsert: if the token endpoint's insert failed we still recover.
   const existing = await store.get(body.meetingId).catch(() => null);
@@ -100,7 +157,10 @@ export async function POST(request: Request): Promise<NextResponse> {
     durationSeconds: body.durationSeconds ?? null,
     summary,
     intakeForm,
+    costBreakdown,
   });
+
+  after(flushLangfuse);
 
   const response: TranscribeResultResponse = {
     id: body.meetingId,

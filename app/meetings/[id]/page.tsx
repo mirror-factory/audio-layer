@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import { TranscriptView } from "@/components/transcript-view";
 import { IntakeFormView } from "@/components/intake-form-view";
+import { MeetingCostPanel } from "@/components/meeting-cost-panel";
 import { MeetingDetailPoller } from "@/components/meeting-detail-poller";
 
 export const runtime = "nodejs";
@@ -87,6 +88,9 @@ export default async function MeetingDetailPage({ params }: Props) {
 
         {meeting.status === "completed" ? (
           <>
+            {meeting.costBreakdown ? (
+              <MeetingCostPanel breakdown={meeting.costBreakdown} />
+            ) : null}
             {meeting.intakeForm ? (
               <IntakeFormView intake={meeting.intakeForm} />
             ) : null}

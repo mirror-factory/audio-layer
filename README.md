@@ -130,6 +130,25 @@ GET /api/meetings/[id]  → Meeting
 - **Markdown** — `GET /api/meetings/[id]/export?format=md`. GitHub-flavored, action items as `- [ ]` checkboxes.
 - **PDF** — `GET /api/meetings/[id]/export?format=pdf`. Server-rendered with `@react-pdf/renderer`; same sections and ordering as the Markdown output. Lazy-loaded so the heavier PDF deps don't slow the Markdown path.
 
+## Cost + usage visibility
+
+Every completed meeting stores a `cost_breakdown` row containing:
+
+- STT: mode (batch/streaming), model, duration, rate/hour, base + add-on cost
+- LLM: one record per call (summary, intake) with model, input/output tokens, cached tokens, computed cost
+- Total USD for the meeting
+
+Two surfaces:
+
+- **`/meetings/[id]`** — per-meeting cost panel with 3 headline tiles (STT, LLM, Total) and a table of LLM calls.
+- **`/usage`** — lifetime + this-month totals: meetings, minutes, STT spend, LLM spend, free-tier remaining, subscription status. LLM numbers overlay from Langfuse when configured and it reports traces for the user; otherwise falls back to locally-computed cost.
+
+Pricing tables live in `lib/billing/llm-pricing.ts` and `lib/billing/assemblyai-pricing.ts` — review quarterly against published rates.
+
+### Langfuse serverless flush
+
+`lib/langfuse-setup.ts` exports `flushLangfuse()`. Every AI-calling route ends with `after(flushLangfuse)` — without this, Vercel's serverless cold-freeze drops buffered OTel spans and Langfuse shows zero tokens / zero cost even though traces arrive. This is the documented fix from [langfuse.com/docs/integrations/vercel-ai-sdk](https://langfuse.com/docs/integrations/vercel-ai-sdk).
+
 ## Intake-form extraction
 
 Every completed meeting (batch and streaming) now also runs through `extractIntakeForm()` — a second `generateObject` call against `IntakeFormSchema`: intent, primary participant, organization, contact info, budget, timeline, decision makers, requirements, pain points, next steps. Both calls run in parallel via `Promise.allSettled` so a failure in one doesn't block the other. The intake panel renders on `/meetings/[id]` only when at least one field has content; the prompt explicitly tells the LLM to leave fields blank rather than invent CRM data.

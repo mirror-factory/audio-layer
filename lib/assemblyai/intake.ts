@@ -84,6 +84,17 @@ interface ExtractOptions {
   modelId?: string;
 }
 
+export interface ExtractIntakeResult {
+  intake: IntakeForm;
+  model: string;
+  usage: {
+    inputTokens: number;
+    outputTokens: number;
+    cachedInputTokens?: number;
+  };
+  skipped: boolean;
+}
+
 export function emptyIntakeForm(): IntakeForm {
   return {
     intent: "unclear",
@@ -106,14 +117,22 @@ export function emptyIntakeForm(): IntakeForm {
  */
 export async function extractIntakeForm(
   opts: ExtractOptions,
-): Promise<IntakeForm> {
+): Promise<ExtractIntakeResult> {
   const { transcriptId, utterances, fullText, modelId } = opts;
+  const model = modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL;
   const body =
     utterances.length > 0
       ? formatTranscriptForPrompt(utterances)
       : (fullText ?? "");
 
-  if (!body.trim()) return emptyIntakeForm();
+  if (!body.trim()) {
+    return {
+      intake: emptyIntakeForm(),
+      model,
+      usage: { inputTokens: 0, outputTokens: 0 },
+      skipped: true,
+    };
+  }
 
   const prompt =
     "You are extracting structured intake data from a conversation transcript.\n" +
@@ -125,8 +144,8 @@ export async function extractIntakeForm(
     "Transcript:\n" +
     body;
 
-  const { object } = await generateObject({
-    model: modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL,
+  const { object, usage } = await generateObject({
+    model,
     schema: IntakeFormSchema,
     prompt,
     ...withTelemetry({
@@ -134,5 +153,14 @@ export async function extractIntakeForm(
       metadata: { transcriptId },
     }),
   });
-  return object;
+  return {
+    intake: object,
+    model,
+    usage: {
+      inputTokens: usage?.inputTokens ?? 0,
+      outputTokens: usage?.outputTokens ?? 0,
+      cachedInputTokens: usage?.cachedInputTokens,
+    },
+    skipped: false,
+  };
 }

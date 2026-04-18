@@ -32,8 +32,18 @@ create index if not exists meetings_created_at_idx
 create index if not exists meetings_user_id_idx
   on meetings (user_id);
 
--- Idempotent migration step for existing rows.
+-- Idempotent migration steps for existing rows.
 alter table meetings add column if not exists intake_form jsonb;
+alter table meetings add column if not exists cost_breakdown jsonb;
+-- `cost_breakdown` shape is owned by lib/billing/types.ts:
+--   {
+--     stt:  { mode, model, durationSeconds, ratePerHour, baseCostUsd,
+--             addonCostUsd, totalCostUsd },
+--     llm:  { totalInputTokens, totalOutputTokens, totalCostUsd,
+--             calls: [{ label, model, inputTokens, outputTokens,
+--                       costUsd }] },
+--     totalCostUsd: number   # stt.totalCostUsd + llm.totalCostUsd
+--   }
 
 -- Keep updated_at fresh on every write.
 create or replace function meetings_touch_updated_at()

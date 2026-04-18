@@ -99,6 +99,8 @@ describe("extractIntakeForm empty guard", () => {
       utterances: [],
       fullText: "   ",
     });
-    expect(out).toEqual(emptyIntakeForm());
+    expect(out.skipped).toBe(true);
+    expect(out.intake).toEqual(emptyIntakeForm());
+    expect(out.usage).toEqual({ inputTokens: 0, outputTokens: 0 });
   });
 });

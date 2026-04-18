@@ -4,6 +4,10 @@
  * Takes AssemblyAI utterances (speaker-segmented transcript) and produces a
  * structured MeetingSummary via generateObject through the Vercel AI Gateway.
  * Every call is traced through withTelemetry -> Langfuse + /observability.
+ *
+ * Returns the summary, the model id that was used, and the token usage so
+ * callers can compute and persist cost. Empty-input short-circuits into
+ * a zero-cost sentinel so we never bill for silence.
  */
 
 import { generateObject } from "ai";
@@ -31,14 +35,27 @@ export interface SummarizeOptions {
   modelId?: string;
 }
 
+export interface SummarizeResult {
+  summary: MeetingSummary;
+  model: string;
+  usage: {
+    inputTokens: number;
+    outputTokens: number;
+    cachedInputTokens?: number;
+  };
+  /** True when we short-circuited without calling the LLM. */
+  skipped: boolean;
+}
+
 /**
- * Produce a structured summary for a completed transcript.
- * Prefers speaker-segmented utterances; falls back to full text if absent.
+ * Produce a structured summary for a completed transcript. Prefers
+ * speaker-segmented utterances; falls back to full text if absent.
  */
 export async function summarizeMeeting(
   opts: SummarizeOptions,
-): Promise<MeetingSummary> {
+): Promise<SummarizeResult> {
   const { transcriptId, utterances, fullText, modelId } = opts;
+  const model = modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL;
 
   const body =
     utterances.length > 0
@@ -48,12 +65,17 @@ export async function summarizeMeeting(
   if (!body.trim()) {
     // Guard against empty input — the LLM would hallucinate without grounding.
     return {
-      title: "Silent recording",
-      summary: "No speech was detected in this recording.",
-      keyPoints: [],
-      actionItems: [],
-      decisions: [],
-      participants: [],
+      summary: {
+        title: "Silent recording",
+        summary: "No speech was detected in this recording.",
+        keyPoints: [],
+        actionItems: [],
+        decisions: [],
+        participants: [],
+      },
+      model,
+      usage: { inputTokens: 0, outputTokens: 0 },
+      skipped: true,
     };
   }
 
@@ -64,8 +86,8 @@ export async function summarizeMeeting(
     "Transcript:\n" +
     body;
 
-  const { object } = await generateObject({
-    model: modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL,
+  const { object, usage } = await generateObject({
+    model,
     schema: MeetingSummarySchema,
     prompt,
     ...withTelemetry({
@@ -74,5 +96,14 @@ export async function summarizeMeeting(
     }),
   });
 
-  return object;
+  return {
+    summary: object,
+    model,
+    usage: {
+      inputTokens: usage?.inputTokens ?? 0,
+      outputTokens: usage?.outputTokens ?? 0,
+      cachedInputTokens: usage?.cachedInputTokens,
+    },
+    skipped: false,
+  };
 }

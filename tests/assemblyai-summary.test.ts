@@ -40,10 +40,12 @@ describe("summarizeMeeting empty guard", () => {
       utterances: [],
       fullText: "   ",
     });
-    expect(out.summary).toMatch(/no speech/i);
-    expect(out.keyPoints).toEqual([]);
-    expect(out.actionItems).toEqual([]);
-    expect(out.decisions).toEqual([]);
-    expect(out.participants).toEqual([]);
+    expect(out.skipped).toBe(true);
+    expect(out.summary.summary).toMatch(/no speech/i);
+    expect(out.summary.keyPoints).toEqual([]);
+    expect(out.summary.actionItems).toEqual([]);
+    expect(out.summary.decisions).toEqual([]);
+    expect(out.summary.participants).toEqual([]);
+    expect(out.usage).toEqual({ inputTokens: 0, outputTokens: 0 });
   });
 });

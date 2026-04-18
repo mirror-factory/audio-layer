@@ -12,6 +12,7 @@ import type {
 } from "@/lib/assemblyai/types";
 import type { MeetingSummary } from "@/lib/assemblyai/schema";
 import type { IntakeForm } from "@/lib/assemblyai/intake";
+import type { MeetingCostBreakdown } from "@/lib/billing/types";
 
 export interface Meeting {
   id: string;
@@ -22,6 +23,7 @@ export interface Meeting {
   durationSeconds: number | null;
   summary: MeetingSummary | null;
   intakeForm: IntakeForm | null;
+  costBreakdown: MeetingCostBreakdown | null;
   error: string | null;
   createdAt: string;
   updatedAt: string;
@@ -49,5 +51,6 @@ export interface MeetingUpdate {
   durationSeconds?: number | null;
   summary?: MeetingSummary | null;
   intakeForm?: IntakeForm | null;
+  costBreakdown?: MeetingCostBreakdown | null;
   error?: string | null;
 }
