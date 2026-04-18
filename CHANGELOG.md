@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.35] — 2026-04-18
+
+### Added
+- feat: Resend email integration + Google OAuth button + verified AssemblyAI models (`e26e545`)
+
+
 ## [0.1.34] — 2026-04-18
 
 ### Fixed
