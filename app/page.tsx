@@ -126,6 +126,12 @@ export default function Home() {
                 Profile
               </Link>
               <Link
+                href="/settings"
+                className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
+              >
+                Settings
+              </Link>
+              <Link
                 href="/observability"
                 className="rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition hover:border-neutral-500 hover:bg-neutral-900"
               >

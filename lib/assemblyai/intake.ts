@@ -14,6 +14,7 @@
 import { z } from "zod";
 import { generateObject } from "ai";
 import { withTelemetry } from "@/lib/ai/telemetry";
+import { getSettings } from "@/lib/settings";
 import type { UtteranceLike } from "./summary";
 import { formatTranscriptForPrompt } from "./summary";
 
@@ -75,8 +76,6 @@ export const IntakeFormSchema = z.object({
 
 export type IntakeForm = z.infer<typeof IntakeFormSchema>;
 
-const DEFAULT_MODEL = "anthropic/claude-sonnet-4-6";
-
 interface ExtractOptions {
   transcriptId: string;
   utterances: UtteranceLike[];
@@ -119,20 +118,25 @@ export async function extractIntakeForm(
   opts: ExtractOptions,
 ): Promise<ExtractIntakeResult> {
   const { transcriptId, utterances, fullText, modelId } = opts;
-  const model = modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL;
   const body =
     utterances.length > 0
       ? formatTranscriptForPrompt(utterances)
       : (fullText ?? "");
 
   if (!body.trim()) {
+    // Same pattern as summarizeMeeting — skip the settings lookup on
+    // the empty-input fast path so unit tests don't need a request
+    // scope.
     return {
       intake: emptyIntakeForm(),
-      model,
+      model: modelId ?? "unknown",
       usage: { inputTokens: 0, outputTokens: 0 },
       skipped: true,
     };
   }
+
+  const settings = await getSettings();
+  const model = modelId ?? settings.summaryModel;
 
   const prompt =
     "You are extracting structured intake data from a conversation transcript.\n" +

@@ -47,5 +47,6 @@ describe("summarizeMeeting empty guard", () => {
     expect(out.summary.decisions).toEqual([]);
     expect(out.summary.participants).toEqual([]);
     expect(out.usage).toEqual({ inputTokens: 0, outputTokens: 0 });
+    expect(out.model).toBe("unknown");
   });
 });

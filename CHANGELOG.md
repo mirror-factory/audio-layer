@@ -7,10 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.1.18] — 2026-04-18
+## [0.1.19] — 2026-04-17
 
 ### Added
-- feat: cost + usage tracking (STT + LLM + Langfuse overlay) + flush fix (`88ad6ac`)
+- feat: add settings page for picking AssemblyAI and summarization models (`ff6c20b`)
+
+
+## [0.1.18] — 2026-04-17
+
+### Fixed
+- fix: migrate AssemblyAI from deprecated speech_model to speech_models array (`38c3a35`)
 
 
 ## [0.1.17] — 2026-04-17

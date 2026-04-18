@@ -16,7 +16,7 @@
  */
 
 import { NextResponse } from "next/server";
-import { getAssemblyAI, getBatchModel } from "@/lib/assemblyai/client";
+import { getAssemblyAI, getBatchSpeechModelsFromSettings } from "@/lib/assemblyai/client";
 import type { TranscribeStartResponse } from "@/lib/assemblyai/types";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import { checkQuota } from "@/lib/billing/quota";
@@ -95,7 +95,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   try {
     transcript = await client.transcripts.submit({
       audio_url: uploadUrl,
-      speech_model: getBatchModel(),
+      speech_models: await getBatchSpeechModelsFromSettings(),
       speaker_labels: true,
       entity_detection: true,
       punctuate: true,

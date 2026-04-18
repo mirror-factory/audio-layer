@@ -13,8 +13,7 @@
 import { generateObject } from "ai";
 import { withTelemetry } from "@/lib/ai/telemetry";
 import { MeetingSummarySchema, type MeetingSummary } from "./schema";
-
-const DEFAULT_MODEL = "anthropic/claude-sonnet-4-6";
+import { getSettings } from "@/lib/settings";
 
 export interface UtteranceLike {
   speaker: string | null;
@@ -55,7 +54,6 @@ export async function summarizeMeeting(
   opts: SummarizeOptions,
 ): Promise<SummarizeResult> {
   const { transcriptId, utterances, fullText, modelId } = opts;
-  const model = modelId ?? process.env.DEFAULT_MODEL ?? DEFAULT_MODEL;
 
   const body =
     utterances.length > 0
@@ -63,7 +61,9 @@ export async function summarizeMeeting(
       : (fullText ?? "");
 
   if (!body.trim()) {
-    // Guard against empty input — the LLM would hallucinate without grounding.
+    // Guard against empty input — the LLM would hallucinate without
+    // grounding. Skip settings lookup (which needs a request scope)
+    // and return the sentinel with a best-effort model label.
     return {
       summary: {
         title: "Silent recording",
@@ -73,11 +73,14 @@ export async function summarizeMeeting(
         decisions: [],
         participants: [],
       },
-      model,
+      model: modelId ?? "unknown",
       usage: { inputTokens: 0, outputTokens: 0 },
       skipped: true,
     };
   }
+
+  const settings = await getSettings();
+  const model = modelId ?? settings.summaryModel;
 
   const prompt =
     "You are producing a structured summary of a meeting transcript.\n" +

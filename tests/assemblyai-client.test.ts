@@ -9,7 +9,7 @@ import { describe, it, expect, afterEach, beforeEach } from "vitest";
 import {
   getAssemblyAI,
   __resetAssemblyAIClient,
-  getBatchModel,
+  getBatchSpeechModels,
 } from "@/lib/assemblyai/client";
 
 describe("getAssemblyAI", () => {
@@ -38,13 +38,18 @@ describe("getAssemblyAI", () => {
     expect(a).toBe(b);
   });
 
-  it("defaults getBatchModel to 'best' when env unset", () => {
+  it("defaults getBatchSpeechModels to ['universal-3-pro'] when env unset", () => {
     delete process.env.ASSEMBLYAI_BATCH_MODEL;
-    expect(getBatchModel()).toBe("best");
+    expect(getBatchSpeechModels()).toEqual(["universal-3-pro"]);
   });
 
-  it("honors ASSEMBLYAI_BATCH_MODEL override", () => {
+  it("maps 'best' to ['universal-3-pro']", () => {
+    process.env.ASSEMBLYAI_BATCH_MODEL = "best";
+    expect(getBatchSpeechModels()).toEqual(["universal-3-pro"]);
+  });
+
+  it("honors ASSEMBLYAI_BATCH_MODEL override as array", () => {
     process.env.ASSEMBLYAI_BATCH_MODEL = "nano";
-    expect(getBatchModel()).toBe("nano");
+    expect(getBatchSpeechModels()).toEqual(["nano"]);
   });
 });

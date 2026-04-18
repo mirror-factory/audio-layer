@@ -13,9 +13,12 @@
 export type AssemblyAiMode = "batch" | "streaming";
 export type AssemblyAiModel =
   | "best"              // Universal-3 Pro pre-recorded / default batch
+  | "universal-3-pro"   // explicit name for Universal-3 Pro batch
   | "u3-rt-pro"         // Universal-3 Pro streaming
+  | "u3-rt"             // Universal-3 RT standard
   | "nano"              // Universal-2 (lower tier)
   | "universal"         // Universal-2 legacy
+  | "universal-2"       // explicit alias used by the /settings page
   | "slam-1";           // domain-specific
 
 /** USD per hour of audio. */
@@ -25,12 +28,18 @@ const BASE_RATES_PER_HOUR: Record<
 > = {
   "best:batch": 0.21,
   "best:streaming": 0.45, // treat streaming-of-best as u3-rt-pro price
+  "universal-3-pro:batch": 0.21,
+  "universal-3-pro:streaming": 0.45,
   "u3-rt-pro:batch": 0.21,
   "u3-rt-pro:streaming": 0.45,
+  "u3-rt:batch": 0.15,
+  "u3-rt:streaming": 0.26,
   "nano:batch": 0.15,
   "nano:streaming": 0.15,
   "universal:batch": 0.15,
   "universal:streaming": 0.15,
+  "universal-2:batch": 0.15,
+  "universal-2:streaming": 0.15,
   "slam-1:batch": 0.21,
   "slam-1:streaming": 0.45,
 };
