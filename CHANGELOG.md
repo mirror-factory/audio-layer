@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.15] — 2026-04-18
+
+### Fixed
+- fix: null-safe formatters in observability dashboard (`6a93cdf`)
+
+
 ## [0.0.14] — 2026-04-18
 
 ### Added
