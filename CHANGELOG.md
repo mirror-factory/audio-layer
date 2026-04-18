@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.26] — 2026-04-18
+
+### Documentation
+- docs: comprehensive V1 roadmap — platform fixes, auth, features, competitive analysis (`917067e`)
+
+
 ## [0.1.25] — 2026-04-18
 
 ### Added
