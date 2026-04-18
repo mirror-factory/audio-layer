@@ -1,0 +1,13 @@
+{
+  "vendor": "stripe",
+  "label": "Stripe",
+  "docs_root": "https://stripe.com/docs",
+  "console_url": "https://dashboard.stripe.com",
+  "validated_on": "2026-04-18",
+  "validated_against_sdk": "stripe@^22.0.2",
+  "required_env": ["STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET", "STRIPE_PRICE_CORE", "STRIPE_PRICE_PRO"],
+  "provenance": [
+    { "url": "https://stripe.com/docs/api", "what": "API reference" },
+    { "url": "https://stripe.com/docs/webhooks", "what": "webhook setup" }
+  ]
+}

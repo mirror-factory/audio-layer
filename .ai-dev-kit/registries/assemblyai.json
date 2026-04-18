@@ -1,0 +1,42 @@
+{
+  "vendor": "assemblyai",
+  "label": "AssemblyAI",
+  "docs_root": "https://www.assemblyai.com/docs",
+  "console_url": "https://www.assemblyai.com/app/account",
+  "validated_on": "2026-04-18",
+  "validated_against_sdk": "assemblyai@^4.15.0",
+  "required_env": ["ASSEMBLYAI_API_KEY"],
+  "id_patterns": ["universal-[\\w-]+", "u3-[\\w-]+", "slam-\\d+", "nano", "whisper-rt"],
+  "deprecations": [
+    {
+      "pattern": "speech_model:",
+      "deprecated_on": "2026-03-01",
+      "replacement": "speech_models: (plural, array of strings)",
+      "notes": "API rejects singular speech_model field. Use speech_models array."
+    },
+    {
+      "pattern": "\"best\"",
+      "deprecated_on": "2026-02-01",
+      "replacement": "\"universal-3-pro\"",
+      "notes": "Legacy alias. Use explicit model name."
+    }
+  ],
+  "batch_models": [
+    { "id": "universal-3-pro", "label": "Universal-3 Pro", "use_for": "Best accuracy pre-recorded", "price_per_hour_usd": 0.21, "deprecated": false },
+    { "id": "slam-1", "label": "Slam-1", "use_for": "Advanced batch processing", "price_per_hour_usd": 0.27, "deprecated": false },
+    { "id": "universal-2", "label": "Universal-2", "use_for": "99 language support", "price_per_hour_usd": 0.15, "deprecated": false },
+    { "id": "nano", "label": "Nano", "use_for": "Fastest, cheapest", "price_per_hour_usd": 0.12, "deprecated": false }
+  ],
+  "streaming_models": [
+    { "id": "u3-rt-pro", "label": "Universal-3 Pro RT", "use_for": "Best quality real-time", "price_per_hour_usd": 0.45, "deprecated": false },
+    { "id": "u3-pro", "label": "Universal-3 Pro", "use_for": "Standard real-time", "price_per_hour_usd": 0.45, "deprecated": false },
+    { "id": "universal-streaming-multilingual", "label": "Universal Streaming (multilingual)", "use_for": "Multi-language streaming", "price_per_hour_usd": 0.15, "deprecated": false },
+    { "id": "universal-streaming-english", "label": "Universal Streaming (English)", "use_for": "English-only streaming", "price_per_hour_usd": 0.15, "deprecated": false },
+    { "id": "whisper-rt", "label": "Whisper RT", "use_for": "Whisper-based streaming", "price_per_hour_usd": 0.15, "deprecated": false }
+  ],
+  "provenance": [
+    { "url": "https://www.assemblyai.com/pricing", "what": "current pricing" },
+    { "url": "https://www.assemblyai.com/docs/pre-recorded-audio/select-the-speech-model", "what": "valid speech_models values" },
+    { "url": "https://www.assemblyai.com/benchmarks", "what": "accuracy benchmarks" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "vendor": "resend",
+  "label": "Resend",
+  "docs_root": "https://resend.com/docs",
+  "console_url": "https://resend.com/overview",
+  "validated_on": "2026-04-18",
+  "validated_against_sdk": "resend@latest",
+  "required_env": ["RESEND_API_KEY"],
+  "provenance": [
+    { "url": "https://resend.com/docs/send-with-supabase-smtp", "what": "Supabase SMTP integration" },
+    { "url": "https://resend.com/docs/api-reference/emails/send-email", "what": "send email API" }
+  ]
+}

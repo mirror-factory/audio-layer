@@ -1,0 +1,13 @@
+{
+  "vendor": "langfuse",
+  "label": "Langfuse",
+  "docs_root": "https://langfuse.com/docs",
+  "console_url": "https://cloud.langfuse.com",
+  "validated_on": "2026-04-18",
+  "validated_against_sdk": "@langfuse/otel@^4.6.1",
+  "required_env": ["LANGFUSE_PUBLIC_KEY", "LANGFUSE_SECRET_KEY", "LANGFUSE_BASE_URL"],
+  "provenance": [
+    { "url": "https://langfuse.com/docs/integrations/vercel-ai-sdk", "what": "Vercel AI SDK integration" },
+    { "url": "https://langfuse.com/docs/tracing", "what": "tracing setup" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "vendor": "supabase",
+  "label": "Supabase",
+  "docs_root": "https://supabase.com/docs",
+  "console_url": "https://supabase.com/dashboard",
+  "validated_on": "2026-04-18",
+  "validated_against_sdk": "@supabase/supabase-js@^2.47.0",
+  "required_env": ["SUPABASE_URL", "SUPABASE_ANON_KEY", "SUPABASE_SERVICE_ROLE_KEY", "NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_ANON_KEY"],
+  "provenance": [
+    { "url": "https://supabase.com/docs/guides/auth", "what": "auth setup" },
+    { "url": "https://supabase.com/docs/guides/database", "what": "database and RLS" }
+  ]
+}
