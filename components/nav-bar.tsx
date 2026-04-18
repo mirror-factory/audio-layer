@@ -109,7 +109,13 @@ export function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-neutral-800 bg-neutral-900 pb-[env(safe-area-inset-bottom)]">
+    <nav
+      className="fixed bottom-0 left-0 right-0 z-50 pb-[env(safe-area-inset-bottom)]"
+      style={{
+        borderTop: "1px solid var(--border)",
+        backgroundColor: "var(--bg-secondary)",
+      }}
+    >
       <div className="mx-auto flex max-w-lg items-center justify-around">
         {TABS.map((tab) => {
           const isActive =
@@ -121,11 +127,11 @@ export function NavBar() {
             <Link
               key={tab.href}
               href={tab.href}
-              className={`flex min-h-[44px] min-w-[44px] flex-col items-center justify-center gap-0.5 px-3 py-2 text-[10px] transition-colors ${
-                isActive
-                  ? "text-emerald-400"
-                  : "text-neutral-500 hover:text-neutral-300"
-              }`}
+              className="flex min-h-[44px] min-w-[44px] flex-col items-center justify-center gap-0.5 px-3 py-2 text-[10px]"
+              style={{
+                color: isActive ? "var(--accent)" : "var(--text-muted)",
+                transition: `color var(--duration-fast) var(--ease-out)`,
+              }}
             >
               {tab.icon}
               <span>{tab.label}</span>
