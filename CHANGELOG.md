@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.18] — 2026-04-18
+
+### Added
+- feat: cost + usage tracking (STT + LLM + Langfuse overlay) + flush fix (`88ad6ac`)
+
+
 ## [0.1.17] — 2026-04-17
 
 ### Documentation
