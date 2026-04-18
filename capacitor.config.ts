@@ -24,10 +24,10 @@ const config: CapacitorConfig = {
     // For physical device on local network: CAPACITOR_SERVER_URL=http://192.168.x.x:3000
     url:
       process.env.CAPACITOR_SERVER_URL ??
-      "https://layer-1-audio.vercel.app",
+      "https://audio-layer.vercel.app",
     cleartext: !!process.env.CAPACITOR_SERVER_URL,
     androidScheme: "https",
-    allowNavigation: ["api.assemblyai.com", "layer-1-audio.vercel.app"],
+    allowNavigation: ["api.assemblyai.com", "audio-layer.vercel.app"],
   },
   ios: {
     contentInset: "always",
