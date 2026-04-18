@@ -131,7 +131,17 @@ export default function AIObservabilityPage() {
         fetch(`/api/ai-logs/errors?${params}`),
       ]);
       if (logsR.ok) setLogs(await logsR.json());
-      if (statsR.ok) setStats(await statsR.json());
+      if (statsR.ok) {
+        const raw = await statsR.json();
+        // Normalize: fill missing fields the template expects
+        setStats({
+          totalCalls: 0, totalCost: 0, totalTokens: 0, avgTTFT: 0,
+          p95TTFT: 0, errorRate: 0, abortRate: 0, totalErrors: 0,
+          modelBreakdown: {}, costByDay: {}, callsByDay: {}, errorsByDay: {},
+          toolFrequency: {}, sessions: [], backend: 'memory',
+          ...raw,
+        });
+      }
       if (errorsR.ok) setErrors(await errorsR.json());
     } catch { /* best-effort */ } finally { setLoading(false); }
   }, [filters]);
