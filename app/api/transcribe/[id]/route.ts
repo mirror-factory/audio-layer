@@ -18,6 +18,7 @@ import { summarizeMeeting } from "@/lib/assemblyai/summary";
 import { extractIntakeForm } from "@/lib/assemblyai/intake";
 import { estimateLlmCost } from "@/lib/billing/llm-pricing";
 import { estimateBatchMeetingCost } from "@/lib/billing/assemblyai-pricing";
+import { logAICall } from "@/lib/ai/telemetry";
 import { flushLangfuse } from "@/lib/langfuse-setup";
 import type {
   LlmCallRecord,
@@ -133,6 +134,15 @@ export async function GET(
           cachedInputTokens: summaryResult.value.usage.cachedInputTokens,
           costUsd: cost,
         });
+        logAICall({
+          context: { label: "meeting-summary", userId: "system", sessionId: id, chatId: id },
+          modelId: summaryResult.value.model,
+          durationMs: 0,
+          inputTokens: summaryResult.value.usage.inputTokens,
+          outputTokens: summaryResult.value.usage.outputTokens,
+          finishReason: "stop",
+          error: null,
+        });
       }
     } else if (summaryResult.status === "rejected") {
       console.error("Summary generation failed", summaryResult.reason);
@@ -151,6 +161,15 @@ export async function GET(
           outputTokens: intakeResult.value.usage.outputTokens,
           cachedInputTokens: intakeResult.value.usage.cachedInputTokens,
           costUsd: cost,
+        });
+        logAICall({
+          context: { label: "intake-form", userId: "system", sessionId: id, chatId: id },
+          modelId: intakeResult.value.model,
+          durationMs: 0,
+          inputTokens: intakeResult.value.usage.inputTokens,
+          outputTokens: intakeResult.value.usage.outputTokens,
+          finishReason: "stop",
+          error: null,
         });
       }
     } else if (intakeResult.status === "rejected") {
