@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.28] — 2026-04-18
+
+### Fixed
+- fix: transparent Tauri titlebar + iOS status bar dark mode (`49e423b`)
+
+
 ## [0.1.27] — 2026-04-18
 
 ### Added
