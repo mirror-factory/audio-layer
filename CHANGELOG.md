@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.34] — 2026-04-18
+
+### Fixed
+- fix: streaming model validation — u3-rt is not a valid AssemblyAI model (`389eff0`)
+
+
 ## [0.1.33] — 2026-04-18
 
 ### Added
