@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.24] — 2026-04-18
+
+### Added
+- feat: fix Tauri compile errors, add iOS safe areas and bottom nav bar (`c02497d`)
+
+
 ## [0.1.23] — 2026-04-18
 
 ### Documentation
