@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.31] — 2026-04-18
+
+### Fixed
+- fix: defensive handling for chat route — validate messages before convertToModelMessages (`823f748`)
+
+
 ## [0.1.30] — 2026-04-18
 
 ### Fixed
