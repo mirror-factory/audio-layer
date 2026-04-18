@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.16] — 2026-04-18
+
+### Fixed
+- fix: normalize stats with defaults for all expected fields (`8be1d12`)
+
+
 ## [0.0.15] — 2026-04-18
 
 ### Fixed
