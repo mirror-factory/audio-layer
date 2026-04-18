@@ -1,3 +1,185 @@
-echo "Running pre-push validation..."
-pnpm typecheck && pnpm test
-pnpm compliance 2>/dev/null || echo "Compliance check not configured yet"
+#!/bin/sh
+# AI Dev Kit - Pre-push hook
+# Runs full test and eval suites before pushing.
+
+set -e
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+pass() {
+  printf "${GREEN}[PASS]${NC} %s\n" "$1"
+}
+
+fail() {
+  printf "${RED}[FAIL]${NC} %s\n" "$1"
+}
+
+info() {
+  printf "${CYAN}[INFO]${NC} %s\n" "$1"
+}
+
+warn() {
+  printf "${YELLOW}[WARN]${NC} %s\n" "$1"
+}
+
+# ---------------------------------------------------------------------------
+# 1. Full test suite
+# ---------------------------------------------------------------------------
+info "Running full test suite..."
+if npx vitest run; then
+  pass "Full test suite passed"
+else
+  fail "Full test suite failed"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+# 1b. Compliance check -- fail-closed. This runs the starter kit's pattern
+# enforcement: telemetry on AI calls, schema drift, tool-description quality,
+# required-test coverage. Warnings are allowed; errors block the push.
+# ---------------------------------------------------------------------------
+if [ -f "scripts/check-compliance.ts" ]; then
+  info "Running compliance check..."
+  if npx tsx scripts/check-compliance.ts; then
+    pass "Compliance check passed"
+  else
+    fail "Compliance check failed -- see output above"
+    exit 1
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 1c. Doctor -- catches config drift (missing hooks, broken settings.json,
+# stale research cache, SDK-vs-CLI mismatch). Fail-closed in strict mode.
+# ---------------------------------------------------------------------------
+if [ -f "node_modules/@mirror-factory/ai-dev-kit/bin/cli.ts" ] || command -v ai-dev-kit >/dev/null 2>&1; then
+  info "Running doctor..."
+  if npx ai-dev-kit doctor --strict; then
+    pass "Doctor clean"
+  else
+    fail "Doctor found issues -- run 'npx ai-dev-kit doctor' for details"
+    exit 1
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 2. Promptfoo evals (if configured)
+# ---------------------------------------------------------------------------
+if [ -f "promptfooconfig.yaml" ] || [ -f "promptfooconfig.yml" ]; then
+  echo ""
+  echo "[pre-push] Running Promptfoo evaluations..."
+  npx promptfoo eval --output .test-results/eval-results.json 2>&1
+  PF_EXIT=$?
+  if [ $PF_EXIT -ne 0 ]; then
+    echo "  [warn] Promptfoo eval had failures (review before deploying)"
+  else
+    echo "  [pass] Promptfoo evaluations passed"
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 3. Full eval suite -- fail-closed per the kit's "force everything" posture
+# ---------------------------------------------------------------------------
+# The earlier warn-only behavior meant flaky/expensive eval failures were
+# ignored. "Force everything" says the user would rather a push fail than
+# ship an eval regression. To intentionally skip evals on a push, set
+# EVAL_SKIP=1; flakiness-hunting code uses it, not a silent warning.
+if [ "${EVAL_SKIP:-}" = "1" ]; then
+  warn "EVAL_SKIP=1 set -- skipping eval suite"
+else
+  info "Running eval suite..."
+  if npx vitest --config vitest.eval.config.ts run; then
+    pass "Eval suite passed"
+  else
+    fail "Eval suite failed. Set EVAL_SKIP=1 to bypass intentionally (flakiness triage only)."
+    exit 1
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 3. Doc drift check - compare AGENTS.md hash with registry hash
+# ---------------------------------------------------------------------------
+info "Checking AGENTS.md for doc drift..."
+if [ -f "AGENTS.md" ] && [ -f ".registry/agents-md-hash" ]; then
+  CURRENT_HASH=$(sha256sum AGENTS.md | awk '{print $1}')
+  REGISTRY_HASH=$(cat .registry/agents-md-hash 2>/dev/null || echo "")
+  if [ "$CURRENT_HASH" != "$REGISTRY_HASH" ]; then
+    warn "AGENTS.md has changed since last registry sync"
+    warn "Run 'npx ai-dev-kit docs sync' to update the registry"
+  else
+    pass "AGENTS.md is in sync with registry"
+  fi
+else
+  warn "AGENTS.md or registry hash not found -- skipping doc drift check"
+fi
+
+# ---------------------------------------------------------------------------
+# 4. Connector tests (if module active)
+# ---------------------------------------------------------------------------
+info "Running connector tests..."
+npx vitest run --project connectors 2>/dev/null || true
+pass "Connector tests completed (or module not active)"
+
+# ---------------------------------------------------------------------------
+# 5. Playwright E2E tests (if configured)
+# ---------------------------------------------------------------------------
+if [ -f "playwright.config.ts" ] || [ -f "playwright.config.js" ]; then
+  echo ""
+  echo "[pre-push] Running Playwright E2E tests..."
+  npx playwright test --reporter=list 2>&1
+  PW_EXIT=$?
+  if [ $PW_EXIT -ne 0 ]; then
+    echo "  [warn] Playwright tests failed (review before deploying)"
+  else
+    echo "  [pass] Playwright tests passed"
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 6. Expect AI browser tests (if configured)
+# ---------------------------------------------------------------------------
+if [ -f "expect.config.ts" ] || [ -f "expect.config.js" ] || grep -q '"@anthropic-ai/expect"' package.json 2>/dev/null; then
+  echo ""
+  echo "[pre-push] Running Expect AI browser tests..."
+  npx expect test 2>&1
+  EXPECT_EXIT=$?
+  if [ $EXPECT_EXIT -ne 0 ]; then
+    echo "  [warn] Expect tests failed (review before deploying)"
+  else
+    echo "  [pass] Expect tests passed"
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 7. Storybook visual tests (if configured)
+# ---------------------------------------------------------------------------
+if [ -d ".storybook" ]; then
+  echo ""
+  echo "[pre-push] Running Storybook tests..."
+  npx test-storybook 2>/dev/null
+  SB_EXIT=$?
+  if [ $SB_EXIT -ne 0 ]; then
+    echo "  [warn] Storybook tests had issues"
+  else
+    echo "  [pass] Storybook tests passed"
+  fi
+fi
+
+# ── Accessibility tests (vitest-axe) ────────────────────────────────
+if grep -q "vitest-axe\|@axe-core" package.json 2>/dev/null; then
+  echo ""
+  echo "[pre-push] Running accessibility tests..."
+  npx vitest run --grep "accessibility\|a11y\|axe" 2>&1
+  A11Y_EXIT=$?
+  if [ $A11Y_EXIT -ne 0 ]; then
+    echo "  [warn] Accessibility tests failed"
+  else
+    echo "  [pass] Accessibility tests passed"
+  fi
+fi
+
+pass "All pre-push checks completed"

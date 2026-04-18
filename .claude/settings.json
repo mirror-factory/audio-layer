@@ -37,12 +37,32 @@
             "command": "python3 .claude/hooks/verify-claims.py"
           }
         ]
+      },
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/record-docs-lookup.py"
+          }
+        ]
       }
     ],
     "Stop": [
       {
         "type": "command",
         "command": "python3 .claude/hooks/verify-before-stop.py"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/context7-suggest.py"
+          }
+        ]
       }
     ]
   }

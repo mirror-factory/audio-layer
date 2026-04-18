@@ -1,1 +1,175 @@
-pnpm typecheck && pnpm test
+#!/bin/sh
+# AI Dev Kit - Pre-commit hook
+# Runs quality gates sequentially, stops on first failure.
+
+set -e
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+pass() {
+  printf "${GREEN}[PASS]${NC} %s\n" "$1"
+}
+
+fail() {
+  printf "${RED}[FAIL]${NC} %s\n" "$1"
+}
+
+info() {
+  printf "${CYAN}[INFO]${NC} %s\n" "$1"
+}
+
+warn() {
+  printf "${YELLOW}[WARN]${NC} %s\n" "$1"
+}
+
+# ---------------------------------------------------------------------------
+# 1. Type checking
+# ---------------------------------------------------------------------------
+info "Running type check..."
+if npx tsc --noEmit; then
+  pass "Type check passed"
+else
+  fail "Type check failed"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+# 2. Tests for changed files only
+# ---------------------------------------------------------------------------
+info "Running tests for changed files..."
+if npx vitest related --run; then
+  pass "Related tests passed"
+else
+  fail "Related tests failed"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+# 3. Lint with auto-fix
+# ---------------------------------------------------------------------------
+info "Running ESLint with auto-fix..."
+if npx eslint --fix .; then
+  pass "Lint passed"
+else
+  fail "Lint failed"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+# 4. Format
+# ---------------------------------------------------------------------------
+info "Running Prettier formatting..."
+if npx prettier --write --list-different .; then
+  pass "Formatting passed"
+else
+  fail "Formatting failed"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+# 5. Tool validation (non-blocking on first install)
+# ---------------------------------------------------------------------------
+info "Validating tool registry..."
+if npx tsx node_modules/.bin/ai-dev-kit tool validate 2>/dev/null; then
+  pass "Tool validation passed"
+else
+  warn "Tool validation skipped (non-blocking)"
+fi
+
+# ---------------------------------------------------------------------------
+# 6. Schema drift check (non-blocking)
+# ---------------------------------------------------------------------------
+info "Checking for schema drift..."
+if npx tsx scripts/check-schema-drift.ts 2>/dev/null; then
+  pass "No schema drift detected"
+else
+  warn "Schema drift check skipped or detected drift (non-blocking)"
+fi
+
+# ---------------------------------------------------------------------------
+# 6a. Vendor registry string check -- block hardcoded model IDs
+# ---------------------------------------------------------------------------
+# The AssemblyAI incident (`speech_model` -> `speech_models`) shipped
+# because a string literal bypassed any validation. This check scans
+# source for vendor-model-looking strings and fails if any don't appear
+# in the .ai-dev-kit/registries/* entries. Agents must route through
+# validModels() or add the model to the registry first (with provenance).
+if [ -f "scripts/check-registry-strings.ts" ]; then
+  info "Checking vendor model strings against registries..."
+  if npx tsx scripts/check-registry-strings.ts; then
+    pass "All vendor model IDs are registered"
+  else
+    fail "Unknown vendor model IDs detected -- see output above"
+    exit 1
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 6b. Deprecated-API guard (regex-based, fast)
+# ---------------------------------------------------------------------------
+# Catches vendor API fields we know are deprecated (e.g. AssemblyAI's
+# `speech_model:` rename to `speech_models:`). Fail-closed: if the script
+# matches a deprecated pattern, the commit is blocked with a link to the
+# migration docs. The list is hand-maintained in scripts/check-deprecations.ts.
+if [ -f "scripts/check-deprecations.ts" ]; then
+  info "Checking for deprecated vendor API patterns..."
+  if npx tsx scripts/check-deprecations.ts; then
+    pass "No deprecated patterns found"
+  else
+    fail "Deprecated vendor API pattern detected -- see output above"
+    exit 1
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 7. Prompt change detection
+# ---------------------------------------------------------------------------
+CHANGED_PROMPTS=$(git diff --cached --name-only | grep -E '(prompts/|\.prompt\.)' || true)
+if [ -n "$CHANGED_PROMPTS" ]; then
+  warn "Prompt files have been modified:"
+  echo "$CHANGED_PROMPTS" | while read -r file; do
+    printf "  - %s\n" "$file"
+  done
+  warn "Consider running evals to verify prompt quality: npx vitest --config vitest.eval.config.ts run"
+fi
+
+# ---------------------------------------------------------------------------
+# 8. React Scan (if configured)
+# ---------------------------------------------------------------------------
+if command -v react-scan &> /dev/null || [ -f node_modules/.bin/react-scan ]; then
+  echo "[pre-commit] Step 8: Checking for React Scan config..."
+  if grep -q "react-scan" package.json 2>/dev/null; then
+    echo "  [info] React Scan is configured. Run 'npx react-scan@latest localhost:3000' to check for re-renders."
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# 9. Storybook (if configured)
+# ---------------------------------------------------------------------------
+if [ -d ".storybook" ] || grep -q '"storybook"' package.json 2>/dev/null; then
+  echo "[pre-commit] Step 9: Building Storybook..."
+  npx storybook build --test 2>/dev/null
+  STORYBOOK_EXIT=$?
+  if [ $STORYBOOK_EXIT -ne 0 ]; then
+    echo "  [warn] Storybook build failed (non-blocking)"
+  else
+    echo "  [pass] Storybook build passed"
+  fi
+fi
+
+# ── Step 10: React Scan reminder on UI changes ─────────────────────
+UI_CHANGED=$(git diff --cached --name-only | grep -E '\.(tsx|jsx)$' | head -1)
+if [ -n "$UI_CHANGED" ]; then
+  echo "[pre-commit] Step 10: UI files changed -- React Scan recommended"
+  echo "  [info] Run: npx react-scan@latest http://localhost:3000"
+  echo "  [info] Changed UI files:"
+  git diff --cached --name-only | grep -E '\.(tsx|jsx)$' | head -5 | while read f; do
+    echo "    $f"
+  done
+fi
+
+pass "All pre-commit checks passed"

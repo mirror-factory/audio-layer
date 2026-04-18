@@ -1,1 +1,22 @@
+#!/bin/sh
+# AI Dev Kit - Post-commit hook (informational, never blocks)
+# All commands are non-blocking -- failures are silently ignored.
+
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+info() {
+  printf "${CYAN}[INFO]${NC} %s\n" "$1"
+}
+
+# ---------------------------------------------------------------------------
+# 1. Auto-version bump
+# ---------------------------------------------------------------------------
+info "Running auto-version bump..."
 node scripts/auto-version.mjs 2>/dev/null || true
+
+# ---------------------------------------------------------------------------
+# 2. CHANGELOG update
+# ---------------------------------------------------------------------------
+info "Updating CHANGELOG..."
+node scripts/update-changelog.mjs 2>/dev/null || true

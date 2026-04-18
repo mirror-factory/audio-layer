@@ -1,0 +1,8 @@
+{
+  "adoptedAt": "2026-04-18T22:33:02.939Z",
+  "mode": "adopt",
+  "modules": [
+    "core"
+  ],
+  "note": "Installed by `ai-dev-kit adopt` -- enforcement layer only. Run `ai-dev-kit init` for greenfield scaffolding."
+}

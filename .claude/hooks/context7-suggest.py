@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""
+PreToolUse Write|Edit hook -- FORCE a Context7 / docs lookup before editing
+files that touch flagged vendor libraries.
+
+This hook used to be advisory (warned to stderr, never blocked). The
+AssemblyAI `speech_model -> speech_models` incident showed advisory wasn't
+enough: the agent guessed at model IDs rather than looking them up, shipped
+deprecated code, and the user caught the bug in production.
+
+Policy now:
+  - If the file being written/edited imports a flagged library
+  - AND the session has no recorded Context7 lookup (or equivalent docs
+    read via WebFetch / vendor docs URL) for that library in the last hour
+  - BLOCK (exit 2). Agent must run a Context7 lookup first.
+
+The session's lookup ledger lives in .claude/hooks/state.json under
+`docs_lookups`: { "<library>": <timestamp> }. track-edits.py and
+verify-claims.py already use this state file -- we extend it.
+
+Bypass (for edge cases): set CONTEXT7_BYPASS=1 in the environment or add
+the file path to .claude/hooks/context7-allowlist.txt. This is intended
+for library-owning code that IS the docs source.
+"""
+import json
+import os
+import re
+import sys
+import time
+from pathlib import Path
+
+STATE_FILE = Path('.claude/hooks/state.json')
+ALLOWLIST_FILE = Path('.claude/hooks/context7-allowlist.txt')
+
+# Libraries that have churned enough in recent memory to require a fresh
+# lookup before edits. Keep the list tight -- overuse will train agents
+# to bypass the block.
+FLAGGED_LIBRARIES = [
+    'assemblyai',
+    '@ai-sdk/',
+    'ai',                     # Vercel AI SDK
+    'langfuse',
+    '@langfuse/',
+    '@deepgram/sdk',
+    '@anthropic-ai/sdk',
+    '@anthropic-ai/claude-agent-sdk',
+    'openai',
+    '@google/generative-ai',
+]
+
+LOOKUP_FRESHNESS_SECONDS = 3600  # 1 hour
+
+IMPORT_RE = re.compile(r'''from\s+['"`]([^'"`]+)['"`]''')
+
+
+def libraries_in_file(path: str) -> list[str]:
+    p = Path(path)
+    if not p.exists() or not p.is_file():
+        return []
+    try:
+        content = p.read_text(errors='replace')
+    except OSError:
+        return []
+    found: list[str] = []
+    for m in IMPORT_RE.finditer(content):
+        imp = m.group(1)
+        for flag in FLAGGED_LIBRARIES:
+            if imp == flag or imp.startswith(flag):
+                if flag not in found:
+                    found.append(flag)
+    return found
+
+
+def load_state() -> dict:
+    if not STATE_FILE.exists():
+        return {}
+    try:
+        return json.loads(STATE_FILE.read_text())
+    except json.JSONDecodeError:
+        return {}
+
+
+def is_allowlisted(path: str) -> bool:
+    if os.environ.get('CONTEXT7_BYPASS') == '1':
+        return True
+    if not ALLOWLIST_FILE.exists():
+        return False
+    try:
+        for line in ALLOWLIST_FILE.read_text().splitlines():
+            s = line.strip()
+            if not s or s.startswith('#'):
+                continue
+            if path == s or path.endswith(s):
+                return True
+    except OSError:
+        return False
+    return False
+
+
+def main() -> None:
+    try:
+        payload = json.loads(sys.stdin.read()) if not sys.stdin.isatty() else {}
+    except (json.JSONDecodeError, IOError):
+        return
+
+    tool_input = payload.get('tool_input') or {}
+    file_path = tool_input.get('file_path') or tool_input.get('notebook_path') or ''
+    if not file_path:
+        return
+
+    if is_allowlisted(file_path):
+        return
+
+    flagged = libraries_in_file(file_path)
+    if not flagged:
+        return
+
+    state = load_state()
+    lookups = state.get('docs_lookups', {})
+    now = time.time()
+
+    missing: list[str] = []
+    for lib in flagged:
+        last = lookups.get(lib, 0)
+        if now - last > LOOKUP_FRESHNESS_SECONDS:
+            missing.append(lib)
+
+    if not missing:
+        return
+
+    # BLOCK. Exit code 2 prevents the tool use; stderr is surfaced to the agent.
+    sys.stderr.write(
+        'BLOCKED: {path} imports libraries that require a fresh docs lookup: {libs}\n'
+        '\n'
+        'These libraries have shipped breaking changes in recent months and'
+        ' must be verified against current docs before editing. Run one of:\n'
+        '\n'
+        '  - Context7 MCP lookup: @context7 resolve {libs_csv} then @context7 get-docs\n'
+        '  - Direct docs fetch: WebFetch the vendor docs URL (assemblyai.com/docs,\n'
+        '    docs.anthropic.com, ai-sdk.dev, etc.)\n'
+        '  - Registry lookup: validModels() / assertValidModel() from @/lib/registry\n'
+        '\n'
+        'After a successful lookup, record_docs_lookup.py is invoked by\n'
+        'PostToolUse on WebFetch / MCP calls to flagged-library URLs, updating\n'
+        'state.json. If you already did a lookup and this still fires, record it\n'
+        'manually:\n'
+        '  python3 .claude/hooks/record-docs-lookup.py {libs_csv}\n'
+        '\n'
+        'Emergency bypass (use sparingly): CONTEXT7_BYPASS=1 before the edit\n'
+        'or add {path} to .claude/hooks/context7-allowlist.txt.\n'.format(
+            path=file_path, libs=', '.join(missing), libs_csv=','.join(missing),
+        )
+    )
+    sys.exit(2)
+
+
+if __name__ == '__main__':
+    main()
