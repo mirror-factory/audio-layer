@@ -70,17 +70,18 @@ interface Stats {
 // ── Formatters ────────────────────────────────────────────────────────
 
 const fmt = {
-  cost: (c: number) => c === 0 ? '$0.00' : c < 0.01 ? `$${c.toFixed(4)}` : `$${c.toFixed(2)}`,
-  dur: (ms: number) => ms < 1000 ? `${Math.round(ms)}ms` : `${(ms / 1000).toFixed(1)}s`,
-  tok: (n: number) => n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1000 ? `${(n / 1000).toFixed(1)}K` : String(n),
-  ago: (ts: string) => {
+  cost: (c?: number | null) => { const v = c ?? 0; return v === 0 ? '$0.00' : v < 0.01 ? `$${v.toFixed(4)}` : `$${v.toFixed(2)}`; },
+  dur: (ms?: number | null) => { const v = ms ?? 0; return v < 1000 ? `${Math.round(v)}ms` : `${(v / 1000).toFixed(1)}s`; },
+  tok: (n?: number | null) => { const v = n ?? 0; return v >= 1e6 ? `${(v / 1e6).toFixed(1)}M` : v >= 1000 ? `${(v / 1000).toFixed(1)}K` : String(v); },
+  ago: (ts?: string | null) => {
+    if (!ts) return '—';
     const d = Date.now() - new Date(ts).getTime();
     if (d < 6e4) return 'just now';
     if (d < 36e5) return `${Math.floor(d / 6e4)}m ago`;
     if (d < 864e5) return `${Math.floor(d / 36e5)}h ago`;
     return `${Math.floor(d / 864e5)}d ago`;
   },
-  pct: (n: number) => `${n.toFixed(1)}%`,
+  pct: (n?: number | null) => `${(n ?? 0).toFixed(1)}%`,
 };
 
 // ── Styles (inline object, no external CSS) ───────────────────────────
