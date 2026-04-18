@@ -351,6 +351,16 @@ pub fn run() {
             start_system_audio_capture,
             stop_system_audio_capture
         ])
+        .setup(|app| {
+            // Set the webview background to match our dark theme so no
+            // white strips bleed through behind safe-area padding.
+            let window = app.get_webview_window("main")
+                .expect("main window must exist");
+            // Tauri v2: set_background_color takes an RGBA tuple.
+            // #0a0a0a → (10, 10, 10, 255)
+            let _ = window.set_background_color(Some(tauri::Color(10, 10, 10, 255)));
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

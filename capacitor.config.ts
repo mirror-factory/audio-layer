@@ -18,6 +18,7 @@ const config: CapacitorConfig = {
   // `webDir` is required by Capacitor even when `server.url` is set;
   // it's only used as a fallback bundle for offline / failed loads.
   webDir: "public",
+  backgroundColor: "#0a0a0a",
   server: {
     // For physical devices: use the Vercel deployment URL.
     // For simulator/dev: override with CAPACITOR_SERVER_URL=http://localhost:3000
@@ -31,6 +32,8 @@ const config: CapacitorConfig = {
   },
   ios: {
     contentInset: "always",
+    backgroundColor: "#0a0a0a",
+    scrollEnabled: false,
   },
   android: {
     allowMixedContent: process.env.NODE_ENV !== "production",

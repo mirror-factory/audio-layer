@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { NavBar } from "@/components/nav-bar";
+
 import { CapacitorInit } from "@/components/capacitor-init";
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="min-h-dvh pb-16 antialiased"
+        className="min-h-dvh antialiased"
         style={{
           backgroundColor: "var(--bg-primary)",
           color: "var(--text-primary)",
@@ -62,6 +62,7 @@ export default function RootLayout({
         {/* Tauri drag region — invisible bar at top for window dragging */}
         <div
           data-tauri-drag-region="true"
+          className="tauri-drag-region"
           style={{
             position: "fixed",
             top: 0,
@@ -69,11 +70,10 @@ export default function RootLayout({
             right: 0,
             height: "28px",
             zIndex: 9999,
-            WebkitAppRegion: "drag" as unknown as string,
+            backgroundColor: "var(--bg-primary)",
           }}
         />
         {children}
-        <NavBar />
       </body>
     </html>
   );
