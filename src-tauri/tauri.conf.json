@@ -13,6 +13,7 @@
     "windows": [
       {
         "title": "audio-layer",
+        "titleBarStyle": "overlay",
         "width": 1100,
         "height": 760,
         "minWidth": 720,

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { NavBar } from "@/components/nav-bar";
+import { CapacitorInit } from "@/components/capacitor-init";
 
 export const metadata: Metadata = {
   title: "audio-layer",
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="min-h-dvh bg-neutral-950 pb-16 text-neutral-100 antialiased">
+        <CapacitorInit />
         {children}
         <NavBar />
       </body>

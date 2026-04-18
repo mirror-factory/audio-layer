@@ -17,7 +17,7 @@
 html,
 body {
   margin: 0;
-  padding-top: env(safe-area-inset-top);
+  padding-top: max(env(safe-area-inset-top), 28px);
   padding-left: env(safe-area-inset-right);
   padding-right: env(safe-area-inset-left);
   background-color: var(--bg-primary);
