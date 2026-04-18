@@ -312,7 +312,8 @@ export default function CostPage() {
   const budget = data.budget ?? 1;
   const utilizationPct = (spent / budget) * 100;
   const overTime = data.overTime ?? [];
-  const byModel = data.perModel ?? data.byModel ?? [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const byModel: Array<{ model: string; cost: number }> = (data as any).perModel ?? (data as any).byModel ?? [];
 
   return (
     <div className="space-y-10">
