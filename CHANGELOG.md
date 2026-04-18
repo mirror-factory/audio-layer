@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.13] — 2026-04-18
+
+### Added
+- feat: live observability dashboard wired to real API data (`cd6fbf2`)
+
+
 ## [0.0.12] — 2026-04-18
 
 ### Fixed
