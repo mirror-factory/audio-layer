@@ -15,10 +15,17 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 
 export async function middleware(request: NextRequest) {
-  // Use NEXT_PUBLIC_ variants so these are available on Vercel Edge runtime
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anon = process.env.SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
   if (!url || !anon) {
+    // Log to help debug Vercel env var issues
+    console.warn(
+      "[middleware] Supabase not configured. SUPABASE_URL:",
+      url ? "set" : "MISSING",
+      "SUPABASE_ANON_KEY:",
+      anon ? "set" : "MISSING",
+    );
     return NextResponse.next({ request });
   }
 
