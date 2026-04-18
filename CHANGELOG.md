@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.2] — 2026-04-18
+
+### Documentation
+- docs: MFDR-001 product architecture decision record + README update + v0.0.1 (`04382fb`)
+
+
 ## [0.1.52] — 2026-04-18
 
 ### Documentation
