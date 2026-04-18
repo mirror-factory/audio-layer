@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.17] — 2026-04-18
+
+### Added
+- feat: wire transcription LLM calls to in-app observability logs (`467fa92`)
+
+
 ## [0.0.16] — 2026-04-18
 
 ### Fixed
