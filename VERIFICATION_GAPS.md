@@ -14,13 +14,15 @@ Everything below has NOT been exercised end-to-end in the environment that produ
 ### 1. Tauri / `src-tauri` Rust code never compiled
 Files: `src-tauri/Cargo.toml`, `src-tauri/src/lib.rs`, `src-tauri/src/main.rs`.
 
-Written against cpal 0.15 + Tauri 2 docs. The build environment for this branch has no Rust toolchain — `cargo build` was never run. Likely-fragile spots:
+Written against cpal 0.15 + screencapturekit 1.x + Tauri 2 docs. The build environment for this branch has no Rust toolchain — `cargo build` was never run. Likely-fragile spots:
 
-- The `Channel<Vec<u8>>` IPC type signature on `start_mic_capture`. Tauri 2 may want a different generic or a typed wrapper.
+- The `Channel<Vec<u8>>` IPC type signature on the capture commands. Tauri 2 may want a different generic or a typed wrapper.
 - The cpal callback closures take `&[f32]` / `&[i16]` / `&[u16]` and call into shared `Arc<Mutex<...>>` state; the `Send + 'static` bounds on cpal closures might force a different ownership pattern than I used.
-- `Sample::to_float_sample()` — the cpal trait method name for that conversion changed at some point; check the version 0.15 docs.
+- `Sample::to_float_sample()` — the cpal trait method name for that conversion may have changed; check the version 0.15 docs.
+- **`extract_float_samples` in `src-tauri/src/lib.rs::macos_audio` is a TODO.** The CMSampleBuffer → Vec<f32> conversion uses a crate helper whose exact call site wasn't nailed down from docs. First compile attempt will surface the right API; update the fn then.
+- `screencapturekit` 1.x API names (`SCContentFilter::new`, `add_output`, `start_capture`) came from readme excerpts, not from source. Method names and generic bounds may differ in the installed version — re-check against `cargo doc --open` on first run.
 
-**Verification:** on a workstation with Rust + Xcode/MSVC/build-essentials, run `cargo tauri dev` from the repo root. Expect the first build to surface real errors that I'd then need to fix.
+**Verification:** on a workstation with Rust + Xcode, run `cargo tauri dev` from the repo root. Expect the first build to surface real errors that need to be fixed. Grant Screen Recording permission when macOS prompts on first `start_system_audio_capture` call.
 
 ### 2. Tauri JS bridge never invoked
 File: `lib/tauri/bridge.ts`, used by `components/live-recorder.tsx`.
@@ -33,11 +35,19 @@ The bridge dynamic-imports `@tauri-apps/api/core` through a string variable to k
 **Verification:** same workstation run as #1; click "Start live session" inside the Tauri window and watch for either a successful turn event from AssemblyAI or the live-recorder's onscreen error message.
 
 ### 3. Capacitor native projects don't exist yet
-Files: `capacitor.config.ts`, `mobile/README.md`. `ios/` and `android/` are gitignored.
+Files: `capacitor.config.ts`, `mobile/README.md`, `mobile/setup.sh`, `mobile/patches/*`. `ios/` and `android/` are gitignored.
 
-`@capacitor/cli` and the iOS/Android plugin packages are installed, but `npx cap add ios` / `npx cap add android` were not run. Without them there is no Xcode project to open and no Gradle build to invoke.
+`@capacitor/cli` and the iOS/Android plugin packages are installed, but `npx cap add ios` / `npx cap add android` were not run — no Xcode or Android SDK in this environment.
 
-**Verification:** on a Mac with Xcode + cocoapods, `npx cap add ios && npx cap sync && npx cap run ios`. Same for Android with the JDK + Android SDK installed.
+The manifest / plist / MainActivity **patchers** (`apply-ios-plist.py`, `apply-android-manifest.py`, `apply-mainactivity.sh`) were smoke-tested with fake input files and they do what they claim. They have NOT been run against real Capacitor-generated output.
+
+**Verification (on a Mac with Xcode + Android Studio + `ANDROID_HOME` set):**
+```bash
+bash mobile/setup.sh
+npx cap open ios      # verify mic prompt fires on /record
+npx cap open android  # same, plus verify getUserMedia doesn't silently reject
+```
+Expected patches: `NSMicrophoneUsageDescription`, `UIBackgroundModes[audio]`, localhost ATS exception in iOS Info.plist; `RECORD_AUDIO` + `MODIFY_AUDIO_SETTINGS` in AndroidManifest.xml; `onPermissionRequest` override in MainActivity.
 
 ## Medium risk — depends on external services
 
@@ -102,6 +112,13 @@ File: `lib/meetings/pdf.tsx`.
 `tests/meeting-pdf.test.ts` asserts the buffer starts with `%PDF-` and is non-trivial in size. Nobody has actually opened the PDF in a viewer.
 
 **Verification:** complete a meeting locally, click "Export PDF" on `/meetings/[id]`, open the file. Sanity-check section ordering vs the page.
+
+### 12. ScreenCaptureKit audio extraction
+File: `src-tauri/src/lib.rs::macos_audio::extract_float_samples`.
+
+Currently returns `None`. The audio callback fires but no PCM is actually forwarded to the JS channel yet — implementation deferred until the first real compile on a Mac surfaces the exact screencapturekit helper method for CMSampleBuffer → audio buffer list extraction. Until this is done, `start_system_audio_capture` will open the stream, macOS will prompt for Screen Recording permission, and then silence flows through. Mic capture via `start_mic_capture` is unaffected.
+
+**Verification:** after first `cargo tauri dev` compile, check the `screencapturekit` docs for the right helper (likely `CMSampleBuffer::audio_buffer_list()` or `asbd_and_data_from_audio_buffer`), wire it into `extract_float_samples`, then record `/record/live` and confirm audio from another app shows up in the transcript.
 
 ### 11. Paywall flow on a real Supabase
 File: `lib/billing/quota.ts`.

@@ -2,7 +2,7 @@
 name = "audio-layer"
 version = "0.1.0"
 description = "audio-layer desktop shell — mic + system-audio capture for the hosted Next.js app"
-authors = ["The Near Factory"]
+authors = ["Mirror Factory"]
 edition = "2021"
 rust-version = "1.77"
 
@@ -20,11 +20,18 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
 # Cross-platform mic capture: macOS (CoreAudio), Windows (WASAPI),
-# Linux (ALSA / PulseAudio / PipeWire). The system-audio LOOPBACK
-# path is platform-specific (ScreenCaptureKit on macOS, WASAPI
-# loopback on Windows) and is staged for a separate PR — see the
-# todo!() arms in src/lib.rs.
+# Linux (ALSA / PulseAudio / PipeWire).
 cpal = "0.15"
+
+# macOS-only system audio via ScreenCaptureKit. The macos_14_0 feature
+# unlocks the audio-only stream APIs (`with_captures_audio`). Older
+# macOS versions fall back to the "not implemented" command.
+[target.'cfg(target_os = "macos")'.dependencies]
+screencapturekit = { version = "1", features = ["macos_14_0"] }
+
+# Windows and Linux system-audio loopback remain TODO — the
+# respective crates (`wasapi`, `pulse` / `libpipewire`) get added
+# alongside their implementation commits.
 
 [features]
 custom-protocol = ["tauri/custom-protocol"]

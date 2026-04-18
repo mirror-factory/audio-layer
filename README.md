@@ -172,32 +172,41 @@ The meeting routes are NOT paywalled yet — that ships when we have real custom
 
 ## Mobile shell (Capacitor)
 
-`capacitor.config.ts` + `mobile/README.md` set up an iOS + Android
-WebView wrapper around the live hosted Next.js app. The native
-`ios/` and `android/` projects are gitignored and regenerated
-per-workstation with `npx cap add ios` / `npx cap add android`
-(needs Xcode and the Android SDK respectively). Mic capture works
-through the WebView's `getUserMedia`; system audio is structurally
-limited on iOS and best-effort via `MediaProjection` on Android.
+Bundle ID `com.mirrorfactory.audiolayer`. The WebView loads the live hosted Next.js app via `server.url` in `capacitor.config.ts` — same backend as web + desktop.
 
-## Desktop shell (Tauri scaffold)
+First-time setup on a Mac with Xcode + Android Studio installed:
 
-`src-tauri/` is a minimal Tauri 2.x scaffold that wraps the hosted
-Next.js app in an OS webview for macOS / Windows / Linux. **Native
-system-audio capture is not implemented yet** — the Rust commands
-return a "not implemented" error on purpose, so the browser fallback
-(mic-only via AudioWorklet on `/record/live`) keeps working.
+```bash
+bash mobile/setup.sh
+```
 
-To develop the shell:
+That runs `npx cap add ios|android` and idempotently patches:
+
+- `ios/App/App/Info.plist` → `NSMicrophoneUsageDescription`, `UIBackgroundModes[audio]`, localhost ATS exception
+- `android/app/src/main/AndroidManifest.xml` → `RECORD_AUDIO` + `MODIFY_AUDIO_SETTINGS`
+- `android/app/.../MainActivity.*` → `onPermissionRequest` override on WebChromeClient so the WebView's `getUserMedia()` actually works
+
+Then `npx cap open ios|android` to run on a simulator or device. See `mobile/README.md` for troubleshooting.
+
+## PWA
+
+`public/manifest.webmanifest` + Next.js metadata wire a basic PWA — users can "Add to Home Screen" and get a standalone launcher. Real icons go in `public/icons/` (placeholder README there explains how to regenerate with `@capacitor/assets`).
+
+## Desktop shell (Tauri 2.x)
+
+`src-tauri/` wraps the hosted Next.js app in an OS webview. Bundle identifier `com.mirrorfactory.audiolayer`. Commands exposed to JS:
+
+- `start_mic_capture(channel)` / `stop_mic_capture()` — cross-platform via cpal.
+- `start_system_audio_capture(channel)` — **macOS only** (ScreenCaptureKit, `macos_14_0` feature). Windows / Linux stubs return "not wired yet" until WASAPI loopback and PipeWire monitor land.
+
+On first `start_system_audio_capture` call macOS prompts for Screen Recording permission. `NSMicrophoneUsageDescription` is in `src-tauri/Info.plist`.
 
 ```bash
 cargo install tauri-cli --version "^2.0"
-cargo tauri dev   # starts pnpm dev + opens the native window
+cargo tauri dev    # starts pnpm dev + opens the native window
 ```
 
-See `src-tauri/README.md` for the platform-specific audio roadmap
-(ScreenCaptureKit on macOS, WASAPI loopback on Windows,
-PulseAudio/PipeWire monitor on Linux).
+See `src-tauri/README.md` for platform-by-platform notes and `VERIFICATION_GAPS.md` for what's unverified (Rust compile, system-audio extraction helper).
 
 ## Next up
 

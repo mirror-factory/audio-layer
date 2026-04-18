@@ -154,3 +154,28 @@ pnpm dev
 ```
 
 Questions? Raise an issue on the repo or re-read the corresponding section in `README.md` / `AGENTS.md`.
+
+---
+
+## Desktop + mobile shells
+
+**Desktop (Tauri 2.x):**
+
+```bash
+cargo install tauri-cli --version "^2.0"
+cargo tauri dev     # runs `pnpm dev` in parallel + opens the native window
+```
+
+Bundle ID `com.mirrorfactory.audiolayer`. First `start_system_audio_capture` call prompts macOS for Screen Recording permission.
+
+**Mobile (Capacitor — on a Mac with Xcode + Android Studio):**
+
+```bash
+bash mobile/setup.sh
+npx cap open ios         # simulator or device
+npx cap open android     # emulator or device
+```
+
+Sync patches run idempotently — re-running `setup.sh` after `npx cap sync` is safe.
+
+**PWA:** no setup needed — Next.js serves `public/manifest.webmanifest` and users can "Add to Home Screen" from any device.

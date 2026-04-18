@@ -13,7 +13,7 @@ import type { CapacitorConfig } from "@capacitor/cli";
  * test mobile against a preview deployment.
  */
 const config: CapacitorConfig = {
-  appId: "com.thenearfactory.audiolayer",
+  appId: "com.mirrorfactory.audiolayer",
   appName: "audio-layer",
   // `webDir` is required by Capacitor even when `server.url` is set;
   // it's only used as a fallback bundle for offline / failed loads.

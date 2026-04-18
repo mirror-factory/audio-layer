@@ -77,20 +77,28 @@ Audio intake + meeting transcription app. Multi-platform: web (Next.js), iOS + A
 - `components/transcript-view.tsx` — Speaker-segmented transcript + summary sidebar
 
 ### Mobile shell (Capacitor)
-- `capacitor.config.ts` — appId `com.thenearfactory.audiolayer`, `server.url` points at hosted Vercel app in production / localhost in dev. iOS contentInset = "always"; Android allows cleartext only in dev.
-- `mobile/README.md` — workstation setup (Xcode + Android SDK), first-time `npx cap add ios|android`, mic-permission manifest entries, native-audio constraints (iOS sandbox limits, Android MediaProjection).
-- Native `ios/` and `android/` projects are **gitignored** — they require platform SDKs to regenerate per-workstation. We'll commit them once a real mobile dev joins.
-- The WebView loads the live hosted app, so `/record`, `/record/live`, `/sign-in`, `/pricing`, etc. work without a static export. AssemblyAI streaming + Stripe checkout + Supabase auth all flow through the same backend.
+- `capacitor.config.ts` — appId `com.mirrorfactory.audiolayer`, `server.url` points at hosted Vercel app in production / localhost in dev. iOS contentInset = "always"; Android allows cleartext only in dev.
+- `mobile/setup.sh` — idempotent Mac bootstrap that runs `npx cap add ios|android`, then applies the manifest/plist patches.
+- `mobile/patches/apply-ios-plist.py` — uses stdlib plistlib to add `NSMicrophoneUsageDescription`, `UIBackgroundModes[audio]`, and a localhost ATS exception for Simulator dev.
+- `mobile/patches/apply-android-manifest.py` — adds `RECORD_AUDIO` + `MODIFY_AUDIO_SETTINGS`, sets `usesCleartextTraffic=true` + `hardwareAccelerated=true` on `<application>`.
+- `mobile/patches/apply-mainactivity.sh` — injects an `onPermissionRequest` override on MainActivity's WebChromeClient so `navigator.mediaDevices.getUserMedia()` inside the Android WebView actually grants mic access (Capacitor's bridge doesn't do this for plain WebView paths).
+- All three patchers are idempotent — safe to re-run after `npx cap sync`.
+- `mobile/README.md` — workstation setup, dev workflow, troubleshooting.
+- Native `ios/` and `android/` projects stay gitignored — regenerated per-workstation via `mobile/setup.sh`.
+- **Verification gap:** iOS and Android native projects were NOT generated in the build environment for this commit (no Xcode / Android SDK). The Python patchers were smoke-tested with fake plist/manifest files. See `VERIFICATION_GAPS.md` entry #3.
 
 ### Desktop shell (Tauri 2.x)
-- `src-tauri/` — Cargo + tauri.conf.json + capabilities + Rust entrypoint. Wraps the Next.js app in an OS webview.
+- `src-tauri/` — Cargo + tauri.conf.json + capabilities + Info.plist + Rust entrypoint. Bundle identifier `com.mirrorfactory.audiolayer`.
 - Dev URL = `http://localhost:3000`; production frontendDist points at the hosted Vercel app.
-- Implemented Rust commands: `ping`, `start_mic_capture(channel)`, `stop_mic_capture()`. Mic capture uses `cpal`, decimates to 16 kHz int16 LE in Rust, emits ~150 ms PCM chunks via `tauri::ipc::Channel<Vec<u8>>`.
-- Stubbed: `start_system_audio_capture` / `stop_system_audio_capture` return explicit "not implemented" errors. Roadmap: ScreenCaptureKit (macOS 15+), WASAPI loopback (Windows), PipeWire monitor (Linux).
+- Rust commands: `ping`, `start_mic_capture(channel)`, `stop_mic_capture()`, `start_system_audio_capture(channel)`, `stop_system_audio_capture()`.
+  - **Mic capture** (all platforms): `cpal` → default input → mono mix → 16 kHz int16 LE → ~150 ms chunks via `tauri::ipc::Channel<Vec<u8>>`.
+  - **System audio — macOS**: `screencapturekit` crate (macos_14_0 feature). `SCShareableContent::current()` triggers the OS Screen Recording prompt on first call. `SCStream` with `captures_audio=true` at 48 kHz stereo; we mix+decimate to match the mic path's chunk shape. Module lives in `src-tauri/src/lib.rs::macos_audio`.
+  - **System audio — Windows/Linux**: still stubbed with an explicit "not wired yet" error; WASAPI loopback + PipeWire monitor come in follow-up commits.
+- `src-tauri/Info.plist` — `NSMicrophoneUsageDescription` + `LSMinimumSystemVersion=14.0`. Screen Recording permission is granted through System Settings on first SCShareableContent call; no plist key for that one.
 - `lib/tauri/bridge.ts` — `isTauri()` + `loadTauriBridge()` lazy-loader. Imports `@tauri-apps/api/core` through a string variable so the regular web bundle never resolves it.
 - `components/live-recorder.tsx` prefers the Tauri capture channel inside the desktop shell, falls back to AudioWorklet in normal browsers — no UI change required.
 - No `cargo`/`tauri` scripts in package.json (keeps Rust toolchain off the critical path for web devs). Build with `cargo tauri dev` / `cargo tauri build` from the repo root.
-- **Verification gap:** the Rust code was not compiled in CI / the build environment that produced this branch — no Rust toolchain available. Verify with `cargo tauri dev` on a real workstation before shipping.
+- **Verification gap:** Rust code was not compiled in the build environment that produced this commit — no Rust toolchain available. `screencapturekit` 1.x API shape was inferred from docs; `extract_float_samples` is marked TODO. See `VERIFICATION_GAPS.md` entry #12.
 
 ### Cost + usage tracking
 - `lib/billing/llm-pricing.ts` — `COST_PER_M_TOKENS` map (Claude, GPT, Gemini) + `pricingForModel()` + `estimateLlmCost()` (handles cached-input discount) + `formatUsd()` (sensible-precision money display).

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  macOS Info.plist merged into the Tauri bundle by tauri-cli during
+  `cargo tauri build`. Keys here add to (not replace) the Tauri-generated
+  plist. If Tauri 2 changes how it handles plist merging, move these
+  entries into tauri.conf.json `bundle.macOS.info` instead.
+
+  The two usage descriptions below are required for the capture paths
+  in src/lib.rs:
+    - NSMicrophoneUsageDescription → cpal mic open
+    - NSSystemExtensionUsageDescription and/or Screen Recording prompt →
+      ScreenCaptureKit audio loopback (macOS 14+)
+
+  NOTE: macOS doesn't have an NSScreenRecordingUsageDescription key the
+  way it does for mic — screen recording permission is granted via
+  System Settings → Privacy & Security → Screen & System Audio Recording
+  on first SCShareableContent::current() call. No plist entry is
+  required; the OS surfaces the prompt automatically.
+-->
+<plist version="1.0">
+<dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>audio-layer needs the microphone to transcribe what you say during recordings.</string>
+  <key>LSMinimumSystemVersion</key>
+  <string>14.0</string>
+</dict>
+</plist>

@@ -64,7 +64,11 @@
 - app/pricing/pricing-buttons.tsx    Client subscribe button
 - capacitor.config.ts                Capacitor mobile shell config (server.url → live web app)
 - mobile/README.md                   iOS + Android first-time setup; native-audio constraints
-- src-tauri/                         Tauri 2.x desktop shell with cpal mic + stubbed system-audio
+- src-tauri/                         Tauri 2.x desktop shell. cpal mic + macOS ScreenCaptureKit system audio. Bundle id com.mirrorfactory.audiolayer.
+- src-tauri/src/lib.rs::macos_audio   SCStream → Float32 PCM → 16kHz int16 LE pipeline; extract_float_samples is TODO
+- mobile/setup.sh                    Capacitor bootstrap: npx cap add ios|android + idempotent manifest/plist patches
+- mobile/patches/                    Python + bash scripts that inject mic permissions and WebChromeClient overrides
+- public/manifest.webmanifest        PWA manifest (name, icons, theme color, standalone display)
 - middleware.ts                      Per-request Supabase session refresh + anonymous sign-in on first visit
 - lib/supabase/user.ts               getSupabaseUser() + getCurrentUserId() — cookie-bound anon-role client
 - lib/supabase/server.ts             Server-side Supabase client factory (service-role; bypasses RLS)

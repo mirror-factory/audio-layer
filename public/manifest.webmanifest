@@ -1,0 +1,25 @@
+{
+  "name": "audio-layer",
+  "short_name": "audio-layer",
+  "description": "Record meetings. Transcribe with AssemblyAI Universal-3 Pro. Summarize with the Gateway.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#10b981",
+  "orientation": "any",
+  "categories": ["productivity", "business"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
