@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.46] — 2026-04-18
+
+### Fixed
+- fix: use audio-layer.vercel.app for all deployments (`32a2381`)
+
+
 ## [0.1.45] — 2026-04-18
 
 ### Fixed
