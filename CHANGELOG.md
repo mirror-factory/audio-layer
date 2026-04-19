@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.21] — 2026-04-19
+
+### Fixed
+- fix: null-safe .map() on all dashboard/dev-kit pages (`df99e0b`)
+
+
 ## [0.0.20] — 2026-04-18
 
 ### Other
