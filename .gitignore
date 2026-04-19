@@ -57,3 +57,6 @@ tsconfig.tsbuildinfo
 .vercel
 .env.vercel
 .env.vercel
+.schema-snapshots/
+.artifacts/
+.ai-dev-kit.doctor-ran

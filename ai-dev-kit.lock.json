@@ -1,0 +1,24 @@
+{
+  "$schema": "https://mirror-factory.dev/ai-dev-kit.lock.schema.json",
+  "version": "0.1.0",
+  "generatedAt": "2025-01-01T00:00:00.000Z",
+  "modules": {
+    "core": { "installed": true, "version": "0.1.0" },
+    "gateway": { "installed": false },
+    "sandbox": { "installed": false },
+    "workflow": { "installed": false },
+    "connectors": { "installed": false },
+    "observability": { "installed": false },
+    "dashboard": { "installed": false }
+  },
+  "tools": [],
+  "evalSuites": [],
+  "connectors": [],
+  "schemaVersion": null,
+  "contextBudget": {
+    "T1": 500,
+    "T2": 1000,
+    "T3": null,
+    "gate": 2000
+  }
+}

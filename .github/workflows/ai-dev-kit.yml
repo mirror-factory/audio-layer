@@ -1,0 +1,260 @@
+name: AI Dev Kit Gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_VERSION: "22"
+  PNPM_VERSION: "9"
+
+jobs:
+  # --------------------------------------------------------------------------
+  # Job: tests
+  # Runs unit tests, type checking, and evals
+  # --------------------------------------------------------------------------
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type checking
+        run: pnpm typecheck
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Run evals
+        id: evals
+        continue-on-error: true
+        run: pnpm eval
+
+      - name: Report eval results
+        if: steps.evals.outcome == 'failure'
+        run: |
+          echo "::warning::Eval suite had failures. Review eval results."
+          echo "## Eval Results" >> "$GITHUB_STEP_SUMMARY"
+          echo "Eval suite completed with failures. See job logs for details." >> "$GITHUB_STEP_SUMMARY"
+
+  # --------------------------------------------------------------------------
+  # Job: gates
+  # Quality gates that must pass before merge
+  # --------------------------------------------------------------------------
+  gates:
+    name: Quality Gates
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: "Gate: Type safety"
+        run: npx tsc --noEmit
+
+      - name: "Gate: Doctor (strict)"
+        # Catches config drift the developer's local hooks would miss: missing
+        # .claude/hooks/* files, dangling settings.json refs, husky fail-open
+        # patterns, stale research cache. Fail-closed on warnings.
+        run: npx ai-dev-kit doctor --strict
+
+      - name: "Gate: Compliance"
+        # Pattern enforcement (telemetry, schema drift, tool-description quality,
+        # required-test coverage). Same check husky pre-push runs locally.
+        run: |
+          if [ -f "scripts/check-compliance.ts" ]; then
+            npx tsx scripts/check-compliance.ts
+          else
+            echo "::warning::scripts/check-compliance.ts not found -- skipping"
+          fi
+
+      - name: "Gate: Registry-string scanner"
+        # Backstop for developers who bypass pre-commit with --no-verify.
+        # Fails the build on any hardcoded vendor model ID not in a registry.
+        run: |
+          if [ -f "scripts/check-registry-strings.ts" ]; then
+            npx tsx scripts/check-registry-strings.ts
+          else
+            echo "::warning::scripts/check-registry-strings.ts not found -- skipping"
+          fi
+
+      - name: "Gate: Deprecation scanner"
+        # Same backstop reasoning. Blocks commits of vendor API field
+        # renames the kit has seen before (AssemblyAI speech_model etc.).
+        run: |
+          if [ -f "scripts/check-deprecations.ts" ]; then
+            npx tsx scripts/check-deprecations.ts
+          else
+            echo "::warning::scripts/check-deprecations.ts not found -- skipping"
+          fi
+
+      - name: "Gate: Tool registry validation"
+        run: npx ai-dev-kit tool validate
+
+      - name: "Gate: Doc sync (AGENTS.md freshness)"
+        run: |
+          if [ -f "AGENTS.md" ] && [ -f ".registry/agents-md-hash" ]; then
+            CURRENT_HASH=$(sha256sum AGENTS.md | awk '{print $1}')
+            REGISTRY_HASH=$(cat .registry/agents-md-hash)
+            if [ "$CURRENT_HASH" != "$REGISTRY_HASH" ]; then
+              echo "::error::AGENTS.md is out of sync with the registry. Run 'npx ai-dev-kit docs sync' to update."
+              exit 1
+            fi
+            echo "AGENTS.md is in sync with registry."
+          else
+            echo "::warning::AGENTS.md or registry hash not found -- skipping doc sync check."
+          fi
+
+      - name: "Gate: Environment variables"
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          MISSING=""
+          if [ -z "$OPENAI_API_KEY" ]; then
+            MISSING="$MISSING OPENAI_API_KEY"
+          fi
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            MISSING="$MISSING ANTHROPIC_API_KEY"
+          fi
+          if [ -n "$MISSING" ]; then
+            echo "::error::Missing required secrets:$MISSING"
+            exit 1
+          fi
+          echo "All required environment variables are set."
+
+      - name: "Gate: Eval threshold (85% pass rate)"
+        run: |
+          RESULTS_FILE=".test-results/eval-results.json"
+          if [ -f "$RESULTS_FILE" ]; then
+            TOTAL=$(jq '.numTotalTests // 0' "$RESULTS_FILE")
+            PASSED=$(jq '.numPassedTests // 0' "$RESULTS_FILE")
+            if [ "$TOTAL" -gt 0 ]; then
+              PASS_RATE=$(( (PASSED * 100) / TOTAL ))
+              echo "Eval pass rate: ${PASS_RATE}% (${PASSED}/${TOTAL})"
+              if [ "$PASS_RATE" -lt 85 ]; then
+                echo "::error::Eval pass rate ${PASS_RATE}% is below the 85% threshold."
+                exit 1
+              fi
+              echo "Eval pass rate meets threshold."
+            else
+              echo "::warning::No eval tests found in results."
+            fi
+          else
+            echo "::warning::Eval results file not found at ${RESULTS_FILE}. Skipping threshold check."
+          fi
+
+  # --------------------------------------------------------------------------
+  # Job: e2e-and-perf
+  # E2E tests, Playwright, Storybook, and performance checks
+  # --------------------------------------------------------------------------
+  e2e-and-perf:
+    name: E2E & Performance
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+        continue-on-error: true
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=github 2>/dev/null || echo "Playwright not configured"
+        continue-on-error: true
+
+      - name: Run Storybook tests
+        run: |
+          if [ -d ".storybook" ]; then
+            npx storybook build --test
+            npx test-storybook
+          else
+            echo "Storybook not configured"
+          fi
+        continue-on-error: true
+
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-artifacts
+          path: |
+            playwright-report/
+            .artifacts/
+            test-results/
+          retention-days: 30
+
+  # --------------------------------------------------------------------------
+  # Job: deploy-check
+  # Pre-deploy validation (only on push to main)
+  # --------------------------------------------------------------------------
+  deploy-check:
+    name: Deploy Check
+    runs-on: ubuntu-latest
+    needs: gates
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Capture deployment snapshot
+        run: |
+          echo "## Deployment Snapshot" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Commit:** ${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Branch:** ${{ github.ref_name }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Timestamp:** $(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Actor:** ${{ github.actor }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Pre-deploy validation
+        run: npx ai-dev-kit deploy validate

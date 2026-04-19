@@ -39,7 +39,12 @@
     "test:api": "start-server-and-test \"pnpm build && pnpm start\" http://localhost:3000/api/health \"vitest run tests/api\"",
     "dev-kit:doctor": "npx ai-dev-kit doctor",
     "dev-kit:doctor:strict": "npx ai-dev-kit doctor --strict",
-    "postinstall": "node scripts/doctor-first-run.mjs || true"
+    "postinstall": "node scripts/doctor-first-run.mjs || true",
+    "test:eval": "vitest --config vitest.eval.config.ts run",
+    "ingest:runs": "node scripts/ingest-run-results.mjs",
+    "dev-kit:audit": "npx ai-dev-kit audit",
+    "dev-kit:tool:add": "npx ai-dev-kit tool add",
+    "dev-kit:tool:validate": "npx ai-dev-kit tool validate"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^3.0.103",

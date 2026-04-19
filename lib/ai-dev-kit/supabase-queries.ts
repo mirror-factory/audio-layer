@@ -24,3 +24,9 @@ export async function getOverviewStats(_supabase: any) { return { totalTraces: 0
 export async function getToolCoverage(_supabase: any) { return { tools: [] as Array<{ name: string; test_status: string; last_eval_score: number | null }>, totalTools: 0, testedTools: 0, coveragePercent: 0 }; }
 export async function getEvalCoverage(_supabase: any) { return { suites: [] as Array<{ name: string; status: string }>, totalSuites: 0, passingSuites: 0 }; }
 export async function getDeployments(_supabase: any) { return []; }
+
+// Insert functions used by telemetry-persistence.ts
+export async function insertTrace(_supabase: any, _data: any) { return { id: `trace_${Date.now()}` }; }
+export async function insertSpan(_supabase: any, _data: any) { return; }
+export async function insertCostLog(_supabase: any, _data: any) { return; }
+export async function insertRegressionTest(_supabase: any, _data: any) { return; }

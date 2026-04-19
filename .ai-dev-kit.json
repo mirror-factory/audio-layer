@@ -1,8 +1,40 @@
 {
-  "adoptedAt": "2026-04-18T22:33:02.939Z",
-  "mode": "adopt",
+  "version": "0.1.5",
+  "installedAt": "2026-04-19T16:28:43.609Z",
   "modules": [
-    "core"
+    "core",
+    "gateway",
+    "sandbox",
+    "workflow",
+    "connectors",
+    "observability",
+    "dashboard"
   ],
-  "note": "Installed by `ai-dev-kit adopt` -- enforcement layer only. Run `ai-dev-kit init` for greenfield scaffolding."
+  "agentMode": "autonomous",
+  "ideHooks": [
+    "claude-code"
+  ],
+  "projectType": "nextjs-15",
+  "packageManager": "pnpm",
+  "files": [
+    "supabase/migrations/00001_ai_dev_kit_schema.sql",
+    "lib/ai/tools/code-review.ts",
+    "tests/unit/code-review.test.ts",
+    "tests/unit/search-docs.test.ts",
+    "tests/unit/get-document.test.ts",
+    "tests/unit/generate-content.test.ts",
+    "tests/unit/ask-user.test.ts",
+    "tests/unit/update-settings.test.ts",
+    "vitest.eval.config.ts",
+    ".env.local.template",
+    "ai-dev-kit.lock.json",
+    "lib/ai/devtools.ts",
+    "promptfooconfig.yaml",
+    "lib/ai-dev-kit/telemetry-persistence.ts",
+    ".github/workflows/ai-dev-kit.yml",
+    "scripts/check-schema-drift.ts",
+    "scripts/check-tool-quality.ts",
+    "tests/evals/golden-dataset.yaml",
+    "tests/evals/eval-helpers.ts"
+  ]
 }
