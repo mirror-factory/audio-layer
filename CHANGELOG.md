@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.24] — 2026-04-19
+
+### Documentation
+- docs: comprehensive BUILD_SPEC + SCHEMAS_AND_REGISTRIES for clean rebuild (`c654b37`)
+
+
 ## [0.0.23] — 2026-04-19
 
 ### Fixed
