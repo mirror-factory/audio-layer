@@ -46,14 +46,15 @@ function tierBadge(tier: PermissionTier): string {
   return "bg-yellow-400/15 text-yellow-400";
 }
 
-function testStatusBadge(status: TestStatus): { className: string; label: string } {
+function testStatusBadge(status: TestStatus | undefined | null): { className: string; label: string } {
   switch (status) {
     case "passing":
       return { className: "bg-[#3dffc0]/15 text-[#3dffc0]", label: "passing" };
     case "failing":
       return { className: "bg-[#ef4444]/15 text-[#ef4444]", label: "failing" };
     case "untested":
-      return { className: "bg-white/10 text-[#f0f0f0]/50", label: "untested" };
+    default:
+      return { className: "bg-white/10 text-[#f0f0f0]/50", label: status ?? "untested" };
   }
 }
 

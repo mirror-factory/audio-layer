@@ -47,7 +47,7 @@ function priceCell(m: ModelEntry): string {
 }
 
 export default function RegistriesPage() {
-  const [data, setData] = useState<{ registries: Registry[] } | null>(null);
+  const [data, setData] = useState<Registry[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function RegistriesPage() {
   if (err) return <div style={{ padding: 24 }}>Error: {err}</div>;
   if (!data) return <div style={{ padding: 24 }}>Loading&hellip;</div>;
 
-  if (data.registries.length === 0) {
+  if (data.length === 0) {
     return (
       <div style={{ padding: 24, fontFamily: 'system-ui', maxWidth: 900 }}>
         <h1 style={{ fontSize: 22 }}>Vendor Registries</h1>
@@ -82,7 +82,7 @@ export default function RegistriesPage() {
         Pre-commit blocks hardcoded strings not in a registry.
       </p>
 
-      {data.registries.map(reg => (
+      {data.map(reg => (
         <section key={reg.vendor} style={{ marginBottom: 36, border: '1px solid #eee', borderRadius: 6, padding: 20 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 8 }}>
             <h2 style={{ fontSize: 18, margin: 0 }}>{reg.label ?? reg.vendor}</h2>
