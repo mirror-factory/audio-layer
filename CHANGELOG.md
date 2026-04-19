@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.22] — 2026-04-19
+
+### Added
+- feat: full ai-dev-kit init + Supabase schema for dashboards (`81ae0e8`)
+
+
 ## [0.0.21] — 2026-04-19
 
 ### Fixed
