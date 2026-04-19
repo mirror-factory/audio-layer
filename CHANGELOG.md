@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.23] — 2026-04-19
+
+### Fixed
+- fix: tools page testStatusBadge default + registries page data shape (`0c2ae4e`)
+
+
 ## [0.0.22] — 2026-04-19
 
 ### Added
