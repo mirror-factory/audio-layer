@@ -132,7 +132,7 @@ export default function OverviewPage() {
 
       {/* KPI cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        {data.kpis.map((kpi) => (
+        {(data.kpis ?? []).map((kpi) => (
           <div
             key={kpi.label}
             className="rounded-lg border border-white/10 bg-white/[0.02] px-5 py-4"
@@ -152,7 +152,7 @@ export default function OverviewPage() {
       <div>
         <h2 className="text-lg font-medium mb-4">System Health</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {data.modules.map((mod) => (
+          {(data.modules ?? []).map((mod) => (
             <div
               key={mod.name}
               className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3"

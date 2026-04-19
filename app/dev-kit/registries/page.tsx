@@ -53,7 +53,7 @@ export default function RegistriesPage() {
   useEffect(() => {
     fetch('/api/dev-kit/registries', { cache: 'no-store' })
       .then(r => r.ok ? r.json() : Promise.reject(`${r.status}`))
-      .then(setData)
+      .then(d => setData(Array.isArray(d) ? d : d.registries ?? []))
       .catch(e => setErr(String(e)));
   }, []);
 
