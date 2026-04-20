@@ -6,9 +6,7 @@ import * as THREE from "three"
 type ShaderState = "idle" | "recording" | "summarizing" | "done"
 
 interface WebGLShaderProps {
-  /** 0-1: real-time audio energy from mic RMS */
   audioLevel?: number
-  /** Controls animation phase */
   state?: ShaderState
   className?: string
 }
@@ -34,19 +32,17 @@ export function WebGLShader({
   })
 
   const audioRef = useRef(0)
-  const smoothAudioRef = useRef(0) // smoothed audio for organic movement
+  const smoothAudioRef = useRef(0)
   const stateRef = useRef<ShaderState>("idle")
   useEffect(() => { audioRef.current = audioLevel }, [audioLevel])
   useEffect(() => { stateRef.current = state }, [state])
 
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return
-
     const canvas = canvasRef.current
     const container = containerRef.current
     const r = refs.current
 
-    // ORIGINAL shader from shadcn — kept exactly as installed
     const vertexShader = `
       attribute vec3 position;
       void main() {
@@ -75,17 +71,23 @@ export function WebGLShader({
         float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
         float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-        float a = clamp(max(r, max(g, b)), 0.0, 1.0);
-        gl_FragColor = vec4(r, g, b, a);
+        // Horizontal edge fade — lines dissolve into nothing at edges
+        float normX = gl_FragCoord.x / resolution.x;
+        float edgeFade = smoothstep(0.0, 0.15, normX) * smoothstep(0.0, 0.15, 1.0 - normX);
+
+        r *= edgeFade;
+        g *= edgeFade;
+        b *= edgeFade;
+
+        gl_FragColor = vec4(r, g, b, 1.0);
       }
     `
 
     const initScene = () => {
       r.scene = new THREE.Scene()
-      r.renderer = new THREE.WebGLRenderer({ canvas, alpha: true })
+      r.renderer = new THREE.WebGLRenderer({ canvas })
       r.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-      r.renderer.setClearColor(new THREE.Color(0x000000), 0)
-
+      r.renderer.setClearColor(new THREE.Color(0x000000))
       r.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
 
       r.uniforms = {
@@ -96,20 +98,16 @@ export function WebGLShader({
         distortion: { value: 0.05 },
       }
 
-      const positions = new THREE.BufferAttribute(new Float32Array([
+      const geometry = new THREE.BufferGeometry()
+      geometry.setAttribute("position", new THREE.BufferAttribute(new Float32Array([
         -1, -1, 0, 1, -1, 0, -1, 1, 0,
         1, -1, 0, -1, 1, 0, 1, 1, 0,
-      ]), 3)
-      const geometry = new THREE.BufferGeometry()
-      geometry.setAttribute("position", positions)
+      ]), 3))
 
-      const material = new THREE.RawShaderMaterial({
+      r.mesh = new THREE.Mesh(geometry, new THREE.RawShaderMaterial({
         vertexShader, fragmentShader,
-        uniforms: r.uniforms,
-        side: THREE.DoubleSide,
-      })
-
-      r.mesh = new THREE.Mesh(geometry, material)
+        uniforms: r.uniforms, side: THREE.DoubleSide,
+      }))
       r.scene.add(r.mesh)
       handleResize()
     }
@@ -118,17 +116,19 @@ export function WebGLShader({
       if (!r.uniforms) { r.animationId = requestAnimationFrame(animate); return }
 
       const s = stateRef.current
-
-      // Smooth the raw audio level for organic, fluid movement
-      // Heavy smoothing (0.06) = slow rise, slow fall, no jumpiness
       smoothAudioRef.current += (audioRef.current - smoothAudioRef.current) * 0.06
       const audio = smoothAudioRef.current
 
-      // Speed
-      const speed = s === "summarizing" ? 0.025 : s === "recording" ? 0.012 : s === "done" ? 0.005 : 0.008
-      r.uniforms.time.value += speed
+      // IDLE: frozen / static. Only animate when recording or summarizing.
+      if (s === "recording") {
+        r.uniforms.time.value += 0.012
+      } else if (s === "summarizing") {
+        r.uniforms.time.value += 0.025
+      } else if (s === "done") {
+        r.uniforms.time.value += 0.003
+      }
+      // idle: time does NOT advance — lines are static
 
-      // Target shader params based on state + audio
       let targetY: number, targetDist: number
       if (s === "recording") {
         targetY = 0.3 + audio * 0.5
@@ -141,6 +141,7 @@ export function WebGLShader({
         targetY = 0.15
         targetDist = 0.0
       } else {
+        // idle: gentle static wave
         targetY = 0.3
         targetDist = 0.05
       }
@@ -149,7 +150,6 @@ export function WebGLShader({
         r.uniforms.xScale.value += (1.0 - r.uniforms.xScale.value) * 0.03
       }
 
-      // Very gentle interpolation for organic, fluid transitions
       const lerp = 0.04
       r.uniforms.yScale.value += (targetY - r.uniforms.yScale.value) * lerp
       r.uniforms.distortion.value += (targetDist - r.uniforms.distortion.value) * lerp
@@ -186,7 +186,10 @@ export function WebGLShader({
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`} style={{ pointerEvents: "none" }}>
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full mix-blend-screen dark:mix-blend-screen"
+      />
     </div>
   )
 }

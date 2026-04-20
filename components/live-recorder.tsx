@@ -273,24 +273,24 @@ export function LiveRecorder({
         <button
           onClick={state === "idle" ? start : state === "recording" ? stop : undefined}
           disabled={state === "connecting" || state === "finalizing"}
-          className={`flex items-center justify-center w-24 h-24 rounded-full transition-all duration-300 disabled:opacity-50 ${
+          className={`flex items-center justify-center w-20 h-20 rounded-full transition-all duration-500 disabled:opacity-50 ${
             state === "recording"
-              ? "bg-red-500/90 hover:bg-red-500 text-white shadow-[0_0_30px_rgba(239,68,68,0.3)]"
-              : "bg-gradient-to-b from-[#14b8a6] to-[#0d9488] hover:from-[#2dd4bf] hover:to-[#14b8a6] text-white shadow-[0_0_40px_rgba(20,184,166,0.2)] hover:shadow-[0_0_50px_rgba(20,184,166,0.35)]"
+              ? "bg-white/5 border-2 border-red-400/60 text-red-400 shadow-[0_0_30px_rgba(239,68,68,0.15)]"
+              : "bg-white/5 border-2 border-[#14b8a6]/40 text-[#14b8a6] hover:border-[#14b8a6]/70 hover:text-[#2dd4bf] hover:shadow-[0_0_40px_rgba(20,184,166,0.15)]"
           }`}
           aria-label={state === "recording" ? "Stop recording" : "Start recording"}
         >
           {state === "connecting" || state === "finalizing" ? (
-            <Loader2 size={32} className="animate-spin" />
+            <Loader2 size={28} className="animate-spin" />
           ) : state === "recording" ? (
-            <Square size={24} fill="white" />
+            <Square size={18} fill="currentColor" />
           ) : (
-            <Mic size={32} strokeWidth={1.5} />
+            <Mic size={28} strokeWidth={1.5} />
           )}
         </button>
 
         {state === "recording" && (
-          <span className="absolute -inset-1 rounded-full border border-red-400/30 animate-ping pointer-events-none" />
+          <span className="absolute -inset-2 rounded-full border border-red-400/20 animate-ping pointer-events-none" />
         )}
       </div>
 

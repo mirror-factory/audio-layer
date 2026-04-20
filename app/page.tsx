@@ -109,18 +109,14 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Live transcript — animates in when recording */}
-        <div
-          className={`w-full transition-all duration-700 ease-out ${
-            hasTranscript
-              ? "opacity-100 translate-y-0 max-h-[50vh]"
-              : "opacity-0 translate-y-4 max-h-0"
-          } overflow-hidden`}
-        >
-          <div className="glass-panel rounded-xl p-4 overflow-y-auto max-h-[50vh]">
-            <LiveTranscriptView turns={turns} partial={partial} />
+        {/* Live transcript — fixed height, scrolls internally */}
+        {hasTranscript && (
+          <div className="w-full animate-in fade-in slide-in-from-bottom-2 duration-500">
+            <div className="glass-panel rounded-xl p-4 overflow-y-auto" style={{ maxHeight: "40vh" }}>
+              <LiveTranscriptView turns={turns} partial={partial} />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Recent Meetings — fades out and slides down when recording starts */}
         <section
