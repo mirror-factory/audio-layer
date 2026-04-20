@@ -116,7 +116,7 @@ export function LiveRecorder({
       source.connect(worklet);
 
       // 4. Connect WebSocket to AssemblyAI
-      const wsUrl = `wss://api.assemblyai.com/v3/realtime/ws?sample_rate=${token.sampleRate}&token=${token.token}`;
+      const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}`;
       const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 
@@ -129,25 +129,24 @@ export function LiveRecorder({
       ws.onmessage = (event) => {
         try {
           const msg = JSON.parse(event.data);
-          if (msg.type === "turn" || msg.type === "partial_turn") {
+
+          if (msg.message_type === "FinalTranscript") {
             const turn: Turn = {
               speaker: msg.speaker ?? null,
               text: msg.text ?? "",
-              start: msg.start ?? 0,
-              end: msg.end ?? 0,
+              start: msg.audio_start ?? 0,
+              end: msg.audio_end ?? 0,
               confidence: msg.confidence ?? 0,
-              final: msg.type === "turn",
+              final: true,
             };
-
-            if (turn.final) {
-              turnsRef.current = [...turnsRef.current, turn];
-              partialRef.current = "";
-            } else {
-              partialRef.current = turn.text;
-            }
-
+            turnsRef.current = [...turnsRef.current, turn];
+            partialRef.current = "";
+            onTranscriptUpdate(turnsRef.current, partialRef.current);
+          } else if (msg.message_type === "PartialTranscript") {
+            partialRef.current = msg.text ?? "";
             onTranscriptUpdate(turnsRef.current, partialRef.current);
           }
+          // SessionBegins, SessionTerminated — no action needed
         } catch {
           // ignore malformed messages
         }
