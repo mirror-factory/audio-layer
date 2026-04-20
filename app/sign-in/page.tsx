@@ -14,15 +14,34 @@ export default function SignInPage() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Handle magic link — Supabase returns #access_token=... in the hash
+  // Handle magic link — two paths:
+  // 1. Hash fragment: #access_token=... (Supabase default)
+  // 2. Query param: ?token_hash=... (our Resend hook)
   useEffect(() => {
     const supabase = getSupabaseBrowser();
     if (!supabase) return;
 
+    const params = new URLSearchParams(window.location.search);
+    const tokenHash = params.get("token_hash");
+    const type = params.get("type") as "magiclink" | "email" | "recovery" | null;
+
+    // Path 2: verify token_hash from our Resend email
+    if (tokenHash && type) {
+      supabase.auth.verifyOtp({ token_hash: tokenHash, type: type ?? "magiclink" })
+        .then(({ error: err }) => {
+          if (err) {
+            setError("Sign in failed: " + err.message);
+          } else {
+            router.push(params.get("next") ?? "/");
+          }
+        });
+      return;
+    }
+
+    // Path 1: listen for hash fragment auth state change
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         if (event === "SIGNED_IN" && session) {
-          const params = new URLSearchParams(window.location.search);
           router.push(params.get("next") ?? "/");
         }
       }

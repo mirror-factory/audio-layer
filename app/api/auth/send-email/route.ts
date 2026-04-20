@@ -43,7 +43,8 @@ export const POST = withRoute(async (req, ctx) => {
   switch (emailType) {
     case "magiclink":
     case "login": {
-      const link = `${email_data.site_url}${email_data.redirect_to}?token_hash=${email_data.token_hash}&type=magiclink`;
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? email_data.site_url;
+      const link = `${appUrl}/sign-in?token_hash=${email_data.token_hash}&type=magiclink`;
       const template = magicLinkEmail(link);
       subject = template.subject;
       html = template.html;
@@ -59,7 +60,8 @@ export const POST = withRoute(async (req, ctx) => {
     }
 
     case "recovery": {
-      const link = `${email_data.site_url}${email_data.redirect_to}?token_hash=${email_data.token_hash}&type=recovery`;
+      const appUrlR = process.env.NEXT_PUBLIC_APP_URL ?? email_data.site_url;
+      const link = `${appUrlR}/sign-in?token_hash=${email_data.token_hash}&type=recovery`;
       const template = magicLinkEmail(link);
       subject = "Reset your audio-layer password";
       html = template.html;
