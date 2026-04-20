@@ -44,6 +44,7 @@ export function LiveRecorder({
 
   const stateRef = useRef<RecorderState>("idle");
   const meterRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const autosaveRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const workletRef = useRef<AudioWorkletNode | null>(null);
@@ -60,6 +61,10 @@ export function LiveRecorder({
   };
 
   const cleanup = useCallback(() => {
+    if (autosaveRef.current) {
+      clearInterval(autosaveRef.current);
+      autosaveRef.current = null;
+    }
     if (meterRef.current) {
       clearInterval(meterRef.current);
       meterRef.current = null;
@@ -159,6 +164,25 @@ export function LiveRecorder({
         stateRef.current = "recording"; setState("recording");
         setDuration(0);
         timerRef.current = setInterval(() => setDuration((d) => d + 1), 1000);
+
+        // Autosave transcript every 30 seconds
+        autosaveRef.current = setInterval(() => {
+          if (turnsRef.current.length === 0) return;
+          const meetingId = tokenRef.current?.meetingId;
+          if (!meetingId) return;
+          fetch("/api/transcribe/stream/autosave", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              meetingId,
+              text: turnsRef.current.map((t) => t.text).join(" "),
+              utterances: turnsRef.current.map((t) => ({
+                speaker: t.speaker, text: t.text,
+                start: t.start, end: t.end, confidence: t.confidence,
+              })),
+            }),
+          }).catch(() => {}); // fire-and-forget
+        }, 30000);
       };
 
       ws.onmessage = (event) => {
