@@ -1,16 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Loader2, Mail, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { getSupabaseBrowser } from "@/lib/supabase/browser";
 import { WebGLShader } from "@/components/ui/web-gl-shader";
 
 export default function SignInPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Handle magic link hash fragment — Supabase redirects back with #access_token=...
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash;
+    if (hash && hash.includes("access_token")) {
+      const supabase = getSupabaseBrowser();
+      if (!supabase) return;
+      // Supabase client auto-detects the hash and sets the session
+      supabase.auth.getSession().then(({ data }) => {
+        if (data.session) {
+          const params = new URLSearchParams(window.location.search);
+          router.push(params.get("next") ?? "/");
+        }
+      });
+    }
+  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
