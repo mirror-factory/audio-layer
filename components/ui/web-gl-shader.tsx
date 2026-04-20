@@ -71,15 +71,6 @@ export function WebGLShader({
         float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
         float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-        // Horizontal edge fade — 25% on each side
-        float normX = gl_FragCoord.x / resolution.x;
-        float edgeFade = smoothstep(0.0, 0.25, normX) * smoothstep(0.0, 0.25, 1.0 - normX);
-
-        r *= edgeFade;
-        g *= edgeFade;
-        b *= edgeFade;
-
-        // Alpha = line brightness. Black areas become fully transparent.
         float a = clamp(max(r, max(g, b)), 0.0, 1.0);
         gl_FragColor = vec4(r, g, b, a);
       }
@@ -194,6 +185,9 @@ export function WebGLShader({
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
       />
+      {/* Dark overlays on left and right edges — fades the shader into the page bg */}
+      <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-[var(--bg-primary)] to-transparent" />
+      <div className="absolute inset-y-0 right-0 w-[20%] bg-gradient-to-l from-[var(--bg-primary)] to-transparent" />
     </div>
   )
 }
