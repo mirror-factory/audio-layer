@@ -121,37 +121,38 @@ export function WebGLShader({
       smoothAudioRef.current += (audioRef.current - smoothAudioRef.current) * 0.06
       const audio = smoothAudioRef.current
 
-      // Idle: very slow drift so it feels alive but calm
+      // Speed per state
       if (s === "idle") {
-        r.uniforms.time.value += 0.003
+        r.uniforms.time.value += 0.004 // gentle slow drift
       } else if (s === "recording") {
-        r.uniforms.time.value += 0.012
+        r.uniforms.time.value += 0.01
       } else if (s === "summarizing") {
-        r.uniforms.time.value += 0.025
+        r.uniforms.time.value += 0.006 // calm, not frantic
       } else {
-        r.uniforms.time.value += 0.002
+        r.uniforms.time.value += 0.003
       }
 
       let targetY: number, targetDist: number
-      if (s === "recording") {
+      if (s === "idle") {
+        // White line — no distortion, gentle amplitude
+        targetY = 0.25
+        targetDist = 0.0 // zero = all 3 lines overlap = white
+      } else if (s === "recording") {
+        // Lines split with audio
         targetY = 0.3 + audio * 0.5
-        targetDist = 0.05 + audio * 0.1
+        targetDist = 0.04 + audio * 0.1
       } else if (s === "summarizing") {
-        targetY = 0.5
-        targetDist = 0.03
-        r.uniforms.xScale.value += (2.0 - r.uniforms.xScale.value) * 0.02
-      } else if (s === "done") {
-        targetY = 0.15
-        targetDist = 0.0
-      } else {
-        // idle: gentle static wave
+        // Lines gently converge back toward white, smooth and calm
         targetY = 0.3
-        targetDist = 0.05
+        targetDist = 0.01 // nearly merged but hint of color
+      } else {
+        // Done: fully white, gentle
+        targetY = 0.2
+        targetDist = 0.0
       }
 
-      if (s !== "summarizing") {
-        r.uniforms.xScale.value += (1.0 - r.uniforms.xScale.value) * 0.03
-      }
+      // xScale stays at 1.0 always — no frantic frequency changes
+      r.uniforms.xScale.value += (1.0 - r.uniforms.xScale.value) * 0.03
 
       const lerp = 0.04
       r.uniforms.yScale.value += (targetY - r.uniforms.yScale.value) * lerp
