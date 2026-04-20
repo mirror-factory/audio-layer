@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Mic, Square, Loader2 } from "lucide-react";
-import { isTauri } from "@/lib/tauri/bridge";
+import { isElectron } from "@/lib/electron/bridge";
 
 interface StreamToken {
   token: string;
@@ -91,8 +91,8 @@ export function LiveRecorder({
       tokenRef.current = token;
 
       // 2. Get mic
-      if (isTauri()) {
-        // Tauri native capture not wired here -- fallback to getUserMedia
+      if (isElectron()) {
+        // Electron native capture not wired here -- fallback to getUserMedia
       }
 
       const stream = await navigator.mediaDevices.getUserMedia({
