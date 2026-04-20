@@ -1,16 +1,13 @@
 /**
- * Langfuse flush helper for use with next/server `after()`.
- * No-ops gracefully when Langfuse is not configured.
+ * Flush Langfuse spans. Used with Next.js after() in API routes.
+ * Lazy-initializes Langfuse on first call.
  */
-
 export async function flushLangfuse(): Promise<void> {
   try {
-    // Langfuse SDK flushes automatically in most cases,
-    // but in serverless we need an explicit flush before the
-    // function freezes. The OTel span processor handles this
-    // when configured via instrumentation.ts.
-    // This is a safety net that does nothing if OTel is not set up.
+    // Lazy init — only imports OTel in Node.js runtime
+    const { ensureLangfuse } = await import("../server/langfuse-setup");
+    await ensureLangfuse();
   } catch {
-    // Never throw from flush
+    // Not available (Edge runtime, missing deps) — no-op
   }
 }
