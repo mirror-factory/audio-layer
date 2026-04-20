@@ -28,12 +28,13 @@ export default function SignInPage() {
     }
 
     // Hash fragment path — listen for auth state change
+    // Only redirect for REAL sign-ins (not anonymous sessions)
     const supabase = getSupabaseBrowser();
     if (!supabase) return;
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
-        if (event === "SIGNED_IN" && session) {
+        if (event === "SIGNED_IN" && session && !session.user.is_anonymous && session.user.email) {
           window.location.href = params.get("next") ?? "/";
         }
       }
