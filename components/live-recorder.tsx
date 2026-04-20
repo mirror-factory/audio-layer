@@ -123,7 +123,7 @@ export function LiveRecorder({
       silentGain.connect(audioCtx.destination);
 
       // 4. Connect WebSocket to AssemblyAI
-      const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}&speech_model=${token.speechModel}`;
+      const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}&speech_model=${token.speechModel}&speaker_labels=true&format_turns=true`;
       const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 
