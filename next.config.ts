@@ -32,6 +32,20 @@ const nextConfig: NextConfig = {
         },
       ];
     }
+
+    // Stub @opentelemetry/api for Edge runtime so the AI SDK's
+    // import doesn't pull in Node.js modules into the middleware bundle.
+    if (!isServer || config.name === "edge-server") {
+      config.resolve = config.resolve || {};
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "@opentelemetry/api": false,
+        "@opentelemetry/sdk-node": false,
+        "@langfuse/otel": false,
+        "langfuse": false,
+      };
+    }
+
     return config;
   },
 };
