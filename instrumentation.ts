@@ -1,32 +1,19 @@
 /**
- * Next.js instrumentation -- loads at server startup.
+ * Next.js instrumentation — runtime dispatcher.
  *
- * Wires OpenTelemetry for Langfuse when env vars are present. Critical
- * design rule: **this function must not throw**. Any failure here takes
- * down every route in the app and produces "Internal Server Error" with
- * no logs -- the exact silent-500 failure mode the kit exists to prevent.
- *
- * If Langfuse env vars are missing, we log once and continue. The stdout
- * logger (lib/logger.ts) still works.
+ * Next.js calls this for BOTH Node.js and Edge runtimes.
+ * We only want OTel/Langfuse in Node.js, so we guard and
+ * use a fully dynamic import to prevent Edge bundling.
  */
 export async function register(): Promise<void> {
-  if (process.env.NEXT_RUNTIME !== 'nodejs') return;
-
-  const hasLangfuse = Boolean(process.env.LANGFUSE_PUBLIC_KEY && process.env.LANGFUSE_SECRET_KEY);
-  if (!hasLangfuse) {
-    // Intentionally not throwing. Logs flow through the stdout logger.
-    console.warn(
-      '[instrumentation] LANGFUSE_PUBLIC_KEY / LANGFUSE_SECRET_KEY not set -- OpenTelemetry export disabled. ' +
-        'AI SDK calls will still run; they just won\'t be forwarded to Langfuse.',
-    );
-    return;
-  }
-
-  try {
-    await import('./lib/langfuse-setup');
-  } catch (err) {
-    // Last line of defense. If Langfuse SDK init blows up (bad keys,
-    // network, peer dep missing), we warn but keep the server alive.
-    console.error('[instrumentation] Langfuse setup failed -- continuing without OTel export.', err);
+  if (process.env.NEXT_RUNTIME === "nodejs") {
+    // Dynamic import with a variable prevents Vercel's Edge bundler
+    // from statically analyzing and including the OTel modules.
+    const modulePath = "./lib/langfuse-setup";
+    try {
+      await import(/* webpackIgnore: true */ modulePath);
+    } catch {
+      // Langfuse not configured or SDK missing — continue without OTel
+    }
   }
 }
