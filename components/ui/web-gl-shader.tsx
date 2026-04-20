@@ -184,6 +184,7 @@ export function WebGLShader({
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
+        style={{ filter: "var(--shader-filter, none)" }}
       />
       {/* Dark overlays on left and right edges — fades the shader into the page bg */}
       <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-[var(--bg-primary)] to-transparent" />
