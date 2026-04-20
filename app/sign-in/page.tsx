@@ -14,31 +14,23 @@ export default function SignInPage() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Handle magic link — two paths:
-  // 1. Hash fragment: #access_token=... (Supabase default)
-  // 2. Query param: ?token_hash=... (our Resend hook)
+  // Handle magic link — redirect to server-side callback for proper cookie setting
   useEffect(() => {
-    const supabase = getSupabaseBrowser();
-    if (!supabase) return;
-
     const params = new URLSearchParams(window.location.search);
     const tokenHash = params.get("token_hash");
-    const type = params.get("type") as "magiclink" | "email" | "recovery" | null;
+    const type = params.get("type");
 
-    // Path 2: verify token_hash from our Resend email
+    // If we have a token_hash, redirect to the server callback route
+    // which verifies the token AND sets httpOnly cookies
     if (tokenHash && type) {
-      supabase.auth.verifyOtp({ token_hash: tokenHash, type: type ?? "magiclink" })
-        .then(({ error: err }) => {
-          if (err) {
-            setError("Sign in failed: " + err.message);
-          } else {
-            window.location.href = params.get("next") ?? "/";
-          }
-        });
+      window.location.href = `/auth/callback?token_hash=${tokenHash}&type=${type}&next=${encodeURIComponent(params.get("next") ?? "/")}`;
       return;
     }
 
-    // Path 1: listen for hash fragment auth state change
+    // Hash fragment path — listen for auth state change
+    const supabase = getSupabaseBrowser();
+    if (!supabase) return;
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         if (event === "SIGNED_IN" && session) {
