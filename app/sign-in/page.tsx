@@ -14,21 +14,21 @@ export default function SignInPage() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Handle magic link hash fragment — Supabase redirects back with #access_token=...
+  // Handle magic link — Supabase returns #access_token=... in the hash
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const hash = window.location.hash;
-    if (hash && hash.includes("access_token")) {
-      const supabase = getSupabaseBrowser();
-      if (!supabase) return;
-      // Supabase client auto-detects the hash and sets the session
-      supabase.auth.getSession().then(({ data }) => {
-        if (data.session) {
+    const supabase = getSupabaseBrowser();
+    if (!supabase) return;
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (event === "SIGNED_IN" && session) {
           const params = new URLSearchParams(window.location.search);
           router.push(params.get("next") ?? "/");
         }
-      });
-    }
+      }
+    );
+
+    return () => subscription.unsubscribe();
   }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -45,7 +45,7 @@ export default function SignInPage() {
       const { error: authError } = await supabase.auth.signInWithOtp({
         email: email.trim(),
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          emailRedirectTo: `${window.location.origin}/sign-in`,
         },
       });
 
