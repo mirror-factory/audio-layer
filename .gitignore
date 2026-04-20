@@ -47,3 +47,10 @@ coverage/
 .artifacts/
 .ai-dev-kit.doctor-ran
 .env.local
+
+# mobile platforms (generated per-workstation via npx cap add)
+/ios/
+/android/
+
+# electron build output
+/dist-electron/
