@@ -36,6 +36,7 @@ export function LiveRecorder({
   const [duration, setDuration] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
+  const stateRef = useRef<RecorderState>("idle");
   const wsRef = useRef<WebSocket | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const workletRef = useRef<AudioWorkletNode | null>(null);
@@ -77,7 +78,7 @@ export function LiveRecorder({
   const start = useCallback(async () => {
     try {
       setError(null);
-      setState("connecting");
+      stateRef.current = "connecting"; setState("connecting");
 
       // 1. Fetch ephemeral token
       const tokenRes = await fetch("/api/transcribe/stream/token", {
@@ -114,14 +115,20 @@ export function LiveRecorder({
       const worklet = new AudioWorkletNode(audioCtx, "pcm-downsampler");
       workletRef.current = worklet;
       source.connect(worklet);
+      // Must connect to destination for process() to fire.
+      // Use a silent gain node to avoid playing mic audio through speakers.
+      const silentGain = audioCtx.createGain();
+      silentGain.gain.value = 0;
+      worklet.connect(silentGain);
+      silentGain.connect(audioCtx.destination);
 
       // 4. Connect WebSocket to AssemblyAI
-      const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}`;
+      const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}&speech_model=${token.speechModel}`;
       const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 
       ws.onopen = () => {
-        setState("recording");
+        stateRef.current = "recording"; setState("recording");
         setDuration(0);
         timerRef.current = setInterval(() => setDuration((d) => d + 1), 1000);
       };
@@ -155,11 +162,16 @@ export function LiveRecorder({
       ws.onerror = () => {
         setError("WebSocket connection error");
         cleanup();
-        setState("idle");
+        stateRef.current = "idle"; setState("idle");
       };
 
-      ws.onclose = () => {
-        // Normal close handled by stop function
+      ws.onclose = (event) => {
+        if (event.code !== 1000 && stateRef.current !== "finalizing" && stateRef.current !== "idle") {
+          const reason = event.reason || `Connection closed (code ${event.code})`;
+          setError(reason);
+          cleanup();
+          stateRef.current = "idle"; setState("idle");
+        }
       };
 
       // 5. Wire worklet -> WebSocket audio chunks
@@ -171,17 +183,17 @@ export function LiveRecorder({
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to start recording");
       cleanup();
-      setState("idle");
+      stateRef.current = "idle"; setState("idle");
     }
   }, [onTranscriptUpdate, cleanup]);
 
   const stop = useCallback(async () => {
-    setState("finalizing");
+    stateRef.current = "finalizing"; setState("finalizing");
     cleanup();
 
     const meetingId = tokenRef.current?.meetingId;
     if (!meetingId) {
-      setState("idle");
+      stateRef.current = "idle"; setState("idle");
       return;
     }
 
@@ -209,7 +221,7 @@ export function LiveRecorder({
       onSessionEnd(meetingId);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to finalize");
-      setState("idle");
+      stateRef.current = "idle"; setState("idle");
     }
   }, [cleanup, duration, onSessionEnd]);
 
