@@ -29,8 +29,8 @@ export function TopBar({ title, showBack = false }: TopBarProps) {
       <header
         className={`sticky top-0 z-40 flex items-center justify-between transition-all duration-300 ${
           scrolled
-            ? "bg-black/70 backdrop-blur-xl border-b border-white/[0.06]"
-            : "bg-transparent border-b border-transparent"
+            ? "bg-[var(--bg-primary)]/80 backdrop-blur-xl border-b border-[var(--border-subtle)]"
+            : "bg-[var(--bg-primary)] border-b border-transparent"
         }`}
         style={{
           height: "calc(44px + env(safe-area-inset-top, 0px))",
