@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Layer One</title>
+  <style>
+    body { background: #0a0a0a; color: #d4d4d4; font-family: ui-monospace, monospace; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    .loading { text-align: center; }
+    .dot { animation: pulse 1.5s ease-in-out infinite; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #14b8a6; margin: 0 3px; }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <p style="margin-top: 12px; font-size: 12px; opacity: 0.5;">Loading Layer One...</p>
+  </div>
+</body>
+</html>
