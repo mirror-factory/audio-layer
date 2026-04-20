@@ -267,97 +267,80 @@ export function LiveRecorder({
     onStateChange?.(state);
   }, [state, onStateChange]);
 
-  const isActive = state === "recording" || state === "finalizing";
+  const isActive = state === "recording" || state === "connecting" || state === "finalizing";
   const wordCount = turnsRef.current.reduce((sum, t) => sum + t.text.split(/\s+/).filter(Boolean).length, 0);
   const turnCount = turnsRef.current.length;
 
-  // Idle layout: centered mic, timer below
-  if (!isActive && state !== "connecting") {
-    return (
-      <div className="flex flex-col items-center gap-5">
-        <button
-          onClick={start}
-          className="flex items-center justify-center w-20 h-20 rounded-full bg-white/5 border-2 border-[#14b8a6]/40 text-[#14b8a6] hover:border-[#14b8a6]/70 hover:text-[#2dd4bf] hover:shadow-[0_0_40px_rgba(20,184,166,0.15)] transition-all duration-500"
-          aria-label="Start recording"
-        >
-          <Mic size={28} strokeWidth={1.5} />
-        </button>
-        <div className="text-center">
-          <div className="text-2xl font-semibold text-[var(--text-primary)] tabular-nums">
-            {formatDuration(duration)}
-          </div>
-          <div className="text-xs text-[var(--text-muted)] mt-1">
-            Tap to start live transcription
-          </div>
-        </div>
-        {error && (
-          <p className="text-sm text-red-400 text-center max-w-xs">{error}</p>
-        )}
-      </div>
-    );
-  }
-
-  // Connecting layout
-  if (state === "connecting") {
-    return (
-      <div className="flex flex-col items-center gap-5">
-        <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white/5 border-2 border-[#14b8a6]/30">
-          <Loader2 size={28} className="animate-spin text-[#14b8a6]" />
-        </div>
-        <div className="text-xs text-[var(--text-muted)]">Connecting...</div>
-        {error && (
-          <p className="text-sm text-red-400 text-center max-w-xs">{error}</p>
-        )}
-      </div>
-    );
-  }
-
-  // Recording / Finalizing layout: stop button left, timer + context centered
   return (
     <div className="w-full">
-      <div className="flex items-center gap-4 px-2">
-        {/* Stop button — left side */}
+      {/* Single layout — animates between idle and active states */}
+      <div className={`flex items-center transition-all duration-700 ease-out ${
+        isActive ? "gap-4 px-2" : "flex-col gap-5"
+      }`}>
+        {/* Button — centered when idle, slides left when active */}
         <button
-          onClick={state === "recording" ? stop : undefined}
-          disabled={state === "finalizing"}
-          className="shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-red-400/40 text-red-400 hover:border-red-400/70 hover:bg-red-400/10 transition-all duration-300 disabled:opacity-50"
-          aria-label="Stop recording"
+          onClick={state === "idle" ? start : state === "recording" ? stop : undefined}
+          disabled={state === "connecting" || state === "finalizing"}
+          className={`shrink-0 flex items-center justify-center rounded-full transition-all duration-700 ease-out disabled:opacity-50 ${
+            isActive
+              ? "w-12 h-12 bg-white/5 border border-red-400/40 text-red-400 hover:border-red-400/70 hover:bg-red-400/10"
+              : "w-20 h-20 bg-white/5 border-2 border-[#14b8a6]/40 text-[#14b8a6] hover:border-[#14b8a6]/70 hover:text-[#2dd4bf] hover:shadow-[0_0_40px_rgba(20,184,166,0.15)]"
+          }`}
+          aria-label={isActive ? "Stop recording" : "Start recording"}
         >
-          {state === "finalizing" ? (
-            <Loader2 size={16} className="animate-spin" />
-          ) : (
+          {state === "connecting" || state === "finalizing" ? (
+            <Loader2 size={isActive ? 16 : 28} className="animate-spin" />
+          ) : state === "recording" ? (
             <Square size={14} fill="currentColor" />
+          ) : (
+            <Mic size={28} strokeWidth={1.5} />
           )}
         </button>
 
-        {/* Timer + context — centered */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-baseline gap-3">
-            <span className="text-3xl font-semibold text-[var(--text-primary)] tabular-nums tracking-tight">
+        {/* Info — centered text when idle, left-aligned details when active */}
+        <div className={`transition-all duration-700 ease-out ${
+          isActive ? "flex-1 min-w-0 text-left" : "text-center"
+        }`}>
+          <div className={`flex items-baseline transition-all duration-700 ${
+            isActive ? "gap-3" : "justify-center"
+          }`}>
+            <span className={`font-semibold text-[var(--text-primary)] tabular-nums tracking-tight transition-all duration-700 ${
+              isActive ? "text-3xl" : "text-2xl"
+            }`}>
               {formatDuration(duration)}
             </span>
-            <span className="text-xs text-red-400/70 uppercase tracking-wider">
-              {state === "finalizing" ? "Processing" : "Recording"}
-            </span>
-          </div>
-          <div className="flex items-center gap-4 mt-1 text-xs text-[var(--text-muted)]">
-            {turnCount > 0 && (
-              <span>{turnCount} {turnCount === 1 ? "segment" : "segments"}</span>
+            {isActive && (
+              <span className="text-xs text-red-400/70 uppercase tracking-wider animate-in fade-in duration-500">
+                {state === "finalizing" ? "Processing" : state === "connecting" ? "Connecting" : "Recording"}
+              </span>
             )}
-            {wordCount > 0 && (
-              <span>{wordCount} {wordCount === 1 ? "word" : "words"}</span>
-            )}
-            {turnCount === 0 && <span>Listening...</span>}
           </div>
+          {isActive ? (
+            <div className="flex items-center gap-4 mt-1 text-xs text-white/40 animate-in fade-in slide-in-from-left-2 duration-500">
+              {turnCount > 0 && (
+                <span>{turnCount} {turnCount === 1 ? "segment" : "segments"}</span>
+              )}
+              {wordCount > 0 && (
+                <span>{wordCount} {wordCount === 1 ? "word" : "words"}</span>
+              )}
+              {turnCount === 0 && <span>Listening...</span>}
+            </div>
+          ) : (
+            <div className="text-xs text-[var(--text-muted)] mt-1">
+              Tap to start live transcription
+            </div>
+          )}
         </div>
 
-        {/* Live indicator — right side */}
-        <div className="shrink-0 flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-          <span className="text-[10px] text-red-400/70 uppercase tracking-wider font-medium">
-            Live
-          </span>
-        </div>
+        {/* Live indicator — only when active, fades in */}
+        {isActive && (
+          <div className="shrink-0 flex items-center gap-1.5 animate-in fade-in duration-700">
+            <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
+            <span className="text-[10px] text-red-400/70 uppercase tracking-wider font-medium">
+              Live
+            </span>
+          </div>
+        )}
       </div>
 
       {error && (

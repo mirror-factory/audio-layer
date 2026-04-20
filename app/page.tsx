@@ -101,7 +101,7 @@ export default function HomePage() {
         </div>
 
         {/* Shader — between mic and transcript, audio-reactive */}
-        <div className="w-full my-4" style={{ height: 120 }}>
+        <div className="w-full mt-8 mb-4" style={{ height: 120 }}>
           <WebGLShader
             audioLevel={audioLevel}
             state={shaderState}
@@ -112,7 +112,7 @@ export default function HomePage() {
         {/* Live transcript — fixed height, scrolls internally */}
         {hasTranscript && (
           <div className="w-full animate-in fade-in slide-in-from-bottom-2 duration-500">
-            <div className="glass-panel rounded-xl p-4 overflow-y-auto" style={{ maxHeight: "40vh" }}>
+            <div className="glass-panel rounded-xl p-4 overflow-y-auto" style={{ maxHeight: "40vh", scrollbarWidth: "none" }}>
               <LiveTranscriptView turns={turns} partial={partial} />
             </div>
           </div>
