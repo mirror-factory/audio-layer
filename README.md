@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Layer One Audio
+
+**Audio intelligence for conversations that matter.**
+
+Capture, transcribe, and extract structured data — budgets, timelines, decisions, action items — not just summaries. Ships as web, macOS desktop (Electron), and iOS (Capacitor) from a single Next.js codebase.
+
+A [Mirror Factory](https://mirrorfactory.ai) product.
+
+---
+
+## Features
+
+- **Live streaming transcription** — Real-time via AssemblyAI with speaker diarization
+- **Structured extraction** — AI generates summaries, key points, action items, decisions, and intake forms
+- **Batch transcription** — Upload audio files for processing
+- **User-selectable models** — 9 LLMs (Claude, GPT, Gemini) + 5 speech models
+- **Cost transparency** — Per-meeting cost breakdown (STT + LLM)
+- **Stripe billing** — Free (25 meetings) / Core ($15/mo) / Pro ($25/mo)
+- **Multi-platform** — Web, macOS (Electron), iOS/Android (Capacitor)
+- **Observability** — withRoute + withExternalCall wrappers, Langfuse OTel
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 15, React 19, Tailwind v4, TypeScript |
+| LLM | Vercel AI SDK v6 via AI Gateway |
+| Transcription | AssemblyAI (batch + streaming, v3 API) |
+| Database | Supabase (PostgreSQL + RLS) |
+| Billing | Stripe |
+| Email | Resend |
+| Observability | Langfuse via OpenTelemetry |
+| Desktop | Electron |
+| Mobile | Capacitor 8 |
+| Testing | Vitest (95 unit), Playwright (68 e2e) |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp env.local.template .env.local  # Fill in API keys
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Minimum env vars:** `AI_GATEWAY_API_KEY`, `ASSEMBLYAI_API_KEY`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**For persistence:** `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**For billing:** `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_CORE`, `STRIPE_PRICE_PRO`
 
-## Learn More
+Run `lib/supabase/schema.sql` in Supabase SQL Editor to create tables.
 
-To learn more about Next.js, take a look at the following resources:
+See [docs/PRICING_AND_BILLING.md](docs/PRICING_AND_BILLING.md) for complete billing/Stripe setup.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Command | Purpose |
+|---------|---------|
+| `pnpm dev` | Dev server (Turbopack) |
+| `pnpm build` | Production build |
+| `pnpm typecheck` | TypeScript check |
+| `pnpm test` | Unit tests (95) |
+| `pnpm test:e2e` | Playwright e2e (68 tests, 6 viewports) |
+| `pnpm electron:dev` | Electron desktop |
+| `pnpm electron:build` | Build DMG |
+| `npx cap sync` | Sync Capacitor |
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/              UI pages + API routes
+lib/              Core libraries (assemblyai, billing, meetings, stripe, email, supabase)
+components/       React components (recorder, transcript, shader, top-bar, slide-menu)
+electron/         Desktop shell (main.js, preload.js)
+server/           Langfuse OTel setup (Node.js only)
+docs/             BUILD_SPEC, PRICING, SCHEMAS, roadmap, brand/style guides
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [BUILD_SPEC.md](docs/BUILD_SPEC.md) | Complete blueprint — every route, schema, config |
+| [PRICING_AND_BILLING.md](docs/PRICING_AND_BILLING.md) | Stripe setup, vendor pricing, margin analysis |
+| [SCHEMAS_AND_REGISTRIES.md](docs/SCHEMAS_AND_REGISTRIES.md) | Zod schemas, TypeScript interfaces, SQL |
+| [roadmap.md](docs/roadmap.md) | Product roadmap |
+| [brand-guide.md](docs/brand-guide.md) | Brand identity |
+| [style-guide.md](docs/style-guide.md) | Component styles |
+
+## License
+
+Proprietary — Mirror Factory
