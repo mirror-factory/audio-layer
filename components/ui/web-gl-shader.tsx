@@ -34,6 +34,7 @@ export function WebGLShader({
   })
 
   const audioRef = useRef(0)
+  const smoothAudioRef = useRef(0) // smoothed audio for organic movement
   const stateRef = useRef<ShaderState>("idle")
   useEffect(() => { audioRef.current = audioLevel }, [audioLevel])
   useEffect(() => { stateRef.current = state }, [state])
@@ -80,9 +81,9 @@ export function WebGLShader({
 
     const initScene = () => {
       r.scene = new THREE.Scene()
-      r.renderer = new THREE.WebGLRenderer({ canvas })
+      r.renderer = new THREE.WebGLRenderer({ canvas, alpha: true })
       r.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-      r.renderer.setClearColor(new THREE.Color(0x000000))
+      r.renderer.setClearColor(new THREE.Color(0x000000), 0)
 
       r.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
 
@@ -116,7 +117,11 @@ export function WebGLShader({
       if (!r.uniforms) { r.animationId = requestAnimationFrame(animate); return }
 
       const s = stateRef.current
-      const audio = audioRef.current
+
+      // Smooth the raw audio level for organic, fluid movement
+      // Heavy smoothing (0.06) = slow rise, slow fall, no jumpiness
+      smoothAudioRef.current += (audioRef.current - smoothAudioRef.current) * 0.06
+      const audio = smoothAudioRef.current
 
       // Speed
       const speed = s === "summarizing" ? 0.025 : s === "recording" ? 0.012 : s === "done" ? 0.005 : 0.008
@@ -125,12 +130,12 @@ export function WebGLShader({
       // Target shader params based on state + audio
       let targetY: number, targetDist: number
       if (s === "recording") {
-        targetY = 0.3 + audio * 0.7
-        targetDist = 0.05 + audio * 0.15
+        targetY = 0.3 + audio * 0.5
+        targetDist = 0.05 + audio * 0.1
       } else if (s === "summarizing") {
         targetY = 0.5
         targetDist = 0.03
-        r.uniforms.xScale.value += (2.0 - (r.uniforms.xScale.value as number)) * 0.02
+        r.uniforms.xScale.value += (2.0 - r.uniforms.xScale.value) * 0.02
       } else if (s === "done") {
         targetY = 0.15
         targetDist = 0.0
@@ -140,13 +145,13 @@ export function WebGLShader({
       }
 
       if (s !== "summarizing") {
-        r.uniforms.xScale.value += (1.0 - (r.uniforms.xScale.value as number)) * 0.03
+        r.uniforms.xScale.value += (1.0 - r.uniforms.xScale.value) * 0.03
       }
 
-      // Smooth lerp — faster when recording for responsiveness
-      const lerp = s === "recording" ? 0.15 : 0.04
-      r.uniforms.yScale.value += (targetY - (r.uniforms.yScale.value as number)) * lerp
-      r.uniforms.distortion.value += (targetDist - (r.uniforms.distortion.value as number)) * lerp
+      // Very gentle interpolation for organic, fluid transitions
+      const lerp = 0.04
+      r.uniforms.yScale.value += (targetY - r.uniforms.yScale.value) * lerp
+      r.uniforms.distortion.value += (targetDist - r.uniforms.distortion.value) * lerp
 
       if (r.renderer && r.scene && r.camera) {
         r.renderer.render(r.scene, r.camera)
