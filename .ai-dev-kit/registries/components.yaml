@@ -1,123 +1,123 @@
 kind: components
 schema_version: 1
-last_synced_on: 2026-04-21T03:08:52.788Z
+last_synced_on: 2026-04-21T04:55:18.615Z
 entries:
   - name: audio-lines
     path: components/audio-lines.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/audio-lines.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: audio-recorder
     path: components/audio-recorder.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/audio-recorder.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: chat-input
     path: components/chat-input.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/chat-input.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: chat-message
     path: components/chat-message.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/chat-message.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: intake-form-view
     path: components/intake-form-view.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/intake-form-view.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: live-recorder
     path: components/live-recorder.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/live-recorder.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: live-transcript-view
     path: components/live-transcript-view.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/live-transcript-view.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: meeting-cost-panel
     path: components/meeting-cost-panel.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/meeting-cost-panel.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: meeting-detail-poller
     path: components/meeting-detail-poller.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/meeting-detail-poller.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: slide-menu
     path: components/slide-menu.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/slide-menu.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: theme-toggle
     path: components/theme-toggle.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/theme-toggle.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: tool-card
     path: components/tool-card.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/tool-card.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: top-bar
     path: components/top-bar.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/top-bar.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: transcript-view
     path: components/transcript-view.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/transcript-view.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: button
     path: components/ui/button.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/button.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: liquid-glass-button
     path: components/ui/liquid-glass-button.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/liquid-glass-button.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
   - name: web-gl-shader
     path: components/ui/web-gl-shader.tsx
     stories_path: null
-    visual_path: null
+    visual_path: tests/visual/web-gl-shader.spec.ts
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"

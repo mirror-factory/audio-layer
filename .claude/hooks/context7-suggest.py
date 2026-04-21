@@ -55,7 +55,13 @@ BASE_FLAGGED_LIBRARIES = [
     '@google/generative-ai',
 ]
 
-LOOKUP_FRESHNESS_SECONDS = 3600  # 1 hour
+LOOKUP_FRESHNESS_SECONDS = 604800  # 7 days -- 0.2.14 bumped from 3600 (1 hour).
+# Rationale: the 1-hour window was too tight. Real workflow is: agent checks
+# docs at session start, works for a few hours, commits. 1-hour TTL made
+# the gate feel punitive without catching real staleness. 7 days matches
+# the pace at which vendor SDKs actually ship breaking changes; shorter
+# than the weekly cost-drift GH Action so a stale lookup always fails at
+# least one layer of enforcement.
 
 # Standard-library / build-tool packages we explicitly DON'T gate. These
 # don't churn fast enough to need a Context7 lookup per edit.

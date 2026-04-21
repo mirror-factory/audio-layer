@@ -1,189 +1,226 @@
 kind: pages
 schema_version: 1
-last_synced_on: 2026-04-21T03:08:52.788Z
+last_synced_on: 2026-04-21T04:59:04.926Z
 entries:
   - route: /auth/confirm
     path: app/auth/confirm/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /chat
     path: app/chat/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/config
     path: app/dev-kit/config/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/connectors
     path: app/dev-kit/connectors/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/cost
     path: app/dev-kit/cost/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/coverage
     path: app/dev-kit/coverage/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/dependencies
     path: app/dev-kit/dependencies/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/deployments
     path: app/dev-kit/deployments/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/design-system
     path: app/dev-kit/design-system/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: "/dev-kit/evals/[id]"
     path: "app/dev-kit/evals/[id]/page.tsx"
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/evals
     path: app/dev-kit/evals/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: "/dev-kit/features/[name]"
     path: "app/dev-kit/features/[name]/page.tsx"
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/features
     path: app/dev-kit/features/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/index
     path: app/dev-kit/index/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit
     path: app/dev-kit/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/registries
     path: app/dev-kit/registries/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/regressions
     path: app/dev-kit/regressions/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: "/dev-kit/runs/[run_id]"
     path: "app/dev-kit/runs/[run_id]/page.tsx"
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/runs
     path: app/dev-kit/runs/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: "/dev-kit/sessions/[id]"
     path: "app/dev-kit/sessions/[id]/page.tsx"
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/sessions
     path: app/dev-kit/sessions/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/status
     path: app/dev-kit/status/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /dev-kit/tools
     path: app/dev-kit/tools/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /docs
     path: app/docs/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: "/meetings/[id]"
     path: "app/meetings/[id]/page.tsx"
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /meetings
     path: app/meetings/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /observability
     path: app/observability/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /page.tsx
     path: app/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /pricing
     path: app/pricing/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /profile
     path: app/profile/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /record/live
     path: app/record/live/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /record
     path: app/record/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /roadmap
     path: app/roadmap/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /settings
     path: app/settings/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /sign-in
     path: app/sign-in/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /sign-up
     path: app/sign-up/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"
   - route: /usage
     path: app/usage/page.tsx
     owner: null
     auth: public
+    features: 
     created_on: "2026-04-21T03:08:52.788Z"

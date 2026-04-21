@@ -1,6 +1,6 @@
 kind: project-index
 schema_version: 1
-last_synced_on: "2026-04-21T03:09:01.110Z"
+last_synced_on: "2026-04-21T04:57:59.203Z"
 
 project:
   name: audio-layer
@@ -12,7 +12,7 @@ features: []
 registries:
   - path: .ai-dev-kit/registries/components.yaml
     entries: 17
-    last_synced_on: 2026-04-21T03:08:52.788Z
+    last_synced_on: 2026-04-21T04:55:18.615Z
   - path: .ai-dev-kit/registries/pages.yaml
     entries: 37
     last_synced_on: 2026-04-21T03:08:52.788Z
@@ -30,9 +30,9 @@ registries:
     last_synced_on: null
   - path: .ai-dev-kit/registries/test-contracts.yaml
     entries: 0
-    last_synced_on: null
+    last_synced_on: 2026-04-21T04:57:58.918Z
   - path: .ai-dev-kit/registries/dependencies.yaml
-    entries: 0
+    entries: 50
     last_synced_on: null
 
 totals_30d:

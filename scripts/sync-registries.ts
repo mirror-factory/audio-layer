@@ -198,7 +198,49 @@ function scanPages(): Array<Record<string, unknown>> {
         path: rel,
         owner: null,
         auth: 'public',
+        features: [],
       });
+    }
+  }
+  return out;
+}
+
+// 0.2.14: API route scanner -- walks app/**/route.ts(x) and extracts the
+// exported HTTP methods. Populates api-routes.yaml. This closes the gap
+// where /api/chat, /api/transcribe etc. had zero visibility in the
+// registry ecosystem (llms.txt:27 references it but it did not exist).
+function scanApiRoutes(): Array<Record<string, unknown>> {
+  const roots = ['app', 'src/app'];
+  const out: Array<Record<string, unknown>> = [];
+  for (const r of roots) {
+    const abs = join(CWD, r);
+    if (!existsSync(abs)) continue;
+    for (const file of walk(abs, ['.ts', '.tsx'])) {
+      if (!/\/route\.(ts|tsx)$/.test(file)) continue;
+      const rel = relative(CWD, file);
+      // "app/api/chat/route.ts" -> "/api/chat"
+      const route = '/' + rel.replace(/^(src\/)?app\//, '').replace(/\/route\.(ts|tsx)$/, '').replace(/^$/, '');
+      const src = readFileSync(file, 'utf-8');
+      const methods: string[] = [];
+      for (const m of ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS']) {
+        const re = new RegExp(`export\\s+(?:async\\s+)?function\\s+${m}\\b|export\\s+const\\s+${m}\\s*=`);
+        if (re.test(src)) methods.push(m);
+      }
+      if (methods.length === 0) continue;
+      for (const method of methods) {
+        out.push({
+          // Composite key: one entry per (route, method) pair. The merge
+          // helper dedupes on a single key field, so we synthesize `id`
+          // as "METHOD ROUTE" (e.g., "POST /api/chat").
+          id: `${method} ${route}`,
+          route,
+          method,
+          path: rel,
+          owner: null,
+          auth: 'public',
+          description: null,
+        });
+      }
     }
   }
   return out;
@@ -225,6 +267,39 @@ function scanTools(): Array<Record<string, unknown>> {
         owner: null,
       });
     }
+  }
+  return out;
+}
+
+// 0.2.14: bring MCP servers into the YAML registry ecosystem. Claude
+// Code's source of truth stays `.mcp.json`; we mirror it into yaml so
+// the dashboard and doctor have the same data shape as every other
+// registry. required_env is extracted from the args/env block so doctor
+// can warn when a required key is empty.
+function scanMcpServers(): Array<Record<string, unknown>> {
+  const path = join(CWD, '.mcp.json');
+  if (!existsSync(path)) return [];
+  let raw: string;
+  try { raw = readFileSync(path, 'utf-8'); } catch { return []; }
+  let data: { mcpServers?: Record<string, { command?: string; args?: string[]; env?: Record<string, string> }> };
+  try { data = JSON.parse(raw); } catch { return []; }
+  const servers = data.mcpServers ?? {};
+  const out: Array<Record<string, unknown>> = [];
+  for (const [name, cfg] of Object.entries(servers)) {
+    const requiredEnv: string[] = [];
+    for (const [k, v] of Object.entries(cfg.env ?? {})) {
+      const m = String(v).match(/\$\{([^}]+)\}/);
+      if (m) requiredEnv.push(m[1]);
+      else if (v === '' || v == null) requiredEnv.push(k);
+    }
+    out.push({
+      name,
+      command: cfg.command ?? '',
+      args: JSON.stringify(cfg.args ?? []),
+      required_env: JSON.stringify(requiredEnv),
+      used_by: '[]',
+      description: null,
+    });
   }
   return out;
 }
@@ -337,8 +412,10 @@ function sync(name: string, keyField: string, scanner: () => Array<Record<string
 const changed: string[] = [];
 if (sync('components', 'path', scanComponents)) changed.push('components');
 if (sync('pages', 'route', scanPages)) changed.push('pages');
+if (sync('api-routes', 'id', scanApiRoutes)) changed.push('api-routes');
 if (sync('tools', 'path', scanTools)) changed.push('tools');
 if (sync('skills', 'name', scanSkills)) changed.push('skills');
+if (sync('mcp-servers', 'name', scanMcpServers)) changed.push('mcp-servers');
 
 // Auto-scaffold a visual regression spec for every component that doesn't
 // have one yet. Policy: never overwrite. The scaffold is a minimal
@@ -354,13 +431,26 @@ for (const entry of componentsReg.entries) {
 
   const body = `/**
  * Auto-scaffolded by sync-registries.ts for ${name}.
- * Extend with interactive states, mocked props, etc. Runs across the
- * 6-project matrix (mobile/tablet/desktop x light/dark) from playwright.config.ts.
+ *
+ * Runs across the 6-project matrix (mobile/tablet/desktop x light/dark)
+ * from playwright.config.ts. Starts NOT-skipped (as of 0.2.8) so the
+ * baseline either exists or the push fails loud.
+ *
+ * First run on this component: the test will fail because no baseline PNG
+ * is committed yet. Create the baselines with:
+ *
+ *   VISUAL_UPDATE=1 pnpm exec playwright test tests/visual/${name}.spec.ts
+ *
+ * Commit the generated PNGs alongside this spec. Subsequent pushes compare
+ * against them with maxDiffPixelRatio 0.01.
+ *
+ * Extend: replace the \`/\` route with a Storybook URL or a dedicated test
+ * page, add interaction states (hover/focus/loading), mock props as needed.
  */
 import { test, expect } from '@playwright/test';
 
 test.describe('visual: ${name}', () => {
-  test.skip('matches baseline', async ({ page }, testInfo) => {
+  test('matches baseline', async ({ page }, testInfo) => {
     // TODO: point at a Storybook URL / dedicated test page rendering ${name}.
     await page.goto('/');
     await expect(page).toHaveScreenshot(

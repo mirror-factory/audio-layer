@@ -140,6 +140,21 @@ if [ -f "scripts/check-budget.ts" ] && [ -f ".ai-dev-kit/budget.yaml" ]; then
 fi
 
 # ---------------------------------------------------------------------------
+# 1b8. Code review (LLM-as-judge) -- general-purpose reviewer over the diff.
+# Fails on any security issue (any severity) or score < 0.7. High-severity
+# perf/clarity warn only. Bypass with REVIEW_SKIP=1 (logged as silent regression).
+# ---------------------------------------------------------------------------
+if [ -f "scripts/check-code-review.mts" ]; then
+  info "Running code review..."
+  if npx tsx scripts/check-code-review.mts; then
+    pass "Code review OK"
+  else
+    fail "Code review blocked -- fix issues above or set REVIEW_SKIP=1 intentionally"
+    exit 1
+  fi
+fi
+
+# ---------------------------------------------------------------------------
 # 1c. Doctor -- catches config drift (missing hooks, broken settings.json,
 # stale research cache, SDK-vs-CLI mismatch). Fail-closed in strict mode.
 # ---------------------------------------------------------------------------

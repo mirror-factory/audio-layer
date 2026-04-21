@@ -1,0 +1,356 @@
+kind: api-routes
+schema_version: 1
+last_synced_on: 2026-04-21T04:59:04.926Z
+entries:
+  - id: GET /api/ai-logs/errors
+    route: /api/ai-logs/errors
+    method: GET
+    path: app/api/ai-logs/errors/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/ai-logs
+    route: /api/ai-logs
+    method: GET
+    path: app/api/ai-logs/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/ai-logs/stats
+    route: /api/ai-logs/stats
+    method: GET
+    path: app/api/ai-logs/stats/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/auth/send-email
+    route: /api/auth/send-email
+    method: POST
+    path: app/api/auth/send-email/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/chat
+    route: /api/chat
+    method: POST
+    path: app/api/chat/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "POST /api/dev-kit/config/[name]"
+    route: "/api/dev-kit/config/[name]"
+    method: POST
+    path: "app/api/dev-kit/config/[name]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/connectors
+    route: /api/dev-kit/connectors
+    method: GET
+    path: app/api/dev-kit/connectors/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/cost
+    route: /api/dev-kit/cost
+    method: GET
+    path: app/api/dev-kit/cost/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/coverage
+    route: /api/dev-kit/coverage
+    method: GET
+    path: app/api/dev-kit/coverage/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/dependencies
+    route: /api/dev-kit/dependencies
+    method: GET
+    path: app/api/dev-kit/dependencies/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/deployments
+    route: /api/dev-kit/deployments
+    method: GET
+    path: app/api/dev-kit/deployments/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/design-system
+    route: /api/dev-kit/design-system
+    method: GET
+    path: app/api/dev-kit/design-system/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/dev-kit/evals/[id]"
+    route: "/api/dev-kit/evals/[id]"
+    method: GET
+    path: "app/api/dev-kit/evals/[id]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/evals
+    route: /api/dev-kit/evals
+    method: GET
+    path: app/api/dev-kit/evals/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/dev-kit/features/[name]"
+    route: "/api/dev-kit/features/[name]"
+    method: GET
+    path: "app/api/dev-kit/features/[name]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/features
+    route: /api/dev-kit/features
+    method: GET
+    path: app/api/dev-kit/features/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/index
+    route: /api/dev-kit/index
+    method: GET
+    path: app/api/dev-kit/index/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/logs/unified
+    route: /api/dev-kit/logs/unified
+    method: GET
+    path: app/api/dev-kit/logs/unified/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/overview
+    route: /api/dev-kit/overview
+    method: GET
+    path: app/api/dev-kit/overview/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/registries
+    route: /api/dev-kit/registries
+    method: GET
+    path: app/api/dev-kit/registries/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/regressions
+    route: /api/dev-kit/regressions
+    method: GET
+    path: app/api/dev-kit/regressions/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/dev-kit/runs/[run_id]"
+    route: "/api/dev-kit/runs/[run_id]"
+    method: GET
+    path: "app/api/dev-kit/runs/[run_id]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/runs
+    route: /api/dev-kit/runs
+    method: GET
+    path: app/api/dev-kit/runs/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/dev-kit/sessions/[id]"
+    route: "/api/dev-kit/sessions/[id]"
+    method: GET
+    path: "app/api/dev-kit/sessions/[id]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/sessions
+    route: /api/dev-kit/sessions
+    method: GET
+    path: app/api/dev-kit/sessions/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/status
+    route: /api/dev-kit/status
+    method: GET
+    path: app/api/dev-kit/status/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/dev-kit/tools
+    route: /api/dev-kit/tools
+    method: GET
+    path: app/api/dev-kit/tools/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/health
+    route: /api/health
+    method: GET
+    path: app/api/health/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/meetings/[id]/export"
+    route: "/api/meetings/[id]/export"
+    method: GET
+    path: "app/api/meetings/[id]/export/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/meetings/[id]"
+    route: "/api/meetings/[id]"
+    method: GET
+    path: "app/api/meetings/[id]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/meetings
+    route: /api/meetings
+    method: GET
+    path: app/api/meetings/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/models
+    route: /api/models
+    method: GET
+    path: app/api/models/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/observability/health
+    route: /api/observability/health
+    method: GET
+    path: app/api/observability/health/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/settings
+    route: /api/settings
+    method: GET
+    path: app/api/settings/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: PUT /api/settings
+    route: /api/settings
+    method: PUT
+    path: app/api/settings/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/stripe/checkout
+    route: /api/stripe/checkout
+    method: POST
+    path: app/api/stripe/checkout/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/stripe/webhook
+    route: /api/stripe/webhook
+    method: POST
+    path: app/api/stripe/webhook/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/transcribe/[id]"
+    route: "/api/transcribe/[id]"
+    method: GET
+    path: "app/api/transcribe/[id]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/transcribe
+    route: /api/transcribe
+    method: POST
+    path: app/api/transcribe/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/transcribe/stream/autosave
+    route: /api/transcribe/stream/autosave
+    method: POST
+    path: app/api/transcribe/stream/autosave/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/transcribe/stream/finalize
+    route: /api/transcribe/stream/finalize
+    method: POST
+    path: app/api/transcribe/stream/finalize/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/transcribe/stream/token
+    route: /api/transcribe/stream/token
+    method: POST
+    path: app/api/transcribe/stream/token/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /auth/callback
+    route: /auth/callback
+    method: GET
+    path: app/auth/callback/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /auth/sign-out
+    route: /auth/sign-out
+    method: POST
+    path: app/auth/sign-out/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-21T04:59:04.926Z"
