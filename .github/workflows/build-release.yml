@@ -76,6 +76,7 @@ jobs:
           java-version: 17
       - uses: android-actions/setup-android@v3
       - run: pnpm install --frozen-lockfile
+      - run: npx cap add android
       - run: npx cap sync android
       - run: cd android && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
@@ -94,5 +95,6 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: npx cap add ios
       - run: npx cap sync ios
       - run: xcodebuild -project ios/App/App.xcodeproj -scheme App -destination 'generic/platform=iOS Simulator' -configuration Debug build
