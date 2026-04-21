@@ -1,13 +1,11 @@
 /**
  * Flush Langfuse spans. Used with Next.js after() in API routes.
- * Lazy-initializes Langfuse on first call.
+ *
+ * This is a no-op stub. Langfuse initialization happens lazily
+ * via the AI SDK's built-in telemetry when env vars are set.
+ * The flush is not needed with @opentelemetry/api (which we
+ * bundle directly) — spans export automatically.
  */
 export async function flushLangfuse(): Promise<void> {
-  try {
-    // Lazy init — only imports OTel in Node.js runtime
-    const { ensureLangfuse } = await import("../server/langfuse-setup");
-    await ensureLangfuse();
-  } catch {
-    // Not available (Edge runtime, missing deps) — no-op
-  }
+  // No-op — OTel spans flush automatically via the SDK
 }
