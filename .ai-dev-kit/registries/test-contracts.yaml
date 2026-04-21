@@ -1,22 +1,5 @@
-# test-contracts.yaml -- rollup of every feature's TEST-MANIFEST.yaml so the
-# dashboard can answer "what does this project prove end-to-end?" without
-# crawling features/** on every render.
-#
-# Writer:   scripts/sync-project-index.ts (writes both index.yaml AND this file
-#           on pre-commit; they derive from the same features/** scan)
-# Consumer: /dev-kit/features, /dev-kit/features/[name], coverage-style
-#           queries from doctor.
-#
-# Entry shape:
-#   - feature        name matching features/<feature>/
-#     manifest_path  relative path to TEST-MANIFEST.yaml
-#     flows          [{ name, steps_count, tags[] }]
-#     last_run       run_id | null  -- most recent run tagged to this feature
-#     last_run_status success | failed | active | aborted | null
-#
-# Do NOT hand-edit. sync-project-index.ts overwrites on every commit.
-
 kind: test-contracts
 schema_version: 1
-last_synced_on: null
-entries: []
+last_synced_on: "2026-04-21T03:09:13.971Z"
+entries:
+  []

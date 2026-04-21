@@ -1,24 +1,360 @@
-# dependencies.yaml -- every declared dependency in package.json (runtime, dev,
-# peer) with its current vulnerability list, vendor-registry cross-reference,
-# and the paths that import it.
-#
-# Schema:   .ai-dev-kit/schemas/dependencies.schema.json
-# Writer:   scripts/sync-dependencies.ts (runs pnpm/npm audit --json)
-# Gate:     scripts/check-dependencies.ts (pre-push; fails on CRITICAL / HIGH
-#           or when last_audited_on is older than 14 days)
-# Consumer: /dev-kit/dependencies dashboard
-#
-# Do NOT hand-edit. Every field is overwritten by sync-dependencies.ts. The
-# weekly GitHub Action in .github/workflows/dependency-audit.yml refreshes
-# this file on `main` and opens an issue when new CRITICAL / HIGH vulns land.
-
 kind: dependencies
 schema_version: 1
-last_audited_on: null
-entries: []
+last_audited_on: "2026-04-21T03:09:22.385Z"
+entries:
+  - name: @ai-sdk/gateway
+    version: "^3.0.104"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/model-router.ts", "lib/ai/model-router.ts", "lib/assemblyai/summary.ts", "lib/assemblyai/intake.ts", "app/api/chat/route.ts"]
+  - name: @base-ui/react
+    version: "^1.4.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @capacitor/android
+    version: "^8.3.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @capacitor/core
+    version: "^8.3.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @capacitor/ios
+    version: "^8.3.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @capacitor/status-bar
+    version: "^8.0.2"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @langfuse/otel
+    version: "^5.1.0"
+    type: runtime
+    vendor_registry: .ai-dev-kit/registries/langfuse.json
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @opentelemetry/api
+    version: "^1.9.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @opentelemetry/sdk-node
+    version: "^0.205.0"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @radix-ui/react-slot
+    version: "^1.2.4"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["components/ui/liquid-glass-button.tsx"]
+  - name: @react-pdf/renderer
+    version: "^4.5.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/meetings/pdf.tsx"]
+  - name: @supabase/ssr
+    version: "^0.10.2"
+    type: runtime
+    vendor_registry: .ai-dev-kit/registries/supabase.json
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/supabase/browser.ts", "lib/supabase/user.ts", "app/auth/confirm/page.tsx", "app/auth/callback/route.ts", "app/auth/sign-out/route.ts", "app/page.tsx"]
+  - name: @supabase/supabase-js
+    version: "^2.103.3"
+    type: runtime
+    vendor_registry: .ai-dev-kit/registries/supabase.json
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/ai-dev-kit/supabase-queries.ts", "lib/ai-dev-kit/telemetry-persistence.ts", "lib/supabase/browser.ts", "lib/supabase/server.ts", "lib/supabase/user.ts", "app/api/dev-kit/connectors/route.ts", "app/api/dev-kit/evals/route.ts", "app/api/dev-kit/evals/[id]/route.ts", "app/api/dev-kit/tools/route.ts", "app/api/dev-kit/cost/route.ts", "app/api/dev-kit/sessions/route.ts", "app/api/dev-kit/sessions/[id]/route.ts", "app/api/dev-kit/regressions/route.ts", "app/api/dev-kit/overview/route.ts", "app/api/dev-kit/coverage/route.ts", "app/api/dev-kit/deployments/route.ts"]
+  - name: @vercel/toolbar
+    version: "^0.2.2"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: ai
+    version: "^6.0.168"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/model-router.ts", "lib/ai/model-router.ts", "lib/ai/tools/code-review.ts", "lib/ai/devtools.ts", "lib/ai/telemetry.ts", "lib/ai-call.ts", "lib/ai/tools.ts", "lib/assemblyai/summary.ts", "lib/assemblyai/intake.ts", "app/api/chat/route.ts", "components/chat-message.tsx"]
+  - name: assemblyai
+    version: "^4.30.0"
+    type: runtime
+    vendor_registry: .ai-dev-kit/registries/assemblyai.json
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/assemblyai/client.ts"]
+  - name: class-variance-authority
+    version: "^0.7.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["components/ui/liquid-glass-button.tsx", "components/ui/button.tsx"]
+  - name: clsx
+    version: "^2.1.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/utils.ts"]
+  - name: langfuse
+    version: "^3.38.20"
+    type: runtime
+    vendor_registry: .ai-dev-kit/registries/langfuse.json
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: lucide-react
+    version: "^1.8.0"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["app/settings/page.tsx", "app/sign-up/page.tsx", "app/record/page.tsx", "app/dev-kit/layout.tsx", "app/profile/page.tsx", "app/landing.tsx", "app/sign-in/page.tsx", "app/pricing/page.tsx", "components/slide-menu.tsx", "components/meeting-detail-poller.tsx", "components/live-recorder.tsx", "components/tool-card.tsx", "components/audio-recorder.tsx", "components/top-bar.tsx", "components/theme-toggle.tsx", "components/chat-input.tsx"]
+  - name: next
+    version: "15.5.15"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["app/layout.tsx"]
+  - name: react
+    version: "19.2.4"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/meetings/pdf.tsx", "app/observability/page.tsx", "app/dev-kit/registries/components-preview.tsx", "app/dev-kit/registries/page.tsx", "app/dev-kit/config/config-editor.tsx", "app/dev-kit/features/[name]/page.tsx", "app/dev-kit/features/page.tsx", "app/dev-kit/status/page.tsx", "app/dev-kit/use-realtime.tsx", "app/dev-kit/design-system/inline-editor.tsx", "app/dev-kit/runs/runs-list.tsx", "app/dev-kit/runs/[run_id]/run-view.tsx", "app/error.tsx", "app/global-error.tsx", "app/settings/page.tsx", "app/recorder.tsx", "app/sign-up/page.tsx", "app/record/live/page.tsx", "app/record/page.tsx", "app/chat/page.tsx"]
+  - name: react-dom
+    version: "19.2.4"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: resend
+    version: "^6.12.0"
+    type: runtime
+    vendor_registry: .ai-dev-kit/registries/resend.json
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/email/client.ts"]
+  - name: shadcn
+    version: "^4.3.1"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: stripe
+    version: "^22.0.2"
+    type: runtime
+    vendor_registry: .ai-dev-kit/registries/stripe.json
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/stripe/client.ts", "app/api/stripe/webhook/route.ts"]
+  - name: tailwind-merge
+    version: "^3.5.0"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/utils.ts"]
+  - name: three
+    version: "^0.184.0"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["components/ui/web-gl-shader.tsx"]
+  - name: tw-animate-css
+    version: "^1.4.0"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: zod
+    version: "^4.3.6"
+    type: runtime
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/ai/tools/code-review.ts", "lib/registry.ts", "lib/ai/tools.ts", "lib/assemblyai/schema.ts", "lib/assemblyai/intake.ts", "app/api/transcribe/stream/autosave/route.ts", "app/api/transcribe/stream/finalize/route.ts"]
+  - name: @ai-sdk/devtools
+    version: "^0.0.15"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["lib/ai/devtools.ts"]
+  - name: @ai-sdk/react
+    version: "^3.0.170"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: ["app/chat/page.tsx"]
+  - name: @capacitor/cli
+    version: "^8.3.1"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @playwright/test
+    version: "^1.59.1"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @tailwindcss/postcss
+    version: "^4"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @testing-library/react
+    version: "^16.3.2"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @types/node
+    version: "^20"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @types/react
+    version: "^19"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @types/react-dom
+    version: "^19"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: @types/three
+    version: "^0.184.0"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: electron
+    version: "^41.2.1"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: electron-builder
+    version: "^26.8.1"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: eslint
+    version: "^9"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: eslint-config-next
+    version: "16.2.4"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: husky
+    version: "^9.1.7"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: tailwindcss
+    version: "^4"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: ts-morph
+    version: "^28.0.0"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: tsx
+    version: "^4.21.0"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: typescript
+    version: "^5"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
+  - name: vitest
+    version: "^4.1.4"
+    type: dev
+    vendor_registry: null
+    license: null
+    vulnerabilities: []
+    used_by: []
 summary:
-  runtime: 0
-  dev: 0
+  runtime: 30
+  dev: 20
   critical: 0
   high: 0
   medium: 0

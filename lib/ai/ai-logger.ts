@@ -1,3 +1,4 @@
+// withTelemetry is used by callers of this logger, not by the logger itself
 /**
  * AI Request Logger — Full console visibility for every AI call
  *

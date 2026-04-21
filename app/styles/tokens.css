@@ -1,0 +1,75 @@
+/**
+ * tokens.css -- AUTO-GENERATED from .ai-dev-kit/registries/design-tokens.yaml
+ * Do NOT edit by hand. Run pnpm exec tsx scripts/generate-theme-css.ts to regenerate.
+ */
+:root {
+
+  /* Colors */
+  --brand-accent: #14b8a6;
+  --neutral-950: #0a0a0a"    # page background;
+  --neutral-900: #171717"    # card backgrounds;
+  --neutral-800: #262626"    # borders, dividers;
+  --neutral-700: #404040"    # secondary borders;
+  --neutral-600: #525252"    # disabled text;
+  --neutral-500: #737373"    # muted text, labels;
+  --neutral-400: #a3a3a3"    # body text (secondary);
+  --neutral-300: #d4d4d4"    # body text (primary);
+  --neutral-200: #e5e5e5"    # headings;
+  --neutral-100: #f5f5f5"    # titles, emphasis;
+  --neutral-50: #fafafa"    # high contrast text;
+  --semantic-success: #22c55e;
+  --semantic-error: #ef4444;
+  --semantic-warning: #eab308;
+  --semantic-info: #3b82f6;
+
+  /* Typography */
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+
+  /* Motion */
+  --motion-fast: 100ms;
+  --motion-normal: 200ms;
+  --motion-slow: 300ms;
+  --motion-pulse: 1.5s;
+  --ease-standard: ease-in-out;
+  --ease-entrance: ease-out;
+  --ease-exit: ease-in;
+
+  /* Elevation (z-index) */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-topbar: 30;
+  --z-overlay: 40;
+  --z-modal: 60;
+  --z-toast: 70;
+
+  /* Breakpoints (reference only; media queries use these literals) */
+  --mobile: 0px;
+  --tablet: 768px;
+  --desktop: 1024px;
+  --wide: 1440px;
+}
