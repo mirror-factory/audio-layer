@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TopBar } from "@/components/top-bar";
+import { MeetingSearch } from "@/components/meeting-search";
 import { getMeetingsStore } from "@/lib/meetings/store";
 
 export const dynamic = "force-dynamic";
@@ -25,6 +26,8 @@ export default async function MeetingsPage() {
       <TopBar title="Meetings" showBack />
 
       <main className="flex-1 px-4 py-6 max-w-3xl mx-auto w-full">
+        <MeetingSearch />
+
         {meetings.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 gap-4">
             <p className="text-sm text-[var(--text-muted)]">No meetings yet.</p>

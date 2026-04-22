@@ -17,6 +17,9 @@ A [Mirror Factory](https://mirrorfactory.ai) product.
 - **Cost transparency** — Per-meeting cost breakdown (STT + LLM)
 - **Stripe billing** — Free (25 meetings) / Core ($15/mo) / Pro ($25/mo)
 - **Multi-platform** — Web, macOS (Electron), iOS/Android (Capacitor)
+- **Semantic search** — Hybrid vector + BM25 search across all conversations (pgvector HNSW)
+- **MCP server** — Connect any AI assistant to your meetings (6 tools, API key auth)
+- **Auto-embedding** — Meetings vectorized on completion for instant cross-conversation search
 - **Observability** — withRoute + withExternalCall wrappers, Langfuse OTel
 
 ## Tech Stack
@@ -79,6 +82,8 @@ docs/             BUILD_SPEC, PRICING, SCHEMAS, roadmap, brand/style guides
 ## Documentation
 
 | Document | Purpose |
+|----------|---------|
+| [EMBEDDINGS_AND_SEARCH.md](docs/EMBEDDINGS_AND_SEARCH.md) | Vector embeddings, hybrid search, MCP server, cost analysis |
 |----------|---------|
 | [BUILD_SPEC.md](docs/BUILD_SPEC.md) | Complete blueprint — every route, schema, config |
 | [PRICING_AND_BILLING.md](docs/PRICING_AND_BILLING.md) | Stripe setup, vendor pricing, margin analysis |
