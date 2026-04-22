@@ -1,6 +1,10 @@
 /**
- * Semantic search across meeting embeddings.
- * Uses cosine similarity to find relevant meeting chunks.
+ * Hybrid search across meeting embeddings.
+ *
+ * Combines vector similarity (semantic) + BM25 full-text (keyword)
+ * using Reciprocal Rank Fusion for best-of-both results.
+ *
+ * Falls back to pure vector search if the hybrid RPC isn't deployed.
  */
 
 import { getSupabaseServer } from "@/lib/supabase/server";
@@ -20,10 +24,11 @@ const DEFAULT_LIMIT = 10;
 const SIMILARITY_THRESHOLD = 0.5;
 
 /**
- * Search meetings by semantic similarity.
+ * Search meetings using hybrid vector + full-text search.
  *
- * Embeds the query, then runs a cosine similarity search against
- * the meeting_embeddings table, scoped to the given user.
+ * 1. Embeds the query via AI Gateway
+ * 2. Calls hybrid_search_meetings RPC (vector + BM25 + RRF)
+ * 3. Falls back to pure vector search if hybrid RPC unavailable
  */
 export async function searchMeetings(
   query: string,
@@ -38,8 +43,27 @@ export async function searchMeetings(
 
   const queryEmbedding = await embedText(query);
 
-  // Use RPC if the function exists, otherwise fall back to direct query.
-  // The RPC approach is more efficient with pgvector indexes.
+  // Try hybrid search first (vector + BM25 + RRF)
+  const { data: hybridData, error: hybridError } = await supabase.rpc(
+    "hybrid_search_meetings",
+    {
+      query_text: query,
+      query_embedding: JSON.stringify(queryEmbedding),
+      match_count: limit,
+      p_user_id: userId,
+      vector_weight: 0.7,
+    },
+  );
+
+  if (!hybridError && hybridData) {
+    return (hybridData as SearchRow[]).map(mapRow);
+  }
+
+  // Fallback to pure vector search
+  log.info("search-meetings.fallback-to-vector", {
+    reason: hybridError?.message ?? "hybrid not available",
+  });
+
   const { data, error } = await supabase.rpc("match_meeting_embeddings", {
     query_embedding: JSON.stringify(queryEmbedding),
     match_threshold: SIMILARITY_THRESHOLD,
@@ -48,23 +72,14 @@ export async function searchMeetings(
   });
 
   if (error) {
-    // Fallback: the RPC function may not be deployed yet.
-    // Log and return empty rather than crashing.
     log.warn("search-meetings.rpc-failed", {
       error: error.message,
-      hint: "Run the match_meeting_embeddings function migration",
+      hint: "Run lib/supabase/embeddings-schema.sql",
     });
     return [];
   }
 
-  return ((data as SearchRow[]) ?? []).map((row) => ({
-    meetingId: row.meeting_id,
-    chunkText: row.chunk_text,
-    chunkType: row.chunk_type,
-    similarity: row.similarity,
-    meetingTitle: row.meeting_title ?? null,
-    meetingDate: row.meeting_date,
-  }));
+  return ((data as SearchRow[]) ?? []).map(mapRow);
 }
 
 interface SearchRow {
@@ -74,4 +89,15 @@ interface SearchRow {
   similarity: number;
   meeting_title: string | null;
   meeting_date: string;
+}
+
+function mapRow(row: SearchRow): SearchResult {
+  return {
+    meetingId: row.meeting_id,
+    chunkText: row.chunk_text,
+    chunkType: row.chunk_type,
+    similarity: row.similarity,
+    meetingTitle: row.meeting_title ?? null,
+    meetingDate: row.meeting_date,
+  };
 }
