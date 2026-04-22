@@ -12,6 +12,9 @@ import { getSettings } from "@/lib/settings";
 import { estimateStreamingMeetingCost } from "@/lib/billing/assemblyai-pricing";
 import { estimateLlmCost } from "@/lib/billing/llm-pricing";
 import { flushLangfuse } from "@/lib/langfuse-flush";
+import { embedMeeting } from "@/lib/embeddings/embed-meeting";
+import { EMBEDDING_MODEL } from "@/lib/embeddings/client";
+import { getCurrentUserId } from "@/lib/supabase/user";
 import type { MeetingCostBreakdown, LlmCallRecord } from "@/lib/billing/types";
 
 const FinalizeBodySchema = z.object({
@@ -124,8 +127,30 @@ export const POST = withRoute(async (req, ctx) => {
     costBreakdown,
   });
 
-  // Flush Langfuse
-  after(flushLangfuse);
+  // Auto-embed in background so it doesn't block the response
+  after(async () => {
+    try {
+      const userId = await getCurrentUserId();
+      if (userId) {
+        const embedResult = await embedMeeting(meetingId, userId);
+        if (embedResult.chunksEmbedded > 0) {
+          const updatedBreakdown: MeetingCostBreakdown = {
+            ...costBreakdown,
+            embedding: {
+              model: EMBEDDING_MODEL,
+              totalTokens: embedResult.totalTokens,
+              totalCostUsd: embedResult.costUsd,
+            },
+            totalCostUsd: costBreakdown.totalCostUsd + embedResult.costUsd,
+          };
+          await store.update(meetingId, { costBreakdown: updatedBreakdown });
+        }
+      }
+    } catch {
+      // Embedding failure should not break the finalize flow
+    }
+    await flushLangfuse();
+  });
 
   return NextResponse.json({
     id: meetingId,

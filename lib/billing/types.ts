@@ -33,9 +33,16 @@ export interface LlmCostDetail {
   calls: LlmCallRecord[];
 }
 
+export interface EmbeddingCostDetail {
+  model: string;
+  totalTokens: number;
+  totalCostUsd: number;
+}
+
 export interface MeetingCostBreakdown {
   stt: SttCostDetail;
   llm: LlmCostDetail;
+  embedding?: EmbeddingCostDetail;
   totalCostUsd: number;
 }
 

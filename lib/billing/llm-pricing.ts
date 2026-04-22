@@ -32,6 +32,9 @@ export const COST_PER_M_TOKENS: Record<string, ModelPricing> = {
   // Google
   "gemini-2.5-pro": { input: 1.25, output: 10.0, cachedInput: 0.125 },
   "gemini-2.0-flash": { input: 0.1, output: 0.4, cachedInput: 0.01 },
+  // OpenAI Embeddings
+  "text-embedding-3-small": { input: 0.02, output: 0 },
+  "text-embedding-3-large": { input: 0.13, output: 0 },
 };
 
 /**
@@ -80,6 +83,16 @@ export function estimateLlmCost(
   }
 
   return cost;
+}
+
+/**
+ * Estimate the USD cost for embedding a given number of tokens
+ * using text-embedding-3-small.
+ */
+export function estimateEmbeddingCost(tokenCount: number): number {
+  const pricing = COST_PER_M_TOKENS["text-embedding-3-small"];
+  if (!pricing) return 0;
+  return (tokenCount * pricing.input) / 1_000_000;
 }
 
 /**

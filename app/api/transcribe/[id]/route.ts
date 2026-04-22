@@ -12,6 +12,9 @@ import { getMeetingsStore } from "@/lib/meetings/store";
 import { estimateBatchMeetingCost } from "@/lib/billing/assemblyai-pricing";
 import { estimateLlmCost } from "@/lib/billing/llm-pricing";
 import { flushLangfuse } from "@/lib/langfuse-flush";
+import { embedMeeting } from "@/lib/embeddings/embed-meeting";
+import { EMBEDDING_MODEL } from "@/lib/embeddings/client";
+import { getCurrentUserId } from "@/lib/supabase/user";
 import type { MeetingCostBreakdown, LlmCallRecord } from "@/lib/billing/types";
 import type { TranscribeUtterance } from "@/lib/assemblyai/types";
 
@@ -154,8 +157,31 @@ export const GET = withRoute(async (req, ctx) => {
     costBreakdown,
   });
 
-  // Flush Langfuse
-  after(flushLangfuse);
+  // Auto-embed in background so it doesn't block the response
+  after(async () => {
+    try {
+      const userId = await getCurrentUserId();
+      if (userId) {
+        const embedResult = await embedMeeting(id, userId);
+        if (embedResult.chunksEmbedded > 0) {
+          // Update cost breakdown with embedding cost
+          const updatedBreakdown: MeetingCostBreakdown = {
+            ...costBreakdown,
+            embedding: {
+              model: EMBEDDING_MODEL,
+              totalTokens: embedResult.totalTokens,
+              totalCostUsd: embedResult.costUsd,
+            },
+            totalCostUsd: costBreakdown.totalCostUsd + embedResult.costUsd,
+          };
+          await store.update(id, { costBreakdown: updatedBreakdown });
+        }
+      }
+    } catch {
+      // Embedding failure should not break the transcription flow
+    }
+    await flushLangfuse();
+  });
 
   return NextResponse.json({
     id,

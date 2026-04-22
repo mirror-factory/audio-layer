@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, LogIn, LogOut } from "lucide-react";
+import { Loader2, LogIn, LogOut, Key, Copy, RefreshCw, Trash2 } from "lucide-react";
 import { TopBar } from "@/components/top-bar";
 import { getSupabaseBrowser } from "@/lib/supabase/browser";
 
@@ -25,6 +25,24 @@ export default function ProfilePage() {
     status: null,
   });
   const [loading, setLoading] = useState(true);
+  const [apiKey, setApiKey] = useState<string | null>(null);
+  const [hasKey, setHasKey] = useState(false);
+  const [apiKeyLoading, setApiKeyLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [showMcpInstructions, setShowMcpInstructions] = useState(false);
+
+  const fetchApiKey = useCallback(async () => {
+    try {
+      const res = await fetch("/api/auth/api-key");
+      if (res.ok) {
+        const data = await res.json();
+        setApiKey(data.apiKey);
+        setHasKey(data.hasKey ?? false);
+      }
+    } catch {
+      // silent
+    }
+  }, []);
 
   useEffect(() => {
     const supabase = getSupabaseBrowser();
@@ -58,7 +76,9 @@ export default function ProfilePage() {
       }
       setLoading(false);
     });
-  }, []);
+
+    fetchApiKey();
+  }, [fetchApiKey]);
 
   const handleSignOut = async () => {
     const supabase = getSupabaseBrowser();
@@ -131,6 +151,130 @@ export default function ProfilePage() {
             </div>
           </div>
         </div>
+
+        {/* API Key */}
+        {user && !user.isAnonymous && (
+          <>
+            <h2 className="text-lg font-semibold text-[#e5e5e5] pt-2">
+              API Key
+            </h2>
+            <div className="bg-[#171717] rounded-xl p-4 space-y-3">
+              <div className="flex items-center gap-2">
+                <Key size={16} className="text-[#737373]" />
+                <span className="text-xs text-[#737373] uppercase tracking-wider">
+                  MCP / API Access
+                </span>
+              </div>
+
+              {hasKey && apiKey ? (
+                <div className="flex items-center gap-2">
+                  <code className="flex-1 text-sm text-[#d4d4d4] bg-[#0a0a0a] px-3 py-2 rounded-lg font-mono break-all">
+                    {apiKey}
+                  </code>
+                  <button
+                    onClick={async () => {
+                      await navigator.clipboard.writeText(apiKey);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
+                    }}
+                    className="flex items-center justify-center w-[44px] h-[44px] text-[#737373] hover:text-[#d4d4d4] transition-colors"
+                    aria-label="Copy API key"
+                  >
+                    <Copy size={16} />
+                  </button>
+                </div>
+              ) : (
+                <p className="text-sm text-[#737373]">No API key generated</p>
+              )}
+
+              {copied && (
+                <p className="text-xs text-[#22c55e]">Copied to clipboard</p>
+              )}
+
+              <div className="flex gap-2">
+                <button
+                  onClick={async () => {
+                    setApiKeyLoading(true);
+                    try {
+                      const res = await fetch("/api/auth/api-key", {
+                        method: "POST",
+                      });
+                      if (res.ok) {
+                        const data = await res.json();
+                        setApiKey(data.apiKey);
+                        setHasKey(true);
+                      }
+                    } finally {
+                      setApiKeyLoading(false);
+                    }
+                  }}
+                  disabled={apiKeyLoading}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-[#14b8a6] hover:bg-[#0d9488] text-white text-sm font-medium rounded-lg min-h-[44px] transition-colors disabled:opacity-50"
+                >
+                  {apiKeyLoading ? (
+                    <Loader2 size={14} className="animate-spin" />
+                  ) : (
+                    <RefreshCw size={14} />
+                  )}
+                  {hasKey ? "Regenerate" : "Generate"} Key
+                </button>
+
+                {hasKey && (
+                  <button
+                    onClick={async () => {
+                      setApiKeyLoading(true);
+                      try {
+                        const res = await fetch("/api/auth/api-key", {
+                          method: "DELETE",
+                        });
+                        if (res.ok) {
+                          setApiKey(null);
+                          setHasKey(false);
+                        }
+                      } finally {
+                        setApiKeyLoading(false);
+                      }
+                    }}
+                    disabled={apiKeyLoading}
+                    className="flex items-center justify-center gap-2 px-4 py-2 bg-[#262626] hover:bg-[#404040] text-[#ef4444] text-sm font-medium rounded-lg min-h-[44px] transition-colors disabled:opacity-50"
+                  >
+                    <Trash2 size={14} />
+                    Revoke
+                  </button>
+                )}
+              </div>
+
+              <button
+                onClick={() => setShowMcpInstructions(!showMcpInstructions)}
+                className="text-xs text-[#14b8a6] hover:underline"
+              >
+                {showMcpInstructions
+                  ? "Hide MCP instructions"
+                  : "Show MCP connection instructions"}
+              </button>
+
+              {showMcpInstructions && (
+                <div className="bg-[#0a0a0a] rounded-lg p-3">
+                  <p className="text-xs text-[#737373] mb-2">
+                    Add this to your MCP client config:
+                  </p>
+                  <pre className="text-xs text-[#d4d4d4] font-mono whitespace-pre-wrap overflow-x-auto">
+{`{
+  "mcpServers": {
+    "layer-one": {
+      "url": "https://audio-layer.vercel.app/api/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  }
+}`}
+                  </pre>
+                </div>
+              )}
+            </div>
+          </>
+        )}
 
         {/* Actions */}
         <div className="space-y-3">
