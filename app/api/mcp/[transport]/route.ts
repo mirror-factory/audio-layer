@@ -1,60 +1,24 @@
-import { createMcpHandler } from "mcp-handler";
+import { createMcpHandler, withMcpAuth } from "mcp-handler";
 import { z } from "zod";
 import { getSupabaseServer } from "@/lib/supabase/server";
 import { searchMeetings } from "@/lib/embeddings/search";
+import { validateApiKey } from "@/lib/mcp/auth";
 
-// ---------------------------------------------------------------------------
-// Auth: validate Bearer token against profiles.api_key
-// ---------------------------------------------------------------------------
+const BASE_URL = "https://audio-layer.vercel.app";
 
+// Per-request user ID set by the auth wrapper
 let authenticatedUserId: string | null = null;
 
-async function authenticateRequest(req: Request): Promise<Response | null> {
-  const auth = req.headers.get("authorization");
-  if (!auth?.startsWith("Bearer ")) {
-    return new Response(JSON.stringify({ error: "Add your API key from the Layer One profile page as: Authorization: Bearer YOUR_KEY" }), {
-      status: 401,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  const key = auth.slice(7);
-  const supabase = getSupabaseServer();
-  if (!supabase) {
-    authenticatedUserId = null;
-    return null; // no DB = skip auth
-  }
-
-  const { data } = await supabase
-    .from("profiles")
-    .select("user_id")
-    .eq("api_key", key)
-    .single();
-
-  if (!data) {
-    return new Response(JSON.stringify({ error: "Invalid API key" }), {
-      status: 401,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  authenticatedUserId = data.user_id as string;
-  return null; // auth passed
-}
-
 // ---------------------------------------------------------------------------
-// Helpers: query meetings scoped to authenticated user
+// Query helpers (service role, scoped by user_id)
 // ---------------------------------------------------------------------------
 
 async function getMeeting(id: string) {
   const supabase = getSupabaseServer();
   if (!supabase || !authenticatedUserId) return null;
   const { data } = await supabase
-    .from("meetings")
-    .select("*")
-    .eq("id", id)
-    .eq("user_id", authenticatedUserId)
-    .single();
+    .from("meetings").select("*")
+    .eq("id", id).eq("user_id", authenticatedUserId).single();
   return data;
 }
 
@@ -77,77 +41,75 @@ async function listMeetings(limit: number) {
 }
 
 // ---------------------------------------------------------------------------
-// MCP handler with tools
+// MCP tools
 // ---------------------------------------------------------------------------
 
 const mcpHandler = createMcpHandler(
   (server) => {
-    server.tool(
-      "search_meetings",
-      "Search meeting transcripts and summaries using natural language.",
-      {
-        query: z.string().describe("Natural language search query"),
-        limit: z.number().int().min(1).max(50).optional(),
-      },
-      async ({ query, limit }) => {
-        if (!authenticatedUserId) return { content: [{ type: "text" as const, text: "Not authenticated" }] };
-        const results = await searchMeetings(query, authenticatedUserId, limit ?? 10);
-        return { content: [{ type: "text" as const, text: JSON.stringify(results, null, 2) }] };
-      },
-    );
+    server.tool("search_meetings", "Search meeting transcripts and summaries using natural language.", {
+      query: z.string().describe("Natural language search query"),
+      limit: z.number().int().min(1).max(50).optional(),
+    }, async ({ query, limit }) => {
+      if (!authenticatedUserId) return { content: [{ type: "text" as const, text: "Not authenticated" }] };
+      const results = await searchMeetings(query, authenticatedUserId, limit ?? 10);
+      return { content: [{ type: "text" as const, text: JSON.stringify(results, null, 2) }] };
+    });
 
-    server.tool(
-      "get_meeting",
-      "Get full details of a meeting including transcript, summary, and cost.",
-      { meeting_id: z.string() },
-      async ({ meeting_id }) => {
-        const meeting = await getMeeting(meeting_id);
-        return { content: [{ type: "text" as const, text: meeting ? JSON.stringify(meeting, null, 2) : "Meeting not found" }] };
-      },
-    );
+    server.tool("get_meeting", "Get full meeting details including transcript, summary, cost.", {
+      meeting_id: z.string(),
+    }, async ({ meeting_id }) => {
+      const m = await getMeeting(meeting_id);
+      return { content: [{ type: "text" as const, text: m ? JSON.stringify(m, null, 2) : "Meeting not found" }] };
+    });
 
-    server.tool(
-      "list_meetings",
-      "List recent meetings with status, title, and duration.",
-      { limit: z.number().int().min(1).max(100).optional() },
-      async ({ limit }) => {
-        const meetings = await listMeetings(limit ?? 20);
-        return { content: [{ type: "text" as const, text: JSON.stringify(meetings, null, 2) }] };
-      },
-    );
+    server.tool("list_meetings", "List recent meetings with status, title, duration.", {
+      limit: z.number().int().min(1).max(100).optional(),
+    }, async ({ limit }) => {
+      const meetings = await listMeetings(limit ?? 20);
+      return { content: [{ type: "text" as const, text: JSON.stringify(meetings, null, 2) }] };
+    });
 
-    server.tool(
-      "get_transcript",
-      "Get the full transcript text of a meeting.",
-      { meeting_id: z.string() },
-      async ({ meeting_id }) => {
-        const m = await getMeeting(meeting_id);
-        return { content: [{ type: "text" as const, text: (m?.text as string) ?? "No transcript available" }] };
-      },
-    );
+    server.tool("get_transcript", "Get the full transcript text of a meeting.", {
+      meeting_id: z.string(),
+    }, async ({ meeting_id }) => {
+      const m = await getMeeting(meeting_id);
+      return { content: [{ type: "text" as const, text: (m?.text as string) ?? "No transcript available" }] };
+    });
 
-    server.tool(
-      "get_summary",
-      "Get the AI-generated summary including key points, action items, decisions.",
-      { meeting_id: z.string() },
-      async ({ meeting_id }) => {
-        const m = await getMeeting(meeting_id);
-        return { content: [{ type: "text" as const, text: m?.summary ? JSON.stringify(m.summary, null, 2) : "No summary available" }] };
-      },
-    );
+    server.tool("get_summary", "Get the AI-generated summary with key points, action items, decisions.", {
+      meeting_id: z.string(),
+    }, async ({ meeting_id }) => {
+      const m = await getMeeting(meeting_id);
+      return { content: [{ type: "text" as const, text: m?.summary ? JSON.stringify(m.summary, null, 2) : "No summary available" }] };
+    });
   },
   { serverInfo: { name: "layer-one-audio", version: "1.0.0" } },
   { basePath: "/api/mcp", maxDuration: 60 },
 );
 
 // ---------------------------------------------------------------------------
-// Wrap: auth check → then MCP handler
+// Auth wrapper — validates API key, sets userId for tool queries
 // ---------------------------------------------------------------------------
 
-async function authedHandler(req: Request) {
-  const authError = await authenticateRequest(req);
-  if (authError) return authError;
-  return mcpHandler(req);
-}
+const handler = withMcpAuth(
+  mcpHandler,
+  async (_req: Request, bearerToken?: string) => {
+    if (!bearerToken) return undefined;
 
-export { authedHandler as GET, authedHandler as POST, authedHandler as DELETE };
+    const result = await validateApiKey(bearerToken);
+    if (!result) return undefined;
+
+    authenticatedUserId = result.userId;
+    return {
+      token: bearerToken,
+      clientId: "layer-one",
+      scopes: ["mcp:tools"],
+    };
+  },
+  {
+    required: true,
+    resourceUrl: BASE_URL,
+  },
+);
+
+export { handler as GET, handler as POST, handler as DELETE };
