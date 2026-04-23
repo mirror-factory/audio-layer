@@ -80,10 +80,10 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-primary)]">
+    <div className="min-h-screen-safe flex flex-col bg-[var(--bg-primary)]">
       <TopBar title="Pricing" showBack />
 
-      <main className="flex-1 px-4 py-8 max-w-4xl mx-auto w-full">
+      <main className="flex-1 px-4 pb-safe py-8 max-w-4xl mx-auto w-full">
         <div className="text-center mb-10">
           <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-2">
             Simple, transparent pricing

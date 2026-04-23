@@ -45,6 +45,7 @@ export function LiveRecorder({
   const stateRef = useRef<RecorderState>("idle");
   const meterRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const autosaveRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const visibilityHandlerRef = useRef<(() => void) | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const workletRef = useRef<AudioWorkletNode | null>(null);
@@ -53,6 +54,9 @@ export function LiveRecorder({
   const turnsRef = useRef<Turn[]>([]);
   const tokenRef = useRef<StreamToken | null>(null);
   const partialRef = useRef("");
+  const reconnectingRef = useRef(false);
+  const reconnectAttemptsRef = useRef(0);
+  const MAX_RECONNECT_ATTEMPTS = 3;
 
   const formatDuration = (seconds: number) => {
     const m = Math.floor(seconds / 60);
@@ -61,6 +65,10 @@ export function LiveRecorder({
   };
 
   const cleanup = useCallback(() => {
+    if (visibilityHandlerRef.current) {
+      document.removeEventListener("visibilitychange", visibilityHandlerRef.current);
+      visibilityHandlerRef.current = null;
+    }
     if (autosaveRef.current) {
       clearInterval(autosaveRef.current);
       autosaveRef.current = null;
@@ -91,9 +99,127 @@ export function LiveRecorder({
     }
   }, []);
 
+  // Auto-finalize: save whatever we have and navigate to the meeting page
+  const autoFinalize = useCallback(async () => {
+    stateRef.current = "finalizing"; setState("finalizing");
+    cleanup();
+
+    const meetingId = tokenRef.current?.meetingId;
+    if (!meetingId || turnsRef.current.length === 0) {
+      stateRef.current = "idle"; setState("idle");
+      return;
+    }
+
+    try {
+      const fullText = turnsRef.current.map((t) => t.text).join(" ");
+      await fetch("/api/transcribe/stream/finalize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          meetingId,
+          text: fullText,
+          utterances: turnsRef.current.map((t) => ({
+            speaker: t.speaker, text: t.text,
+            start: t.start, end: t.end, confidence: t.confidence,
+          })),
+          durationSeconds: duration,
+        }),
+      });
+      onSessionEnd(meetingId);
+    } catch {
+      setError("Connection lost. Your transcript was saved.");
+      stateRef.current = "idle"; setState("idle");
+    }
+  }, [cleanup, duration, onSessionEnd]);
+
+  // Reconnect WebSocket without resetting timer/turns
+  const reconnectWs = useCallback(() => {
+    const token = tokenRef.current;
+    if (!token || reconnectAttemptsRef.current >= MAX_RECONNECT_ATTEMPTS) {
+      // All retries exhausted — auto-finalize with what we have
+      autoFinalize();
+      return;
+    }
+    reconnectingRef.current = true;
+    reconnectAttemptsRef.current++;
+
+    const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}&speech_model=${token.speechModel}&speaker_labels=true&format_turns=true`;
+    const ws = new WebSocket(wsUrl);
+    wsRef.current = ws;
+
+    let receivedMessage = false;
+    // If we don't receive any message within 5s of connecting, the token
+    // is probably expired — stop retrying and auto-finalize
+    const healthTimeout = setTimeout(() => {
+      if (!receivedMessage && stateRef.current === "recording") {
+        ws.close();
+        autoFinalize();
+      }
+    }, 5000);
+
+    ws.onopen = () => {
+      reconnectingRef.current = false;
+      reconnectAttemptsRef.current = 0;
+      setError(null);
+    };
+
+    ws.onmessage = (event) => {
+      receivedMessage = true;
+      try {
+        const msg = JSON.parse(event.data);
+        if (msg.type === "Turn") {
+          const transcript = msg.transcript ?? msg.utterance ?? "";
+          if (msg.end_of_turn) {
+            const firstWord = msg.words?.[0];
+            const lastWord = msg.words?.[msg.words.length - 1];
+            const turn: Turn = {
+              speaker: msg.speaker ?? null,
+              text: transcript,
+              start: firstWord?.start ?? 0,
+              end: lastWord?.end ?? 0,
+              confidence: firstWord?.confidence ?? 0,
+              final: true,
+            };
+            turnsRef.current = [...turnsRef.current, turn];
+            partialRef.current = "";
+          } else {
+            partialRef.current = transcript;
+          }
+          onTranscriptUpdate(turnsRef.current, partialRef.current);
+        }
+      } catch {
+        // ignore
+      }
+    };
+
+    ws.onerror = () => {
+      // Will trigger onclose
+    };
+
+    ws.onclose = (event) => {
+      clearTimeout(healthTimeout);
+      if (stateRef.current === "recording" && event.code !== 1000) {
+        setTimeout(() => reconnectWs(), 2000);
+      }
+    };
+
+    // Re-wire worklet audio to new WebSocket
+    if (workletRef.current) {
+      workletRef.current.port.onmessage = (e: MessageEvent) => {
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.send(e.data);
+        }
+      };
+    }
+  }, [onTranscriptUpdate, autoFinalize]);
+
   const start = useCallback(async () => {
     try {
       setError(null);
+      reconnectAttemptsRef.current = 0;
+      reconnectingRef.current = false;
+      turnsRef.current = [];
+      partialRef.current = "";
       stateRef.current = "connecting"; setState("connecting");
 
       // 1. Fetch ephemeral token
@@ -165,24 +291,37 @@ export function LiveRecorder({
         setDuration(0);
         timerRef.current = setInterval(() => setDuration((d) => d + 1), 1000);
 
-        // Autosave transcript every 30 seconds
-        autosaveRef.current = setInterval(() => {
+        // Autosave function — reusable for interval and visibility events
+        const doAutosave = () => {
           if (turnsRef.current.length === 0) return;
-          const meetingId = tokenRef.current?.meetingId;
-          if (!meetingId) return;
+          const mid = tokenRef.current?.meetingId;
+          if (!mid) return;
           fetch("/api/transcribe/stream/autosave", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              meetingId,
+              meetingId: mid,
               text: turnsRef.current.map((t) => t.text).join(" "),
               utterances: turnsRef.current.map((t) => ({
                 speaker: t.speaker, text: t.text,
                 start: t.start, end: t.end, confidence: t.confidence,
               })),
             }),
-          }).catch(() => {}); // fire-and-forget
-        }, 30000);
+          }).catch(() => {});
+        };
+
+        // Autosave every 15 seconds
+        autosaveRef.current = setInterval(doAutosave, 15000);
+
+        // Autosave immediately when app goes to background
+        // (phone lock, battery warning, app switch)
+        const handleVisibility = () => {
+          if (document.hidden && stateRef.current === "recording") {
+            doAutosave();
+          }
+        };
+        document.addEventListener("visibilitychange", handleVisibility);
+        visibilityHandlerRef.current = handleVisibility;
       };
 
       ws.onmessage = (event) => {
@@ -218,13 +357,15 @@ export function LiveRecorder({
       };
 
       ws.onerror = () => {
-        setError("WebSocket connection error");
-        cleanup();
-        stateRef.current = "idle"; setState("idle");
+        // Will trigger onclose — handle reconnect there
       };
 
       ws.onclose = (event) => {
-        if (event.code !== 1000 && stateRef.current !== "finalizing" && stateRef.current !== "idle") {
+        if (event.code !== 1000 && stateRef.current === "recording") {
+          // Connection dropped (ping timeout, network blip) — reconnect
+          // without resetting timer or accumulated turns
+          reconnectWs();
+        } else if (event.code !== 1000 && stateRef.current !== "finalizing" && stateRef.current !== "idle") {
           const reason = event.reason || `Connection closed (code ${event.code})`;
           setError(reason);
           cleanup();

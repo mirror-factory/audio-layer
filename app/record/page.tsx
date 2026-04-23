@@ -89,10 +89,10 @@ export default function RecordPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen-safe flex flex-col">
       <TopBar title="Record" showBack />
 
-      <main className="flex-1 px-4 py-8 max-w-xl mx-auto w-full">
+      <main className="flex-1 px-4 pb-safe py-8 max-w-xl mx-auto w-full">
         <h2 className="text-lg font-semibold text-[#e5e5e5] mb-6 text-center">
           Batch Recording
         </h2>

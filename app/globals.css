@@ -6,6 +6,12 @@
 @custom-variant light (&:is(.light *));
 
 :root {
+  /* Safe area insets — available everywhere via var() */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
   --bg-primary: #000000;
   --bg-secondary: #080808;
   --bg-card: rgba(255, 255, 255, 0.03);
@@ -54,7 +60,7 @@
 
 /* Light mode overrides */
 .light {
-  --shader-filter: invert(1) saturate(1.5) brightness(0.7);
+  --shader-filter: none; /* shader handles light mode natively via lightMode uniform */
   --bg-primary: #fafaf9;
   --bg-secondary: #f5f5f4;
   --bg-card: rgba(0, 0, 0, 0.02);
@@ -145,6 +151,51 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Safe areas handled per-component: TopBar (top), chat-input (bottom), etc.
+     Body padding would double-count on full-height pages like the recorder. */
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+/* Mobile viewport height utilities */
+.h-screen-safe {
+  height: 100vh;
+  height: 100dvh;
+}
+
+.min-h-screen-safe {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Bottom safe area for scrollable page content */
+.pb-safe {
+  padding-bottom: var(--safe-bottom);
+}
+
+/* Animated crosshatch grid background for transcript panels */
+.transcript-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  animation: grid-drift 20s linear infinite;
+}
+
+.light .transcript-grid {
+  background-image:
+    linear-gradient(rgba(20, 184, 166, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@keyframes grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 28px 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transcript-grid { animation: none; }
 }
 
 * {
@@ -176,11 +227,23 @@ body {
 .light .glass-card {
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .light .glass-card:hover {
   background: rgba(0, 0, 0, 0.04);
   border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode overrides for hardcoded dark-only components */
+.light .slide-menu-panel {
+  background: rgba(250, 250, 249, 0.95);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light .slide-menu-panel .menu-divider {
+  border-color: rgba(0, 0, 0, 0.06);
 }
 
 /* Premium glass panel for transcript */

@@ -2,16 +2,16 @@ import { TopBar } from "@/components/top-bar";
 
 export default function DocsPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen-safe flex flex-col">
       <TopBar title="Documentation" showBack />
 
-      <main className="flex-1 px-4 py-6 max-w-3xl mx-auto w-full">
+      <main className="flex-1 px-4 pb-safe py-6 max-w-3xl mx-auto w-full">
         <article className="space-y-8">
           <section>
             <h2 className="text-xl font-semibold text-[#f5f5f5] mb-3">
               Layer One Audio
             </h2>
-            <p className="text-sm text-[#a3a3a3] leading-relaxed">
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
               Layer One captures conversations passively -- no meeting bot
               required -- and uses AI to extract structured, actionable data.
               Not just summaries, but budgets, timelines, decision makers,
@@ -20,7 +20,7 @@ export default function DocsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-semibold text-[#e5e5e5] uppercase tracking-wider mb-3">
+            <h3 className="text-sm font-semibold text-[var(--text-primary)] uppercase tracking-wider mb-3">
               Getting Started
             </h3>
             <div className="space-y-3">
@@ -43,7 +43,7 @@ export default function DocsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-semibold text-[#e5e5e5] uppercase tracking-wider mb-3">
+            <h3 className="text-sm font-semibold text-[var(--text-primary)] uppercase tracking-wider mb-3">
               Features
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -75,10 +75,10 @@ export default function DocsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-semibold text-[#e5e5e5] uppercase tracking-wider mb-3">
+            <h3 className="text-sm font-semibold text-[var(--text-primary)] uppercase tracking-wider mb-3">
               Platforms
             </h3>
-            <p className="text-sm text-[#a3a3a3] leading-relaxed">
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
               Layer One runs as a web app (Next.js on Vercel), macOS desktop app
               (Tauri 2.x with ScreenCaptureKit for system audio), and iOS mobile
               app (Capacitor 8 WebView) -- all from a single codebase.
@@ -86,21 +86,21 @@ export default function DocsPage() {
           </section>
 
           <section>
-            <h3 className="text-sm font-semibold text-[#e5e5e5] uppercase tracking-wider mb-3">
+            <h3 className="text-sm font-semibold text-[var(--text-primary)] uppercase tracking-wider mb-3">
               Billing
             </h3>
-            <div className="bg-[#171717] rounded-xl p-4 space-y-2">
+            <div className="bg-[var(--bg-card)] rounded-xl p-4 space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-[#a3a3a3]">Free</span>
-                <span className="text-[#d4d4d4]">25 meetings lifetime</span>
+                <span className="text-[var(--text-secondary)]">Free</span>
+                <span className="text-[var(--text-primary)]">25 meetings lifetime</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-[#a3a3a3]">Core ($15/mo)</span>
-                <span className="text-[#d4d4d4]">Unlimited meetings</span>
+                <span className="text-[var(--text-secondary)]">Core ($15/mo)</span>
+                <span className="text-[var(--text-primary)]">Unlimited meetings</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-[#a3a3a3]">Pro ($25/mo)</span>
-                <span className="text-[#d4d4d4]">
+                <span className="text-[var(--text-secondary)]">Pro ($25/mo)</span>
+                <span className="text-[var(--text-primary)]">
                   Unlimited + priority features
                 </span>
               </div>
@@ -127,8 +127,8 @@ function DocStep({
         {step}
       </div>
       <div>
-        <div className="text-sm font-medium text-[#e5e5e5]">{title}</div>
-        <p className="text-xs text-[#a3a3a3] mt-0.5 leading-relaxed">
+        <div className="text-sm font-medium text-[var(--text-primary)]">{title}</div>
+        <p className="text-xs text-[var(--text-secondary)] mt-0.5 leading-relaxed">
           {description}
         </p>
       </div>
@@ -144,9 +144,9 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="bg-[#171717] rounded-lg p-3">
-      <div className="text-sm font-medium text-[#e5e5e5] mb-1">{title}</div>
-      <p className="text-xs text-[#737373] leading-relaxed">{description}</p>
+    <div className="bg-[var(--bg-card)] rounded-lg p-3">
+      <div className="text-sm font-medium text-[var(--text-primary)] mb-1">{title}</div>
+      <p className="text-xs text-[var(--text-muted)] leading-relaxed">{description}</p>
     </div>
   );
 }

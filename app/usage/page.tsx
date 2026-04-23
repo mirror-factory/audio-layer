@@ -40,10 +40,10 @@ export default async function UsagePage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen-safe flex flex-col">
       <TopBar title="Usage" showBack />
 
-      <main className="flex-1 px-4 py-6 max-w-3xl mx-auto w-full space-y-6">
+      <main className="flex-1 px-4 pb-safe py-6 max-w-3xl mx-auto w-full space-y-6">
         <h2 className="text-lg font-semibold text-[#e5e5e5]">Cost Tracking</h2>
 
         {/* Usage Tiles */}

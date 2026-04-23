@@ -36,7 +36,7 @@ export default function LiveRecordPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen-safe flex flex-col">
       <TopBar title="Live Recording" showBack />
 
       <main className="flex-1 flex flex-col max-w-3xl mx-auto w-full">

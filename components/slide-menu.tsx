@@ -6,7 +6,6 @@ import Link from "next/link";
 import {
   X,
   Home,
-  Mic,
   Radio,
   List,
   Search,
@@ -27,7 +26,6 @@ interface SlideMenuProps {
 
 const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
-  { href: "/record", label: "Record", icon: Mic },
   { href: "/record/live", label: "Live Recording", icon: Radio },
   { href: "/meetings", label: "Meetings", icon: List },
   { href: "/search", label: "Search", icon: Search },
@@ -75,13 +73,13 @@ export function SlideMenu({ open, onClose }: SlideMenuProps) {
 
       {/* Panel */}
       <nav
-        className={`fixed top-0 right-0 z-50 h-full w-[280px] bg-[#0a0a0a]/95 backdrop-blur-2xl border-l border-white/[0.06] transform transition-transform duration-300 ease-out ${
+        className={`slide-menu-panel fixed top-0 right-0 z-50 h-full w-[280px] bg-[var(--bg-primary)]/95 backdrop-blur-2xl border-l border-[var(--border-subtle)] transform transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
+        style={{ paddingTop: "var(--safe-top)" }}
         aria-label="Main navigation"
       >
-        <div className="flex items-center justify-between px-4 h-[44px] border-b border-white/[0.06]">
+        <div className="flex items-center justify-between px-4 h-[44px] border-b border-[var(--border-subtle)] menu-divider">
           <span className="text-xs font-medium text-[var(--text-muted)] uppercase tracking-widest">
             Menu
           </span>
@@ -94,7 +92,7 @@ export function SlideMenu({ open, onClose }: SlideMenuProps) {
           </button>
         </div>
 
-        <ul className="py-2 overflow-y-auto" style={{ maxHeight: "calc(100vh - 44px)" }}>
+        <ul className="py-2 overflow-y-auto" style={{ maxHeight: "calc(100dvh - 44px - var(--safe-top))" }}>
           {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href;
             return (
@@ -105,7 +103,7 @@ export function SlideMenu({ open, onClose }: SlideMenuProps) {
                   className={`flex items-center gap-3 px-4 py-3 min-h-[44px] text-sm transition-all duration-200 ${
                     isActive
                       ? "text-[#14b8a6] bg-[#14b8a6]/[0.08]"
-                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/[0.03]"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)]"
                   }`}
                 >
                   <Icon size={18} />

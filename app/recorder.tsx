@@ -86,7 +86,7 @@ export function RecorderHome() {
   const hasTranscript = turns.length > 0 || partial;
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-[var(--bg-primary)]">
+    <div className="h-screen-safe flex flex-col overflow-hidden bg-[var(--bg-primary)]">
       <TopBar title="" />
 
       <main className="flex-1 flex flex-col items-center px-4 pt-6 pb-4 max-w-3xl mx-auto w-full min-h-0 overflow-hidden">
@@ -112,7 +112,7 @@ export function RecorderHome() {
         {/* Live transcript — takes ALL remaining height, scrolls internally */}
         {hasTranscript && (
           <div className="w-full flex-1 min-h-0 animate-in fade-in slide-in-from-bottom-2 duration-500">
-            <div className="glass-panel rounded-xl p-4 h-full overflow-y-auto" style={{ scrollbarWidth: "none" }}>
+            <div className="transcript-grid glass-panel rounded-xl p-4 h-full overflow-y-auto" style={{ scrollbarWidth: "none" }}>
               <LiveTranscriptView turns={turns} partial={partial} />
             </div>
           </div>

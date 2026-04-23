@@ -5,51 +5,98 @@
 
 import { z } from "zod";
 import { tool } from "ai";
+import { searchMeetings } from "@/lib/embeddings/search";
+import { getMeetingsStore } from "@/lib/meetings/store";
+import { getCurrentUserId } from "@/lib/supabase/user";
 
 export const allTools = {
-  searchDocuments: tool({
-    description: "Search the knowledge base for relevant documents.",
+  searchMeetings: tool({
+    description:
+      "Search across all of the user's meeting transcripts, summaries, and intake forms using semantic search. Use this when the user asks about past meetings, wants to find specific discussions, or asks questions that could be answered by meeting content.",
     inputSchema: z.object({
-      query: z.string().describe("The search query"),
+      query: z.string().describe("The search query — what to look for across meetings"),
+      limit: z.number().min(1).max(20).optional().describe("Max results to return (default 5)"),
     }),
-    execute: async ({ query }) => {
-      // Mock implementation -- replace with real search
+    execute: async ({ query, limit }) => {
+      const userId = await getCurrentUserId();
+      if (!userId) {
+        return { results: [], error: "Not authenticated" };
+      }
+
+      const results = await searchMeetings(query, userId, limit ?? 5);
+
+      if (results.length === 0) {
+        return { results: [], message: `No meetings found matching "${query}".` };
+      }
+
       return {
-        results: [
-          {
-            title: `Result for "${query}"`,
-            snippet: "This is a mock search result. Connect a real knowledge base for production use.",
-            relevance: 0.95,
-          },
-        ],
+        results: results.map((r) => ({
+          meetingId: r.meetingId,
+          title: r.meetingTitle ?? "Untitled",
+          date: r.meetingDate,
+          relevance: Math.round(r.similarity * 100),
+          excerpt: r.chunkText.substring(0, 300),
+          type: r.chunkType,
+        })),
       };
     },
   }),
 
-  askQuestion: tool({
+  getMeetingDetails: tool({
     description:
-      "Ask the user a multiple-choice question to gather more information.",
+      "Get the full details of a specific meeting including transcript, summary, key points, action items, and decisions. Use this after searching to get deeper context on a specific meeting.",
     inputSchema: z.object({
-      question: z.string().describe("The question to ask"),
-      options: z
-        .array(z.string())
-        .min(2)
-        .max(5)
-        .describe("The answer options"),
+      meetingId: z.string().describe("The meeting ID to retrieve"),
     }),
-    // No execute -- this is a client-side tool
+    execute: async ({ meetingId }) => {
+      const store = await getMeetingsStore();
+      const meeting = await store.get(meetingId);
+
+      if (!meeting) {
+        return { error: "Meeting not found" };
+      }
+
+      return {
+        id: meeting.id,
+        title: meeting.title ?? "Untitled",
+        date: meeting.createdAt,
+        duration: meeting.durationSeconds
+          ? `${Math.round(meeting.durationSeconds / 60)} minutes`
+          : null,
+        status: meeting.status,
+        transcript: meeting.utterances
+          .map((u) => u.text)
+          .join(" ")
+          .substring(0, 2000),
+        summary: meeting.summary?.summary ?? null,
+        keyPoints: meeting.summary?.keyPoints ?? [],
+        actionItems: meeting.summary?.actionItems ?? [],
+        decisions: meeting.summary?.decisions ?? [],
+        participants: meeting.summary?.participants ?? [],
+      };
+    },
   }),
 
-  updateSettings: tool({
-    description: "Update a configuration value in user settings.",
+  listRecentMeetings: tool({
+    description:
+      "List recent meetings with their titles, dates, and statuses. Use this when the user wants to see what meetings they have.",
     inputSchema: z.object({
-      key: z.string().describe("The setting key to update"),
-      value: z.string().describe("The new value"),
+      limit: z.number().min(1).max(50).optional().describe("Max meetings to return (default 10)"),
     }),
-    execute: async ({ key, value }) => {
+    execute: async ({ limit }) => {
+      const store = await getMeetingsStore();
+      const meetings = await store.list(limit ?? 10);
+
       return {
-        success: true,
-        message: `Setting "${key}" updated to "${value}".`,
+        meetings: meetings.map((m) => ({
+          id: m.id,
+          title: m.title ?? "Untitled",
+          date: m.createdAt,
+          duration: m.durationSeconds
+            ? `${Math.round(m.durationSeconds / 60)} min`
+            : null,
+          status: m.status,
+        })),
       };
     },
   }),

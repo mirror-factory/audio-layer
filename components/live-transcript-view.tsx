@@ -16,16 +16,21 @@ interface LiveTranscriptViewProps {
   partial: string;
 }
 
+function formatTimestamp(ms: number): string {
+  const totalSec = Math.floor(ms / 1000);
+  const m = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
 /**
  * Streams text in character by character to simulate a typing effect.
- * Returns the visible portion of the text.
  */
 function useStreamedText(text: string, charsPerFrame: number = 3): string {
   const [visible, setVisible] = useState("");
   const prevTextRef = useRef("");
 
   useEffect(() => {
-    // If text changed, figure out what's new
     const prev = prevTextRef.current;
     prevTextRef.current = text;
 
@@ -34,7 +39,6 @@ function useStreamedText(text: string, charsPerFrame: number = 3): string {
       return;
     }
 
-    // If text is an extension of what we had, stream the new chars
     if (text.startsWith(prev) && prev.length > 0) {
       const newPart = text.slice(prev.length);
       let charIndex = 0;
@@ -50,7 +54,6 @@ function useStreamedText(text: string, charsPerFrame: number = 3): string {
       return () => clearInterval(interval);
     }
 
-    // Completely new text — stream from start
     let charIndex = 0;
     const interval = setInterval(() => {
       charIndex += charsPerFrame;
@@ -67,20 +70,22 @@ function useStreamedText(text: string, charsPerFrame: number = 3): string {
   return visible;
 }
 
-/**
- * A single finalized turn that streams in when first appearing.
- */
-function StreamedTurn({ text, isNew }: { text: string; isNew: boolean }) {
-  const streamed = useStreamedText(isNew ? text : "", 4);
-  const displayText = isNew ? streamed : text;
+function StreamedTurn({ turn, isNew }: { turn: Turn; isNew: boolean }) {
+  const streamed = useStreamedText(isNew ? turn.text : "", 4);
+  const displayText = isNew ? streamed : turn.text;
 
   return (
-    <p className="text-sm text-[var(--text-primary)] leading-relaxed">
-      {displayText}
-      {isNew && streamed.length < text.length && (
-        <span className="inline-block w-1 h-3.5 bg-[var(--text-muted)] ml-0.5 animate-pulse align-middle rounded-full opacity-40" />
-      )}
-    </p>
+    <div className="flex gap-3 items-start group">
+      <span className="shrink-0 text-[10px] text-[var(--text-muted)]/60 tabular-nums pt-0.5 w-10 text-right opacity-0 group-hover:opacity-100 transition-opacity select-none">
+        {formatTimestamp(turn.start)}
+      </span>
+      <p className="text-sm text-[var(--text-primary)] leading-relaxed flex-1">
+        {displayText}
+        {isNew && streamed.length < turn.text.length && (
+          <span className="inline-block w-1 h-3.5 bg-[var(--text-muted)] ml-0.5 animate-pulse align-middle rounded-full opacity-40" />
+        )}
+      </p>
+    </div>
   );
 }
 
@@ -92,7 +97,6 @@ export function LiveTranscriptView({ turns, partial }: LiveTranscriptViewProps) 
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [turns, partial]);
 
-  // Track which turns are "new" (just appeared) for streaming effect
   const newTurnStart = prevTurnCountRef.current;
   useEffect(() => {
     prevTurnCountRef.current = turns.length;
@@ -111,14 +115,17 @@ export function LiveTranscriptView({ turns, partial }: LiveTranscriptViewProps) 
   return (
     <div className="space-y-3 py-2" style={{ scrollbarWidth: "none" }}>
       {turns.map((turn, i) => (
-        <StreamedTurn key={i} text={turn.text} isNew={i >= newTurnStart} />
+        <StreamedTurn key={i} turn={turn} isNew={i >= newTurnStart} />
       ))}
 
       {partial && (
-        <p className="text-sm leading-relaxed">
-          <span className="text-[var(--text-muted)]">{partial}</span>
-          <span className="inline-block w-1 h-3.5 bg-[#14b8a6] ml-0.5 animate-pulse align-middle rounded-full" />
-        </p>
+        <div className="flex gap-3 items-start">
+          <span className="shrink-0 w-10" />
+          <p className="text-sm leading-relaxed flex-1">
+            <span className="text-[var(--text-muted)]">{partial}</span>
+            <span className="inline-block w-1 h-3.5 bg-[#14b8a6] ml-0.5 animate-pulse align-middle rounded-full" />
+          </p>
+        </div>
       )}
 
       <div ref={bottomRef} />

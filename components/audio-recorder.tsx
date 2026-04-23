@@ -96,7 +96,7 @@ export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
       </div>
 
       {recording && (
-        <div className="text-2xl font-semibold text-[#e5e5e5] tabular-nums">
+        <div className="text-2xl font-semibold text-[var(--text-primary)] tabular-nums">
           {formatDuration(duration)}
         </div>
       )}

@@ -15,6 +15,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
   viewportFit: "cover",
   themeColor: "#000000",
 };
@@ -37,15 +39,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className="min-h-full bg-black text-[var(--text-primary)]"
-        style={{
-          paddingTop: "env(safe-area-inset-top)",
-          paddingBottom: "env(safe-area-inset-bottom)",
-          paddingLeft: "env(safe-area-inset-left)",
-          paddingRight: "env(safe-area-inset-right)",
-        }}
-      >
+      <body className="min-h-full bg-[var(--bg-primary)] text-[var(--text-primary)]">
         {children}
         {process.env.VERCEL_TOOLBAR === "1" && <VercelToolbar />}
       </body>

@@ -186,17 +186,17 @@ export function LandingPage() {
   const demoShaderState = phase === "recording" ? "recording" : phase === "summarizing" ? "summarizing" : "idle";
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-white dark:text-white light:text-gray-900">
+    <div className="min-h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)]">
       {/* ───── Top Navigation ───── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--bg-primary)]/80 border-b border-white/[0.04] dark:border-white/[0.04] light:border-gray-200/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--bg-primary)]/80 border-b border-[var(--border-subtle)]" style={{ paddingTop: "var(--safe-top)" }}>
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-          <Link href="/" className="text-lg font-bold text-white dark:text-white light:text-gray-900 tracking-tight">
+          <Link href="/" className="text-lg font-bold text-[var(--text-primary)] tracking-tight">
             Layer One
           </Link>
           <div className="flex items-center gap-3">
             <Link
               href="/sign-in"
-              className="px-5 py-2 text-sm text-white/70 hover:text-white dark:text-white/70 dark:hover:text-white light:text-gray-600 light:hover:text-gray-900 transition-colors"
+              className="px-5 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               Sign in
             </Link>
@@ -212,7 +212,7 @@ export function LandingPage() {
 
       {/* ───── SECTION 1: Hero ───── */}
       <section className="relative flex flex-col items-center justify-center px-4 pt-32 pb-16">
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-center text-white dark:text-white light:text-gray-900">
+        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-center text-[var(--text-primary)]">
           Layer One
         </h1>
         <a
@@ -223,10 +223,10 @@ export function LandingPage() {
         >
           by Mirror Factory
         </a>
-        <p className="text-xl sm:text-2xl text-white/60 dark:text-white/60 light:text-gray-500 mt-4 text-center">
+        <p className="text-xl sm:text-2xl text-[var(--text-secondary)] mt-4 text-center">
           Audio Intelligence
         </p>
-        <p className="text-sm sm:text-base text-white/40 dark:text-white/40 light:text-gray-400 mt-3 max-w-md mx-auto text-center leading-relaxed">
+        <p className="text-sm sm:text-base text-[var(--text-muted)] mt-3 max-w-md mx-auto text-center leading-relaxed">
           Capture, transcribe, and extract structured data from every
           conversation — budgets, timelines, decisions, action items.
         </p>
@@ -250,22 +250,22 @@ export function LandingPage() {
           </Link>
           <Link
             href="/sign-in"
-            className="px-8 py-3 border border-white/10 hover:border-white/20 text-white/60 hover:text-white dark:text-white/60 dark:hover:text-white light:border-gray-300 light:hover:border-gray-400 light:text-gray-600 light:hover:text-gray-900 rounded-full transition-all duration-300"
+            className="px-8 py-3 border border-[var(--border-subtle)] hover:border-[var(--border-card)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-full transition-all duration-300"
           >
             Sign in
           </Link>
         </div>
-        <p className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 mt-4">
+        <p className="text-xs text-[var(--text-muted)] mt-4">
           25 meetings free. No credit card.
         </p>
       </section>
 
       {/* ───── SECTION 2: Features (Bento Grid) ───── */}
       <section className="px-4 py-24 max-w-5xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 text-white dark:text-white light:text-gray-900">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 text-[var(--text-primary)]">
           Built for real conversations
         </h2>
-        <p className="text-sm text-white/40 dark:text-white/40 light:text-gray-400 text-center mb-14 max-w-md mx-auto">
+        <p className="text-sm text-[var(--text-muted)] text-center mb-14 max-w-md mx-auto">
           Everything you need to capture, understand, and act on meetings.
         </p>
 
@@ -274,7 +274,7 @@ export function LandingPage() {
           {FEATURES.map((f) => (
             <div
               key={f.title}
-              className="group p-7 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 hover:bg-white/[0.05] dark:bg-white/[0.03] dark:border-white/[0.06] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.05] light:bg-gray-50 light:border-gray-200 light:hover:border-gray-300 light:hover:bg-gray-100"
+              className="group p-7 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--border-subtle)] transition-all duration-300 hover:bg-[var(--bg-card-hover)]"
             >
               <div className="w-11 h-11 rounded-xl bg-[#14b8a6]/10 flex items-center justify-center mb-5 group-hover:bg-[#14b8a6]/20 transition-colors duration-300">
                 <f.icon
@@ -283,10 +283,10 @@ export function LandingPage() {
                   strokeWidth={1.5}
                 />
               </div>
-              <h3 className="text-base font-semibold mb-2 text-white dark:text-white light:text-gray-900">
+              <h3 className="text-base font-semibold mb-2 text-[var(--text-primary)]">
                 {f.title}
               </h3>
-              <p className="text-sm text-white/50 dark:text-white/50 light:text-gray-500 leading-relaxed">
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                 {f.desc}
               </p>
             </div>
@@ -296,31 +296,31 @@ export function LandingPage() {
 
       {/* ───── SECTION 3: Interactive Demo ───── */}
       <section className="px-4 py-24 max-w-3xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 text-white dark:text-white light:text-gray-900">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 text-[var(--text-primary)]">
           See it in action
         </h2>
-        <p className="text-sm text-white/40 dark:text-white/40 light:text-gray-400 text-center mb-12">
+        <p className="text-sm text-[var(--text-muted)] text-center mb-12">
           Watch Layer One capture and analyze a real meeting in seconds.
         </p>
 
         {/* Demo container — glass card */}
-        <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] dark:border-white/[0.06] dark:bg-white/[0.02] light:border-gray-200 light:bg-white backdrop-blur-sm overflow-hidden">
+        <div className="rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] backdrop-blur-sm overflow-hidden">
           {/* Recorder chrome */}
           {(phase === "recording" || phase === "waiting") && (
-            <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06] dark:border-white/[0.06] light:border-gray-200">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--border-card)]">
               {/* Left: stop button */}
               <div className="flex items-center gap-3">
-                <button className="w-8 h-8 rounded-lg bg-white/[0.06] dark:bg-white/[0.06] light:bg-gray-100 flex items-center justify-center" aria-label="Stop">
-                  <Square size={12} className="text-white dark:text-white light:text-gray-700" fill="currentColor" />
+                <button className="w-8 h-8 rounded-lg bg-[var(--bg-card-hover)] flex items-center justify-center" aria-label="Stop">
+                  <Square size={12} className="text-[var(--text-primary)]" fill="currentColor" />
                 </button>
               </div>
               {/* Center: timer + RECORDING */}
               <div className="flex items-center gap-2">
-                <span className="text-sm font-mono text-white dark:text-white light:text-gray-900">
+                <span className="text-sm font-mono text-[var(--text-primary)]">
                   {formatTime(elapsedSeconds)}
                 </span>
                 {phase === "recording" && (
-                  <span className="text-[10px] text-white/60 dark:text-white/60 light:text-gray-500 uppercase tracking-wider font-medium">
+                  <span className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wider font-medium">
                     Recording
                   </span>
                 )}
@@ -365,7 +365,7 @@ export function LandingPage() {
                   <span className="text-xs font-semibold text-[#14b8a6] mr-2">
                     {line.speaker}
                   </span>
-                  <span className="text-sm text-white/70 dark:text-white/70 light:text-gray-700 leading-relaxed">
+                  <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
                     {line.text}
                   </span>
                 </div>
@@ -389,10 +389,10 @@ export function LandingPage() {
           {phase === "summary" && (
             <div className="px-5 py-5 space-y-5 animate-[fadeSlideIn_0.5s_ease-out_both]">
               <div>
-                <h3 className="text-base font-semibold mb-1 text-white dark:text-white light:text-gray-900">
+                <h3 className="text-base font-semibold mb-1 text-[var(--text-primary)]">
                   {DEMO_SUMMARY.title}
                 </h3>
-                <p className="text-[10px] text-white/40 dark:text-white/40 light:text-gray-400 uppercase tracking-wider">
+                <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">
                   7 transcript lines &middot; 3 speakers &middot; 0:08 duration
                 </p>
               </div>
@@ -405,7 +405,7 @@ export function LandingPage() {
                   {DEMO_SUMMARY.decisions.map((d, i) => (
                     <li
                       key={i}
-                      className="text-sm text-white/60 dark:text-white/60 light:text-gray-600 flex items-start gap-2"
+                      className="text-sm text-[var(--text-secondary)] flex items-start gap-2"
                     >
                       <span className="text-[#14b8a6] mt-1 shrink-0">
                         &bull;
@@ -424,13 +424,13 @@ export function LandingPage() {
                   {DEMO_SUMMARY.actionItems.map((a, i) => (
                     <li
                       key={i}
-                      className="text-sm text-white/60 dark:text-white/60 light:text-gray-600 flex items-start gap-2"
+                      className="text-sm text-[var(--text-secondary)] flex items-start gap-2"
                     >
                       <span className="text-[#14b8a6] mt-1 shrink-0">
                         &bull;
                       </span>
                       <span>
-                        <span className="font-medium text-white dark:text-white light:text-gray-900">
+                        <span className="font-medium text-[var(--text-primary)]">
                           {a.owner}:
                         </span>{" "}
                         {a.task}
@@ -446,73 +446,73 @@ export function LandingPage() {
 
       {/* ───── SECTION 4: Pricing ───── */}
       <section id="pricing" className="px-4 py-24 max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-white dark:text-white light:text-gray-900">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-[var(--text-primary)]">
           Simple pricing
         </h2>
-        <p className="text-sm text-white/40 dark:text-white/40 light:text-gray-400 mb-14 max-w-sm mx-auto">
+        <p className="text-sm text-[var(--text-muted)] mb-14 max-w-sm mx-auto">
           Start free. Upgrade when you need more.
         </p>
         <div className="grid sm:grid-cols-3 gap-6">
           {/* Free */}
-          <div className="p-8 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 dark:bg-white/[0.03] dark:border-white/[0.06] light:bg-white light:border-gray-200 light:hover:border-gray-300">
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 uppercase tracking-wider mb-3 font-medium">
+          <div className="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--border-subtle)] transition-all duration-300">
+            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-3 font-medium">
               Free
             </div>
-            <div className="text-4xl font-bold mb-1 text-white dark:text-white light:text-gray-900">$0</div>
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 mb-6">
+            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">$0</div>
+            <div className="text-xs text-[var(--text-muted)] mb-6">
               /month
             </div>
-            <div className="text-sm text-white/60 dark:text-white/60 light:text-gray-600 font-medium">
+            <div className="text-sm text-[var(--text-secondary)] font-medium">
               25 meetings
             </div>
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 mt-2">
+            <div className="text-xs text-[var(--text-muted)] mt-2">
               All features included
             </div>
           </div>
 
           {/* Core — highlighted */}
-          <div className="p-8 rounded-2xl bg-white/[0.03] border border-[#14b8a6]/30 hover:border-[#14b8a6]/50 transition-all duration-300 relative dark:bg-white/[0.03] light:bg-white light:border-[#14b8a6]/30">
+          <div className="p-8 rounded-2xl bg-[var(--bg-card)] border border-[#14b8a6]/30 hover:border-[#14b8a6]/50 transition-all duration-300 relative">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#14b8a6] text-white text-[10px] font-semibold uppercase tracking-wider rounded-full">
               Popular
             </div>
             <div className="text-xs text-[#14b8a6] uppercase tracking-wider mb-3 font-medium">
               Core
             </div>
-            <div className="text-4xl font-bold mb-1 text-white dark:text-white light:text-gray-900">
+            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">
               $15
-              <span className="text-sm font-normal text-white/40 dark:text-white/40 light:text-gray-400 ml-1">
+              <span className="text-sm font-normal text-[var(--text-muted)] ml-1">
                 /mo
               </span>
             </div>
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 mb-6">
+            <div className="text-xs text-[var(--text-muted)] mb-6">
               billed monthly
             </div>
-            <div className="text-sm text-white/60 dark:text-white/60 light:text-gray-600 font-medium">
+            <div className="text-sm text-[var(--text-secondary)] font-medium">
               Unlimited meetings
             </div>
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 mt-2">
+            <div className="text-xs text-[var(--text-muted)] mt-2">
               Priority processing
             </div>
           </div>
 
           {/* Pro */}
-          <div className="p-8 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 dark:bg-white/[0.03] dark:border-white/[0.06] light:bg-white light:border-gray-200 light:hover:border-gray-300">
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 uppercase tracking-wider mb-3 font-medium">
+          <div className="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--border-subtle)] transition-all duration-300">
+            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-3 font-medium">
               Pro
             </div>
-            <div className="text-4xl font-bold mb-1 text-white dark:text-white light:text-gray-900">
+            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">
               $25
-              <span className="text-sm font-normal text-white/40 dark:text-white/40 light:text-gray-400 ml-1">
+              <span className="text-sm font-normal text-[var(--text-muted)] ml-1">
                 /mo
               </span>
             </div>
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 mb-6">
+            <div className="text-xs text-[var(--text-muted)] mb-6">
               billed monthly
             </div>
-            <div className="text-sm text-white/60 dark:text-white/60 light:text-gray-600 font-medium">
+            <div className="text-sm text-[var(--text-secondary)] font-medium">
               Unlimited + priority
             </div>
-            <div className="text-xs text-white/40 dark:text-white/40 light:text-gray-400 mt-2">
+            <div className="text-xs text-[var(--text-muted)] mt-2">
               Team features &amp; API access
             </div>
           </div>
@@ -520,20 +520,20 @@ export function LandingPage() {
       </section>
 
       {/* ───── SECTION 5: Footer ───── */}
-      <footer className="px-4 py-16 border-t border-white/[0.04] dark:border-white/[0.04] light:border-gray-200">
+      <footer className="px-4 py-16 border-t border-[var(--border-subtle)]">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex flex-col items-center sm:items-start gap-2">
-              <span className="text-sm font-semibold text-white dark:text-white light:text-gray-900">
+              <span className="text-sm font-semibold text-[var(--text-primary)]">
                 Layer One Audio
               </span>
-              <p className="text-xs text-white/40 dark:text-white/40 light:text-gray-400">
+              <p className="text-xs text-[var(--text-muted)]">
                 A{" "}
                 <a
                   href="https://mirrorfactory.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/50 hover:text-white/70 dark:text-white/50 dark:hover:text-white/70 light:text-gray-500 light:hover:text-gray-700 transition-colors underline underline-offset-2"
+                  className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
                 >
                   Mirror Factory
                 </a>
@@ -543,19 +543,19 @@ export function LandingPage() {
             <div className="flex items-center gap-8">
               <Link
                 href="/sign-up"
-                className="text-xs text-white/40 hover:text-white/70 dark:text-white/40 dark:hover:text-white/70 light:text-gray-400 light:hover:text-gray-600 transition-colors"
+                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
               >
                 Sign up
               </Link>
               <Link
                 href="/sign-in"
-                className="text-xs text-white/40 hover:text-white/70 dark:text-white/40 dark:hover:text-white/70 light:text-gray-400 light:hover:text-gray-600 transition-colors"
+                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
               >
                 Sign in
               </Link>
               <a
                 href="#pricing"
-                className="text-xs text-white/40 hover:text-white/70 dark:text-white/40 dark:hover:text-white/70 light:text-gray-400 light:hover:text-gray-600 transition-colors"
+                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
               >
                 Pricing
               </a>
@@ -563,7 +563,7 @@ export function LandingPage() {
                 href="https://mirrorfactory.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-white/40 hover:text-white/70 dark:text-white/40 dark:hover:text-white/70 light:text-gray-400 light:hover:text-gray-600 transition-colors"
+                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
               >
                 mirrorfactory.ai
               </a>

@@ -27,14 +27,14 @@ export function TopBar({ title, showBack = false }: TopBarProps) {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 flex items-center justify-between transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 flex items-center justify-between transition-all duration-300 ${
           scrolled
             ? "bg-[var(--bg-primary)]/80 backdrop-blur-xl border-b border-[var(--border-subtle)]"
             : "bg-[var(--bg-primary)] border-b border-transparent"
         }`}
         style={{
-          height: "calc(44px + env(safe-area-inset-top, 0px))",
-          paddingTop: "env(safe-area-inset-top, 0px)",
+          height: "calc(44px + var(--safe-top))",
+          paddingTop: "var(--safe-top)",
         }}
       >
         <div className="flex items-center min-w-[44px] h-[44px]">
@@ -64,6 +64,9 @@ export function TopBar({ title, showBack = false }: TopBarProps) {
           </button>
         </div>
       </header>
+
+      {/* Spacer to push content below the fixed header */}
+      <div style={{ height: "calc(44px + var(--safe-top))" }} />
 
       <SlideMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </>

@@ -80,16 +80,16 @@ export default function SearchPage() {
     `${Math.round(sim * 100)}%`;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen-safe flex flex-col">
       <TopBar title="Search" showBack />
 
-      <main className="flex-1 px-4 py-6 max-w-2xl mx-auto w-full space-y-6">
+      <main className="flex-1 px-4 pb-safe py-6 max-w-2xl mx-auto w-full space-y-6">
         {/* Search input */}
         <div className="flex gap-2">
           <div className="flex-1 relative">
             <Search
               size={18}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-[#737373]"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
             />
             <input
               type="text"
@@ -97,7 +97,7 @@ export default function SearchPage() {
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Search meetings..."
-              className="w-full pl-10 pr-4 py-3 bg-[#171717] border border-white/[0.06] rounded-xl text-sm text-[#e5e5e5] placeholder-[#525252] focus:outline-none focus:border-[#14b8a6]/40 transition-colors min-h-[44px]"
+              className="w-full pl-10 pr-4 py-3 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-xl text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[#14b8a6]/40 transition-colors min-h-[44px]"
               autoFocus
             />
           </div>
@@ -123,7 +123,7 @@ export default function SearchPage() {
 
         {!loading && searched && results.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-sm text-[#737373]">
+            <p className="text-sm text-[var(--text-muted)]">
               No results found. Try a different search term.
             </p>
           </div>
@@ -131,7 +131,7 @@ export default function SearchPage() {
 
         {!loading && results.length > 0 && (
           <div className="space-y-3">
-            <p className="text-xs text-[#737373]">
+            <p className="text-xs text-[var(--text-muted)]">
               {results.length} result{results.length !== 1 ? "s" : ""}
             </p>
 
@@ -144,20 +144,20 @@ export default function SearchPage() {
                   onClick={() =>
                     router.push(`/meetings/${result.meetingId}`)
                   }
-                  className="w-full text-left bg-[#171717] hover:bg-[#1a1a1a] border border-white/[0.06] rounded-xl p-4 space-y-2 transition-colors"
+                  className="w-full text-left bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] border border-[var(--border-card)] rounded-xl p-4 space-y-2 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-medium text-[#e5e5e5] truncate">
+                      <h3 className="text-sm font-medium text-[var(--text-primary)] truncate">
                         {result.meetingTitle ?? "Untitled Meeting"}
                       </h3>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="flex items-center gap-1 text-[10px] text-[#737373] uppercase tracking-wider">
+                        <span className="flex items-center gap-1 text-[10px] text-[var(--text-muted)] uppercase tracking-wider">
                           <Icon size={12} />
                           {CHUNK_TYPE_LABELS[result.chunkType] ??
                             result.chunkType}
                         </span>
-                        <span className="text-[10px] text-[#525252]">
+                        <span className="text-[10px] text-[var(--text-muted)]">
                           {formatDate(result.meetingDate)}
                         </span>
                       </div>
@@ -166,7 +166,7 @@ export default function SearchPage() {
                       {similarityPercent(result.similarity)}
                     </span>
                   </div>
-                  <p className="text-xs text-[#a3a3a3] line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-[var(--text-secondary)] line-clamp-3 leading-relaxed">
                     {result.chunkText}
                   </p>
                 </button>
@@ -177,8 +177,8 @@ export default function SearchPage() {
 
         {!searched && (
           <div className="text-center py-12">
-            <Search size={32} className="mx-auto text-[#525252] mb-3" />
-            <p className="text-sm text-[#737373]">
+            <Search size={32} className="mx-auto text-[var(--text-muted)] mb-3" />
+            <p className="text-sm text-[var(--text-muted)]">
               Search across all your meeting transcripts, summaries, and intake
               forms.
             </p>

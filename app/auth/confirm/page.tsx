@@ -36,7 +36,7 @@ export default function AuthConfirmPage() {
   }, [router]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--bg-primary)]">
+    <div className="min-h-screen-safe flex items-center justify-center bg-[var(--bg-primary)]">
       <p className="text-sm text-[var(--text-muted)]">{status}</p>
     </div>
   );

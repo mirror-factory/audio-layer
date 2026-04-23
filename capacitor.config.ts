@@ -14,12 +14,26 @@ const config: CapacitorConfig = {
     allowNavigation: ["api.assemblyai.com", "audio-layer.vercel.app"],
   },
   ios: {
-    contentInset: "always",
     backgroundColor: "#0a0a0a",
     scrollEnabled: false,
+    preferredContentMode: "mobile",
   },
   android: {
     allowMixedContent: process.env.NODE_ENV !== "production",
+  },
+  plugins: {
+    StatusBar: {
+      overlaysWebView: true,
+      style: "LIGHT", // light text on dark background
+    },
+    Keyboard: {
+      resize: "body", // resizes body only, preserves viewport units
+      style: "DARK",
+      resizeOnFullScreen: true,
+    },
+    SplashScreen: {
+      launchAutoHide: false,
+    },
   },
 };
 

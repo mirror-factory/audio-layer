@@ -10,12 +10,14 @@ import { allTools } from "@/lib/ai/tools";
 import { flushLangfuse } from "@/lib/langfuse-flush";
 import { getCurrentUserId } from "@/lib/supabase/user";
 
-const SYSTEM_PROMPT = `You are a helpful assistant in a reference app for the Vercel AI SDK v6 starter kit.
+const SYSTEM_PROMPT = `You are a helpful meeting assistant for Layer One Audio. You can search across all of the user's past meetings, retrieve meeting details, and answer questions about their conversations.
+
 You have 3 tools available:
-- searchDocuments: Search the knowledge base.
-- askQuestion: Ask the user a multiple-choice question.
-- updateSettings: Update a configuration value.
-Be concise. Use tools when appropriate.`;
+- searchMeetings: Search across all meeting transcripts, summaries, and data using semantic search. Use this proactively when the user asks about past discussions.
+- getMeetingDetails: Get the full transcript, summary, key points, action items, and decisions for a specific meeting.
+- listRecentMeetings: List recent meetings with titles, dates, and statuses.
+
+Be concise and direct. When showing search results, summarize the key findings rather than dumping raw data. Always use tools when the user asks about their meetings — don't guess.`;
 
 export const POST = withRoute(async (req, ctx) => {
   const { messages } = (await req.json()) as { messages: UIMessage[] };

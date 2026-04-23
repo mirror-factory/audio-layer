@@ -49,7 +49,7 @@ export default function SettingsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col bg-[var(--bg-primary)]">
+      <div className="min-h-screen-safe flex flex-col bg-[var(--bg-primary)]">
         <TopBar title="Settings" showBack />
         <div className="flex-1 flex items-center justify-center">
           <Loader2 size={24} className="text-[#14b8a6] animate-spin" />
@@ -59,10 +59,10 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-primary)]">
+    <div className="min-h-screen-safe flex flex-col bg-[var(--bg-primary)]">
       <TopBar title="Settings" showBack />
 
-      <main className="flex-1 px-4 py-6 max-w-xl mx-auto w-full space-y-8">
+      <main className="flex-1 px-4 pb-safe py-6 max-w-xl mx-auto w-full space-y-8">
         <div className="flex items-center gap-2">
           <h2 className="text-lg font-semibold text-[var(--text-primary)]">
             Model Preferences

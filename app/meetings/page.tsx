@@ -22,10 +22,10 @@ export default async function MeetingsPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-primary)]">
+    <div className="min-h-screen-safe flex flex-col bg-[var(--bg-primary)]">
       <TopBar title="Meetings" showBack />
 
-      <main className="flex-1 px-4 py-6 max-w-3xl mx-auto w-full">
+      <main className="flex-1 px-4 pb-safe py-6 max-w-3xl mx-auto w-full">
         <MeetingSearch />
 
         {meetings.length === 0 ? (

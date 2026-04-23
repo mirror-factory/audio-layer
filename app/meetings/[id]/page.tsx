@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { TopBar } from "@/components/top-bar";
 import { TranscriptView } from "@/components/transcript-view";
-import { IntakeFormView } from "@/components/intake-form-view";
 import { MeetingCostPanel } from "@/components/meeting-cost-panel";
 import { MeetingDetailPollerWrapper } from "./poller-wrapper";
 import { getMeetingsStore } from "@/lib/meetings/store";
@@ -25,13 +24,13 @@ export default async function MeetingDetailPage({
   const isCompleted = meeting.status === "completed";
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen-safe flex flex-col">
       <TopBar
         title={meeting.title ?? "Meeting Detail"}
         showBack
       />
 
-      <main className="flex-1 px-4 py-6 max-w-5xl mx-auto w-full space-y-6">
+      <main className="flex-1 px-4 pb-safe py-6 max-w-5xl mx-auto w-full space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
@@ -72,7 +71,7 @@ export default async function MeetingDetailPage({
           </div>
         )}
 
-        {/* Transcript + Summary */}
+        {/* Summary + Transcript (collapsible) + Cost (collapsed by default) */}
         {isCompleted && (
           <>
             <TranscriptView
@@ -80,7 +79,6 @@ export default async function MeetingDetailPage({
               summary={meeting.summary}
               meetingId={meeting.id}
             />
-            <IntakeFormView intakeForm={meeting.intakeForm} />
             <MeetingCostPanel costBreakdown={meeting.costBreakdown} />
           </>
         )}

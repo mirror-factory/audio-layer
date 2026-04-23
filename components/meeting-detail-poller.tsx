@@ -41,25 +41,25 @@ export function MeetingDetailPoller({
 
   if (status === "error") {
     return (
-      <div className="bg-[#171717] rounded-xl p-6 text-center">
+      <div className="bg-[var(--bg-card)] rounded-xl p-6 text-center">
         <div className="text-[#ef4444] text-sm font-medium mb-1">
           Processing Failed
         </div>
-        <p className="text-xs text-[#525252]">{error}</p>
+        <p className="text-xs text-[var(--text-muted)]">{error}</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-[#171717] rounded-xl p-6 flex flex-col items-center gap-3">
+    <div className="bg-[var(--bg-card)] rounded-xl p-6 flex flex-col items-center gap-3">
       <div className="relative">
         <Loader2 size={32} className="text-[#14b8a6] animate-spin" />
         <span className="absolute inset-0 rounded-full border-2 border-[#14b8a6]/30 animate-pulse" />
       </div>
-      <div className="text-sm text-[#a3a3a3]">
+      <div className="text-sm text-[var(--text-secondary)]">
         {status === "queued" ? "Queued for processing..." : "Processing transcript..."}
       </div>
-      <div className="text-xs text-[#525252]">This page will update automatically</div>
+      <div className="text-xs text-[var(--text-muted)]">This page will update automatically</div>
     </div>
   );
 }

@@ -15,6 +15,7 @@ import { flushLangfuse } from "@/lib/langfuse-flush";
 import { embedMeeting } from "@/lib/embeddings/embed-meeting";
 import { EMBEDDING_MODEL } from "@/lib/embeddings/client";
 import { getCurrentUserId } from "@/lib/supabase/user";
+import { fireWebhooks } from "@/lib/webhooks/fire";
 import type { MeetingCostBreakdown, LlmCallRecord } from "@/lib/billing/types";
 
 const FinalizeBodySchema = z.object({
@@ -127,11 +128,20 @@ export const POST = withRoute(async (req, ctx) => {
     costBreakdown,
   });
 
-  // Auto-embed in background so it doesn't block the response
+  // Fire webhooks + auto-embed in background so it doesn't block the response
   after(async () => {
     try {
       const userId = await getCurrentUserId();
       if (userId) {
+        // Fire meeting.completed webhooks
+        await fireWebhooks(userId, "meeting.completed", meetingId, {
+          title: summary?.summary.title ?? null,
+          durationSeconds: durationSeconds ?? null,
+          turnCount: utterances.length,
+          hasSummary: !!summary && !summary.skipped,
+          hasIntake: !!intake && !intake.skipped,
+          costUsd: costBreakdown.totalCostUsd,
+        }).catch(() => {});
         const embedResult = await embedMeeting(meetingId, userId);
         if (embedResult.chunksEmbedded > 0) {
           const updatedBreakdown: MeetingCostBreakdown = {

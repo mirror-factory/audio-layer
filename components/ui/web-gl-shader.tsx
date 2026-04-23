@@ -57,6 +57,7 @@ export function WebGLShader({
       uniform float xScale;
       uniform float yScale;
       uniform float distortion;
+      uniform float lightMode;
 
       void main() {
         vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
@@ -71,24 +72,41 @@ export function WebGLShader({
         float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
         float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-        float a = clamp(max(r, max(g, b)), 0.0, 1.0);
-        gl_FragColor = vec4(r, g, b, a);
+        float intensity = max(r, max(g, b));
+        float a = smoothstep(0.08, 0.45, intensity);
+
+        if (lightMode > 0.5) {
+          // Light mode: mint/teal lines instead of white/chromatic
+          float mint = intensity * 0.85;
+          gl_FragColor = vec4(0.08 * mint, 0.72 * mint, 0.65 * mint, a);
+        } else {
+          gl_FragColor = vec4(r, g, b, a);
+        }
       }
     `
 
     const initScene = () => {
       r.scene = new THREE.Scene()
-      r.renderer = new THREE.WebGLRenderer({ canvas, alpha: true, premultipliedAlpha: false })
+      r.renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        premultipliedAlpha: false,
+        powerPreference: "low-power",
+        antialias: false,
+      })
+      // Cap at 2x DPR — 3x devices (iPhone Pro) waste GPU for negligible sharpness gain
       r.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
       r.renderer.setClearColor(new THREE.Color(0x000000), 0)
       r.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
 
+      const isLight = document.documentElement.classList.contains("light")
       r.uniforms = {
         resolution: { value: [100, 100] },
         time: { value: 0.0 },
         xScale: { value: 1.0 },
         yScale: { value: 0.3 },
         distortion: { value: 0.05 },
+        lightMode: { value: isLight ? 1.0 : 0.0 },
       }
 
       const geometry = new THREE.BufferGeometry()
@@ -107,6 +125,10 @@ export function WebGLShader({
 
     const animate = () => {
       if (!r.uniforms) { r.animationId = requestAnimationFrame(animate); return }
+
+      // Track theme changes in real-time
+      const isLightNow = document.documentElement.classList.contains("light") ? 1.0 : 0.0
+      r.uniforms.lightMode.value += (isLightNow - r.uniforms.lightMode.value) * 0.1
 
       const s = stateRef.current
       smoothAudioRef.current += (audioRef.current - smoothAudioRef.current) * 0.06
@@ -167,8 +189,20 @@ export function WebGLShader({
     const ro = new ResizeObserver(handleResize)
     ro.observe(container)
 
+    // Pause rendering when app is backgrounded (saves battery on mobile)
+    const handleVisibility = () => {
+      if (document.hidden) {
+        if (r.animationId) cancelAnimationFrame(r.animationId)
+        r.animationId = null
+      } else {
+        if (!r.animationId) r.animationId = requestAnimationFrame(animate)
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibility)
+
     return () => {
       if (r.animationId) cancelAnimationFrame(r.animationId)
+      document.removeEventListener("visibilitychange", handleVisibility)
       ro.disconnect()
       if (r.mesh) {
         r.scene?.remove(r.mesh)

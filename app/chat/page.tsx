@@ -19,7 +19,7 @@ export default function ChatPage() {
   }, [messages]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen-safe flex flex-col">
       <TopBar title="Chat" showBack />
 
       <div
@@ -28,7 +28,7 @@ export default function ChatPage() {
       >
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full min-h-[200px]">
-            <p className="text-sm text-[#525252]">
+            <p className="text-sm text-[var(--text-muted)]">
               Start a conversation with the AI assistant.
             </p>
           </div>

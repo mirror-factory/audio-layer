@@ -16,7 +16,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
         className={`max-w-[85%] rounded-xl px-3.5 py-2.5 text-sm leading-relaxed ${
           isUser
             ? "bg-[#3b82f6] text-white rounded-br-md"
-            : "bg-[#171717] text-[#d4d4d4] rounded-bl-md"
+            : "bg-[var(--bg-card)] text-[var(--text-primary)] rounded-bl-md"
         }`}
       >
         {message.parts?.map((part, i) => {
