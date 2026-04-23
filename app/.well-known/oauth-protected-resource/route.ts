@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
  * Tells MCP clients where to get tokens for this server.
  */
 export function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.trim()}` : "https://audio-layer.vercel.app");
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL?.trim() ?? "https://audio-layer.vercel.app";
 
   return NextResponse.json({
     resource: `${baseUrl}/api/mcp`,

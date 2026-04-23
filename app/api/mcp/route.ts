@@ -120,9 +120,7 @@ async function executeTool(name: string, args: Record<string, unknown>, userId: 
 // ---------------------------------------------------------------------------
 
 function getBaseUrl() {
-  if (process.env.NEXT_PUBLIC_APP_URL) return process.env.NEXT_PUBLIC_APP_URL.trim();
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.trim()}`;
-  return "https://audio-layer.vercel.app";
+  return process.env.NEXT_PUBLIC_APP_URL?.trim() ?? "https://audio-layer.vercel.app";
 }
 
 function unauthorizedResponse(baseUrl: string) {

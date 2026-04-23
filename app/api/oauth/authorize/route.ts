@@ -25,7 +25,7 @@ export function GET(req: NextRequest) {
   }
 
   // Store OAuth params in the redirect so our callback can pick them up
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.trim()}` : "https://audio-layer.vercel.app");
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL?.trim() ?? "https://audio-layer.vercel.app";
   const oauthParams = new URLSearchParams({
     ...(clientId && { client_id: clientId }),
     redirect_uri: redirectUri,
