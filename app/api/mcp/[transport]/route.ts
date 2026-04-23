@@ -1,4 +1,4 @@
-import { createMcpHandler, withMcpAuth } from "mcp-handler";
+import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import { getSupabaseServer } from "@/lib/supabase/server";
 import { searchMeetings } from "@/lib/embeddings/search";
@@ -91,25 +91,54 @@ const mcpHandler = createMcpHandler(
 // Auth wrapper — validates API key, sets userId for tool queries
 // ---------------------------------------------------------------------------
 
-const handler = withMcpAuth(
-  mcpHandler,
-  async (_req: Request, bearerToken?: string) => {
-    if (!bearerToken) return undefined;
+// Auth wrapper that allows initialize/notifications without auth
+// but requires auth for tools/list and tools/call
+async function handler(req: Request) {
+  // Clone request to peek at the body for method routing
+  const cloned = req.clone();
+  let isProtocolHandshake = false;
 
-    const result = await validateApiKey(bearerToken);
-    if (!result) return undefined;
+  if (req.method === "POST") {
+    try {
+      const body = await cloned.json();
+      const method = body?.method as string;
+      isProtocolHandshake = method === "initialize" || method?.startsWith("notifications/");
+    } catch {
+      // not JSON — let mcp-handler deal with it
+    }
+  }
 
-    authenticatedUserId = result.userId;
-    return {
-      token: bearerToken,
-      clientId: "layer-one",
-      scopes: ["mcp:tools"],
-    };
-  },
-  {
-    required: true,
-    resourceUrl: BASE_URL,
-  },
-);
+  // Allow protocol handshake without auth
+  if (isProtocolHandshake || req.method === "DELETE") {
+    return mcpHandler(req);
+  }
+
+  // Everything else (tools/list, tools/call, GET for SSE) requires auth
+  const auth = req.headers.get("authorization");
+  if (!auth?.startsWith("Bearer ")) {
+    return new Response(
+      JSON.stringify({ error: "invalid_token", error_description: "Bearer token required. Get your API key from the Layer One Audio profile page." }),
+      {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+          "WWW-Authenticate": `Bearer resource_metadata="${BASE_URL}/.well-known/oauth-protected-resource"`,
+        },
+      },
+    );
+  }
+
+  const key = auth.slice(7);
+  const result = await validateApiKey(key);
+  if (!result) {
+    return new Response(
+      JSON.stringify({ error: "invalid_token", error_description: "Invalid API key" }),
+      { status: 401, headers: { "Content-Type": "application/json" } },
+    );
+  }
+
+  authenticatedUserId = result.userId;
+  return mcpHandler(req);
+}
 
 export { handler as GET, handler as POST, handler as DELETE };
