@@ -103,6 +103,10 @@ function main(): number {
     console.log('[check-million] .next/ not built yet; skipping with warning. Run `pnpm build` first.');
     return 0;
   }
+  if (!existsSync(join(CWD, '.next', 'BUILD_ID'))) {
+    console.log('[check-million] .next/ is a dev-server cache, not a production build; skipping with warning. Run `pnpm build` first.');
+    return 0;
+  }
   if (!findMillionMarkers()) {
     console.error('[check-million] FAIL: million compiled markers not found in .next/. Optimization is not applying.');
     return 1;
