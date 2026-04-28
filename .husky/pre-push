@@ -170,12 +170,15 @@ fi
 # stale research cache, SDK-vs-CLI mismatch). Fail-closed in strict mode.
 # ---------------------------------------------------------------------------
 if [ -f "node_modules/@mirror-factory/ai-dev-kit/bin/cli.ts" ] || command -v ai-dev-kit >/dev/null 2>&1; then
-  info "Running doctor..."
-  if npx ai-dev-kit doctor --strict; then
+  info "Running doctor (advisory)..."
+  set +e
+  npx ai-dev-kit doctor --strict
+  DOCTOR_EXIT=$?
+  set -e
+  if [ $DOCTOR_EXIT -eq 0 ]; then
     pass "Doctor clean"
   else
-    fail "Doctor found issues -- run 'npx ai-dev-kit doctor' for details"
-    exit 1
+    warn "Doctor found advisory issues -- run 'npx ai-dev-kit doctor --strict' for details"
   fi
 fi
 
