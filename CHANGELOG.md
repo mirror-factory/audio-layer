@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.2] — 2026-04-28
+
+### Fixed
+- fix: keep optional pre-push checks nonblocking (`f7868ad`)
+
+
 ## [0.1.1] — 2026-04-28
 
 ### Fixed
