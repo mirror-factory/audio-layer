@@ -89,7 +89,7 @@ export default function RecordPage() {
   );
 
   return (
-    <div className="min-h-screen-safe flex flex-col">
+    <div className="paper-calm-page min-h-screen-safe flex flex-col">
       <TopBar title="Record" showBack />
 
       <main className="flex-1 px-4 pb-safe py-8 max-w-xl mx-auto w-full">

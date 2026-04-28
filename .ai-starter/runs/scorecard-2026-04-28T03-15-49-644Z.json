@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-04-28T03:15:49.644Z",
+  "planId": "2026-04-28T03-05-49-944Z-responsive-home-side-panels-and-",
+  "score": 100,
+  "blockers": [],
+  "recommendations": [
+    "Refresh the active plan if scope changed.",
+    "Story coverage looks healthy.",
+    "API coverage looks healthy.",
+    "Tool eval coverage looks healthy.",
+    "Evidence includes traces/videos.",
+    "Hook telemetry is being recorded.",
+    "Companion obligations are satisfied."
+  ],
+  "summary": {
+    "components": {
+      "total": 26,
+      "withUnit": 26,
+      "withStory": 26,
+      "withVisual": 26
+    },
+    "routes": {
+      "total": 47,
+      "withVisual": 47
+    },
+    "apis": {
+      "total": 62,
+      "withUnit": 62,
+      "withEval": 0
+    },
+    "tools": {
+      "total": 0,
+      "withUnit": 0,
+      "withEval": 0
+    },
+    "browserProof": {
+      "expectFlows": 51,
+      "replays": 7,
+      "screenshots": 157
+    },
+    "evidence": {
+      "total": 565,
+      "screenshots": 177,
+      "videos": 202,
+      "traces": 0,
+      "reports": 33
+    },
+    "companions": {
+      "total": 135,
+      "pending": 0,
+      "satisfied": 135
+    },
+    "hooks": {
+      "registered": 24,
+      "observed": 1197,
+      "blocked": 2
+    }
+  }
+}

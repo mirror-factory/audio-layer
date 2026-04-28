@@ -1,0 +1,42 @@
+{
+  "backend": "tmux",
+  "status": "available",
+  "sessions": [
+    {
+      "name": "starter-dev",
+      "role": "app",
+      "expected": true,
+      "observed": false,
+      "lastSeenAt": null
+    },
+    {
+      "name": "starter-claude",
+      "role": "agent",
+      "expected": false,
+      "observed": false,
+      "lastSeenAt": null
+    },
+    {
+      "name": "starter-codex",
+      "role": "agent",
+      "expected": false,
+      "observed": false,
+      "lastSeenAt": null
+    },
+    {
+      "name": "starter-verify",
+      "role": "verify",
+      "expected": false,
+      "observed": false,
+      "lastSeenAt": null
+    },
+    {
+      "name": "starter-browser",
+      "role": "browser",
+      "expected": false,
+      "observed": false,
+      "lastSeenAt": null
+    }
+  ],
+  "updatedAt": "2026-04-28T17:30:07.143Z"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "cpa-1777258247155",
+  "actionId": "",
+  "label": "",
+  "status": "missing",
+  "command": "unknown",
+  "startedAt": "2026-04-27T02:50:47.155Z",
+  "finishedAt": "2026-04-27T02:50:47.155Z",
+  "durationMs": 0,
+  "exitCode": null,
+  "output": "",
+  "error": "Unknown control-plane action: "
+}

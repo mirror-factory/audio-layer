@@ -3,8 +3,6 @@ import {
   estimateBatchMeetingCost,
   estimateStreamingMeetingCost,
   estimateTranscriptCost,
-  BASE_RATES_PER_HOUR,
-  ADDON_PER_HOUR,
 } from "@/lib/billing/assemblyai-pricing";
 
 describe("estimateBatchMeetingCost", () => {
@@ -25,14 +23,15 @@ describe("estimateBatchMeetingCost", () => {
     const result = estimateBatchMeetingCost(1800);
 
     expect(result.durationSeconds).toBe(1800);
-    expect(result.baseCostUsd).toBeCloseTo(0.105, 6);
+    expect(result.baseCostUsd).toBeCloseTo(0.075, 6);
     expect(result.addonCostUsd).toBeCloseTo(0.05, 6);
-    expect(result.totalCostUsd).toBeCloseTo(0.155, 6);
+    expect(result.totalCostUsd).toBeCloseTo(0.125, 6);
   });
 
   it("uses default model when none specified", () => {
     const result = estimateBatchMeetingCost(3600);
-    expect(result.model).toBe("universal-3-pro");
+    expect(result.model).toBe("universal-2");
+    expect(result.totalCostUsd).toBeCloseTo(0.25, 6);
   });
 });
 
@@ -45,14 +44,14 @@ describe("estimateStreamingMeetingCost", () => {
     expect(result.durationSeconds).toBe(3600);
     expect(result.ratePerHour).toBe(0.45);
     expect(result.baseCostUsd).toBeCloseTo(0.45, 6);
-    // No add-ons in streaming mode
-    expect(result.addonCostUsd).toBe(0);
+    expect(result.addonCostUsd).toBeCloseTo(0, 6);
     expect(result.totalCostUsd).toBeCloseTo(0.45, 6);
   });
 
   it("uses default model when none specified", () => {
     const result = estimateStreamingMeetingCost(3600);
-    expect(result.model).toBe("u3-rt-pro");
+    expect(result.model).toBe("universal-streaming-multilingual");
+    expect(result.totalCostUsd).toBeCloseTo(0.15, 6);
   });
 });
 

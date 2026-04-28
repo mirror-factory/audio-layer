@@ -1,0 +1,95 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/session-startup.py\"",
+            "timeout": 30,
+            "statusMessage": "Loading starter repo state"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/user-prompt-submit.py\"",
+            "timeout": 30,
+            "statusMessage": "Checking starter intake state"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/pretool-install-research.py\"",
+            "timeout": 30,
+            "statusMessage": "Checking research freshness"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit|apply_patch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/pretool-plan-gate.py\"",
+            "timeout": 30,
+            "statusMessage": "Checking starter plan gate"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/periodic-reground.py\"",
+            "timeout": 30,
+            "statusMessage": "Refreshing starter context"
+          },
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/posttool-telemetry.py\"",
+            "timeout": 30,
+            "statusMessage": "Recording starter telemetry"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit|apply_patch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/posttool-scaffold.py\"",
+            "timeout": 30,
+            "statusMessage": "Updating companion obligations"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/stop-check.py\"",
+            "timeout": 30,
+            "statusMessage": "Checking starter stop gate"
+          }
+        ]
+      }
+    ]
+  }
+}

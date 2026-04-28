@@ -59,6 +59,10 @@ export class InMemoryMeetingsStore implements MeetingsStore {
     return store.get(id) ?? null;
   }
 
+  async delete(id: string): Promise<boolean> {
+    return store.delete(id);
+  }
+
   async list(limit: number): Promise<MeetingListItem[]> {
     return [...store.values()]
       .sort(

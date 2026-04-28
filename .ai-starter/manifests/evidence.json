@@ -1,0 +1,4328 @@
+[
+  {
+    "id": "ai-logs-ai-logs-2026-04-26-json",
+    "kind": "json",
+    "path": ".ai-logs/ai-logs-2026-04-26.json",
+    "source": ".ai-logs",
+    "createdAt": "2026-04-26T13:47:43.331Z"
+  },
+  {
+    "id": "ai-logs-ai-logs-2026-04-28-json",
+    "kind": "json",
+    "path": ".ai-logs/ai-logs-2026-04-28.json",
+    "source": ".ai-logs",
+    "createdAt": "2026-04-28T01:05:53.673Z"
+  },
+  {
+    "id": "ai-starter-config-json",
+    "kind": "json",
+    "path": ".ai-starter/config.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:44.062Z"
+  },
+  {
+    "id": "ai-starter-exports-latest-json",
+    "kind": "json",
+    "path": ".ai-starter/exports/latest.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:19:09.215Z"
+  },
+  {
+    "id": "ai-starter-manifests-adapters-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/adapters.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:44.067Z"
+  },
+  {
+    "id": "ai-starter-manifests-browser-proof-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/browser-proof.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:23.387Z"
+  },
+  {
+    "id": "ai-starter-manifests-companions-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/companions.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:29:04.502Z"
+  },
+  {
+    "id": "ai-starter-manifests-design-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/design.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:29:04.502Z"
+  },
+  {
+    "id": "ai-starter-manifests-docs-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/docs.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:23.385Z"
+  },
+  {
+    "id": "ai-starter-manifests-evidence-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/evidence.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:23.386Z"
+  },
+  {
+    "id": "ai-starter-manifests-features-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/features.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:23.386Z"
+  },
+  {
+    "id": "ai-starter-manifests-hooks-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/hooks.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:23.385Z"
+  },
+  {
+    "id": "ai-starter-manifests-integrations-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/integrations.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:29:04.492Z"
+  },
+  {
+    "id": "ai-starter-manifests-modules-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/modules.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:44.063Z"
+  },
+  {
+    "id": "ai-starter-manifests-runtimes-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/runtimes.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:44.079Z"
+  },
+  {
+    "id": "ai-starter-manifests-setup-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/setup.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:44.063Z"
+  },
+  {
+    "id": "ai-starter-manifests-starter-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/starter.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:44.062Z"
+  },
+  {
+    "id": "ai-starter-manifests-supervisor-json",
+    "kind": "json",
+    "path": ".ai-starter/manifests/supervisor.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:29:04.501Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-26t22-15-33-273z-install-the-latest-ai-starter-ki-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-26T22-15-33-273Z-install-the-latest-ai-starter-ki.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:33.274Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-27t13-51-52-125z-polish-meeting-chat-resilience-w-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-27T13-51-52-125Z-polish-meeting-chat-resilience-w.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T13:51:52.126Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-27t16-56-16-577z-set-gpt-5-4-nano-and-assemblyai-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-27T16-56-16-577Z-set-gpt-5-4-nano-and-assemblyai-.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T16:56:16.578Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-27t19-42-19-081z-apply-layer-one-reference-ui-to-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-27T19-42-19-081Z-apply-layer-one-reference-ui-to-.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:42:19.082Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-27t20-15-20-708z-polish-signed-in-home-design-det-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-27T20-15-20-708Z-polish-signed-in-home-design-det.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:15:20.709Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-27t21-08-54-292z-add-live-recorder-voice-command-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-27T21-08-54-292Z-add-live-recorder-voice-command-.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:08:54.293Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t00-02-27-050z-increase-home-recorder-ribbon-mo-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T00-02-27-050Z-increase-home-recorder-ribbon-mo.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:02:27.051Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t00-08-53-898z-add-calendar-date-tiles-to-upcom-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T00-08-53-898Z-add-calendar-date-tiles-to-upcom.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:08:53.899Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t00-49-40-932z-live-recording-workspace-actions-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T00-49-40-932Z-live-recording-workspace-actions.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:49:40.934Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t01-33-18-376z-polish-recent-recordings-and-hom-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T01-33-18-376Z-polish-recent-recordings-and-hom.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:33:18.377Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t01-36-38-920z-home-recent-recordings-cleanup-e-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T01-36-38-920Z-home-recent-recordings-cleanup-e.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:36:38.922Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t02-10-38-964z-live-recording-workspace-simplif-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T02-10-38-964Z-live-recording-workspace-simplif.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T02:10:38.965Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t03-05-49-944z-responsive-home-side-panels-and-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T03-05-49-944Z-responsive-home-side-panels-and-.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:05:49.945Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t03-28-25-553z-align-dark-mode-home-palette-wit-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T03-28-25-553Z-align-dark-mode-home-palette-wit.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:28:25.554Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t03-59-46-790z-add-home-intro-animations-and-re-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T03-59-46-790Z-add-home-intro-animations-and-re.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:59:46.791Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t12-16-50-896z-polish-home-wave-empty-states-ca-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T12-16-50-896Z-polish-home-wave-empty-states-ca.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:16:50.897Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t15-19-02-402z-polish-home-recorder-idle-state-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T15-19-02-402Z-polish-home-recorder-idle-state-.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T15:19:02.404Z"
+  },
+  {
+    "id": "ai-starter-plans-2026-04-28t17-14-35-003z-prepare-main-release-push-device-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/2026-04-28T17-14-35-003Z-prepare-main-release-push-device.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:14:35.005Z"
+  },
+  {
+    "id": "ai-starter-plans-latest-json",
+    "kind": "json",
+    "path": ".ai-starter/plans/latest.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:14:35.004Z"
+  },
+  {
+    "id": "ai-starter-progress-json",
+    "kind": "json",
+    "path": ".ai-starter/progress.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:29:04.502Z"
+  },
+  {
+    "id": "ai-starter-reports-latest-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/latest.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:20:31.206Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t13-49-27-082z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T13-49-27-082Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T13:49:27.082Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t14-17-58-565z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T14-17-58-565Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T14:17:58.566Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t16-07-08-989z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T16-07-08-989Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T16:07:08.989Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t17-20-11-313z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T17-20-11-313Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T17:20:11.314Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t18-23-10-721z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T18-23-10-721Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T18:23:10.721Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t19-41-54-135z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T19-41-54-135Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:41:54.135Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t19-43-03-214z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T19-43-03-214Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:43:03.214Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t20-04-39-923z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T20-04-39-923Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:04:39.923Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t20-17-44-447z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T20-17-44-447Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:17:44.448Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t20-35-27-202z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T20-35-27-202Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:35:27.202Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t20-42-15-214z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T20-42-15-214Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:42:15.215Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t21-00-30-902z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T21-00-30-902Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:00:30.903Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t21-28-27-417z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T21-28-27-417Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:28:27.418Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t21-30-39-276z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T21-30-39-276Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:30:39.276Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-27t21-37-31-504z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-27T21-37-31-504Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:37:31.505Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t00-06-09-271z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T00-06-09-271Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:06:09.272Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t00-16-50-102z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T00-16-50-102Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:16:50.102Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t01-04-02-021z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T01-04-02-021Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:04:02.021Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t01-47-07-238z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T01-47-07-238Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:47:07.239Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t01-52-56-636z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T01-52-56-636Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:52:56.637Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t01-59-13-191z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T01-59-13-191Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:59:13.192Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t02-41-16-139z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T02-41-16-139Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T02:41:16.140Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t03-04-05-574z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T03-04-05-574Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:04:05.574Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t03-16-28-278z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T03-16-28-278Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:16:28.278Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t03-34-23-363z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T03-34-23-363Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:34:23.364Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t04-03-42-179z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T04-03-42-179Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T04:03:42.180Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t12-28-40-570z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T12-28-40-570Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:28:40.571Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t12-55-37-941z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T12-55-37-941Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:55:37.941Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t13-14-08-564z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T13-14-08-564Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T13:14:08.565Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t13-22-21-372z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T13-22-21-372Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T13:22:21.373Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t15-20-33-809z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T15-20-33-809Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T15:20:33.810Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-28t17-20-31-206z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-28T17-20-31-206Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:20:31.206Z"
+  },
+  {
+    "id": "ai-starter-research-index-json",
+    "kind": "json",
+    "path": ".ai-starter/research/index.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:31.823Z"
+  },
+  {
+    "id": "ai-starter-research-libraries-nextjs-md",
+    "kind": "report",
+    "path": ".ai-starter/research/libraries/nextjs.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:31.134Z"
+  },
+  {
+    "id": "ai-starter-research-libraries-supabase-md",
+    "kind": "report",
+    "path": ".ai-starter/research/libraries/supabase.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:31.585Z"
+  },
+  {
+    "id": "ai-starter-research-libraries-tailwindcss-md",
+    "kind": "report",
+    "path": ".ai-starter/research/libraries/tailwindcss.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:31.358Z"
+  },
+  {
+    "id": "ai-starter-research-libraries-vercel-ai-sdk-md",
+    "kind": "report",
+    "path": ".ai-starter/research/libraries/vercel-ai-sdk.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:30.788Z"
+  },
+  {
+    "id": "ai-starter-research-libraries-vitest-md",
+    "kind": "report",
+    "path": ".ai-starter/research/libraries/vitest.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:31.822Z"
+  },
+  {
+    "id": "ai-starter-research-tools-readme-md",
+    "kind": "report",
+    "path": ".ai-starter/research/tools/README.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:08:37.508Z"
+  },
+  {
+    "id": "ai-starter-runs-autopilot-stop-ledger-jsonl",
+    "kind": "log",
+    "path": ".ai-starter/runs/autopilot-stop-ledger.jsonl",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T16:07:24.926Z"
+  },
+  {
+    "id": "ai-starter-runs-autopilot-stop-state-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/autopilot-stop-state.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T16:07:24.926Z"
+  },
+  {
+    "id": "ai-starter-runs-control-plane-actions-jsonl",
+    "kind": "log",
+    "path": ".ai-starter/runs/control-plane-actions.jsonl",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T02:50:47.157Z"
+  },
+  {
+    "id": "ai-starter-runs-latest-control-plane-action-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/latest-control-plane-action.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T02:50:47.157Z"
+  },
+  {
+    "id": "ai-starter-runs-latest-evidence-export-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/latest-evidence-export.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:19:09.215Z"
+  },
+  {
+    "id": "ai-starter-runs-latest-scorecard-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/latest-scorecard.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:43.782Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-26t22-13-28-611z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-26T22-13-28-611Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:13:28.612Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-26t22-15-51-911z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-26T22-15-51-911Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:15:51.912Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-26t22-23-36-336z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-26T22-23-36-336Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:23:36.337Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-26t22-32-45-830z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-26T22-32-45-830Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-26T22:32:45.831Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t13-30-46-522z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T13-30-46-522Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T13:30:46.523Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t13-49-27-081z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T13-49-27-081Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T13:49:27.082Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t13-50-54-412z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T13-50-54-412Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T13:50:54.413Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t13-50-54-698z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T13-50-54-698Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T13:50:54.699Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t13-52-17-069z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T13-52-17-069Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T13:52:17.069Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t14-17-58-564z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T14-17-58-564Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T14:17:58.565Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t14-23-38-414z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T14-23-38-414Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T14:23:38.415Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t14-23-58-798z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T14-23-58-798Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T14:23:58.799Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t14-23-58-859z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T14-23-58-859Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T14:23:58.860Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t16-05-54-040z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T16-05-54-040Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T16:05:54.040Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t16-05-54-045z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T16-05-54-045Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T16:05:54.045Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t16-07-08-988z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T16-07-08-988Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T16:07:08.988Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t17-19-43-132z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T17-19-43-132Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T17:19:43.132Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t17-19-56-358z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T17-19-56-358Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T17:19:56.359Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t17-20-11-312z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T17-20-11-312Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T17:20:11.313Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t18-22-34-772z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T18-22-34-772Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T18:22:34.772Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t18-22-56-365z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T18-22-56-365Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T18:22:56.366Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t18-23-10-719z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T18-23-10-719Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T18:23:10.720Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t19-40-06-740z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T19-40-06-740Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:40:06.741Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t19-40-41-243z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T19-40-41-243Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:40:41.244Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t19-41-10-260z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T19-41-10-260Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:41:10.261Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t19-41-32-892z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T19-41-32-892Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:41:32.893Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t19-41-54-133z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T19-41-54-133Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:41:54.134Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t19-42-42-667z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T19-42-42-667Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:42:42.668Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t19-43-03-213z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T19-43-03-213Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T19:43:03.213Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-04-06-263z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-04-06-263Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:04:06.263Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-04-06-264z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-04-06-264Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:04:06.264Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-04-39-921z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-04-39-921Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:04:39.922Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-17-15-809z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-17-15-809Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:17:15.810Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-17-44-446z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-17-44-446Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:17:44.447Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-17-44-448z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-17-44-448Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:17:44.448Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-19-00-230z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-19-00-230Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:19:00.230Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-19-00-233z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-19-00-233Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:19:00.233Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-35-27-198z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-35-27-198Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:35:27.199Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-35-27-200z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-35-27-200Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:35:27.201Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-35-27-202z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-35-27-202Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:35:27.202Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-42-15-189z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-42-15-189Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:42:15.190Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t20-42-15-212z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T20-42-15-212Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T20:42:15.213Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-00-30-901z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-00-30-901Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:00:30.901Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-00-30-902z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-00-30-902Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:00:30.902Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-00-30-903z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-00-30-903Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:00:30.904Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-19-44-411z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-19-44-411Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:19:44.412Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-20-00-244z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-20-00-244Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:20:00.244Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-28-27-416z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-28-27-416Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:28:27.416Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-30-22-607z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-30-22-607Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:30:22.608Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-30-22-609z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-30-22-609Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:30:22.609Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-30-39-274z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-30-39-274Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:30:39.275Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-37-01-394z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-37-01-394Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:37:01.395Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-37-01-395z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-37-01-395Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:37:01.396Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-27t21-37-31-503z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-27T21-37-31-503Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-27T21:37:31.504Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t00-05-32-603z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T00-05-32-603Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:05:32.604Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t00-05-48-424z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T00-05-48-424Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:05:48.425Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t00-06-09-270z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T00-06-09-270Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:06:09.270Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t00-16-08-344z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T00-16-08-344Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:16:08.345Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t00-16-08-346z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T00-16-08-346Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:16:08.346Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t00-16-50-099z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T00-16-50-099Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T00:16:50.100Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-03-38-529z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-03-38-529Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:03:38.530Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-03-38-547z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-03-38-547Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:03:38.547Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-04-02-019z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-04-02-019Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:04:02.019Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-46-30-189z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-46-30-189Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:46:30.190Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-46-46-062z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-46-46-062Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:46:46.063Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-47-07-237z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-47-07-237Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:47:07.237Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-51-54-486z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-51-54-486Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:51:54.486Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-52-23-037z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-52-23-037Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:52:23.038Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-52-56-633z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-52-56-633Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:52:56.634Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-57-46-592z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-57-46-592Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:57:46.593Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-58-11-536z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-58-11-536Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:58:11.536Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t01-59-13-189z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T01-59-13-189Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T01:59:13.189Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t02-40-14-359z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T02-40-14-359Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T02:40:14.360Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t02-40-28-879z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T02-40-28-879Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T02:40:28.879Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t02-41-16-136z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T02-41-16-136Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T02:41:16.137Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t02-53-49-540z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T02-53-49-540Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T02:53:49.540Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-01-33-348z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-01-33-348Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:01:33.348Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-03-43-439z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-03-43-439Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:03:43.440Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-03-54-613z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-03-54-613Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:03:54.614Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-04-05-571z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-04-05-571Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:04:05.572Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-15-49-644z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-15-49-644Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:15:49.645Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-16-08-393z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-16-08-393Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:16:08.394Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-16-28-273z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-16-28-273Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:16:28.274Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-24-43-377z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-24-43-377Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:24:43.378Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-33-37-474z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-33-37-474Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:33:37.475Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-34-02-803z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-34-02-803Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:34:02.804Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-34-23-359z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-34-23-359Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:34:23.360Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t03-41-51-412z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T03-41-51-412Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T03:41:51.412Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t04-02-39-736z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T04-02-39-736Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T04:02:39.737Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t04-03-04-996z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T04-03-04-996Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T04:03:04.997Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t04-03-42-166z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T04-03-42-166Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T04:03:42.167Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t04-12-16-826z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T04-12-16-826Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T04:12:16.827Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t12-28-40-331z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T12-28-40-331Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:28:40.331Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t12-28-40-568z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T12-28-40-568Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:28:40.569Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t12-28-40-602z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T12-28-40-602Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:28:40.603Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t12-36-18-664z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T12-36-18-664Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:36:18.665Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t12-54-27-428z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T12-54-27-428Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:54:27.429Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t12-55-37-896z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T12-55-37-896Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:55:37.897Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t12-55-37-937z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T12-55-37-937Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T12:55:37.938Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t13-13-05-801z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T13-13-05-801Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T13:13:05.801Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t13-14-08-561z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T13-14-08-561Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T13:14:08.562Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t13-21-44-227z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T13-21-44-227Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T13:21:44.228Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t13-22-03-372z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T13-22-03-372Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T13:22:03.373Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t13-22-21-369z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T13-22-21-369Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T13:22:21.369Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t15-20-33-805z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T15-20-33-805Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T15:20:33.806Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t15-20-33-858z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T15-20-33-858Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T15:20:33.859Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t15-20-33-874z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T15-20-33-874Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T15:20:33.875Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t17-20-31-203z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T17-20-31-203Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:20:31.204Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t17-20-31-367z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T17-20-31-367Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:20:31.368Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t17-20-31-528z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T17-20-31-528Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:20:31.529Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t17-27-20-204z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T17-27-20-204Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:27:20.205Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-28t17-28-43-782z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-28T17-28-43-782Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:28:43.782Z"
+  },
+  {
+    "id": "ai-starter-runs-telemetry-jsonl",
+    "kind": "log",
+    "path": ".ai-starter/runs/telemetry.jsonl",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:25:27.301Z"
+  },
+  {
+    "id": "ai-starter-session-json",
+    "kind": "json",
+    "path": ".ai-starter/session.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-28T17:29:04.502Z"
+  },
+  {
+    "id": "evidence-browser-proof-2026-04-28t02-53-38-668z-json",
+    "kind": "json",
+    "path": ".evidence/browser-proof/2026-04-28T02-53-38-668Z.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:53:38.671Z"
+  },
+  {
+    "id": "evidence-browser-proof-2026-04-28t03-01-23-041z-json",
+    "kind": "json",
+    "path": ".evidence/browser-proof/2026-04-28T03-01-23-041Z.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T03:01:23.043Z"
+  },
+  {
+    "id": "evidence-browser-proof-2026-04-28t03-24-31-469z-json",
+    "kind": "json",
+    "path": ".evidence/browser-proof/2026-04-28T03-24-31-469Z.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T03:24:31.470Z"
+  },
+  {
+    "id": "evidence-browser-proof-2026-04-28t03-41-39-666z-json",
+    "kind": "json",
+    "path": ".evidence/browser-proof/2026-04-28T03-41-39-666Z.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T03:41:39.670Z"
+  },
+  {
+    "id": "evidence-browser-proof-2026-04-28t04-12-04-184z-json",
+    "kind": "json",
+    "path": ".evidence/browser-proof/2026-04-28T04-12-04-184Z.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T04:12:04.194Z"
+  },
+  {
+    "id": "evidence-design-drift-latest-json",
+    "kind": "json",
+    "path": ".evidence/design-drift/latest.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:43.329Z"
+  },
+  {
+    "id": "evidence-design-drift-latest-md",
+    "kind": "report",
+    "path": ".evidence/design-drift/latest.md",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:43.329Z"
+  },
+  {
+    "id": "evidence-design-match-auth-state-json",
+    "kind": "json",
+    "path": ".evidence/design-match/auth-state.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:14:19.190Z"
+  },
+  {
+    "id": "evidence-design-match-current-desktop-png",
+    "kind": "image",
+    "path": ".evidence/design-match/current-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T18:30:40.408Z"
+  },
+  {
+    "id": "evidence-design-match-current-mobile-png",
+    "kind": "image",
+    "path": ".evidence/design-match/current-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T18:30:40.800Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-dark-desktop-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-dark-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T19:35:34.782Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-dark-flat-nav-no-readiness-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-dark-flat-nav-no-readiness.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:58:28.759Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-desktop-breathing-ribbon-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-desktop-breathing-ribbon.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:39:52.962Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-desktop-flat-nav-no-readiness-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-desktop-flat-nav-no-readiness.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:58:33.433Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-desktop-height-playless-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-desktop-height-playless.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:33:17.180Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-desktop-refined-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-desktop-refined.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:13:11.396Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-desktop-signed-refined-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-desktop-signed-refined.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:14:20.758Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-desktop-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:01:41.514Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-blocked-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile-blocked.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:01:03.992Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-breathing-ribbon-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile-breathing-ribbon.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:39:54.539Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-flat-nav-no-readiness-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile-flat-nav-no-readiness.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:58:31.643Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-narrow-calendar-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile-narrow-calendar.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:39:56.134Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-playless-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile-playless.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:33:18.703Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-refined-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile-refined.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:13:12.399Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-signed-refined-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile-signed-refined.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:14:22.358Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-mobile-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:01:43.206Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-sidebar-refined-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-sidebar-refined.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:13:13.483Z"
+  },
+  {
+    "id": "evidence-design-match-layer-home-sidebar-signed-refined-png",
+    "kind": "image",
+    "path": ".evidence/design-match/layer-home-sidebar-signed-refined.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T20:14:23.990Z"
+  },
+  {
+    "id": "evidence-docs-freshness-txt",
+    "kind": "log",
+    "path": ".evidence/docs-freshness.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:40.442Z"
+  },
+  {
+    "id": "evidence-drift-report-txt",
+    "kind": "log",
+    "path": ".evidence/drift-report.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:12.877Z"
+  },
+  {
+    "id": "evidence-hook-tests-log",
+    "kind": "log",
+    "path": ".evidence/hook-tests.log",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:40.441Z"
+  },
+  {
+    "id": "evidence-hooks-hook-test-report-json",
+    "kind": "json",
+    "path": ".evidence/hooks/hook-test-report.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:37.873Z"
+  },
+  {
+    "id": "evidence-hooks-hook-test-report-md",
+    "kind": "report",
+    "path": ".evidence/hooks/hook-test-report.md",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:37.873Z"
+  },
+  {
+    "id": "evidence-install-log",
+    "kind": "log",
+    "path": ".evidence/install.log",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:04.828Z"
+  },
+  {
+    "id": "evidence-no-drift-detected-txt",
+    "kind": "log",
+    "path": ".evidence/no-drift-detected.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:43.339Z"
+  },
+  {
+    "id": "evidence-no-ts-nocheck-txt",
+    "kind": "log",
+    "path": ".evidence/no-ts-nocheck.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:40.449Z"
+  },
+  {
+    "id": "evidence-research-freshness-txt",
+    "kind": "log",
+    "path": ".evidence/research-freshness.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:43.374Z"
+  },
+  {
+    "id": "evidence-rubric-coverage-txt",
+    "kind": "log",
+    "path": ".evidence/rubric-coverage.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:43.049Z"
+  },
+  {
+    "id": "evidence-rubrics-summary-json",
+    "kind": "json",
+    "path": ".evidence/rubrics/_summary.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:24:05.215Z"
+  },
+  {
+    "id": "evidence-screenshots-ai-debug-panel-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/ai-debug-panel.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-26T22:30:42.214Z"
+  },
+  {
+    "id": "evidence-screenshots-app-admin-pricing-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-admin-pricing-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:19.289Z"
+  },
+  {
+    "id": "evidence-screenshots-app-admin-pricing-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-admin-pricing-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:04.554Z"
+  },
+  {
+    "id": "evidence-screenshots-app-ai-starter-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-ai-starter-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:20.376Z"
+  },
+  {
+    "id": "evidence-screenshots-app-ai-starter-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-ai-starter-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:05.186Z"
+  },
+  {
+    "id": "evidence-screenshots-app-ask-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-ask-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:21.933Z"
+  },
+  {
+    "id": "evidence-screenshots-app-ask-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-ask-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:06.260Z"
+  },
+  {
+    "id": "evidence-screenshots-app-auth-callback-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-auth-callback-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:54:57.219Z"
+  },
+  {
+    "id": "evidence-screenshots-app-auth-callback-route-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-auth-callback-route.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:07.283Z"
+  },
+  {
+    "id": "evidence-screenshots-app-auth-confirm-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-auth-confirm-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:22.953Z"
+  },
+  {
+    "id": "evidence-screenshots-app-auth-confirm-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-auth-confirm-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:07.801Z"
+  },
+  {
+    "id": "evidence-screenshots-app-auth-sign-out-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-auth-sign-out-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:09.460Z"
+  },
+  {
+    "id": "evidence-screenshots-app-auth-sign-out-route-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-auth-sign-out-route.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:08.541Z"
+  },
+  {
+    "id": "evidence-screenshots-app-chat-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-chat-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:24.208Z"
+  },
+  {
+    "id": "evidence-screenshots-app-chat-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-chat-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:09.212Z"
+  },
+  {
+    "id": "evidence-screenshots-app-control-plane-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-control-plane-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:25.987Z"
+  },
+  {
+    "id": "evidence-screenshots-app-control-plane-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-control-plane-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:09.846Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-config-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-config-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:29.970Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-config-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-config-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:11.114Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-connectors-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-connectors-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:31.566Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-connectors-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-connectors-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:11.678Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-cost-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-cost-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:33.060Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-cost-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-cost-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:12.313Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-coverage-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-coverage-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:34.598Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-coverage-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-coverage-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:12.883Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-dependencies-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-dependencies-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:35.643Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-dependencies-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-dependencies-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:13.492Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-deployments-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-deployments-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:37.132Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-deployments-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-deployments-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:14.029Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-design-system-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-design-system-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:38.202Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-design-system-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-design-system-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:14.659Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-evals-id-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-evals-id-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:23.857Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-evals-id-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-evals-id-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:16.151Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-evals-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-evals-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:39.731Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-evals-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-evals-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:15.215Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-features-name-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-features-name-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:26.091Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-features-name-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-features-name-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:17.405Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-features-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-features-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:41.151Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-features-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-features-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:16.699Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-index-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-index-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:43.990Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-index-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-index-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:17.948Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:28.484Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:10.532Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-registries-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-registries-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:45.380Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-registries-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-registries-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:18.493Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-regressions-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-regressions-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:47.015Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-regressions-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-regressions-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:19.036Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-runs-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-runs-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:48.542Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-runs-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-runs-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:19.631Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-runs-run-id-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-runs-run-id-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:32.858Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-runs-run-id-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-runs-run-id-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:20.377Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-sessions-id-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-sessions-id-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:36.351Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-sessions-id-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-sessions-id-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:21.711Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-sessions-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-sessions-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:50.890Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-sessions-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-sessions-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:20.957Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-status-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-status-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:52.323Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-status-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-status-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:22.299Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-tools-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-tools-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:53.982Z"
+  },
+  {
+    "id": "evidence-screenshots-app-dev-kit-tools-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-dev-kit-tools-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:22.893Z"
+  },
+  {
+    "id": "evidence-screenshots-app-docs-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-docs-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:55.158Z"
+  },
+  {
+    "id": "evidence-screenshots-app-docs-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-docs-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:23.531Z"
+  },
+  {
+    "id": "evidence-screenshots-app-meetings-id-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-meetings-id-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:41.685Z"
+  },
+  {
+    "id": "evidence-screenshots-app-meetings-id-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-meetings-id-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:24.726Z"
+  },
+  {
+    "id": "evidence-screenshots-app-meetings-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-meetings-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:56.220Z"
+  },
+  {
+    "id": "evidence-screenshots-app-meetings-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-meetings-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:24.153Z"
+  },
+  {
+    "id": "evidence-screenshots-app-oauth-consent-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-oauth-consent-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:57.664Z"
+  },
+  {
+    "id": "evidence-screenshots-app-oauth-consent-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-oauth-consent-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:25.645Z"
+  },
+  {
+    "id": "evidence-screenshots-app-observability-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-observability-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:29:59.187Z"
+  },
+  {
+    "id": "evidence-screenshots-app-observability-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-observability-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:26.215Z"
+  },
+  {
+    "id": "evidence-screenshots-app-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:00.270Z"
+  },
+  {
+    "id": "evidence-screenshots-app-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:26.999Z"
+  },
+  {
+    "id": "evidence-screenshots-app-pricing-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-pricing-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:01.469Z"
+  },
+  {
+    "id": "evidence-screenshots-app-pricing-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-pricing-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:27.630Z"
+  },
+  {
+    "id": "evidence-screenshots-app-profile-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-profile-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:02.888Z"
+  },
+  {
+    "id": "evidence-screenshots-app-profile-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-profile-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:28.464Z"
+  },
+  {
+    "id": "evidence-screenshots-app-record-live-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-record-live-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:05.684Z"
+  },
+  {
+    "id": "evidence-screenshots-app-record-live-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-record-live-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:29.896Z"
+  },
+  {
+    "id": "evidence-screenshots-app-record-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-record-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:04.076Z"
+  },
+  {
+    "id": "evidence-screenshots-app-record-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-record-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:29.165Z"
+  },
+  {
+    "id": "evidence-screenshots-app-roadmap-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-roadmap-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:06.908Z"
+  },
+  {
+    "id": "evidence-screenshots-app-roadmap-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-roadmap-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:30.519Z"
+  },
+  {
+    "id": "evidence-screenshots-app-search-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-search-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:08.088Z"
+  },
+  {
+    "id": "evidence-screenshots-app-search-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-search-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:31.148Z"
+  },
+  {
+    "id": "evidence-screenshots-app-settings-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-settings-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:10.172Z"
+  },
+  {
+    "id": "evidence-screenshots-app-settings-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-settings-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:31.647Z"
+  },
+  {
+    "id": "evidence-screenshots-app-sign-in-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-sign-in-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:11.031Z"
+  },
+  {
+    "id": "evidence-screenshots-app-sign-in-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-sign-in-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:32.077Z"
+  },
+  {
+    "id": "evidence-screenshots-app-sign-up-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-sign-up-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:12.064Z"
+  },
+  {
+    "id": "evidence-screenshots-app-sign-up-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-sign-up-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:32.678Z"
+  },
+  {
+    "id": "evidence-screenshots-app-usage-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-usage-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:13.500Z"
+  },
+  {
+    "id": "evidence-screenshots-app-usage-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-usage-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:33.784Z"
+  },
+  {
+    "id": "evidence-screenshots-app-well-known-oauth-authorization-server-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-well-known-oauth-authorization-server-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:55.998Z"
+  },
+  {
+    "id": "evidence-screenshots-app-well-known-oauth-authorization-server-route-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-well-known-oauth-authorization-server-route.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:34.411Z"
+  },
+  {
+    "id": "evidence-screenshots-app-well-known-oauth-protected-resource-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-well-known-oauth-protected-resource-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:45:56.859Z"
+  },
+  {
+    "id": "evidence-screenshots-app-well-known-oauth-protected-resource-route-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-well-known-oauth-protected-resource-route.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T16:05:35.061Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-admin-pricing-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-admin-pricing.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:19.007Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-ai-starter-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-ai-starter.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:27.728Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-ask-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-ask.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:37.843Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-auth-callback-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-auth-callback-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:46:24.371Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-auth-confirm-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-auth-confirm.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:46.062Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-auth-sign-out-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-auth-sign-out-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:46:37.969Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-chat-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-chat.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:55.655Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-control-plane-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-control-plane.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:04.387Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-config-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-config.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:20.837Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-connectors-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-connectors.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:29.423Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-cost-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-cost.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:37.694Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-coverage-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-coverage.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:46.306Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-dependencies-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-dependencies.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:54.435Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-deployments-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-deployments.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:02.786Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-design-system-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-design-system.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:11.587Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-evals-id-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-evals-id.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:49:03.410Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-evals-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-evals.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:19.921Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-features-name-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-features-name.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:49:29.659Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-features-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-features.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:27.953Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-registries-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-registries.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:44.796Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-regressions-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-regressions.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:53.317Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-runs-run-id-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-runs-run-id.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:50:30.832Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-runs-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-runs.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:01.311Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-sessions-id-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-sessions-id.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:50:49.125Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-sessions-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-sessions.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:09.736Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-status-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-status.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:18.050Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-tools-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit-tools.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:26.226Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-dev-kit-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-dev-kit.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:36.342Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-docs-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-docs.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:35.670Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-meetings-id-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-meetings-id.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:51:28.947Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-meetings-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-meetings.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:45.847Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-oauth-consent-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-oauth-consent.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:54.121Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-observability-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-observability.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:02.093Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-pricing-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-pricing.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:23.229Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-profile-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-profile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:32.734Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-record-live-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-record-live.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:52.119Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-record-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-record.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:42.026Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-roadmap-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-roadmap.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:01.467Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-route-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-route.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:13.185Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-search-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-search.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:11.569Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-settings-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-settings.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:21.271Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-sign-in-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-sign-in.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:29.800Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-sign-up-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-sign-up.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:38.385Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-usage-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-usage.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T04:11:58.859Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-well-known-oauth-authorization-server-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-well-known-oauth-authorization-server-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:53:26.747Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-well-known-oauth-protected-resource-route-ts-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-well-known-oauth-protected-resource-route-ts.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:53:34.408Z"
+  },
+  {
+    "id": "evidence-screenshots-home-calendar-date-tiles-desktop-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-calendar-date-tiles-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:11:13.407Z"
+  },
+  {
+    "id": "evidence-screenshots-home-calendar-date-tiles-final-desktop-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-calendar-date-tiles-final-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:14:22.764Z"
+  },
+  {
+    "id": "evidence-screenshots-home-calendar-date-tiles-final-mobile-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-calendar-date-tiles-final-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:14:25.580Z"
+  },
+  {
+    "id": "evidence-screenshots-home-calendar-date-tiles-mobile-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-calendar-date-tiles-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:11:14.505Z"
+  },
+  {
+    "id": "evidence-screenshots-home-calendar-date-tiles-signed-desktop-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-calendar-date-tiles-signed-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:12:44.129Z"
+  },
+  {
+    "id": "evidence-screenshots-home-calendar-date-tiles-signed-mobile-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-calendar-date-tiles-signed-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:12:46.972Z"
+  },
+  {
+    "id": "evidence-screenshots-home-ribbon-more-motion-desktop-a-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-ribbon-more-motion-desktop-a.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:02:20.302Z"
+  },
+  {
+    "id": "evidence-screenshots-home-ribbon-more-motion-desktop-b-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-ribbon-more-motion-desktop-b.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:02:21.733Z"
+  },
+  {
+    "id": "evidence-screenshots-home-ribbon-more-motion-mobile-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-ribbon-more-motion-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:02:52.278Z"
+  },
+  {
+    "id": "evidence-screenshots-home-time-seconds-spacing-desktop-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-time-seconds-spacing-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T21:34:17.670Z"
+  },
+  {
+    "id": "evidence-screenshots-home-time-seconds-spacing-mobile-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/home-time-seconds-spacing-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T21:34:19.758Z"
+  },
+  {
+    "id": "evidence-screenshots-signin-debug-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/signin-debug.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T00:58:49.692Z"
+  },
+  {
+    "id": "evidence-screenshots-signin-filled-debug-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/signin-filled-debug.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T01:00:47.085Z"
+  },
+  {
+    "id": "evidence-screenshots-target-home-voice-command-status-copy-desktop-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/target-home-voice-command-status-copy-desktop.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T21:27:22.626Z"
+  },
+  {
+    "id": "evidence-screenshots-target-home-voice-command-status-copy-mobile-auth-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/target-home-voice-command-status-copy-mobile-auth.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T21:27:55.879Z"
+  },
+  {
+    "id": "evidence-screenshots-target-home-voice-command-status-copy-mobile-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/target-home-voice-command-status-copy-mobile.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-27T21:27:23.863Z"
+  },
+  {
+    "id": "evidence-smoke-test-exists-txt",
+    "kind": "log",
+    "path": ".evidence/smoke-test-exists.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:40.450Z"
+  },
+  {
+    "id": "evidence-smoke-validation-log",
+    "kind": "log",
+    "path": ".evidence/smoke-validation.log",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:37.210Z"
+  },
+  {
+    "id": "evidence-storybook-builds-txt",
+    "kind": "log",
+    "path": ".evidence/storybook-builds.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:43.048Z"
+  },
+  {
+    "id": "evidence-summary-json",
+    "kind": "json",
+    "path": ".evidence/summary.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:43.375Z"
+  },
+  {
+    "id": "evidence-telemetry-scan-txt",
+    "kind": "log",
+    "path": ".evidence/telemetry-scan.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:37.215Z"
+  },
+  {
+    "id": "evidence-test-results-json",
+    "kind": "json",
+    "path": ".evidence/test-results.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:10.010Z"
+  },
+  {
+    "id": "evidence-tool-renderer-coverage-txt",
+    "kind": "log",
+    "path": ".evidence/tool-renderer-coverage.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:40.450Z"
+  },
+  {
+    "id": "evidence-typecheck-log",
+    "kind": "log",
+    "path": ".evidence/typecheck.log",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:17:06.924Z"
+  },
+  {
+    "id": "evidence-videos-expect-admin-pricing-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-admin-pricing.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:24.136Z"
+  },
+  {
+    "id": "evidence-videos-expect-ai-starter-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-ai-starter.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:32.839Z"
+  },
+  {
+    "id": "evidence-videos-expect-ask-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-ask.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:42.885Z"
+  },
+  {
+    "id": "evidence-videos-expect-auth-callback-route-ts-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-auth-callback-route-ts.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:46:28.466Z"
+  },
+  {
+    "id": "evidence-videos-expect-auth-confirm-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-auth-confirm.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:30:50.784Z"
+  },
+  {
+    "id": "evidence-videos-expect-auth-sign-out-route-ts-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-auth-sign-out-route-ts.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:46:45.715Z"
+  },
+  {
+    "id": "evidence-videos-expect-chat-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-chat.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:00.812Z"
+  },
+  {
+    "id": "evidence-videos-expect-control-plane-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-control-plane.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:09.309Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-config-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-config.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:26.159Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-connectors-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-connectors.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:34.469Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-cost-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-cost.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:43.056Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-coverage-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-coverage.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:51.421Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-dependencies-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-dependencies.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:31:59.641Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-deployments-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-deployments.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:08.227Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-design-system-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-design-system.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:16.770Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-evals-id-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-evals-id.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:49:11.857Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-evals-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-evals.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:24.879Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-features-name-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-features-name.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:49:37.692Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-features-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-features.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:33.195Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-registries-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-registries.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:49.973Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-regressions-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-regressions.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:58.303Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-runs-run-id-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-runs-run-id.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:50:38.768Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-runs-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-runs.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:06.492Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-sessions-id-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-sessions-id.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:50:53.471Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-sessions-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-sessions.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:14.978Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-status-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-status.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:23.072Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-tools-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit-tools.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:31.394Z"
+  },
+  {
+    "id": "evidence-videos-expect-dev-kit-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-dev-kit.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:32:41.654Z"
+  },
+  {
+    "id": "evidence-videos-expect-docs-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-docs.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:40.901Z"
+  },
+  {
+    "id": "evidence-videos-expect-meetings-id-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-meetings-id.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:51:34.022Z"
+  },
+  {
+    "id": "evidence-videos-expect-meetings-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-meetings.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:50.797Z"
+  },
+  {
+    "id": "evidence-videos-expect-oauth-consent-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-oauth-consent.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:33:59.048Z"
+  },
+  {
+    "id": "evidence-videos-expect-observability-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-observability.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:06.879Z"
+  },
+  {
+    "id": "evidence-videos-expect-pricing-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-pricing.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:28.548Z"
+  },
+  {
+    "id": "evidence-videos-expect-profile-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-profile.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:37.792Z"
+  },
+  {
+    "id": "evidence-videos-expect-record-live-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-record-live.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:56.989Z"
+  },
+  {
+    "id": "evidence-videos-expect-record-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-record.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:47.184Z"
+  },
+  {
+    "id": "evidence-videos-expect-roadmap-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-roadmap.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:06.370Z"
+  },
+  {
+    "id": "evidence-videos-expect-route-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-route.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:34:18.475Z"
+  },
+  {
+    "id": "evidence-videos-expect-search-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-search.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:11.012Z"
+  },
+  {
+    "id": "evidence-videos-expect-settings-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-settings.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:26.603Z"
+  },
+  {
+    "id": "evidence-videos-expect-sign-in-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-sign-in.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:35.147Z"
+  },
+  {
+    "id": "evidence-videos-expect-sign-up-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-sign-up.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T12:35:43.523Z"
+  },
+  {
+    "id": "evidence-videos-expect-usage-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-usage.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T04:11:58.309Z"
+  },
+  {
+    "id": "evidence-videos-expect-well-known-oauth-authorization-server-route-ts-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-well-known-oauth-authorization-server-route-ts.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:53:31.460Z"
+  },
+  {
+    "id": "evidence-videos-expect-well-known-oauth-protected-resource-route-ts-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-well-known-oauth-protected-resource-route-ts.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T02:53:38.668Z"
+  },
+  {
+    "id": "evidence-visual-test-exists-txt",
+    "kind": "log",
+    "path": ".evidence/visual-test-exists.txt",
+    "source": ".evidence",
+    "createdAt": "2026-04-28T17:18:40.450Z"
+  },
+  {
+    "id": "expect-logs-md",
+    "kind": "replay",
+    "path": ".expect/logs.md",
+    "source": ".expect",
+    "createdAt": "2026-04-28T12:35:45.730Z"
+  },
+  {
+    "id": "expect-replays-07a9b03d-0f4f-498c-bb82-e0467a2a3fc9-html",
+    "kind": "replay",
+    "path": ".expect/replays/07a9b03d-0f4f-498c-bb82-e0467a2a3fc9.html",
+    "source": ".expect",
+    "createdAt": "2026-04-25T00:20:23.195Z"
+  },
+  {
+    "id": "expect-replays-2df44164-5f7f-49fb-ac82-af189a90c44d-html",
+    "kind": "replay",
+    "path": ".expect/replays/2df44164-5f7f-49fb-ac82-af189a90c44d.html",
+    "source": ".expect",
+    "createdAt": "2026-04-20T04:17:49.437Z"
+  },
+  {
+    "id": "expect-replays-b0665345-5f61-4bc1-867e-c184082dcb1d-html",
+    "kind": "replay",
+    "path": ".expect/replays/b0665345-5f61-4bc1-867e-c184082dcb1d.html",
+    "source": ".expect",
+    "createdAt": "2026-04-25T00:04:57.010Z"
+  },
+  {
+    "id": "expect-replays-browser-proof-2026-04-28t02-53-38-668z-json",
+    "kind": "replay",
+    "path": ".expect/replays/browser-proof-2026-04-28T02-53-38-668Z.json",
+    "source": ".expect",
+    "createdAt": "2026-04-28T02:53:38.670Z"
+  },
+  {
+    "id": "expect-replays-browser-proof-2026-04-28t03-01-23-041z-json",
+    "kind": "replay",
+    "path": ".expect/replays/browser-proof-2026-04-28T03-01-23-041Z.json",
+    "source": ".expect",
+    "createdAt": "2026-04-28T03:01:23.042Z"
+  },
+  {
+    "id": "expect-replays-browser-proof-2026-04-28t03-24-31-469z-json",
+    "kind": "replay",
+    "path": ".expect/replays/browser-proof-2026-04-28T03-24-31-469Z.json",
+    "source": ".expect",
+    "createdAt": "2026-04-28T03:24:31.470Z"
+  },
+  {
+    "id": "expect-replays-browser-proof-2026-04-28t03-41-39-666z-json",
+    "kind": "replay",
+    "path": ".expect/replays/browser-proof-2026-04-28T03-41-39-666Z.json",
+    "source": ".expect",
+    "createdAt": "2026-04-28T03:41:39.669Z"
+  },
+  {
+    "id": "expect-replays-browser-proof-2026-04-28t04-12-04-184z-json",
+    "kind": "replay",
+    "path": ".expect/replays/browser-proof-2026-04-28T04-12-04-184Z.json",
+    "source": ".expect",
+    "createdAt": "2026-04-28T04:12:04.193Z"
+  },
+  {
+    "id": "expect-replays-f0dae8db-05cf-4e64-98c5-d91583d3e183-html",
+    "kind": "replay",
+    "path": ".expect/replays/f0dae8db-05cf-4e64-98c5-d91583d3e183.html",
+    "source": ".expect",
+    "createdAt": "2026-04-25T00:26:36.579Z"
+  },
+  {
+    "id": "playwright-report-data-0720e3b2d80ca447bde497b8f7b43871481a34c3-webm",
+    "kind": "video",
+    "path": "playwright-report/data/0720e3b2d80ca447bde497b8f7b43871481a34c3.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.188Z"
+  },
+  {
+    "id": "playwright-report-data-07ebb199e0fe64a791892c2894567b18e796ba74-webm",
+    "kind": "video",
+    "path": "playwright-report/data/07ebb199e0fe64a791892c2894567b18e796ba74.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.175Z"
+  },
+  {
+    "id": "playwright-report-data-09e6b51d7f725b561db0f0a599af298267030c7b-webm",
+    "kind": "video",
+    "path": "playwright-report/data/09e6b51d7f725b561db0f0a599af298267030c7b.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.185Z"
+  },
+  {
+    "id": "playwright-report-data-0c682f12a6dd43b44947c14debb98ba1b1c2f37d-webm",
+    "kind": "video",
+    "path": "playwright-report/data/0c682f12a6dd43b44947c14debb98ba1b1c2f37d.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.170Z"
+  },
+  {
+    "id": "playwright-report-data-10c8d9afd75a746bffe6469f418996d70a0c52ad-webm",
+    "kind": "video",
+    "path": "playwright-report/data/10c8d9afd75a746bffe6469f418996d70a0c52ad.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.173Z"
+  },
+  {
+    "id": "playwright-report-data-14cb85fd890c0c58689d9972857fa95c6167d8de-webm",
+    "kind": "video",
+    "path": "playwright-report/data/14cb85fd890c0c58689d9972857fa95c6167d8de.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.188Z"
+  },
+  {
+    "id": "playwright-report-data-1736c489a0fd7bac4b972e3f95ac5c6a4db9334d-webm",
+    "kind": "video",
+    "path": "playwright-report/data/1736c489a0fd7bac4b972e3f95ac5c6a4db9334d.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.185Z"
+  },
+  {
+    "id": "playwright-report-data-1791a46dbd08dc7ab8b8692ab5bf6f976bc89717-webm",
+    "kind": "video",
+    "path": "playwright-report/data/1791a46dbd08dc7ab8b8692ab5bf6f976bc89717.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.171Z"
+  },
+  {
+    "id": "playwright-report-data-1b995c43de910d281f04002821c7b62ac79972de-webm",
+    "kind": "video",
+    "path": "playwright-report/data/1b995c43de910d281f04002821c7b62ac79972de.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.183Z"
+  },
+  {
+    "id": "playwright-report-data-1c7e82013caeae7b4bc4b87d330ada387d016bab-webm",
+    "kind": "video",
+    "path": "playwright-report/data/1c7e82013caeae7b4bc4b87d330ada387d016bab.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.182Z"
+  },
+  {
+    "id": "playwright-report-data-1f959ad6fa8b9d4b6d8d4720cc4565735e2d1bc2-webm",
+    "kind": "video",
+    "path": "playwright-report/data/1f959ad6fa8b9d4b6d8d4720cc4565735e2d1bc2.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.182Z"
+  },
+  {
+    "id": "playwright-report-data-20f78f9c5437d58104aa4110b92df151a424a291-webm",
+    "kind": "video",
+    "path": "playwright-report/data/20f78f9c5437d58104aa4110b92df151a424a291.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.184Z"
+  },
+  {
+    "id": "playwright-report-data-22625c355c37b72b0ea430618a11bff4d139d0bc-webm",
+    "kind": "video",
+    "path": "playwright-report/data/22625c355c37b72b0ea430618a11bff4d139d0bc.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.171Z"
+  },
+  {
+    "id": "playwright-report-data-26ca54888c42fca033800b58c542c1a059cfb8cb-webm",
+    "kind": "video",
+    "path": "playwright-report/data/26ca54888c42fca033800b58c542c1a059cfb8cb.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.170Z"
+  },
+  {
+    "id": "playwright-report-data-2e3df9a985ddbbb83ea5e3e732fa4721c7bca5f8-webm",
+    "kind": "video",
+    "path": "playwright-report/data/2e3df9a985ddbbb83ea5e3e732fa4721c7bca5f8.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.173Z"
+  },
+  {
+    "id": "playwright-report-data-30b3d6665a94bf76bd2f6a78088e06d147ca8c8c-webm",
+    "kind": "video",
+    "path": "playwright-report/data/30b3d6665a94bf76bd2f6a78088e06d147ca8c8c.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.182Z"
+  },
+  {
+    "id": "playwright-report-data-36e58abca3e9b80f181d37cc9f59feddb8c82ed3-webm",
+    "kind": "video",
+    "path": "playwright-report/data/36e58abca3e9b80f181d37cc9f59feddb8c82ed3.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.183Z"
+  },
+  {
+    "id": "playwright-report-data-380cbc06717ac89d961986a7f9bf2cd0e3e03fc1-webm",
+    "kind": "video",
+    "path": "playwright-report/data/380cbc06717ac89d961986a7f9bf2cd0e3e03fc1.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.185Z"
+  },
+  {
+    "id": "playwright-report-data-3931ff4db1fe8a842c6135dd4c8ecc757faf67e5-webm",
+    "kind": "video",
+    "path": "playwright-report/data/3931ff4db1fe8a842c6135dd4c8ecc757faf67e5.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.180Z"
+  },
+  {
+    "id": "playwright-report-data-3bec5fcf03fd058a2fc4cf3fa484e8c183166ee0-webm",
+    "kind": "video",
+    "path": "playwright-report/data/3bec5fcf03fd058a2fc4cf3fa484e8c183166ee0.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.187Z"
+  },
+  {
+    "id": "playwright-report-data-3c81b581eb834e8e87bc486daffbdc990bbadb39-webm",
+    "kind": "video",
+    "path": "playwright-report/data/3c81b581eb834e8e87bc486daffbdc990bbadb39.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.187Z"
+  },
+  {
+    "id": "playwright-report-data-3e7ee436519e3712d1faf02ef34b6b07ed05a7f3-webm",
+    "kind": "video",
+    "path": "playwright-report/data/3e7ee436519e3712d1faf02ef34b6b07ed05a7f3.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.174Z"
+  },
+  {
+    "id": "playwright-report-data-4293c2d2dfe5b711aa7608ad8caaea1729ca9117-webm",
+    "kind": "video",
+    "path": "playwright-report/data/4293c2d2dfe5b711aa7608ad8caaea1729ca9117.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.186Z"
+  },
+  {
+    "id": "playwright-report-data-43217d9a1b3afda42920a8a3fb539ef15b76ecc3-webm",
+    "kind": "video",
+    "path": "playwright-report/data/43217d9a1b3afda42920a8a3fb539ef15b76ecc3.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.187Z"
+  },
+  {
+    "id": "playwright-report-data-43f2062ec5cf3aa6d55031562f22875518f03378-webm",
+    "kind": "video",
+    "path": "playwright-report/data/43f2062ec5cf3aa6d55031562f22875518f03378.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.183Z"
+  },
+  {
+    "id": "playwright-report-data-47cc9b0282197e52fe648142dcbb9ac307701877-webm",
+    "kind": "video",
+    "path": "playwright-report/data/47cc9b0282197e52fe648142dcbb9ac307701877.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.179Z"
+  },
+  {
+    "id": "playwright-report-data-47eaf60ec3ee7c9f916d61b340edbacbf66f98f0-webm",
+    "kind": "video",
+    "path": "playwright-report/data/47eaf60ec3ee7c9f916d61b340edbacbf66f98f0.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.185Z"
+  },
+  {
+    "id": "playwright-report-data-48e5052836dcc63bbe4795c7e18e46a26f03f3de-webm",
+    "kind": "video",
+    "path": "playwright-report/data/48e5052836dcc63bbe4795c7e18e46a26f03f3de.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.186Z"
+  },
+  {
+    "id": "playwright-report-data-4f8f1fd90a9fd9ade14962c6e2e1eb076e751f04-webm",
+    "kind": "video",
+    "path": "playwright-report/data/4f8f1fd90a9fd9ade14962c6e2e1eb076e751f04.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.180Z"
+  },
+  {
+    "id": "playwright-report-data-51b0b0ca1ad087a7a2726c563cb02bb1a3acba89-webm",
+    "kind": "video",
+    "path": "playwright-report/data/51b0b0ca1ad087a7a2726c563cb02bb1a3acba89.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.182Z"
+  },
+  {
+    "id": "playwright-report-data-541b3a5509aa8736de52c8b75cfd0c8825909be0-webm",
+    "kind": "video",
+    "path": "playwright-report/data/541b3a5509aa8736de52c8b75cfd0c8825909be0.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.183Z"
+  },
+  {
+    "id": "playwright-report-data-58cc7dc4f9558831e36b6241bb9f7f9de2e26f70-webm",
+    "kind": "video",
+    "path": "playwright-report/data/58cc7dc4f9558831e36b6241bb9f7f9de2e26f70.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.187Z"
+  },
+  {
+    "id": "playwright-report-data-5b9dec454cb3d35402800a20db67ee972428f4b1-webm",
+    "kind": "video",
+    "path": "playwright-report/data/5b9dec454cb3d35402800a20db67ee972428f4b1.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.172Z"
+  },
+  {
+    "id": "playwright-report-data-5cbe953d9cf9d1f10f8d889d7520933801a5c728-webm",
+    "kind": "video",
+    "path": "playwright-report/data/5cbe953d9cf9d1f10f8d889d7520933801a5c728.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.180Z"
+  },
+  {
+    "id": "playwright-report-data-5d32dfa49e532201304381cf261153c9abe8c9ce-webm",
+    "kind": "video",
+    "path": "playwright-report/data/5d32dfa49e532201304381cf261153c9abe8c9ce.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.186Z"
+  },
+  {
+    "id": "playwright-report-data-5ddb1681f9952d80d689d70f44bf5c7c6bc1ee91-webm",
+    "kind": "video",
+    "path": "playwright-report/data/5ddb1681f9952d80d689d70f44bf5c7c6bc1ee91.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.187Z"
+  },
+  {
+    "id": "playwright-report-data-5f1058df1ab004e2528ec24010eec0f885acb323-webm",
+    "kind": "video",
+    "path": "playwright-report/data/5f1058df1ab004e2528ec24010eec0f885acb323.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.180Z"
+  },
+  {
+    "id": "playwright-report-data-5f40d8706a9980e4144cc914e5fd64694bf5b675-webm",
+    "kind": "video",
+    "path": "playwright-report/data/5f40d8706a9980e4144cc914e5fd64694bf5b675.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.174Z"
+  },
+  {
+    "id": "playwright-report-data-636d8cafaed89900c989f682618a80de4221a9bc-webm",
+    "kind": "video",
+    "path": "playwright-report/data/636d8cafaed89900c989f682618a80de4221a9bc.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.179Z"
+  },
+  {
+    "id": "playwright-report-data-67063a6a686b6f91615f450944280b2070cdbaf2-webm",
+    "kind": "video",
+    "path": "playwright-report/data/67063a6a686b6f91615f450944280b2070cdbaf2.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.177Z"
+  },
+  {
+    "id": "playwright-report-data-6f57185257a2318f7bcc5c873563ed7168ebcc49-webm",
+    "kind": "video",
+    "path": "playwright-report/data/6f57185257a2318f7bcc5c873563ed7168ebcc49.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.187Z"
+  },
+  {
+    "id": "playwright-report-data-743fbed07d1ad02785fdcc112355feb7e5219c32-webm",
+    "kind": "video",
+    "path": "playwright-report/data/743fbed07d1ad02785fdcc112355feb7e5219c32.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.183Z"
+  },
+  {
+    "id": "playwright-report-data-81afbc3effb0bc032ad77a1c81fbfb26a889354f-webm",
+    "kind": "video",
+    "path": "playwright-report/data/81afbc3effb0bc032ad77a1c81fbfb26a889354f.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.186Z"
+  },
+  {
+    "id": "playwright-report-data-870c00562e3799c67b34eb58032911648da71a73-webm",
+    "kind": "video",
+    "path": "playwright-report/data/870c00562e3799c67b34eb58032911648da71a73.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.188Z"
+  },
+  {
+    "id": "playwright-report-data-87860ac4fee3c2e7bb42bb32e44210755c2a9a50-webm",
+    "kind": "video",
+    "path": "playwright-report/data/87860ac4fee3c2e7bb42bb32e44210755c2a9a50.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.178Z"
+  },
+  {
+    "id": "playwright-report-data-8cb3d0fb4fd866cafff240fd451171c11586e128-webm",
+    "kind": "video",
+    "path": "playwright-report/data/8cb3d0fb4fd866cafff240fd451171c11586e128.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.178Z"
+  },
+  {
+    "id": "playwright-report-data-9039aabfe6350ee131bdd3d065c89d439ab413c7-webm",
+    "kind": "video",
+    "path": "playwright-report/data/9039aabfe6350ee131bdd3d065c89d439ab413c7.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.187Z"
+  },
+  {
+    "id": "playwright-report-data-9743f209aae60e1aca8b6047ce675b87877d2548-webm",
+    "kind": "video",
+    "path": "playwright-report/data/9743f209aae60e1aca8b6047ce675b87877d2548.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.178Z"
+  },
+  {
+    "id": "playwright-report-data-98b0397e8751e81f2e06dca52eb1a250465706d2-webm",
+    "kind": "video",
+    "path": "playwright-report/data/98b0397e8751e81f2e06dca52eb1a250465706d2.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.185Z"
+  },
+  {
+    "id": "playwright-report-data-9cf3080c7833cad5983c7789d50ac7c01db79e93-webm",
+    "kind": "video",
+    "path": "playwright-report/data/9cf3080c7833cad5983c7789d50ac7c01db79e93.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.180Z"
+  },
+  {
+    "id": "playwright-report-data-9d04d9bdbf955cc7b0807b3ba78de7dc957b4c44-webm",
+    "kind": "video",
+    "path": "playwright-report/data/9d04d9bdbf955cc7b0807b3ba78de7dc957b4c44.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.178Z"
+  },
+  {
+    "id": "playwright-report-data-9d8925fb4b6aebfe0c5a77ba5625a101d7992f38-webm",
+    "kind": "video",
+    "path": "playwright-report/data/9d8925fb4b6aebfe0c5a77ba5625a101d7992f38.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.181Z"
+  },
+  {
+    "id": "playwright-report-data-9fc0a635546c66041ed3034e6414994f80d92f38-webm",
+    "kind": "video",
+    "path": "playwright-report/data/9fc0a635546c66041ed3034e6414994f80d92f38.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.176Z"
+  },
+  {
+    "id": "playwright-report-data-a1fd1164d825d6d14c76553c03a74bb29348472b-webm",
+    "kind": "video",
+    "path": "playwright-report/data/a1fd1164d825d6d14c76553c03a74bb29348472b.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.182Z"
+  },
+  {
+    "id": "playwright-report-data-b06b65e912776770c9ad44cc7a2fb72ca3d54c06-webm",
+    "kind": "video",
+    "path": "playwright-report/data/b06b65e912776770c9ad44cc7a2fb72ca3d54c06.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.170Z"
+  },
+  {
+    "id": "playwright-report-data-b47b61e5eb55305c307d545ecac17b3f7e648595-webm",
+    "kind": "video",
+    "path": "playwright-report/data/b47b61e5eb55305c307d545ecac17b3f7e648595.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.179Z"
+  },
+  {
+    "id": "playwright-report-data-b4b7708d7c0e64aabb229a378d0b0fd6770db80f-webm",
+    "kind": "video",
+    "path": "playwright-report/data/b4b7708d7c0e64aabb229a378d0b0fd6770db80f.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.173Z"
+  },
+  {
+    "id": "playwright-report-data-b744cc22b174e16f27cdac8735eafb1d515557fc-webm",
+    "kind": "video",
+    "path": "playwright-report/data/b744cc22b174e16f27cdac8735eafb1d515557fc.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.186Z"
+  },
+  {
+    "id": "playwright-report-data-bb39e422e0d69a7fa9a02d38ce8e856a4160bf38-webm",
+    "kind": "video",
+    "path": "playwright-report/data/bb39e422e0d69a7fa9a02d38ce8e856a4160bf38.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.185Z"
+  },
+  {
+    "id": "playwright-report-data-bd519abed3b287dce68ddbec508deb599d2069cf-webm",
+    "kind": "video",
+    "path": "playwright-report/data/bd519abed3b287dce68ddbec508deb599d2069cf.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.172Z"
+  },
+  {
+    "id": "playwright-report-data-be76dfc29ce9e09822e8fffe4c47101385f26eba-webm",
+    "kind": "video",
+    "path": "playwright-report/data/be76dfc29ce9e09822e8fffe4c47101385f26eba.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.175Z"
+  },
+  {
+    "id": "playwright-report-data-c7bd4a7a8c7f516a00b3e89c5a3bb0f2479cc108-webm",
+    "kind": "video",
+    "path": "playwright-report/data/c7bd4a7a8c7f516a00b3e89c5a3bb0f2479cc108.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.176Z"
+  },
+  {
+    "id": "playwright-report-data-d30830dce0e21a8e45e303fa5a63bd87da227621-webm",
+    "kind": "video",
+    "path": "playwright-report/data/d30830dce0e21a8e45e303fa5a63bd87da227621.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.177Z"
+  },
+  {
+    "id": "playwright-report-data-d4ac225d67e318ebe2f705549d6416d3bfa76435-webm",
+    "kind": "video",
+    "path": "playwright-report/data/d4ac225d67e318ebe2f705549d6416d3bfa76435.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.172Z"
+  },
+  {
+    "id": "playwright-report-data-dc11b2db57cd022b3e2f351c5c5e5d725eb747e5-webm",
+    "kind": "video",
+    "path": "playwright-report/data/dc11b2db57cd022b3e2f351c5c5e5d725eb747e5.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.186Z"
+  },
+  {
+    "id": "playwright-report-data-dd14e6a28a65fc0c424359ec128b6693d8fcab3b-webm",
+    "kind": "video",
+    "path": "playwright-report/data/dd14e6a28a65fc0c424359ec128b6693d8fcab3b.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.180Z"
+  },
+  {
+    "id": "playwright-report-data-dfdfaeee9dbc28ab71e874b637931a490b1fe738-webm",
+    "kind": "video",
+    "path": "playwright-report/data/dfdfaeee9dbc28ab71e874b637931a490b1fe738.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.177Z"
+  },
+  {
+    "id": "playwright-report-data-e0c0c94a524293eb6c3cbb05cb286d7b09243089-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e0c0c94a524293eb6c3cbb05cb286d7b09243089.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.183Z"
+  },
+  {
+    "id": "playwright-report-data-e0ffbf9001744a332862f8af3d085f35006b201d-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e0ffbf9001744a332862f8af3d085f35006b201d.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.185Z"
+  },
+  {
+    "id": "playwright-report-data-e481d68e1a8f7017ea65b5e5467e4c838e501984-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e481d68e1a8f7017ea65b5e5467e4c838e501984.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.178Z"
+  },
+  {
+    "id": "playwright-report-data-e4a6b3ec757efdd0b2ef1bec9b5be4bffcf7179d-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e4a6b3ec757efdd0b2ef1bec9b5be4bffcf7179d.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.182Z"
+  },
+  {
+    "id": "playwright-report-data-e5f831516fb69070ce2bafc7038b1b2364be7efa-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e5f831516fb69070ce2bafc7038b1b2364be7efa.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.180Z"
+  },
+  {
+    "id": "playwright-report-data-ed649e96dd4edcc5fba6d9fc968749e7337846ff-webm",
+    "kind": "video",
+    "path": "playwright-report/data/ed649e96dd4edcc5fba6d9fc968749e7337846ff.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.181Z"
+  },
+  {
+    "id": "playwright-report-data-eed29cf8669cc7997aa50dd61c1d88c255fb514e-webm",
+    "kind": "video",
+    "path": "playwright-report/data/eed29cf8669cc7997aa50dd61c1d88c255fb514e.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.186Z"
+  },
+  {
+    "id": "playwright-report-data-f5358f52574e01fa399689361957e943a17c29bc-webm",
+    "kind": "video",
+    "path": "playwright-report/data/f5358f52574e01fa399689361957e943a17c29bc.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.181Z"
+  },
+  {
+    "id": "playwright-report-data-f6c5cd8e157c84b866475e80a4d8fc158dc03efc-webm",
+    "kind": "video",
+    "path": "playwright-report/data/f6c5cd8e157c84b866475e80a4d8fc158dc03efc.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.179Z"
+  },
+  {
+    "id": "playwright-report-data-f7bfdb71b7ba54daa5197bf7343c6b6da9cb26ab-webm",
+    "kind": "video",
+    "path": "playwright-report/data/f7bfdb71b7ba54daa5197bf7343c6b6da9cb26ab.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.189Z"
+  },
+  {
+    "id": "playwright-report-data-fdc7ad1fc56c517fe78585edc76ce877eb82ff15-webm",
+    "kind": "video",
+    "path": "playwright-report/data/fdc7ad1fc56c517fe78585edc76ce877eb82ff15.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.169Z"
+  },
+  {
+    "id": "playwright-report-index-html",
+    "kind": "report",
+    "path": "playwright-report/index.html",
+    "source": "playwright-report",
+    "createdAt": "2026-04-28T17:17:37.197Z"
+  },
+  {
+    "id": "test-results-last-run-json",
+    "kind": "json",
+    "path": "test-results/.last-run.json",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:37.200Z"
+  },
+  {
+    "id": "test-results-playwright-no-run-json",
+    "kind": "json",
+    "path": "test-results/playwright-no-run.json",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:37.199Z"
+  },
+  {
+    "id": "test-results-smoke-chat-chat-loads-with-200-and-renders-desktop-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Chat-chat-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.216Z"
+  },
+  {
+    "id": "test-results-smoke-chat-chat-loads-with-200-and-renders-desktop-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Chat-chat-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:33.852Z"
+  },
+  {
+    "id": "test-results-smoke-chat-chat-loads-with-200-and-renders-mobile-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Chat-chat-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:25.810Z"
+  },
+  {
+    "id": "test-results-smoke-chat-chat-loads-with-200-and-renders-mobile-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Chat-chat-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:21.975Z"
+  },
+  {
+    "id": "test-results-smoke-chat-chat-loads-with-200-and-renders-tablet-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Chat-chat-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.389Z"
+  },
+  {
+    "id": "test-results-smoke-chat-chat-loads-with-200-and-renders-tablet-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Chat-chat-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:28.808Z"
+  },
+  {
+    "id": "test-results-smoke-docs-docs-loads-with-200-and-renders-desktop-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Docs-docs-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:37.075Z"
+  },
+  {
+    "id": "test-results-smoke-docs-docs-loads-with-200-and-renders-desktop-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Docs-docs-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:34.797Z"
+  },
+  {
+    "id": "test-results-smoke-docs-docs-loads-with-200-and-renders-mobile-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Docs-docs-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:26.850Z"
+  },
+  {
+    "id": "test-results-smoke-docs-docs-loads-with-200-and-renders-mobile-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Docs-docs-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:23.711Z"
+  },
+  {
+    "id": "test-results-smoke-docs-docs-loads-with-200-and-renders-tablet-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Docs-docs-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:32.466Z"
+  },
+  {
+    "id": "test-results-smoke-docs-docs-loads-with-200-and-renders-tablet-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Docs-docs-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.790Z"
+  },
+  {
+    "id": "test-results-smoke-home-loads-with-200-and-renders-desktop-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Home-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:35.329Z"
+  },
+  {
+    "id": "test-results-smoke-home-loads-with-200-and-renders-desktop-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Home-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:33.308Z"
+  },
+  {
+    "id": "test-results-smoke-home-loads-with-200-and-renders-mobile-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Home-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:24.291Z"
+  },
+  {
+    "id": "test-results-smoke-home-loads-with-200-and-renders-mobile-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Home-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:20.528Z"
+  },
+  {
+    "id": "test-results-smoke-home-loads-with-200-and-renders-tablet-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Home-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.162Z"
+  },
+  {
+    "id": "test-results-smoke-home-loads-with-200-and-renders-tablet-light-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Home-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:27.962Z"
+  },
+  {
+    "id": "test-results-smoke-live-recording-record-live-loads-with-200-and-renders-desktop",
+    "kind": "video",
+    "path": "test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:35.900Z"
+  },
+  {
+    "id": "test-results-smoke-live-recording-record-live-loads-with-200-and-renders-desktop",
+    "kind": "video",
+    "path": "test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:33.653Z"
+  },
+  {
+    "id": "test-results-smoke-live-recording-record-live-loads-with-200-and-renders-mobile-",
+    "kind": "video",
+    "path": "test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:25.397Z"
+  },
+  {
+    "id": "test-results-smoke-live-recording-record-live-loads-with-200-and-renders-mobile-",
+    "kind": "video",
+    "path": "test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:21.128Z"
+  },
+  {
+    "id": "test-results-smoke-live-recording-record-live-loads-with-200-and-renders-tablet-",
+    "kind": "video",
+    "path": "test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.126Z"
+  },
+  {
+    "id": "test-results-smoke-live-recording-record-live-loads-with-200-and-renders-tablet-",
+    "kind": "video",
+    "path": "test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:28.546Z"
+  },
+  {
+    "id": "test-results-smoke-meetings-meetings-loads-with-200-and-renders-desktop-dark-vid",
+    "kind": "video",
+    "path": "test-results/smoke-Meetings-meetings-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:35.852Z"
+  },
+  {
+    "id": "test-results-smoke-meetings-meetings-loads-with-200-and-renders-desktop-light-vi",
+    "kind": "video",
+    "path": "test-results/smoke-Meetings-meetings-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:33.526Z"
+  },
+  {
+    "id": "test-results-smoke-meetings-meetings-loads-with-200-and-renders-mobile-dark-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Meetings-meetings-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:25.860Z"
+  },
+  {
+    "id": "test-results-smoke-meetings-meetings-loads-with-200-and-renders-mobile-light-vid",
+    "kind": "video",
+    "path": "test-results/smoke-Meetings-meetings-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:21.859Z"
+  },
+  {
+    "id": "test-results-smoke-meetings-meetings-loads-with-200-and-renders-tablet-dark-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Meetings-meetings-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.524Z"
+  },
+  {
+    "id": "test-results-smoke-meetings-meetings-loads-with-200-and-renders-tablet-light-vid",
+    "kind": "video",
+    "path": "test-results/smoke-Meetings-meetings-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:28.524Z"
+  },
+  {
+    "id": "test-results-smoke-observability-observability-loads-with-200-and-renders-deskto",
+    "kind": "video",
+    "path": "test-results/smoke-Observability-observability-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.992Z"
+  },
+  {
+    "id": "test-results-smoke-observability-observability-loads-with-200-and-renders-deskto",
+    "kind": "video",
+    "path": "test-results/smoke-Observability-observability-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:34.737Z"
+  },
+  {
+    "id": "test-results-smoke-observability-observability-loads-with-200-and-renders-mobile",
+    "kind": "video",
+    "path": "test-results/smoke-Observability-observability-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:26.810Z"
+  },
+  {
+    "id": "test-results-smoke-observability-observability-loads-with-200-and-renders-mobile",
+    "kind": "video",
+    "path": "test-results/smoke-Observability-observability-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:23.524Z"
+  },
+  {
+    "id": "test-results-smoke-observability-observability-loads-with-200-and-renders-tablet",
+    "kind": "video",
+    "path": "test-results/smoke-Observability-observability-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:32.514Z"
+  },
+  {
+    "id": "test-results-smoke-observability-observability-loads-with-200-and-renders-tablet",
+    "kind": "video",
+    "path": "test-results/smoke-Observability-observability-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.731Z"
+  },
+  {
+    "id": "test-results-smoke-pricing-pricing-loads-with-200-and-renders-desktop-dark-video",
+    "kind": "video",
+    "path": "test-results/smoke-Pricing-pricing-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.381Z"
+  },
+  {
+    "id": "test-results-smoke-pricing-pricing-loads-with-200-and-renders-desktop-light-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Pricing-pricing-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:33.971Z"
+  },
+  {
+    "id": "test-results-smoke-pricing-pricing-loads-with-200-and-renders-mobile-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Pricing-pricing-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:25.786Z"
+  },
+  {
+    "id": "test-results-smoke-pricing-pricing-loads-with-200-and-renders-mobile-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Pricing-pricing-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:21.474Z"
+  },
+  {
+    "id": "test-results-smoke-pricing-pricing-loads-with-200-and-renders-tablet-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Pricing-pricing-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.725Z"
+  },
+  {
+    "id": "test-results-smoke-pricing-pricing-loads-with-200-and-renders-tablet-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Pricing-pricing-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.161Z"
+  },
+  {
+    "id": "test-results-smoke-profile-profile-loads-with-200-and-renders-desktop-dark-video",
+    "kind": "video",
+    "path": "test-results/smoke-Profile-profile-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.656Z"
+  },
+  {
+    "id": "test-results-smoke-profile-profile-loads-with-200-and-renders-desktop-light-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Profile-profile-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:34.560Z"
+  },
+  {
+    "id": "test-results-smoke-profile-profile-loads-with-200-and-renders-mobile-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Profile-profile-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:26.406Z"
+  },
+  {
+    "id": "test-results-smoke-profile-profile-loads-with-200-and-renders-mobile-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Profile-profile-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:23.658Z"
+  },
+  {
+    "id": "test-results-smoke-profile-profile-loads-with-200-and-renders-tablet-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Profile-profile-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:32.065Z"
+  },
+  {
+    "id": "test-results-smoke-profile-profile-loads-with-200-and-renders-tablet-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Profile-profile-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.198Z"
+  },
+  {
+    "id": "test-results-smoke-record-record-loads-with-200-and-renders-desktop-dark-video-w",
+    "kind": "video",
+    "path": "test-results/smoke-Record-record-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:35.572Z"
+  },
+  {
+    "id": "test-results-smoke-record-record-loads-with-200-and-renders-desktop-light-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Record-record-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:33.525Z"
+  },
+  {
+    "id": "test-results-smoke-record-record-loads-with-200-and-renders-mobile-dark-video-we",
+    "kind": "video",
+    "path": "test-results/smoke-Record-record-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:25.067Z"
+  },
+  {
+    "id": "test-results-smoke-record-record-loads-with-200-and-renders-mobile-light-video-w",
+    "kind": "video",
+    "path": "test-results/smoke-Record-record-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:20.977Z"
+  },
+  {
+    "id": "test-results-smoke-record-record-loads-with-200-and-renders-tablet-dark-video-we",
+    "kind": "video",
+    "path": "test-results/smoke-Record-record-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.053Z"
+  },
+  {
+    "id": "test-results-smoke-record-record-loads-with-200-and-renders-tablet-light-video-w",
+    "kind": "video",
+    "path": "test-results/smoke-Record-record-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:28.225Z"
+  },
+  {
+    "id": "test-results-smoke-settings-settings-loads-with-200-and-renders-desktop-dark-vid",
+    "kind": "video",
+    "path": "test-results/smoke-Settings-settings-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.200Z"
+  },
+  {
+    "id": "test-results-smoke-settings-settings-loads-with-200-and-renders-desktop-light-vi",
+    "kind": "video",
+    "path": "test-results/smoke-Settings-settings-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:33.971Z"
+  },
+  {
+    "id": "test-results-smoke-settings-settings-loads-with-200-and-renders-mobile-dark-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Settings-settings-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:26.088Z"
+  },
+  {
+    "id": "test-results-smoke-settings-settings-loads-with-200-and-renders-mobile-light-vid",
+    "kind": "video",
+    "path": "test-results/smoke-Settings-settings-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:21.506Z"
+  },
+  {
+    "id": "test-results-smoke-settings-settings-loads-with-200-and-renders-tablet-dark-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Settings-settings-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.696Z"
+  },
+  {
+    "id": "test-results-smoke-settings-settings-loads-with-200-and-renders-tablet-light-vid",
+    "kind": "video",
+    "path": "test-results/smoke-Settings-settings-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.039Z"
+  },
+  {
+    "id": "test-results-smoke-sign-in-sign-in-loads-with-200-and-renders-desktop-dark-video",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.857Z"
+  },
+  {
+    "id": "test-results-smoke-sign-in-sign-in-loads-with-200-and-renders-desktop-light-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:34.486Z"
+  },
+  {
+    "id": "test-results-smoke-sign-in-sign-in-loads-with-200-and-renders-mobile-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:26.365Z"
+  },
+  {
+    "id": "test-results-smoke-sign-in-sign-in-loads-with-200-and-renders-mobile-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:23.610Z"
+  },
+  {
+    "id": "test-results-smoke-sign-in-sign-in-loads-with-200-and-renders-tablet-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:31.949Z"
+  },
+  {
+    "id": "test-results-smoke-sign-in-sign-in-loads-with-200-and-renders-tablet-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.384Z"
+  },
+  {
+    "id": "test-results-smoke-sign-up-sign-up-loads-with-200-and-renders-desktop-dark-video",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.856Z"
+  },
+  {
+    "id": "test-results-smoke-sign-up-sign-up-loads-with-200-and-renders-desktop-light-vide",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:34.480Z"
+  },
+  {
+    "id": "test-results-smoke-sign-up-sign-up-loads-with-200-and-renders-mobile-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:26.600Z"
+  },
+  {
+    "id": "test-results-smoke-sign-up-sign-up-loads-with-200-and-renders-mobile-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:23.611Z"
+  },
+  {
+    "id": "test-results-smoke-sign-up-sign-up-loads-with-200-and-renders-tablet-dark-video-",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:32.297Z"
+  },
+  {
+    "id": "test-results-smoke-sign-up-sign-up-loads-with-200-and-renders-tablet-light-video",
+    "kind": "video",
+    "path": "test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.410Z"
+  },
+  {
+    "id": "test-results-smoke-usage-usage-loads-with-200-and-renders-desktop-dark-video-web",
+    "kind": "video",
+    "path": "test-results/smoke-Usage-usage-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:36.647Z"
+  },
+  {
+    "id": "test-results-smoke-usage-usage-loads-with-200-and-renders-desktop-light-video-we",
+    "kind": "video",
+    "path": "test-results/smoke-Usage-usage-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:34.205Z"
+  },
+  {
+    "id": "test-results-smoke-usage-usage-loads-with-200-and-renders-mobile-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Usage-usage-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:25.844Z"
+  },
+  {
+    "id": "test-results-smoke-usage-usage-loads-with-200-and-renders-mobile-light-video-web",
+    "kind": "video",
+    "path": "test-results/smoke-Usage-usage-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:23.087Z"
+  },
+  {
+    "id": "test-results-smoke-usage-usage-loads-with-200-and-renders-tablet-dark-video-webm",
+    "kind": "video",
+    "path": "test-results/smoke-Usage-usage-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:32.144Z"
+  },
+  {
+    "id": "test-results-smoke-usage-usage-loads-with-200-and-renders-tablet-light-video-web",
+    "kind": "video",
+    "path": "test-results/smoke-Usage-usage-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-28T17:17:29.159Z"
+  }
+]

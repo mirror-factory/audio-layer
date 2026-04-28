@@ -1,0 +1,35 @@
+{
+  "id": "ai-starter-evidence-2026-04-28t17-30-07-434z",
+  "createdAt": "2026-04-28T17:30:09.997Z",
+  "archivePath": "/Users/alfonso/Documents/GitHub/audio-layer/.ai-starter/exports/ai-starter-evidence-2026-04-28t17-30-07-434z.tgz",
+  "downloadPath": "/api/control-plane/evidence-export",
+  "bytes": 70123669,
+  "included": [
+    ".ai-starter",
+    ".evidence",
+    ".expect/replays",
+    "playwright-report",
+    "test-results",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "DESIGN.md",
+    "README.md",
+    "package.json",
+    "pnpm-lock.yaml",
+    "docs",
+    "tests/expect"
+  ],
+  "excluded": [
+    ".env",
+    ".env.*",
+    "node_modules",
+    ".next",
+    ".git",
+    ".ai-starter/exports",
+    "*.pem",
+    "*.key",
+    "*secret*",
+    "*token*"
+  ],
+  "warnings": []
+}

@@ -1,0 +1,32 @@
+{
+  "id": "2026-04-27T20-15-20-708Z-polish-signed-in-home-design-det",
+  "createdAt": "2026-04-27T20:15:20.708Z",
+  "updatedAt": "2026-04-27T20:15:20.708Z",
+  "title": "Polish signed-in home design details",
+  "prompt": "Polish signed-in home design details",
+  "classification": "polish",
+  "acceptanceCriteria": [
+    "The target surface has before/after evidence.",
+    "The updated surface improves the declared scorecard dimension.",
+    "No regressions are introduced in required checks."
+  ],
+  "requiredEvidence": [
+    "screenshot",
+    "scorecard",
+    "playwright"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

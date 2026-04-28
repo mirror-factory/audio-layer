@@ -8,6 +8,12 @@
 import { z } from "zod";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import { searchMeetings } from "@/lib/embeddings/search";
+import { buildMeetingDashboardPayload } from "@/lib/mcp/ui";
+import {
+  NotesPushPackageRequestSchema,
+  buildMissingNotesPushPackage,
+  buildNotesPushPackage,
+} from "@/lib/notes-push";
 import type { Meeting, MeetingListItem } from "@/lib/meetings/types";
 import type { SearchResult } from "@/lib/embeddings/search";
 
@@ -49,6 +55,20 @@ export const GetSummarySchema = z.object({
 });
 
 export const StartRecordingSchema = z.object({});
+
+export const ShowMeetingDashboardSchema = z.object({
+  limit: z
+    .number()
+    .int()
+    .min(1)
+    .max(25)
+    .optional()
+    .describe("Max recent meetings to include in the Claude MCP App UI."),
+});
+
+export const PrepareNotesPushSchema = z.object({
+  meeting_id: z.string().describe("The meeting ID to package."),
+}).extend(NotesPushPackageRequestSchema.shape);
 
 // ---------------------------------------------------------------------------
 // Tool handlers
@@ -101,14 +121,40 @@ export async function handleGetSummary(
 }
 
 export async function handleStartRecording(
-  _input: z.infer<typeof StartRecordingSchema>,
-  _userId: string,
+  input: z.infer<typeof StartRecordingSchema>,
+  userId: string,
 ): Promise<{ message: string }> {
+  void input;
+  void userId;
+
   // Placeholder -- actual implementation would create a new recording session
   return {
     message:
       "Recording must be started from the app UI. Navigate to /record/live in the Layer One Audio app.",
   };
+}
+
+export async function handleShowMeetingDashboard(
+  input: z.infer<typeof ShowMeetingDashboardSchema>,
+  userId: string,
+) {
+  const meetings = await handleListMeetings({ limit: input.limit ?? 12 }, userId);
+  return buildMeetingDashboardPayload(meetings);
+}
+
+export async function handlePrepareNotesPush(
+  input: z.infer<typeof PrepareNotesPushSchema>,
+  userId: string,
+) {
+  void userId;
+  const store = await getMeetingsStore();
+  const meeting = await store.get(input.meeting_id);
+
+  if (!meeting) {
+    return buildMissingNotesPushPackage(input);
+  }
+
+  return buildNotesPushPackage(meeting, input);
 }
 
 // ---------------------------------------------------------------------------
@@ -176,6 +222,28 @@ export const MCP_TOOLS: McpToolDef[] = [
     handler: (input, userId) =>
       handleStartRecording(
         input as z.infer<typeof StartRecordingSchema>,
+        userId,
+      ),
+  },
+  {
+    name: "prepare_notes_push",
+    description:
+      "Prepare a scoped notes payload for an explicit MCP-client pull after a meeting completes or the user manually chooses to push notes. This does not transmit notes to third-party destinations.",
+    schema: PrepareNotesPushSchema,
+    handler: (input, userId) =>
+      handlePrepareNotesPush(
+        input as z.infer<typeof PrepareNotesPushSchema>,
+        userId,
+      ),
+  },
+  {
+    name: "show_meeting_dashboard",
+    description:
+      "Render an interactive Claude MCP App dashboard with recent meetings, status counts, and total minutes for the authenticated user.",
+    schema: ShowMeetingDashboardSchema,
+    handler: (input, userId) =>
+      handleShowMeetingDashboard(
+        input as z.infer<typeof ShowMeetingDashboardSchema>,
         userId,
       ),
   },

@@ -2,6 +2,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from "next/server";
+import { parseOAuthAuthorizeParams } from "@/lib/oauth/mcp-oauth";
 
 /**
  * OAuth 2.1 Authorization Endpoint
@@ -13,29 +14,31 @@ import { NextRequest, NextResponse } from "next/server";
  */
 export function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const clientId = searchParams.get("client_id");
-  const redirectUri = searchParams.get("redirect_uri");
-  const state = searchParams.get("state");
-  const codeChallenge = searchParams.get("code_challenge");
-  const codeChallengeMethod = searchParams.get("code_challenge_method");
-  const scope = searchParams.get("scope");
 
-  if (!redirectUri || !state) {
-    return NextResponse.json({ error: "Missing redirect_uri or state" }, { status: 400 });
+  const parsed = parseOAuthAuthorizeParams(searchParams);
+  if (!parsed.ok) {
+    return NextResponse.json(
+      {
+        error: parsed.error.error,
+        error_description: parsed.error.errorDescription,
+      },
+      { status: parsed.error.status },
+    );
   }
 
-  // Store OAuth params in the redirect so our callback can pick them up
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL?.trim() ?? "https://audio-layer.vercel.app";
+  const baseUrl = new URL(req.url).origin;
   const oauthParams = new URLSearchParams({
-    ...(clientId && { client_id: clientId }),
-    redirect_uri: redirectUri,
-    state,
-    ...(codeChallenge && { code_challenge: codeChallenge }),
-    ...(codeChallengeMethod && { code_challenge_method: codeChallengeMethod }),
-    ...(scope && { scope }),
+    response_type: parsed.value.responseType,
+    redirect_uri: parsed.value.redirectUri,
+    state: parsed.value.state,
+    code_challenge: parsed.value.codeChallenge,
+    code_challenge_method: parsed.value.codeChallengeMethod,
+    scope: parsed.value.scope,
   });
 
-  // Redirect to our sign-in page with oauth_flow flag
-  const signInUrl = `${baseUrl}/sign-in?oauth=1&${oauthParams.toString()}`;
-  return NextResponse.redirect(signInUrl);
+  if (parsed.value.clientId) {
+    oauthParams.set("client_id", parsed.value.clientId);
+  }
+
+  return NextResponse.redirect(`${baseUrl}/oauth/consent?${oauthParams}`);
 }

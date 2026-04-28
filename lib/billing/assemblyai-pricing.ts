@@ -4,6 +4,14 @@
  */
 
 import type { SttCostDetail } from "./types";
+import { DEFAULTS } from "@/lib/settings-shared";
+import { STT_PRICING_OPTIONS } from "@/lib/billing/stt-pricing";
+
+const assemblyAiCatalogRates = Object.fromEntries(
+  STT_PRICING_OPTIONS
+    .filter((option) => option.provider === "assemblyai")
+    .map((option) => [`${option.model}:${option.mode}`, option.ratePerHourUsd]),
+);
 
 export const BASE_RATES_PER_HOUR: Record<string, number> = {
   "best:batch": 0.21,
@@ -12,28 +20,40 @@ export const BASE_RATES_PER_HOUR: Record<string, number> = {
   "universal-3-pro:streaming": 0.45,
   "u3-rt-pro:batch": 0.21,
   "u3-rt-pro:streaming": 0.45,
+  "u3-pro:streaming": 0.45,
   "u3-rt:batch": 0.15,
   "u3-rt:streaming": 0.26,
-  "nano:batch": 0.15,
+  "nano:batch": 0.12,
   "nano:streaming": 0.15,
   "universal:batch": 0.15,
   "universal:streaming": 0.15,
   "universal-2:batch": 0.15,
   "universal-2:streaming": 0.15,
+  "universal-streaming-english:streaming": 0.15,
+  "universal-streaming-multilingual:streaming": 0.15,
   "slam-1:batch": 0.21,
   "slam-1:streaming": 0.45,
+  "whisper-rt:streaming": 0.30,
+  "whisper-streaming:streaming": 0.30,
+  ...assemblyAiCatalogRates,
 };
 
 export const ADDON_PER_HOUR: Record<string, number> = {
   speakerDiarization: 0.02,
+  streamingSpeakerDiarization: 0.12,
   summarization: 0.03,
   sentiment: 0.02,
   entityDetection: 0.08,
   topicDetection: 0.15,
   autoChapters: 0.08,
   keyPhrases: 0.01,
+  keytermsPrompting: 0.05,
+  streamingKeytermsPrompting: 0.04,
+  prompting: 0.05,
   piiRedaction: 0.08,
+  piiAudioRedaction: 0.05,
   contentModeration: 0.15,
+  medicalMode: 0.15,
 };
 
 /**
@@ -74,7 +94,7 @@ export function estimateTranscriptCost(opts: {
  */
 export function estimateBatchMeetingCost(
   durationSeconds: number,
-  model: string = "universal-3-pro",
+  model: string = DEFAULTS.batchSpeechModel,
 ): SttCostDetail {
   return estimateTranscriptCost({
     durationSeconds,
@@ -85,15 +105,18 @@ export function estimateBatchMeetingCost(
 }
 
 /**
- * Estimate cost for a streaming meeting (no add-ons in streaming mode).
+ * Estimate cost for a streaming meeting.
+ * Defaults to the base Universal Streaming route; realtime speaker diarization
+ * remains an explicit add-on in pricing config.
  */
 export function estimateStreamingMeetingCost(
   durationSeconds: number,
-  model: string = "u3-rt-pro",
+  model: string = DEFAULTS.streamingSpeechModel,
 ): SttCostDetail {
   return estimateTranscriptCost({
     durationSeconds,
     model,
     mode: "streaming",
+    addons: [],
   });
 }

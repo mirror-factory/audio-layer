@@ -341,8 +341,8 @@ interface ModelSettings {
 ```typescript
 const DEFAULTS: ModelSettings = {
   summaryModel: "openai/gpt-5.4-nano",
-  batchSpeechModel: "universal-3-pro",
-  streamingSpeechModel: "u3-rt-pro",
+  batchSpeechModel: "universal-2",
+  streamingSpeechModel: "universal-streaming-multilingual",
 };
 ```
 
@@ -813,7 +813,7 @@ After streaming responses, flush Langfuse with `after(flushLangfuse)` to prevent
 
 | Component | Type | Purpose |
 |---|---|---|
-| `TopBar` | Client | Sticky header with back button + title + hamburger menu |
+| `TopBar` | Client | Sticky header with back button, title, theme toggle, and settings gear |
 | `SlideMenu` | Client | Right-sliding navigation panel (280px, z-101) |
 | `AudioRecorder` | Client | MediaRecorder for browser mic capture, produces WebM blob |
 | `LiveRecorder` | Client | Full streaming pipeline: token -> mic -> WorkletNode -> AssemblyAI WebSocket |
@@ -953,8 +953,8 @@ const config: CapacitorConfig = {
 | Variable | Default | Purpose |
 |---|---|---|
 | `DEFAULT_MODEL` | `openai/gpt-5.4-nano` | Default LLM for summary/intake |
-| `ASSEMBLYAI_BATCH_MODEL` | `universal-3-pro` | Default batch speech model |
-| `ASSEMBLYAI_STREAMING_MODEL` | `u3-rt-pro` | Default streaming speech model |
+| `ASSEMBLYAI_BATCH_MODEL` | `universal-2` | Default batch speech model |
+| `ASSEMBLYAI_STREAMING_MODEL` | `universal-streaming-multilingual` | Default streaming speech model |
 
 ### Tier 2 -- Persistence + Auth
 

@@ -1,0 +1,391 @@
+[
+  {
+    "id": "assemblyai",
+    "label": "AssemblyAI transcription",
+    "kind": "external-api",
+    "default": false,
+    "envVars": [
+      "ASSEMBLYAI_API_KEY"
+    ],
+    "docsUrl": "https://www.assemblyai.com/docs",
+    "docsRegistryIds": [
+      "docs-transcription-provider-matrix-md"
+    ],
+    "triggerPaths": [
+      "app/api/**/route.ts",
+      "lib/integrations/assemblyai.ts",
+      "lib/services/transcription.ts"
+    ],
+    "cost": {
+      "tracked": false,
+      "source": "manual-estimate",
+      "unit": "audio hour",
+      "estimatedUnitCostUsd": null,
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Direct APIs outside AI Gateway need explicit usage events to show true local cost."
+      ]
+    },
+    "failureModes": [
+      "large upload timeout",
+      "unsupported audio format",
+      "webhook missed",
+      "provider quota",
+      "partial transcript"
+    ],
+    "exampleCommands": [
+      "pnpm test",
+      "pnpm test:e2e"
+    ],
+    "status": "configured",
+    "routes": [],
+    "tests": {
+      "unit": true,
+      "contract": true,
+      "e2e": false,
+      "eval": false,
+      "recommended": [
+        "Record dashboard evidence after a successful assemblyai run."
+      ]
+    }
+  },
+  {
+    "id": "custom-api-routes",
+    "label": "Custom API routes",
+    "kind": "custom-api",
+    "status": "configured",
+    "default": false,
+    "envVars": [],
+    "docsUrl": null,
+    "docsRegistryIds": [
+      "docs-apis-api-ai-logs-errors-md",
+      "docs-apis-api-ai-logs-md",
+      "docs-apis-api-ai-logs-stats-md",
+      "docs-apis-api-control-plane-md",
+      "docs-apis-app-api-admin-pricing-activate-route-md"
+    ],
+    "triggerPaths": [
+      "app/api/**/route.ts"
+    ],
+    "routes": [
+      "app/api/admin/pricing/activate/route.ts",
+      "app/api/admin/pricing/route.ts",
+      "app/api/ai-logs/errors/route.ts",
+      "app/api/ai-logs/route.ts",
+      "app/api/ai-logs/stats/route.ts",
+      "app/api/auth/api-key/route.ts",
+      "app/api/auth/send-email/route.ts",
+      "app/api/calendar/callback/[provider]/route.ts",
+      "app/api/calendar/connect/[provider]/route.ts",
+      "app/api/calendar/disconnect/[provider]/route.ts",
+      "app/api/calendar/upcoming/route.ts",
+      "app/api/chat/route.ts",
+      "app/api/control-plane/evidence-export/route.ts",
+      "app/api/control-plane/route.ts",
+      "app/api/dev-kit/config/[name]/route.ts",
+      "app/api/dev-kit/connectors/route.ts",
+      "app/api/dev-kit/cost/route.ts",
+      "app/api/dev-kit/coverage/route.ts",
+      "app/api/dev-kit/dependencies/route.ts",
+      "app/api/dev-kit/deployments/route.ts",
+      "app/api/dev-kit/design-system/route.ts",
+      "app/api/dev-kit/evals/[id]/route.ts",
+      "app/api/dev-kit/evals/route.ts",
+      "app/api/dev-kit/features/[name]/route.ts",
+      "app/api/dev-kit/features/route.ts",
+      "app/api/dev-kit/index/route.ts",
+      "app/api/dev-kit/logs/unified/route.ts",
+      "app/api/dev-kit/overview/route.ts",
+      "app/api/dev-kit/registries/route.ts",
+      "app/api/dev-kit/regressions/route.ts",
+      "app/api/dev-kit/runs/[run_id]/route.ts",
+      "app/api/dev-kit/runs/route.ts",
+      "app/api/dev-kit/sessions/[id]/route.ts",
+      "app/api/dev-kit/sessions/route.ts",
+      "app/api/dev-kit/status/route.ts",
+      "app/api/dev-kit/tools/route.ts",
+      "app/api/embeddings/backfill/route.ts",
+      "app/api/health/route.ts",
+      "app/api/mcp/[transport]/route.ts",
+      "app/api/meetings/[id]/export/route.ts",
+      "app/api/meetings/[id]/notes-package/route.ts",
+      "app/api/meetings/[id]/route.ts",
+      "app/api/meetings/route.ts",
+      "app/api/models/route.ts",
+      "app/api/oauth/authorize/route.ts",
+      "app/api/oauth/callback/route.ts",
+      "app/api/oauth/consent/route.ts",
+      "app/api/oauth/revoke/route.ts",
+      "app/api/oauth/token/route.ts",
+      "app/api/observability/health/route.ts",
+      "app/api/search/route.ts",
+      "app/api/settings/route.ts",
+      "app/api/stripe/checkout/route.ts",
+      "app/api/stripe/webhook/route.ts",
+      "app/api/transcribe/[id]/route.ts",
+      "app/api/transcribe/route.ts",
+      "app/api/transcribe/stream/autosave/route.ts",
+      "app/api/transcribe/stream/finalize/route.ts",
+      "app/api/transcribe/stream/preflight/route.ts",
+      "app/api/transcribe/stream/token/route.ts",
+      "app/api/webhooks/deliveries/route.ts",
+      "app/api/webhooks/route.ts"
+    ],
+    "cost": {
+      "tracked": false,
+      "source": "not-tracked",
+      "unit": "route invocation",
+      "estimatedUnitCostUsd": null,
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Custom APIs must opt into local usage/cost events if they call paid external services."
+      ]
+    },
+    "tests": {
+      "unit": true,
+      "contract": true,
+      "e2e": true,
+      "eval": false,
+      "recommended": [
+        "Record dashboard evidence after a successful custom-api-routes run."
+      ]
+    },
+    "failureModes": [
+      "unvalidated input",
+      "missing rate limit",
+      "provider timeout",
+      "untracked external spend"
+    ],
+    "exampleCommands": [
+      "pnpm test",
+      "pnpm test:smoke",
+      "pnpm gates"
+    ]
+  },
+  {
+    "id": "resend",
+    "label": "Resend email",
+    "kind": "email",
+    "default": false,
+    "envVars": [
+      "RESEND_API_KEY"
+    ],
+    "docsUrl": "https://resend.com/docs",
+    "docsRegistryIds": [
+      "docs-apis-app-api-auth-send-email-route-md"
+    ],
+    "triggerPaths": [
+      "app/api/**/route.ts",
+      "lib/email/**",
+      "lib/integrations/resend.ts"
+    ],
+    "cost": {
+      "tracked": false,
+      "source": "provider-dashboard",
+      "unit": "email sent",
+      "estimatedUnitCostUsd": null,
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Email sends should record local usage events if added to an app."
+      ]
+    },
+    "failureModes": [
+      "domain not verified",
+      "suppression list",
+      "rate limit",
+      "template render error"
+    ],
+    "exampleCommands": [
+      "pnpm test",
+      "pnpm gates"
+    ],
+    "status": "configured",
+    "routes": [
+      "app/api/auth/send-email/route.ts"
+    ],
+    "tests": {
+      "unit": true,
+      "contract": true,
+      "e2e": false,
+      "eval": false,
+      "recommended": [
+        "Record dashboard evidence after a successful resend run."
+      ]
+    }
+  },
+  {
+    "id": "stripe",
+    "label": "Stripe payments",
+    "kind": "payments",
+    "default": false,
+    "envVars": [
+      "STRIPE_SECRET_KEY",
+      "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+    ],
+    "docsUrl": "https://docs.stripe.com",
+    "docsRegistryIds": [
+      "docs-apis-app-api-stripe-checkout-route-md",
+      "docs-apis-app-api-stripe-webhook-route-md"
+    ],
+    "triggerPaths": [
+      "app/api/**/route.ts",
+      "lib/payments/**",
+      "lib/integrations/stripe.ts"
+    ],
+    "cost": {
+      "tracked": false,
+      "source": "provider-dashboard",
+      "unit": "payment event",
+      "estimatedUnitCostUsd": null,
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Payments need separate revenue/fee reporting; starter cost telemetry only tracks operational events."
+      ]
+    },
+    "failureModes": [
+      "webhook signature mismatch",
+      "idempotency miss",
+      "declined payment",
+      "tax/price drift"
+    ],
+    "exampleCommands": [
+      "pnpm test",
+      "pnpm gates"
+    ],
+    "status": "configured",
+    "routes": [
+      "app/api/stripe/checkout/route.ts",
+      "app/api/stripe/webhook/route.ts",
+      "app/api/webhooks/deliveries/route.ts",
+      "app/api/webhooks/route.ts"
+    ],
+    "tests": {
+      "unit": true,
+      "contract": true,
+      "e2e": false,
+      "eval": false,
+      "recommended": [
+        "Record dashboard evidence after a successful stripe run."
+      ]
+    }
+  },
+  {
+    "id": "supabase",
+    "label": "Supabase",
+    "kind": "database",
+    "default": true,
+    "envVars": [
+      "NEXT_PUBLIC_SUPABASE_URL",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "SUPABASE_SERVICE_ROLE_KEY"
+    ],
+    "docsUrl": "https://supabase.com/docs",
+    "docsRegistryIds": [
+      "docs-apis-app-api-auth-api-key-route-md",
+      "docs-apis-app-api-auth-send-email-route-md",
+      "docs-apis-app-api-oauth-authorize-route-md",
+      "docs-apis-app-api-oauth-callback-route-md",
+      "docs-apis-app-api-oauth-consent-route-md"
+    ],
+    "triggerPaths": [
+      "lib/supabase/**",
+      "app/api/**/route.ts",
+      "supabase/**"
+    ],
+    "cost": {
+      "tracked": false,
+      "source": "provider-dashboard",
+      "unit": "project usage",
+      "estimatedUnitCostUsd": null,
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Provider spend is not available from local files unless a project-specific usage adapter is added."
+      ]
+    },
+    "failureModes": [
+      "RLS denial",
+      "expired JWT",
+      "schema drift",
+      "connection limit",
+      "missing anon/service key"
+    ],
+    "exampleCommands": [
+      "pnpm test",
+      "pnpm gates"
+    ],
+    "status": "configured",
+    "routes": [
+      "app/api/auth/api-key/route.ts",
+      "app/api/auth/send-email/route.ts",
+      "app/api/oauth/authorize/route.ts",
+      "app/api/oauth/callback/route.ts",
+      "app/api/oauth/consent/route.ts",
+      "app/api/oauth/revoke/route.ts",
+      "app/api/oauth/token/route.ts"
+    ],
+    "tests": {
+      "unit": true,
+      "contract": true,
+      "e2e": true,
+      "eval": false,
+      "recommended": [
+        "Record dashboard evidence after a successful supabase run."
+      ]
+    }
+  },
+  {
+    "id": "vercel-ai-gateway",
+    "label": "Vercel AI Gateway",
+    "kind": "ai-provider",
+    "default": true,
+    "envVars": [
+      "AI_GATEWAY_API_KEY"
+    ],
+    "docsUrl": "https://vercel.com/ai-gateway",
+    "docsRegistryIds": [],
+    "triggerPaths": [
+      "app/api/**/route.ts",
+      "lib/ai/**",
+      "lib/registry/**"
+    ],
+    "cost": {
+      "tracked": true,
+      "source": "ai-telemetry",
+      "unit": "model tokens",
+      "estimatedUnitCostUsd": null,
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Runtime calls are recorded by AI telemetry and summarized on /observability and /control-plane."
+      ]
+    },
+    "failureModes": [
+      "missing gateway key",
+      "provider unavailable",
+      "rate limit",
+      "model route changed",
+      "stream abort"
+    ],
+    "exampleCommands": [
+      "pnpm test:ai",
+      "pnpm browser:proof"
+    ],
+    "status": "configured",
+    "routes": [
+      "app/api/ai-logs/errors/route.ts",
+      "app/api/ai-logs/route.ts",
+      "app/api/ai-logs/stats/route.ts",
+      "app/api/auth/send-email/route.ts",
+      "app/api/chat/route.ts",
+      "app/api/models/route.ts"
+    ],
+    "tests": {
+      "unit": true,
+      "contract": true,
+      "e2e": true,
+      "eval": false,
+      "recommended": [
+        "Record dashboard evidence after a successful vercel-ai-gateway run."
+      ]
+    }
+  }
+]

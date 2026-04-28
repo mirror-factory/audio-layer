@@ -116,3 +116,111 @@ drop policy if exists "meetings_owner_delete" on meetings;
 create policy "meetings_owner_delete"
   on meetings for delete
   using (auth.uid() = user_id);
+
+-- -- Admin pricing configuration -------------------------------------------
+-- Versioned plan/provider/limit config. Admin API routes use the service-role
+-- key; no anon/auth policies are granted.
+
+create table if not exists pricing_config_versions (
+  id            text primary key,
+  name          text not null,
+  status        text not null default 'draft'
+                check (status in ('draft', 'active', 'archived')),
+  starts_at     timestamptz not null default now(),
+  activated_at  timestamptz,
+  config        jsonb not null,
+  notes         text,
+  created_at    timestamptz not null default now(),
+  updated_at    timestamptz not null default now()
+);
+
+create index if not exists pricing_config_versions_status_idx
+  on pricing_config_versions (status, created_at desc);
+
+drop trigger if exists pricing_config_versions_touch on pricing_config_versions;
+create trigger pricing_config_versions_touch
+before update on pricing_config_versions
+for each row execute function meetings_touch_updated_at();
+
+alter table pricing_config_versions enable row level security;
+
+-- -- MCP OAuth --------------------------------------------------------------
+-- OAuth codes are one-time, short-lived, and bound to PKCE. Refresh tokens are
+-- stored only as hashes.
+
+create table if not exists oauth_codes (
+  code                  uuid primary key,
+  user_id               uuid not null references auth.users(id) on delete cascade,
+  client_id             text,
+  redirect_uri          text not null,
+  code_challenge        text not null,
+  code_challenge_method text not null default 'S256',
+  scope                 text not null default 'mcp:tools',
+  expires_at            timestamptz not null,
+  created_at            timestamptz not null default now()
+);
+
+create index if not exists oauth_codes_expires_at_idx
+  on oauth_codes(expires_at);
+
+create table if not exists oauth_refresh_tokens (
+  token_hash text primary key,
+  user_id    uuid not null references auth.users(id) on delete cascade,
+  client_id  text,
+  scope      text not null default 'mcp:tools',
+  expires_at timestamptz not null,
+  revoked_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists oauth_refresh_tokens_user_id_idx
+  on oauth_refresh_tokens(user_id);
+
+create index if not exists oauth_refresh_tokens_expires_at_idx
+  on oauth_refresh_tokens(expires_at);
+
+alter table oauth_codes enable row level security;
+alter table oauth_refresh_tokens enable row level security;
+
+-- -- Calendar connections ---------------------------------------------------
+-- Lets the app surface upcoming meetings on the recording home screen.
+-- Token encryption/exchange is handled server-side by the application.
+
+create table if not exists calendar_connections (
+  id                     uuid primary key default gen_random_uuid(),
+  user_id                uuid not null references auth.users(id) on delete cascade,
+  provider               text not null check (provider in ('google', 'outlook')),
+  provider_account_email text,
+  status                 text not null default 'connected'
+                         check (status in ('connected', 'expired', 'revoked')),
+  scopes                 text[] not null default '{}',
+  access_token_enc       text,
+  refresh_token_enc      text,
+  token_expires_at       timestamptz,
+  created_at             timestamptz not null default now(),
+  updated_at             timestamptz not null default now(),
+  unique (user_id, provider)
+);
+
+create index if not exists calendar_connections_user_status_idx
+  on calendar_connections(user_id, status, updated_at desc);
+
+create unique index if not exists calendar_connections_user_provider_key
+  on calendar_connections(user_id, provider);
+
+drop trigger if exists calendar_connections_touch on calendar_connections;
+create trigger calendar_connections_touch
+before update on calendar_connections
+for each row execute function meetings_touch_updated_at();
+
+alter table calendar_connections enable row level security;
+
+drop policy if exists "calendar_connections_owner_select" on calendar_connections;
+create policy "calendar_connections_owner_select"
+  on calendar_connections for select
+  using (auth.uid() = user_id);
+
+drop policy if exists "calendar_connections_owner_delete" on calendar_connections;
+create policy "calendar_connections_owner_delete"
+  on calendar_connections for delete
+  using (auth.uid() = user_id);

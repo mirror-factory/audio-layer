@@ -1,0 +1,77 @@
+[
+  {
+    "id": "codex",
+    "label": "Codex",
+    "configPath": ".codex/config.toml",
+    "hooksPath": ".codex/hooks.json",
+    "proof": {
+      "command": "pnpm test:codex-runtime",
+      "evidenceDir": ".evidence/codex-runtime",
+      "reportPath": ".evidence/codex-runtime/report.json",
+      "lastPass": null
+    },
+    "capabilities": [
+      "AGENTS.md project instructions",
+      "Project .codex/config.toml",
+      "Project .codex/hooks.json",
+      "codex exec --json runtime proof",
+      "OpenAI Docs MCP"
+    ],
+    "docs": [
+      {
+        "title": "Codex hooks",
+        "url": "https://developers.openai.com/codex/hooks"
+      },
+      {
+        "title": "Codex AGENTS.md",
+        "url": "https://developers.openai.com/codex/guides/agents-md"
+      },
+      {
+        "title": "OpenAI Docs MCP",
+        "url": "https://developers.openai.com/learn/docs-mcp"
+      }
+    ],
+    "warnings": [],
+    "status": "configured",
+    "primary": true,
+    "trusted": true,
+    "hookCount": 8,
+    "hooksObserved": 1661,
+    "lastEventAt": "2026-04-28T17:25:27.300494Z"
+  },
+  {
+    "id": "claude-code",
+    "label": "Claude Code",
+    "configPath": ".claude/settings.json",
+    "hooksPath": ".claude/hooks",
+    "proof": {
+      "command": "pnpm test:claude-runtime",
+      "evidenceDir": ".evidence/claude-runtime",
+      "reportPath": ".evidence/claude-runtime/report.json",
+      "lastPass": null
+    },
+    "capabilities": [
+      "CLAUDE.md or AGENTS.md instructions",
+      "Project .claude/settings.json hooks",
+      "Claude hook event stream proof",
+      "Claude skills"
+    ],
+    "docs": [
+      {
+        "title": "Claude hook spec",
+        "url": "hooks/HOOKS-SPEC.md"
+      },
+      {
+        "title": "Runtime dogfood test",
+        "url": "RUNTIME_DOGFOOD_TEST.md"
+      }
+    ],
+    "warnings": [],
+    "status": "configured",
+    "primary": false,
+    "trusted": true,
+    "hookCount": 16,
+    "hooksObserved": 0,
+    "lastEventAt": null
+  }
+]

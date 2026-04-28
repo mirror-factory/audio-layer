@@ -6,7 +6,7 @@ export default defineConfig({
     environment: 'node',
     setupFiles: ['./tests/setup.ts'],
     include: ['tests/**/*.test.ts'],
-    exclude: ['tests/evals/**', 'tests/api/**', 'tests/unit/code-review.test.ts'],
+    exclude: ['tests/evals/**', 'tests/api/**', 'tests/e2e/**', 'tests/unit/code-review.test.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json-summary'],

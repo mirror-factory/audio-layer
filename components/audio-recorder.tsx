@@ -2,6 +2,10 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { Mic, Square } from "lucide-react";
+import {
+  microphoneUnsupportedMessage,
+  recordingStartErrorMessage,
+} from "@/lib/recording/microphone-errors";
 
 interface AudioRecorderProps {
   onRecordingComplete: (blob: Blob) => void;
@@ -24,6 +28,9 @@ export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
   const startRecording = useCallback(async () => {
     try {
       setError(null);
+      if (!navigator.mediaDevices?.getUserMedia) {
+        throw new Error(microphoneUnsupportedMessage());
+      }
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const mediaRecorder = new MediaRecorder(stream, {
         mimeType: MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
@@ -52,9 +59,7 @@ export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
         setDuration((d) => d + 1);
       }, 1000);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to access microphone",
-      );
+      setError(recordingStartErrorMessage(err));
     }
   }, [onRecordingComplete]);
 

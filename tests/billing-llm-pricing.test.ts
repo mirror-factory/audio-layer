@@ -4,7 +4,8 @@ import {
   pricingForModel,
   estimateLlmCost,
   formatUsd,
-  COST_PER_M_TOKENS,
+  LLM_PRICING_OPTIONS,
+  LLM_PRICING_VALIDATED_ON,
 } from "@/lib/billing/llm-pricing";
 
 describe("stripModelPrefix", () => {
@@ -27,6 +28,17 @@ describe("stripModelPrefix", () => {
 });
 
 describe("pricingForModel", () => {
+  it("keeps every pricing option sourced and validated", () => {
+    expect(LLM_PRICING_VALIDATED_ON).toBe("2026-04-26");
+
+    for (const option of LLM_PRICING_OPTIONS) {
+      expect(option.sourceUrl).toMatch(/^https:\/\//);
+      expect(option.validatedOn).toBe(LLM_PRICING_VALIDATED_ON);
+      expect(option.pricing.input).toBeGreaterThanOrEqual(0);
+      expect(option.pricing.output).toBeGreaterThanOrEqual(0);
+    }
+  });
+
   it("finds exact match for known model", () => {
     const pricing = pricingForModel("claude-sonnet-4-6");
     expect(pricing).toEqual({ input: 3.0, output: 15.0, cachedInput: 0.3 });
@@ -45,6 +57,14 @@ describe("pricingForModel", () => {
     const pricing = pricingForModel("gpt-4.1");
     expect(pricing).not.toBeNull();
     expect(pricing!.cachedInput).toBeUndefined();
+  });
+
+  it("uses current Gemini 2.5 Flash standard pricing", () => {
+    expect(pricingForModel("google/gemini-2.5-flash")).toEqual({
+      input: 0.3,
+      output: 2.5,
+      cachedInput: 0.03,
+    });
   });
 });
 

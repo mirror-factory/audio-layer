@@ -8,26 +8,35 @@
 export const tokens = {
   colors: {
     "brand": {
-      "accent": "#14b8a6"
+      "accent": "#14b8a6",
+      "accent-subtle": "#0d9488",
+      "accent-muted": "#134e4a",
+      "accent-light": "#2dd4bf"
     },
     "neutral": {
-      "50": "#fafafa\"    # high contrast text",
-      "100": "#f5f5f5\"    # titles, emphasis",
-      "200": "#e5e5e5\"    # headings",
-      "300": "#d4d4d4\"    # body text (primary)",
-      "400": "#a3a3a3\"    # body text (secondary)",
-      "500": "#737373\"    # muted text, labels",
-      "600": "#525252\"    # disabled text",
-      "700": "#404040\"    # secondary borders",
-      "800": "#262626\"    # borders, dividers",
-      "900": "#171717\"    # card backgrounds",
-      "950": "#0a0a0a\"    # page background"
+      "50": "#fafafa",
+      "100": "#f5f5f5",
+      "200": "#e5e5e5",
+      "300": "#d4d4d4",
+      "400": "#a3a3a3",
+      "500": "#737373",
+      "600": "#525252",
+      "700": "#404040",
+      "800": "#262626",
+      "900": "#171717",
+      "950": "#0a0a0a"
     },
     "semantic": {
       "success": "#22c55e",
       "error": "#ef4444",
       "warning": "#eab308",
       "info": "#3b82f6"
+    },
+    "light": {
+      "bg-primary": "#fafafa",
+      "bg-secondary": "#f5f5f5",
+      "text-primary": "#171717",
+      "text-secondary": "#525252"
     }
   },
   spacing: {
@@ -52,7 +61,8 @@ export const tokens = {
   },
   boxShadow: {
     "sm": "0 1px 2px 0 rgb(0 0 0 / 0.2)",
-    "md": "0 4px 6px -1px rgb(0 0 0 / 0.3)"
+    "md": "0 4px 6px -1px rgb(0 0 0 / 0.3)",
+    "glow-mint": "0 0 20px rgb(20 184 166 / 0.15)"
   },
   screens: {
     "mobile": "0px",

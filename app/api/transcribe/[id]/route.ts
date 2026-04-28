@@ -15,8 +15,20 @@ import { flushLangfuse } from "@/lib/langfuse-flush";
 import { embedMeeting } from "@/lib/embeddings/embed-meeting";
 import { EMBEDDING_MODEL } from "@/lib/embeddings/client";
 import { getCurrentUserId } from "@/lib/supabase/user";
+import { DEFAULTS } from "@/lib/settings-shared";
 import type { MeetingCostBreakdown, LlmCallRecord } from "@/lib/billing/types";
 import type { TranscribeUtterance } from "@/lib/assemblyai/types";
+
+function isProviderNotFound(error: unknown): boolean {
+  const status = typeof error === "object" && error !== null && "status" in error
+    ? Number((error as { status?: unknown }).status)
+    : null;
+  const statusCode = typeof error === "object" && error !== null && "statusCode" in error
+    ? Number((error as { statusCode?: unknown }).statusCode)
+    : null;
+  const message = error instanceof Error ? error.message : String(error);
+  return status === 404 || statusCode === 404 || /not found/i.test(message);
+}
 
 export const GET = withRoute(async (req, ctx) => {
   const id = ctx.params?.id as string;
@@ -53,7 +65,19 @@ export const GET = withRoute(async (req, ctx) => {
   const transcript = await withExternalCall(
     { vendor: "assemblyai", operation: "transcripts.get", requestId: ctx.requestId },
     () => client.transcripts.get(id),
-  );
+  ).catch((error: unknown) => {
+    if (isProviderNotFound(error)) {
+      return null;
+    }
+    throw error;
+  });
+
+  if (!transcript) {
+    return NextResponse.json(
+      { error: "Transcript not found" },
+      { status: 404 },
+    );
+  }
 
   // Not completed yet
   if (transcript.status !== "completed") {
@@ -104,7 +128,7 @@ export const GET = withRoute(async (req, ctx) => {
   // Build cost breakdown
   const sttCost = estimateBatchMeetingCost(
     durationSeconds,
-    transcript.speech_model ?? "universal-3-pro",
+    transcript.speech_model ?? DEFAULTS.batchSpeechModel,
   );
 
   const llmCalls: LlmCallRecord[] = [];

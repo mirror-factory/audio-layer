@@ -86,9 +86,9 @@ const fmt = {
 // ── Styles (inline object, no external CSS) ───────────────────────────
 
 const S = {
-  root: { minHeight: '100vh', background: '#0a0a0a', color: '#e5e5e5', fontFamily: "'SF Mono', 'Fira Code', ui-monospace, monospace", fontSize: 13 } as const,
-  header: { padding: '12px 24px', borderBottom: '1px solid #1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'space-between' } as const,
-  tabs: { display: 'flex', gap: 0, borderBottom: '1px solid #1a1a1a' } as const,
+  root: { minHeight: '100vh', maxWidth: '100vw', overflowX: 'hidden' as const, background: '#0a0a0a', color: '#e5e5e5', fontFamily: "'SF Mono', 'Fira Code', ui-monospace, monospace", fontSize: 13 } as const,
+  header: { padding: '12px clamp(12px, 4vw, 24px)', borderBottom: '1px solid #1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: 8 } as const,
+  tabs: { display: 'flex', gap: 0, borderBottom: '1px solid #1a1a1a', overflowX: 'auto' as const, maxWidth: '100vw' } as const,
   tab: (active: boolean) => ({ padding: '10px 20px', cursor: 'pointer', fontSize: 11, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.05em', background: active ? '#111' : 'transparent', color: active ? '#5eead4' : '#6b7280', borderBottom: active ? '2px solid #5eead4' : '2px solid transparent' }),
   card: { background: '#111', border: '1px solid #1a1a1a', borderRadius: 8, padding: '12px 16px' } as const,
   statVal: (color: string) => ({ fontSize: 20, fontWeight: 700, color, marginTop: 4 }),
@@ -156,14 +156,14 @@ export default function AIObservabilityPage() {
     <div style={S.root}>
       {/* Header */}
       <header style={S.header}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
           <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#5eead4' }} />
           <h1 style={{ fontSize: 16, fontWeight: 700, color: '#5eead4' }}>AI Observability</h1>
           {stats && <span style={{ fontSize: 10, color: '#4b5563', marginLeft: 8 }}>
             backend: {stats.backend}
           </span>}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 11 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 11, flexWrap: 'wrap' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: 4, color: '#6b7280', cursor: 'pointer' }}>
             <input type="checkbox" checked={autoRefresh} onChange={e => setAutoRefresh(e.target.checked)} style={{ accentColor: '#5eead4' }} />
             Auto-refresh
@@ -176,7 +176,7 @@ export default function AIObservabilityPage() {
 
       {/* Stats Row */}
       {stats && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: 10, padding: '12px 24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(130px, 100%), 1fr))', gap: 10, padding: '12px clamp(12px, 4vw, 24px)' }}>
           {[
             { l: 'Calls', v: stats.totalCalls.toLocaleString(), c: '#5eead4' },
             { l: 'Cost', v: fmt.cost(stats.totalCost), c: '#f59e0b' },
@@ -206,7 +206,7 @@ export default function AIObservabilityPage() {
 
       {/* Filters (shown on calls + errors tabs) */}
       {(tab === 'calls' || tab === 'errors') && (
-        <div style={{ padding: '8px 24px', display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', borderBottom: '1px solid #111' }}>
+        <div style={{ padding: '8px clamp(12px, 4vw, 24px)', display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', borderBottom: '1px solid #111' }}>
           <span style={{ fontSize: 10, color: '#4b5563' }}>FILTER:</span>
           {uniqueUsers.length > 1 && (
             <select value={filters.userId} onChange={e => setFilters(f => ({ ...f, userId: e.target.value }))} style={{ background: '#111', border: '1px solid #333', borderRadius: 4, color: '#e5e5e5', padding: '3px 6px', fontSize: 11 }}>
@@ -234,7 +234,7 @@ export default function AIObservabilityPage() {
       )}
 
       {/* Tab Content */}
-      <div style={{ overflow: 'auto', flex: 1 }}>
+      <div style={{ overflowX: 'auto', overflowY: 'auto', flex: 1, width: '100%', maxWidth: '100vw' }}>
         {loading && <div style={{ padding: 40, textAlign: 'center', color: '#4b5563' }}>Loading...</div>}
 
         {/* ─── AI Calls Tab ──────────────────────────────────────── */}
@@ -322,7 +322,7 @@ export default function AIObservabilityPage() {
 
         {/* ─── Charts Tab (CSS bar charts — zero dependencies) ─── */}
         {!loading && tab === 'charts' && stats && (
-          <div style={{ padding: 24, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+          <div style={{ padding: 'clamp(12px, 4vw, 24px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: 24 }}>
             {/* Cost by Day */}
             <div style={S.card}>
               <div style={{ ...S.statLabel, marginBottom: 12 }}>Cost / Day</div>
@@ -400,7 +400,7 @@ export default function AIObservabilityPage() {
             </div>
 
             {/* Errors by Day */}
-            <div style={{ ...S.card, gridColumn: 'span 2' }}>
+            <div style={{ ...S.card, gridColumn: '1 / -1' }}>
               <div style={{ ...S.statLabel, marginBottom: 12 }}>Errors / Day</div>
               {Object.entries(stats.errorsByDay).length === 0 && <div style={{ color: '#22c55e', fontSize: 11 }}>No errors</div>}
               {Object.entries(stats.errorsByDay).sort(([a], [b]) => a.localeCompare(b)).slice(-14).map(([day, count]) => {

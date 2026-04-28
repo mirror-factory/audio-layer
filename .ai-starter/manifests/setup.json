@@ -1,0 +1,59 @@
+{
+  "status": "configured",
+  "updatedAt": "2026-04-28T17:29:46.419Z",
+  "configPath": ".ai-starter/config.json",
+  "envExamplePath": ".env.example",
+  "localEnvPath": ".env.local",
+  "project": {
+    "name": "audio-layer",
+    "slug": "audio-layer",
+    "description": "AI product app managed by the AI Starter Kit.",
+    "appType": "nextjs-ai-app",
+    "productType": "unknown"
+  },
+  "ai": {
+    "provider": "vercel-ai-gateway",
+    "defaultModel": "anthropic/claude-sonnet-4.6",
+    "testModel": "google/gemini-3.1-flash-lite",
+    "evalModel": "google/gemini-3.1-flash-lite"
+  },
+  "design": {
+    "brandSummary": "Project-specific design system defined during setup; preserve existing product visual language when present.",
+    "visualStyle": "project-specific",
+    "interactionStyle": "Clear task-first flows with visible feedback and recoverable states.",
+    "density": "medium",
+    "motionLevel": "subtle",
+    "brandColors": [],
+    "referenceSystems": [],
+    "accessibility": "WCAG AA contrast, keyboard reachability, visible focus, and reduced-motion support.",
+    "designInputSource": "defaults"
+  },
+  "requiredGroups": 1,
+  "satisfiedGroups": 1,
+  "missingGroups": [],
+  "configuredIntegrations": [
+    "vercel-ai-gateway"
+  ],
+  "enabledModules": [
+    "controlPlane",
+    "observability",
+    "research",
+    "designRegistry",
+    "browserProof",
+    "expect",
+    "supervisor",
+    "costTracking"
+  ],
+  "runtimes": {
+    "primary": "codex",
+    "enabled": {
+      "claude-code": true,
+      "codex": true
+    }
+  },
+  "policyProfile": "strict",
+  "setupCommand": "pnpm exec ai-starter-kit setup",
+  "notes": [
+    "Setup config and local env contract are satisfied."
+  ]
+}

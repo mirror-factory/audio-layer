@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-28T02-10-38-964Z-live-recording-workspace-simplif",
+  "createdAt": "2026-04-28T02:10:38.964Z",
+  "updatedAt": "2026-04-28T02:10:38.964Z",
+  "title": "Live recording workspace simplification and tighter frame",
+  "prompt": "Live recording workspace simplification and tighter frame",
+  "classification": "feature",
+  "acceptanceCriteria": [
+    "The new behavior is described in a machine-readable plan.",
+    "The affected surface has verification assets and updated manifests.",
+    "Typecheck and required tests pass."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

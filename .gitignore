@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
 
 # next.js
 /.next/
@@ -40,12 +42,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .test-results/
+test-results/
+playwright-report/
+tests/e2e/visual-regression.spec.ts-snapshots/
+storybook-static/
 .schema-snapshots/
 coverage/
 .ai-logs/
 .evidence/
 .artifacts/
 .ai-dev-kit.doctor-ran
+.ai-dev-kit/pricing-config.json
 .env.local
 
 # mobile platforms (generated per-workstation via npx cap add)
@@ -54,3 +61,13 @@ coverage/
 
 # electron build output
 /dist-electron/
+.expect/
+.playwright-cli/
+output/
+.ai-starter/exports/
+.claude/worktrees/
+supabase/.temp/
+.ai-starter/runs/telemetry.jsonl
+.ai-dev-kit/state/
+.claude/hooks/state.json
+.codex/hooks/state.json

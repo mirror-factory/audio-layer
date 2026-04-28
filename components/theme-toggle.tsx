@@ -4,13 +4,19 @@ import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem("theme") as "dark" | "light" | null;
-    const initial = stored ?? "dark";
+    const designVersion = localStorage.getItem("theme-design-version");
+    const initial =
+      designVersion === "paper-calm-v1" && stored ? stored : "light";
+    if (designVersion !== "paper-calm-v1") {
+      localStorage.setItem("theme", initial);
+      localStorage.setItem("theme-design-version", "paper-calm-v1");
+    }
     setTheme(initial);
     document.documentElement.classList.remove("dark", "light");
     document.documentElement.classList.add(initial);
@@ -29,7 +35,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="flex items-center justify-center w-[44px] h-[44px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 rounded-full hover:bg-white/[0.05]"
+      className="theme-toggle flex items-center justify-center w-[44px] h-[44px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 rounded-full hover:bg-white/[0.05]"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
       {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}

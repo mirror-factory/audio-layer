@@ -75,21 +75,27 @@ function StreamedTurn({ turn, isNew }: { turn: Turn; isNew: boolean }) {
   const displayText = isNew ? streamed : turn.text;
 
   return (
-    <div className="flex gap-3 items-start group">
-      <span className="shrink-0 text-[10px] text-[var(--text-muted)]/60 tabular-nums pt-0.5 w-10 text-right opacity-0 group-hover:opacity-100 transition-opacity select-none">
-        {formatTimestamp(turn.start)}
-      </span>
-      <p className="text-sm text-[var(--text-primary)] leading-relaxed flex-1">
+    <article className="live-transcript-line group">
+      <div className="live-transcript-line-meta">
+        <span className="live-transcript-line-rule" aria-hidden="true" />
+        <span className="shrink-0 text-[10px] tabular-nums text-[var(--text-muted)]/70">
+          {formatTimestamp(turn.start)}
+        </span>
+      </div>
+      <p>
         {displayText}
         {isNew && streamed.length < turn.text.length && (
-          <span className="inline-block w-1 h-3.5 bg-[var(--text-muted)] ml-0.5 animate-pulse align-middle rounded-full opacity-40" />
+          <span className="ml-0.5 inline-block h-3.5 w-1 animate-pulse rounded-full bg-[var(--text-muted)] align-middle opacity-40" />
         )}
       </p>
-    </div>
+    </article>
   );
 }
 
-export function LiveTranscriptView({ turns, partial }: LiveTranscriptViewProps) {
+export function LiveTranscriptView({
+  turns,
+  partial,
+}: LiveTranscriptViewProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const prevTurnCountRef = useRef(0);
 
@@ -105,9 +111,18 @@ export function LiveTranscriptView({ turns, partial }: LiveTranscriptViewProps) 
   if (turns.length === 0 && !partial) {
     return (
       <div className="flex items-center justify-center py-8 gap-2">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6]/60 animate-pulse" style={{ animationDelay: "0ms" }} />
-        <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6]/60 animate-pulse" style={{ animationDelay: "300ms" }} />
-        <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6]/60 animate-pulse" style={{ animationDelay: "600ms" }} />
+        <span
+          className="w-1.5 h-1.5 rounded-full bg-[#14b8a6]/60 animate-pulse"
+          style={{ animationDelay: "0ms" }}
+        />
+        <span
+          className="w-1.5 h-1.5 rounded-full bg-[#14b8a6]/60 animate-pulse"
+          style={{ animationDelay: "300ms" }}
+        />
+        <span
+          className="w-1.5 h-1.5 rounded-full bg-[#14b8a6]/60 animate-pulse"
+          style={{ animationDelay: "600ms" }}
+        />
       </div>
     );
   }
@@ -119,13 +134,18 @@ export function LiveTranscriptView({ turns, partial }: LiveTranscriptViewProps) 
       ))}
 
       {partial && (
-        <div className="flex gap-3 items-start">
-          <span className="shrink-0 w-10" />
-          <p className="text-sm leading-relaxed flex-1">
-            <span className="text-[var(--text-muted)]">{partial}</span>
-            <span className="inline-block w-1 h-3.5 bg-[#14b8a6] ml-0.5 animate-pulse align-middle rounded-full" />
+        <article className="live-transcript-line is-current">
+          <div className="live-transcript-line-meta">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-[#14b8a6]" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-[#14b8a6]">
+              Live
+            </span>
+          </div>
+          <p>
+            <span>{partial}</span>
+            <span className="ml-0.5 inline-block h-3.5 w-1 animate-pulse rounded-full bg-[#14b8a6] align-middle" />
           </p>
-        </div>
+        </article>
       )}
 
       <div ref={bottomRef} />

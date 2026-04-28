@@ -48,20 +48,24 @@ export function MeetingSearch() {
 
   return (
     <div className="mb-6">
-      <div className="relative">
-        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+      <div className="signal-panel relative rounded-lg p-2">
+        <Search
+          size={16}
+          className="absolute left-5 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
+        />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && search()}
           placeholder="Search across all meetings..."
-          className="w-full bg-[var(--bg-card)] text-[var(--text-primary)] text-sm border border-[var(--border-card)] rounded-xl pl-10 pr-10 py-3 min-h-[44px] focus:border-[#14b8a6] focus:outline-none placeholder-[var(--text-muted)] transition-all"
+          className="signal-input min-h-[44px] w-full rounded-md py-3 pl-10 pr-10 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-all focus:outline-none"
         />
         {query && (
           <button
             onClick={clear}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+            className="absolute right-4 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-[var(--text-muted)] transition-colors hover:bg-[var(--bg-card-hover)] hover:text-[var(--text-primary)]"
+            aria-label="Clear meeting search"
           >
             <X size={16} />
           </button>
@@ -73,8 +77,14 @@ export function MeetingSearch() {
           {searching ? (
             <div className="flex items-center gap-2 py-4 justify-center">
               <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse" />
-              <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse" style={{ animationDelay: "200ms" }} />
-              <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse" style={{ animationDelay: "400ms" }} />
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
+                style={{ animationDelay: "200ms" }}
+              />
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
+                style={{ animationDelay: "400ms" }}
+              />
             </div>
           ) : results.length === 0 ? (
             <p className="text-sm text-[var(--text-muted)] text-center py-4">
@@ -85,7 +95,7 @@ export function MeetingSearch() {
               <Link
                 key={i}
                 href={`/meetings/${r.meetingId}`}
-                className="block bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] border border-[var(--border-card)] rounded-lg px-4 py-3 transition-colors"
+                className="signal-transcript-card block rounded-lg px-4 py-3 transition-colors hover:bg-[var(--bg-card-hover)]"
               >
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-xs font-medium text-[var(--text-primary)]">

@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-04-27T14:17:58.564Z",
+  "planId": "2026-04-27T13-51-52-125Z-polish-meeting-chat-resilience-w",
+  "score": 63,
+  "blockers": [
+    "Pending companion coverage for 110 surface(s)."
+  ],
+  "recommendations": [
+    "Refresh the active plan if scope changed.",
+    "Add Storybook stories for uncovered components.",
+    "Add integration or contract coverage for uncovered API routes.",
+    "Tool eval coverage looks healthy.",
+    "Evidence includes traces/videos.",
+    "Hook telemetry is being recorded.",
+    "Resolve pending companion tasks for app/api/admin/pricing/route.ts, app/api/admin/pricing/activate/route.ts, app/api/auth/api-key/route.ts, ...."
+  ],
+  "summary": {
+    "components": {
+      "total": 25,
+      "withUnit": 4,
+      "withStory": 1,
+      "withVisual": 25
+    },
+    "routes": {
+      "total": 47,
+      "withVisual": 22
+    },
+    "apis": {
+      "total": 62,
+      "withUnit": 24,
+      "withEval": 0
+    },
+    "tools": {
+      "total": 0,
+      "withUnit": 0,
+      "withEval": 0
+    },
+    "browserProof": {
+      "expectFlows": 4,
+      "replays": 5,
+      "screenshots": 1
+    },
+    "evidence": {
+      "total": 229,
+      "screenshots": 1,
+      "videos": 156,
+      "traces": 0,
+      "reports": 11
+    },
+    "companions": {
+      "total": 134,
+      "pending": 110,
+      "satisfied": 24
+    },
+    "hooks": {
+      "registered": 24,
+      "observed": 97,
+      "blocked": 0
+    }
+  }
+}

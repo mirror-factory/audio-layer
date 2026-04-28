@@ -1,7 +1,31 @@
 kind: api-routes
 schema_version: 1
-last_synced_on: 2026-04-21T04:59:04.926Z
+last_synced_on: 2026-04-27T04:28:38.570Z
 entries:
+  - id: POST /api/admin/pricing/activate
+    route: /api/admin/pricing/activate
+    method: POST
+    path: app/api/admin/pricing/activate/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: GET /api/admin/pricing
+    route: /api/admin/pricing
+    method: GET
+    path: app/api/admin/pricing/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: PUT /api/admin/pricing
+    route: /api/admin/pricing
+    method: PUT
+    path: app/api/admin/pricing/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: GET /api/ai-logs/errors
     route: /api/ai-logs/errors
     method: GET
@@ -26,6 +50,30 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/auth/api-key
+    route: /api/auth/api-key
+    method: GET
+    path: app/api/auth/api-key/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: POST /api/auth/api-key
+    route: /api/auth/api-key
+    method: POST
+    path: app/api/auth/api-key/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: DELETE /api/auth/api-key
+    route: /api/auth/api-key
+    method: DELETE
+    path: app/api/auth/api-key/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: POST /api/auth/send-email
     route: /api/auth/send-email
     method: POST
@@ -34,6 +82,38 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: "GET /api/calendar/callback/[provider]"
+    route: "/api/calendar/callback/[provider]"
+    method: GET
+    path: "app/api/calendar/callback/[provider]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T03:08:45.628Z"
+  - id: "GET /api/calendar/connect/[provider]"
+    route: "/api/calendar/connect/[provider]"
+    method: GET
+    path: "app/api/calendar/connect/[provider]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T03:08:45.628Z"
+  - id: "POST /api/calendar/disconnect/[provider]"
+    route: "/api/calendar/disconnect/[provider]"
+    method: POST
+    path: "app/api/calendar/disconnect/[provider]/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T03:08:45.628Z"
+  - id: GET /api/calendar/upcoming
+    route: /api/calendar/upcoming
+    method: GET
+    path: app/api/calendar/upcoming/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: POST /api/chat
     route: /api/chat
     method: POST
@@ -42,6 +122,30 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/control-plane/evidence-export
+    route: /api/control-plane/evidence-export
+    method: GET
+    path: app/api/control-plane/evidence-export/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: GET /api/control-plane
+    route: /api/control-plane
+    method: GET
+    path: app/api/control-plane/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: POST /api/control-plane
+    route: /api/control-plane
+    method: POST
+    path: app/api/control-plane/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: "POST /api/dev-kit/config/[name]"
     route: "/api/dev-kit/config/[name]"
     method: POST
@@ -218,6 +322,14 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/embeddings/backfill
+    route: /api/embeddings/backfill
+    method: POST
+    path: app/api/embeddings/backfill/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: GET /api/health
     route: /api/health
     method: GET
@@ -234,6 +346,14 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: "POST /api/meetings/[id]/notes-package"
+    route: "/api/meetings/[id]/notes-package"
+    method: POST
+    path: "app/api/meetings/[id]/notes-package/route.ts"
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T04:20:48.848Z"
   - id: "GET /api/meetings/[id]"
     route: "/api/meetings/[id]"
     method: GET
@@ -258,6 +378,46 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/oauth/authorize
+    route: /api/oauth/authorize
+    method: GET
+    path: app/api/oauth/authorize/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: GET /api/oauth/callback
+    route: /api/oauth/callback
+    method: GET
+    path: app/api/oauth/callback/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: POST /api/oauth/consent
+    route: /api/oauth/consent
+    method: POST
+    path: app/api/oauth/consent/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: POST /api/oauth/revoke
+    route: /api/oauth/revoke
+    method: POST
+    path: app/api/oauth/revoke/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: POST /api/oauth/token
+    route: /api/oauth/token
+    method: POST
+    path: app/api/oauth/token/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: GET /api/observability/health
     route: /api/observability/health
     method: GET
@@ -266,6 +426,14 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: POST /api/search
+    route: /api/search
+    method: POST
+    path: app/api/search/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: GET /api/settings
     route: /api/settings
     method: GET
@@ -330,6 +498,14 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/transcribe/stream/preflight
+    route: /api/transcribe/stream/preflight
+    method: GET
+    path: app/api/transcribe/stream/preflight/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: POST /api/transcribe/stream/token
     route: /api/transcribe/stream/token
     method: POST
@@ -338,6 +514,38 @@ entries:
     auth: public
     description: null
     created_on: "2026-04-21T04:59:04.926Z"
+  - id: GET /api/webhooks/deliveries
+    route: /api/webhooks/deliveries
+    method: GET
+    path: app/api/webhooks/deliveries/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T04:28:38.570Z"
+  - id: GET /api/webhooks
+    route: /api/webhooks
+    method: GET
+    path: app/api/webhooks/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: POST /api/webhooks
+    route: /api/webhooks
+    method: POST
+    path: app/api/webhooks/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
+  - id: DELETE /api/webhooks
+    route: /api/webhooks
+    method: DELETE
+    path: app/api/webhooks/route.ts
+    owner: null
+    auth: public
+    description: null
+    created_on: "2026-04-27T02:51:32.338Z"
   - id: GET /auth/callback
     route: /auth/callback
     method: GET

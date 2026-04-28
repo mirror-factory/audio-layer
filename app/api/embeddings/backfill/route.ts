@@ -13,6 +13,24 @@ import { embedMeeting } from "@/lib/embeddings/embed-meeting";
  * Requires service-role access. Run once to backfill existing meetings.
  */
 export const POST = withRoute(async (_req, ctx) => {
+  const backfillSecret = process.env.EMBEDDINGS_BACKFILL_SECRET;
+  if (!backfillSecret) {
+    return NextResponse.json(
+      { error: "Embeddings backfill is not configured" },
+      { status: 503 },
+    );
+  }
+
+  const authHeader = _req.headers.get("authorization");
+  const bearer = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const token = bearer ?? _req.headers.get("x-backfill-token");
+  if (token !== backfillSecret) {
+    return NextResponse.json(
+      { error: "Backfill token required" },
+      { status: 401 },
+    );
+  }
+
   const supabase = getSupabaseServer();
   if (!supabase) {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });

@@ -1,13 +1,26 @@
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-import { protectedResourceHandler } from "mcp-handler";
+import { NextResponse } from "next/server";
 
-const BASE_URL = "https://audio-layer.vercel.app";
+export function GET(req: Request) {
+  const origin = new URL(req.url).origin;
 
-const handler = protectedResourceHandler({
-  authServerUrls: [BASE_URL],
-  resourceUrl: `${BASE_URL}/api/mcp/mcp`,
-});
-
-export { handler as GET };
+  return NextResponse.json(
+    {
+      resource: `${origin}/api/mcp/mcp`,
+      authorization_servers: [origin],
+      bearer_methods_supported: ["header"],
+      scopes_supported: ["mcp:tools"],
+    },
+    {
+      headers: {
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "86400",
+        "Cache-Control": "max-age=3600",
+      },
+    },
+  );
+}

@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-28T01-36-38-920Z-home-recent-recordings-cleanup-e",
+  "createdAt": "2026-04-28T01:36:38.921Z",
+  "updatedAt": "2026-04-28T01:36:38.921Z",
+  "title": "Home recent recordings cleanup, empty meeting deletion, and palette/frame polish",
+  "prompt": "Home recent recordings cleanup, empty meeting deletion, and palette/frame polish",
+  "classification": "refactor",
+  "acceptanceCriteria": [
+    "Behavior stays unchanged from the user perspective unless explicitly intended.",
+    "Affected surfaces have updated tests or evidence.",
+    "Generated manifests remain in sync."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

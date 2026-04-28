@@ -31,10 +31,10 @@ describe("getBatchSpeechModels", () => {
     expect(result).toEqual(["nano"]);
   });
 
-  it("defaults to universal-3-pro when no override or env", () => {
+  it("defaults to universal-2 when no override or env", () => {
     delete process.env.ASSEMBLYAI_BATCH_MODEL;
     const result = getBatchSpeechModels();
-    expect(result).toEqual(["universal-3-pro"]);
+    expect(result).toEqual(["universal-2"]);
   });
 
   it("reads from ASSEMBLYAI_BATCH_MODEL env when no override", () => {

@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-26T22:08:40.099Z",
+  "editableFromDashboard": false,
+  "contract": {
+    "brandSummary": "Project-specific design system defined during setup; preserve existing product visual language when present.",
+    "visualStyle": "project-specific",
+    "interactionStyle": "Clear task-first flows with visible feedback and recoverable states.",
+    "density": "medium",
+    "motionLevel": "subtle",
+    "brandColors": [],
+    "referenceSystems": [],
+    "accessibility": "WCAG AA contrast, keyboard reachability, visible focus, and reduced-motion support.",
+    "designInputSource": "defaults",
+    "driftPolicy": "warn"
+  },
+  "tokens": {
+    "colors": {
+      "paper": "oklch(0.08 0.006 260)",
+      "panel": "oklch(0.12 0.006 260)",
+      "panelRaised": "oklch(0.16 0.006 260)",
+      "ink": "oklch(0.97 0.004 260)",
+      "muted": "oklch(0.72 0.006 260)",
+      "line": "oklch(0.82 0.006 260 / 0.28)",
+      "success": "oklch(0.86 0.02 145)",
+      "warning": "oklch(0.84 0.03 88)",
+      "danger": "oklch(0.78 0.04 25)"
+    },
+    "spacing": {
+      "pixel": "4px",
+      "compact": "8px",
+      "field": "12px",
+      "panel": "16px",
+      "section": "32px",
+      "stage": "64px"
+    },
+    "radii": {
+      "none": "0",
+      "chip": "2px",
+      "panel": "4px"
+    },
+    "motion": {
+      "tick": "120ms steps(4, end)",
+      "scan": "420ms steps(8, end)",
+      "reveal": "680ms steps(10, end)"
+    }
+  },
+  "assets": [
+    {
+      "id": "design-md",
+      "label": "Design contract",
+      "path": "DESIGN.md",
+      "usage": "Human and agent-readable design intent that explains the runtime design registry."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "2026-04-28T12-16-50-896Z-polish-home-wave-empty-states-ca",
+  "createdAt": "2026-04-28T12:16:50.896Z",
+  "updatedAt": "2026-04-28T12:16:50.896Z",
+  "title": "Polish home wave, empty states, calendar motion, and capture card",
+  "prompt": "Polish home wave, empty states, calendar motion, and capture card",
+  "classification": "polish",
+  "acceptanceCriteria": [
+    "The target surface has before/after evidence.",
+    "The updated surface improves the declared scorecard dimension.",
+    "No regressions are introduced in required checks."
+  ],
+  "requiredEvidence": [
+    "screenshot",
+    "scorecard",
+    "playwright"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

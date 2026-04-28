@@ -132,6 +132,19 @@ export class SupabaseMeetingsStore implements MeetingsStore {
     return rowToMeeting(data as SupabaseRow);
   }
 
+  async delete(id: string): Promise<boolean> {
+    const supabase = await getSupabaseUser();
+    if (!supabase) return false;
+
+    const { error } = await supabase.from("meetings").delete().eq("id", id);
+
+    if (error) {
+      console.warn(`[meetings] Delete failed for ${id}:`, error.message);
+      return false;
+    }
+    return true;
+  }
+
   async list(limit: number): Promise<MeetingListItem[]> {
     const supabase = await getSupabaseUser();
     if (!supabase) return [];

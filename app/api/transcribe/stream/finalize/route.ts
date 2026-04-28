@@ -16,11 +16,24 @@ import { embedMeeting } from "@/lib/embeddings/embed-meeting";
 import { EMBEDDING_MODEL } from "@/lib/embeddings/client";
 import { getCurrentUserId } from "@/lib/supabase/user";
 import { fireWebhooks } from "@/lib/webhooks/fire";
+import { cleanRecordingTitle } from "@/lib/recording/meeting-context";
+import type { RecordingVoiceDirective } from "@/lib/recording/voice-commands";
+import { buildNotesPushPackage } from "@/lib/notes-push";
 import type { MeetingCostBreakdown, LlmCallRecord } from "@/lib/billing/types";
+
+const RecordingDirectiveSchema = z.object({
+  type: z.enum(["mark_action", "note_instruction"]),
+  instruction: z.string().max(500),
+  targetText: z.string().max(1000).nullable(),
+  atSeconds: z.number().nullable(),
+});
 
 const FinalizeBodySchema = z.object({
   meetingId: z.string().min(1),
+  meetingTitle: z.string().max(200).optional(),
+  calendarEventId: z.string().max(300).optional(),
   text: z.string().default(""),
+  recordingDirectives: z.array(RecordingDirectiveSchema).default([]),
   utterances: z
     .array(
       z.object({
@@ -36,6 +49,7 @@ const FinalizeBodySchema = z.object({
 });
 
 export const POST = withRoute(async (req, ctx) => {
+  void ctx;
   // Validate body
   let body: z.infer<typeof FinalizeBodySchema>;
   try {
@@ -50,6 +64,9 @@ export const POST = withRoute(async (req, ctx) => {
   }
 
   const { meetingId, text, utterances, durationSeconds } = body;
+  const recordingDirectives =
+    body.recordingDirectives as RecordingVoiceDirective[];
+  const preferredTitle = cleanRecordingTitle(body.meetingTitle);
 
   // Run summary + intake in parallel
   const [summaryResult, intakeResult] = await Promise.allSettled([
@@ -57,11 +74,13 @@ export const POST = withRoute(async (req, ctx) => {
       transcriptId: meetingId,
       utterances,
       fullText: text,
+      recordingDirectives,
     }),
     extractIntakeForm({
       transcriptId: meetingId,
       utterances,
       fullText: text,
+      recordingDirectives,
     }),
   ]);
 
@@ -117,9 +136,9 @@ export const POST = withRoute(async (req, ctx) => {
 
   // Upsert meeting
   const store = await getMeetingsStore();
-  const meeting = await store.update(meetingId, {
+  const completedMeeting = await store.update(meetingId, {
     status: "completed",
-    title: summary?.summary.title ?? null,
+    title: preferredTitle ?? summary?.summary.title ?? null,
     text,
     utterances,
     durationSeconds: durationSeconds ?? null,
@@ -133,14 +152,24 @@ export const POST = withRoute(async (req, ctx) => {
     try {
       const userId = await getCurrentUserId();
       if (userId) {
+        const notesPackage = completedMeeting
+          ? buildNotesPushPackage(completedMeeting, {
+              destination: "webhook",
+              trigger: "meeting_completed",
+              include_transcript: false,
+            })
+          : null;
+
         // Fire meeting.completed webhooks
         await fireWebhooks(userId, "meeting.completed", meetingId, {
-          title: summary?.summary.title ?? null,
+          title: preferredTitle ?? summary?.summary.title ?? null,
+          calendarEventId: body.calendarEventId ?? null,
           durationSeconds: durationSeconds ?? null,
           turnCount: utterances.length,
           hasSummary: !!summary && !summary.skipped,
           hasIntake: !!intake && !intake.skipped,
           costUsd: costBreakdown.totalCostUsd,
+          notesPackage,
         }).catch(() => {});
         const embedResult = await embedMeeting(meetingId, userId);
         if (embedResult.chunksEmbedded > 0) {

@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-28T03-59-46-790Z-add-home-intro-animations-and-re",
+  "createdAt": "2026-04-28T03:59:46.790Z",
+  "updatedAt": "2026-04-28T03:59:46.790Z",
+  "title": "Add home intro animations and refine date label",
+  "prompt": "Add home intro animations and refine date label",
+  "classification": "feature",
+  "acceptanceCriteria": [
+    "The new behavior is described in a machine-readable plan.",
+    "The affected surface has verification assets and updated manifests.",
+    "Typecheck and required tests pass."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

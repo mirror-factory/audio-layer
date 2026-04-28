@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 7
     },
     "preserveOutput": "always",
     "projects": [
@@ -20,7 +20,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 7
         },
         "id": "mobile-light",
         "name": "mobile-light",
@@ -36,7 +36,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 7
         },
         "id": "mobile-dark",
         "name": "mobile-dark",
@@ -52,7 +52,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 7
         },
         "id": "tablet-light",
         "name": "tablet-light",
@@ -68,7 +68,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 7
         },
         "id": "tablet-dark",
         "name": "tablet-dark",
@@ -84,7 +84,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 7
         },
         "id": "desktop-light",
         "name": "desktop-light",
@@ -100,7 +100,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 7
         },
         "id": "desktop-dark",
         "name": "desktop-dark",
@@ -134,617 +134,3149 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.59.1",
-    "workers": 1,
-    "webServer": null
+    "workers": 7,
+    "webServer": {
+      "command": "pnpm dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
   },
   "suites": [
     {
-      "title": "mobile-polish.spec.ts",
-      "file": "mobile-polish.spec.ts",
+      "title": "smoke.spec.ts",
+      "file": "smoke.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Sign-in page",
-          "file": "mobile-polish.spec.ts",
-          "line": 14,
-          "column": 6,
-          "specs": [
+          "title": "Home (/) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "renders Google OAuth button",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
                 {
-                  "timeout": 30000,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1727,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:18.196Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-light",
-                  "projectName": "mobile-light",
-                  "results": [
+                  "attachments": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3311,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:38.653Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-in-page-renders-Google-OAuth-button-mobile-light/video.webm"
-                        }
-                      ]
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Home-loads-with-200-and-renders-mobile-light/video.webm"
                     }
-                  ],
-                  "status": "expected"
+                  ]
                 }
               ],
-              "id": "4e1ce1ef0109f0bc710d-d875e894a344768d28e1",
-              "file": "mobile-polish.spec.ts",
-              "line": 15,
-              "column": 7
-            },
-            {
-              "title": "renders email + password form",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-light",
-                  "projectName": "mobile-light",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 446,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:42.514Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-in-page-renders-email-password-form-mobile-light/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-16a34e4e32be87cf8384",
-              "file": "mobile-polish.spec.ts",
-              "line": 21,
-              "column": 7
-            },
-            {
-              "title": "has or divider between Google and email",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-light",
-                  "projectName": "mobile-light",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 474,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:42.964Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-in-page-0c924-er-between-Google-and-email-mobile-light/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-502a4f809f7fe5521ced",
-              "file": "mobile-polish.spec.ts",
-              "line": 27,
-              "column": 7
-            },
-            {
-              "title": "renders Google OAuth button",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-dark",
-                  "projectName": "mobile-dark",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 632,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:46.846Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-in-page-renders-Google-OAuth-button-mobile-dark/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-c435f407cd31964b1dc6",
-              "file": "mobile-polish.spec.ts",
-              "line": 15,
-              "column": 7
-            },
-            {
-              "title": "renders email + password form",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-dark",
-                  "projectName": "mobile-dark",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 460,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:47.630Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-in-page-renders-email-password-form-mobile-dark/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-6659ec5ad8c40a659401",
-              "file": "mobile-polish.spec.ts",
-              "line": 21,
-              "column": 7
-            },
-            {
-              "title": "has or divider between Google and email",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-dark",
-                  "projectName": "mobile-dark",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 413,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:48.095Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-in-page-0c924-er-between-Google-and-email-mobile-dark/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-3854058dba5e985e6c59",
-              "file": "mobile-polish.spec.ts",
-              "line": 27,
-              "column": 7
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "4219922fea2e2bd3c691-1396ae0afffc5efd3d0b",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
         },
         {
-          "title": "Sign-up page",
-          "file": "mobile-polish.spec.ts",
-          "line": 35,
-          "column": 6,
-          "specs": [
+          "title": "Record (/record) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "renders Google OAuth button",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
                 {
-                  "timeout": 30000,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2177,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:18.193Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-light",
-                  "projectName": "mobile-light",
-                  "results": [
+                  "attachments": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 629,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:43.444Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-up-page-renders-Google-OAuth-button-mobile-light/video.webm"
-                        }
-                      ]
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Record-record-loads-with-200-and-renders-mobile-light/video.webm"
                     }
-                  ],
-                  "status": "expected"
+                  ]
                 }
               ],
-              "id": "4e1ce1ef0109f0bc710d-206c2c429349fc517147",
-              "file": "mobile-polish.spec.ts",
-              "line": 36,
-              "column": 7
-            },
-            {
-              "title": "renders Google OAuth button",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-dark",
-                  "projectName": "mobile-dark",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 414,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:48.512Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Sign-up-page-renders-Google-OAuth-button-mobile-dark/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-2aaa76e7f46fdf2b2dc7",
-              "file": "mobile-polish.spec.ts",
-              "line": 36,
-              "column": 7
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "4219922fea2e2bd3c691-8b234a9ba0d724154e73",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
         },
         {
-          "title": "CSS utilities exist",
-          "file": "mobile-polish.spec.ts",
-          "line": 43,
-          "column": 6,
-          "specs": [
+          "title": "Live Recording (/record/live) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "transcript-grid class applies grid background",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
                 {
-                  "timeout": 30000,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2329,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:18.193Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-light",
-                  "projectName": "mobile-light",
-                  "results": [
+                  "attachments": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1022,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:44.077Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-CSS-utilitie-9bd1e-ass-applies-grid-background-mobile-light/video.webm"
-                        }
-                      ]
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-mobile-light/video.webm"
                     }
-                  ],
-                  "status": "expected"
+                  ]
                 }
               ],
-              "id": "4e1ce1ef0109f0bc710d-9db1a513941c26773a26",
-              "file": "mobile-polish.spec.ts",
-              "line": 44,
-              "column": 7
-            },
-            {
-              "title": "h-screen-safe and min-h-screen-safe classes exist",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-light",
-                  "projectName": "mobile-light",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 829,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:45.104Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-CSS-utilitie-7337a-h-screen-safe-classes-exist-mobile-light/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-228a8ff7e59772cd21ce",
-              "file": "mobile-polish.spec.ts",
-              "line": 61,
-              "column": 7
-            },
-            {
-              "title": "transcript-grid class applies grid background",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-dark",
-                  "projectName": "mobile-dark",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 520,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:48.930Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-CSS-utilitie-9bd1e-ass-applies-grid-background-mobile-dark/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-8071487881f9ea338109",
-              "file": "mobile-polish.spec.ts",
-              "line": 44,
-              "column": 7
-            },
-            {
-              "title": "h-screen-safe and min-h-screen-safe classes exist",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-dark",
-                  "projectName": "mobile-dark",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 516,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:49.455Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-CSS-utilitie-7337a-h-screen-safe-classes-exist-mobile-dark/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-43434274500162f36ab6",
-              "file": "mobile-polish.spec.ts",
-              "line": 61,
-              "column": 7
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "4219922fea2e2bd3c691-9c861fd1f6c850e876ce",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
         },
         {
-          "title": "Home page",
-          "file": "mobile-polish.spec.ts",
-          "line": 84,
-          "column": 6,
-          "specs": [
+          "title": "Meetings (/meetings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "renders without errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
                 {
-                  "timeout": 30000,
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 3058,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:18.193Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-light",
-                  "projectName": "mobile-light",
-                  "results": [
+                  "attachments": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 599,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:45.938Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Home-page-renders-without-errors-mobile-light/video.webm"
-                        }
-                      ]
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Meetings-meetings-loads-with-200-and-renders-mobile-light/video.webm"
                     }
-                  ],
-                  "status": "expected"
+                  ]
                 }
               ],
-              "id": "4e1ce1ef0109f0bc710d-c535fc2bad896c9c3805",
-              "file": "mobile-polish.spec.ts",
-              "line": 85,
-              "column": 7
-            },
-            {
-              "title": "renders without errors",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "mobile-dark",
-                  "projectName": "mobile-dark",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 516,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-23T03:12:49.976Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/mobile-polish-Home-page-renders-without-errors-mobile-dark/video.webm"
-                        }
-                      ]
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "4e1ce1ef0109f0bc710d-b2b9d5fcad6805f08bb4",
-              "file": "mobile-polish.spec.ts",
-              "line": 85,
-              "column": 7
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "4219922fea2e2bd3c691-45c659246cc5030b31db",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Chat (/chat) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 3175,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:18.193Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Chat-chat-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-d9ac513cffd62e25c0e7",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Settings (/settings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 2720,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:18.195Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Settings-settings-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-f39bebc96a4910b0784a",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Pricing (/pricing) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 2674,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:18.193Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Pricing-pricing-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-a4dea9eb1bf3679dbcc2",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Usage (/usage) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2554,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:20.530Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Usage-usage-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-8fda543978af79c5ff48",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Profile (/profile) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2659,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:20.987Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Profile-profile-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-fcb96ee88de23d00330f",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign In (/sign-in) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2474,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:21.132Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-391e4449d6804011a347",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign Up (/sign-up) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 2124,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:21.478Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-ea55d6be993cb71c9de1",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Docs (/docs) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 2163,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:21.538Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Docs-docs-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-c451d9a9798cf2751cf9",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Observability (/observability) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1656,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:21.864Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Observability-observability-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-8189832f3c8d8cfb9d5d",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Home (/) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1748,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:22.342Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Home-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-63d720688bb5d913243e",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Record (/record) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1093,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:23.733Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Record-record-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-b0e5cc0bdf428d6931b0",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Live Recording (/record/live) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:24.102Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-d5ba7f1a7cdb9f755de9",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Meetings (/meetings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1479,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:24.156Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Meetings-meetings-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-93fb7a3457aff81f2924",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Chat (/chat) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1428,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:24.160Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Chat-chat-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-81bdef0e7e6fb6f81741",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Settings (/settings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:24.153Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Settings-settings-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-caa91df816d30340269a",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Pricing (/pricing) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 1270,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:24.237Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Pricing-pricing-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-a93d41cfbb851b1c7c28",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Usage (/usage) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1544,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:24.295Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Usage-usage-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-0a6d86eee3422c6ccd6c",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Profile (/profile) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1330,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:25.072Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Profile-profile-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-ee5857faa4dfcbb67c18",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign In (/sign-in) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 961,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:25.401Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-876deb50893e717d8a00",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign Up (/sign-up) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:25.789Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-ffb2bbe58ef4470d591e",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Docs (/docs) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1034,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:25.814Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Docs-docs-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-a8cf5800a66bce9c230c",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Observability (/observability) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 955,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:25.851Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Observability-observability-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-4e0cf35ac9e4ec382054",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Home (/) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:26.359Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Home-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-90dfa239e9a5a575c8fe",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Record (/record) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1336,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:26.595Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Record-record-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-16873008e1dedfca9f11",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Live Recording (/record/live) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1345,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:26.989Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-ff7a2599ac7418cb40a8",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Meetings (/meetings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1325,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:26.947Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Meetings-meetings-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-879647328ca2a0777b7e",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Chat (/chat) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 1261,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:27.189Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Chat-chat-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-54bc3cccd16be3e95a3a",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Settings (/settings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1253,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:27.442Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Settings-settings-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-807b4c3540433aecad6d",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Pricing (/pricing) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1289,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:27.558Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Pricing-pricing-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-8bd23dcfe4656b686ce2",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Usage (/usage) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1192,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:27.964Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Usage-usage-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-0d4aa4d43c3d09637b39",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Profile (/profile) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 964,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:28.230Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Profile-profile-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-1699cc4f997c6e37844b",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign In (/sign-in) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 854,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:28.526Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-2c654480e15256057a30",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign Up (/sign-up) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 859,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:28.548Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-9a2af77fb73de500e21b",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Docs (/docs) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 975,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:28.811Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Docs-docs-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-11ee0d443919c033d8fa",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Observability (/observability) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 683,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:29.042Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Observability-observability-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-e6b41ddcacd188241270",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Home (/) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1406,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:29.574Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Home-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-2795e8269732fb06931f",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Record (/record) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1272,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:29.607Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Record-record-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-3f2a176e94e9ad68c4cf",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Live Recording (/record/live) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:29.639Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-389589acf55fb9fd6820",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Meetings (/meetings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1467,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:29.743Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Meetings-meetings-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-01bd5854a33a39fcd442",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Chat (/chat) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1332,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:29.755Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Chat-chat-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-13cb26d3a8956d06fac6",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Settings (/settings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1309,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:30.234Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Settings-settings-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-a69404544b2a0d4926dc",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Pricing (/pricing) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 1293,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:30.279Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Pricing-pricing-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-bee57ab5324f928aebce",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Usage (/usage) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1083,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:31.056Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Usage-usage-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-544138e5c0ed16cc97a8",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Profile (/profile) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:31.134Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Profile-profile-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-36a8af4f0de66f2169d5",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign In (/sign-in) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 774,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:31.166Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-b36b08c31e46d47ae6ce",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign Up (/sign-up) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 896,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:31.396Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-9c9fb20c88e314b54a2c",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Docs (/docs) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 934,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:31.529Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Docs-docs-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-c14eeff9c246d3cfbbae",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Observability (/observability) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 813,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:31.698Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Observability-observability-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-b6d64ab5560210cc6d19",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Home (/) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 887,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:32.170Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Home-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-a8722610293e8df42fc3",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Record (/record) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 952,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:32.414Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Record-record-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-6150ff1bcb33531e4d45",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Live Recording (/record/live) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:32.492Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-9ae5058532350c297cdb",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Meetings (/meetings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 854,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:32.554Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Meetings-meetings-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-0648a99f613e6a6f33cd",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Chat (/chat) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 32,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1095,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:32.683Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Chat-chat-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-d008e689e4d3889042ad",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Settings (/settings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 33,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1062,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:32.816Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Settings-settings-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-bb8a372e15e4e8de92c4",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Pricing (/pricing) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:32.851Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Pricing-pricing-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-51f2b27cc0aab00708ae",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Usage (/usage) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 889,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:33.313Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Usage-usage-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-56af96fae3aee1801095",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Profile (/profile) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1029,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:33.528Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Profile-profile-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-0b3b7e45cad7afee367c",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign In (/sign-in) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 955,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:33.528Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-b2c688c19a2b8d70201d",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign Up (/sign-up) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 815,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:33.660Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-75364e2d1e7de94baac2",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Docs (/docs) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 32,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 940,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:33.854Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Docs-docs-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-0d3e3a9b6447aa74ec2c",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Observability (/observability) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 752,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:33.981Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Observability-observability-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-4f79876413c1a5f78fd1",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Home (/) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 35,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:34.522Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Home-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-4834306d109457cdd0df",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Record (/record) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 709,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:34.772Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Record-record-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-23f0025484488e433972",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Live Recording (/record/live) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 848,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:34.934Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Live-Recording-record-live-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-48c57ab15ca025f9e275",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Meetings (/meetings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 800,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:34.933Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Meetings-meetings-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-ef601ec6408a50c4c4d4",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Chat (/chat) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 39,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1076,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:34.985Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Chat-chat-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-eb42a6a1cca5848c7397",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Settings (/settings) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:35.117Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Settings-settings-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-3712d6fae95e10a4cc2e",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Pricing (/pricing) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 41,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1029,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:35.201Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Pricing-pricing-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-dd6e8116fc82648608bc",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Usage (/usage) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 35,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1311,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:35.333Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Usage-usage-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-7ec12edcbe46105e7c61",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Profile (/profile) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 1076,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:35.576Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Profile-profile-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-5dea513b886b2bafcf21",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign In (/sign-in) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 993,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:35.859Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-In-sign-in-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-b5f9f979b88bd28776fc",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Sign Up (/sign-up) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 950,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:35.903Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Sign-Up-sign-up-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-c25098ed2a284a952e2a",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Docs (/docs) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 868,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:36.203Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Docs-docs-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-35302d8ad3c380108567",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
+        },
+        {
+          "title": "Observability (/observability) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 39,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 764,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-28T17:17:36.220Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/smoke-Observability-observability-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4219922fea2e2bd3c691-ea5bfd18a5c0b2e919b6",
+          "file": "smoke.spec.ts",
+          "line": 25,
+          "column": 7
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-04-23T03:12:38.359Z",
-    "duration": 12162.653,
-    "expected": 14,
+    "startTime": "2026-04-28T17:17:13.502Z",
+    "duration": 23654.27,
+    "expected": 78,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

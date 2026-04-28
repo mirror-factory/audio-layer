@@ -440,20 +440,23 @@ export function withTelemetry(
   model: LanguageModel,
   context: TelemetryContext = {},
 ): LanguageModel {
-  return wrapLanguageModel(model, {
-    transformParams: ({ params }) => ({
-      ...params,
-      experimental_telemetry: {
-        isEnabled: true,
-        functionId: context.label ?? 'unknown',
-        metadata: {
-          userId: context.userId ?? 'anonymous',
-          sessionId: context.sessionId ?? 'unknown',
-          chatId: context.chatId ?? 'unknown',
-          ...(context.metadata ?? {}),
-        },
+  const metadata = {
+    userId: context.userId ?? 'anonymous',
+    sessionId: context.sessionId ?? 'unknown',
+    chatId: context.chatId ?? 'unknown',
+    label: context.label ?? 'unknown',
+    ...(context.metadata ?? {}),
+  };
+
+  return wrapLanguageModel({
+    model,
+    middleware: {
+      specificationVersion: 'v3',
+      transformParams: ({ params }) => {
+        void metadata;
+        return params;
       },
-    }),
+    },
   });
 }
 

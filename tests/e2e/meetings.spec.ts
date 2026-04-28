@@ -23,6 +23,18 @@ test.describe('Meetings page', () => {
     expect(hasMeetings || hasEmpty).toBe(true);
   });
 
+  test('empty-state CTA navigates to recording flow', async ({ page }) => {
+    await page.goto('/meetings', { waitUntil: 'domcontentloaded' });
+
+    const emptyCta = page.getByRole('link', { name: 'Record your first meeting' });
+    if ((await emptyCta.count()) === 0) {
+      test.skip(true, 'Meetings exist, so empty-state CTA is not rendered');
+      return;
+    }
+
+    await expect(emptyCta).toHaveAttribute('href', '/record/live');
+  });
+
   test('meeting link navigates to detail page', async ({ page }) => {
     test.setTimeout(10_000);
 
@@ -84,5 +96,10 @@ test.describe('Meetings page', () => {
     // The status chip should show "completed"
     const statusChip = page.locator('text=completed').first();
     await expect(statusChip).toBeVisible();
+
+    await expect(page.getByRole('heading', { name: 'Ask about this meeting' })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Sales/ })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Interview/ })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Standup/ })).toBeVisible();
   });
 });

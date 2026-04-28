@@ -1,0 +1,32 @@
+{
+  "id": "2026-04-27T13-51-52-125Z-polish-meeting-chat-resilience-w",
+  "createdAt": "2026-04-27T13:51:52.125Z",
+  "updatedAt": "2026-04-27T13:51:52.125Z",
+  "title": "Polish meeting chat resilience with local grounded answers, authenticated chat requests, tests, and documentation.",
+  "prompt": "Polish meeting chat resilience with local grounded answers, authenticated chat requests, tests, and documentation.",
+  "classification": "polish",
+  "acceptanceCriteria": [
+    "The target surface has before/after evidence.",
+    "The updated surface improves the declared scorecard dimension.",
+    "No regressions are introduced in required checks."
+  ],
+  "requiredEvidence": [
+    "screenshot",
+    "scorecard",
+    "playwright"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

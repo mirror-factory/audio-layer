@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-04-27T21:37:01.395Z",
+  "planId": "2026-04-27T21-08-54-292Z-add-live-recorder-voice-command-",
+  "score": 100,
+  "blockers": [],
+  "recommendations": [
+    "Refresh the active plan if scope changed.",
+    "Story coverage looks healthy.",
+    "API coverage looks healthy.",
+    "Tool eval coverage looks healthy.",
+    "Evidence includes traces/videos.",
+    "Hook telemetry is being recorded.",
+    "Companion obligations are satisfied."
+  ],
+  "summary": {
+    "components": {
+      "total": 26,
+      "withUnit": 26,
+      "withStory": 26,
+      "withVisual": 26
+    },
+    "routes": {
+      "total": 47,
+      "withVisual": 47
+    },
+    "apis": {
+      "total": 62,
+      "withUnit": 62,
+      "withEval": 0
+    },
+    "tools": {
+      "total": 0,
+      "withUnit": 0,
+      "withEval": 0
+    },
+    "browserProof": {
+      "expectFlows": 51,
+      "replays": 5,
+      "screenshots": 129
+    },
+    "evidence": {
+      "total": 469,
+      "screenshots": 149,
+      "videos": 184,
+      "traces": 0,
+      "reports": 24
+    },
+    "companions": {
+      "total": 135,
+      "pending": 0,
+      "satisfied": 135
+    },
+    "hooks": {
+      "registered": 24,
+      "observed": 700,
+      "blocked": 2
+    }
+  }
+}

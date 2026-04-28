@@ -45,6 +45,13 @@ describe("InMemoryMeetingsStore", () => {
     expect(found).toBeNull();
   });
 
+  it("delete removes an existing meeting", async () => {
+    await storeInstance.insert({ id: "delete-me", title: "Delete me" });
+
+    await expect(storeInstance.delete("delete-me")).resolves.toBe(true);
+    await expect(storeInstance.get("delete-me")).resolves.toBeNull();
+  });
+
   it("update modifies an existing meeting", async () => {
     await storeInstance.insert({ id: "test-4" });
 

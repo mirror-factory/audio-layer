@@ -9,7 +9,7 @@
  * upgrade) and the build succeeds but the optimization stops applying.
  *
  * This check:
- *   1. Confirms `next.config.{js,mjs,ts}` imports from 'million/next'.
+ *   1. Confirms `next.config.{js,mjs,ts}` imports a Million Next compiler integration.
  *   2. After `pnpm build`, greps `.next/server/**` for million's runtime
  *      markers (`__MILLION__`).
  *   3. Fails pre-push if the build completes but no million markers exist.
@@ -36,7 +36,12 @@ function nextConfigReferencesMillion(): boolean {
     const p = join(CWD, f);
     if (!existsSync(p)) continue;
     const src = readFileSync(p, 'utf-8');
-    if (/million\/next|require\(['"]million\/next['"]\)|from ['"]million\/next['"]/.test(src)) return true;
+    if (
+      /million\/next|require\(['"]million\/next['"]\)|from ['"]million\/next['"]/.test(src) ||
+      /million\/compiler|require\(['"]million\/compiler['"]\)|from ['"]million\/compiler['"]/.test(src)
+    ) {
+      return true;
+    }
   }
   return false;
 }
@@ -90,8 +95,8 @@ function main(): number {
     return 0;
   }
   if (!nextConfigReferencesMillion()) {
-    console.error('[check-million] FAIL: million is installed but next.config does not import from "million/next".');
-    console.error('  Fix: import millionNext from "million/next"; module.exports = millionNext(yourConfig);');
+    console.error('[check-million] FAIL: million is installed but next.config does not import a Million Next compiler integration.');
+    console.error('  Fix: import million from "million/compiler"; export default million.next(yourConfig, options);');
     return 1;
   }
   if (!existsSync(join(CWD, '.next'))) {

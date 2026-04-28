@@ -42,9 +42,12 @@ export const POST = withRoute(async (req, ctx) => {
   // Quota check
   const quota = await checkQuota();
   if (!quota.allowed) {
+    const limitCopy = quota.reason === "minute_limit"
+      ? `${quota.planId} plan minute limit reached (${quota.monthlyMinutesUsed}/${quota.minuteLimit} min this month).`
+      : `${quota.planId} plan meeting limit reached (${quota.meetingCount}/${quota.meetingLimit} meetings).`;
     return NextResponse.json(
       {
-        error: "Free tier limit reached (25 meetings). Upgrade to continue.",
+        error: `${limitCopy} Upgrade to continue.`,
         code: "free_limit_reached",
         upgradeUrl: "/pricing",
       },

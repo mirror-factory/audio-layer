@@ -6,21 +6,28 @@
 
   /* Colors */
   --brand-accent: #14b8a6;
-  --neutral-950: #0a0a0a"    # page background;
-  --neutral-900: #171717"    # card backgrounds;
-  --neutral-800: #262626"    # borders, dividers;
-  --neutral-700: #404040"    # secondary borders;
-  --neutral-600: #525252"    # disabled text;
-  --neutral-500: #737373"    # muted text, labels;
-  --neutral-400: #a3a3a3"    # body text (secondary);
-  --neutral-300: #d4d4d4"    # body text (primary);
-  --neutral-200: #e5e5e5"    # headings;
-  --neutral-100: #f5f5f5"    # titles, emphasis;
-  --neutral-50: #fafafa"    # high contrast text;
+  --brand-accent-subtle: #0d9488;
+  --brand-accent-muted: #134e4a;
+  --brand-accent-light: #2dd4bf;
+  --neutral-950: #0a0a0a;
+  --neutral-900: #171717;
+  --neutral-800: #262626;
+  --neutral-700: #404040;
+  --neutral-600: #525252;
+  --neutral-500: #737373;
+  --neutral-400: #a3a3a3;
+  --neutral-300: #d4d4d4;
+  --neutral-200: #e5e5e5;
+  --neutral-100: #f5f5f5;
+  --neutral-50: #fafafa;
   --semantic-success: #22c55e;
   --semantic-error: #ef4444;
   --semantic-warning: #eab308;
   --semantic-info: #3b82f6;
+  --light-bg-primary: #fafafa;
+  --light-bg-secondary: #f5f5f5;
+  --light-text-primary: #171717;
+  --light-text-secondary: #525252;
 
   /* Typography */
   --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
@@ -48,6 +55,7 @@
   /* Shadow */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --shadow-glow-mint: 0 0 20px rgb(20 184 166 / 0.15);
 
   /* Motion */
   --motion-fast: 100ms;
@@ -64,6 +72,7 @@
   --z-sticky: 20;
   --z-topbar: 30;
   --z-overlay: 40;
+  --z-slide-menu: 50;
   --z-modal: 60;
   --z-toast: 70;
 

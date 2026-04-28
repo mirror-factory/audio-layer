@@ -1,0 +1,218 @@
+[
+  {
+    "id": "claude-code:InstructionsLoaded:none:python3-claude-project-dir-claude-hooks-instructions-loaded-py",
+    "runtime": "claude-code",
+    "event": "InstructionsLoaded",
+    "matcher": null,
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/instructions-loaded.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:*:python3-claude-project-dir-claude-hooks-periodic-reground-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "*",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/periodic-reground.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:*:python3-claude-project-dir-claude-hooks-posttool-telemetry-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "*",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-telemetry.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:Bash:python3-claude-hooks-verify-claims-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "Bash",
+    "command": "python3 .claude/hooks/verify-claims.py",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:WebFetch|mcp__context7.*|mcp__firecrawl.*|WebSearch:python3-claude-hooks-record-docs-lookup-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "WebFetch|mcp__context7.*|mcp__firecrawl.*|WebSearch",
+    "command": "python3 .claude/hooks/record-docs-lookup.py",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:Write|Edit:python3-claude-hooks-postuse-format-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "Write|Edit",
+    "command": "python3 .claude/hooks/postuse-format.py",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:Write|Edit:python3-claude-hooks-track-edits-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "Write|Edit",
+    "command": "python3 .claude/hooks/track-edits.py",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:Write|Edit|MultiEdit:python3-claude-project-dir-claude-hooks-posttool-scaffold-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "Write|Edit|MultiEdit",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-scaffold.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:Write|Edit|MultiEdit:python3-claude-project-dir-claude-hooks-postuse-format-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "Write|Edit|MultiEdit",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/postuse-format.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUseFailure:none:python3-claude-project-dir-claude-hooks-posttool-failure-telemetry-py",
+    "runtime": "claude-code",
+    "event": "PostToolUseFailure",
+    "matcher": null,
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-failure-telemetry.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PreToolUse:Bash:python3-claude-project-dir-claude-hooks-pretool-install-research-py",
+    "runtime": "claude-code",
+    "event": "PreToolUse",
+    "matcher": "Bash",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pretool-install-research.py\"",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "claude-code:PreToolUse:Skill:python3-claude-hooks-record-skill-use-py",
+    "runtime": "claude-code",
+    "event": "PreToolUse",
+    "matcher": "Skill",
+    "command": "python3 .claude/hooks/record-skill-use.py",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "claude-code:PreToolUse:Write|Edit:python3-claude-hooks-context7-suggest-py",
+    "runtime": "claude-code",
+    "event": "PreToolUse",
+    "matcher": "Write|Edit",
+    "command": "python3 .claude/hooks/context7-suggest.py",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "claude-code:PreToolUse:Write|Edit|MultiEdit:python3-claude-project-dir-claude-hooks-pretool-plan-gate-py",
+    "runtime": "claude-code",
+    "event": "PreToolUse",
+    "matcher": "Write|Edit|MultiEdit",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pretool-plan-gate.py\"",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "claude-code:SessionStart:none:python3-claude-project-dir-claude-hooks-session-startup-py",
+    "runtime": "claude-code",
+    "event": "SessionStart",
+    "matcher": null,
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-startup.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:Stop:none:python3-claude-project-dir-claude-hooks-stop-check-py",
+    "runtime": "claude-code",
+    "event": "Stop",
+    "matcher": null,
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/stop-check.py\"",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "codex:PostToolUse:.*:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-periodic-reground-py",
+    "runtime": "codex",
+    "event": "PostToolUse",
+    "matcher": ".*",
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/periodic-reground.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "codex:PostToolUse:.*:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-posttool-telemetry-py",
+    "runtime": "codex",
+    "event": "PostToolUse",
+    "matcher": ".*",
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/posttool-telemetry.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "codex:PostToolUse:Write|Edit|MultiEdit|apply_patch:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-posttool-scaffold-py",
+    "runtime": "codex",
+    "event": "PostToolUse",
+    "matcher": "Write|Edit|MultiEdit|apply_patch",
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/posttool-scaffold.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "codex:PreToolUse:Bash:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-pretool-install-research",
+    "runtime": "codex",
+    "event": "PreToolUse",
+    "matcher": "Bash",
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/pretool-install-research.py\"",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "codex:PreToolUse:Write|Edit|MultiEdit|apply_patch:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-pretool-plan-gate-py",
+    "runtime": "codex",
+    "event": "PreToolUse",
+    "matcher": "Write|Edit|MultiEdit|apply_patch",
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/pretool-plan-gate.py\"",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "codex:SessionStart:startup|resume:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-session-startup-py",
+    "runtime": "codex",
+    "event": "SessionStart",
+    "matcher": "startup|resume",
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/session-startup.py\"",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "codex:Stop:none:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-stop-check-py",
+    "runtime": "codex",
+    "event": "Stop",
+    "matcher": null,
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/stop-check.py\"",
+    "classification": "enforcer",
+    "blocks": true
+  },
+  {
+    "id": "codex:UserPromptSubmit:none:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-user-prompt-submit-py",
+    "runtime": "codex",
+    "event": "UserPromptSubmit",
+    "matcher": null,
+    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/user-prompt-submit.py\"",
+    "classification": "observer",
+    "blocks": false
+  }
+]

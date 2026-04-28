@@ -2,7 +2,7 @@ import { TopBar } from "@/components/top-bar";
 
 export default function DocsPage() {
   return (
-    <div className="min-h-screen-safe flex flex-col">
+    <div className="paper-calm-page min-h-screen-safe flex flex-col">
       <TopBar title="Documentation" showBack />
 
       <main className="flex-1 px-4 pb-safe py-6 max-w-3xl mx-auto w-full">

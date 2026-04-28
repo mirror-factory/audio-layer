@@ -1,7 +1,14 @@
 kind: components
 schema_version: 1
-last_synced_on: 2026-04-21T04:55:18.615Z
+last_synced_on: 2026-04-27T04:28:38.570Z
 entries:
+  - name: ai-debug-panel
+    path: components/ai-debug-panel.tsx
+    stories_path: components/ai-debug-panel.stories.tsx
+    visual_path: tests/visual/ai-debug-panel.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-27T02:51:32.338Z"
   - name: audio-lines
     path: components/audio-lines.tsx
     stories_path: null
@@ -37,6 +44,13 @@ entries:
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
+  - name: integrations-settings-panel
+    path: components/integrations-settings-panel.tsx
+    stories_path: null
+    visual_path: tests/visual/integrations-settings-panel.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-27T04:20:48.848Z"
   - name: live-recorder
     path: components/live-recorder.tsx
     stories_path: null
@@ -51,6 +65,13 @@ entries:
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
+  - name: meeting-chat
+    path: components/meeting-chat.tsx
+    stories_path: null
+    visual_path: tests/visual/meeting-chat.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-24T23:08:00.000Z"
   - name: meeting-cost-panel
     path: components/meeting-cost-panel.tsx
     stories_path: null
@@ -65,6 +86,41 @@ entries:
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
+  - name: meeting-intelligence-panel
+    path: components/meeting-intelligence-panel.tsx
+    stories_path: null
+    visual_path: tests/visual/meeting-intelligence-panel.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-27T02:51:32.338Z"
+  - name: meeting-notes-push-panel
+    path: components/meeting-notes-push-panel.tsx
+    stories_path: null
+    visual_path: tests/visual/meeting-notes-push-panel.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-27T04:20:48.848Z"
+  - name: meeting-search
+    path: components/meeting-search.tsx
+    stories_path: null
+    visual_path: tests/visual/meeting-search.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-27T02:51:32.338Z"
+  - name: mobile-primary-nav
+    path: components/mobile-primary-nav.tsx
+    stories_path: null
+    visual_path: tests/visual/mobile-primary-nav.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-27T04:20:48.848Z"
+  - name: recording-reminder
+    path: components/recording-reminder.tsx
+    stories_path: null
+    visual_path: tests/visual/recording-reminder.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-27T02:51:32.338Z"
   - name: slide-menu
     path: components/slide-menu.tsx
     stories_path: null

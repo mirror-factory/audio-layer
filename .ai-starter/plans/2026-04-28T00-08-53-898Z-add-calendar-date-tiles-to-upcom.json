@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-28T00-08-53-898Z-add-calendar-date-tiles-to-upcom",
+  "createdAt": "2026-04-28T00:08:53.898Z",
+  "updatedAt": "2026-04-28T00:08:53.898Z",
+  "title": "Add calendar date tiles to upcoming meetings",
+  "prompt": "Add calendar date tiles to upcoming meetings",
+  "classification": "feature",
+  "acceptanceCriteria": [
+    "The new behavior is described in a machine-readable plan.",
+    "The affected surface has verification assets and updated manifests.",
+    "Typecheck and required tests pass."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

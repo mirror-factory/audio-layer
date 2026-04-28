@@ -6,9 +6,14 @@ import { Send } from "lucide-react";
 interface ChatInputProps {
   onSend: (message: string) => void;
   disabled?: boolean;
+  placeholder?: string;
 }
 
-export function ChatInput({ onSend, disabled = false }: ChatInputProps) {
+export function ChatInput({
+  onSend,
+  disabled = false,
+  placeholder = "Ask about your meetings...",
+}: ChatInputProps) {
   const [value, setValue] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -38,26 +43,25 @@ export function ChatInput({ onSend, disabled = false }: ChatInputProps) {
   };
 
   return (
-    <div className="border-t border-[var(--border-subtle)] bg-[var(--bg-secondary)] p-3" style={{ paddingBottom: "calc(0.75rem + var(--safe-bottom))" }}>
+    <div
+      className="signal-panel rounded-lg p-3"
+      style={{ paddingBottom: "calc(0.75rem + var(--safe-bottom))" }}
+    >
       <div className="flex items-end gap-2 max-w-3xl mx-auto">
         <textarea
           ref={textareaRef}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Type a message..."
+          placeholder={placeholder}
           disabled={disabled}
           rows={1}
-          className="flex-1 resize-none bg-[var(--bg-card)] text-[var(--text-primary)] text-sm rounded-lg px-3 py-2.5 border border-[var(--border-card)] focus:border-[#14b8a6] focus:outline-none placeholder-[var(--text-muted)] disabled:opacity-50 transition-colors duration-200"
-          style={{
-            fontFamily:
-              'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
-          }}
+          className="signal-input min-h-[44px] flex-1 resize-none rounded-md px-3 py-2.5 text-sm leading-6 text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-colors duration-200 focus:outline-none disabled:opacity-50"
         />
         <button
           onClick={handleSubmit}
           disabled={!value.trim() || disabled}
-          className="flex items-center justify-center w-[44px] h-[44px] rounded-lg bg-[#14b8a6] text-white hover:bg-[#0d9488] disabled:opacity-30 disabled:hover:bg-[#14b8a6] transition-colors duration-200"
+          className="flex h-[44px] w-[44px] items-center justify-center rounded-md bg-[#14b8a6] text-[#042f2e] transition-colors duration-200 hover:bg-[#2dd4bf] disabled:opacity-30 disabled:hover:bg-[#14b8a6]"
           aria-label="Send message"
         >
           <Send size={18} />

@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-04-26T22:15:31.822Z",
+  "entries": [
+    {
+      "id": "vercel-ai-sdk",
+      "library": "Vercel AI SDK",
+      "version": "6.x",
+      "lastFetched": "2026-04-26T22:15:30.787Z",
+      "summary": "Core SDK for building AI-powered applications. Key patterns: inputSchema not parameters, toUIMessageStreamResponse, message.parts[], addToolOutput.",
+      "docsUrl": "https://sdk.vercel.ai/docs",
+      "context7LibraryId": "/vercel/ai",
+      "type": "library",
+      "path": ".ai-starter/research/libraries/vercel-ai-sdk.md",
+      "validUntil": "2026-05-03T22:15:30.787Z",
+      "contentHash": "sha256:6d1ec899d4ac2d5dc7e9784df04ceca42293a1972056908e750e9699a4394303",
+      "sources": [
+        {
+          "url": "https://sdk.vercel.ai/docs",
+          "title": "Vercel AI SDK docs"
+        }
+      ],
+      "triggerPaths": [
+        "lib/ai/**",
+        "app/api/chat/**",
+        "app/api/**"
+      ]
+    },
+    {
+      "id": "nextjs",
+      "library": "Next.js",
+      "version": "15.x",
+      "lastFetched": "2026-04-26T22:15:31.134Z",
+      "summary": "React framework with App Router, Server Components, and API routes. Uses file-based routing under app/.",
+      "docsUrl": "https://nextjs.org/docs",
+      "context7LibraryId": "/vercel/next.js",
+      "type": "library",
+      "path": ".ai-starter/research/libraries/nextjs.md",
+      "validUntil": "2026-05-03T22:15:31.134Z",
+      "contentHash": "sha256:5237ccf0e2b3b22289b9c212024bb72d33b078c3cd66a134af4e639cb4501b7c",
+      "sources": [
+        {
+          "url": "https://nextjs.org/docs",
+          "title": "Next.js docs"
+        }
+      ],
+      "triggerPaths": [
+        "app/**",
+        "middleware.ts",
+        "next.config.*"
+      ]
+    },
+    {
+      "id": "tailwindcss",
+      "library": "Tailwind CSS",
+      "version": "4.x",
+      "lastFetched": "2026-04-26T22:15:31.357Z",
+      "summary": "CSS-first configuration in v4. Use @import \"tailwindcss\" instead of @tailwind directives. No tailwind.config.ts needed.",
+      "docsUrl": "https://tailwindcss.com/docs",
+      "context7LibraryId": "/tailwindlabs/tailwindcss",
+      "type": "library",
+      "path": ".ai-starter/research/libraries/tailwindcss.md",
+      "validUntil": "2026-05-03T22:15:31.357Z",
+      "contentHash": "sha256:726717dafa8872679591df67e2067fab83b7d9ab761c57184ef2a378686ed190",
+      "sources": [
+        {
+          "url": "https://tailwindcss.com/docs",
+          "title": "Tailwind CSS docs"
+        }
+      ],
+      "triggerPaths": [
+        "app/globals.css",
+        "components/**/*.tsx",
+        "postcss.config.*"
+      ]
+    },
+    {
+      "id": "supabase",
+      "library": "Supabase",
+      "version": "latest",
+      "lastFetched": "2026-04-26T22:15:31.584Z",
+      "summary": "PostgreSQL-based backend with auth, realtime, storage. Use @supabase/supabase-js client.",
+      "docsUrl": "https://supabase.com/docs",
+      "context7LibraryId": "/supabase/supabase",
+      "type": "library",
+      "path": ".ai-starter/research/libraries/supabase.md",
+      "validUntil": "2026-05-03T22:15:31.584Z",
+      "contentHash": "sha256:97fb2b98103e7ea7de3d98ee6357a7c2bc7bd2ce28ab3c670ac00eab6289c746",
+      "sources": [
+        {
+          "url": "https://supabase.com/docs",
+          "title": "Supabase docs"
+        }
+      ],
+      "triggerPaths": [
+        "lib/supabase/**",
+        "lib/db/**",
+        "app/api/**"
+      ]
+    },
+    {
+      "id": "vitest",
+      "library": "Vitest",
+      "version": "latest",
+      "lastFetched": "2026-04-26T22:15:31.822Z",
+      "summary": "Fast unit test runner compatible with Jest API. Use vi.hoisted() for mock vars in vi.mock() factories.",
+      "docsUrl": "https://vitest.dev/guide/",
+      "context7LibraryId": "/vitest-dev/vitest",
+      "type": "library",
+      "path": ".ai-starter/research/libraries/vitest.md",
+      "validUntil": "2026-05-03T22:15:31.822Z",
+      "contentHash": "sha256:5c151d0ec840cc3d3325a03b816372038c74ede181841799b5da1b87cc15a287",
+      "sources": [
+        {
+          "url": "https://vitest.dev/guide/",
+          "title": "Vitest docs"
+        }
+      ],
+      "triggerPaths": [
+        "tests/**",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "vitest.config.*"
+      ]
+    }
+  ],
+  "generated": "2026-04-26T22:15:31.822Z"
+}

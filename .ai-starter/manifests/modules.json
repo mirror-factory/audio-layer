@@ -1,0 +1,131 @@
+[
+  {
+    "id": "setup",
+    "label": "Setup interview and env contract",
+    "status": "enabled",
+    "core": true,
+    "required": true,
+    "doctorChecks": [
+      ".ai-starter/config.json",
+      ".env.example",
+      "setup manifest",
+      "DESIGN.md setup contract"
+    ],
+    "dashboardPanels": [
+      "control-plane",
+      "setup"
+    ],
+    "verificationCommands": [
+      "pnpm run starter:setup -- --yes",
+      "pnpm run starter:doctor"
+    ]
+  },
+  {
+    "id": "install",
+    "label": "Install lifecycle",
+    "status": "enabled",
+    "core": true,
+    "required": true,
+    "doctorChecks": [
+      "starter manifest",
+      "project scripts",
+      "doctor/repair/update"
+    ],
+    "dashboardPanels": [
+      "control-plane"
+    ],
+    "verificationCommands": [
+      "pnpm run starter:doctor"
+    ]
+  },
+  {
+    "id": "hooks",
+    "label": "Agent runtime hook enforcement",
+    "status": "enabled",
+    "core": true,
+    "required": true,
+    "doctorChecks": [
+      "runtime hook config",
+      "hook registry",
+      "runtime telemetry log"
+    ],
+    "dashboardPanels": [
+      "hooks",
+      "runtimes"
+    ],
+    "verificationCommands": [
+      "pnpm test:hooks",
+      "pnpm test:codex-runtime",
+      "pnpm score"
+    ]
+  },
+  {
+    "id": "browser-proof",
+    "label": "Browser proof",
+    "status": "enabled",
+    "core": true,
+    "required": true,
+    "doctorChecks": [
+      "Playwright config",
+      "Expect flows",
+      "browser evidence"
+    ],
+    "dashboardPanels": [
+      "coverage",
+      "runs"
+    ],
+    "verificationCommands": [
+      "pnpm test:e2e",
+      "pnpm test:ai"
+    ]
+  },
+  {
+    "id": "supervisor",
+    "label": "Local supervisor",
+    "status": "enabled",
+    "core": true,
+    "required": true,
+    "doctorChecks": [
+      "tmux or process backend",
+      "supervisor manifest"
+    ],
+    "dashboardPanels": [
+      "supervisor"
+    ],
+    "verificationCommands": [
+      "pnpm supervisor:status"
+    ]
+  },
+  {
+    "id": "design-registry",
+    "label": "Design registry",
+    "status": "enabled",
+    "core": true,
+    "required": true,
+    "doctorChecks": [
+      "design token registry",
+      "dashboard editable writeback"
+    ],
+    "dashboardPanels": [
+      "design"
+    ],
+    "verificationCommands": [
+      "pnpm sync"
+    ]
+  },
+  {
+    "id": "browser-use-adapter",
+    "label": "Browser Use adapter",
+    "status": "planned",
+    "core": false,
+    "required": false,
+    "doctorChecks": [
+      "MCP config",
+      "browser session health"
+    ],
+    "dashboardPanels": [
+      "browser"
+    ],
+    "verificationCommands": []
+  }
+]

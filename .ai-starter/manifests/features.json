@@ -1,0 +1,5024 @@
+[
+  {
+    "id": "api:api-admin-pricing",
+    "kind": "api",
+    "name": "api-admin-pricing",
+    "sourcePaths": [
+      "app/api/admin/pricing/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-admin-pricing-activate-route.contract.test.ts",
+      "tests/contracts/app-api-admin-pricing-route.contract.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.failure-modes.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.test.ts",
+      "tests/integration/app-api-admin-pricing-route.failure-modes.test.ts",
+      "tests/integration/app-api-admin-pricing-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-admin-pricing-page.smoke.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/apis/app-api-admin-pricing-activate-route.md",
+      "docs/apis/app-api-admin-pricing-route.md",
+      "docs/features/app-admin-pricing-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-admin-pricing-activate",
+    "kind": "api",
+    "name": "api-admin-pricing-activate",
+    "sourcePaths": [
+      "app/api/admin/pricing/activate/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-admin-pricing-activate-route.contract.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.failure-modes.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/apis/app-api-admin-pricing-activate-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-ai-logs",
+    "kind": "api",
+    "name": "api-ai-logs",
+    "sourcePaths": [
+      "app/api/ai-logs/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-ai-logs-errors-route.contract.test.ts",
+      "tests/contracts/app-api-ai-logs-route.contract.test.ts",
+      "tests/contracts/app-api-ai-logs-stats-route.contract.test.ts",
+      "tests/e2e/api-ai-logs-errors.contract.test.ts",
+      "tests/e2e/api-ai-logs-stats.contract.test.ts",
+      "tests/e2e/api-ai-logs.contract.test.ts",
+      "tests/integration/app-api-ai-logs-errors-route.failure-modes.test.ts",
+      "tests/integration/app-api-ai-logs-errors-route.test.ts",
+      "tests/integration/app-api-ai-logs-route.failure-modes.test.ts",
+      "tests/integration/app-api-ai-logs-route.test.ts",
+      "tests/integration/app-api-ai-logs-stats-route.failure-modes.test.ts",
+      "tests/integration/app-api-ai-logs-stats-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/app-api-ai-logs-errors-route.md",
+      "docs/apis/app-api-ai-logs-route.md",
+      "docs/apis/app-api-ai-logs-stats-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-ai-logs-errors",
+    "kind": "api",
+    "name": "api-ai-logs-errors",
+    "sourcePaths": [
+      "app/api/ai-logs/errors/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-ai-logs-errors-route.contract.test.ts",
+      "tests/e2e/api-ai-logs-errors.contract.test.ts",
+      "tests/integration/app-api-ai-logs-errors-route.failure-modes.test.ts",
+      "tests/integration/app-api-ai-logs-errors-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/app-api-ai-logs-errors-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-ai-logs-stats",
+    "kind": "api",
+    "name": "api-ai-logs-stats",
+    "sourcePaths": [
+      "app/api/ai-logs/stats/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-ai-logs-stats-route.contract.test.ts",
+      "tests/e2e/api-ai-logs-stats.contract.test.ts",
+      "tests/integration/app-api-ai-logs-stats-route.failure-modes.test.ts",
+      "tests/integration/app-api-ai-logs-stats-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/app-api-ai-logs-stats-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-auth-api-key",
+    "kind": "api",
+    "name": "api-auth-api-key",
+    "sourcePaths": [
+      "app/api/auth/api-key/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-auth-api-key-route.contract.test.ts",
+      "tests/integration/app-api-auth-api-key-route.failure-modes.test.ts",
+      "tests/integration/app-api-auth-api-key-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/apis/app-api-auth-api-key-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-auth-send-email",
+    "kind": "api",
+    "name": "api-auth-send-email",
+    "sourcePaths": [
+      "app/api/auth/send-email/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-auth-send-email-route.contract.test.ts",
+      "tests/integration/app-api-auth-send-email-route.failure-modes.test.ts",
+      "tests/integration/app-api-auth-send-email-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/apis/app-api-auth-send-email-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-calendar-callback-provider",
+    "kind": "api",
+    "name": "api-calendar-callback-[provider]",
+    "sourcePaths": [
+      "app/api/calendar/callback/[provider]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-calendar-callback-provider-route.contract.test.ts",
+      "tests/integration/app-api-calendar-callback-provider-route.failure-modes.test.ts",
+      "tests/integration/app-api-calendar-callback-provider-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/apis/app-api-calendar-callback-provider-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-calendar-connect-provider",
+    "kind": "api",
+    "name": "api-calendar-connect-[provider]",
+    "sourcePaths": [
+      "app/api/calendar/connect/[provider]/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-calendar-connect-provider-route.contract.test.ts",
+      "tests/integration/app-api-calendar-connect-provider-route.failure-modes.test.ts",
+      "tests/integration/app-api-calendar-connect-provider-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-calendar-connect-provider-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-calendar-disconnect-provider",
+    "kind": "api",
+    "name": "api-calendar-disconnect-[provider]",
+    "sourcePaths": [
+      "app/api/calendar/disconnect/[provider]/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-calendar-disconnect-provider-route.contract.test.ts",
+      "tests/integration/app-api-calendar-disconnect-provider-route.failure-modes.test.ts",
+      "tests/integration/app-api-calendar-disconnect-provider-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/apis/app-api-calendar-disconnect-provider-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-calendar-upcoming",
+    "kind": "api",
+    "name": "api-calendar-upcoming",
+    "sourcePaths": [
+      "app/api/calendar/upcoming/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-calendar-upcoming-route.contract.test.ts",
+      "tests/integration/app-api-calendar-upcoming-route.failure-modes.test.ts",
+      "tests/integration/app-api-calendar-upcoming-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/apis/app-api-calendar-upcoming-route.md",
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-chat",
+    "kind": "api",
+    "name": "api-chat",
+    "sourcePaths": [
+      "app/api/chat/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-chat-route.contract.test.ts",
+      "tests/integration/app-api-chat-route.failure-modes.test.ts",
+      "tests/integration/app-api-chat-route.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/unit/components/ai-debug-panel.test.tsx",
+      "components/chat-input.test.tsx",
+      "components/chat-message.test.tsx",
+      "components/meeting-chat.test.tsx"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx",
+      "components/chat-input.stories.tsx",
+      "components/chat-message.stories.tsx",
+      "components/meeting-chat.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/app-chat-page.smoke.spec.ts",
+      "tests/e2e/chat-input.visual.spec.ts",
+      "tests/e2e/chat-message.visual.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meeting-chat.visual.spec.ts",
+      "tests/e2e/mobile.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/e2e/visual-regression.spec.ts",
+      "tests/visual/chat-input.spec.ts",
+      "tests/visual/chat-message.spec.ts",
+      "tests/visual/meeting-chat.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/app-api-chat-route.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-chat-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-control-plane",
+    "kind": "api",
+    "name": "api-control-plane",
+    "sourcePaths": [
+      "app/api/control-plane/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-control-plane-evidence-export-route.contract.test.ts",
+      "tests/contracts/app-api-control-plane-route.contract.test.ts",
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/api-control-plane.contract.test.ts",
+      "tests/integration/app-api-control-plane-evidence-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-control-plane-evidence-export-route.test.ts",
+      "tests/integration/app-api-control-plane-route.failure-modes.test.ts",
+      "tests/integration/app-api-control-plane-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-control-plane-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/api-control-plane.md",
+      "docs/apis/app-api-control-plane-evidence-export-route.md",
+      "docs/apis/app-api-control-plane-route.md",
+      "docs/features/app-control-plane-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/reference/openai-codex-runtime.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-control-plane-evidence-export",
+    "kind": "api",
+    "name": "api-control-plane-evidence-export",
+    "sourcePaths": [
+      "app/api/control-plane/evidence-export/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-control-plane-evidence-export-route.contract.test.ts",
+      "tests/e2e/api-control-plane.contract.test.ts",
+      "tests/integration/app-api-control-plane-evidence-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-control-plane-evidence-export-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/api-control-plane.md",
+      "docs/apis/app-api-control-plane-evidence-export-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-config-name",
+    "kind": "api",
+    "name": "api-dev-kit-config-[name]",
+    "sourcePaths": [
+      "app/api/dev-kit/config/[name]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-config-name-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-config-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-config-name-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-config-name-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-connectors",
+    "kind": "api",
+    "name": "api-dev-kit-connectors",
+    "sourcePaths": [
+      "app/api/dev-kit/connectors/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-connectors-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-connectors-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-connectors-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-connectors-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-connectors-route.md",
+      "docs/features/app-dev-kit-connectors-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-cost",
+    "kind": "api",
+    "name": "api-dev-kit-cost",
+    "sourcePaths": [
+      "app/api/dev-kit/cost/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-cost-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-cost-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-cost-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-cost-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/apis/app-api-dev-kit-cost-route.md",
+      "docs/features/app-dev-kit-cost-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-coverage",
+    "kind": "api",
+    "name": "api-dev-kit-coverage",
+    "sourcePaths": [
+      "app/api/dev-kit/coverage/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-coverage-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-coverage-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-coverage-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-coverage-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-coverage-route.md",
+      "docs/features/app-dev-kit-coverage-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-dependencies",
+    "kind": "api",
+    "name": "api-dev-kit-dependencies",
+    "sourcePaths": [
+      "app/api/dev-kit/dependencies/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-dependencies-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-dependencies-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-dependencies-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-dependencies-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-dependencies-route.md",
+      "docs/features/app-dev-kit-dependencies-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-deployments",
+    "kind": "api",
+    "name": "api-dev-kit-deployments",
+    "sourcePaths": [
+      "app/api/dev-kit/deployments/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-deployments-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-deployments-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-deployments-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-deployments-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-deployments-route.md",
+      "docs/features/app-dev-kit-deployments-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-design-system",
+    "kind": "api",
+    "name": "api-dev-kit-design-system",
+    "sourcePaths": [
+      "app/api/dev-kit/design-system/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-design-system-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-design-system-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-design-system-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-design-system-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-design-system-route.md",
+      "docs/features/app-dev-kit-design-system-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-evals",
+    "kind": "api",
+    "name": "api-dev-kit-evals",
+    "sourcePaths": [
+      "app/api/dev-kit/evals/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-evals-id-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-evals-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.test.ts",
+      "tests/integration/app-api-dev-kit-evals-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-evals-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-evals-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-evals-id-route.md",
+      "docs/apis/app-api-dev-kit-evals-route.md",
+      "docs/features/app-dev-kit-evals-id-page.md",
+      "docs/features/app-dev-kit-evals-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-evals-id",
+    "kind": "api",
+    "name": "api-dev-kit-evals-[id]",
+    "sourcePaths": [
+      "app/api/dev-kit/evals/[id]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-evals-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-evals-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-evals-id-route.md",
+      "docs/features/app-dev-kit-evals-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-features",
+    "kind": "api",
+    "name": "api-dev-kit-features",
+    "sourcePaths": [
+      "app/api/dev-kit/features/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-features-name-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-features-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.test.ts",
+      "tests/integration/app-api-dev-kit-features-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-features-name-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-features-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-features-name-route.md",
+      "docs/apis/app-api-dev-kit-features-route.md",
+      "docs/features/app-dev-kit-features-name-page.md",
+      "docs/features/app-dev-kit-features-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-features-name",
+    "kind": "api",
+    "name": "api-dev-kit-features-[name]",
+    "sourcePaths": [
+      "app/api/dev-kit/features/[name]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-features-name-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-features-name-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-features-name-route.md",
+      "docs/features/app-dev-kit-features-name-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-index",
+    "kind": "api",
+    "name": "api-dev-kit-index",
+    "sourcePaths": [
+      "app/api/dev-kit/index/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-index-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-index-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-index-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-index-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-index-route.md",
+      "docs/features/app-dev-kit-index-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-logs-unified",
+    "kind": "api",
+    "name": "api-dev-kit-logs-unified",
+    "sourcePaths": [
+      "app/api/dev-kit/logs/unified/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-logs-unified-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-logs-unified-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-logs-unified-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-logs-unified-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-overview",
+    "kind": "api",
+    "name": "api-dev-kit-overview",
+    "sourcePaths": [
+      "app/api/dev-kit/overview/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-overview-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-overview-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-overview-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-overview-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-registries",
+    "kind": "api",
+    "name": "api-dev-kit-registries",
+    "sourcePaths": [
+      "app/api/dev-kit/registries/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-registries-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-registries-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-registries-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-registries-page.smoke.spec.ts",
+      "tests/visual/README.md"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/MCP_AND_API.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-dev-kit-registries-route.md",
+      "docs/features/app-dev-kit-registries-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-regressions",
+    "kind": "api",
+    "name": "api-dev-kit-regressions",
+    "sourcePaths": [
+      "app/api/dev-kit/regressions/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-regressions-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-regressions-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-regressions-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-regressions-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-regressions-route.md",
+      "docs/features/app-dev-kit-regressions-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-runs",
+    "kind": "api",
+    "name": "api-dev-kit-runs",
+    "sourcePaths": [
+      "app/api/dev-kit/runs/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-runs-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-runs-run-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-runs-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-route.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-runs-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-runs-run-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-runs-route.md",
+      "docs/apis/app-api-dev-kit-runs-run-id-route.md",
+      "docs/features/app-dev-kit-runs-page.md",
+      "docs/features/app-dev-kit-runs-run-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-runs-run-id",
+    "kind": "api",
+    "name": "api-dev-kit-runs-[run_id]",
+    "sourcePaths": [
+      "app/api/dev-kit/runs/[run_id]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-runs-run-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-runs-run-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-runs-run-id-route.md",
+      "docs/features/app-dev-kit-runs-run-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-sessions",
+    "kind": "api",
+    "name": "api-dev-kit-sessions",
+    "sourcePaths": [
+      "app/api/dev-kit/sessions/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-sessions-id-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-sessions-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-sessions-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-sessions-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-sessions-id-route.md",
+      "docs/apis/app-api-dev-kit-sessions-route.md",
+      "docs/features/app-dev-kit-sessions-id-page.md",
+      "docs/features/app-dev-kit-sessions-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-sessions-id",
+    "kind": "api",
+    "name": "api-dev-kit-sessions-[id]",
+    "sourcePaths": [
+      "app/api/dev-kit/sessions/[id]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-sessions-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-sessions-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-sessions-id-route.md",
+      "docs/features/app-dev-kit-sessions-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-status",
+    "kind": "api",
+    "name": "api-dev-kit-status",
+    "sourcePaths": [
+      "app/api/dev-kit/status/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-status-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-status-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-status-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-status-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/apis/app-api-dev-kit-status-route.md",
+      "docs/features/app-dev-kit-status-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-dev-kit-tools",
+    "kind": "api",
+    "name": "api-dev-kit-tools",
+    "sourcePaths": [
+      "app/api/dev-kit/tools/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-tools-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-tools-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-tools-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-tools-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-tools-route.md",
+      "docs/features/app-dev-kit-tools-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-embeddings-backfill",
+    "kind": "api",
+    "name": "api-embeddings-backfill",
+    "sourcePaths": [
+      "app/api/embeddings/backfill/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-embeddings-backfill-route.contract.test.ts",
+      "tests/integration/app-api-embeddings-backfill-route.failure-modes.test.ts",
+      "tests/integration/app-api-embeddings-backfill-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-embeddings-backfill-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-health",
+    "kind": "api",
+    "name": "api-health",
+    "sourcePaths": [
+      "app/api/health/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-health-route.contract.test.ts",
+      "tests/contracts/app-api-observability-health-route.contract.test.ts",
+      "tests/integration/app-api-health-route.failure-modes.test.ts",
+      "tests/integration/app-api-health-route.test.ts",
+      "tests/integration/app-api-observability-health-route.failure-modes.test.ts",
+      "tests/integration/app-api-observability-health-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/MCP_AND_API.md",
+      "docs/apis/app-api-health-route.md",
+      "docs/apis/app-api-observability-health-route.md",
+      "docs/guides/AI-STARTER-HUB.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-mcp-transport",
+    "kind": "api",
+    "name": "api-mcp-[transport]",
+    "sourcePaths": [
+      "app/api/mcp/[transport]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-mcp-transport-route.contract.test.ts",
+      "tests/integration/app-api-mcp-transport-route.failure-modes.test.ts",
+      "tests/integration/app-api-mcp-transport-route.test.ts",
+      "tests/mcp/protocol.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-mcp-transport-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-meetings",
+    "kind": "api",
+    "name": "api-meetings",
+    "sourcePaths": [
+      "app/api/meetings/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/assemblyai-schema.test.ts",
+      "tests/billing-quota.test.ts",
+      "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
+      "tests/integration/app-api-meetings-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-route.test.ts",
+      "tests/integration/app-api-meetings-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-route.test.ts",
+      "tests/live-meeting-signals.test.ts",
+      "tests/mcp/protocol.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/meeting-export.test.ts",
+      "tests/meetings-store.test.ts",
+      "tests/notes-push.test.ts",
+      "tests/recording-calendar-context.test.ts",
+      "tests/tools/ai-tools.test.ts",
+      "components/meeting-search.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-search.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts",
+      "tests/e2e/app-meetings-id-page.smoke.spec.ts",
+      "tests/e2e/app-meetings-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meeting-search.visual.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/visual/meeting-search.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/HOME_UI_POLISH.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-meetings-id-export-route.md",
+      "docs/apis/app-api-meetings-id-notes-package-route.md",
+      "docs/apis/app-api-meetings-id-route.md",
+      "docs/apis/app-api-meetings-route.md",
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-meetings-id-page.md",
+      "docs/features/app-meetings-page.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-meetings-id",
+    "kind": "api",
+    "name": "api-meetings-[id]",
+    "sourcePaths": [
+      "app/api/meetings/[id]/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/billing-quota.test.ts",
+      "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
+      "tests/integration/app-api-meetings-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-meetings-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-meetings-id-export-route.md",
+      "docs/apis/app-api-meetings-id-notes-package-route.md",
+      "docs/apis/app-api-meetings-id-route.md",
+      "docs/features/app-meetings-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-meetings-id-export",
+    "kind": "api",
+    "name": "api-meetings-[id]-export",
+    "sourcePaths": [
+      "app/api/meetings/[id]/export/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-meetings-id-export-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-meetings-id-notes-package",
+    "kind": "api",
+    "name": "api-meetings-[id]-notes-package",
+    "sourcePaths": [
+      "app/api/meetings/[id]/notes-package/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/apis/app-api-meetings-id-notes-package-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-models",
+    "kind": "api",
+    "name": "api-models",
+    "sourcePaths": [
+      "app/api/models/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/assemblyai-client.test.ts",
+      "tests/billing-llm-pricing.test.ts",
+      "tests/billing-stt-pricing.test.ts",
+      "tests/contracts/app-api-models-route.contract.test.ts",
+      "tests/integration/app-api-models-route.failure-modes.test.ts",
+      "tests/integration/app-api-models-route.test.ts",
+      "tests/settings-shared.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-models-route.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/mfdr/MFDR-001.md",
+      "docs/roadmap.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-oauth-authorize",
+    "kind": "api",
+    "name": "api-oauth-authorize",
+    "sourcePaths": [
+      "app/api/oauth/authorize/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-oauth-authorize-route.contract.test.ts",
+      "tests/integration/app-api-oauth-authorize-route.failure-modes.test.ts",
+      "tests/integration/app-api-oauth-authorize-route.test.ts",
+      "tests/oauth-mcp.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/MCP_AND_API.md",
+      "docs/apis/app-api-oauth-authorize-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-oauth-callback",
+    "kind": "api",
+    "name": "api-oauth-callback",
+    "sourcePaths": [
+      "app/api/oauth/callback/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-oauth-callback-route.contract.test.ts",
+      "tests/integration/app-api-oauth-callback-route.failure-modes.test.ts",
+      "tests/integration/app-api-oauth-callback-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-oauth-callback-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-oauth-consent",
+    "kind": "api",
+    "name": "api-oauth-consent",
+    "sourcePaths": [
+      "app/api/oauth/consent/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-oauth-consent-route.contract.test.ts",
+      "tests/integration/app-api-oauth-consent-route.failure-modes.test.ts",
+      "tests/integration/app-api-oauth-consent-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-oauth-consent-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/MCP_AND_API.md",
+      "docs/apis/app-api-oauth-consent-route.md",
+      "docs/features/app-oauth-consent-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-oauth-revoke",
+    "kind": "api",
+    "name": "api-oauth-revoke",
+    "sourcePaths": [
+      "app/api/oauth/revoke/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-oauth-revoke-route.contract.test.ts",
+      "tests/integration/app-api-oauth-revoke-route.failure-modes.test.ts",
+      "tests/integration/app-api-oauth-revoke-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/MCP_AND_API.md",
+      "docs/apis/app-api-oauth-revoke-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-oauth-token",
+    "kind": "api",
+    "name": "api-oauth-token",
+    "sourcePaths": [
+      "app/api/oauth/token/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-oauth-token-route.contract.test.ts",
+      "tests/integration/app-api-oauth-token-route.failure-modes.test.ts",
+      "tests/integration/app-api-oauth-token-route.test.ts",
+      "tests/oauth-mcp.test.ts",
+      "tests/oauth-token-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/MCP_AND_API.md",
+      "docs/apis/app-api-oauth-token-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-observability-health",
+    "kind": "api",
+    "name": "api-observability-health",
+    "sourcePaths": [
+      "app/api/observability/health/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-observability-health-route.contract.test.ts",
+      "tests/integration/app-api-observability-health-route.failure-modes.test.ts",
+      "tests/integration/app-api-observability-health-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/apis/app-api-observability-health-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-search",
+    "kind": "api",
+    "name": "api-search",
+    "sourcePaths": [
+      "app/api/search/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-search-route.contract.test.ts",
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/integration/app-api-search-route.failure-modes.test.ts",
+      "tests/integration/app-api-search-route.test.ts",
+      "tests/mcp/protocol.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/oauth-mcp.test.ts",
+      "tests/tools/ai-tools.test.ts",
+      "tests/unit/components/ai-debug-panel.test.tsx",
+      "tests/unit/search-docs.test.ts",
+      "components/meeting-search.test.tsx"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx",
+      "components/meeting-search.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-search-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meeting-search.visual.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/visual/meeting-search.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-search-route.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-search-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/reference/openai-codex-runtime.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-settings",
+    "kind": "api",
+    "name": "api-settings",
+    "sourcePaths": [
+      "app/api/settings/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-settings-route.contract.test.ts",
+      "tests/integration/app-api-settings-route.failure-modes.test.ts",
+      "tests/integration/app-api-settings-route.test.ts",
+      "tests/recording-preflight.test.ts",
+      "tests/settings-shared.test.ts",
+      "tests/unit/update-settings.test.ts",
+      "components/integrations-settings-panel.test.tsx"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx",
+      "components/integrations-settings-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts",
+      "tests/e2e/app-settings-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/integrations-settings-panel.visual.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/e2e/visual-regression.spec.ts",
+      "tests/visual/integrations-settings-panel.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-settings-route.md",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-settings-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-stripe-checkout",
+    "kind": "api",
+    "name": "api-stripe-checkout",
+    "sourcePaths": [
+      "app/api/stripe/checkout/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-stripe-checkout-route.contract.test.ts",
+      "tests/integration/app-api-stripe-checkout-route.failure-modes.test.ts",
+      "tests/integration/app-api-stripe-checkout-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-stripe-checkout-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-stripe-webhook",
+    "kind": "api",
+    "name": "api-stripe-webhook",
+    "sourcePaths": [
+      "app/api/stripe/webhook/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-stripe-webhook-route.contract.test.ts",
+      "tests/integration/app-api-stripe-webhook-route.failure-modes.test.ts",
+      "tests/integration/app-api-stripe-webhook-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/apis/app-api-stripe-webhook-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-transcribe",
+    "kind": "api",
+    "name": "api-transcribe",
+    "sourcePaths": [
+      "app/api/transcribe/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-transcribe-id-route.contract.test.ts",
+      "tests/contracts/app-api-transcribe-route.contract.test.ts",
+      "tests/contracts/app-api-transcribe-stream-autosave-route.contract.test.ts",
+      "tests/contracts/app-api-transcribe-stream-finalize-route.contract.test.ts",
+      "tests/contracts/app-api-transcribe-stream-preflight-route.contract.test.ts",
+      "tests/contracts/app-api-transcribe-stream-token-route.contract.test.ts",
+      "tests/integration/app-api-transcribe-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-id-route.test.ts",
+      "tests/integration/app-api-transcribe-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-route.test.ts",
+      "tests/integration/app-api-transcribe-stream-autosave-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-autosave-route.test.ts",
+      "tests/integration/app-api-transcribe-stream-finalize-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-finalize-route.test.ts",
+      "tests/integration/app-api-transcribe-stream-preflight-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-preflight-route.test.ts",
+      "tests/integration/app-api-transcribe-stream-token-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-token-route.test.ts",
+      "tests/recording-calendar-context.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/MCP_AND_API.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-transcribe-id-route.md",
+      "docs/apis/app-api-transcribe-route.md",
+      "docs/apis/app-api-transcribe-stream-autosave-route.md",
+      "docs/apis/app-api-transcribe-stream-finalize-route.md",
+      "docs/apis/app-api-transcribe-stream-preflight-route.md",
+      "docs/apis/app-api-transcribe-stream-token-route.md",
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/mfdr/MFDR-001.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-transcribe-id",
+    "kind": "api",
+    "name": "api-transcribe-[id]",
+    "sourcePaths": [
+      "app/api/transcribe/[id]/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-transcribe-id-route.contract.test.ts",
+      "tests/integration/app-api-transcribe-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-transcribe-id-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-transcribe-stream-autosave",
+    "kind": "api",
+    "name": "api-transcribe-stream-autosave",
+    "sourcePaths": [
+      "app/api/transcribe/stream/autosave/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-transcribe-stream-autosave-route.contract.test.ts",
+      "tests/integration/app-api-transcribe-stream-autosave-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-autosave-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-transcribe-stream-autosave-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-transcribe-stream-finalize",
+    "kind": "api",
+    "name": "api-transcribe-stream-finalize",
+    "sourcePaths": [
+      "app/api/transcribe/stream/finalize/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-transcribe-stream-finalize-route.contract.test.ts",
+      "tests/integration/app-api-transcribe-stream-finalize-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-finalize-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/apis/app-api-transcribe-stream-finalize-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-transcribe-stream-preflight",
+    "kind": "api",
+    "name": "api-transcribe-stream-preflight",
+    "sourcePaths": [
+      "app/api/transcribe/stream/preflight/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-transcribe-stream-preflight-route.contract.test.ts",
+      "tests/integration/app-api-transcribe-stream-preflight-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-preflight-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/MCP_AND_API.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/apis/app-api-transcribe-stream-preflight-route.md",
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-transcribe-stream-token",
+    "kind": "api",
+    "name": "api-transcribe-stream-token",
+    "sourcePaths": [
+      "app/api/transcribe/stream/token/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-transcribe-stream-token-route.contract.test.ts",
+      "tests/integration/app-api-transcribe-stream-token-route.failure-modes.test.ts",
+      "tests/integration/app-api-transcribe-stream-token-route.test.ts",
+      "tests/recording-calendar-context.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/MCP_AND_API.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-transcribe-stream-token-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-webhooks",
+    "kind": "api",
+    "name": "api-webhooks",
+    "sourcePaths": [
+      "app/api/webhooks/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-webhooks-deliveries-route.contract.test.ts",
+      "tests/contracts/app-api-webhooks-route.contract.test.ts",
+      "tests/integration/app-api-webhooks-deliveries-route.failure-modes.test.ts",
+      "tests/integration/app-api-webhooks-deliveries-route.test.ts",
+      "tests/integration/app-api-webhooks-route.failure-modes.test.ts",
+      "tests/integration/app-api-webhooks-route.test.ts",
+      "tests/webhooks-fire.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-webhooks-deliveries-route.md",
+      "docs/apis/app-api-webhooks-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "api:api-webhooks-deliveries",
+    "kind": "api",
+    "name": "api-webhooks-deliveries",
+    "sourcePaths": [
+      "app/api/webhooks/deliveries/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-webhooks-deliveries-route.contract.test.ts",
+      "tests/integration/app-api-webhooks-deliveries-route.failure-modes.test.ts",
+      "tests/integration/app-api-webhooks-deliveries-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [],
+    "evals": [],
+    "docs": [
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/apis/app-api-webhooks-deliveries-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": false,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:ai-debug-panel",
+    "kind": "component",
+    "name": "ai-debug-panel",
+    "sourcePaths": [
+      "components/ai-debug-panel.tsx"
+    ],
+    "tests": [
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/unit/components/ai-debug-panel.test.tsx",
+      "components/ai-debug-panel.test.tsx"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/ai-debug-panel.visual.spec.ts",
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/visual/ai-debug-panel.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/CLAUDE_MCP_TESTING.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:audio-lines",
+    "kind": "component",
+    "name": "audio-lines",
+    "sourcePaths": [
+      "components/audio-lines.tsx"
+    ],
+    "tests": [
+      "components/audio-lines.test.tsx"
+    ],
+    "stories": [
+      "components/audio-lines.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/audio-lines.visual.spec.ts",
+      "tests/visual/audio-lines.spec.ts"
+    ],
+    "evals": [],
+    "docs": [],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:audio-recorder",
+    "kind": "component",
+    "name": "audio-recorder",
+    "sourcePaths": [
+      "components/audio-recorder.tsx"
+    ],
+    "tests": [
+      "components/audio-recorder.test.tsx"
+    ],
+    "stories": [
+      "components/audio-recorder.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/audio-recorder.visual.spec.ts",
+      "tests/visual/audio-recorder.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:audio-wave-ribbon",
+    "kind": "component",
+    "name": "audio-wave-ribbon",
+    "sourcePaths": [
+      "components/audio-wave-ribbon.tsx"
+    ],
+    "tests": [
+      "components/audio-wave-ribbon.test.tsx"
+    ],
+    "stories": [
+      "components/audio-wave-ribbon.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/audio-wave-ribbon.visual.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/HOME_UI_POLISH.md",
+      "docs/components/audio-wave-ribbon.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:button",
+    "kind": "component",
+    "name": "button",
+    "sourcePaths": [
+      "components/ui/button.tsx"
+    ],
+    "tests": [
+      "components/button.test.tsx",
+      "components/liquid-glass-button.test.tsx"
+    ],
+    "stories": [
+      "components/button.stories.tsx",
+      "components/liquid-glass-button.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/button.visual.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/liquid-glass-button.visual.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts",
+      "tests/e2e/mobile.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/visual/button.spec.ts",
+      "tests/visual/liquid-glass-button.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/MCP_AND_API.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/mfdr/MFDR-001.md",
+      "docs/style-guide.md",
+      "docs/style-guide.md.template"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:chat-input",
+    "kind": "component",
+    "name": "chat-input",
+    "sourcePaths": [
+      "components/chat-input.tsx"
+    ],
+    "tests": [
+      "components/chat-input.test.tsx"
+    ],
+    "stories": [
+      "components/chat-input.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/chat-input.visual.spec.ts",
+      "tests/e2e/mobile.spec.ts",
+      "tests/e2e/visual-regression.spec.ts",
+      "tests/visual/chat-input.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/V1_PLAN.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:chat-message",
+    "kind": "component",
+    "name": "chat-message",
+    "sourcePaths": [
+      "components/chat-message.tsx"
+    ],
+    "tests": [
+      "components/chat-message.test.tsx"
+    ],
+    "stories": [
+      "components/chat-message.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/chat-message.visual.spec.ts",
+      "tests/visual/chat-message.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:intake-form-view",
+    "kind": "component",
+    "name": "intake-form-view",
+    "sourcePaths": [
+      "components/intake-form-view.tsx"
+    ],
+    "tests": [
+      "components/intake-form-view.test.tsx"
+    ],
+    "stories": [
+      "components/intake-form-view.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/intake-form-view.visual.spec.ts",
+      "tests/visual/intake-form-view.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:integrations-settings-panel",
+    "kind": "component",
+    "name": "integrations-settings-panel",
+    "sourcePaths": [
+      "components/integrations-settings-panel.tsx"
+    ],
+    "tests": [
+      "components/integrations-settings-panel.test.tsx"
+    ],
+    "stories": [
+      "components/integrations-settings-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/integrations-settings-panel.visual.spec.ts",
+      "tests/visual/integrations-settings-panel.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/NOTES_PUSH_WORKFLOW.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:liquid-glass-button",
+    "kind": "component",
+    "name": "liquid-glass-button",
+    "sourcePaths": [
+      "components/ui/liquid-glass-button.tsx"
+    ],
+    "tests": [
+      "components/liquid-glass-button.test.tsx"
+    ],
+    "stories": [
+      "components/liquid-glass-button.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/liquid-glass-button.visual.spec.ts",
+      "tests/visual/liquid-glass-button.spec.ts"
+    ],
+    "evals": [],
+    "docs": [],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:live-recorder",
+    "kind": "component",
+    "name": "live-recorder",
+    "sourcePaths": [
+      "components/live-recorder.tsx"
+    ],
+    "tests": [
+      "components/live-recorder.test.tsx"
+    ],
+    "stories": [
+      "components/live-recorder.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/live-recorder.visual.spec.ts",
+      "tests/visual/live-recorder.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/MCP_AND_API.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/V1_PLAN.md",
+      "docs/components/audio-wave-ribbon.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:live-transcript-view",
+    "kind": "component",
+    "name": "live-transcript-view",
+    "sourcePaths": [
+      "components/live-transcript-view.tsx"
+    ],
+    "tests": [
+      "components/live-transcript-view.test.tsx"
+    ],
+    "stories": [
+      "components/live-transcript-view.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/live-transcript-view.visual.spec.ts",
+      "tests/visual/live-transcript-view.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:meeting-chat",
+    "kind": "component",
+    "name": "meeting-chat",
+    "sourcePaths": [
+      "components/meeting-chat.tsx"
+    ],
+    "tests": [
+      "tests/meeting-chat-fallback.test.ts",
+      "components/meeting-chat.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-chat.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/meeting-chat.visual.spec.ts",
+      "tests/visual/meeting-chat.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:meeting-cost-panel",
+    "kind": "component",
+    "name": "meeting-cost-panel",
+    "sourcePaths": [
+      "components/meeting-cost-panel.tsx"
+    ],
+    "tests": [
+      "components/meeting-cost-panel.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-cost-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/meeting-cost-panel.visual.spec.ts",
+      "tests/visual/meeting-cost-panel.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:meeting-detail-poller",
+    "kind": "component",
+    "name": "meeting-detail-poller",
+    "sourcePaths": [
+      "components/meeting-detail-poller.tsx"
+    ],
+    "tests": [
+      "components/meeting-detail-poller.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-detail-poller.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/meeting-detail-poller.visual.spec.ts",
+      "tests/visual/meeting-detail-poller.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:meeting-intelligence-panel",
+    "kind": "component",
+    "name": "meeting-intelligence-panel",
+    "sourcePaths": [
+      "components/meeting-intelligence-panel.tsx"
+    ],
+    "tests": [
+      "components/meeting-intelligence-panel.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-intelligence-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/meeting-intelligence-panel.visual.spec.ts",
+      "tests/visual/meeting-intelligence-panel.spec.ts"
+    ],
+    "evals": [],
+    "docs": [],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:meeting-notes-push-panel",
+    "kind": "component",
+    "name": "meeting-notes-push-panel",
+    "sourcePaths": [
+      "components/meeting-notes-push-panel.tsx"
+    ],
+    "tests": [
+      "components/meeting-notes-push-panel.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-notes-push-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/meeting-notes-push-panel.visual.spec.ts",
+      "tests/visual/meeting-notes-push-panel.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/NOTES_PUSH_WORKFLOW.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:meeting-search",
+    "kind": "component",
+    "name": "meeting-search",
+    "sourcePaths": [
+      "components/meeting-search.tsx"
+    ],
+    "tests": [
+      "components/meeting-search.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-search.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meeting-search.visual.spec.ts",
+      "tests/visual/meeting-search.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/V1_PLAN.md",
+      "docs/roadmap.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:mobile-primary-nav",
+    "kind": "component",
+    "name": "mobile-primary-nav",
+    "sourcePaths": [
+      "components/mobile-primary-nav.tsx"
+    ],
+    "tests": [
+      "components/mobile-primary-nav.test.tsx"
+    ],
+    "stories": [
+      "components/mobile-primary-nav.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/mobile-primary-nav.visual.spec.ts",
+      "tests/visual/mobile-primary-nav.spec.ts"
+    ],
+    "evals": [],
+    "docs": [],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:recording-reminder",
+    "kind": "component",
+    "name": "recording-reminder",
+    "sourcePaths": [
+      "components/recording-reminder.tsx"
+    ],
+    "tests": [
+      "tests/recording-reminders.test.ts",
+      "components/recording-reminder.test.tsx"
+    ],
+    "stories": [
+      "components/recording-reminder.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/recording-reminder.visual.spec.ts",
+      "tests/visual/recording-reminder.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/RECORDING_REMINDERS.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:slide-menu",
+    "kind": "component",
+    "name": "slide-menu",
+    "sourcePaths": [
+      "components/slide-menu.tsx"
+    ],
+    "tests": [
+      "components/slide-menu.test.tsx"
+    ],
+    "stories": [
+      "components/slide-menu.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/slide-menu.visual.spec.ts",
+      "tests/visual/slide-menu.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:theme-toggle",
+    "kind": "component",
+    "name": "theme-toggle",
+    "sourcePaths": [
+      "components/theme-toggle.tsx"
+    ],
+    "tests": [
+      "components/theme-toggle.test.tsx"
+    ],
+    "stories": [
+      "components/theme-toggle.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/theme-toggle.visual.spec.ts",
+      "tests/visual/theme-toggle.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:tool-card",
+    "kind": "component",
+    "name": "tool-card",
+    "sourcePaths": [
+      "components/tool-card.tsx"
+    ],
+    "tests": [
+      "components/tool-card.test.tsx"
+    ],
+    "stories": [
+      "components/tool-card.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/tool-card.visual.spec.ts",
+      "tests/e2e/visual-regression.spec.ts",
+      "tests/visual/tool-card.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:top-bar",
+    "kind": "component",
+    "name": "top-bar",
+    "sourcePaths": [
+      "components/top-bar.tsx"
+    ],
+    "tests": [
+      "components/top-bar.test.tsx"
+    ],
+    "stories": [
+      "components/top-bar.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/top-bar.visual.spec.ts",
+      "tests/visual/top-bar.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:transcript-view",
+    "kind": "component",
+    "name": "transcript-view",
+    "sourcePaths": [
+      "components/transcript-view.tsx"
+    ],
+    "tests": [
+      "components/live-transcript-view.test.tsx",
+      "components/transcript-view.test.tsx"
+    ],
+    "stories": [
+      "components/live-transcript-view.stories.tsx",
+      "components/transcript-view.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/live-transcript-view.visual.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/e2e/transcript-view.visual.spec.ts",
+      "tests/visual/live-transcript-view.spec.ts",
+      "tests/visual/transcript-view.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:web-gl-shader",
+    "kind": "component",
+    "name": "web-gl-shader",
+    "sourcePaths": [
+      "components/ui/web-gl-shader.tsx"
+    ],
+    "tests": [
+      "components/web-gl-shader.test.tsx"
+    ],
+    "stories": [
+      "components/web-gl-shader.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/web-gl-shader.visual.spec.ts",
+      "tests/visual/web-gl-shader.spec.ts"
+    ],
+    "evals": [],
+    "docs": [],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:admin-pricing",
+    "kind": "route",
+    "name": "admin-pricing",
+    "sourcePaths": [
+      "app/admin/pricing/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-admin-pricing-activate-route.contract.test.ts",
+      "tests/contracts/app-api-admin-pricing-route.contract.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.failure-modes.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.test.ts",
+      "tests/integration/app-api-admin-pricing-route.failure-modes.test.ts",
+      "tests/integration/app-api-admin-pricing-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-admin-pricing-page.smoke.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/apis/app-api-admin-pricing-activate-route.md",
+      "docs/apis/app-api-admin-pricing-route.md",
+      "docs/features/app-admin-pricing-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:ai-starter",
+    "kind": "route",
+    "name": "ai-starter",
+    "sourcePaths": [
+      "app/ai-starter/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-ai-starter-page.smoke.spec.ts",
+      "tests/e2e/mobile.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/api-control-plane.md",
+      "docs/features/app-ai-starter-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/reference/openai-codex-runtime.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:ask",
+    "kind": "route",
+    "name": "ask",
+    "sourcePaths": [
+      "app/ask/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/assemblyai-schema.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/meeting-export.test.ts",
+      "tests/meeting-notes.test.ts",
+      "tests/notes-push.test.ts",
+      "tests/unit/ask-user.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-ask-page.smoke.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/visual/README.md",
+      "tests/visual/visual.sample.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-light.png",
+      "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-light.png",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-ask-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:auth-callback",
+    "kind": "route",
+    "name": "auth-callback",
+    "sourcePaths": [
+      "app/auth/callback/route.ts"
+    ],
+    "tests": [
+      "tests/contracts/app-api-oauth-callback-route.contract.test.ts",
+      "tests/integration/app-api-oauth-callback-route.failure-modes.test.ts",
+      "tests/integration/app-api-oauth-callback-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-auth-callback-route.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/apis/app-api-oauth-callback-route.md",
+      "docs/features/app-auth-callback-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:auth-confirm",
+    "kind": "route",
+    "name": "auth-confirm",
+    "sourcePaths": [
+      "app/auth/confirm/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-auth-confirm-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/features/app-auth-confirm-page.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:auth-sign-out",
+    "kind": "route",
+    "name": "auth-sign-out",
+    "sourcePaths": [
+      "app/auth/sign-out/route.ts"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-auth-sign-out-route.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/features/app-auth-sign-out-route.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:chat",
+    "kind": "route",
+    "name": "chat",
+    "sourcePaths": [
+      "app/chat/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-chat-route.contract.test.ts",
+      "tests/integration/app-api-chat-route.failure-modes.test.ts",
+      "tests/integration/app-api-chat-route.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/unit/components/ai-debug-panel.test.tsx",
+      "components/chat-input.test.tsx",
+      "components/chat-message.test.tsx",
+      "components/meeting-chat.test.tsx"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx",
+      "components/chat-input.stories.tsx",
+      "components/chat-message.stories.tsx",
+      "components/meeting-chat.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/app-chat-page.smoke.spec.ts",
+      "tests/e2e/chat-input.visual.spec.ts",
+      "tests/e2e/chat-message.visual.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meeting-chat.visual.spec.ts",
+      "tests/e2e/mobile.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/e2e/visual-regression.spec.ts",
+      "tests/visual/chat-input.spec.ts",
+      "tests/visual/chat-message.spec.ts",
+      "tests/visual/meeting-chat.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/app-api-chat-route.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-chat-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:control-plane",
+    "kind": "route",
+    "name": "control-plane",
+    "sourcePaths": [
+      "app/control-plane/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-control-plane-evidence-export-route.contract.test.ts",
+      "tests/contracts/app-api-control-plane-route.contract.test.ts",
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/api-control-plane.contract.test.ts",
+      "tests/integration/app-api-control-plane-evidence-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-control-plane-evidence-export-route.test.ts",
+      "tests/integration/app-api-control-plane-route.failure-modes.test.ts",
+      "tests/integration/app-api-control-plane-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-control-plane-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/api-control-plane.md",
+      "docs/apis/app-api-control-plane-evidence-export-route.md",
+      "docs/apis/app-api-control-plane-route.md",
+      "docs/features/app-control-plane-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/reference/openai-codex-runtime.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit",
+    "kind": "route",
+    "name": "dev-kit",
+    "sourcePaths": [
+      "app/dev-kit/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-config-name-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-connectors-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-cost-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-coverage-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-dependencies-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-deployments-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-design-system-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-evals-id-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-evals-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-features-name-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-features-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-index-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-logs-unified-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-overview-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-registries-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-regressions-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-runs-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-runs-run-id-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-sessions-id-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-sessions-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-status-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-tools-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-config-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-config-name-route.test.ts",
+      "tests/integration/app-api-dev-kit-connectors-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-connectors-route.test.ts",
+      "tests/integration/app-api-dev-kit-cost-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-cost-route.test.ts",
+      "tests/integration/app-api-dev-kit-coverage-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-coverage-route.test.ts",
+      "tests/integration/app-api-dev-kit-dependencies-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-dependencies-route.test.ts",
+      "tests/integration/app-api-dev-kit-deployments-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-deployments-route.test.ts",
+      "tests/integration/app-api-dev-kit-design-system-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-design-system-route.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.test.ts",
+      "tests/integration/app-api-dev-kit-evals-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-route.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.test.ts",
+      "tests/integration/app-api-dev-kit-features-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-route.test.ts",
+      "tests/integration/app-api-dev-kit-index-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-index-route.test.ts",
+      "tests/integration/app-api-dev-kit-logs-unified-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-logs-unified-route.test.ts",
+      "tests/integration/app-api-dev-kit-overview-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-overview-route.test.ts",
+      "tests/integration/app-api-dev-kit-registries-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-registries-route.test.ts",
+      "tests/integration/app-api-dev-kit-regressions-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-regressions-route.test.ts",
+      "tests/integration/app-api-dev-kit-runs-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-route.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-route.test.ts",
+      "tests/integration/app-api-dev-kit-status-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-status-route.test.ts",
+      "tests/integration/app-api-dev-kit-tools-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-tools-route.test.ts",
+      "tests/unit/code-review.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-config-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-connectors-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-cost-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-coverage-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-dependencies-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-deployments-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-design-system-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-evals-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-evals-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-features-name-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-features-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-index-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-registries-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-regressions-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-runs-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-runs-run-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-sessions-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-sessions-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-status-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-tools-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/visual/README.md"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-dev-kit-config-name-route.md",
+      "docs/apis/app-api-dev-kit-connectors-route.md",
+      "docs/apis/app-api-dev-kit-cost-route.md",
+      "docs/apis/app-api-dev-kit-coverage-route.md",
+      "docs/apis/app-api-dev-kit-dependencies-route.md",
+      "docs/apis/app-api-dev-kit-deployments-route.md",
+      "docs/apis/app-api-dev-kit-design-system-route.md",
+      "docs/apis/app-api-dev-kit-evals-id-route.md",
+      "docs/apis/app-api-dev-kit-evals-route.md",
+      "docs/apis/app-api-dev-kit-features-name-route.md",
+      "docs/apis/app-api-dev-kit-features-route.md",
+      "docs/apis/app-api-dev-kit-index-route.md",
+      "docs/apis/app-api-dev-kit-logs-unified-route.md",
+      "docs/apis/app-api-dev-kit-overview-route.md",
+      "docs/apis/app-api-dev-kit-registries-route.md",
+      "docs/apis/app-api-dev-kit-regressions-route.md",
+      "docs/apis/app-api-dev-kit-runs-route.md",
+      "docs/apis/app-api-dev-kit-runs-run-id-route.md",
+      "docs/apis/app-api-dev-kit-sessions-id-route.md",
+      "docs/apis/app-api-dev-kit-sessions-route.md",
+      "docs/apis/app-api-dev-kit-status-route.md",
+      "docs/apis/app-api-dev-kit-tools-route.md",
+      "docs/features/app-dev-kit-config-page.md",
+      "docs/features/app-dev-kit-connectors-page.md",
+      "docs/features/app-dev-kit-cost-page.md",
+      "docs/features/app-dev-kit-coverage-page.md",
+      "docs/features/app-dev-kit-dependencies-page.md",
+      "docs/features/app-dev-kit-deployments-page.md",
+      "docs/features/app-dev-kit-design-system-page.md",
+      "docs/features/app-dev-kit-evals-id-page.md",
+      "docs/features/app-dev-kit-evals-page.md",
+      "docs/features/app-dev-kit-features-name-page.md",
+      "docs/features/app-dev-kit-features-page.md",
+      "docs/features/app-dev-kit-index-page.md",
+      "docs/features/app-dev-kit-page.md",
+      "docs/features/app-dev-kit-registries-page.md",
+      "docs/features/app-dev-kit-regressions-page.md",
+      "docs/features/app-dev-kit-runs-page.md",
+      "docs/features/app-dev-kit-runs-run-id-page.md",
+      "docs/features/app-dev-kit-sessions-id-page.md",
+      "docs/features/app-dev-kit-sessions-page.md",
+      "docs/features/app-dev-kit-status-page.md",
+      "docs/features/app-dev-kit-tools-page.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-config",
+    "kind": "route",
+    "name": "dev-kit-config",
+    "sourcePaths": [
+      "app/dev-kit/config/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-config-name-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-config-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-config-name-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-config-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-config-name-route.md",
+      "docs/features/app-dev-kit-config-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-connectors",
+    "kind": "route",
+    "name": "dev-kit-connectors",
+    "sourcePaths": [
+      "app/dev-kit/connectors/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-connectors-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-connectors-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-connectors-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-connectors-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-connectors-route.md",
+      "docs/features/app-dev-kit-connectors-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-cost",
+    "kind": "route",
+    "name": "dev-kit-cost",
+    "sourcePaths": [
+      "app/dev-kit/cost/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-cost-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-cost-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-cost-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-cost-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/apis/app-api-dev-kit-cost-route.md",
+      "docs/features/app-dev-kit-cost-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-coverage",
+    "kind": "route",
+    "name": "dev-kit-coverage",
+    "sourcePaths": [
+      "app/dev-kit/coverage/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-coverage-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-coverage-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-coverage-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-coverage-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-coverage-route.md",
+      "docs/features/app-dev-kit-coverage-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-dependencies",
+    "kind": "route",
+    "name": "dev-kit-dependencies",
+    "sourcePaths": [
+      "app/dev-kit/dependencies/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-dependencies-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-dependencies-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-dependencies-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-dependencies-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-dependencies-route.md",
+      "docs/features/app-dev-kit-dependencies-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-deployments",
+    "kind": "route",
+    "name": "dev-kit-deployments",
+    "sourcePaths": [
+      "app/dev-kit/deployments/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-deployments-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-deployments-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-deployments-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-deployments-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-deployments-route.md",
+      "docs/features/app-dev-kit-deployments-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-design-system",
+    "kind": "route",
+    "name": "dev-kit-design-system",
+    "sourcePaths": [
+      "app/dev-kit/design-system/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-design-system-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-design-system-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-design-system-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-design-system-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-design-system-route.md",
+      "docs/features/app-dev-kit-design-system-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-evals",
+    "kind": "route",
+    "name": "dev-kit-evals",
+    "sourcePaths": [
+      "app/dev-kit/evals/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-evals-id-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-evals-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.test.ts",
+      "tests/integration/app-api-dev-kit-evals-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-evals-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-evals-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-evals-id-route.md",
+      "docs/apis/app-api-dev-kit-evals-route.md",
+      "docs/features/app-dev-kit-evals-id-page.md",
+      "docs/features/app-dev-kit-evals-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-evals-id",
+    "kind": "route",
+    "name": "dev-kit-evals-[id]",
+    "sourcePaths": [
+      "app/dev-kit/evals/[id]/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-evals-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-evals-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-evals-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-evals-id-route.md",
+      "docs/features/app-dev-kit-evals-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-features",
+    "kind": "route",
+    "name": "dev-kit-features",
+    "sourcePaths": [
+      "app/dev-kit/features/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-features-name-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-features-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.test.ts",
+      "tests/integration/app-api-dev-kit-features-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-features-name-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-features-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-features-name-route.md",
+      "docs/apis/app-api-dev-kit-features-route.md",
+      "docs/features/app-dev-kit-features-name-page.md",
+      "docs/features/app-dev-kit-features-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-features-name",
+    "kind": "route",
+    "name": "dev-kit-features-[name]",
+    "sourcePaths": [
+      "app/dev-kit/features/[name]/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-features-name-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-features-name-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-features-name-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-features-name-route.md",
+      "docs/features/app-dev-kit-features-name-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-index",
+    "kind": "route",
+    "name": "dev-kit-index",
+    "sourcePaths": [
+      "app/dev-kit/index/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-index-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-index-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-index-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-index-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-index-route.md",
+      "docs/features/app-dev-kit-index-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-registries",
+    "kind": "route",
+    "name": "dev-kit-registries",
+    "sourcePaths": [
+      "app/dev-kit/registries/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-registries-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-registries-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-registries-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-registries-page.smoke.spec.ts",
+      "tests/visual/README.md"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/MCP_AND_API.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-dev-kit-registries-route.md",
+      "docs/features/app-dev-kit-registries-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-regressions",
+    "kind": "route",
+    "name": "dev-kit-regressions",
+    "sourcePaths": [
+      "app/dev-kit/regressions/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-regressions-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-regressions-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-regressions-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-regressions-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-regressions-route.md",
+      "docs/features/app-dev-kit-regressions-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-runs",
+    "kind": "route",
+    "name": "dev-kit-runs",
+    "sourcePaths": [
+      "app/dev-kit/runs/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-runs-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-runs-run-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-runs-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-route.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-runs-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-runs-run-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-runs-route.md",
+      "docs/apis/app-api-dev-kit-runs-run-id-route.md",
+      "docs/features/app-dev-kit-runs-page.md",
+      "docs/features/app-dev-kit-runs-run-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-runs-run-id",
+    "kind": "route",
+    "name": "dev-kit-runs-[run_id]",
+    "sourcePaths": [
+      "app/dev-kit/runs/[run_id]/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-runs-run-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-runs-run-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-runs-run-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-runs-run-id-route.md",
+      "docs/features/app-dev-kit-runs-run-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-sessions",
+    "kind": "route",
+    "name": "dev-kit-sessions",
+    "sourcePaths": [
+      "app/dev-kit/sessions/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-sessions-id-route.contract.test.ts",
+      "tests/contracts/app-api-dev-kit-sessions-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-sessions-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-sessions-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-sessions-id-route.md",
+      "docs/apis/app-api-dev-kit-sessions-route.md",
+      "docs/features/app-dev-kit-sessions-id-page.md",
+      "docs/features/app-dev-kit-sessions-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-sessions-id",
+    "kind": "route",
+    "name": "dev-kit-sessions-[id]",
+    "sourcePaths": [
+      "app/dev-kit/sessions/[id]/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-sessions-id-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-sessions-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-sessions-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-sessions-id-route.md",
+      "docs/features/app-dev-kit-sessions-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-status",
+    "kind": "route",
+    "name": "dev-kit-status",
+    "sourcePaths": [
+      "app/dev-kit/status/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-status-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-status-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-status-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-status-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/apis/app-api-dev-kit-status-route.md",
+      "docs/features/app-dev-kit-status-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:dev-kit-tools",
+    "kind": "route",
+    "name": "dev-kit-tools",
+    "sourcePaths": [
+      "app/dev-kit/tools/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-dev-kit-tools-route.contract.test.ts",
+      "tests/integration/app-api-dev-kit-tools-route.failure-modes.test.ts",
+      "tests/integration/app-api-dev-kit-tools-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-dev-kit-tools-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/apis/app-api-dev-kit-tools-route.md",
+      "docs/features/app-dev-kit-tools-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:docs",
+    "kind": "route",
+    "name": "docs",
+    "sourcePaths": [
+      "app/docs/page.tsx"
+    ],
+    "tests": [
+      "tests/e2e/api-control-plane.contract.test.ts",
+      "tests/unit/search-docs.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-docs-page.smoke.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/.DS_Store",
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/HOME_UI_POLISH.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/SUPABASE_MCP_OAUTH_SETUP.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/UI_STYLE_VARIATIONS.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/api-control-plane.md",
+      "docs/apis/app-api-admin-pricing-activate-route.md",
+      "docs/apis/app-api-admin-pricing-route.md",
+      "docs/apis/app-api-ai-logs-errors-route.md",
+      "docs/apis/app-api-ai-logs-route.md",
+      "docs/apis/app-api-ai-logs-stats-route.md",
+      "docs/apis/app-api-auth-api-key-route.md",
+      "docs/apis/app-api-auth-send-email-route.md",
+      "docs/apis/app-api-calendar-callback-provider-route.md",
+      "docs/apis/app-api-calendar-connect-provider-route.md",
+      "docs/apis/app-api-calendar-disconnect-provider-route.md",
+      "docs/apis/app-api-calendar-upcoming-route.md",
+      "docs/apis/app-api-chat-route.md",
+      "docs/apis/app-api-control-plane-evidence-export-route.md",
+      "docs/apis/app-api-control-plane-route.md",
+      "docs/apis/app-api-dev-kit-config-name-route.md",
+      "docs/apis/app-api-dev-kit-connectors-route.md",
+      "docs/apis/app-api-dev-kit-cost-route.md",
+      "docs/apis/app-api-dev-kit-coverage-route.md",
+      "docs/apis/app-api-dev-kit-dependencies-route.md",
+      "docs/apis/app-api-dev-kit-deployments-route.md",
+      "docs/apis/app-api-dev-kit-design-system-route.md",
+      "docs/apis/app-api-dev-kit-evals-id-route.md",
+      "docs/apis/app-api-dev-kit-evals-route.md",
+      "docs/apis/app-api-dev-kit-features-name-route.md",
+      "docs/apis/app-api-dev-kit-features-route.md",
+      "docs/apis/app-api-dev-kit-index-route.md",
+      "docs/apis/app-api-dev-kit-logs-unified-route.md",
+      "docs/apis/app-api-dev-kit-overview-route.md",
+      "docs/apis/app-api-dev-kit-registries-route.md",
+      "docs/apis/app-api-dev-kit-regressions-route.md",
+      "docs/apis/app-api-dev-kit-runs-route.md",
+      "docs/apis/app-api-dev-kit-runs-run-id-route.md",
+      "docs/apis/app-api-dev-kit-sessions-id-route.md",
+      "docs/apis/app-api-dev-kit-sessions-route.md",
+      "docs/apis/app-api-dev-kit-status-route.md",
+      "docs/apis/app-api-dev-kit-tools-route.md",
+      "docs/apis/app-api-embeddings-backfill-route.md",
+      "docs/apis/app-api-health-route.md",
+      "docs/apis/app-api-mcp-transport-route.md",
+      "docs/apis/app-api-meetings-id-export-route.md",
+      "docs/apis/app-api-meetings-id-notes-package-route.md",
+      "docs/apis/app-api-meetings-id-route.md",
+      "docs/apis/app-api-meetings-route.md",
+      "docs/apis/app-api-models-route.md",
+      "docs/apis/app-api-oauth-authorize-route.md",
+      "docs/apis/app-api-oauth-callback-route.md",
+      "docs/apis/app-api-oauth-consent-route.md",
+      "docs/apis/app-api-oauth-revoke-route.md",
+      "docs/apis/app-api-oauth-token-route.md",
+      "docs/apis/app-api-observability-health-route.md",
+      "docs/apis/app-api-search-route.md",
+      "docs/apis/app-api-settings-route.md",
+      "docs/apis/app-api-stripe-checkout-route.md",
+      "docs/apis/app-api-stripe-webhook-route.md",
+      "docs/apis/app-api-transcribe-id-route.md",
+      "docs/apis/app-api-transcribe-route.md",
+      "docs/apis/app-api-transcribe-stream-autosave-route.md",
+      "docs/apis/app-api-transcribe-stream-finalize-route.md",
+      "docs/apis/app-api-transcribe-stream-preflight-route.md",
+      "docs/apis/app-api-transcribe-stream-token-route.md",
+      "docs/apis/app-api-webhooks-deliveries-route.md",
+      "docs/apis/app-api-webhooks-route.md",
+      "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-light.png",
+      "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-light.png",
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/brand-guide.md",
+      "docs/brand-guide.md.template",
+      "docs/components/audio-wave-ribbon.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-admin-pricing-page.md",
+      "docs/features/app-ai-starter-page.md",
+      "docs/features/app-ask-page.md",
+      "docs/features/app-auth-callback-route.md",
+      "docs/features/app-auth-confirm-page.md",
+      "docs/features/app-auth-sign-out-route.md",
+      "docs/features/app-chat-page.md",
+      "docs/features/app-control-plane-page.md",
+      "docs/features/app-dev-kit-config-page.md",
+      "docs/features/app-dev-kit-connectors-page.md",
+      "docs/features/app-dev-kit-cost-page.md",
+      "docs/features/app-dev-kit-coverage-page.md",
+      "docs/features/app-dev-kit-dependencies-page.md",
+      "docs/features/app-dev-kit-deployments-page.md",
+      "docs/features/app-dev-kit-design-system-page.md",
+      "docs/features/app-dev-kit-evals-id-page.md",
+      "docs/features/app-dev-kit-evals-page.md",
+      "docs/features/app-dev-kit-features-name-page.md",
+      "docs/features/app-dev-kit-features-page.md",
+      "docs/features/app-dev-kit-index-page.md",
+      "docs/features/app-dev-kit-page.md",
+      "docs/features/app-dev-kit-registries-page.md",
+      "docs/features/app-dev-kit-regressions-page.md",
+      "docs/features/app-dev-kit-runs-page.md",
+      "docs/features/app-dev-kit-runs-run-id-page.md",
+      "docs/features/app-dev-kit-sessions-id-page.md",
+      "docs/features/app-dev-kit-sessions-page.md",
+      "docs/features/app-dev-kit-status-page.md",
+      "docs/features/app-dev-kit-tools-page.md",
+      "docs/features/app-docs-page.md",
+      "docs/features/app-meetings-id-page.md",
+      "docs/features/app-meetings-page.md",
+      "docs/features/app-oauth-consent-page.md",
+      "docs/features/app-observability-page.md",
+      "docs/features/app-page.md",
+      "docs/features/app-pricing-page.md",
+      "docs/features/app-profile-page.md",
+      "docs/features/app-record-live-page.md",
+      "docs/features/app-record-page.md",
+      "docs/features/app-roadmap-page.md",
+      "docs/features/app-search-page.md",
+      "docs/features/app-settings-page.md",
+      "docs/features/app-sign-in-page.md",
+      "docs/features/app-sign-up-page.md",
+      "docs/features/app-usage-page.md",
+      "docs/features/app-well-known-oauth-authorization-server-route.md",
+      "docs/features/app-well-known-oauth-protected-resource-route.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/reference/openai-codex-runtime.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md",
+      "docs/style-guide.md.template"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:meetings",
+    "kind": "route",
+    "name": "meetings",
+    "sourcePaths": [
+      "app/meetings/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/assemblyai-schema.test.ts",
+      "tests/billing-quota.test.ts",
+      "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
+      "tests/integration/app-api-meetings-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-route.test.ts",
+      "tests/integration/app-api-meetings-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-route.test.ts",
+      "tests/live-meeting-signals.test.ts",
+      "tests/mcp/protocol.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/meeting-export.test.ts",
+      "tests/meetings-store.test.ts",
+      "tests/notes-push.test.ts",
+      "tests/recording-calendar-context.test.ts",
+      "tests/tools/ai-tools.test.ts",
+      "components/meeting-search.test.tsx"
+    ],
+    "stories": [
+      "components/meeting-search.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts",
+      "tests/e2e/app-meetings-id-page.smoke.spec.ts",
+      "tests/e2e/app-meetings-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meeting-search.visual.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/visual/meeting-search.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/HOME_UI_POLISH.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-meetings-id-export-route.md",
+      "docs/apis/app-api-meetings-id-notes-package-route.md",
+      "docs/apis/app-api-meetings-id-route.md",
+      "docs/apis/app-api-meetings-route.md",
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-meetings-id-page.md",
+      "docs/features/app-meetings-page.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:meetings-id",
+    "kind": "route",
+    "name": "meetings-[id]",
+    "sourcePaths": [
+      "app/meetings/[id]/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/billing-quota.test.ts",
+      "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/contracts/app-api-meetings-id-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
+      "tests/integration/app-api-meetings-id-route.failure-modes.test.ts",
+      "tests/integration/app-api-meetings-id-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-meetings-id-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-meetings-id-export-route.md",
+      "docs/apis/app-api-meetings-id-notes-package-route.md",
+      "docs/apis/app-api-meetings-id-route.md",
+      "docs/features/app-meetings-id-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:oauth-consent",
+    "kind": "route",
+    "name": "oauth-consent",
+    "sourcePaths": [
+      "app/oauth/consent/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-oauth-consent-route.contract.test.ts",
+      "tests/integration/app-api-oauth-consent-route.failure-modes.test.ts",
+      "tests/integration/app-api-oauth-consent-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-oauth-consent-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/MCP_AND_API.md",
+      "docs/apis/app-api-oauth-consent-route.md",
+      "docs/features/app-oauth-consent-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:observability",
+    "kind": "route",
+    "name": "observability",
+    "sourcePaths": [
+      "app/observability/page.tsx"
+    ],
+    "tests": [
+      "tests/contracts/app-api-observability-health-route.contract.test.ts",
+      "tests/integration/app-api-observability-health-route.failure-modes.test.ts",
+      "tests/integration/app-api-observability-health-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts",
+      "tests/e2e/app-observability-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/app-api-observability-health-route.md",
+      "docs/features/app-observability-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:page-tsx",
+    "kind": "route",
+    "name": "page.tsx",
+    "sourcePaths": [
+      "app/page.tsx"
+    ],
+    "tests": [
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/theme-css.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/ai-debug-panel.visual.spec.ts",
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-admin-pricing-page.smoke.spec.ts",
+      "tests/e2e/app-ai-starter-page.smoke.spec.ts",
+      "tests/e2e/app-ask-page.smoke.spec.ts",
+      "tests/e2e/app-auth-callback-route.smoke.spec.ts",
+      "tests/e2e/app-auth-confirm-page.smoke.spec.ts",
+      "tests/e2e/app-auth-sign-out-route.smoke.spec.ts",
+      "tests/e2e/app-chat-page.smoke.spec.ts",
+      "tests/e2e/app-control-plane-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-config-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-connectors-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-cost-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-coverage-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-dependencies-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-deployments-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-design-system-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-evals-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-evals-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-features-name-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-features-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-index-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-registries-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-regressions-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-runs-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-runs-run-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-sessions-id-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-sessions-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-status-page.smoke.spec.ts",
+      "tests/e2e/app-dev-kit-tools-page.smoke.spec.ts",
+      "tests/e2e/app-docs-page.smoke.spec.ts",
+      "tests/e2e/app-meetings-id-page.smoke.spec.ts",
+      "tests/e2e/app-meetings-page.smoke.spec.ts",
+      "tests/e2e/app-oauth-consent-page.smoke.spec.ts",
+      "tests/e2e/app-observability-page.smoke.spec.ts",
+      "tests/e2e/app-page.smoke.spec.ts",
+      "tests/e2e/app-pricing-page.smoke.spec.ts",
+      "tests/e2e/app-profile-page.smoke.spec.ts",
+      "tests/e2e/app-record-live-page.smoke.spec.ts",
+      "tests/e2e/app-record-page.smoke.spec.ts",
+      "tests/e2e/app-roadmap-page.smoke.spec.ts",
+      "tests/e2e/app-search-page.smoke.spec.ts",
+      "tests/e2e/app-settings-page.smoke.spec.ts",
+      "tests/e2e/app-sign-in-page.smoke.spec.ts",
+      "tests/e2e/app-sign-up-page.smoke.spec.ts",
+      "tests/e2e/app-usage-page.smoke.spec.ts",
+      "tests/e2e/app-well-known-oauth-authorization-server-route.smoke.spec.ts",
+      "tests/e2e/app-well-known-oauth-protected-resource-route.smoke.spec.ts",
+      "tests/e2e/audio-lines.visual.spec.ts",
+      "tests/e2e/audio-recorder.visual.spec.ts",
+      "tests/e2e/audio-wave-ribbon.visual.spec.ts",
+      "tests/e2e/button.visual.spec.ts",
+      "tests/e2e/chat-input.visual.spec.ts",
+      "tests/e2e/chat-message.visual.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/intake-form-view.visual.spec.ts",
+      "tests/e2e/integrations-settings-panel.visual.spec.ts",
+      "tests/e2e/liquid-glass-button.visual.spec.ts",
+      "tests/e2e/live-recorder.visual.spec.ts",
+      "tests/e2e/live-transcript-view.visual.spec.ts",
+      "tests/e2e/meeting-chat.visual.spec.ts",
+      "tests/e2e/meeting-cost-panel.visual.spec.ts",
+      "tests/e2e/meeting-detail-poller.visual.spec.ts",
+      "tests/e2e/meeting-intelligence-panel.visual.spec.ts",
+      "tests/e2e/meeting-notes-push-panel.visual.spec.ts",
+      "tests/e2e/meeting-search.visual.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts",
+      "tests/e2e/mobile-primary-nav.visual.spec.ts",
+      "tests/e2e/mobile.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/recording-reminder.visual.spec.ts",
+      "tests/e2e/slide-menu.visual.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/e2e/theme-toggle.visual.spec.ts",
+      "tests/e2e/tool-card.visual.spec.ts",
+      "tests/e2e/top-bar.visual.spec.ts",
+      "tests/e2e/transcript-view.visual.spec.ts",
+      "tests/e2e/visual-regression.spec.ts",
+      "tests/e2e/web-gl-shader.visual.spec.ts",
+      "tests/visual/README.md",
+      "tests/visual/ai-debug-panel.spec.ts",
+      "tests/visual/audio-lines.spec.ts",
+      "tests/visual/audio-recorder.spec.ts",
+      "tests/visual/button.spec.ts",
+      "tests/visual/chat-input.spec.ts",
+      "tests/visual/chat-message.spec.ts",
+      "tests/visual/intake-form-view.spec.ts",
+      "tests/visual/integrations-settings-panel.spec.ts",
+      "tests/visual/liquid-glass-button.spec.ts",
+      "tests/visual/live-recorder.spec.ts",
+      "tests/visual/live-transcript-view.spec.ts",
+      "tests/visual/meeting-chat.spec.ts",
+      "tests/visual/meeting-cost-panel.spec.ts",
+      "tests/visual/meeting-detail-poller.spec.ts",
+      "tests/visual/meeting-intelligence-panel.spec.ts",
+      "tests/visual/meeting-notes-push-panel.spec.ts",
+      "tests/visual/meeting-search.spec.ts",
+      "tests/visual/mobile-primary-nav.spec.ts",
+      "tests/visual/recording-reminder.spec.ts",
+      "tests/visual/slide-menu.spec.ts",
+      "tests/visual/theme-toggle.spec.ts",
+      "tests/visual/tool-card.spec.ts",
+      "tests/visual/top-bar.spec.ts",
+      "tests/visual/transcript-view.spec.ts",
+      "tests/visual/visual.sample.spec.ts",
+      "tests/visual/web-gl-shader.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/apis/api-control-plane.md",
+      "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-light.png",
+      "docs/brand-guide.md",
+      "docs/brand-guide.md.template",
+      "docs/design/simple-ui-concepts.html",
+      "docs/features/app-admin-pricing-page.md",
+      "docs/features/app-ai-starter-page.md",
+      "docs/features/app-ask-page.md",
+      "docs/features/app-auth-confirm-page.md",
+      "docs/features/app-chat-page.md",
+      "docs/features/app-control-plane-page.md",
+      "docs/features/app-dev-kit-config-page.md",
+      "docs/features/app-dev-kit-connectors-page.md",
+      "docs/features/app-dev-kit-cost-page.md",
+      "docs/features/app-dev-kit-coverage-page.md",
+      "docs/features/app-dev-kit-dependencies-page.md",
+      "docs/features/app-dev-kit-deployments-page.md",
+      "docs/features/app-dev-kit-design-system-page.md",
+      "docs/features/app-dev-kit-evals-id-page.md",
+      "docs/features/app-dev-kit-evals-page.md",
+      "docs/features/app-dev-kit-features-name-page.md",
+      "docs/features/app-dev-kit-features-page.md",
+      "docs/features/app-dev-kit-index-page.md",
+      "docs/features/app-dev-kit-page.md",
+      "docs/features/app-dev-kit-registries-page.md",
+      "docs/features/app-dev-kit-regressions-page.md",
+      "docs/features/app-dev-kit-runs-page.md",
+      "docs/features/app-dev-kit-runs-run-id-page.md",
+      "docs/features/app-dev-kit-sessions-id-page.md",
+      "docs/features/app-dev-kit-sessions-page.md",
+      "docs/features/app-dev-kit-status-page.md",
+      "docs/features/app-dev-kit-tools-page.md",
+      "docs/features/app-docs-page.md",
+      "docs/features/app-meetings-id-page.md",
+      "docs/features/app-meetings-page.md",
+      "docs/features/app-oauth-consent-page.md",
+      "docs/features/app-observability-page.md",
+      "docs/features/app-page.md",
+      "docs/features/app-pricing-page.md",
+      "docs/features/app-profile-page.md",
+      "docs/features/app-record-live-page.md",
+      "docs/features/app-record-page.md",
+      "docs/features/app-roadmap-page.md",
+      "docs/features/app-search-page.md",
+      "docs/features/app-settings-page.md",
+      "docs/features/app-sign-in-page.md",
+      "docs/features/app-sign-up-page.md",
+      "docs/features/app-usage-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/style-guide.md",
+      "docs/style-guide.md.template"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:pricing",
+    "kind": "route",
+    "name": "pricing",
+    "sourcePaths": [
+      "app/pricing/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/billing-assemblyai-pricing.test.ts",
+      "tests/billing-llm-pricing.test.ts",
+      "tests/billing-pricing-config.test.ts",
+      "tests/billing-quota.test.ts",
+      "tests/billing-stt-pricing.test.ts",
+      "tests/contracts/app-api-admin-pricing-activate-route.contract.test.ts",
+      "tests/contracts/app-api-admin-pricing-route.contract.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.failure-modes.test.ts",
+      "tests/integration/app-api-admin-pricing-activate-route.test.ts",
+      "tests/integration/app-api-admin-pricing-route.failure-modes.test.ts",
+      "tests/integration/app-api-admin-pricing-route.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/notes-push.test.ts",
+      "tests/recording-preflight.test.ts",
+      "tests/settings-shared.test.ts",
+      "tests/tools/ai-tools.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-admin-pricing-page.smoke.spec.ts",
+      "tests/e2e/app-pricing-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/UI_STYLE_VARIATIONS.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-admin-pricing-activate-route.md",
+      "docs/apis/app-api-admin-pricing-route.md",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-admin-pricing-page.md",
+      "docs/features/app-pricing-page.md",
+      "docs/mfdr/MFDR-001.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:profile",
+    "kind": "route",
+    "name": "profile",
+    "sourcePaths": [
+      "app/profile/page.tsx"
+    ],
+    "tests": [
+      "tests/billing-quota.test.ts",
+      "tests/mcp/auth.test.ts",
+      "tests/oauth-mcp.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-profile-page.smoke.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/V1_PLAN.md",
+      "docs/features/app-profile-page.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:record",
+    "kind": "route",
+    "name": "record",
+    "sourcePaths": [
+      "app/record/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/billing-quota.test.ts",
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/live-meeting-signals.test.ts",
+      "tests/mcp/auth.test.ts",
+      "tests/mcp/protocol.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/meeting-export.test.ts",
+      "tests/oauth-token-route.test.ts",
+      "tests/recording-calendar-context.test.ts",
+      "tests/recording-local-draft.test.ts",
+      "tests/recording-microphone-errors.test.ts",
+      "tests/recording-preflight.test.ts",
+      "tests/recording-reminders.test.ts",
+      "tests/recording-voice-commands.test.ts",
+      "tests/unit/components/ai-debug-panel.test.tsx",
+      "components/audio-recorder.test.tsx",
+      "components/live-recorder.test.tsx",
+      "components/recording-reminder.test.tsx"
+    ],
+    "stories": [
+      "components/audio-recorder.stories.tsx",
+      "components/live-recorder.stories.tsx",
+      "components/recording-reminder.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-record-live-page.smoke.spec.ts",
+      "tests/e2e/app-record-page.smoke.spec.ts",
+      "tests/e2e/audio-recorder.visual.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/live-recorder.visual.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts",
+      "tests/e2e/mobile.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/recording-reminder.visual.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/visual/audio-recorder.spec.ts",
+      "tests/visual/live-recorder.spec.ts",
+      "tests/visual/recording-reminder.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/HOME_UI_POLISH.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/UI_STYLE_VARIATIONS.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/api-ai-logs-errors.md",
+      "docs/apis/api-ai-logs.md",
+      "docs/brand-guide.md",
+      "docs/components/audio-wave-ribbon.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-record-live-page.md",
+      "docs/features/app-record-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/reference/openai-codex-runtime.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:record-live",
+    "kind": "route",
+    "name": "record-live",
+    "sourcePaths": [
+      "app/record/live/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-record-live-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meetings.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/V1_PLAN.md",
+      "docs/features/app-record-live-page.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:roadmap",
+    "kind": "route",
+    "name": "roadmap",
+    "sourcePaths": [
+      "app/roadmap/page.tsx"
+    ],
+    "tests": [
+      "tests/mcp/tools.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-roadmap-page.smoke.spec.ts",
+      "tests/e2e/navigation.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/features/app-roadmap-page.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:search",
+    "kind": "route",
+    "name": "search",
+    "sourcePaths": [
+      "app/search/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-search-route.contract.test.ts",
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/integration/app-api-search-route.failure-modes.test.ts",
+      "tests/integration/app-api-search-route.test.ts",
+      "tests/mcp/protocol.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/oauth-mcp.test.ts",
+      "tests/tools/ai-tools.test.ts",
+      "tests/unit/components/ai-debug-panel.test.tsx",
+      "tests/unit/search-docs.test.ts",
+      "components/meeting-search.test.tsx"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx",
+      "components/meeting-search.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-search-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/meeting-search.visual.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/visual/meeting-search.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-search-route.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-search-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/reference/openai-codex-runtime.md",
+      "docs/roadmap.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:settings",
+    "kind": "route",
+    "name": "settings",
+    "sourcePaths": [
+      "app/settings/page.tsx"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/contracts/app-api-settings-route.contract.test.ts",
+      "tests/integration/app-api-settings-route.failure-modes.test.ts",
+      "tests/integration/app-api-settings-route.test.ts",
+      "tests/recording-preflight.test.ts",
+      "tests/settings-shared.test.ts",
+      "tests/unit/update-settings.test.ts",
+      "components/integrations-settings-panel.test.tsx"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx",
+      "components/integrations-settings-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/api-routes.spec.ts",
+      "tests/e2e/app-settings-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/integrations-settings-panel.visual.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts",
+      "tests/e2e/visual-regression.spec.ts",
+      "tests/visual/integrations-settings-panel.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/CALENDAR_INTEGRATION.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/RECORDING_RELIABILITY.md",
+      "docs/RECORDING_REMINDERS.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/app-api-settings-route.md",
+      "docs/design/simple-ui-concepts.html",
+      "docs/design/ui-style-variations.html",
+      "docs/features/app-settings-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:sign-in",
+    "kind": "route",
+    "name": "sign-in",
+    "sourcePaths": [
+      "app/sign-in/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-sign-in-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/MCP_AND_API.md",
+      "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/SUPABASE_MCP_OAUTH_SETUP.md",
+      "docs/V1_PLAN.md",
+      "docs/features/app-sign-in-page.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:sign-up",
+    "kind": "route",
+    "name": "sign-up",
+    "sourcePaths": [
+      "app/sign-up/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-sign-up-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
+      "tests/e2e/mobile-polish.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_PLAN.md",
+      "docs/features/app-sign-up-page.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:usage",
+    "kind": "route",
+    "name": "usage",
+    "sourcePaths": [
+      "app/usage/page.tsx"
+    ],
+    "tests": [
+      "tests/unit/code-review.test.ts"
+    ],
+    "stories": [
+      "components/ai-debug-panel.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/app-usage-page.smoke.spec.ts",
+      "tests/e2e/navigation.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/APP_STORE_SCREENSHOTS.md",
+      "docs/BUILD_SPEC.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/PRICING_ADMIN.md",
+      "docs/PRICING_AND_BILLING.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SIMPLE_UI_DIRECTION.md",
+      "docs/V1_PLAN.md",
+      "docs/apis/api-ai-logs-stats.md",
+      "docs/apis/api-control-plane.md",
+      "docs/brand-guide.md.template",
+      "docs/design/app-store-screenshots.html",
+      "docs/features/app-usage-page.md",
+      "docs/guides/AI-STARTER-HUB.md",
+      "docs/mfdr/MFDR-001.md",
+      "docs/style-guide.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:well-known-oauth-authorization-server",
+    "kind": "route",
+    "name": ".well-known-oauth-authorization-server",
+    "sourcePaths": [
+      "app/.well-known/oauth-authorization-server/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/assemblyai-schema.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/meeting-export.test.ts",
+      "tests/meeting-notes.test.ts",
+      "tests/notes-push.test.ts",
+      "tests/unit/ask-user.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-well-known-oauth-authorization-server-route.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/MCP_AND_API.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SUPABASE_MCP_OAUTH_SETUP.md",
+      "docs/V1_PLAN.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/features/app-well-known-oauth-authorization-server-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:well-known-oauth-protected-resource",
+    "kind": "route",
+    "name": ".well-known-oauth-protected-resource",
+    "sourcePaths": [
+      "app/.well-known/oauth-protected-resource/route.ts"
+    ],
+    "tests": [
+      "tests/api-route-behavior.test.ts",
+      "tests/assemblyai-schema.test.ts",
+      "tests/mcp/protocol.test.ts",
+      "tests/mcp/tools.test.ts",
+      "tests/meeting-chat-fallback.test.ts",
+      "tests/meeting-export.test.ts",
+      "tests/meeting-notes.test.ts",
+      "tests/notes-push.test.ts",
+      "tests/unit/ask-user.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-well-known-oauth-protected-resource-route.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/BUILD_SPEC.md",
+      "docs/CLAUDE_MCP_TESTING.md",
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/MCP_AND_API.md",
+      "docs/SCHEMAS_AND_REGISTRIES.md",
+      "docs/SUPABASE_MCP_OAUTH_SETUP.md",
+      "docs/V1_PLAN.md",
+      "docs/design/app-store-screenshots.html",
+      "docs/features/app-well-known-oauth-protected-resource-route.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-04-28T17:03:49.728Z",
+  "baseUrl": "http://localhost:3001",
+  "authenticated": true,
+  "routeMocks": [
+    "/api/meetings?limit=5",
+    "/api/calendar/upcoming?limit=3",
+    "/api/transcribe/stream/preflight"
+  ],
+  "captures": [
+    {
+      "device": "iPhone 15 Pro Max",
+      "theme": "light",
+      "path": "/Users/alfonso/Documents/GitHub/audio-layer/docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-light.png"
+    },
+    {
+      "device": "iPhone 15 Pro Max",
+      "theme": "dark",
+      "path": "/Users/alfonso/Documents/GitHub/audio-layer/docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-dark.png"
+    },
+    {
+      "device": "iPad Pro 12.9",
+      "theme": "light",
+      "path": "/Users/alfonso/Documents/GitHub/audio-layer/docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-light.png"
+    },
+    {
+      "device": "iPad Pro 12.9",
+      "theme": "dark",
+      "path": "/Users/alfonso/Documents/GitHub/audio-layer/docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-dark.png"
+    }
+  ]
+}

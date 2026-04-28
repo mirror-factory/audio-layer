@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import {
+  ArrowRight,
+  CheckCircle2,
   Mic,
   FileText,
   Brain,
@@ -17,13 +19,34 @@ import { WebGLShader } from "@/components/ui/web-gl-shader";
 /* ─────────────────────────── Constants ─────────────────────────── */
 
 const DEMO_TRANSCRIPT_LINES = [
-  { speaker: "Sarah", text: "Alright, let's kick off. Q3 campaign budget is $240K — we need to allocate across paid, organic, and events." },
-  { speaker: "Marcus", text: "Paid social should get at least 40%. The LinkedIn retargeting campaign from Q2 had a 3.2x ROAS." },
-  { speaker: "Sarah", text: "Agreed. What about the product launch? We're targeting September 15th for the reveal." },
-  { speaker: "Priya", text: "I'd recommend $35K for the launch event. That covers venue, streaming, and influencer partnerships." },
-  { speaker: "Marcus", text: "Let's also carve out $20K for A/B testing on the new landing pages. We need data before scaling." },
-  { speaker: "Sarah", text: "Good call. Priya, can you own the event timeline? Deliverables by end of next week." },
-  { speaker: "Priya", text: "On it. I'll loop in the design team for the campaign assets too." },
+  {
+    speaker: "Sarah",
+    text: "Alright, let's kick off. Q3 campaign budget is $240K — we need to allocate across paid, organic, and events.",
+  },
+  {
+    speaker: "Marcus",
+    text: "Paid social should get at least 40%. The LinkedIn retargeting campaign from Q2 had a 3.2x ROAS.",
+  },
+  {
+    speaker: "Sarah",
+    text: "Agreed. What about the product launch? We're targeting September 15th for the reveal.",
+  },
+  {
+    speaker: "Priya",
+    text: "I'd recommend $35K for the launch event. That covers venue, streaming, and influencer partnerships.",
+  },
+  {
+    speaker: "Marcus",
+    text: "Let's also carve out $20K for A/B testing on the new landing pages. We need data before scaling.",
+  },
+  {
+    speaker: "Sarah",
+    text: "Good call. Priya, can you own the event timeline? Deliverables by end of next week.",
+  },
+  {
+    speaker: "Priya",
+    text: "On it. I'll loop in the design team for the campaign assets too.",
+  },
 ];
 
 const DEMO_SUMMARY = {
@@ -96,7 +119,7 @@ function useRecordingDemo() {
     audioTimerRef.current = setInterval(() => {
       audioT += 0.15;
       setDemoAudioLevel(
-        0.3 + 0.4 * Math.abs(Math.sin(audioT)) + 0.2 * Math.random()
+        0.3 + 0.4 * Math.abs(Math.sin(audioT)) + 0.2 * Math.random(),
       );
     }, 80);
 
@@ -107,9 +130,12 @@ function useRecordingDemo() {
 
     // Stream transcript lines
     DEMO_TRANSCRIPT_LINES.forEach((_, i) => {
-      setTimeout(() => {
-        setVisibleLines(i + 1);
-      }, 1200 * (i + 1));
+      setTimeout(
+        () => {
+          setVisibleLines(i + 1);
+        },
+        1200 * (i + 1),
+      );
     });
 
     // After all lines, transition to summarizing then summary
@@ -158,7 +184,9 @@ function useHeroShaderCycle() {
     let t = 0;
     const timer = setInterval(() => {
       t += 0.08;
-      setHeroAudio(0.25 + 0.35 * Math.abs(Math.sin(t)) + 0.1 * Math.sin(t * 2.3));
+      setHeroAudio(
+        0.25 + 0.35 * Math.abs(Math.sin(t)) + 0.1 * Math.sin(t * 2.3),
+      );
     }, 60);
 
     return () => clearInterval(timer);
@@ -183,26 +211,34 @@ export function LandingPage() {
   const { phase, visibleLines, elapsedSeconds, demoAudioLevel } =
     useRecordingDemo();
 
-  const demoShaderState = phase === "recording" ? "recording" : phase === "summarizing" ? "summarizing" : "idle";
+  const demoShaderState =
+    phase === "recording"
+      ? "recording"
+      : phase === "summarizing"
+        ? "summarizing"
+        : "idle";
 
   return (
-    <div className="min-h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)]">
+    <div className="landing-shell min-h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)]">
       {/* ───── Top Navigation ───── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--bg-primary)]/80 border-b border-[var(--border-subtle)]" style={{ paddingTop: "var(--safe-top)" }}>
-        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-          <Link href="/" className="text-lg font-bold text-[var(--text-primary)] tracking-tight">
-            Layer One
+      <nav
+        className="landing-nav fixed left-0 right-0 top-0 z-50"
+        style={{ paddingTop: "var(--safe-top)" }}
+      >
+        <div className="landing-nav-inner mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-6">
+          <Link href="/" className="landing-brand text-[var(--text-primary)]">
+            <span>Layer One</span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="landing-nav-actions flex items-center gap-2">
             <Link
               href="/sign-in"
-              className="px-5 py-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="landing-nav-link text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
             >
               Sign in
             </Link>
             <Link
               href="/sign-up"
-              className="px-5 py-2 text-sm bg-[#14b8a6] hover:bg-[#0d9488] text-white font-medium rounded-full transition-all duration-300"
+              className="landing-nav-button text-sm font-medium transition-colors"
             >
               Get started
             </Link>
@@ -211,53 +247,76 @@ export function LandingPage() {
       </nav>
 
       {/* ───── SECTION 1: Hero ───── */}
-      <section className="relative flex flex-col items-center justify-center px-4 pt-32 pb-16">
-        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight text-center text-[var(--text-primary)]">
-          Layer One
-        </h1>
-        <a
-          href="https://mirrorfactory.ai"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm text-[#14b8a6] hover:text-[#2dd4bf] transition-colors mt-2"
-        >
-          by Mirror Factory
-        </a>
-        <p className="text-xl sm:text-2xl text-[var(--text-secondary)] mt-4 text-center">
-          Audio Intelligence
-        </p>
-        <p className="text-sm sm:text-base text-[var(--text-muted)] mt-3 max-w-md mx-auto text-center leading-relaxed">
-          Capture, transcribe, and extract structured data from every
-          conversation — budgets, timelines, decisions, action items.
-        </p>
-
-        {/* Shader line below text */}
-        <div className="w-full max-w-3xl mt-12" style={{ height: 120 }}>
+      <section className="landing-hero relative overflow-hidden px-4">
+        <div className="landing-hero-wave" aria-hidden="true">
           <WebGLShader
             state={heroState}
             audioLevel={heroAudio}
             className="w-full h-full"
           />
         </div>
+        <div className="landing-hero-content relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
+          <p className="landing-hero-kicker">Layer One by Mirror Factory</p>
+          <h1 className="landing-hero-title text-[var(--text-primary)]">
+            Meeting intake, instantly.
+          </h1>
+          <p className="landing-hero-copy text-[var(--text-secondary)]">
+            Record once. Leave with clean notes, decisions, next steps, and the
+            context your team needs to act.
+          </p>
 
-        {/* CTAs */}
-        <div className="flex items-center justify-center gap-4 mt-12">
-          <Link
-            href="/sign-up"
-            className="px-8 py-3 bg-[#14b8a6] hover:bg-[#0d9488] text-white font-medium rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(20,184,166,0.2)]"
+          <div className="landing-hero-actions">
+            <Link
+              href="/sign-up"
+              className="landing-button landing-button-primary"
+            >
+              <span>Start free</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link
+              href="/sign-in"
+              className="landing-button landing-button-secondary"
+            >
+              Sign in
+            </Link>
+          </div>
+
+          <div className="landing-trust-row" aria-label="Product highlights">
+            {["25 meetings free", "No meeting bot", "Action-ready notes"].map(
+              (item) => (
+                <span key={item}>
+                  <CheckCircle2 size={14} aria-hidden="true" />
+                  {item}
+                </span>
+              ),
+            )}
+          </div>
+
+          <div
+            className="landing-capture-dock"
+            aria-label="Live meeting capture preview"
           >
-            Get started free
-          </Link>
-          <Link
-            href="/sign-in"
-            className="px-8 py-3 border border-[var(--border-subtle)] hover:border-[var(--border-card)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-full transition-all duration-300"
-          >
-            Sign in
-          </Link>
+            <div className="landing-capture-top">
+              <span>Live capture</span>
+              <span>Ready in seconds</span>
+            </div>
+            <div className="landing-capture-main">
+              <span className="landing-record-button" aria-hidden="true">
+                <Mic size={22} />
+              </span>
+              <div className="landing-capture-text">
+                <strong>Start meeting</strong>
+                <span>Capture notes without inviting a bot.</span>
+              </div>
+              <span className="landing-capture-time">00:00</span>
+            </div>
+            <div className="landing-capture-lanes">
+              <span>Notes</span>
+              <span>Decisions</span>
+              <span>Intake</span>
+            </div>
+          </div>
         </div>
-        <p className="text-xs text-[var(--text-muted)] mt-4">
-          25 meetings free. No credit card.
-        </p>
       </section>
 
       {/* ───── SECTION 2: Features (Bento Grid) ───── */}
@@ -310,8 +369,15 @@ export function LandingPage() {
             <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--border-card)]">
               {/* Left: stop button */}
               <div className="flex items-center gap-3">
-                <button className="w-8 h-8 rounded-lg bg-[var(--bg-card-hover)] flex items-center justify-center" aria-label="Stop">
-                  <Square size={12} className="text-[var(--text-primary)]" fill="currentColor" />
+                <button
+                  className="w-8 h-8 rounded-lg bg-[var(--bg-card-hover)] flex items-center justify-center"
+                  aria-label="Stop"
+                >
+                  <Square
+                    size={12}
+                    className="text-[var(--text-primary)]"
+                    fill="currentColor"
+                  />
                 </button>
               </div>
               {/* Center: timer + RECORDING */}
@@ -356,7 +422,10 @@ export function LandingPage() {
 
           {/* Transcript streaming */}
           {phase === "recording" && visibleLines > 0 && (
-            <div className="px-5 py-4 space-y-3 overflow-y-auto" style={{ scrollbarWidth: "none" }}>
+            <div
+              className="px-5 py-4 space-y-3 overflow-y-auto"
+              style={{ scrollbarWidth: "none" }}
+            >
               {DEMO_TRANSCRIPT_LINES.slice(0, visibleLines).map((line, i) => (
                 <div
                   key={i}
@@ -377,9 +446,18 @@ export function LandingPage() {
           {phase === "summarizing" && (
             <div className="flex flex-col items-center justify-center py-12 gap-3 animate-[fadeSlideIn_0.4s_ease-out_both]">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse" style={{ animationDelay: "0ms" }} />
-                <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse" style={{ animationDelay: "200ms" }} />
-                <span className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse" style={{ animationDelay: "400ms" }} />
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
+                  style={{ animationDelay: "0ms" }}
+                />
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
+                  style={{ animationDelay: "200ms" }}
+                />
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
+                  style={{ animationDelay: "400ms" }}
+                />
               </div>
               <p className="text-sm text-white/50">Summarizing your notes...</p>
             </div>
@@ -445,7 +523,10 @@ export function LandingPage() {
       </section>
 
       {/* ───── SECTION 4: Pricing ───── */}
-      <section id="pricing" className="px-4 py-24 max-w-4xl mx-auto text-center">
+      <section
+        id="pricing"
+        className="px-4 py-24 max-w-4xl mx-auto text-center"
+      >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-[var(--text-primary)]">
           Simple pricing
         </h2>
@@ -458,10 +539,10 @@ export function LandingPage() {
             <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-3 font-medium">
               Free
             </div>
-            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">$0</div>
-            <div className="text-xs text-[var(--text-muted)] mb-6">
-              /month
+            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">
+              $0
             </div>
+            <div className="text-xs text-[var(--text-muted)] mb-6">/month</div>
             <div className="text-sm text-[var(--text-secondary)] font-medium">
               25 meetings
             </div>
@@ -536,8 +617,8 @@ export function LandingPage() {
                   className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
                 >
                   Mirror Factory
-                </a>
-                {" "}product
+                </a>{" "}
+                product
               </p>
             </div>
             <div className="flex items-center gap-8">

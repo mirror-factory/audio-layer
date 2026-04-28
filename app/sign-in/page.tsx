@@ -38,11 +38,10 @@ function SignInForm() {
   const getPostLoginRedirect = () => {
     if (!isOAuthFlow) return "/";
     const params = new URLSearchParams();
-    const redirectUri = searchParams.get("redirect_uri");
-    const state = searchParams.get("state");
-    if (redirectUri) params.set("redirect_uri", redirectUri);
-    if (state) params.set("state", state);
-    return `/api/oauth/callback?${params.toString()}`;
+    for (const [key, value] of searchParams.entries()) {
+      if (key !== "oauth") params.append(key, value);
+    }
+    return `/oauth/consent?${params.toString()}`;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

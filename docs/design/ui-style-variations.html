@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Layer One UI Style Variations</title>
+    <style>
+      :root {
+        --ink: #10201f;
+        --muted: #6a7c79;
+        --mint: #15b8a9;
+        --mint-deep: #0c746b;
+        --lime: #d8f36b;
+        --coral: #ff876f;
+        --plum: #553f62;
+        --line: rgba(16, 32, 31, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eef5f2;
+        color: var(--ink);
+        font-family:
+          Avenir Next,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      .board {
+        display: grid;
+        gap: 42px;
+        padding: 42px;
+      }
+
+      .pair {
+        display: grid;
+        grid-template-columns: 430px 1440px;
+        gap: 32px;
+        align-items: start;
+      }
+
+      .shot {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        box-shadow: 0 22px 72px rgba(20, 42, 39, 0.14);
+      }
+
+      .iphone {
+        width: 430px;
+        height: 932px;
+      }
+
+      .desktop {
+        width: 1440px;
+        height: 960px;
+      }
+
+      .label {
+        position: absolute;
+        z-index: 10;
+        top: 18px;
+        left: 18px;
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        color: #213331;
+        font-size: 12px;
+        font-weight: 760;
+        letter-spacing: 0;
+      }
+
+      .desktop .label {
+        top: 24px;
+        left: 24px;
+      }
+
+      .appbar,
+      .row,
+      .nav,
+      .status,
+      .quick,
+      .toolbar,
+      .chip-row,
+      .metrics {
+        display: flex;
+        align-items: center;
+      }
+
+      .appbar {
+        justify-content: space-between;
+        height: 58px;
+        padding: 0 20px;
+        font-size: 16px;
+        font-weight: 760;
+      }
+
+      .icon {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        border: 1px solid currentColor;
+        color: inherit;
+        opacity: 0.72;
+      }
+
+      .wave {
+        width: 100%;
+        height: 88px;
+      }
+
+      .wave path {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+      }
+
+      .record-circle {
+        display: grid;
+        place-items: center;
+        width: 112px;
+        height: 112px;
+        margin: 20px auto 14px;
+        border-radius: 50%;
+        font-size: 40px;
+        font-weight: 500;
+      }
+
+      .timer {
+        text-align: center;
+        font-size: 46px;
+        font-weight: 820;
+        letter-spacing: 0;
+      }
+
+      .hint {
+        margin-top: 8px;
+        text-align: center;
+        color: inherit;
+        opacity: 0.52;
+        font-size: 15px;
+        font-weight: 560;
+      }
+
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        border-radius: 18px;
+        font-size: 15px;
+        font-weight: 760;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.68);
+      }
+
+      .meeting {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: center;
+        min-height: 72px;
+        padding: 0 14px;
+      }
+
+      .play {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 13px;
+        border: 1px solid currentColor;
+        opacity: 0.58;
+      }
+
+      .meeting strong,
+      .note-title {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 760;
+      }
+
+      .meeting span,
+      .small {
+        color: inherit;
+        opacity: 0.56;
+        font-size: 12px;
+        font-weight: 620;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        padding: 0 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .desk-grid {
+        display: grid;
+        height: calc(100% - 72px);
+        gap: 18px;
+        padding: 20px 28px 28px;
+      }
+
+      .desk-card {
+        border-radius: 24px;
+        padding: 22px;
+      }
+
+      .section-title {
+        margin: 0 0 14px;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .big-title {
+        margin: 0;
+        font-size: 32px;
+        line-height: 1.05;
+        font-weight: 840;
+      }
+
+      .note-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .note-row {
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        gap: 10px;
+        align-items: start;
+        font-size: 14px;
+        line-height: 1.35;
+        font-weight: 620;
+      }
+
+      .box {
+        width: 18px;
+        height: 18px;
+        margin-top: 1px;
+        border: 2px solid currentColor;
+        border-radius: 6px;
+        opacity: 0.7;
+      }
+
+      /* Variation 01: Noir Signal */
+      .noir {
+        --line: rgba(255, 255, 255, 0.11);
+        background:
+          radial-gradient(
+            circle at 50% 20%,
+            rgba(21, 184, 169, 0.18),
+            transparent 32%
+          ),
+          linear-gradient(180deg, #070a0a 0%, #0d1211 100%);
+        color: #f2fbf8;
+      }
+
+      .noir .label,
+      .workbench .label {
+        background: rgba(12, 18, 17, 0.82);
+        color: #d8f36b;
+      }
+
+      .noir .surface {
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .noir .card,
+      .noir .desk-card {
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .noir .wave {
+        color: var(--mint);
+        opacity: 0.9;
+      }
+
+      .noir .record-circle {
+        border: 2px solid rgba(21, 184, 169, 0.55);
+        background: rgba(21, 184, 169, 0.08);
+        color: var(--mint);
+        box-shadow: 0 0 90px rgba(21, 184, 169, 0.16);
+      }
+
+      .noir .button {
+        background: #d8f36b;
+        color: #101816;
+      }
+
+      .noir .tag {
+        background: rgba(21, 184, 169, 0.12);
+        color: #63f4e7;
+      }
+
+      .noir-phone .capture {
+        margin: 18px;
+        padding: 24px 18px 18px;
+        border-radius: 26px;
+      }
+
+      .noir-phone .nav {
+        gap: 10px;
+        padding: 0 18px;
+      }
+
+      .noir-phone .nav .button {
+        flex: 1;
+        min-height: 48px;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(242, 251, 248, 0.72);
+      }
+
+      .noir-phone .list {
+        display: grid;
+        gap: 10px;
+        margin: 18px;
+      }
+
+      .noir-desktop .desk-grid {
+        grid-template-columns: 300px 1fr 330px;
+      }
+
+      .noir-desktop .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Variation 02: Paper Calm */
+      .paper {
+        --line: rgba(42, 75, 69, 0.12);
+        background:
+          radial-gradient(
+            circle at 8% 10%,
+            rgba(216, 243, 107, 0.32),
+            transparent 30%
+          ),
+          linear-gradient(180deg, #fbfefa 0%, #e9f6f1 100%);
+        color: #172724;
+      }
+
+      .paper .surface,
+      .paper .card,
+      .paper .desk-card {
+        border: 1px solid rgba(42, 75, 69, 0.12);
+        background: rgba(255, 255, 255, 0.74);
+      }
+
+      .paper .wave {
+        color: #0b8b80;
+        opacity: 0.75;
+      }
+
+      .paper .record-circle {
+        border: 2px solid rgba(11, 139, 128, 0.24);
+        background: #e9faf6;
+        color: #0b8b80;
+      }
+
+      .paper .button {
+        background: #172724;
+        color: #f8fffc;
+      }
+
+      .paper .tag {
+        background: #ddf5f0;
+        color: #08786f;
+      }
+
+      .paper-phone .capture {
+        margin: 18px;
+        padding: 24px 18px 18px;
+      }
+
+      .paper-phone .quote {
+        margin: 18px;
+        padding: 18px;
+        border-radius: 22px;
+        background: #dff2ec;
+        color: #25443f;
+        font-size: 16px;
+        font-weight: 720;
+        line-height: 1.25;
+      }
+
+      .paper-desktop .desk-grid {
+        grid-template-columns: 360px 1fr;
+      }
+
+      .paper-desktop .main-note {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 18px;
+      }
+
+      /* Variation 03: Native Sheet */
+      .native {
+        --line: rgba(14, 38, 34, 0.1);
+        background:
+          radial-gradient(
+            circle at 78% 8%,
+            rgba(255, 135, 111, 0.22),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at 12% 18%,
+            rgba(21, 184, 169, 0.24),
+            transparent 28%
+          ),
+          linear-gradient(180deg, #f8fcfa 0%, #ddece7 100%);
+        color: #132420;
+      }
+
+      .native .sheet {
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.68);
+        box-shadow: 0 24px 80px rgba(30, 60, 56, 0.12);
+      }
+
+      .native .wave {
+        color: #0b8d83;
+      }
+
+      .native .record-circle {
+        border: 0;
+        background: #132420;
+        color: #d8f36b;
+        box-shadow: 0 16px 48px rgba(19, 36, 32, 0.18);
+      }
+
+      .native .button {
+        background: rgba(19, 36, 32, 0.08);
+        color: #132420;
+      }
+
+      .native .tag {
+        background: rgba(21, 184, 169, 0.12);
+        color: #0b746b;
+      }
+
+      .native-phone .capture {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        bottom: 18px;
+        padding: 20px;
+        border-radius: 30px;
+      }
+
+      .native-phone .live-note {
+        margin: 18px;
+        padding: 18px;
+        border-radius: 24px;
+      }
+
+      .native-desktop .desk-grid {
+        grid-template-columns: 280px 1fr 380px;
+      }
+
+      /* Variation 04: Workbench */
+      .workbench {
+        --line: rgba(255, 255, 255, 0.1);
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(180deg, #11171a 0%, #081011 100%);
+        background-size:
+          48px 48px,
+          48px 48px,
+          auto;
+        color: #eef8f4;
+      }
+
+      .workbench .surface,
+      .workbench .desk-card,
+      .workbench .card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .workbench .wave {
+        color: #d8f36b;
+        opacity: 0.76;
+      }
+
+      .workbench .record-circle {
+        border-radius: 24px;
+        border: 1px solid rgba(216, 243, 107, 0.4);
+        background: rgba(216, 243, 107, 0.08);
+        color: #d8f36b;
+      }
+
+      .workbench .button {
+        background: #15b8a9;
+        color: #06100f;
+      }
+
+      .workbench .tag {
+        background: rgba(216, 243, 107, 0.12);
+        color: #d8f36b;
+      }
+
+      .workbench-phone .capture {
+        margin: 18px;
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .workbench-phone .command {
+        margin: 16px 18px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        font-size: 14px;
+        font-weight: 720;
+      }
+
+      .workbench-desktop .desk-grid {
+        grid-template-columns: 260px 1fr 360px;
+      }
+
+      .sidebar {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+
+      .side-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 44px;
+        padding: 0 12px;
+        border-radius: 14px;
+        color: inherit;
+        opacity: 0.78;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .side-item.active {
+        background: rgba(21, 184, 169, 0.14);
+        color: #5cf3e7;
+        opacity: 1;
+      }
+
+      @media (max-width: 900px) {
+        .pair {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="board">
+      <section class="pair">
+        <div class="shot iphone noir noir-phone" id="noir-iphone">
+          <span class="label">01 Noir Signal - iPhone</span>
+          <div class="appbar">
+            <span></span><span>Layer One</span><span class="icon">G</span>
+          </div>
+          <div class="surface capture">
+            <div class="status"><span class="tag">Ready</span></div>
+            <svg class="wave" viewBox="0 0 760 120" preserveAspectRatio="none">
+              <path
+                d="M0 68 C 96 92, 170 28, 260 62 S 420 92, 520 60 S 660 28, 760 72"
+                stroke-width="4"
+              />
+              <path
+                d="M0 78 C 112 42, 180 96, 292 64 S 452 42, 560 68 S 690 92, 760 52"
+                stroke-width="9"
+                opacity=".32"
+              />
+            </svg>
+            <div class="record-circle">M</div>
+            <div class="timer">00:00</div>
+            <p class="hint">Tap to start taking notes</p>
+          </div>
+          <div class="nav">
+            <div class="button">Meetings</div>
+            <div class="button">Search</div>
+            <div class="button">Chat</div>
+          </div>
+          <div class="list">
+            <div class="card meeting">
+              <span class="play">P</span>
+              <div>
+                <strong>Client intake review</strong><span>Today - 31 min</span>
+              </div>
+              <span class="tag">Done</span>
+            </div>
+            <div class="card meeting">
+              <span class="play">P</span>
+              <div>
+                <strong>Revenue sync</strong><span>Yesterday - 42 min</span>
+              </div>
+              <span class="tag">New</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="shot desktop noir noir-desktop" id="noir-desktop">
+          <span class="label">01 Noir Signal - Desktop</span>
+          <div class="appbar">
+            <span>Layer One</span
+            ><span class="small"
+              >Record, search, and ask across every meeting</span
+            ><span class="icon">G</span>
+          </div>
+          <div class="desk-grid">
+            <aside class="surface desk-card sidebar">
+              <p class="section-title">Workspace</p>
+              <div class="side-item active">Capture <span>8</span></div>
+              <div class="side-item">Meetings <span>42</span></div>
+              <div class="side-item">Library <span>18</span></div>
+              <div class="side-item">Settings</div>
+            </aside>
+            <section class="surface desk-card hero">
+              <p class="section-title">Ready to record</p>
+              <svg
+                class="wave"
+                viewBox="0 0 760 120"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0 68 C 96 92, 170 28, 260 62 S 420 92, 520 60 S 660 28, 760 72"
+                  stroke-width="4"
+                />
+                <path
+                  d="M0 78 C 112 42, 180 96, 292 64 S 452 42, 560 68 S 690 92, 760 52"
+                  stroke-width="10"
+                  opacity=".3"
+                />
+              </svg>
+              <div class="record-circle">M</div>
+              <div class="timer">00:00</div>
+              <p class="hint">Instant capture, then structured notes.</p>
+            </section>
+            <aside class="surface desk-card">
+              <p class="section-title">Recent signal</p>
+              <div class="note-list">
+                <div class="meeting">
+                  <span class="play">P</span>
+                  <div>
+                    <strong>Acme onboarding</strong
+                    ><span>3 decisions captured</span>
+                  </div>
+                  <span class="tag">Done</span>
+                </div>
+                <div class="meeting">
+                  <span class="play">P</span>
+                  <div>
+                    <strong>Product planning</strong><span>7 follow-ups</span>
+                  </div>
+                  <span class="tag">New</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="pair">
+        <div class="shot iphone paper paper-phone" id="paper-iphone">
+          <span class="label">02 Paper Calm - iPhone</span>
+          <div class="appbar">
+            <span></span><span>Layer One</span><span class="icon">G</span>
+          </div>
+          <div class="surface capture">
+            <span class="tag">Next meeting</span>
+            <h2 class="big-title" style="margin-top: 18px">
+              Capture without ceremony.
+            </h2>
+            <svg class="wave" viewBox="0 0 760 120" preserveAspectRatio="none">
+              <path
+                d="M0 62 C 108 44, 172 92, 284 62 S 456 32, 566 66 S 690 94, 760 54"
+                stroke-width="5"
+              />
+            </svg>
+            <div class="record-circle">M</div>
+            <div class="button">Start recording</div>
+          </div>
+          <div class="quote">
+            Notes become a clean intake record: decisions, owners, risks, and
+            next steps.
+          </div>
+          <div class="list">
+            <div class="card meeting">
+              <span class="play">P</span>
+              <div>
+                <strong>Hiring screen</strong><span>Candidate notes ready</span>
+              </div>
+              <span class="tag">Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="shot desktop paper paper-desktop" id="paper-desktop">
+          <span class="label">02 Paper Calm - Desktop</span>
+          <div class="appbar">
+            <span>Layer One</span
+            ><span class="small"
+              >Warm, low-friction capture for client-facing work</span
+            ><span class="icon">G</span>
+          </div>
+          <div class="desk-grid">
+            <aside class="desk-card">
+              <p class="section-title">Today</p>
+              <h1 class="big-title">Three meetings need action.</h1>
+              <p class="small" style="margin-top: 12px">
+                Prioritize follow-ups without opening every transcript.
+              </p>
+              <div class="note-list">
+                <div class="meeting card">
+                  <span class="play">P</span>
+                  <div>
+                    <strong>Acme intake</strong><span>Scope draft due</span>
+                  </div>
+                </div>
+                <div class="meeting card">
+                  <span class="play">P</span>
+                  <div>
+                    <strong>Revenue sync</strong><span>Pricing risk noted</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+            <section class="main-note">
+              <div class="desk-card">
+                <p class="section-title">Meeting note</p>
+                <h2 class="big-title">Acme onboarding</h2>
+                <div class="chip-row" style="gap: 10px; margin-top: 16px">
+                  <span class="tag">Budget $48k</span
+                  ><span class="tag">Owner Maya</span
+                  ><span class="tag">Risk timeline</span>
+                </div>
+                <div class="note-list">
+                  <div class="note-row">
+                    <span class="box"></span
+                    ><span>Move forward with a two-week pilot.</span>
+                  </div>
+                  <div class="note-row">
+                    <span class="box"></span
+                    ><span>Send a scope draft by Friday.</span>
+                  </div>
+                  <div class="note-row">
+                    <span class="box"></span
+                    ><span>Confirm security review link before kickoff.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="desk-card">
+                <p class="section-title">Ask the library</p>
+                <h2 class="big-title">What changed since last call?</h2>
+                <p class="small" style="margin-top: 12px">
+                  Timeline moved forward. Budget stayed flat. Security is now
+                  the blocker.
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="pair">
+        <div class="shot iphone native native-phone" id="native-iphone">
+          <span class="label">03 Native Sheet - iPhone</span>
+          <div class="appbar">
+            <span></span><span>Layer One</span><span class="icon">G</span>
+          </div>
+          <div class="sheet live-note">
+            <span class="tag">Live note</span>
+            <h2 class="big-title" style="margin-top: 14px">Strategy sync</h2>
+            <div class="note-list">
+              <div class="note-row">
+                <span class="box"></span
+                ><span>Decision: narrow ICP to agencies.</span>
+              </div>
+              <div class="note-row">
+                <span class="box"></span
+                ><span>Owner: Alfonso to test onboarding.</span>
+              </div>
+            </div>
+          </div>
+          <div class="sheet capture">
+            <svg class="wave" viewBox="0 0 760 120" preserveAspectRatio="none">
+              <path
+                d="M0 66 C 112 100, 178 28, 290 66 S 474 104, 590 64 S 698 30, 760 70"
+                stroke-width="5"
+              />
+            </svg>
+            <div class="row" style="justify-content: space-between; gap: 16px">
+              <div>
+                <div class="timer" style="text-align: left; font-size: 34px">
+                  00:00
+                </div>
+                <p class="small">Ready to record</p>
+              </div>
+              <div class="record-circle" style="margin: 0">M</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shot desktop native native-desktop" id="native-desktop">
+          <span class="label">03 Native Sheet - Desktop</span>
+          <div class="appbar">
+            <span>Layer One</span
+            ><span class="small"
+              >Soft native sheets, strong hierarchy, fewer visible
+              controls</span
+            ><span class="icon">G</span>
+          </div>
+          <div class="desk-grid">
+            <aside class="sheet desk-card">
+              <p class="section-title">Library</p>
+              <div class="side-item active">All notes</div>
+              <div class="side-item">Follow-ups</div>
+              <div class="side-item">Intake signals</div>
+            </aside>
+            <section class="sheet desk-card">
+              <p class="section-title">Live capture</p>
+              <h1 class="big-title">Record in a focused sheet.</h1>
+              <svg
+                class="wave"
+                viewBox="0 0 760 120"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0 66 C 112 100, 178 28, 290 66 S 474 104, 590 64 S 698 30, 760 70"
+                  stroke-width="5"
+                />
+              </svg>
+              <div class="record-circle">M</div>
+              <div class="timer">00:00</div>
+            </section>
+            <aside class="sheet desk-card">
+              <p class="section-title">Suggested structure</p>
+              <div class="note-list">
+                <div class="note-row">
+                  <span class="box"></span><span>Decisions</span>
+                </div>
+                <div class="note-row">
+                  <span class="box"></span><span>Owners</span>
+                </div>
+                <div class="note-row">
+                  <span class="box"></span><span>Risks</span>
+                </div>
+                <div class="note-row">
+                  <span class="box"></span><span>Next actions</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="pair">
+        <div
+          class="shot iphone workbench workbench-phone"
+          id="workbench-iphone"
+        >
+          <span class="label">04 Workbench - iPhone</span>
+          <div class="appbar">
+            <span></span><span>Layer One</span><span class="icon">G</span>
+          </div>
+          <div class="surface command">Command: record client intake</div>
+          <div class="surface capture">
+            <div class="status" style="justify-content: space-between">
+              <span class="tag">Live</span
+              ><span class="small">3 checks ready</span>
+            </div>
+            <svg class="wave" viewBox="0 0 760 120" preserveAspectRatio="none">
+              <path
+                d="M0 66 C 124 44, 180 94, 302 62 S 478 32, 594 68 S 700 94, 760 58"
+                stroke-width="5"
+              />
+            </svg>
+            <div class="timer">00:00</div>
+            <div class="button" style="margin-top: 18px">Start</div>
+          </div>
+          <div class="list">
+            <div class="card meeting">
+              <span class="play">P</span>
+              <div>
+                <strong>Action queue</strong><span>9 unresolved items</span>
+              </div>
+              <span class="tag">Open</span>
+            </div>
+            <div class="card meeting">
+              <span class="play">P</span>
+              <div><strong>Model cost</strong><span>$0.18 today</span></div>
+              <span class="tag">Low</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="shot desktop workbench workbench-desktop"
+          id="workbench-desktop"
+        >
+          <span class="label">04 Workbench - Desktop</span>
+          <div class="appbar">
+            <span>Layer One</span
+            ><span class="small"
+              >Power-user command center for teams that live in meetings</span
+            ><span class="icon">G</span>
+          </div>
+          <div class="desk-grid">
+            <aside class="surface desk-card sidebar">
+              <p class="section-title">Command</p>
+              <div class="side-item active">Record</div>
+              <div class="side-item">Inbox <span>12</span></div>
+              <div class="side-item">Ask</div>
+              <div class="side-item">Costs</div>
+              <div class="side-item">Push notes</div>
+            </aside>
+            <section class="surface desk-card">
+              <p class="section-title">Active intake</p>
+              <h1 class="big-title">Capture once. Route everywhere.</h1>
+              <div class="metrics" style="gap: 14px; margin: 22px 0">
+                <span class="tag">MCP push ready</span>
+                <span class="tag">900 min left</span>
+                <span class="tag">Local draft on</span>
+              </div>
+              <svg
+                class="wave"
+                viewBox="0 0 760 120"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0 66 C 124 44, 180 94, 302 62 S 478 32, 594 68 S 700 94, 760 58"
+                  stroke-width="5"
+                />
+              </svg>
+              <div class="button" style="width: 260px; margin-top: 24px">
+                Start recording
+              </div>
+            </section>
+            <aside class="surface desk-card">
+              <p class="section-title">Operational view</p>
+              <div class="note-list">
+                <div class="note-row">
+                  <span class="box"></span
+                  ><span>Meeting notes routed to project brief</span>
+                </div>
+                <div class="note-row">
+                  <span class="box"></span
+                  ><span>Two unanswered client objections</span>
+                </div>
+                <div class="note-row">
+                  <span class="box"></span
+                  ><span>Provider cost below plan margin</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

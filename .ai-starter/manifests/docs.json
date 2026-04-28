@@ -1,0 +1,2600 @@
+[
+  {
+    "id": "design-md",
+    "title": "DESIGN",
+    "localPath": "DESIGN.md",
+    "sourceUrl": null,
+    "priority": "hot",
+    "tags": [
+      "DESIGN.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-28T17:28:44.063Z"
+  },
+  {
+    "id": "docs-apis-api-ai-logs-errors-md",
+    "title": "api-ai-logs-errors",
+    "localPath": "docs/apis/api-ai-logs-errors.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "api-ai-logs-errors.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-26T22:08:36.882Z"
+  },
+  {
+    "id": "docs-apis-api-ai-logs-md",
+    "title": "api-ai-logs",
+    "localPath": "docs/apis/api-ai-logs.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "api-ai-logs.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-26T22:08:36.881Z"
+  },
+  {
+    "id": "docs-apis-api-ai-logs-stats-md",
+    "title": "api-ai-logs-stats",
+    "localPath": "docs/apis/api-ai-logs-stats.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "api-ai-logs-stats.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-26T22:08:36.882Z"
+  },
+  {
+    "id": "docs-apis-api-control-plane-md",
+    "title": "api-control-plane",
+    "localPath": "docs/apis/api-control-plane.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "api-control-plane.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-26T22:08:36.883Z"
+  },
+  {
+    "id": "docs-apis-app-api-admin-pricing-activate-route-md",
+    "title": "app-api-admin-pricing-activate-route",
+    "localPath": "docs/apis/app-api-admin-pricing-activate-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-admin-pricing-activate-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.774Z"
+  },
+  {
+    "id": "docs-apis-app-api-admin-pricing-route-md",
+    "title": "app-api-admin-pricing-route",
+    "localPath": "docs/apis/app-api-admin-pricing-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-admin-pricing-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.774Z"
+  },
+  {
+    "id": "docs-apis-app-api-ai-logs-errors-route-md",
+    "title": "app-api-ai-logs-errors-route",
+    "localPath": "docs/apis/app-api-ai-logs-errors-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-ai-logs-errors-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.775Z"
+  },
+  {
+    "id": "docs-apis-app-api-ai-logs-route-md",
+    "title": "app-api-ai-logs-route",
+    "localPath": "docs/apis/app-api-ai-logs-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-ai-logs-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.775Z"
+  },
+  {
+    "id": "docs-apis-app-api-ai-logs-stats-route-md",
+    "title": "app-api-ai-logs-stats-route",
+    "localPath": "docs/apis/app-api-ai-logs-stats-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-ai-logs-stats-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.775Z"
+  },
+  {
+    "id": "docs-apis-app-api-auth-api-key-route-md",
+    "title": "app-api-auth-api-key-route",
+    "localPath": "docs/apis/app-api-auth-api-key-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-auth-api-key-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.776Z"
+  },
+  {
+    "id": "docs-apis-app-api-auth-send-email-route-md",
+    "title": "app-api-auth-send-email-route",
+    "localPath": "docs/apis/app-api-auth-send-email-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-auth-send-email-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.776Z"
+  },
+  {
+    "id": "docs-apis-app-api-calendar-callback-provider-route-md",
+    "title": "app-api-calendar-callback-provider-route",
+    "localPath": "docs/apis/app-api-calendar-callback-provider-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-calendar-callback-provider-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.776Z"
+  },
+  {
+    "id": "docs-apis-app-api-calendar-connect-provider-route-md",
+    "title": "app-api-calendar-connect-provider-route",
+    "localPath": "docs/apis/app-api-calendar-connect-provider-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-calendar-connect-provider-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.776Z"
+  },
+  {
+    "id": "docs-apis-app-api-calendar-disconnect-provider-route-md",
+    "title": "app-api-calendar-disconnect-provider-route",
+    "localPath": "docs/apis/app-api-calendar-disconnect-provider-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-calendar-disconnect-provider-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.777Z"
+  },
+  {
+    "id": "docs-apis-app-api-calendar-upcoming-route-md",
+    "title": "app-api-calendar-upcoming-route",
+    "localPath": "docs/apis/app-api-calendar-upcoming-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-calendar-upcoming-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.777Z"
+  },
+  {
+    "id": "docs-apis-app-api-chat-route-md",
+    "title": "app-api-chat-route",
+    "localPath": "docs/apis/app-api-chat-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-chat-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.777Z"
+  },
+  {
+    "id": "docs-apis-app-api-control-plane-evidence-export-route-md",
+    "title": "app-api-control-plane-evidence-export-route",
+    "localPath": "docs/apis/app-api-control-plane-evidence-export-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-control-plane-evidence-export-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.778Z"
+  },
+  {
+    "id": "docs-apis-app-api-control-plane-route-md",
+    "title": "app-api-control-plane-route",
+    "localPath": "docs/apis/app-api-control-plane-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-control-plane-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.778Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-config-name-route-md",
+    "title": "app-api-dev-kit-config-name-route",
+    "localPath": "docs/apis/app-api-dev-kit-config-name-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-config-name-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.778Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-connectors-route-md",
+    "title": "app-api-dev-kit-connectors-route",
+    "localPath": "docs/apis/app-api-dev-kit-connectors-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-connectors-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.779Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-cost-route-md",
+    "title": "app-api-dev-kit-cost-route",
+    "localPath": "docs/apis/app-api-dev-kit-cost-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-cost-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.779Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-coverage-route-md",
+    "title": "app-api-dev-kit-coverage-route",
+    "localPath": "docs/apis/app-api-dev-kit-coverage-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-coverage-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.779Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-dependencies-route-md",
+    "title": "app-api-dev-kit-dependencies-route",
+    "localPath": "docs/apis/app-api-dev-kit-dependencies-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-dependencies-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.779Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-deployments-route-md",
+    "title": "app-api-dev-kit-deployments-route",
+    "localPath": "docs/apis/app-api-dev-kit-deployments-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-deployments-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.780Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-design-system-route-md",
+    "title": "app-api-dev-kit-design-system-route",
+    "localPath": "docs/apis/app-api-dev-kit-design-system-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-design-system-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.780Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-evals-id-route-md",
+    "title": "app-api-dev-kit-evals-id-route",
+    "localPath": "docs/apis/app-api-dev-kit-evals-id-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-evals-id-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.780Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-evals-route-md",
+    "title": "app-api-dev-kit-evals-route",
+    "localPath": "docs/apis/app-api-dev-kit-evals-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-evals-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.780Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-features-name-route-md",
+    "title": "app-api-dev-kit-features-name-route",
+    "localPath": "docs/apis/app-api-dev-kit-features-name-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-features-name-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.781Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-features-route-md",
+    "title": "app-api-dev-kit-features-route",
+    "localPath": "docs/apis/app-api-dev-kit-features-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-features-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.781Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-index-route-md",
+    "title": "app-api-dev-kit-index-route",
+    "localPath": "docs/apis/app-api-dev-kit-index-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-index-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.781Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-logs-unified-route-md",
+    "title": "app-api-dev-kit-logs-unified-route",
+    "localPath": "docs/apis/app-api-dev-kit-logs-unified-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-logs-unified-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.782Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-overview-route-md",
+    "title": "app-api-dev-kit-overview-route",
+    "localPath": "docs/apis/app-api-dev-kit-overview-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-overview-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.782Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-registries-route-md",
+    "title": "app-api-dev-kit-registries-route",
+    "localPath": "docs/apis/app-api-dev-kit-registries-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-registries-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.782Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-regressions-route-md",
+    "title": "app-api-dev-kit-regressions-route",
+    "localPath": "docs/apis/app-api-dev-kit-regressions-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-regressions-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.782Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-runs-route-md",
+    "title": "app-api-dev-kit-runs-route",
+    "localPath": "docs/apis/app-api-dev-kit-runs-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-runs-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.783Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-runs-run-id-route-md",
+    "title": "app-api-dev-kit-runs-run-id-route",
+    "localPath": "docs/apis/app-api-dev-kit-runs-run-id-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-runs-run-id-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.783Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-sessions-id-route-md",
+    "title": "app-api-dev-kit-sessions-id-route",
+    "localPath": "docs/apis/app-api-dev-kit-sessions-id-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-sessions-id-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.784Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-sessions-route-md",
+    "title": "app-api-dev-kit-sessions-route",
+    "localPath": "docs/apis/app-api-dev-kit-sessions-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-sessions-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.783Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-status-route-md",
+    "title": "app-api-dev-kit-status-route",
+    "localPath": "docs/apis/app-api-dev-kit-status-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-status-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.784Z"
+  },
+  {
+    "id": "docs-apis-app-api-dev-kit-tools-route-md",
+    "title": "app-api-dev-kit-tools-route",
+    "localPath": "docs/apis/app-api-dev-kit-tools-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-dev-kit-tools-route.md"
+    ],
+    "triggerPaths": [
+      "lib/ai/tool-meta.ts",
+      "lib/registry.ts"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.784Z"
+  },
+  {
+    "id": "docs-apis-app-api-embeddings-backfill-route-md",
+    "title": "app-api-embeddings-backfill-route",
+    "localPath": "docs/apis/app-api-embeddings-backfill-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-embeddings-backfill-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.785Z"
+  },
+  {
+    "id": "docs-apis-app-api-health-route-md",
+    "title": "app-api-health-route",
+    "localPath": "docs/apis/app-api-health-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-health-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.785Z"
+  },
+  {
+    "id": "docs-apis-app-api-mcp-transport-route-md",
+    "title": "app-api-mcp-transport-route",
+    "localPath": "docs/apis/app-api-mcp-transport-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-mcp-transport-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.785Z"
+  },
+  {
+    "id": "docs-apis-app-api-meetings-id-export-route-md",
+    "title": "app-api-meetings-id-export-route",
+    "localPath": "docs/apis/app-api-meetings-id-export-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-meetings-id-export-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.786Z"
+  },
+  {
+    "id": "docs-apis-app-api-meetings-id-notes-package-route-md",
+    "title": "app-api-meetings-id-notes-package-route",
+    "localPath": "docs/apis/app-api-meetings-id-notes-package-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-meetings-id-notes-package-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.786Z"
+  },
+  {
+    "id": "docs-apis-app-api-meetings-id-route-md",
+    "title": "app-api-meetings-id-route",
+    "localPath": "docs/apis/app-api-meetings-id-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-meetings-id-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.786Z"
+  },
+  {
+    "id": "docs-apis-app-api-meetings-route-md",
+    "title": "app-api-meetings-route",
+    "localPath": "docs/apis/app-api-meetings-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-meetings-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.785Z"
+  },
+  {
+    "id": "docs-apis-app-api-models-route-md",
+    "title": "app-api-models-route",
+    "localPath": "docs/apis/app-api-models-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-models-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.787Z"
+  },
+  {
+    "id": "docs-apis-app-api-oauth-authorize-route-md",
+    "title": "app-api-oauth-authorize-route",
+    "localPath": "docs/apis/app-api-oauth-authorize-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-oauth-authorize-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.787Z"
+  },
+  {
+    "id": "docs-apis-app-api-oauth-callback-route-md",
+    "title": "app-api-oauth-callback-route",
+    "localPath": "docs/apis/app-api-oauth-callback-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-oauth-callback-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.787Z"
+  },
+  {
+    "id": "docs-apis-app-api-oauth-consent-route-md",
+    "title": "app-api-oauth-consent-route",
+    "localPath": "docs/apis/app-api-oauth-consent-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-oauth-consent-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.788Z"
+  },
+  {
+    "id": "docs-apis-app-api-oauth-revoke-route-md",
+    "title": "app-api-oauth-revoke-route",
+    "localPath": "docs/apis/app-api-oauth-revoke-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-oauth-revoke-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.788Z"
+  },
+  {
+    "id": "docs-apis-app-api-oauth-token-route-md",
+    "title": "app-api-oauth-token-route",
+    "localPath": "docs/apis/app-api-oauth-token-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-oauth-token-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.788Z"
+  },
+  {
+    "id": "docs-apis-app-api-observability-health-route-md",
+    "title": "app-api-observability-health-route",
+    "localPath": "docs/apis/app-api-observability-health-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-observability-health-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.788Z"
+  },
+  {
+    "id": "docs-apis-app-api-search-route-md",
+    "title": "app-api-search-route",
+    "localPath": "docs/apis/app-api-search-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-search-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.789Z"
+  },
+  {
+    "id": "docs-apis-app-api-settings-route-md",
+    "title": "app-api-settings-route",
+    "localPath": "docs/apis/app-api-settings-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-settings-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.789Z"
+  },
+  {
+    "id": "docs-apis-app-api-stripe-checkout-route-md",
+    "title": "app-api-stripe-checkout-route",
+    "localPath": "docs/apis/app-api-stripe-checkout-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-stripe-checkout-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.789Z"
+  },
+  {
+    "id": "docs-apis-app-api-stripe-webhook-route-md",
+    "title": "app-api-stripe-webhook-route",
+    "localPath": "docs/apis/app-api-stripe-webhook-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-stripe-webhook-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.789Z"
+  },
+  {
+    "id": "docs-apis-app-api-transcribe-id-route-md",
+    "title": "app-api-transcribe-id-route",
+    "localPath": "docs/apis/app-api-transcribe-id-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-transcribe-id-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.790Z"
+  },
+  {
+    "id": "docs-apis-app-api-transcribe-route-md",
+    "title": "app-api-transcribe-route",
+    "localPath": "docs/apis/app-api-transcribe-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-transcribe-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.790Z"
+  },
+  {
+    "id": "docs-apis-app-api-transcribe-stream-autosave-route-md",
+    "title": "app-api-transcribe-stream-autosave-route",
+    "localPath": "docs/apis/app-api-transcribe-stream-autosave-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-transcribe-stream-autosave-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.790Z"
+  },
+  {
+    "id": "docs-apis-app-api-transcribe-stream-finalize-route-md",
+    "title": "app-api-transcribe-stream-finalize-route",
+    "localPath": "docs/apis/app-api-transcribe-stream-finalize-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-transcribe-stream-finalize-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.790Z"
+  },
+  {
+    "id": "docs-apis-app-api-transcribe-stream-preflight-route-md",
+    "title": "app-api-transcribe-stream-preflight-route",
+    "localPath": "docs/apis/app-api-transcribe-stream-preflight-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-transcribe-stream-preflight-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.791Z"
+  },
+  {
+    "id": "docs-apis-app-api-transcribe-stream-token-route-md",
+    "title": "app-api-transcribe-stream-token-route",
+    "localPath": "docs/apis/app-api-transcribe-stream-token-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-transcribe-stream-token-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.791Z"
+  },
+  {
+    "id": "docs-apis-app-api-webhooks-deliveries-route-md",
+    "title": "app-api-webhooks-deliveries-route",
+    "localPath": "docs/apis/app-api-webhooks-deliveries-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-webhooks-deliveries-route.md"
+    ],
+    "triggerPaths": [
+      ".claude/hooks/",
+      ".claude/settings.json",
+      ".codex/hooks/",
+      ".codex/hooks.json"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.792Z"
+  },
+  {
+    "id": "docs-apis-app-api-webhooks-route-md",
+    "title": "app-api-webhooks-route",
+    "localPath": "docs/apis/app-api-webhooks-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "app-api-webhooks-route.md"
+    ],
+    "triggerPaths": [
+      ".claude/hooks/",
+      ".claude/settings.json",
+      ".codex/hooks/",
+      ".codex/hooks.json"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.791Z"
+  },
+  {
+    "id": "docs-app-store-screenshots-md",
+    "title": "APP_STORE_SCREENSHOTS",
+    "localPath": "docs/APP_STORE_SCREENSHOTS.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "APP_STORE_SCREENSHOTS.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-28T16:54:28.472Z"
+  },
+  {
+    "id": "docs-brand-guide-md",
+    "title": "brand-guide",
+    "localPath": "docs/brand-guide.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "brand-guide.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-23T03:54:30.814Z"
+  },
+  {
+    "id": "docs-build-spec-md",
+    "title": "BUILD_SPEC",
+    "localPath": "docs/BUILD_SPEC.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "BUILD_SPEC.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-26T17:18:02.890Z"
+  },
+  {
+    "id": "docs-calendar-integration-md",
+    "title": "CALENDAR_INTEGRATION",
+    "localPath": "docs/CALENDAR_INTEGRATION.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "CALENDAR_INTEGRATION.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T03:46:53.153Z"
+  },
+  {
+    "id": "docs-claude-mcp-testing-md",
+    "title": "CLAUDE_MCP_TESTING",
+    "localPath": "docs/CLAUDE_MCP_TESTING.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "CLAUDE_MCP_TESTING.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-28T17:11:23.201Z"
+  },
+  {
+    "id": "docs-competitive-landscape-and-gtm-md",
+    "title": "COMPETITIVE_LANDSCAPE_AND_GTM",
+    "localPath": "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "COMPETITIVE_LANDSCAPE_AND_GTM.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T17:02:35.971Z"
+  },
+  {
+    "id": "docs-components-audio-wave-ribbon-md",
+    "title": "audio-wave-ribbon",
+    "localPath": "docs/components/audio-wave-ribbon.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "components",
+      "audio-wave-ribbon.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T18:42:22.826Z"
+  },
+  {
+    "id": "docs-embeddings-and-search-md",
+    "title": "EMBEDDINGS_AND_SEARCH",
+    "localPath": "docs/EMBEDDINGS_AND_SEARCH.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "EMBEDDINGS_AND_SEARCH.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-26T15:01:17.704Z"
+  },
+  {
+    "id": "docs-feature-test-plan-md",
+    "title": "FEATURE_TEST_PLAN",
+    "localPath": "docs/FEATURE_TEST_PLAN.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "FEATURE_TEST_PLAN.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T21:18:05.121Z"
+  },
+  {
+    "id": "docs-features-app-admin-pricing-page-md",
+    "title": "app-admin-pricing-page",
+    "localPath": "docs/features/app-admin-pricing-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-admin-pricing-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.797Z"
+  },
+  {
+    "id": "docs-features-app-ai-starter-page-md",
+    "title": "app-ai-starter-page",
+    "localPath": "docs/features/app-ai-starter-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-ai-starter-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.797Z"
+  },
+  {
+    "id": "docs-features-app-ask-page-md",
+    "title": "app-ask-page",
+    "localPath": "docs/features/app-ask-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-ask-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.798Z"
+  },
+  {
+    "id": "docs-features-app-auth-callback-route-md",
+    "title": "app-auth-callback-route",
+    "localPath": "docs/features/app-auth-callback-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-auth-callback-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.798Z"
+  },
+  {
+    "id": "docs-features-app-auth-confirm-page-md",
+    "title": "app-auth-confirm-page",
+    "localPath": "docs/features/app-auth-confirm-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-auth-confirm-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.798Z"
+  },
+  {
+    "id": "docs-features-app-auth-sign-out-route-md",
+    "title": "app-auth-sign-out-route",
+    "localPath": "docs/features/app-auth-sign-out-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-auth-sign-out-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.798Z"
+  },
+  {
+    "id": "docs-features-app-chat-page-md",
+    "title": "app-chat-page",
+    "localPath": "docs/features/app-chat-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-chat-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.798Z"
+  },
+  {
+    "id": "docs-features-app-control-plane-page-md",
+    "title": "app-control-plane-page",
+    "localPath": "docs/features/app-control-plane-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-control-plane-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.799Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-config-page-md",
+    "title": "app-dev-kit-config-page",
+    "localPath": "docs/features/app-dev-kit-config-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-config-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.799Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-connectors-page-md",
+    "title": "app-dev-kit-connectors-page",
+    "localPath": "docs/features/app-dev-kit-connectors-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-connectors-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.799Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-cost-page-md",
+    "title": "app-dev-kit-cost-page",
+    "localPath": "docs/features/app-dev-kit-cost-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-cost-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.799Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-coverage-page-md",
+    "title": "app-dev-kit-coverage-page",
+    "localPath": "docs/features/app-dev-kit-coverage-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-coverage-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.800Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-dependencies-page-md",
+    "title": "app-dev-kit-dependencies-page",
+    "localPath": "docs/features/app-dev-kit-dependencies-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-dependencies-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.800Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-deployments-page-md",
+    "title": "app-dev-kit-deployments-page",
+    "localPath": "docs/features/app-dev-kit-deployments-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-deployments-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.800Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-design-system-page-md",
+    "title": "app-dev-kit-design-system-page",
+    "localPath": "docs/features/app-dev-kit-design-system-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-design-system-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.800Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-evals-id-page-md",
+    "title": "app-dev-kit-evals-id-page",
+    "localPath": "docs/features/app-dev-kit-evals-id-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-evals-id-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.801Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-evals-page-md",
+    "title": "app-dev-kit-evals-page",
+    "localPath": "docs/features/app-dev-kit-evals-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-evals-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.801Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-features-name-page-md",
+    "title": "app-dev-kit-features-name-page",
+    "localPath": "docs/features/app-dev-kit-features-name-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-features-name-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.802Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-features-page-md",
+    "title": "app-dev-kit-features-page",
+    "localPath": "docs/features/app-dev-kit-features-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-features-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.801Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-index-page-md",
+    "title": "app-dev-kit-index-page",
+    "localPath": "docs/features/app-dev-kit-index-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-index-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.802Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-page-md",
+    "title": "app-dev-kit-page",
+    "localPath": "docs/features/app-dev-kit-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.799Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-registries-page-md",
+    "title": "app-dev-kit-registries-page",
+    "localPath": "docs/features/app-dev-kit-registries-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-registries-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.802Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-regressions-page-md",
+    "title": "app-dev-kit-regressions-page",
+    "localPath": "docs/features/app-dev-kit-regressions-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-regressions-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.803Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-runs-page-md",
+    "title": "app-dev-kit-runs-page",
+    "localPath": "docs/features/app-dev-kit-runs-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-runs-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.803Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-runs-run-id-page-md",
+    "title": "app-dev-kit-runs-run-id-page",
+    "localPath": "docs/features/app-dev-kit-runs-run-id-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-runs-run-id-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.803Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-sessions-id-page-md",
+    "title": "app-dev-kit-sessions-id-page",
+    "localPath": "docs/features/app-dev-kit-sessions-id-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-sessions-id-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.804Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-sessions-page-md",
+    "title": "app-dev-kit-sessions-page",
+    "localPath": "docs/features/app-dev-kit-sessions-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-sessions-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.803Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-status-page-md",
+    "title": "app-dev-kit-status-page",
+    "localPath": "docs/features/app-dev-kit-status-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-status-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.804Z"
+  },
+  {
+    "id": "docs-features-app-dev-kit-tools-page-md",
+    "title": "app-dev-kit-tools-page",
+    "localPath": "docs/features/app-dev-kit-tools-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-dev-kit-tools-page.md"
+    ],
+    "triggerPaths": [
+      "lib/ai/tool-meta.ts",
+      "lib/registry.ts"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.804Z"
+  },
+  {
+    "id": "docs-features-app-docs-page-md",
+    "title": "app-docs-page",
+    "localPath": "docs/features/app-docs-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-docs-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.804Z"
+  },
+  {
+    "id": "docs-features-app-meetings-id-page-md",
+    "title": "app-meetings-id-page",
+    "localPath": "docs/features/app-meetings-id-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-meetings-id-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.806Z"
+  },
+  {
+    "id": "docs-features-app-meetings-page-md",
+    "title": "app-meetings-page",
+    "localPath": "docs/features/app-meetings-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-meetings-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.805Z"
+  },
+  {
+    "id": "docs-features-app-oauth-consent-page-md",
+    "title": "app-oauth-consent-page",
+    "localPath": "docs/features/app-oauth-consent-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-oauth-consent-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.807Z"
+  },
+  {
+    "id": "docs-features-app-observability-page-md",
+    "title": "app-observability-page",
+    "localPath": "docs/features/app-observability-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-observability-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.807Z"
+  },
+  {
+    "id": "docs-features-app-page-md",
+    "title": "app-page",
+    "localPath": "docs/features/app-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.811Z"
+  },
+  {
+    "id": "docs-features-app-pricing-page-md",
+    "title": "app-pricing-page",
+    "localPath": "docs/features/app-pricing-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-pricing-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.812Z"
+  },
+  {
+    "id": "docs-features-app-profile-page-md",
+    "title": "app-profile-page",
+    "localPath": "docs/features/app-profile-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-profile-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.812Z"
+  },
+  {
+    "id": "docs-features-app-record-live-page-md",
+    "title": "app-record-live-page",
+    "localPath": "docs/features/app-record-live-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-record-live-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.813Z"
+  },
+  {
+    "id": "docs-features-app-record-page-md",
+    "title": "app-record-page",
+    "localPath": "docs/features/app-record-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-record-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.813Z"
+  },
+  {
+    "id": "docs-features-app-roadmap-page-md",
+    "title": "app-roadmap-page",
+    "localPath": "docs/features/app-roadmap-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-roadmap-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.814Z"
+  },
+  {
+    "id": "docs-features-app-search-page-md",
+    "title": "app-search-page",
+    "localPath": "docs/features/app-search-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-search-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.815Z"
+  },
+  {
+    "id": "docs-features-app-settings-page-md",
+    "title": "app-settings-page",
+    "localPath": "docs/features/app-settings-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-settings-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.815Z"
+  },
+  {
+    "id": "docs-features-app-sign-in-page-md",
+    "title": "app-sign-in-page",
+    "localPath": "docs/features/app-sign-in-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-sign-in-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.816Z"
+  },
+  {
+    "id": "docs-features-app-sign-up-page-md",
+    "title": "app-sign-up-page",
+    "localPath": "docs/features/app-sign-up-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-sign-up-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.816Z"
+  },
+  {
+    "id": "docs-features-app-usage-page-md",
+    "title": "app-usage-page",
+    "localPath": "docs/features/app-usage-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-usage-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.816Z"
+  },
+  {
+    "id": "docs-features-app-well-known-oauth-authorization-server-route-md",
+    "title": "app-well-known-oauth-authorization-server-route",
+    "localPath": "docs/features/app-well-known-oauth-authorization-server-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-well-known-oauth-authorization-server-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.817Z"
+  },
+  {
+    "id": "docs-features-app-well-known-oauth-protected-resource-route-md",
+    "title": "app-well-known-oauth-protected-resource-route",
+    "localPath": "docs/features/app-well-known-oauth-protected-resource-route.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-well-known-oauth-protected-resource-route.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T14:23:28.818Z"
+  },
+  {
+    "id": "docs-frontend-surface-audit-md",
+    "title": "FRONTEND_SURFACE_AUDIT",
+    "localPath": "docs/FRONTEND_SURFACE_AUDIT.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "FRONTEND_SURFACE_AUDIT.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T00:05:11.758Z"
+  },
+  {
+    "id": "docs-guides-ai-starter-hub-md",
+    "title": "AI-STARTER-HUB",
+    "localPath": "docs/guides/AI-STARTER-HUB.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "guides",
+      "AI-STARTER-HUB.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-26T22:08:36.880Z"
+  },
+  {
+    "id": "docs-home-ui-polish-md",
+    "title": "HOME_UI_POLISH",
+    "localPath": "docs/HOME_UI_POLISH.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "HOME_UI_POLISH.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-28T12:26:24.845Z"
+  },
+  {
+    "id": "docs-mcp-and-api-md",
+    "title": "MCP_AND_API",
+    "localPath": "docs/MCP_AND_API.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "MCP_AND_API.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T04:28:14.656Z"
+  },
+  {
+    "id": "docs-mfdr-mfdr-001-md",
+    "title": "MFDR-001",
+    "localPath": "docs/mfdr/MFDR-001.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "mfdr",
+      "MFDR-001.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-20T02:43:09.698Z"
+  },
+  {
+    "id": "docs-notes-push-workflow-md",
+    "title": "NOTES_PUSH_WORKFLOW",
+    "localPath": "docs/NOTES_PUSH_WORKFLOW.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "NOTES_PUSH_WORKFLOW.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T04:27:48.965Z"
+  },
+  {
+    "id": "docs-pricing-admin-md",
+    "title": "PRICING_ADMIN",
+    "localPath": "docs/PRICING_ADMIN.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "PRICING_ADMIN.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T17:01:12.610Z"
+  },
+  {
+    "id": "docs-pricing-and-billing-md",
+    "title": "PRICING_AND_BILLING",
+    "localPath": "docs/PRICING_AND_BILLING.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "PRICING_AND_BILLING.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T17:03:09.011Z"
+  },
+  {
+    "id": "docs-recording-reliability-md",
+    "title": "RECORDING_RELIABILITY",
+    "localPath": "docs/RECORDING_RELIABILITY.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "RECORDING_RELIABILITY.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T21:17:44.515Z"
+  },
+  {
+    "id": "docs-recording-reminders-md",
+    "title": "RECORDING_REMINDERS",
+    "localPath": "docs/RECORDING_REMINDERS.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "RECORDING_REMINDERS.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T03:46:46.115Z"
+  },
+  {
+    "id": "docs-reference-openai-codex-runtime-md",
+    "title": "openai-codex-runtime",
+    "localPath": "docs/reference/openai-codex-runtime.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "reference",
+      "openai-codex-runtime.md"
+    ],
+    "triggerPaths": [
+      ".codex/hooks/",
+      ".codex/hooks.json",
+      ".codex/config.toml",
+      "AGENTS.md"
+    ],
+    "lastCheckedAt": "2026-04-26T22:08:36.881Z"
+  },
+  {
+    "id": "docs-roadmap-md",
+    "title": "roadmap",
+    "localPath": "docs/roadmap.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "roadmap.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-24T23:08:08.475Z"
+  },
+  {
+    "id": "docs-schemas-and-registries-md",
+    "title": "SCHEMAS_AND_REGISTRIES",
+    "localPath": "docs/SCHEMAS_AND_REGISTRIES.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "SCHEMAS_AND_REGISTRIES.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-24T22:52:36.482Z"
+  },
+  {
+    "id": "docs-simple-ui-direction-md",
+    "title": "SIMPLE_UI_DIRECTION",
+    "localPath": "docs/SIMPLE_UI_DIRECTION.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "SIMPLE_UI_DIRECTION.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T13:38:07.312Z"
+  },
+  {
+    "id": "docs-style-guide-md",
+    "title": "style-guide",
+    "localPath": "docs/style-guide.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "style-guide.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T13:38:02.694Z"
+  },
+  {
+    "id": "docs-supabase-mcp-oauth-setup-md",
+    "title": "SUPABASE_MCP_OAUTH_SETUP",
+    "localPath": "docs/SUPABASE_MCP_OAUTH_SETUP.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "SUPABASE_MCP_OAUTH_SETUP.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-28T17:11:23.200Z"
+  },
+  {
+    "id": "docs-transcription-provider-matrix-md",
+    "title": "TRANSCRIPTION_PROVIDER_MATRIX",
+    "localPath": "docs/TRANSCRIPTION_PROVIDER_MATRIX.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "TRANSCRIPTION_PROVIDER_MATRIX.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T17:03:09.042Z"
+  },
+  {
+    "id": "docs-ui-style-variations-md",
+    "title": "UI_STYLE_VARIATIONS",
+    "localPath": "docs/UI_STYLE_VARIATIONS.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "UI_STYLE_VARIATIONS.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T01:11:39.375Z"
+  },
+  {
+    "id": "docs-v1-plan-md",
+    "title": "V1_PLAN",
+    "localPath": "docs/V1_PLAN.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "V1_PLAN.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-27T13:37:57.905Z"
+  },
+  {
+    "id": "openai-codex-agents-md",
+    "title": "OpenAI Codex AGENTS.md",
+    "localPath": "docs/reference/openai-codex-runtime.md",
+    "sourceUrl": "https://developers.openai.com/codex/guides/agents-md",
+    "priority": "hot",
+    "tags": [
+      "openai",
+      "codex",
+      "agents-md"
+    ],
+    "triggerPaths": [
+      "AGENTS.md"
+    ],
+    "lastCheckedAt": "2026-04-28T17:29:04.512Z"
+  },
+  {
+    "id": "openai-codex-hooks",
+    "title": "OpenAI Codex hooks",
+    "localPath": "docs/reference/openai-codex-runtime.md",
+    "sourceUrl": "https://developers.openai.com/codex/hooks",
+    "priority": "hot",
+    "tags": [
+      "openai",
+      "codex",
+      "hooks"
+    ],
+    "triggerPaths": [
+      ".codex/hooks.json",
+      ".codex/config.toml",
+      ".codex/hooks/"
+    ],
+    "lastCheckedAt": "2026-04-28T17:29:04.512Z"
+  },
+  {
+    "id": "openai-docs-mcp",
+    "title": "OpenAI Docs MCP",
+    "localPath": "docs/reference/openai-codex-runtime.md",
+    "sourceUrl": "https://developers.openai.com/learn/docs-mcp",
+    "priority": "hot",
+    "tags": [
+      "openai",
+      "mcp",
+      "docs"
+    ],
+    "triggerPaths": [
+      ".codex/config.toml",
+      "AGENTS.md"
+    ],
+    "lastCheckedAt": "2026-04-28T17:29:04.512Z"
+  },
+  {
+    "id": "readme-md",
+    "title": "README",
+    "localPath": "README.md",
+    "sourceUrl": null,
+    "priority": "cold",
+    "tags": [
+      "README.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-23T03:54:30.783Z"
+  }
+]

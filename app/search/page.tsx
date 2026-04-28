@@ -2,7 +2,13 @@
 
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { Search, Loader2, FileText, MessageSquare, ClipboardList } from "lucide-react";
+import {
+  Search,
+  Loader2,
+  FileText,
+  MessageSquare,
+  ClipboardList,
+} from "lucide-react";
 import { TopBar } from "@/components/top-bar";
 
 interface SearchResultItem {
@@ -21,10 +27,17 @@ const CHUNK_TYPE_ICONS: Record<string, typeof FileText> = {
 };
 
 const CHUNK_TYPE_LABELS: Record<string, string> = {
-  transcript: "Transcript",
+  transcript: "Notes",
   summary: "Summary",
-  intake: "Intake",
+  intake: "Details",
 };
+
+const SUGGESTED_QUERIES = [
+  "open action items",
+  "pricing decisions",
+  "customer objections",
+  "next follow-ups",
+];
 
 export default function SearchPage() {
   const router = useRouter();
@@ -33,32 +46,36 @@ export default function SearchPage() {
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
 
-  const handleSearch = useCallback(async () => {
-    const trimmed = query.trim();
-    if (!trimmed) return;
+  const handleSearch = useCallback(
+    async (overrideQuery?: string) => {
+      const trimmed = (overrideQuery ?? query).trim();
+      if (!trimmed) return;
 
-    setLoading(true);
-    setSearched(true);
+      setQuery(trimmed);
+      setLoading(true);
+      setSearched(true);
 
-    try {
-      const res = await fetch("/api/search", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: trimmed, limit: 20 }),
-      });
+      try {
+        const res = await fetch("/api/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: trimmed, limit: 20 }),
+        });
 
-      if (res.ok) {
-        const data = await res.json();
-        setResults(data.results ?? []);
-      } else {
+        if (res.ok) {
+          const data = await res.json();
+          setResults(data.results ?? []);
+        } else {
+          setResults([]);
+        }
+      } catch {
         setResults([]);
+      } finally {
+        setLoading(false);
       }
-    } catch {
-      setResults([]);
-    } finally {
-      setLoading(false);
-    }
-  }, [query]);
+    },
+    [query],
+  );
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") handleSearch();
@@ -76,16 +93,26 @@ export default function SearchPage() {
     }
   };
 
-  const similarityPercent = (sim: number) =>
-    `${Math.round(sim * 100)}%`;
+  const similarityPercent = (sim: number) => `${Math.round(sim * 100)}%`;
 
   return (
-    <div className="min-h-screen-safe flex flex-col">
+    <div className="paper-calm-page min-h-screen-safe flex flex-col">
       <TopBar title="Search" showBack />
 
-      <main className="flex-1 px-4 pb-safe py-6 max-w-2xl mx-auto w-full space-y-6">
+      <main className="mx-auto w-full max-w-3xl flex-1 space-y-6 px-4 pb-safe py-6">
+        <section className="signal-panel rounded-lg p-4 sm:p-5">
+          <p className="signal-eyebrow">Search</p>
+          <h2 className="mt-1 text-xl font-semibold tracking-tight text-[var(--text-primary)]">
+            Find anything from a meeting.
+          </h2>
+          <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--text-muted)]">
+            Search decisions, names, follow-ups, and notes without opening every
+            recording.
+          </p>
+        </section>
+
         {/* Search input */}
-        <div className="flex gap-2">
+        <div className="signal-panel search-box flex flex-col gap-2 rounded-lg p-2 sm:flex-row">
           <div className="flex-1 relative">
             <Search
               size={18}
@@ -97,14 +124,15 @@ export default function SearchPage() {
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Search meetings..."
-              className="w-full pl-10 pr-4 py-3 bg-[var(--bg-card)] border border-[var(--border-card)] rounded-xl text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[#14b8a6]/40 transition-colors min-h-[44px]"
+              className="signal-input min-h-[44px] w-full rounded-md py-3 pl-10 pr-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] transition-colors focus:outline-none"
               autoFocus
             />
           </div>
           <button
-            onClick={handleSearch}
+            type="button"
+            onClick={() => handleSearch()}
             disabled={loading || !query.trim()}
-            className="flex items-center justify-center px-5 bg-[#14b8a6] hover:bg-[#0d9488] text-white font-medium rounded-xl min-h-[44px] transition-colors disabled:opacity-50"
+            className="search-submit flex min-h-[44px] items-center justify-center rounded-md bg-[#14b8a6] px-5 text-sm font-semibold text-[#042f2e] transition-colors hover:bg-[#2dd4bf] disabled:cursor-not-allowed disabled:bg-[var(--surface-control)] disabled:text-[var(--text-muted)] disabled:opacity-100"
           >
             {loading ? (
               <Loader2 size={18} className="animate-spin" />
@@ -136,15 +164,12 @@ export default function SearchPage() {
             </p>
 
             {results.map((result, idx) => {
-              const Icon =
-                CHUNK_TYPE_ICONS[result.chunkType] ?? FileText;
+              const Icon = CHUNK_TYPE_ICONS[result.chunkType] ?? FileText;
               return (
                 <button
                   key={`${result.meetingId}-${idx}`}
-                  onClick={() =>
-                    router.push(`/meetings/${result.meetingId}`)
-                  }
-                  className="w-full text-left bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] border border-[var(--border-card)] rounded-xl p-4 space-y-2 transition-colors"
+                  onClick={() => router.push(`/meetings/${result.meetingId}`)}
+                  className="signal-transcript-card w-full rounded-lg p-4 text-left transition-colors hover:bg-[var(--bg-card-hover)]"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
@@ -162,7 +187,7 @@ export default function SearchPage() {
                         </span>
                       </div>
                     </div>
-                    <span className="text-xs font-mono text-[#14b8a6] whitespace-nowrap">
+                    <span className="whitespace-nowrap text-xs font-medium text-[#14b8a6]">
                       {similarityPercent(result.similarity)}
                     </span>
                   </div>
@@ -176,12 +201,32 @@ export default function SearchPage() {
         )}
 
         {!searched && (
-          <div className="text-center py-12">
-            <Search size={32} className="mx-auto text-[var(--text-muted)] mb-3" />
-            <p className="text-sm text-[var(--text-muted)]">
-              Search across all your meeting transcripts, summaries, and intake
-              forms.
-            </p>
+          <div className="signal-panel rounded-lg px-5 py-8">
+            <div className="flex items-start gap-3">
+              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#14b8a6]/10 text-[#14b8a6]">
+                <Search size={17} />
+              </div>
+              <div className="min-w-0">
+                <h2 className="text-sm font-medium text-[var(--text-primary)]">
+                  Search your meeting memory
+                </h2>
+                <p className="mt-1 max-w-md text-sm leading-6 text-[var(--text-muted)]">
+                  Ask for decisions, objections, dates, people, or follow-ups.
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {SUGGESTED_QUERIES.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  type="button"
+                  onClick={() => handleSearch(suggestion)}
+                  className="min-h-[36px] rounded-md border border-[var(--border-card)] px-3 text-xs text-[var(--text-secondary)] transition-colors hover:border-[#14b8a6]/35 hover:bg-[var(--bg-card-hover)] hover:text-[var(--text-primary)]"
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </main>

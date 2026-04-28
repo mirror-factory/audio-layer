@@ -1,0 +1,7 @@
+
+
+[features]
+codex_hooks = true
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"

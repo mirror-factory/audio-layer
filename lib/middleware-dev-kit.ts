@@ -74,5 +74,10 @@ export function devKitAuthGuard(request: NextRequest): NextResponse | null {
  * or its backing API. Keeps the path-matching logic in one place.
  */
 export function isDevKitPath(pathname: string): boolean {
-  return pathname.startsWith('/dev-kit') || pathname.startsWith('/api/dev-kit');
+  return (
+    pathname.startsWith('/dev-kit') ||
+    pathname.startsWith('/api/dev-kit') ||
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/api/admin')
+  );
 }

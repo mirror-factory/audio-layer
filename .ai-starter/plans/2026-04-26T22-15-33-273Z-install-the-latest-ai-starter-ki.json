@@ -1,0 +1,32 @@
+{
+  "id": "2026-04-26T22-15-33-273Z-install-the-latest-ai-starter-ki",
+  "createdAt": "2026-04-26T22:15:33.273Z",
+  "updatedAt": "2026-04-26T22:15:33.273Z",
+  "title": "Install the latest AI starter kit, polish the app integration, verify feature coverage, and document Claude MCP testing.",
+  "prompt": "Install the latest AI starter kit, polish the app integration, verify feature coverage, and document Claude MCP testing.",
+  "classification": "polish",
+  "acceptanceCriteria": [
+    "The target surface has before/after evidence.",
+    "The updated surface improves the declared scorecard dimension.",
+    "No regressions are introduced in required checks."
+  ],
+  "requiredEvidence": [
+    "screenshot",
+    "scorecard",
+    "playwright"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

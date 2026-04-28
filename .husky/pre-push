@@ -38,6 +38,17 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+# 1a. AI Starter Kit gates
+# ---------------------------------------------------------------------------
+info "Running AI Starter Kit gates..."
+if pnpm gates; then
+  pass "AI Starter Kit gates passed"
+else
+  fail "AI Starter Kit gates failed"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
 # 1b. Compliance check -- fail-closed. This runs the starter kit's pattern
 # enforcement: telemetry on AI calls, schema drift, tool-description quality,
 # required-test coverage. Warnings are allowed; errors block the push.
@@ -177,8 +188,10 @@ if [ -f "promptfooconfig.yaml" ] || [ -f "promptfooconfig.yml" ]; then
   # Read run_id from state file so eval-results.json can be joined on /dev-kit/runs/[run_id]
   RUN_ID=$(test -f .ai-dev-kit/state/current-run.json && sed -n 's/.*"run_id"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' .ai-dev-kit/state/current-run.json | head -1 || echo "")
   EVAL_OUT=".test-results/eval-results${RUN_ID:+-$RUN_ID}.json"
+  set +e
   npx promptfoo eval --output "$EVAL_OUT" 2>&1
   PF_EXIT=$?
+  set -e
   if [ $PF_EXIT -ne 0 ]; then
     echo "  [warn] Promptfoo eval had failures (review before deploying)"
   else

@@ -15,6 +15,7 @@ export interface MeetingsStore {
   update(id: string, patch: MeetingUpdate): Promise<Meeting | null>;
   get(id: string): Promise<Meeting | null>;
   list(limit: number): Promise<MeetingListItem[]>;
+  delete(id: string): Promise<boolean>;
 }
 
 export async function getMeetingsStore(): Promise<MeetingsStore> {

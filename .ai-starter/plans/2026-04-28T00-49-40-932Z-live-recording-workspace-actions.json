@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-28T00-49-40-932Z-live-recording-workspace-actions",
+  "createdAt": "2026-04-28T00:49:40.933Z",
+  "updatedAt": "2026-04-28T00:49:40.933Z",
+  "title": "Live recording workspace actions and context",
+  "prompt": "Live recording workspace actions and context",
+  "classification": "feature",
+  "acceptanceCriteria": [
+    "The new behavior is described in a machine-readable plan.",
+    "The affected surface has verification assets and updated manifests.",
+    "Typecheck and required tests pass."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

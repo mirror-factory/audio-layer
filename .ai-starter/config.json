@@ -1,0 +1,161 @@
+{
+  "version": "0.0.11",
+  "createdAt": "2026-04-26T22:08:37.511Z",
+  "updatedAt": "2026-04-28T17:29:46.419Z",
+  "mode": "detected",
+  "status": "configured",
+  "project": {
+    "name": "audio-layer",
+    "slug": "audio-layer",
+    "description": "AI product app managed by the AI Starter Kit.",
+    "appType": "nextjs-ai-app",
+    "productType": "unknown"
+  },
+  "policy": {
+    "profile": "strict",
+    "expectRequired": true,
+    "playwrightRequired": true,
+    "storybookRequired": true,
+    "designDrift": "warn",
+    "autopilotStop": true
+  },
+  "runtimes": {
+    "primary": "codex",
+    "enabled": {
+      "claude-code": true,
+      "codex": true
+    }
+  },
+  "ai": {
+    "provider": "vercel-ai-gateway",
+    "useVercelGateway": true,
+    "defaultModel": "anthropic/claude-sonnet-4.6",
+    "testModel": "google/gemini-3.1-flash-lite",
+    "evalModel": "google/gemini-3.1-flash-lite"
+  },
+  "modules": {
+    "controlPlane": true,
+    "observability": true,
+    "research": true,
+    "designRegistry": true,
+    "browserProof": true,
+    "expect": true,
+    "browserUse": false,
+    "supervisor": true,
+    "costTracking": true
+  },
+  "design": {
+    "brandSummary": "Project-specific design system defined during setup; preserve existing product visual language when present.",
+    "visualStyle": "project-specific",
+    "interactionStyle": "Clear task-first flows with visible feedback and recoverable states.",
+    "density": "medium",
+    "motionLevel": "subtle",
+    "brandColors": [],
+    "referenceSystems": [],
+    "accessibility": "WCAG AA contrast, keyboard reachability, visible focus, and reduced-motion support.",
+    "designInputSource": "defaults"
+  },
+  "integrations": [
+    {
+      "id": "vercel-ai-gateway",
+      "label": "Vercel AI Gateway",
+      "kind": "ai-provider",
+      "enabled": true,
+      "envVars": [
+        "AI_GATEWAY_API_KEY",
+        "VERCEL_OIDC_TOKEN"
+      ],
+      "docsUrl": "https://vercel.com/ai-gateway",
+      "costTracking": "ai-telemetry",
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Default model-provider path. Local dev may use AI_GATEWAY_API_KEY or a pulled VERCEL_OIDC_TOKEN."
+      ]
+    },
+    {
+      "id": "supabase",
+      "label": "Supabase",
+      "kind": "database",
+      "enabled": false,
+      "envVars": [
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "SUPABASE_SERVICE_ROLE_KEY"
+      ],
+      "docsUrl": "https://supabase.com/docs",
+      "costTracking": "provider-dashboard",
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Preferred database adapter, but starter dashboards must keep filesystem fallbacks."
+      ]
+    },
+    {
+      "id": "assemblyai",
+      "label": "AssemblyAI transcription",
+      "kind": "external-api",
+      "enabled": false,
+      "envVars": [
+        "ASSEMBLYAI_API_KEY"
+      ],
+      "docsUrl": "https://www.assemblyai.com/docs",
+      "costTracking": "local-usage-event",
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Direct paid APIs should emit recordApiUsage()/trackedFetch() events."
+      ]
+    },
+    {
+      "id": "stripe",
+      "label": "Stripe payments",
+      "kind": "payments",
+      "enabled": false,
+      "envVars": [
+        "STRIPE_SECRET_KEY",
+        "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+      ],
+      "docsUrl": "https://docs.stripe.com",
+      "costTracking": "provider-dashboard",
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Operational cost and revenue accounting are separate; track API usage locally when useful."
+      ]
+    },
+    {
+      "id": "resend",
+      "label": "Resend email",
+      "kind": "email",
+      "enabled": false,
+      "envVars": [
+        "RESEND_API_KEY"
+      ],
+      "docsUrl": "https://resend.com/docs",
+      "costTracking": "local-usage-event",
+      "monthlyBudgetUsd": null,
+      "notes": [
+        "Email sends should record local usage events if they affect product cost."
+      ]
+    }
+  ],
+  "env": {
+    "examplePath": ".env.example",
+    "localPath": ".env.local",
+    "requirements": [
+      {
+        "id": "ai-gateway-auth",
+        "label": "Vercel AI Gateway authentication",
+        "required": true,
+        "anyOf": [
+          "AI_GATEWAY_API_KEY",
+          "VERCEL_OIDC_TOKEN"
+        ],
+        "reason": "Required for local model calls through the Vercel AI Gateway."
+      }
+    ]
+  },
+  "nextSteps": [
+    "Put real secrets in .env.local or pull them with `vercel env pull .env.local --yes`.",
+    "Run `pnpm run starter:doctor` to validate setup health without printing secret values.",
+    "Run `pnpm plan -- \"<first feature>\"` before feature work.",
+    "Open `/control-plane` after starting the dev server."
+  ]
+}

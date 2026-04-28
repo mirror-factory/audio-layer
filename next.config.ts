@@ -1,6 +1,8 @@
+import million from "million/compiler";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   serverExternalPackages: [
     "@opentelemetry/sdk-node",
     "@opentelemetry/otlp-grpc-exporter-base",
@@ -35,4 +37,7 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default million.next(nextConfig as Parameters<typeof million.next>[0], {
+  auto: true,
+  telemetry: false,
+});

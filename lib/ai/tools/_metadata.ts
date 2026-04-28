@@ -15,81 +15,49 @@
 import type { ToolMetadata } from './_types';
 
 export const TOOL_METADATA: ToolMetadata[] = [
-  // Search / Knowledge
   {
-    name: 'search_docs',
+    name: 'searchMeetings',
     category: 'search',
     service: 'supabase',
     access: 'read',
-    description: 'Full-text search across the knowledge base via hybrid vector and BM25 ranking, returning ranked document excerpts with relevance scores',
+    description: 'Search meeting transcripts, summaries, and intake forms with semantic search and return ranked excerpts for chat grounding',
     permissionTier: 'explorer',
     version: '1.0.0',
     costEstimate: 'free',
     testStatus: 'passing',
   },
   {
-    name: 'get_document',
+    name: 'getMeetingDetails',
     category: 'knowledge',
     service: 'supabase',
     access: 'read',
-    description: 'Fetch a complete document by its unique identifier, returning the full content with metadata and revision history',
+    description: 'Fetch a single meeting by ID and return transcript, summary, action items, decisions, participants, and status context',
     permissionTier: 'explorer',
     version: '1.0.0',
     costEstimate: 'free',
     testStatus: 'passing',
   },
-
-  // Code
   {
-    name: 'code_review',
+    name: 'listRecentMeetings',
+    category: 'knowledge',
+    service: 'supabase',
+    access: 'read',
+    description: 'List recent meetings with titles, dates, durations, and processing status so chat can orient the user quickly',
+    permissionTier: 'explorer',
+    version: '1.0.0',
+    costEstimate: 'free',
+    testStatus: 'passing',
+  },
+  {
+    name: 'codeReview',
     category: 'code',
     service: 'local',
     access: 'read',
-    description: 'Analyze source code for quality issues, security vulnerabilities, and adherence to best practices with severity-ranked feedback',
+    description: 'Analyze source code for quality issues, security vulnerabilities, readability, testing, and performance risks',
     permissionTier: 'explorer',
     version: '1.0.0',
     costEstimate: '$0.001',
     testStatus: 'passing',
-  },
-
-  // Generation
-  {
-    name: 'generate_content',
-    category: 'generation',
-    service: 'ai-gateway',
-    access: 'write',
-    description: 'Generate text content from a prompt and optional template, supporting multiple output formats and style configurations',
-    permissionTier: 'executor',
-    version: '1.0.0',
-    costEstimate: '$0.01-0.05',
-    testStatus: 'passing',
-  },
-
-  // Interview / Client-Side
-  {
-    name: 'ask_user',
-    category: 'interview',
-    service: 'client',
-    access: 'client-side',
-    description: 'Present an interactive question with selectable options to the user and wait for their selection before continuing',
-    clientSide: true,
-    permissionTier: 'explorer',
-    version: '1.0.0',
-    costEstimate: 'free',
-    testStatus: 'passing',
-  },
-
-  // Config
-  {
-    name: 'update_settings',
-    category: 'config',
-    service: 'supabase',
-    access: 'write',
-    description: 'Update project configuration values in the database, validating against the schema before persisting changes',
-    permissionTier: 'executor',
-    version: '1.0.0',
-    costEstimate: 'free',
-    testStatus: 'untested',
   },
 ];
 

@@ -9,6 +9,10 @@ function formatUsd(amount: number): string {
   return `$${amount.toFixed(2)}`;
 }
 
+function formatLimit(value: number): string {
+  return Number.isFinite(value) ? value.toString() : "Unlimited";
+}
+
 export default async function UsagePage() {
   const usage = await getUsageSummary();
 
@@ -40,7 +44,7 @@ export default async function UsagePage() {
   ];
 
   return (
-    <div className="min-h-screen-safe flex flex-col">
+    <div className="paper-calm-page min-h-screen-safe flex flex-col">
       <TopBar title="Usage" showBack />
 
       <main className="flex-1 px-4 pb-safe py-6 max-w-3xl mx-auto w-full space-y-6">
@@ -75,11 +79,18 @@ export default async function UsagePage() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-sm text-[#e5e5e5] font-medium">
-              {usage.subscription.tier
+              {usage.quotaBypass
+                ? "Local bypass"
+                : usage.subscription.tier
                 ? usage.subscription.tier.charAt(0).toUpperCase() +
                   usage.subscription.tier.slice(1)
                 : "Free"}
             </span>
+            {usage.quotaBypass && (
+              <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#14b8a6]/10 text-[#14b8a6]">
+                unlimited
+              </span>
+            )}
             {usage.subscription.status && (
               <span
                 className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md ${
@@ -100,18 +111,18 @@ export default async function UsagePage() {
           )}
         </div>
 
-        {/* Free tier quota */}
-        {!usage.subscription.tier && (
+        {/* Active minute quota */}
+        {usage.minutes.monthlyLimit !== null && usage.minutes.monthlyLimit !== undefined && (
           <div className="bg-[#171717] rounded-xl p-4">
             <div className="text-xs text-[#737373] uppercase tracking-wider mb-2">
-              Free Tier Quota
+              Monthly Minutes
             </div>
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-[#a3a3a3]">
-                {usage.meetings.total} / {usage.meetings.freeLimit} meetings used
+                {usage.minutes.thisMonth} / {usage.minutes.monthlyLimit} min used
               </span>
               <span className="text-xs text-[#525252]">
-                {usage.meetings.freeRemaining} remaining
+                {usage.minutes.monthlyRemaining} remaining
               </span>
             </div>
             <div className="h-2 bg-[#262626] rounded-full overflow-hidden">
@@ -119,9 +130,43 @@ export default async function UsagePage() {
                 className="h-full bg-[#14b8a6] rounded-full transition-all duration-300"
                 style={{
                   width: `${Math.min(
-                    (usage.meetings.total / usage.meetings.freeLimit) * 100,
+                    (usage.minutes.thisMonth / usage.minutes.monthlyLimit) * 100,
                     100,
                   )}%`,
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Free tier quota */}
+        {!usage.subscription.tier && (
+          <div className="bg-[#171717] rounded-xl p-4">
+            <div className="text-xs text-[#737373] uppercase tracking-wider mb-2">
+              {usage.quotaBypass ? "Local Unlimited Mode" : "Free Tier Quota"}
+            </div>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm text-[#a3a3a3]">
+                {usage.quotaBypass
+                  ? `${usage.meetings.total} meetings recorded`
+                  : `${usage.meetings.total} / ${formatLimit(usage.meetings.freeLimit)} meetings used`}
+              </span>
+              <span className="text-xs text-[#525252]">
+                {usage.quotaBypass
+                  ? "No local cap"
+                  : `${formatLimit(usage.meetings.freeRemaining)} remaining`}
+              </span>
+            </div>
+            <div className="h-2 bg-[#262626] rounded-full overflow-hidden">
+              <div
+                className="h-full bg-[#14b8a6] rounded-full transition-all duration-300"
+                style={{
+                  width: usage.quotaBypass
+                    ? "100%"
+                    : `${Math.min(
+                        (usage.meetings.total / usage.meetings.freeLimit) * 100,
+                        100,
+                      )}%`,
                 }}
               />
             </div>

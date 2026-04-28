@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-27T19-42-19-081Z-apply-layer-one-reference-ui-to-",
+  "createdAt": "2026-04-27T19:42:19.081Z",
+  "updatedAt": "2026-04-27T19:42:19.081Z",
+  "title": "Apply Layer One reference UI to signed-in home",
+  "prompt": "Apply Layer One reference UI to signed-in home",
+  "classification": "feature",
+  "acceptanceCriteria": [
+    "The new behavior is described in a machine-readable plan.",
+    "The affected surface has verification assets and updated manifests.",
+    "Typecheck and required tests pass."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

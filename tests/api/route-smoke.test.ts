@@ -17,45 +17,46 @@
  * an entry get a bare GET with no body.
  */
 import { describe, it, expect } from 'vitest';
+import { apiRouteContracts, getRouteSmokeCase } from './route-contracts';
 
 const BASE_URL = process.env.TEST_BASE_URL ?? 'http://localhost:3000';
 
-interface RouteSpec { method: string; body?: unknown; expectStatuses: number[] }
-
-/**
- * Add one entry per API route. For routes that accept a payload, provide
- * a minimal valid body. Use `expectStatuses` to whitelist acceptable
- * responses (e.g. 401 for auth-required routes is fine in smoke tests;
- * 500 is never fine).
- */
-const ROUTES: Record<string, RouteSpec> = {
-  '/api/health': { method: 'GET', expectStatuses: [200, 503] },
-  '/api/observability/health': { method: 'GET', expectStatuses: [200] },
-  // '/api/transcribe': { method: 'POST', body: { audio_url: 'https://...' }, expectStatuses: [200, 400, 401] },
-};
-
 describe('API route smoke', () => {
-  for (const [path, spec] of Object.entries(ROUTES)) {
-    it(`${spec.method} ${path} returns a sensible status with a JSON body`, async () => {
-      const res = await fetch(`${BASE_URL}${path}`, {
-        method: spec.method,
-        headers: { 'content-type': 'application/json' },
-        body: spec.body ? JSON.stringify(spec.body) : undefined,
-      });
+  for (const contract of apiRouteContracts) {
+    for (const method of contract.methods) {
+      const spec = getRouteSmokeCase(contract, method);
 
-      // Every response must be parseable as JSON. A bare "Internal Server
-      // Error" string means a route threw and nothing caught it --
-      // exactly the failure mode withRoute() exists to prevent.
-      const text = await res.text();
-      let json: unknown = null;
-      try { json = JSON.parse(text); } catch { /* leave as null */ }
-      expect(json, `${path} returned non-JSON body: ${text.slice(0, 200)}`).not.toBeNull();
+      if (spec.skipReason) {
+        it.skip(`${method} ${contract.smokePath} is covered outside smoke (${spec.skipReason})`, () => {});
+        continue;
+      }
 
-      // Every response must carry an x-request-id so logs are correlatable.
-      expect(res.headers.get('x-request-id'), `${path} missing x-request-id header`).toBeTruthy();
+      it(`${method} ${contract.smokePath} returns a sensible status`, async () => {
+        const headers = {
+          'content-type': 'application/json',
+          ...spec.headers,
+        };
 
-      // Status must be in the allow-list -- specifically, never 500.
-      expect(spec.expectStatuses, `${path} returned ${res.status}`).toContain(res.status);
-    }, 10_000);
+        const res = await fetch(`${BASE_URL}${contract.smokePath}`, {
+          method,
+          headers,
+          body: spec.body === undefined ? undefined : JSON.stringify(spec.body),
+        });
+
+        const text = await res.text();
+
+        if (spec.assertJson ?? contract.assertJson) {
+          let json: unknown = null;
+          try { json = JSON.parse(text); } catch { /* leave as null */ }
+          expect(json, `${contract.smokePath} returned non-JSON body: ${text.slice(0, 200)}`).not.toBeNull();
+        }
+
+        if (spec.requiresRequestId ?? contract.requiresRequestId) {
+          expect(res.headers.get('x-request-id'), `${contract.smokePath} missing x-request-id header`).toBeTruthy();
+        }
+
+        expect(spec.expectStatuses, `${contract.smokePath} returned ${res.status}: ${text.slice(0, 200)}`).toContain(res.status);
+      }, 10_000);
+    }
   }
 });

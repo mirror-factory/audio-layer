@@ -212,6 +212,7 @@ A Model Context Protocol server that lets any AI assistant (Claude, Cursor, etc.
 | `get_transcript` | Raw transcript text for a meeting |
 | `get_summary` | AI-generated summary for a meeting |
 | `start_recording` | Mint a streaming token to start live recording |
+| `show_meeting_dashboard` | Claude MCP App UI for recent meetings |
 
 ### Authentication
 Currently: **API key** (Bearer token) — generate on your profile page.
@@ -221,7 +222,7 @@ Connection config for Claude Desktop / `.mcp.json`:
 {
   "mcpServers": {
     "layer-one": {
-      "url": "https://audio-layer.vercel.app/api/mcp",
+      "url": "https://audio-layer.vercel.app/api/mcp/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_KEY"
       }
@@ -231,9 +232,10 @@ Connection config for Claude Desktop / `.mcp.json`:
 ```
 
 ### Implementation
-- **File:** `lib/mcp/tools.ts` — 6 tool definitions with Zod schemas
+- **File:** `lib/mcp/tools.ts` — 7 tool definitions with Zod schemas
 - **File:** `lib/mcp/auth.ts` — API key validation against profiles table
 - **File:** `app/api/mcp/route.ts` — JSON-RPC endpoint
+- **File:** `lib/mcp/ui.ts` — Claude MCP App HTML resource helpers
 - **File:** `app/api/auth/api-key/route.ts` — key management (generate/view/revoke)
 
 ---

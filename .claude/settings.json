@@ -2,12 +2,12 @@
   "hooks": {
     "SessionStart": [
       {
-        "type": "command",
-        "command": "python3 .claude/hooks/session-start-run.py"
-      },
-      {
-        "type": "command",
-        "command": "python3 .claude/hooks/session-startup.py"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-startup.py\""
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -28,18 +28,27 @@
             "command": "python3 .claude/hooks/record-skill-use.py"
           }
         ]
-      }
-    ],
-    "PostToolUse": [
+      },
       {
-        "matcher": "*",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "python3 .claude/hooks/periodic-reground.py"
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pretool-install-research.py\""
           }
         ]
       },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pretool-plan-gate.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
       {
         "matcher": "Write|Edit",
         "hooks": [
@@ -70,12 +79,62 @@
             "command": "python3 .claude/hooks/record-docs-lookup.py"
           }
         ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/periodic-reground.py\""
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-telemetry.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/postuse-format.py\""
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-scaffold.py\""
+          }
+        ]
       }
     ],
     "Stop": [
       {
-        "type": "command",
-        "command": "python3 .claude/hooks/verify-before-stop.py"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/stop-check.py\""
+          }
+        ]
+      }
+    ],
+    "InstructionsLoaded": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/instructions-loaded.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-failure-telemetry.py\""
+          }
+        ]
       }
     ]
   }

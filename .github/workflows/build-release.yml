@@ -2,9 +2,16 @@ name: Build & Release
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      include_apple_builds:
+        description: 'Run macOS Electron and iOS Capacitor builds'
+        type: boolean
+        default: false
 
 jobs:
   web:
@@ -24,6 +31,7 @@ jobs:
 
   electron-mac:
     name: Electron (macOS)
+    if: github.event_name == 'workflow_dispatch' && inputs.include_apple_builds == true
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
@@ -76,6 +84,7 @@ jobs:
           java-version: 21
       - uses: android-actions/setup-android@v3
       - run: pnpm install --frozen-lockfile
+      - run: rm -rf android
       - run: npx cap add android
       - run: npx cap sync android
       - run: cd android && ./gradlew assembleDebug
@@ -86,6 +95,7 @@ jobs:
 
   capacitor-ios:
     name: Capacitor (iOS)
+    if: github.event_name == 'workflow_dispatch' && inputs.include_apple_builds == true
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4

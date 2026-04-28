@@ -2,13 +2,12 @@
 
 import { useState } from "react";
 import type { TranscribeUtterance } from "@/lib/assemblyai/types";
-import type { MeetingSummary } from "@/lib/assemblyai/schema";
 import { Download, ChevronDown } from "lucide-react";
 
 interface TranscriptViewProps {
   utterances: TranscribeUtterance[];
-  summary: MeetingSummary | null;
   meetingId: string;
+  defaultOpen?: boolean;
 }
 
 function formatTime(ms: number) {
@@ -59,116 +58,17 @@ function CollapsibleSection({
   );
 }
 
-function CappedList({
-  items,
-  max = 5,
-  renderItem,
-}: {
-  items: string[];
-  max?: number;
-  renderItem?: (item: string, i: number) => React.ReactNode;
-}) {
-  const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? items : items.slice(0, max);
-  const hasMore = items.length > max;
-
-  return (
-    <>
-      <ul className="space-y-1.5">
-        {visible.map((item, i) =>
-          renderItem ? (
-            <li key={i}>{renderItem(item, i)}</li>
-          ) : (
-            <li key={i} className="text-sm text-[var(--text-secondary)] flex gap-2">
-              <span className="text-[#14b8a6] shrink-0">·</span>
-              {item}
-            </li>
-          ),
-        )}
-      </ul>
-      {hasMore && (
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="text-xs text-[#14b8a6] hover:text-[#2dd4bf] mt-2 transition-colors"
-        >
-          {expanded ? "Show less" : `+${items.length - max} more`}
-        </button>
-      )}
-    </>
-  );
-}
-
-export function TranscriptView({ utterances, summary, meetingId }: TranscriptViewProps) {
+export function TranscriptView({
+  utterances,
+  meetingId,
+  defaultOpen = false,
+}: TranscriptViewProps) {
   return (
     <div className="space-y-4">
-      {/* Summary — always on top, most valuable */}
-      {summary && (
-        <CollapsibleSection title="Summary" defaultOpen>
-          <div className="space-y-5">
-            <p className="text-sm text-[var(--text-primary)] leading-relaxed">
-              {summary.summary}
-            </p>
-
-            {summary.keyPoints.length > 0 && (
-              <div>
-                <h4 className="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                  Key Points
-                </h4>
-                <CappedList items={summary.keyPoints} max={6} />
-              </div>
-            )}
-
-            {summary.actionItems.length > 0 && (
-              <div>
-                <h4 className="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                  Action Items
-                </h4>
-                <CappedList
-                  items={summary.actionItems.map(
-                    (ai) =>
-                      `${ai.assignee ? `${ai.assignee}: ` : ""}${ai.task}${ai.dueDate ? ` (due ${ai.dueDate})` : ""}`,
-                  )}
-                  max={5}
-                />
-              </div>
-            )}
-
-            {summary.decisions.length > 0 && (
-              <div>
-                <h4 className="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                  Decisions
-                </h4>
-                <CappedList items={summary.decisions} max={5} />
-              </div>
-            )}
-
-            {summary.participants.length > 0 && (
-              <div>
-                <h4 className="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                  Participants
-                </h4>
-                <div className="flex flex-wrap gap-1.5 max-h-20 overflow-hidden relative">
-                  {summary.participants.slice(0, 12).map((p, i) => (
-                    <span key={i} className="text-xs bg-[var(--bg-card-hover)] text-[var(--text-secondary)] px-2 py-0.5 rounded">
-                      {p}
-                    </span>
-                  ))}
-                  {summary.participants.length > 12 && (
-                    <span className="text-xs text-[var(--text-muted)] px-2 py-0.5">
-                      +{summary.participants.length - 12} more
-                    </span>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        </CollapsibleSection>
-      )}
-
       {/* Transcript — collapsible, with grid background */}
       <CollapsibleSection
         title="Transcript"
-        defaultOpen={!summary}
+        defaultOpen={defaultOpen}
         badge={utterances.length > 0 ? `${utterances.length} segments` : undefined}
       >
         <div className="flex items-center justify-end gap-1 mb-3">

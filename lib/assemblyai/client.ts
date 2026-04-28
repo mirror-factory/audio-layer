@@ -1,7 +1,7 @@
 import { AssemblyAI } from "assemblyai";
 import type { TranscriptParams } from "assemblyai";
 import { getSettings } from "@/lib/settings";
-import { MODEL_OPTIONS } from "@/lib/settings-shared";
+import { DEFAULTS, MODEL_OPTIONS } from "@/lib/settings-shared";
 
 let instance: AssemblyAI | null = null;
 
@@ -31,7 +31,7 @@ export function getBatchSpeechModels(
   override?: string,
 ): TranscriptParams["speech_models"] {
   const model =
-    override ?? process.env.ASSEMBLYAI_BATCH_MODEL ?? "universal-3-pro";
+    override ?? process.env.ASSEMBLYAI_BATCH_MODEL ?? DEFAULTS.batchSpeechModel;
   if (model === "best") return ["universal-3-pro"];
   return [model];
 }
@@ -58,14 +58,14 @@ export async function getStreamingSpeechModel(
     override ??
     (await getSettings()).streamingSpeechModel ??
     process.env.ASSEMBLYAI_STREAMING_MODEL ??
-    "u3-rt-pro";
+    DEFAULTS.streamingSpeechModel;
 
   if (VALID_STREAMING_MODELS.includes(model)) return model;
 
   console.warn(
-    `[assemblyai] Invalid streaming model "${model}", falling back to u3-rt-pro`,
+    `[assemblyai] Invalid streaming model "${model}", falling back to ${DEFAULTS.streamingSpeechModel}`,
   );
-  return "u3-rt-pro";
+  return DEFAULTS.streamingSpeechModel;
 }
 
 export { VALID_BATCH_MODELS, VALID_STREAMING_MODELS };

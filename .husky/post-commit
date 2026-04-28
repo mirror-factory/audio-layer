@@ -12,8 +12,12 @@ info() {
 # ---------------------------------------------------------------------------
 # 1. Auto-version bump
 # ---------------------------------------------------------------------------
-info "Running auto-version bump..."
-node scripts/auto-version.mjs 2>/dev/null || true
+if [ "${AI_DEV_KIT_AUTO_VERSION_ACTIVE:-}" = "1" ]; then
+  info "Skipping nested auto-version bump."
+else
+  info "Running auto-version bump..."
+  AI_DEV_KIT_AUTO_VERSION_ACTIVE=1 node scripts/auto-version.mjs 2>/dev/null || true
+fi
 
 # ---------------------------------------------------------------------------
 # 2. CHANGELOG update

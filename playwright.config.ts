@@ -22,7 +22,12 @@ import { defineConfig, devices } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const baseURL = process.env.TEST_BASE_URL || process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3000';
+const baseURL = process.env.TEST_BASE_URL || process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3001';
+const devServerPort = new URL(baseURL).port || '3001';
+const systemChromeFallback = process.env.PLAYWRIGHT_USE_SYSTEM_CHROME === '1'
+  ? { browserName: 'chromium' as const, channel: 'chrome' as const }
+  : {};
+const videoMode = process.env.PLAYWRIGHT_DISABLE_VIDEO === '1' ? 'off' : 'on';
 
 // Inherit run_id so test-results JSON can be joined with the dashboard's
 // /dev-kit/runs/[run_id] aggregate. Order: explicit env > state file > none.
@@ -44,8 +49,21 @@ function theme(mode: 'light' | 'dark') {
   };
 }
 
+function projectUse(device: typeof devices[keyof typeof devices], mode: 'light' | 'dark') {
+  return {
+    ...device,
+    ...theme(mode),
+    ...systemChromeFallback,
+  };
+}
+
 export default defineConfig({
-  testDir: './tests/e2e',
+  testDir: './tests',
+  testMatch: [
+    'e2e/**/*.spec.ts',
+    'e2e/**/*.test.ts',
+    'visual/**/*.spec.ts',
+  ],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -63,7 +81,7 @@ export default defineConfig({
   use: {
     baseURL,
     trace: 'retain-on-failure',
-    video: 'on',
+    video: videoMode,
     screenshot: 'only-on-failure',
   },
 
@@ -75,18 +93,18 @@ export default defineConfig({
 
   projects: [
     // mobile
-    { name: 'mobile-light',  use: { ...devices['iPhone 14'],                 ...theme('light') } },
-    { name: 'mobile-dark',   use: { ...devices['iPhone 14'],                 ...theme('dark')  } },
+    { name: 'mobile-light',  use: projectUse(devices['iPhone 14'], 'light') },
+    { name: 'mobile-dark',   use: projectUse(devices['iPhone 14'], 'dark')  },
     // tablet
-    { name: 'tablet-light',  use: { ...devices['iPad (gen 11)'],             ...theme('light') } },
-    { name: 'tablet-dark',   use: { ...devices['iPad (gen 11)'],             ...theme('dark')  } },
+    { name: 'tablet-light',  use: projectUse(devices['iPad (gen 11)'], 'light') },
+    { name: 'tablet-dark',   use: projectUse(devices['iPad (gen 11)'], 'dark')  },
     // desktop
-    { name: 'desktop-light', use: { ...devices['Desktop Chrome'],            ...theme('light') } },
-    { name: 'desktop-dark',  use: { ...devices['Desktop Chrome'],            ...theme('dark')  } },
+    { name: 'desktop-light', use: projectUse(devices['Desktop Chrome'], 'light') },
+    { name: 'desktop-dark',  use: projectUse(devices['Desktop Chrome'], 'dark')  },
   ],
 
   webServer: process.env.TEST_BASE_URL ? undefined : {
-    command: 'pnpm dev',
+    command: `pnpm exec next dev --turbopack -p ${devServerPort}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

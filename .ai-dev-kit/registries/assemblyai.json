@@ -3,7 +3,7 @@
   "label": "AssemblyAI",
   "docs_root": "https://www.assemblyai.com/docs",
   "console_url": "https://www.assemblyai.com/app/account",
-  "validated_on": "2026-04-18",
+  "validated_on": "2026-04-27",
   "validated_against_sdk": "assemblyai@^4.15.0",
   "required_env": ["ASSEMBLYAI_API_KEY"],
   "id_patterns": ["universal-[\\w-]+", "u3-[\\w-]+", "slam-\\d+", "nano", "whisper-rt"],
@@ -32,7 +32,7 @@
     { "id": "u3-pro", "label": "Universal-3 Pro", "use_for": "Standard real-time", "price_per_hour_usd": 0.45, "deprecated": false },
     { "id": "universal-streaming-multilingual", "label": "Universal Streaming (multilingual)", "use_for": "Multi-language streaming", "price_per_hour_usd": 0.15, "deprecated": false },
     { "id": "universal-streaming-english", "label": "Universal Streaming (English)", "use_for": "English-only streaming", "price_per_hour_usd": 0.15, "deprecated": false },
-    { "id": "whisper-rt", "label": "Whisper RT", "use_for": "Whisper-based streaming", "price_per_hour_usd": 0.15, "deprecated": false }
+    { "id": "whisper-rt", "label": "Whisper RT", "use_for": "Whisper-based streaming", "price_per_hour_usd": 0.30, "deprecated": false }
   ],
   "provenance": [
     { "url": "https://www.assemblyai.com/pricing", "what": "current pricing" },

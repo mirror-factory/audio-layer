@@ -1,0 +1,114 @@
+[
+  {
+    "id": "codex",
+    "label": "Codex",
+    "kind": "agent-runtime",
+    "status": "configured",
+    "default": true,
+    "envVars": [],
+    "notes": [
+      "First-class OpenAI runtime adapter using AGENTS.md, .codex/config.toml, .codex/hooks.json, and codex exec proof."
+    ]
+  },
+  {
+    "id": "claude-code",
+    "label": "Claude Code",
+    "kind": "agent-runtime",
+    "status": "configured",
+    "default": true,
+    "envVars": [],
+    "notes": [
+      "Claude runtime adapter using .claude/settings.json hooks and optional Claude Code skills."
+    ]
+  },
+  {
+    "id": "vercel-ai-gateway",
+    "label": "Vercel AI Gateway",
+    "kind": "ai-provider",
+    "status": "configured",
+    "default": true,
+    "envVars": [
+      "AI_GATEWAY_API_KEY"
+    ],
+    "notes": [
+      "Default high-fidelity model/cost telemetry adapter."
+    ]
+  },
+  {
+    "id": "supabase",
+    "label": "Supabase",
+    "kind": "database",
+    "status": "configured",
+    "default": true,
+    "envVars": [
+      "NEXT_PUBLIC_SUPABASE_URL",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "SUPABASE_SERVICE_ROLE_KEY"
+    ],
+    "notes": [
+      "First-class adapter, but filesystem fallbacks must remain valid."
+    ]
+  },
+  {
+    "id": "tmux",
+    "label": "tmux supervisor backend",
+    "kind": "supervisor",
+    "status": "available",
+    "default": true,
+    "envVars": [],
+    "notes": [
+      "Default local supervisor backend on macOS/Linux."
+    ]
+  },
+  {
+    "id": "browser-use",
+    "label": "Browser Use",
+    "kind": "browser-runtime",
+    "status": "planned",
+    "default": false,
+    "envVars": [],
+    "notes": [
+      "Browser-control adapter for exploratory local sessions, not the primary QA/replay layer."
+    ]
+  },
+  {
+    "id": "assemblyai",
+    "label": "AssemblyAI",
+    "kind": "external-api",
+    "status": "configured",
+    "default": false,
+    "envVars": [
+      "ASSEMBLYAI_API_KEY"
+    ],
+    "notes": [
+      "Direct external API adapter example for voice transcription outside the AI Gateway."
+    ]
+  },
+  {
+    "id": "resend",
+    "label": "Resend",
+    "kind": "email",
+    "status": "configured",
+    "default": false,
+    "envVars": [
+      "RESEND_API_KEY"
+    ],
+    "notes": [
+      "Email adapter; should be tracked separately from model runtime spend."
+    ]
+  },
+  {
+    "id": "stripe",
+    "label": "Stripe",
+    "kind": "payments",
+    "status": "configured",
+    "default": false,
+    "envVars": [
+      "STRIPE_SECRET_KEY",
+      "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+    ],
+    "notes": [
+      "Payment adapter; dashboard cost is operational visibility, not revenue accounting."
+    ]
+  }
+]

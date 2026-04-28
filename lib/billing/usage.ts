@@ -4,20 +4,34 @@
  */
 
 import type { UsageSummary, MeetingCostBreakdown } from "./types";
-import { FREE_TIER_MEETING_LIMIT } from "./quota";
+import { FREE_TIER_MEETING_LIMIT, quotaBypassEnabled } from "./quota";
+import { getActivePricingConfig, planForTier } from "@/lib/billing/pricing-config";
 import { getSupabaseUser } from "@/lib/supabase/user";
 
 export async function getUsageSummary(): Promise<UsageSummary> {
   const supabase = await getSupabaseUser();
+  const pricing = await getActivePricingConfig();
+  const freePlan = planForTier(pricing, "free");
+  const quotaBypass = quotaBypassEnabled();
+  const freeLimit = freePlan.meetingLimit ?? FREE_TIER_MEETING_LIMIT;
 
   const empty: UsageSummary = {
+    quotaBypass,
     meetings: {
       total: 0,
       thisMonth: 0,
-      freeLimit: FREE_TIER_MEETING_LIMIT,
-      freeRemaining: FREE_TIER_MEETING_LIMIT,
+      freeLimit: quotaBypass ? Infinity : freeLimit,
+      freeRemaining: quotaBypass ? Infinity : freeLimit,
+      activePlanId: quotaBypass ? "bypass-unlimited" : freePlan.id,
+      meetingLimit: quotaBypass ? null : freeLimit,
+      meetingLimitPeriod: freePlan.meetingLimitPeriod ?? "lifetime",
     },
-    minutes: { total: 0, thisMonth: 0 },
+    minutes: {
+      total: 0,
+      thisMonth: 0,
+      monthlyLimit: quotaBypass ? null : freePlan.monthlyMinuteLimit ?? null,
+      monthlyRemaining: quotaBypass ? null : freePlan.monthlyMinuteLimit ?? null,
+    },
     stt: { totalCostUsd: 0, thisMonthCostUsd: 0 },
     llm: {
       totalCostUsd: 0,
@@ -54,6 +68,13 @@ export async function getUsageSummary(): Promise<UsageSummary> {
       )
       .eq("user_id", user.id)
       .single();
+    const isSubscriber =
+      profile?.subscription_status === "active" ||
+      profile?.subscription_status === "trialing";
+    const activePlan = planForTier(
+      pricing,
+      isSubscriber ? (profile?.subscription_tier as string | null) : "free",
+    );
 
     const now = new Date();
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -90,21 +111,31 @@ export async function getUsageSummary(): Promise<UsageSummary> {
       }
     }
 
-    const freeRemaining = Math.max(
-      0,
-      FREE_TIER_MEETING_LIMIT - totalMeetings,
-    );
+    const meetingLimit = activePlan.meetingLimit ?? null;
+    const meetingLimitPeriod = activePlan.meetingLimitPeriod ?? "monthly";
+    const freeRemaining = quotaBypass
+      ? Infinity
+      : Math.max(0, freeLimit - totalMeetings);
+    const minuteLimit = quotaBypass ? null : activePlan.monthlyMinuteLimit ?? null;
+    const monthlyRemaining =
+      minuteLimit === null ? null : Math.max(0, minuteLimit - Math.round(thisMonthMinutes));
 
     return {
+      quotaBypass,
       meetings: {
         total: totalMeetings,
         thisMonth: thisMonthMeetings,
-        freeLimit: FREE_TIER_MEETING_LIMIT,
+        freeLimit: quotaBypass ? Infinity : freeLimit,
         freeRemaining,
+        activePlanId: quotaBypass ? "bypass-unlimited" : activePlan.id,
+        meetingLimit: quotaBypass ? null : meetingLimit,
+        meetingLimitPeriod,
       },
       minutes: {
         total: Math.round(totalMinutes),
         thisMonth: Math.round(thisMonthMinutes),
+        monthlyLimit: minuteLimit,
+        monthlyRemaining,
       },
       stt: {
         totalCostUsd: totalSttCost,

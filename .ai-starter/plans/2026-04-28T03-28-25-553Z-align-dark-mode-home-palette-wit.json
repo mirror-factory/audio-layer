@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-28T03-28-25-553Z-align-dark-mode-home-palette-wit",
+  "createdAt": "2026-04-28T03:28:25.553Z",
+  "updatedAt": "2026-04-28T03:28:25.553Z",
+  "title": "Align dark mode home palette with paper calm light theme",
+  "prompt": "Align dark mode home palette with paper calm light theme",
+  "classification": "feature",
+  "acceptanceCriteria": [
+    "The new behavior is described in a machine-readable plan.",
+    "The affected surface has verification assets and updated manifests.",
+    "Typecheck and required tests pass."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

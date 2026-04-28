@@ -47,15 +47,21 @@ export interface MeetingCostBreakdown {
 }
 
 export interface UsageSummary {
+  quotaBypass?: boolean;
   meetings: {
     total: number;
     thisMonth: number;
     freeLimit: number;
     freeRemaining: number;
+    activePlanId?: string;
+    meetingLimit?: number | null;
+    meetingLimitPeriod?: "lifetime" | "monthly";
   };
   minutes: {
     total: number;
     thisMonth: number;
+    monthlyLimit?: number | null;
+    monthlyRemaining?: number | null;
   };
   stt: {
     totalCostUsd: number;

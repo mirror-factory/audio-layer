@@ -9,9 +9,13 @@ create table if not exists webhooks (
   created_at timestamptz not null default now()
 );
 
+alter table webhooks add column if not exists active boolean not null default true;
+alter table webhooks add column if not exists created_at timestamptz not null default now();
+
 -- RLS: users can only see/manage their own webhooks
 alter table webhooks enable row level security;
 
+drop policy if exists "Users manage own webhooks" on webhooks;
 create policy "Users manage own webhooks"
   on webhooks for all
   using (auth.uid() = user_id)
@@ -30,6 +34,7 @@ create table if not exists webhook_deliveries (
 
 alter table webhook_deliveries enable row level security;
 
+drop policy if exists "Users view own webhook deliveries" on webhook_deliveries;
 create policy "Users view own webhook deliveries"
   on webhook_deliveries for select
   using (
@@ -39,3 +44,6 @@ create policy "Users view own webhook deliveries"
 -- Index for looking up active webhooks by user
 create index if not exists idx_webhooks_user_active
   on webhooks(user_id) where active = true;
+
+create index if not exists idx_webhook_deliveries_hook_created
+  on webhook_deliveries(webhook_id, created_at desc);

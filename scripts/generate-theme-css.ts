@@ -66,15 +66,40 @@ function parse(src: string): Tokens {
 
     if (!section) continue;
     // Nested under the section: either a scalar value or an inline object.
-    const kv = line.match(/^\s+([a-z0-9.]+):\s*(.+)$/);
+    const kv = line.match(/^\s+([a-z0-9.-]+):\s*(.+)$/);
     if (!kv) continue;
     const [, name, rawVal] = kv;
-    const val = rawVal.trim().replace(/^["']|["']$/g, '');
+    const val = unquote(stripYamlComment(rawVal).trim());
     // Skip inline objects (scale.display: { size: "3rem", ... }) -- not in v1.
     if (val.startsWith('{')) continue;
     tokens[section][name] = val;
   }
   return tokens;
+}
+
+function stripYamlComment(value: string): string {
+  let quote: '"' | "'" | null = null;
+  for (let i = 0; i < value.length; i++) {
+    const ch = value[i];
+    if ((ch === '"' || ch === "'") && value[i - 1] !== '\\') {
+      quote = quote === ch ? null : quote ?? ch;
+      continue;
+    }
+    if (ch === '#' && quote === null) {
+      return value.slice(0, i);
+    }
+  }
+  return value;
+}
+
+function unquote(value: string): string {
+  if (
+    value.length >= 2
+    && ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'")))
+  ) {
+    return value.slice(1, -1);
+  }
+  return value;
 }
 
 function toCssVar(key: string): string {

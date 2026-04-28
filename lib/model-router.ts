@@ -39,7 +39,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 export type CostMode = 'subscription' | 'billable' | 'local';
 
-function useLocalModels(): boolean {
+function localModelsEnabled(): boolean {
   return process.env.USE_LOCAL_MODELS === 'true';
 }
 
@@ -56,9 +56,16 @@ function wantLocalTest(): boolean {
   return process.env.LOCAL_TEST === '1';
 }
 
+async function importOptionalClaudeCodeProvider(): Promise<unknown | null> {
+  const importer = new Function('specifier', 'return import(specifier)') as (
+    specifier: string,
+  ) => Promise<unknown>;
+  return importer('ai-sdk-provider-claude-code').catch(() => null);
+}
+
 /** Current auth posture. Used by /api/health and doctor. */
 export function authMode(): 'ollama' | 'claude-code' | 'gateway-key' | 'unconfigured' {
-  if (useLocalModels()) return 'ollama';
+  if (localModelsEnabled()) return 'ollama';
   if (isDev && hasClaudeCodeAuth()) return 'claude-code';
   if (process.env.AI_GATEWAY_API_KEY) return 'gateway-key';
   return 'unconfigured';
@@ -87,13 +94,13 @@ export const gateway: GatewayProvider =
 export async function resolveModel(modelId: string): Promise<{ model: LanguageModel; costMode: CostMode }> {
   const isAnthropic = modelId.startsWith('anthropic/');
 
-  if (useLocalModels()) {
+  if (localModelsEnabled()) {
     // TODO: wire Ollama here if the project uses it. For now fall through.
   }
 
   if (wantLocalTest() && isAnthropic) {
     try {
-      const mod = await import('ai-sdk-provider-claude-code' as string).catch(() => null);
+      const mod = await importOptionalClaudeCodeProvider();
       if (mod && typeof (mod as { claudeCode?: unknown }).claudeCode === 'function') {
         const ccProvider = (mod as { claudeCode: (args?: unknown) => LanguageModel }).claudeCode;
         const bareModel = modelId.replace(/^anthropic\//, '');
@@ -101,7 +108,6 @@ export async function resolveModel(modelId: string): Promise<{ model: LanguageMo
       }
       // Fall through silently -- the community package isn't installed.
       // Log once so the user notices on first call.
-      // eslint-disable-next-line no-console
       console.warn(
         '[model-router] LOCAL_TEST=1 set but `ai-sdk-provider-claude-code` not installed. ' +
         'Run `pnpm add ai-sdk-provider-claude-code` to enable subscription routing. ' +

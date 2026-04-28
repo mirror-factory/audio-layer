@@ -90,7 +90,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen-safe flex flex-col">
+      <div className="paper-calm-page min-h-screen-safe flex flex-col">
         <TopBar title="Profile" showBack />
         <div className="flex-1 flex items-center justify-center">
           <Loader2 size={24} className="text-[#14b8a6] animate-spin" />
@@ -100,7 +100,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen-safe flex flex-col">
+    <div className="paper-calm-page min-h-screen-safe flex flex-col">
       <TopBar title="Profile" showBack />
 
       <main className="flex-1 px-4 pb-safe py-6 max-w-xl mx-auto w-full space-y-6">
@@ -262,7 +262,7 @@ export default function ProfilePage() {
 {`{
   "mcpServers": {
     "layer-one": {
-      "url": "https://audio-layer.vercel.app/api/mcp",
+      "url": "https://audio-layer.vercel.app/api/mcp/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_KEY"
       }

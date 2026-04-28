@@ -1,4 +1,6 @@
 // withTelemetry is used by callers of this logger, not by the logger itself
+import { estimateLlmCost } from "@/lib/billing/llm-pricing";
+
 /**
  * AI Request Logger — Full console visibility for every AI call
  *
@@ -22,37 +24,8 @@
  *   });
  */
 
-// ── Cost per million tokens (customize for your models) ──────────────
-const COST_PER_M_TOKENS: Record<string, { input: number; output: number }> = {
-  // Google Gemini
-  'gemini-3-flash': { input: 0.50, output: 3.00 },
-  'gemini-3-flash-preview': { input: 0.50, output: 3.00 },
-  'gemini-3.1-pro-preview': { input: 2.00, output: 12.00 },
-  'gemini-3.1-flash-lite-preview': { input: 0.25, output: 1.50 },
-  'gemini-2.5-flash': { input: 0.15, output: 0.60 },
-  'gemini-3.1-flash-image-preview': { input: 0.50, output: 3.00 },
-  'gemini-3-pro-image-preview': { input: 2.00, output: 12.00 },
-  // Anthropic
-  'claude-sonnet-4-6': { input: 3.00, output: 15.00 },
-  'claude-opus-4-6': { input: 15.00, output: 75.00 },
-  'claude-haiku-4-5': { input: 0.80, output: 4.00 },
-  // OpenAI
-  'gpt-4.1': { input: 2.00, output: 8.00 },
-  'gpt-4.1-mini': { input: 0.40, output: 1.60 },
-  'gpt-4.1-nano': { input: 0.10, output: 0.40 },
-  'o4-mini': { input: 1.10, output: 4.40 },
-};
-
 function estimateCost(modelId: string, inputTokens: number, outputTokens: number): number {
-  // Strip provider prefix if present (e.g., "google/gemini-3-flash" → "gemini-3-flash")
-  const bareId = modelId.includes('/') ? modelId.split('/').pop()! : modelId;
-
-  // Find matching pricing (partial match for variants)
-  const pricing = COST_PER_M_TOKENS[bareId]
-    || Object.entries(COST_PER_M_TOKENS).find(([k]) => bareId.includes(k))?.[1]
-    || { input: 1.00, output: 3.00 }; // Default fallback
-
-  return (inputTokens * pricing.input + outputTokens * pricing.output) / 1_000_000;
+  return estimateLlmCost(modelId, { inputTokens, outputTokens });
 }
 
 function formatCost(cost: number): string {

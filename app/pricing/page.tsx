@@ -80,7 +80,7 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen-safe flex flex-col bg-[var(--bg-primary)]">
+    <div className="paper-calm-page min-h-screen-safe flex flex-col bg-[var(--bg-primary)]">
       <TopBar title="Pricing" showBack />
 
       <main className="flex-1 px-4 pb-safe py-8 max-w-4xl mx-auto w-full">

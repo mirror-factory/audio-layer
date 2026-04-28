@@ -1,0 +1,32 @@
+{
+  "id": "2026-04-28T15-19-02-402Z-polish-home-recorder-idle-state-",
+  "createdAt": "2026-04-28T15:19:02.402Z",
+  "updatedAt": "2026-04-28T15:19:02.402Z",
+  "title": "Polish home recorder idle state, recent recordings, right rail, and live transition motion",
+  "prompt": "Polish home recorder idle state, recent recordings, right rail, and live transition motion",
+  "classification": "polish",
+  "acceptanceCriteria": [
+    "The target surface has before/after evidence.",
+    "The updated surface improves the declared scorecard dimension.",
+    "No regressions are introduced in required checks."
+  ],
+  "requiredEvidence": [
+    "screenshot",
+    "scorecard",
+    "playwright"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

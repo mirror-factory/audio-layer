@@ -5,6 +5,13 @@
 
 import { getSupabaseServer } from "@/lib/supabase/server";
 import { log } from "@/lib/logger";
+import { jwtVerify } from "jose";
+import {
+  getMcpJwtSecret,
+  MCP_OAUTH_AUDIENCE,
+  MCP_OAUTH_ISSUER,
+  MCP_OAUTH_SCOPE,
+} from "@/lib/oauth/mcp-oauth";
 
 export interface McpAuthResult {
   userId: string;
@@ -36,4 +43,45 @@ export async function validateApiKey(
   }
 
   return { userId: data.user_id as string };
+}
+
+async function validateOAuthAccessToken(
+  token: string,
+): Promise<McpAuthResult | null> {
+  try {
+    const { payload } = await jwtVerify(token, getMcpJwtSecret(), {
+      audience: MCP_OAUTH_AUDIENCE,
+      issuer: MCP_OAUTH_ISSUER,
+    });
+    const scope = typeof payload.scope === "string" ? payload.scope : "";
+    if (!scope.split(/\s+/).includes(MCP_OAUTH_SCOPE)) return null;
+    if (typeof payload.sub !== "string" || !payload.sub) return null;
+    return { userId: payload.sub };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Validate an MCP Bearer token.
+ *
+ * Supports both profile API keys (`lo1_...`) and OAuth access tokens issued by
+ * `/api/oauth/token`. This keeps manual MCP client config working while also
+ * matching the OAuth discovery metadata used by modern MCP clients.
+ */
+export async function validateMcpBearerToken(
+  token: string,
+): Promise<McpAuthResult | null> {
+  if (!token || token.length < 16) return null;
+
+  if (token.startsWith("lo1_")) {
+    return validateApiKey(token);
+  }
+
+  if (token.split(".").length === 3) {
+    const oauth = await validateOAuthAccessToken(token);
+    if (oauth) return oauth;
+  }
+
+  return null;
 }

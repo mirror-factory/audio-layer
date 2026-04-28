@@ -1,0 +1,33 @@
+{
+  "id": "2026-04-28T03-05-49-944Z-responsive-home-side-panels-and-",
+  "createdAt": "2026-04-28T03:05:49.944Z",
+  "updatedAt": "2026-04-28T03:05:49.944Z",
+  "title": "Responsive home side panels and meaningful recent recording indicators",
+  "prompt": "Responsive home side panels and meaningful recent recording indicators",
+  "classification": "feature",
+  "acceptanceCriteria": [
+    "The new behavior is described in a machine-readable plan.",
+    "The affected surface has verification assets and updated manifests.",
+    "Typecheck and required tests pass."
+  ],
+  "requiredEvidence": [
+    "typecheck",
+    "tests",
+    "manifests",
+    "report"
+  ],
+  "verificationCommands": [
+    "pnpm typecheck",
+    "pnpm test",
+    "pnpm score"
+  ],
+  "affectedSurfaces": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key"
+  ],
+  "status": "active"
+}

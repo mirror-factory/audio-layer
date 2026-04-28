@@ -1,28 +1,56 @@
 kind: tools
 schema_version: 1
-last_synced_on: 2026-04-21T03:08:52.788Z
+last_synced_on: 2026-04-27T02:51:32.338Z
 entries:
   - name: _metadata
     path: lib/ai/tools/_metadata.ts
-    description: Full-text search across the knowledge base via hybrid vector and BM25 ranking, returning ranked document excerpts with relevance scores
+    description: Search meeting transcripts, summaries, and intake forms with semantic search and return ranked excerpts for chat grounding
     has_test: false
     owner: null
-    created_on: "2026-04-21T03:08:52.788Z"
+    created_on: "2026-04-27T02:51:32.338Z"
   - name: _registry
     path: lib/ai/tools/_registry.ts
     description: null
     has_test: false
     owner: null
-    created_on: "2026-04-21T03:08:52.788Z"
+    created_on: "2026-04-27T02:51:32.338Z"
   - name: _types
     path: lib/ai/tools/_types.ts
     description: null
     has_test: false
     owner: null
-    created_on: "2026-04-21T03:08:52.788Z"
+    created_on: "2026-04-27T02:51:32.338Z"
   - name: codeReview
     path: lib/ai/tools/code-review.ts
     description: Analyze source code for quality issues, security vulnerabilities, and adherence to best practices. Accepts a code string and optional language hint, returns structured feedback with severity levels and suggested fixes.
     has_test: false
     owner: null
     created_on: "2026-04-21T03:08:52.788Z"
+  - name: searchMeetings
+    path: lib/ai/tools.ts
+    description: Search meeting transcripts, summaries, and intake forms with semantic search and return ranked excerpts for chat grounding
+    has_test: true
+    owner: null
+    created_on: "2026-04-21T03:08:52.788Z"
+    removed_on: "2026-04-27T02:51:32.338Z"
+  - name: getMeetingDetails
+    path: lib/ai/tools.ts
+    description: Fetch a single meeting by ID and return transcript, summary, action items, decisions, participants, and status context
+    has_test: true
+    owner: null
+    created_on: "2026-04-21T03:08:52.788Z"
+    removed_on: "2026-04-27T02:51:32.338Z"
+  - name: listRecentMeetings
+    path: lib/ai/tools.ts
+    description: List recent meetings with titles, dates, durations, and processing status so chat can orient the user quickly
+    has_test: true
+    owner: null
+    created_on: "2026-04-21T03:08:52.788Z"
+    removed_on: "2026-04-27T02:51:32.338Z"
+  - name: show_meeting_dashboard
+    path: lib/mcp/tools.ts
+    description: Render the Claude MCP App dashboard for recent authenticated-user meetings with status counts and total minutes.
+    has_test: true
+    owner: null
+    created_on: "2026-04-26T00:00:00.000Z"
+    removed_on: "2026-04-27T02:51:32.338Z"

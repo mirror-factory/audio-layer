@@ -7,25 +7,25 @@ describe("DEFAULTS", () => {
   });
 
   it("has correct batchSpeechModel", () => {
-    expect(DEFAULTS.batchSpeechModel).toBe("universal-3-pro");
+    expect(DEFAULTS.batchSpeechModel).toBe("universal-2");
   });
 
   it("has correct streamingSpeechModel", () => {
-    expect(DEFAULTS.streamingSpeechModel).toBe("u3-rt-pro");
+    expect(DEFAULTS.streamingSpeechModel).toBe("universal-streaming-multilingual");
   });
 });
 
 describe("MODEL_OPTIONS", () => {
-  it("has 9 summary model options", () => {
-    expect(MODEL_OPTIONS.summary).toHaveLength(9);
+  it("has current summary model options from the LLM pricing catalog", () => {
+    expect(MODEL_OPTIONS.summary).toHaveLength(13);
   });
 
-  it("has 4 batch speech model options", () => {
-    expect(MODEL_OPTIONS.batchSpeech).toHaveLength(4);
+  it("has AssemblyAI batch speech models that are implemented at runtime", () => {
+    expect(MODEL_OPTIONS.batchSpeech).toHaveLength(2);
   });
 
-  it("has 5 streaming speech model options", () => {
-    expect(MODEL_OPTIONS.streamingSpeech).toHaveLength(5);
+  it("has AssemblyAI streaming speech models that are implemented at runtime", () => {
+    expect(MODEL_OPTIONS.streamingSpeech).toHaveLength(4);
   });
 
   it("every summary option has value, label, and price", () => {

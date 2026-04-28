@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Layer One Simple UI Concepts</title>
+    <style>
+      :root {
+        --page: #090d0d;
+        --surface: #101616;
+        --surface-2: #151d1d;
+        --surface-3: #1b2423;
+        --text: #f2f7f5;
+        --muted: #8c9b97;
+        --soft: #bfcbc7;
+        --line: rgba(218, 238, 232, 0.09);
+        --line-strong: rgba(65, 232, 211, 0.24);
+        --mint: #22d3c5;
+        --mint-deep: #0f766e;
+        --ok: #7dd3a8;
+        --warn: #f2b15c;
+        --shadow: rgba(0, 0, 0, 0.34);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, rgba(34, 211, 197, 0.08), transparent 420px),
+          var(--page);
+        color: var(--text);
+      }
+
+      .page {
+        display: grid;
+        gap: 48px;
+        padding: 48px;
+      }
+
+      .section-title {
+        max-width: 940px;
+      }
+
+      .section-title p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .screen-grid {
+        display: grid;
+        grid-template-columns: max-content;
+        gap: 32px;
+        align-items: start;
+      }
+
+      .artboard {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--page);
+        box-shadow: 0 32px 80px var(--shadow);
+      }
+
+      .desktop {
+        width: 1180px;
+        height: 760px;
+      }
+
+      .mobile {
+        width: 390px;
+        height: 844px;
+      }
+
+      .app {
+        display: grid;
+        height: 100%;
+        background:
+          linear-gradient(180deg, rgba(34, 211, 197, 0.045), transparent 260px),
+          var(--page);
+      }
+
+      .desktop .app {
+        grid-template-columns: 76px 1fr;
+      }
+
+      .rail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 20px 0;
+        border-right: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.018);
+      }
+
+      .mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 18px;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--mint);
+        color: #052d2a;
+        font-weight: 800;
+      }
+
+      .rail-button {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .rail-button.active {
+        border-color: var(--line-strong);
+        background: rgba(34, 211, 197, 0.1);
+        color: var(--mint);
+      }
+
+      .rail-spacer {
+        flex: 1;
+      }
+
+      .content {
+        display: grid;
+        min-width: 0;
+        grid-template-rows: 64px 1fr;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 28px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .top strong {
+        font-size: 15px;
+      }
+
+      .search-pill {
+        display: flex;
+        align-items: center;
+        width: min(420px, 42vw);
+        height: 36px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .quiet-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 36px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--soft);
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .primary-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border: 0;
+        border-radius: 8px;
+        background: var(--mint);
+        color: #052d2a;
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .record-stage {
+        display: grid;
+        place-items: center;
+        padding: 40px;
+      }
+
+      .record-stack {
+        display: grid;
+        width: min(680px, 100%);
+        justify-items: center;
+        text-align: center;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 30px;
+        padding: 0 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--mint);
+      }
+
+      .record-title {
+        max-width: 560px;
+        margin: 26px 0 10px;
+        font-size: 52px;
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .record-copy {
+        max-width: 480px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .record-button {
+        display: grid;
+        width: 132px;
+        height: 132px;
+        margin: 38px 0 20px;
+        place-items: center;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background:
+          radial-gradient(circle, rgba(34, 211, 197, 0.22), transparent 66%),
+          var(--surface);
+        color: var(--mint);
+      }
+
+      .mic-shape {
+        width: 26px;
+        height: 40px;
+        border: 3px solid currentColor;
+        border-radius: 20px;
+        position: relative;
+      }
+
+      .mic-shape::after {
+        position: absolute;
+        left: 50%;
+        bottom: -15px;
+        width: 3px;
+        height: 14px;
+        background: currentColor;
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .timer {
+        font-size: 34px;
+        font-variant-numeric: tabular-nums;
+        font-weight: 760;
+      }
+
+      .meeting-chip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        width: min(560px, 100%);
+        margin-top: 32px;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.026);
+        text-align: left;
+      }
+
+      .meeting-chip span,
+      .card span,
+      .caption {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 650;
+      }
+
+      .meeting-chip strong {
+        display: block;
+        margin-top: 3px;
+        font-size: 14px;
+      }
+
+      .library-layout {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        min-height: 0;
+      }
+
+      .list-pane {
+        min-height: 0;
+        padding: 20px;
+        border-right: 1px solid var(--line);
+      }
+
+      .list-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+
+      .list-header h2,
+      .note-main h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .meeting-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .list-item {
+        display: grid;
+        gap: 5px;
+        padding: 12px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: var(--muted);
+      }
+
+      .list-item.active {
+        border-color: var(--line);
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      .list-item strong {
+        color: inherit;
+        font-size: 14px;
+      }
+
+      .list-item span {
+        font-size: 12px;
+      }
+
+      .note-main {
+        min-width: 0;
+        padding: 32px;
+        overflow: hidden;
+      }
+
+      .note-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 28px;
+      }
+
+      .segmented {
+        display: inline-grid;
+        grid-auto-flow: column;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .segmented span {
+        display: grid;
+        min-height: 32px;
+        place-items: center;
+        padding: 0 12px;
+        border-radius: 6px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .segmented .active {
+        background: var(--surface-3);
+        color: var(--text);
+      }
+
+      .note-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 260px;
+        gap: 22px;
+      }
+
+      .summary {
+        display: grid;
+        gap: 16px;
+      }
+
+      .summary h1 {
+        max-width: 660px;
+        margin: 0 0 4px;
+        font-size: 38px;
+        line-height: 1.05;
+      }
+
+      .summary p {
+        max-width: 680px;
+        margin: 0;
+        color: var(--soft);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .fact-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .card {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      .card strong {
+        display: block;
+        margin-top: 5px;
+        font-size: 18px;
+      }
+
+      .actions {
+        display: grid;
+        gap: 10px;
+      }
+
+      .action-row {
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        gap: 10px;
+        align-items: start;
+        padding: 12px;
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .check {
+        display: grid;
+        width: 22px;
+        height: 22px;
+        place-items: center;
+        border-radius: 999px;
+        background: rgba(34, 211, 197, 0.12);
+        color: var(--mint);
+        font-size: 12px;
+      }
+
+      .inspector {
+        display: grid;
+        gap: 10px;
+        align-self: start;
+      }
+
+      .mobile .app {
+        grid-template-rows: 58px 1fr 72px;
+      }
+
+      .mobile-top,
+      .mobile-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .mobile-bottom {
+        border-top: 1px solid var(--line);
+        border-bottom: 0;
+        background: rgba(255, 255, 255, 0.022);
+      }
+
+      .mobile-tab {
+        display: grid;
+        gap: 5px;
+        place-items: center;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .mobile-tab.active {
+        color: var(--mint);
+      }
+
+      .mobile-body {
+        min-height: 0;
+        padding: 24px 18px;
+        overflow: hidden;
+      }
+
+      .mobile .record-title {
+        max-width: 320px;
+        font-size: 42px;
+      }
+
+      .mobile .record-button {
+        width: 124px;
+        height: 124px;
+        margin-top: 44px;
+      }
+
+      .mobile .meeting-chip {
+        margin-top: 34px;
+      }
+
+      .sheet {
+        margin-top: 16px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.024);
+      }
+
+      .mobile-note-body {
+        display: grid;
+        gap: 16px;
+        padding: 18px;
+        overflow: hidden;
+      }
+
+      .mobile-note-body h1 {
+        margin: 0;
+        font-size: 25px;
+        line-height: 1.1;
+      }
+
+      .mobile-note-body p {
+        margin: 0;
+        color: var(--soft);
+        line-height: 1.5;
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .mini-row {
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .mini-row:last-child {
+        border-bottom: 0;
+      }
+
+      @media (max-width: 960px) {
+        .page {
+          padding: 24px;
+        }
+
+        .desktop {
+          width: 100%;
+          min-width: 760px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="section-title">
+        <h1>Layer One simple UI concepts</h1>
+        <p>
+          The direction: one obvious capture action, library and ask stored one
+          level away, and advanced controls hidden under settings.
+        </p>
+      </section>
+
+      <section class="screen-grid" aria-label="Desktop concepts">
+        <article class="artboard desktop" id="desktop-capture">
+          <div class="app">
+            <aside class="rail" aria-label="Primary navigation">
+              <div class="mark">L1</div>
+              <div class="rail-button active">●</div>
+              <div class="rail-button">□</div>
+              <div class="rail-button">?</div>
+              <div class="rail-spacer"></div>
+              <div class="rail-button">⚙</div>
+            </aside>
+            <section class="content">
+              <header class="top">
+                <strong>Layer One</strong>
+                <button class="quiet-button">Account</button>
+              </header>
+              <main class="record-stage">
+                <div class="record-stack">
+                  <div class="status"><span class="dot"></span> Ready</div>
+                  <h1 class="record-title">Start the meeting.</h1>
+                  <p class="record-copy">
+                    Open, tap, record. Everything else waits until you need it.
+                  </p>
+                  <button class="record-button" aria-label="Start recording">
+                    <span class="mic-shape"></span>
+                  </button>
+                  <div class="timer">00:00</div>
+                  <button class="primary-button">Record now</button>
+                  <div class="meeting-chip">
+                    <div>
+                      <span>Next</span>
+                      <strong>Product strategy review</strong>
+                    </div>
+                    <span>2:00 PM</span>
+                  </div>
+                </div>
+              </main>
+            </section>
+          </div>
+        </article>
+
+        <article class="artboard desktop" id="desktop-library">
+          <div class="app">
+            <aside class="rail" aria-label="Primary navigation">
+              <div class="mark">L1</div>
+              <div class="rail-button">●</div>
+              <div class="rail-button active">□</div>
+              <div class="rail-button">?</div>
+              <div class="rail-spacer"></div>
+              <div class="rail-button">⚙</div>
+            </aside>
+            <section class="content">
+              <header class="top">
+                <strong>Library</strong>
+                <div class="search-pill">Search notes, people, or decisions</div>
+                <button class="quiet-button">Ask</button>
+              </header>
+              <main class="library-layout">
+                <aside class="list-pane">
+                  <div class="list-header">
+                    <h2>Meetings</h2>
+                    <button class="quiet-button">New</button>
+                  </div>
+                  <div class="meeting-list">
+                    <div class="list-item active">
+                      <strong>Mirror Factory planning</strong>
+                      <span>Today · 48 min · 7 actions</span>
+                    </div>
+                    <div class="list-item">
+                      <strong>Sales intake call</strong>
+                      <span>Yesterday · Budget found</span>
+                    </div>
+                    <div class="list-item">
+                      <strong>Candidate screen</strong>
+                      <span>Apr 24 · Follow-up drafted</span>
+                    </div>
+                    <div class="list-item">
+                      <strong>Weekly standup</strong>
+                      <span>Apr 23 · 3 blockers</span>
+                    </div>
+                  </div>
+                </aside>
+                <section class="note-main">
+                  <div class="note-toolbar">
+                    <div>
+                      <span class="caption">Completed · 48 min</span>
+                      <h2>Mirror Factory planning</h2>
+                    </div>
+                    <div class="segmented">
+                      <span class="active">Summary</span>
+                      <span>Transcript</span>
+                      <span>Ask</span>
+                    </div>
+                  </div>
+                  <div class="note-grid">
+                    <div class="summary">
+                      <h1>Team agreed to focus the app around fast intake.</h1>
+                      <p>
+                        The meeting clarified the wedge: start with one-tap
+                        capture, turn conversations into structured records,
+                        then push the right fields into other tools.
+                      </p>
+                      <div class="fact-row">
+                        <div class="card">
+                          <span>Budget</span>
+                          <strong>$15 core</strong>
+                        </div>
+                        <div class="card">
+                          <span>Priority</span>
+                          <strong>Capture speed</strong>
+                        </div>
+                        <div class="card">
+                          <span>Risk</span>
+                          <strong>Provider cost</strong>
+                        </div>
+                      </div>
+                      <div class="actions">
+                        <div class="action-row">
+                          <span class="check">✓</span>
+                          <div>Simplify the home screen to recording only.</div>
+                        </div>
+                        <div class="action-row">
+                          <span class="check">✓</span>
+                          <div>Move provider controls into advanced settings.</div>
+                        </div>
+                        <div class="action-row">
+                          <span class="check">✓</span>
+                          <div>Prototype the note-first meeting detail view.</div>
+                        </div>
+                      </div>
+                    </div>
+                    <aside class="inspector">
+                      <div class="card">
+                        <span>Stored away</span>
+                        <strong>Transcript, costs, MCP, exports</strong>
+                      </div>
+                      <div class="card">
+                        <span>Push notes</span>
+                        <strong>Manual trigger</strong>
+                      </div>
+                      <div class="card">
+                        <span>Visibility</span>
+                        <strong>Private</strong>
+                      </div>
+                    </aside>
+                  </div>
+                </section>
+              </main>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <section class="screen-grid" aria-label="Mobile concepts">
+        <article class="artboard mobile" id="mobile-capture">
+          <div class="app">
+            <header class="mobile-top">
+              <strong>Layer One</strong>
+              <button class="quiet-button">⚙</button>
+            </header>
+            <main class="mobile-body">
+              <div class="record-stack">
+                <div class="status"><span class="dot"></span> Ready</div>
+                <h1 class="record-title">Tap to record.</h1>
+                <p class="record-copy">
+                  Notes, actions, and intake fields appear after the call.
+                </p>
+                <button class="record-button" aria-label="Start recording">
+                  <span class="mic-shape"></span>
+                </button>
+                <div class="timer">00:00</div>
+                <div class="meeting-chip">
+                  <div>
+                    <span>Next</span>
+                    <strong>Strategy review</strong>
+                  </div>
+                  <span>2 PM</span>
+                </div>
+              </div>
+            </main>
+            <nav class="mobile-bottom" aria-label="Primary">
+              <div class="mobile-tab active">●<span>Record</span></div>
+              <div class="mobile-tab">□<span>Library</span></div>
+              <div class="mobile-tab">?<span>Ask</span></div>
+            </nav>
+          </div>
+        </article>
+
+        <article class="artboard mobile" id="mobile-note">
+          <div class="app">
+            <header class="mobile-top">
+              <button class="quiet-button">Back</button>
+              <strong>Meeting note</strong>
+              <button class="quiet-button">Ask</button>
+            </header>
+            <main class="mobile-note-body">
+              <span class="caption">Today · 48 min · Completed</span>
+              <h1>Mirror Factory planning</h1>
+              <div class="segmented">
+                <span class="active">Summary</span>
+                <span>Transcript</span>
+                <span>Push</span>
+              </div>
+              <p>
+                Focus the product on fast intake: record, summarize, extract,
+                then send the right fields into team tools.
+              </p>
+              <div class="fact-row" style="grid-template-columns: 1fr 1fr">
+                <div class="card">
+                  <span>Decision</span>
+                  <strong>Simple home</strong>
+                </div>
+                <div class="card">
+                  <span>Owner</span>
+                  <strong>Alfonso</strong>
+                </div>
+              </div>
+              <section class="card">
+                <span>Next actions</span>
+                <div class="mini-list" style="margin-top: 12px">
+                  <div class="mini-row">
+                    <span class="check">✓</span>
+                    <div>Move admin tools out of the main menu.</div>
+                  </div>
+                  <div class="mini-row">
+                    <span class="check">✓</span>
+                    <div>Combine search and chat into Ask.</div>
+                  </div>
+                  <div class="mini-row">
+                    <span class="check">✓</span>
+                    <div>Keep transcript behind a tab.</div>
+                  </div>
+                </div>
+              </section>
+              <button class="primary-button">Push note</button>
+            </main>
+            <nav class="mobile-bottom" aria-label="Primary">
+              <div class="mobile-tab">●<span>Record</span></div>
+              <div class="mobile-tab active">□<span>Library</span></div>
+              <div class="mobile-tab">?<span>Ask</span></div>
+            </nav>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

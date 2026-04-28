@@ -7,7 +7,7 @@
 - **Safe areas:** Use `env(safe-area-inset-top)` and `env(safe-area-inset-bottom)` for mobile/desktop
 - **Touch targets:** Minimum 44px (iOS HIG)
 - **Page padding:** 16px mobile, 24px desktop
-- **TopBar height:** 56px + safe area top (no bottom nav — use hamburger menu)
+- **TopBar height:** 56px + safe area top (no bottom nav — use the settings gear)
 
 ## Components
 
@@ -30,10 +30,20 @@
 - Background: `#171717`, border: `#262626`, focus ring: `#14b8a6`
 - Monospace font, 14px, placeholder at 50% opacity
 
+### Meeting Chat
+- Appears on completed meeting detail pages below the transcript.
+- Uses a compact bordered panel with template buttons for Sales, Interview, and Standup workflows.
+- Template buttons must stay 44px touch-friendly, include icons, and send prompts grounded in the current meeting ID.
+- Empty state copy should be short and practical; do not explain keyboard shortcuts or implementation details in-app.
+- All chat requests include the current `meetingId` so `/api/chat` can instruct the assistant to call `getMeetingDetails` before answering meeting-specific questions.
+- If no AI model is configured, completed-meeting chat should still return a concise local answer from saved notes and transcript segments instead of exposing provider errors to the user.
+
 ### Slide Menu
 - Width: 280px, slides from right
 - Background: `#171717` with `#0a0a0a` overlay behind
 - Active item: mint text, subtle mint left border
+- Keep user-facing navigation focused on recording, meetings, search, chat, usage, plan, settings, and profile.
+- Do not expose internal admin, docs, roadmap, observability, or dev-kit routes in the user menu.
 - z-index: 50
 
 ## Typography Scale

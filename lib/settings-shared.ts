@@ -3,6 +3,9 @@
  * Safe to import from both client and server components.
  */
 
+import { LLM_PRICING_OPTIONS } from "@/lib/billing/llm-pricing";
+import { STT_PRICING_OPTIONS, type SttPricingOption } from "@/lib/billing/stt-pricing";
+
 export interface ModelSettings {
   /** LLM for summary + intake extraction (AI Gateway format). */
   summaryModel: string;
@@ -14,8 +17,8 @@ export interface ModelSettings {
 
 export const DEFAULTS: ModelSettings = {
   summaryModel: "openai/gpt-5.4-nano",
-  batchSpeechModel: "universal-3-pro",
-  streamingSpeechModel: "u3-rt-pro",
+  batchSpeechModel: "universal-2",
+  streamingSpeechModel: "universal-streaming-multilingual",
 };
 
 export interface ModelOption {
@@ -23,34 +26,49 @@ export interface ModelOption {
   label: string;
   /** Price description shown in the UI. */
   price: string;
+  sourceUrl?: string;
+  sourceLabel?: string;
 }
 
+function formatTokenPrice(input: number, output: number): string {
+  return `$${input.toLocaleString("en-US", { maximumFractionDigits: 4 })} / $${output.toLocaleString("en-US", { maximumFractionDigits: 4 })} per 1M tokens`;
+}
+
+function speechPrice(option: SttPricingOption): string {
+  const suffix = option.addons?.length ? " base" : "";
+  return `$${option.ratePerHourUsd.toFixed(option.ratePerHourUsd < 1 ? 2 : 0)}/hr${suffix}`;
+}
+
+const runtimeAssemblyAiSpeech = STT_PRICING_OPTIONS.filter(
+  (option) => option.provider === "assemblyai" && option.runtimeStatus === "implemented",
+);
+
 export const MODEL_OPTIONS = {
-  summary: [
-    // Anthropic (April 2026)
-    { value: "anthropic/claude-opus-4-7", label: "Claude Opus 4.7", price: "$5 / $25 per 1M tokens" },
-    { value: "anthropic/claude-sonnet-4-6", label: "Claude Sonnet 4.6", price: "$3 / $15 per 1M tokens" },
-    { value: "anthropic/claude-haiku-4-5", label: "Claude Haiku 4.5", price: "$1 / $5 per 1M tokens" },
-    // OpenAI (April 2026)
-    { value: "openai/gpt-4.1", label: "GPT-4.1", price: "$2 / $8 per 1M tokens" },
-    { value: "openai/gpt-4.1-mini", label: "GPT-4.1 Mini", price: "$0.40 / $1.60 per 1M tokens" },
-    { value: "openai/o4-mini", label: "o4-mini (reasoning)", price: "$1.10 / $4.40 per 1M tokens" },
-    // Google (April 2026)
-    { value: "google/gemini-2.5-pro", label: "Gemini 2.5 Pro", price: "$1.25 / $10 per 1M tokens" },
-    { value: "google/gemini-2.5-flash", label: "Gemini 2.5 Flash", price: "$0.30 / $2.50 per 1M tokens" },
-    { value: "google/gemini-2.0-flash", label: "Gemini 2.0 Flash", price: "$0.10 / $0.40 per 1M tokens" },
-  ] as ModelOption[],
-  batchSpeech: [
-    { value: "universal-3-pro", label: "Universal-3 Pro (best accuracy)", price: "$0.21/hr + addons" },
-    { value: "slam-1", label: "Slam-1 (advanced)", price: "$0.27/hr" },
-    { value: "universal-2", label: "Universal-2 (99 languages)", price: "$0.15/hr + addons" },
-    { value: "nano", label: "Nano (fastest, cheapest)", price: "$0.12/hr" },
-  ] as ModelOption[],
-  streamingSpeech: [
-    { value: "u3-rt-pro", label: "Universal-3 Pro RT (best quality)", price: "$0.45/hr" },
-    { value: "u3-pro", label: "Universal-3 Pro (standard)", price: "$0.45/hr" },
-    { value: "universal-streaming-multilingual", label: "Universal Streaming (multilingual)", price: "$0.15/hr" },
-    { value: "universal-streaming-english", label: "Universal Streaming (English only)", price: "$0.15/hr" },
-    { value: "whisper-rt", label: "Whisper RT", price: "$0.15/hr" },
-  ] as ModelOption[],
+  summary: LLM_PRICING_OPTIONS
+    .filter((option) => option.settingsVisible)
+    .map((option) => ({
+      value: option.modelId,
+      label: option.label,
+      price: formatTokenPrice(option.pricing.input, option.pricing.output),
+      sourceUrl: option.sourceUrl,
+      sourceLabel: option.providerLabel,
+    })) as ModelOption[],
+  batchSpeech: runtimeAssemblyAiSpeech
+    .filter((option) => option.mode === "batch")
+    .map((option) => ({
+      value: option.model,
+      label: `${option.label} (${option.providerLabel})`,
+      price: speechPrice(option),
+      sourceUrl: option.sourceUrl,
+      sourceLabel: option.providerLabel,
+    })) as ModelOption[],
+  streamingSpeech: runtimeAssemblyAiSpeech
+    .filter((option) => option.mode === "streaming")
+    .map((option) => ({
+      value: option.model,
+      label: `${option.label} (${option.providerLabel})`,
+      price: speechPrice(option),
+      sourceUrl: option.sourceUrl,
+      sourceLabel: option.providerLabel,
+    })) as ModelOption[],
 } as const;

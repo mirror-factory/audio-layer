@@ -39,14 +39,14 @@ const STATIC_FALLBACK: Record<string, GatewayModel[]> = {
     { id: "anthropic/claude-opus-4-7", object: "model" },
   ],
   openai: [
-    { id: "openai/gpt-4.1", object: "model" },
-    { id: "openai/gpt-4.1-mini", object: "model" },
-    { id: "openai/o4-mini", object: "model" },
+    { id: "openai/gpt-5.4", object: "model" },
+    { id: "openai/gpt-5.4-mini", object: "model" },
+    { id: "openai/gpt-5.4-nano", object: "model" },
   ],
   google: [
     { id: "google/gemini-2.5-pro", object: "model" },
     { id: "google/gemini-2.5-flash", object: "model" },
-    { id: "google/gemini-2.0-flash", object: "model" },
+    { id: "google/gemini-2.5-flash-lite", object: "model" },
   ],
 };
 
@@ -65,6 +65,10 @@ export const GET = withRoute(async (req, ctx) => {
   // Return cache if fresh
   if (cache && Date.now() < cache.expiresAt) {
     return NextResponse.json(cache.data);
+  }
+
+  if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) {
+    return NextResponse.json(STATIC_FALLBACK);
   }
 
   try {

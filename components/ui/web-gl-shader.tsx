@@ -76,9 +76,12 @@ export function WebGLShader({
         float a = smoothstep(0.08, 0.45, intensity);
 
         if (lightMode > 0.5) {
-          // Light mode: mint/teal lines instead of white/chromatic
-          float mint = intensity * 0.85;
-          gl_FragColor = vec4(0.08 * mint, 0.72 * mint, 0.65 * mint, a);
+          float mint = clamp(intensity * 0.34, 0.0, 1.0);
+          float glow = smoothstep(0.03, 0.30, intensity);
+          vec3 teal = vec3(0.06, 0.52, 0.46);
+          vec3 highlight = vec3(0.30, 0.88, 0.80);
+          vec3 color = mix(teal, highlight, smoothstep(0.7, 1.8, intensity) * 0.28);
+          gl_FragColor = vec4(color * (0.48 + mint * 0.52), glow * 0.58);
         } else {
           gl_FragColor = vec4(r, g, b, a);
         }
@@ -147,19 +150,15 @@ export function WebGLShader({
 
       let targetY: number, targetDist: number
       if (s === "idle") {
-        // White line — no distortion, gentle amplitude
-        targetY = 0.25
-        targetDist = 0.0 // zero = all 3 lines overlap = white
+        targetY = 0.3
+        targetDist = 0.035
       } else if (s === "recording") {
-        // Lines split with audio
         targetY = 0.3 + audio * 0.5
         targetDist = 0.04 + audio * 0.1
       } else if (s === "summarizing") {
-        // Lines gently converge back toward white, smooth and calm
         targetY = 0.3
-        targetDist = 0.01 // nearly merged but hint of color
+        targetDist = 0.01
       } else {
-        // Done: fully white, gentle
         targetY = 0.2
         targetDist = 0.0
       }
@@ -218,13 +217,16 @@ export function WebGLShader({
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
-        style={{ filter: "var(--shader-filter, none)" }}
+        style={{
+          filter: "var(--shader-filter, none)",
+          opacity: "var(--shader-canvas-opacity, 1)",
+        }}
       />
       {/* Fade overlays — all four edges blend into page bg */}
-      <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-[var(--bg-primary)] to-transparent" />
-      <div className="absolute inset-y-0 right-0 w-[20%] bg-gradient-to-l from-[var(--bg-primary)] to-transparent" />
-      <div className="absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-[var(--bg-primary)] to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-[var(--bg-primary)] to-transparent" />
+      <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-[var(--wave-edge-bg)] to-transparent" />
+      <div className="absolute inset-y-0 right-0 w-[20%] bg-gradient-to-l from-[var(--wave-edge-bg)] to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-[var(--wave-edge-bg)] to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-[var(--wave-edge-bg)] to-transparent" />
     </div>
   )
 }

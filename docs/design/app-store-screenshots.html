@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Layer One App Store Screenshots</title>
+    <style>
+      :root {
+        --ink: #10201f;
+        --muted: #5b706d;
+        --paper: #f7fbf8;
+        --panel: #ffffff;
+        --line: #d9e8e4;
+        --mint: #0f9f93;
+        --mint-strong: #047c70;
+        --lime: #d7f36a;
+        --plum: #4d355a;
+        --navy: #14313d;
+        --coral: #ff7f68;
+        --shadow: 0 38px 100px rgba(14, 40, 37, 0.22);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #ecf3f0;
+        color: var(--ink);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      .board {
+        display: grid;
+        gap: 48px;
+        padding: 48px;
+      }
+
+      .store-shot {
+        position: relative;
+        width: 1290px;
+        height: 2796px;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 20% 6%,
+            rgba(215, 243, 106, 0.46),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 90% 16%,
+            rgba(255, 127, 104, 0.2),
+            transparent 24%
+          ),
+          linear-gradient(180deg, #fbfffc 0%, #edf7f3 100%);
+      }
+
+      .store-shot.dark {
+        background:
+          radial-gradient(
+            circle at 10% 8%,
+            rgba(15, 159, 147, 0.45),
+            transparent 27%
+          ),
+          radial-gradient(
+            circle at 90% 22%,
+            rgba(215, 243, 106, 0.18),
+            transparent 26%
+          ),
+          linear-gradient(180deg, #092421 0%, #132a34 100%);
+        color: #f4fffc;
+      }
+
+      .store-shot.split {
+        background:
+          radial-gradient(
+            circle at 22% 4%,
+            rgba(255, 127, 104, 0.24),
+            transparent 24%
+          ),
+          linear-gradient(155deg, #f8fcf9 0 52%, #dff3ed 52% 100%);
+      }
+
+      .copy {
+        position: absolute;
+        z-index: 2;
+        top: 112px;
+        left: 96px;
+        right: 96px;
+      }
+
+      .kicker {
+        margin: 0 0 28px;
+        color: var(--mint-strong);
+        font-size: 42px;
+        font-weight: 760;
+        letter-spacing: 0;
+      }
+
+      .dark .kicker {
+        color: var(--lime);
+      }
+
+      h1 {
+        max-width: 1020px;
+        margin: 0;
+        font-size: 112px;
+        line-height: 0.94;
+        letter-spacing: 0;
+        font-weight: 820;
+      }
+
+      .sub {
+        max-width: 890px;
+        margin: 34px 0 0;
+        color: var(--muted);
+        font-size: 38px;
+        line-height: 1.18;
+        font-weight: 520;
+      }
+
+      .dark .sub {
+        color: rgba(244, 255, 252, 0.72);
+      }
+
+      .phone {
+        position: absolute;
+        z-index: 1;
+        left: 125px;
+        bottom: -44px;
+        width: 1040px;
+        height: 2060px;
+        border: 18px solid #10201f;
+        border-radius: 108px;
+        background: #f8fbf9;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .dark .phone {
+        border-color: #071615;
+        background: #0f2523;
+        box-shadow: 0 42px 120px rgba(0, 0, 0, 0.45);
+      }
+
+      .notch {
+        position: absolute;
+        top: 22px;
+        left: 50%;
+        width: 310px;
+        height: 40px;
+        transform: translateX(-50%);
+        border-radius: 999px;
+        background: #10201f;
+        z-index: 4;
+      }
+
+      .app {
+        height: 100%;
+        padding: 96px 54px 62px;
+        background:
+          radial-gradient(
+            circle at 50% 12%,
+            rgba(15, 159, 147, 0.13),
+            transparent 26%
+          ),
+          #f9fcfa;
+      }
+
+      .dark .app {
+        background:
+          radial-gradient(
+            circle at 50% 12%,
+            rgba(15, 159, 147, 0.24),
+            transparent 28%
+          ),
+          #0f2523;
+      }
+
+      .topbar,
+      .row,
+      .tabs,
+      .pill-row,
+      .chatbar,
+      .price-row {
+        display: flex;
+        align-items: center;
+      }
+
+      .topbar {
+        justify-content: space-between;
+        margin-bottom: 62px;
+        font-size: 32px;
+        font-weight: 760;
+      }
+
+      .icon-button {
+        display: grid;
+        place-items: center;
+        width: 62px;
+        height: 62px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        color: var(--mint-strong);
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .dark .icon-button {
+        border-color: rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--lime);
+      }
+
+      .record-module {
+        padding: 56px 44px 44px;
+        border: 1px solid var(--line);
+        border-radius: 42px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 24px 76px rgba(15, 38, 35, 0.1);
+      }
+
+      .dark .record-module,
+      .dark .card,
+      .dark .note-card,
+      .dark .search-panel,
+      .dark .cost-panel {
+        border-color: rgba(255, 255, 255, 0.11);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .dark .status,
+      .dark .meta,
+      .dark .privacy-row,
+      .dark .provider small {
+        color: rgba(244, 255, 252, 0.72);
+      }
+
+      .dark .margin,
+      .dark .section-label {
+        color: var(--lime);
+      }
+
+      .dark .badge {
+        background: rgba(215, 243, 106, 0.16);
+        color: var(--lime);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--muted);
+        font-size: 26px;
+        font-weight: 720;
+      }
+
+      .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--mint);
+        box-shadow: 0 0 0 10px rgba(15, 159, 147, 0.11);
+      }
+
+      .waves {
+        position: relative;
+        height: 210px;
+        margin: 28px 0 26px;
+        overflow: hidden;
+      }
+
+      .wave {
+        position: absolute;
+        left: -30px;
+        width: 1020px;
+        height: 160px;
+        opacity: 0.8;
+      }
+
+      .wave path {
+        fill: none;
+        stroke: var(--mint);
+        stroke-linecap: round;
+      }
+
+      .wave.one {
+        top: 20px;
+      }
+
+      .wave.two {
+        top: 50px;
+        opacity: 0.36;
+      }
+
+      .timer {
+        text-align: center;
+        font-size: 96px;
+        font-weight: 820;
+        letter-spacing: 0;
+      }
+
+      .start {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        width: 100%;
+        height: 96px;
+        margin-top: 36px;
+        border: 0;
+        border-radius: 28px;
+        background: var(--ink);
+        color: white;
+        font-size: 32px;
+        font-weight: 780;
+      }
+
+      .dark .start {
+        background: var(--lime);
+        color: #12211f;
+      }
+
+      .tabs {
+        gap: 18px;
+        margin: 32px 0;
+      }
+
+      .tab {
+        flex: 1;
+        display: grid;
+        place-items: center;
+        min-height: 92px;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--muted);
+        font-size: 27px;
+        font-weight: 690;
+      }
+
+      .card,
+      .note-card,
+      .search-panel,
+      .cost-panel {
+        border: 1px solid var(--line);
+        border-radius: 34px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 14px 42px rgba(16, 32, 31, 0.08);
+      }
+
+      .card {
+        padding: 30px;
+        margin-top: 18px;
+      }
+
+      .card-title {
+        margin: 0 0 10px;
+        font-size: 30px;
+        font-weight: 760;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 24px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: rgba(15, 159, 147, 0.12);
+        color: var(--mint-strong);
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .privacy {
+        margin-top: 80px;
+        padding: 44px;
+      }
+
+      .privacy-title {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1.04;
+        font-weight: 820;
+      }
+
+      .privacy-grid {
+        display: grid;
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .privacy-row {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 29px;
+        font-weight: 640;
+      }
+
+      .check {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--mint);
+        color: white;
+        font-weight: 900;
+      }
+
+      .note-card {
+        padding: 36px;
+        margin-top: 22px;
+      }
+
+      .note-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 22px;
+        margin-bottom: 30px;
+      }
+
+      .note-title {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 820;
+      }
+
+      .section-label {
+        margin: 28px 0 14px;
+        color: var(--mint-strong);
+        font-size: 23px;
+        font-weight: 840;
+      }
+
+      .task {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 18px;
+        margin: 20px 0;
+        color: var(--ink);
+        font-size: 28px;
+        line-height: 1.22;
+        font-weight: 610;
+      }
+
+      .dark .task {
+        color: rgba(244, 255, 252, 0.88);
+      }
+
+      .box {
+        width: 34px;
+        height: 34px;
+        border: 3px solid var(--mint);
+        border-radius: 10px;
+      }
+
+      .pill-row {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .pill {
+        padding: 15px 19px;
+        border-radius: 999px;
+        background: rgba(77, 53, 90, 0.1);
+        color: var(--plum);
+        font-size: 22px;
+        font-weight: 780;
+      }
+
+      .search-panel {
+        padding: 34px;
+        margin-top: 26px;
+      }
+
+      .chatbar {
+        gap: 18px;
+        min-height: 82px;
+        padding: 0 24px;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        background: white;
+        color: var(--muted);
+        font-size: 26px;
+        font-weight: 620;
+      }
+
+      .answer {
+        margin-top: 28px;
+        padding: 30px;
+        border-radius: 28px;
+        background: #eff8f4;
+      }
+
+      .answer strong {
+        display: block;
+        margin-bottom: 16px;
+        font-size: 30px;
+      }
+
+      .answer p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 26px;
+        line-height: 1.28;
+      }
+
+      .library-list {
+        display: grid;
+        gap: 18px;
+        margin-top: 28px;
+      }
+
+      .mini-meeting {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 86px;
+        padding: 0 22px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.72);
+        font-size: 24px;
+        font-weight: 690;
+      }
+
+      .cost-panel {
+        padding: 34px;
+        margin-top: 26px;
+      }
+
+      .price-row {
+        justify-content: space-between;
+        min-height: 98px;
+        border-bottom: 1px solid var(--line);
+        font-size: 27px;
+        font-weight: 700;
+      }
+
+      .price-row:last-child {
+        border-bottom: 0;
+      }
+
+      .provider {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .provider small {
+        color: var(--muted);
+        font-size: 21px;
+        font-weight: 620;
+      }
+
+      .margin {
+        color: var(--mint-strong);
+        font-size: 31px;
+        font-weight: 840;
+      }
+
+      .footer-callout {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        bottom: 92px;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 104px;
+        padding: 0 34px;
+        border-radius: 32px;
+        background: rgba(16, 32, 31, 0.9);
+        color: white;
+        font-size: 28px;
+        font-weight: 750;
+        backdrop-filter: blur(18px);
+      }
+
+      .footer-callout span:last-child {
+        color: var(--lime);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="board">
+      <section class="store-shot" id="01-fast-record">
+        <div class="copy">
+          <p class="kicker">Layer One</p>
+          <h1>Open. Tap. Record.</h1>
+          <p class="sub">
+            A fast capture screen built for jumping into real meetings without
+            hunting through menus.
+          </p>
+        </div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="app">
+            <div class="topbar">
+              <span>Layer One</span>
+              <span class="icon-button">⌘</span>
+            </div>
+            <div class="record-module">
+              <div class="status"><span class="dot"></span> Ready</div>
+              <div class="waves">
+                <svg class="wave one" viewBox="0 0 900 160">
+                  <path
+                    d="M0 86 C 110 26, 180 122, 292 76 S 466 28, 590 82 S 760 118, 900 52"
+                    stroke-width="9"
+                  />
+                </svg>
+                <svg class="wave two" viewBox="0 0 900 160">
+                  <path
+                    d="M0 96 C 120 50, 190 126, 300 82 S 475 44, 606 86 S 756 116, 900 64"
+                    stroke-width="18"
+                  />
+                </svg>
+              </div>
+              <div class="timer">00:00</div>
+              <button class="start">● Start recording</button>
+            </div>
+            <div class="tabs">
+              <div class="tab">Meetings</div>
+              <div class="tab">Search</div>
+              <div class="tab">Chat</div>
+            </div>
+            <div class="card">
+              <p class="card-title">Revenue sync</p>
+              <div class="meta">Today · 42 min</div>
+            </div>
+            <div class="card">
+              <p class="card-title">Client intake review</p>
+              <div class="meta">Yesterday · 31 min</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="store-shot dark" id="02-bot-free">
+        <div class="copy">
+          <p class="kicker">Private by default</p>
+          <h1>No meeting bot in the room.</h1>
+          <p class="sub">
+            Record from your own device and keep the experience quiet for
+            clients, teams, and sensitive calls.
+          </p>
+        </div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="app">
+            <div class="topbar">
+              <span>Live Recording</span>
+              <span class="icon-button">●</span>
+            </div>
+            <div class="record-module">
+              <div class="status"><span class="dot"></span> Recording</div>
+              <div class="waves">
+                <svg class="wave one" viewBox="0 0 900 160">
+                  <path
+                    d="M0 72 C 130 134, 196 22, 310 82 S 500 124, 612 70 S 760 28, 900 92"
+                    stroke-width="9"
+                  />
+                </svg>
+                <svg class="wave two" viewBox="0 0 900 160">
+                  <path
+                    d="M0 92 C 118 38, 220 128, 326 76 S 512 38, 626 82 S 772 130, 900 66"
+                    stroke-width="18"
+                  />
+                </svg>
+              </div>
+              <div class="timer">12:47</div>
+              <button class="start">Finish and save</button>
+            </div>
+            <div class="card privacy">
+              <p class="privacy-title">Designed for real conversations.</p>
+              <div class="privacy-grid">
+                <div class="privacy-row">
+                  <span class="check">✓</span> No attendee bot
+                </div>
+                <div class="privacy-row">
+                  <span class="check">✓</span> Starts from phone or desktop
+                </div>
+                <div class="privacy-row">
+                  <span class="check">✓</span> Notes stay in your library
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="store-shot split" id="03-structured-intake">
+        <div class="copy">
+          <p class="kicker">Beyond summaries</p>
+          <h1>Turn calls into intake.</h1>
+          <p class="sub">
+            Capture decisions, owners, risks, budgets, and client details in a
+            reusable meeting record.
+          </p>
+        </div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="app">
+            <div class="topbar">
+              <span>Client intake review</span>
+              <span class="icon-button">↗</span>
+            </div>
+            <div class="note-card">
+              <div class="note-head">
+                <p class="note-title">Acme onboarding</p>
+                <span class="badge">Completed</span>
+              </div>
+              <div class="pill-row">
+                <span class="pill">Budget: $48k</span>
+                <span class="pill">Owner: Maya</span>
+                <span class="pill">Risk: timeline</span>
+              </div>
+              <p class="section-label">Decisions</p>
+              <div class="task">
+                <span class="box"></span
+                ><span>Move forward with two-week pilot.</span>
+              </div>
+              <div class="task">
+                <span class="box"></span
+                ><span>Route implementation notes to the product team.</span>
+              </div>
+              <p class="section-label">Next steps</p>
+              <div class="task">
+                <span class="box"></span
+                ><span>Send scope draft by Friday.</span>
+              </div>
+              <div class="task">
+                <span class="box"></span
+                ><span>Confirm data access before kickoff.</span>
+              </div>
+            </div>
+            <div class="footer-callout">
+              <span>Less cleanup after calls</span>
+              <span>More signal</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="store-shot" id="04-ask-library">
+        <div class="copy">
+          <p class="kicker">Ask your history</p>
+          <h1>Your meeting library becomes searchable.</h1>
+          <p class="sub">
+            Find the exact promise, quote, objection, or follow-up across every
+            recorded conversation.
+          </p>
+        </div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="app">
+            <div class="topbar">
+              <span>Library Chat</span>
+              <span class="icon-button">⌕</span>
+            </div>
+            <div class="search-panel">
+              <div class="chatbar">Ask: What did Acme need before kickoff?</div>
+              <div class="answer">
+                <strong>Answer from 3 meetings</strong>
+                <p>
+                  Acme needs SSO access, a pilot scope draft, and the security
+                  review link before kickoff.
+                </p>
+              </div>
+              <div class="library-list">
+                <div class="mini-meeting">
+                  <span>Acme onboarding</span><span class="badge">2 refs</span>
+                </div>
+                <div class="mini-meeting">
+                  <span>Security review</span><span class="badge">1 ref</span>
+                </div>
+                <div class="mini-meeting">
+                  <span>Revenue sync</span><span class="badge">1 ref</span>
+                </div>
+              </div>
+            </div>
+            <div class="footer-callout">
+              <span>No more digging through notes</span>
+              <span>Ask once</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="store-shot dark" id="05-cost-control">
+        <div class="copy">
+          <p class="kicker">Built to scale</p>
+          <h1>Control models, minutes, and margin.</h1>
+          <p class="sub">
+            Provider switching and usage visibility help teams grow without
+            guessing what each meeting costs.
+          </p>
+        </div>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="app">
+            <div class="topbar">
+              <span>Plan controls</span>
+              <span class="icon-button">⚙</span>
+            </div>
+            <div class="cost-panel">
+              <div class="price-row">
+                <div class="provider">
+                  <span>Pro plan</span>
+                  <small>900 minutes included</small>
+                </div>
+                <span class="margin">$19</span>
+              </div>
+              <div class="price-row">
+                <div class="provider">
+                  <span>Transcription lane</span>
+                  <small>Deepgram, AssemblyAI, or local</small>
+                </div>
+                <span class="badge">Switchable</span>
+              </div>
+              <div class="price-row">
+                <div class="provider">
+                  <span>AI notes lane</span>
+                  <small>Fast model first, premium model when needed</small>
+                </div>
+                <span class="badge">Efficient</span>
+              </div>
+              <div class="price-row">
+                <div class="provider">
+                  <span>1,000 customers</span>
+                  <small>Scenario planning for growth</small>
+                </div>
+                <span class="margin">$19k MRR</span>
+              </div>
+            </div>
+            <div class="footer-callout">
+              <span>Usage is a business metric</span>
+              <span>Not a surprise</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -10,9 +10,20 @@ import {
   getOrCreateProfile,
   setStripeCustomerId,
 } from "@/lib/stripe/profiles";
+import { checkoutRedirectUrls } from "@/lib/stripe/checkout-urls";
 
 export const POST = withRoute(async (req, ctx) => {
-  const { tier } = (await req.json()) as { tier: "core" | "pro" };
+  let body: { tier?: unknown };
+  try {
+    body = (await req.json()) as { tier?: unknown };
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid checkout request body" },
+      { status: 400 },
+    );
+  }
+
+  const { tier } = body;
 
   if (tier !== "core" && tier !== "pro") {
     return NextResponse.json(
@@ -61,8 +72,7 @@ export const POST = withRoute(async (req, ctx) => {
     await setStripeCustomerId(userId, customerId);
   }
 
-  // Create checkout session
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const { successUrl, cancelUrl } = checkoutRedirectUrls(req);
 
   const session = await withExternalCall(
     { vendor: "stripe", operation: "checkout.sessions.create", requestId: ctx.requestId },
@@ -71,8 +81,8 @@ export const POST = withRoute(async (req, ctx) => {
         customer: customerId!,
         mode: "subscription",
         line_items: [{ price: priceId, quantity: 1 }],
-        success_url: `${appUrl}/usage?checkout=success`,
-        cancel_url: `${appUrl}/pricing?checkout=canceled`,
+        success_url: successUrl,
+        cancel_url: cancelUrl,
         metadata: { userId, tier },
       }),
   );

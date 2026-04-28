@@ -23,6 +23,7 @@ export default function SignUpPage() {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const canSubmit = email.trim().length > 0 && password.length >= 6;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -147,7 +148,7 @@ export default function SignUpPage() {
 
                 <button
                   type="submit"
-                  disabled={loading || !email.trim() || !password}
+                  disabled={loading || !canSubmit}
                   className="w-full py-3 bg-[#14b8a6] hover:bg-[#0d9488] text-white font-medium rounded-xl min-h-[44px] disabled:opacity-50 transition-all"
                 >
                   {loading ? <Loader2 size={18} className="animate-spin mx-auto" /> : "Create account"}

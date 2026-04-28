@@ -1,0 +1,3069 @@
+{
+  "updatedAt": "2026-04-28T17:29:46.417Z",
+  "tasks": [
+    {
+      "id": "api:api-admin-pricing",
+      "path": "app/api/admin/pricing/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/admin/pricing/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.385Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-admin-pricing-activate",
+      "path": "app/api/admin/pricing/activate/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/admin/pricing/activate/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.385Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-ai-logs",
+      "path": "app/api/ai-logs/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/ai-logs/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.386Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-ai-logs-errors",
+      "path": "app/api/ai-logs/errors/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/ai-logs/errors/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.386Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-ai-logs-stats",
+      "path": "app/api/ai-logs/stats/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/ai-logs/stats/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.387Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-auth-api-key",
+      "path": "app/api/auth/api-key/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/auth/api-key/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.387Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-auth-send-email",
+      "path": "app/api/auth/send-email/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/auth/send-email/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.388Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-calendar-callback-provider",
+      "path": "app/api/calendar/callback/[provider]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/calendar/callback/[provider]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.388Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-calendar-connect-provider",
+      "path": "app/api/calendar/connect/[provider]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/calendar/connect/[provider]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.388Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-calendar-disconnect-provider",
+      "path": "app/api/calendar/disconnect/[provider]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/calendar/disconnect/[provider]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.389Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-calendar-upcoming",
+      "path": "app/api/calendar/upcoming/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/calendar/upcoming/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.389Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-chat",
+      "path": "app/api/chat/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/chat/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.389Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-control-plane",
+      "path": "app/api/control-plane/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/control-plane/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-control-plane-evidence-export",
+      "path": "app/api/control-plane/evidence-export/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/control-plane/evidence-export/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-config-name",
+      "path": "app/api/dev-kit/config/[name]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/config/[name]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-connectors",
+      "path": "app/api/dev-kit/connectors/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/connectors/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-cost",
+      "path": "app/api/dev-kit/cost/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/cost/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-coverage",
+      "path": "app/api/dev-kit/coverage/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/coverage/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-dependencies",
+      "path": "app/api/dev-kit/dependencies/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/dependencies/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-deployments",
+      "path": "app/api/dev-kit/deployments/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/deployments/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-design-system",
+      "path": "app/api/dev-kit/design-system/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/design-system/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-evals",
+      "path": "app/api/dev-kit/evals/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/evals/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-evals-id",
+      "path": "app/api/dev-kit/evals/[id]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/evals/[id]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-features",
+      "path": "app/api/dev-kit/features/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/features/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-features-name",
+      "path": "app/api/dev-kit/features/[name]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/features/[name]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-index",
+      "path": "app/api/dev-kit/index/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/index/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-logs-unified",
+      "path": "app/api/dev-kit/logs/unified/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/logs/unified/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-overview",
+      "path": "app/api/dev-kit/overview/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/overview/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-registries",
+      "path": "app/api/dev-kit/registries/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/registries/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.390Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-regressions",
+      "path": "app/api/dev-kit/regressions/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/regressions/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-runs",
+      "path": "app/api/dev-kit/runs/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/runs/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-runs-run-id",
+      "path": "app/api/dev-kit/runs/[run_id]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/runs/[run_id]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-sessions",
+      "path": "app/api/dev-kit/sessions/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/sessions/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-sessions-id",
+      "path": "app/api/dev-kit/sessions/[id]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/sessions/[id]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-status",
+      "path": "app/api/dev-kit/status/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/status/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-dev-kit-tools",
+      "path": "app/api/dev-kit/tools/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/dev-kit/tools/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-embeddings-backfill",
+      "path": "app/api/embeddings/backfill/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/embeddings/backfill/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-health",
+      "path": "app/api/health/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/health/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-mcp-transport",
+      "path": "app/api/mcp/[transport]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/mcp/[transport]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.391Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-meetings",
+      "path": "app/api/meetings/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/meetings/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.392Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-meetings-id",
+      "path": "app/api/meetings/[id]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/meetings/[id]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.392Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-meetings-id-export",
+      "path": "app/api/meetings/[id]/export/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/meetings/[id]/export/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.392Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-meetings-id-notes-package",
+      "path": "app/api/meetings/[id]/notes-package/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/meetings/[id]/notes-package/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.393Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-models",
+      "path": "app/api/models/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/models/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.394Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-oauth-authorize",
+      "path": "app/api/oauth/authorize/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/oauth/authorize/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.394Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-oauth-callback",
+      "path": "app/api/oauth/callback/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/oauth/callback/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.394Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-oauth-consent",
+      "path": "app/api/oauth/consent/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/oauth/consent/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.394Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-oauth-revoke",
+      "path": "app/api/oauth/revoke/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/oauth/revoke/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.394Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-oauth-token",
+      "path": "app/api/oauth/token/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/oauth/token/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.394Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-observability-health",
+      "path": "app/api/observability/health/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/observability/health/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.394Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-search",
+      "path": "app/api/search/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/search/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.395Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-settings",
+      "path": "app/api/settings/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/settings/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.396Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-stripe-checkout",
+      "path": "app/api/stripe/checkout/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/stripe/checkout/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.397Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-stripe-webhook",
+      "path": "app/api/stripe/webhook/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/stripe/webhook/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.397Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-transcribe",
+      "path": "app/api/transcribe/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/transcribe/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.397Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-transcribe-id",
+      "path": "app/api/transcribe/[id]/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/transcribe/[id]/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.398Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-transcribe-stream-autosave",
+      "path": "app/api/transcribe/stream/autosave/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/transcribe/stream/autosave/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.398Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-transcribe-stream-finalize",
+      "path": "app/api/transcribe/stream/finalize/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/transcribe/stream/finalize/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.398Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-transcribe-stream-preflight",
+      "path": "app/api/transcribe/stream/preflight/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/transcribe/stream/preflight/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.398Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-transcribe-stream-token",
+      "path": "app/api/transcribe/stream/token/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/transcribe/stream/token/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.399Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-webhooks",
+      "path": "app/api/webhooks/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/webhooks/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.399Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "api:api-webhooks-deliveries",
+      "path": "app/api/webhooks/deliveries/route.ts",
+      "kind": "api",
+      "suggested": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "satisfied": [
+        "integration-test",
+        "contract-check",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/api/webhooks/deliveries/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:ai-debug-panel",
+      "path": "components/ai-debug-panel.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/ai-debug-panel.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:audio-lines",
+      "path": "components/audio-lines.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/audio-lines.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:audio-recorder",
+      "path": "components/audio-recorder.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/audio-recorder.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:audio-wave-ribbon",
+      "path": "components/audio-wave-ribbon.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/audio-wave-ribbon.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:button",
+      "path": "components/ui/button.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/ui/button.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:chat-input",
+      "path": "components/chat-input.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/chat-input.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:chat-message",
+      "path": "components/chat-message.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/chat-message.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:intake-form-view",
+      "path": "components/intake-form-view.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/intake-form-view.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:integrations-settings-panel",
+      "path": "components/integrations-settings-panel.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/integrations-settings-panel.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:liquid-glass-button",
+      "path": "components/ui/liquid-glass-button.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/ui/liquid-glass-button.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:live-recorder",
+      "path": "components/live-recorder.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/live-recorder.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:live-transcript-view",
+      "path": "components/live-transcript-view.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/live-transcript-view.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:meeting-chat",
+      "path": "components/meeting-chat.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/meeting-chat.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:meeting-cost-panel",
+      "path": "components/meeting-cost-panel.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/meeting-cost-panel.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:meeting-detail-poller",
+      "path": "components/meeting-detail-poller.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/meeting-detail-poller.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:meeting-intelligence-panel",
+      "path": "components/meeting-intelligence-panel.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/meeting-intelligence-panel.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:meeting-notes-push-panel",
+      "path": "components/meeting-notes-push-panel.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/meeting-notes-push-panel.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:meeting-search",
+      "path": "components/meeting-search.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/meeting-search.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:mobile-primary-nav",
+      "path": "components/mobile-primary-nav.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/mobile-primary-nav.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:recording-reminder",
+      "path": "components/recording-reminder.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/recording-reminder.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:slide-menu",
+      "path": "components/slide-menu.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/slide-menu.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:theme-toggle",
+      "path": "components/theme-toggle.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/theme-toggle.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:tool-card",
+      "path": "components/tool-card.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/tool-card.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:top-bar",
+      "path": "components/top-bar.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/top-bar.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:transcript-view",
+      "path": "components/transcript-view.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/transcript-view.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "component:web-gl-shader",
+      "path": "components/ui/web-gl-shader.tsx",
+      "kind": "component",
+      "suggested": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "satisfied": [
+        "unit-test",
+        "storybook",
+        "visual-check"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "components/ui/web-gl-shader.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.400Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:admin-pricing",
+      "path": "app/admin/pricing/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/admin/pricing/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.401Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:ai-starter",
+      "path": "app/ai-starter/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/ai-starter/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.402Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:ask",
+      "path": "app/ask/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/ask/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.403Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:auth-callback",
+      "path": "app/auth/callback/route.ts",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/auth/callback/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.405Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:auth-confirm",
+      "path": "app/auth/confirm/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/auth/confirm/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.406Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:auth-sign-out",
+      "path": "app/auth/sign-out/route.ts",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/auth/sign-out/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.407Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:chat",
+      "path": "app/chat/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/chat/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.409Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:control-plane",
+      "path": "app/control-plane/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/control-plane/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.410Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit",
+      "path": "app/dev-kit/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.411Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-config",
+      "path": "app/dev-kit/config/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/config/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.412Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-connectors",
+      "path": "app/dev-kit/connectors/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/connectors/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.413Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-cost",
+      "path": "app/dev-kit/cost/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/cost/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.414Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-coverage",
+      "path": "app/dev-kit/coverage/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/coverage/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.415Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-dependencies",
+      "path": "app/dev-kit/dependencies/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/dependencies/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.416Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-deployments",
+      "path": "app/dev-kit/deployments/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/deployments/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.418Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-design-system",
+      "path": "app/dev-kit/design-system/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/design-system/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.419Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-evals",
+      "path": "app/dev-kit/evals/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/evals/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.420Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-evals-id",
+      "path": "app/dev-kit/evals/[id]/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/evals/[id]/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.421Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-features",
+      "path": "app/dev-kit/features/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/features/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.423Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-features-name",
+      "path": "app/dev-kit/features/[name]/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/features/[name]/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.424Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-index",
+      "path": "app/dev-kit/index/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/index/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.425Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-registries",
+      "path": "app/dev-kit/registries/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/registries/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.427Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-regressions",
+      "path": "app/dev-kit/regressions/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/regressions/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.428Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-runs",
+      "path": "app/dev-kit/runs/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/runs/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.429Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-runs-run-id",
+      "path": "app/dev-kit/runs/[run_id]/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/runs/[run_id]/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.430Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-sessions",
+      "path": "app/dev-kit/sessions/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/sessions/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.432Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-sessions-id",
+      "path": "app/dev-kit/sessions/[id]/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/sessions/[id]/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.433Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-status",
+      "path": "app/dev-kit/status/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/status/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.435Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:dev-kit-tools",
+      "path": "app/dev-kit/tools/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/dev-kit/tools/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.436Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:docs",
+      "path": "app/docs/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/docs/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.437Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:meetings",
+      "path": "app/meetings/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/meetings/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.438Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:meetings-id",
+      "path": "app/meetings/[id]/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/meetings/[id]/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.440Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:oauth-consent",
+      "path": "app/oauth/consent/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/oauth/consent/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.441Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:observability",
+      "path": "app/observability/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/observability/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.443Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:page-tsx",
+      "path": "app/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.444Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:pricing",
+      "path": "app/pricing/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/pricing/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.445Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:profile",
+      "path": "app/profile/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/profile/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.446Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:record",
+      "path": "app/record/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/record/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.447Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:record-live",
+      "path": "app/record/live/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/record/live/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.449Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:roadmap",
+      "path": "app/roadmap/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/roadmap/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.450Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:search",
+      "path": "app/search/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/search/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.451Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:settings",
+      "path": "app/settings/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/settings/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.453Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:sign-in",
+      "path": "app/sign-in/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/sign-in/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.455Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:sign-up",
+      "path": "app/sign-up/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/sign-up/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.456Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:usage",
+      "path": "app/usage/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/usage/page.tsx"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.457Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:well-known-oauth-authorization-server",
+      "path": "app/.well-known/oauth-authorization-server/route.ts",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/.well-known/oauth-authorization-server/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.460Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:well-known-oauth-protected-resource",
+      "path": "app/.well-known/oauth-protected-resource/route.ts",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/.well-known/oauth-protected-resource/route.ts"
+      ],
+      "updatedAt": "2026-04-28T17:29:25.462Z",
+      "lastObservedAt": null
+    }
+  ]
+}
