@@ -57,7 +57,7 @@ const DEPRECATIONS: Deprecation[] = [
   },
   {
     vendor: 'AI SDK',
-    pattern: /\.append\s*\(/,
+    pattern: /\bchat\.append\s*\(/,
     fix: 'AI SDK v6 renamed chat.append to chat.sendMessage. Review call sites.',
     url: 'https://sdk.vercel.ai/docs/migration-guides/migration-guide-5-0',
   },
