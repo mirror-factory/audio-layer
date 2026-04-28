@@ -21,8 +21,6 @@ export const BASE_RATES_PER_HOUR: Record<string, number> = {
   "u3-rt-pro:batch": 0.21,
   "u3-rt-pro:streaming": 0.45,
   "u3-pro:streaming": 0.45,
-  "u3-rt:batch": 0.15,
-  "u3-rt:streaming": 0.26,
   "nano:batch": 0.12,
   "nano:streaming": 0.15,
   "universal:batch": 0.15,
