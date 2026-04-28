@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.10] — 2026-04-28
+
+### Fixed
+- fix: pass supabase secrets to deploy validation (`f6171ca`)
+
+
 ## [0.1.9] — 2026-04-28
 
 ### Other
