@@ -5,6 +5,6 @@
   "command": "pnpm sync && pnpm score",
   "count": 1,
   "maxIterations": 5,
-  "telemetryLineCount": 423,
+  "telemetryLineCount": 430,
   "stopHookActive": false
 }
