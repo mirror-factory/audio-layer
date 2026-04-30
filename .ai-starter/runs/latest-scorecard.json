@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-30T17:28:29.677Z",
+  "generatedAt": "2026-04-30T18:01:17.444Z",
   "planId": "2026-04-30T15-26-11-478Z-create-launch-checklist-and-agen",
   "score": 100,
   "blockers": [],
@@ -7,7 +7,7 @@
     "Refresh the active plan if scope changed.",
     "Product validation memo is present or explicitly bypassed.",
     "Product spec is present or explicitly bypassed.",
-    "Review .ai-starter/alignment/latest.md; first gap: MFDR is not complete; run `pnpm mfdr --complete` after research and decisions are explicit.",
+    "Alignment anchors are current.",
     "Story coverage looks healthy.",
     "API coverage looks healthy.",
     "Tool eval coverage looks healthy.",
@@ -46,7 +46,7 @@
       "expectProofOk": true
     },
     "evidence": {
-      "total": 1250,
+      "total": 1254,
       "screenshots": 494,
       "videos": 136,
       "traces": 48,
@@ -59,8 +59,8 @@
     },
     "hooks": {
       "registered": 22,
-      "observed": 4767,
-      "blocked": 41
+      "observed": 4793,
+      "blocked": 42
     }
   }
 }

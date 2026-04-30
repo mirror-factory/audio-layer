@@ -1,14 +1,14 @@
 # MFDR Technical Decision Record
 
-Updated: 2026-04-30T17:13:37.203Z
-Status: draft
-Source: generated
+Updated: 2026-04-30T18:01:17.436Z
+Status: complete
+Source: manual
 
 ## Hypothesis
-If Unvalidated: define the narrow first customer before broad implementation. get a starter-enforced workflow for AI product app managed by the AI Starter Kit., they will trust agent-built software faster because every surface has plans, docs, tests, browser evidence, and cost visibility.
+If founders, product teams, and GTM teams can record meetings without a bot and immediately receive trustworthy transcript, summary, decision, and action-item memory, they will adopt Layer One as the meeting context layer for their AI workflows.
 
 ## Product Thesis
-AI product app managed by the AI Starter Kit.
+Layer One should launch as a download-first, bot-free meeting recorder with live transcription, structured summaries, key points, action items, calendar context, searchable memory, and configurable Free/Core/Pro pricing.
 
 ## Research Basis
 - design-md: DESIGN.md
@@ -21,14 +21,14 @@ AI product app managed by the AI Starter Kit.
 - docs-apis-app-api-ai-logs-errors-route-md: docs/apis/app-api-ai-logs-errors-route.md
 
 ## Decisions
-### product: Validate or narrow before broad implementation
+### product: Launch a narrow bot-free meeting memory MVP
 
-Why: Unvalidated: define the narrow first customer before broad implementation.
+Why: The first validated workflow is recording a real meeting and leaving with structured, searchable team memory without adding an intrusive meeting bot.
 
-Alternatives considered: Build broad feature set immediately; Stay in research only; Ship a concierge/manual prototype first
-Tradeoffs: Faster build momentum; Less premature surface area; Requires explicit follow-up validation evidence
+Alternatives considered: Build broad collaboration suite immediately; Stay in research only; Ship a concierge-only recap workflow; Focus only on meeting-bot integrations
+Tradeoffs: Faster launch and clearer proof point; Leaves some team/admin workflows for later; Requires excellent transcript quality and clear consent/privacy copy
 Evidence: .ai-starter/product-validation/latest.md
-Verification: pnpm product:validate, pnpm plan -- "<feature>"
+Verification: pnpm product:validate, pnpm browser:proof, pnpm plan -- "<feature>"
 
 ### architecture: .ai-starter remains the source of truth for repo state
 
@@ -39,12 +39,12 @@ Tradeoffs: More generated files; Better handoff and auditability
 Evidence: .ai-starter/manifests/starter.json, .ai-starter/manifests/setup.json
 Verification: pnpm sync, pnpm score
 
-### api: Track configured providers: assemblyai, custom-api-routes, resend, stripe, supabase, vercel-ai-gateway
+### api: Track launch-critical providers and keep paid integrations observable
 
-Why: External APIs need docs, env requirements, cost events, failure modes, and contract tests.
+Why: AssemblyAI, Deepgram Live, Vercel AI Gateway, Stripe, Supabase, calendar auth, and email all need docs, env contracts, cost visibility, and failure modes before launch.
 
-Alternatives considered: Call providers directly without local registry; Rely only on provider dashboards; Block all custom providers
-Tradeoffs: More upfront specification; Fewer silent runtime/provider failures
+Alternatives considered: Call providers directly without local registry; Rely only on provider dashboards; Defer Deepgram Live; Ship Stripe manually
+Tradeoffs: More upfront specification; Fewer silent runtime/provider failures; Cleaner handoff when user supplies production keys
 Evidence: .ai-starter/manifests/integrations.json
 Verification: pnpm usage:record -- --integration=<id> --cost=<usd>, pnpm test
 
@@ -115,14 +115,14 @@ Verification: pnpm browser:proof, pnpm gates
 - External APIs/services have cost events or an explicit provider-dashboard/manual tracking reason.
 
 ## Risks
-- The first customer/problem/workaround is not validated enough to justify broad build scope.
-- Pricing is not validated; support and compute cost may exceed willingness to pay.
-- Distribution is not validated; the first 100 users may be hard to reach.
-- MFDR can become stale if API/tool/UI decisions change without rerunning `pnpm mfdr`.
-- Browser proof requires a live local server and installed Expect CLI.
+- Transcript quality or live latency may not be good enough for users to trust the summary and action items.
+- Bot-free recording must have clear privacy, consent, and platform behavior so users understand what is captured.
+- Stripe, Google OAuth, desktop/mobile downloads, and provider keys remain launch-critical operational setup items.
+- Pricing and plan limits still need payment or pilot evidence.
+- MFDR can become stale if provider, pricing, app-store, or packaging decisions change without rerunning `pnpm mfdr`.
 
 ## Open Questions
-- Complete product validation or record why it is bypassed.
+- None recorded.
 
 ## Next Step
-Before broad implementation, run `pnpm mfdr`, then `pnpm plan -- "<first feature>"`, then implement only the next verified slice.
+Finish the launch workstreams for Deepgram Live, Stripe keys/prices, Google OAuth production setup, downloadable builds, and browser proof of the first recording-to-summary route.

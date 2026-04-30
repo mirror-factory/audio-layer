@@ -1,18 +1,18 @@
 {
-  "version": "0.3.0",
-  "updatedAt": "2026-04-30T17:13:37.203Z",
-  "status": "draft",
-  "source": "generated",
+  "version": "0.1.13",
+  "updatedAt": "2026-04-30T18:01:17.436Z",
+  "status": "complete",
+  "source": "manual",
   "title": "audio-layer MFDR",
   "project": {
     "name": "audio-layer",
     "slug": "audio-layer",
-    "description": "AI product app managed by the AI Starter Kit.",
+    "description": "Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
     "appType": "nextjs-ai-app",
     "productType": "unknown"
   },
-  "hypothesis": "If Unvalidated: define the narrow first customer before broad implementation. get a starter-enforced workflow for AI product app managed by the AI Starter Kit., they will trust agent-built software faster because every surface has plans, docs, tests, browser evidence, and cost visibility.",
-  "productThesis": "AI product app managed by the AI Starter Kit.",
+  "hypothesis": "If founders, product teams, and GTM teams can record meetings without a bot and immediately receive trustworthy transcript, summary, decision, and action-item memory, they will adopt Layer One as the meeting context layer for their AI workflows.",
+  "productThesis": "Layer One should launch as a download-first, bot-free meeting recorder with live transcription, structured summaries, key points, action items, calendar context, searchable memory, and configurable Free/Core/Pro pricing.",
   "researchBasis": [
     "design-md: DESIGN.md",
     "docs-apis-api-ai-logs-errors-md: docs/apis/api-ai-logs-errors.md",
@@ -26,23 +26,25 @@
   "decisions": [
     {
       "area": "product",
-      "choice": "Validate or narrow before broad implementation",
-      "why": "Unvalidated: define the narrow first customer before broad implementation.",
+      "choice": "Launch a narrow bot-free meeting memory MVP",
+      "why": "The first validated workflow is recording a real meeting and leaving with structured, searchable team memory without adding an intrusive meeting bot.",
       "alternatives": [
-        "Build broad feature set immediately",
+        "Build broad collaboration suite immediately",
         "Stay in research only",
-        "Ship a concierge/manual prototype first"
+        "Ship a concierge-only recap workflow",
+        "Focus only on meeting-bot integrations"
       ],
       "tradeoffs": [
-        "Faster build momentum",
-        "Less premature surface area",
-        "Requires explicit follow-up validation evidence"
+        "Faster launch and clearer proof point",
+        "Leaves some team/admin workflows for later",
+        "Requires excellent transcript quality and clear consent/privacy copy"
       ],
       "evidence": [
         ".ai-starter/product-validation/latest.md"
       ],
       "verification": [
         "pnpm product:validate",
+        "pnpm browser:proof",
         "pnpm plan -- \"<feature>\""
       ]
     },
@@ -70,16 +72,18 @@
     },
     {
       "area": "api",
-      "choice": "Track configured providers: assemblyai, custom-api-routes, resend, stripe, supabase, vercel-ai-gateway",
-      "why": "External APIs need docs, env requirements, cost events, failure modes, and contract tests.",
+      "choice": "Track launch-critical providers and keep paid integrations observable",
+      "why": "AssemblyAI, Deepgram Live, Vercel AI Gateway, Stripe, Supabase, calendar auth, and email all need docs, env contracts, cost visibility, and failure modes before launch.",
       "alternatives": [
         "Call providers directly without local registry",
         "Rely only on provider dashboards",
-        "Block all custom providers"
+        "Defer Deepgram Live",
+        "Ship Stripe manually"
       ],
       "tradeoffs": [
         "More upfront specification",
-        "Fewer silent runtime/provider failures"
+        "Fewer silent runtime/provider failures",
+        "Cleaner handoff when user supplies production keys"
       ],
       "evidence": [
         ".ai-starter/manifests/integrations.json"
@@ -264,14 +268,12 @@
     "External APIs/services have cost events or an explicit provider-dashboard/manual tracking reason."
   ],
   "risks": [
-    "The first customer/problem/workaround is not validated enough to justify broad build scope.",
-    "Pricing is not validated; support and compute cost may exceed willingness to pay.",
-    "Distribution is not validated; the first 100 users may be hard to reach.",
-    "MFDR can become stale if API/tool/UI decisions change without rerunning `pnpm mfdr`.",
-    "Browser proof requires a live local server and installed Expect CLI."
+    "Transcript quality or live latency may not be good enough for users to trust the summary and action items.",
+    "Bot-free recording must have clear privacy, consent, and platform behavior so users understand what is captured.",
+    "Stripe, Google OAuth, desktop/mobile downloads, and provider keys remain launch-critical operational setup items.",
+    "Pricing and plan limits still need payment or pilot evidence.",
+    "MFDR can become stale if provider, pricing, app-store, or packaging decisions change without rerunning `pnpm mfdr`."
   ],
-  "openQuestions": [
-    "Complete product validation or record why it is bypassed."
-  ],
-  "nextStep": "Before broad implementation, run `pnpm mfdr`, then `pnpm plan -- \"<first feature>\"`, then implement only the next verified slice."
+  "openQuestions": [],
+  "nextStep": "Finish the launch workstreams for Deepgram Live, Stripe keys/prices, Google OAuth production setup, downloadable builds, and browser proof of the first recording-to-summary route."
 }
