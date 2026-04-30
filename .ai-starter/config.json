@@ -1,13 +1,13 @@
 {
   "version": "0.3.0",
   "createdAt": "2026-04-26T22:08:37.511Z",
-  "updatedAt": "2026-04-30T17:13:33.702Z",
+  "updatedAt": "2026-04-30T17:28:26.114Z",
   "mode": "detected",
   "status": "configured",
   "project": {
     "name": "audio-layer",
     "slug": "audio-layer",
-    "description": "AI product app managed by the AI Starter Kit.",
+    "description": "Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
     "appType": "nextjs-ai-app",
     "productType": "unknown"
   },
@@ -57,14 +57,14 @@
   },
   "productValidation": {
     "mode": "recommended",
-    "customer": "",
-    "problem": "",
-    "currentWorkaround": "",
-    "proposedSolution": "AI product app managed by the AI Starter Kit.",
-    "pricing": "",
-    "distribution": "",
-    "timing": "",
-    "constraints": "",
+    "customer": "Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call.",
+    "problem": "Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools.",
+    "currentWorkaround": "Manual notes, Zoom or Meet transcripts, Otter or Fathom style meeting bots, Notion or Docs, Tana style knowledge graphs, Slack recaps, and ad hoc copy-paste into ChatGPT or Claude.",
+    "proposedSolution": "Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
+    "pricing": "Free $0, Core $20 per user per month, Pro $30 per user per month. Pricing must stay easy to change before launch.",
+    "distribution": "Download-first launch from the Layer One website with platform-aware Mac and Windows links and mobile app-store links as builds become available. Pair with founder-led outreach to product teams, AI productivity users, and early customer conversations.",
+    "timing": "Teams are adopting AI tools faster than their meeting context can move with them. Better speech models, cheaper summarization, and desktop or mobile distribution make a private meeting memory layer practical now.",
+    "constraints": "Do not commit secrets. Keep provider keys in env. Ship AssemblyAI today, add Deepgram Live when the API key is supplied, keep Stripe Free/Core/Pro configurable, and verify primary routes with browser proof.",
     "bypassReason": null
   },
   "integrations": [

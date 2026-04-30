@@ -1,25 +1,25 @@
 {
   "version": "0.3.0",
-  "updatedAt": "2026-04-30T17:13:36.031Z",
-  "status": "draft",
+  "updatedAt": "2026-04-30T17:28:28.471Z",
+  "status": "complete",
   "source": "agent-generated",
   "project": {
     "name": "audio-layer",
     "slug": "audio-layer",
-    "description": "AI product app managed by the AI Starter Kit.",
+    "description": "Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
     "appType": "nextjs-ai-app",
     "productType": "unknown"
   },
   "canonicalPath": ".ai-starter/product-spec/latest.md",
   "compatibilityPath": ".ai-dev-kit/spec.md",
-  "oneLiner": "AI product app managed by the AI Starter Kit.",
-  "customer": "Unvalidated: define the narrow first customer before broad implementation.",
-  "painfulProblem": "Unanswered. Define the painful job before broad implementation.",
-  "currentAlternatives": "Unanswered. Record the current workaround or competitor behavior.",
+  "oneLiner": "Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
+  "customer": "Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call.",
+  "painfulProblem": "Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools.",
+  "currentAlternatives": "Manual notes, Zoom or Meet transcripts, Otter or Fathom style meeting bots, Notion or Docs, Tana style knowledge graphs, Slack recaps, and ad hoc copy-paste into ChatGPT or Claude.",
   "insight": "The product should be pulled by a specific painful customer workflow, not by broad feature ambition.",
-  "productPromise": "AI product app managed by the AI Starter Kit.",
-  "wedge": "Start with one workflow for Unvalidated: define the narrow first customer before broad implementation. that proves \"Unanswered. Define the painful job before broad implementation.\" can be solved with visible evidence.",
-  "whyNow": "AI agents, browser proof, repo-level context, and usage telemetry make verified workflows practical now.",
+  "productPromise": "Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
+  "wedge": "Start with one workflow for Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call. that proves \"Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools.\" can be solved with visible evidence.",
+  "whyNow": "Teams are adopting AI tools faster than their meeting context can move with them. Better speech models, cheaper summarization, and desktop or mobile distribution make a private meeting memory layer practical now.",
   "mvpScope": [
     "One primary workflow that proves the painful job can be completed.",
     "One measurable activation moment and one retention reason.",
@@ -37,8 +37,8 @@
     "Scorecard has no blockers before handoff.",
     "The first user journey has browser proof and an evidence bundle."
   ],
-  "pricing": "Unvalidated. Use a paid pilot or narrow entry tier before building high-support automation.",
-  "distribution": "Identify one reachable first-100-user channel before implementation expansion. Write the landing-page promise from the customer/problem/current-workaround answers. Run 5-10 direct customer conversations before treating the scope as validated.",
+  "pricing": "Free $0, Core $20 per user per month, Pro $30 per user per month. Pricing must stay easy to change before launch.",
+  "distribution": "Download-first launch from the Layer One website with platform-aware Mac and Windows links and mobile app-store links as builds become available. Pair with founder-led outreach to product teams, AI productivity users, and early customer conversations. Write the landing-page promise from the customer/problem/current-workaround answers. Run 5-10 direct customer conversations before treating the scope as validated.",
   "researchBasis": [
     "YC: launch quickly, talk to customers, and iterate from a real problem rather than a perfect plan.",
     "YC: product-market fit is demand pulling product from the team, not internal confidence.",
@@ -71,13 +71,7 @@
       "due": null
     }
   ],
-  "openQuestions": [
-    "Who is the narrow first customer with urgent pain?",
-    "What painful job, cost, delay, or risk is severe enough to justify switching?",
-    "What current workaround proves the problem already exists?",
-    "What concrete payment, pilot, or budget signal validates willingness to pay?",
-    "Which reachable channel creates the first 100 qualified users?"
-  ],
+  "openQuestions": [],
   "links": [
     {
       "label": "Product validation memo",
@@ -100,5 +94,5 @@
       "path": "AGENTS.md"
     }
   ],
-  "nextStep": "Run `pnpm product:spec` or `pnpm product:validate` to fill customer/problem/workaround/pricing/distribution gaps."
+  "nextStep": "Use this product spec to create the next feature plan and keep the MVP narrow."
 }

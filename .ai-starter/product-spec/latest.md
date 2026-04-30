@@ -2,9 +2,9 @@
 ---
 spec_id: product-spec
 project: audio-layer
-status: draft
+status: complete
 source: agent-generated
-updated_at: 2026-04-30T17:13:36.031Z
+updated_at: 2026-04-30T17:28:28.471Z
 anchors:
   product_validation: .ai-starter/product-validation/latest.md
   mfdr: .ai-starter/mfdr/latest.md
@@ -15,28 +15,28 @@ anchors:
 # audio-layer Product Spec
 
 ## One-Liner
-AI product app managed by the AI Starter Kit.
+Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.
 
 ## Customer
-Unvalidated: define the narrow first customer before broad implementation.
+Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call.
 
 ## Painful Problem
-Unanswered. Define the painful job before broad implementation.
+Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools.
 
 ## Current Alternatives
-Unanswered. Record the current workaround or competitor behavior.
+Manual notes, Zoom or Meet transcripts, Otter or Fathom style meeting bots, Notion or Docs, Tana style knowledge graphs, Slack recaps, and ad hoc copy-paste into ChatGPT or Claude.
 
 ## Insight
 The product should be pulled by a specific painful customer workflow, not by broad feature ambition.
 
 ## Product Promise
-AI product app managed by the AI Starter Kit.
+Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.
 
 ## Wedge
-Start with one workflow for Unvalidated: define the narrow first customer before broad implementation. that proves "Unanswered. Define the painful job before broad implementation." can be solved with visible evidence.
+Start with one workflow for Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call. that proves "Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools." can be solved with visible evidence.
 
 ## Why Now
-AI agents, browser proof, repo-level context, and usage telemetry make verified workflows practical now.
+Teams are adopting AI tools faster than their meeting context can move with them. Better speech models, cheaper summarization, and desktop or mobile distribution make a private meeting memory layer practical now.
 
 ## MVP Scope
 - One primary workflow that proves the painful job can be completed.
@@ -56,10 +56,10 @@ AI agents, browser proof, repo-level context, and usage telemetry make verified 
 - The first user journey has browser proof and an evidence bundle.
 
 ## Pricing
-Unvalidated. Use a paid pilot or narrow entry tier before building high-support automation.
+Free $0, Core $20 per user per month, Pro $30 per user per month. Pricing must stay easy to change before launch.
 
 ## Distribution
-Identify one reachable first-100-user channel before implementation expansion. Write the landing-page promise from the customer/problem/current-workaround answers. Run 5-10 direct customer conversations before treating the scope as validated.
+Download-first launch from the Layer One website with platform-aware Mac and Windows links and mobile app-store links as builds become available. Pair with founder-led outreach to product teams, AI productivity users, and early customer conversations. Write the landing-page promise from the customer/problem/current-workaround answers. Run 5-10 direct customer conversations before treating the scope as validated.
 
 ## Research Basis
 - YC: launch quickly, talk to customers, and iterate from a real problem rather than a perfect plan.
@@ -78,11 +78,7 @@ Identify one reachable first-100-user channel before implementation expansion. W
 - m3: Pricing/distribution signal recorded
 
 ## Open Questions
-- Who is the narrow first customer with urgent pain?
-- What painful job, cost, delay, or risk is severe enough to justify switching?
-- What current workaround proves the problem already exists?
-- What concrete payment, pilot, or budget signal validates willingness to pay?
-- Which reachable channel creates the first 100 qualified users?
+- None recorded.
 
 ## Linked Alignment Artifacts
 - [Product validation memo](.ai-starter/product-validation/latest.md)
@@ -92,4 +88,4 @@ Identify one reachable first-100-user channel before implementation expansion. W
 - [Agent context](AGENTS.md)
 
 ## Next Step
-Run `pnpm product:spec` or `pnpm product:validate` to fill customer/problem/workaround/pricing/distribution gaps.
+Use this product spec to create the next feature plan and keep the MVP narrow.

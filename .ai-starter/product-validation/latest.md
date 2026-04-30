@@ -1,22 +1,22 @@
 # Product Validation Memo
 
-Updated: 2026-04-30T17:13:36.031Z
-Status: missing-inputs
+Updated: 2026-04-30T17:28:28.471Z
+Status: complete
 Mode: recommended
 
 ## Verdict
-test-first
+build
 
 ## Best Customer
-Unvalidated: define the narrow first customer before broad implementation.
+Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call.
 
 ## Problem
-Unanswered.
+Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools.
 
 ## Product Shape
-Core promise: AI product app managed by the AI Starter Kit.
-Activation moment: the first user-visible workflow proves "the target job" can be completed.
-Retention loop: Unanswered; define why this is recurring now.
+Core promise: Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.
+Activation moment: the first user-visible workflow proves "Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools." can be completed.
+Retention loop: Teams are adopting AI tools faster than their meeting context can move with them. Better speech models, cheaper summarization, and desktop or mobile distribution make a private meeting memory layer practical now.
 
 ## MVP
 - One primary workflow that proves the painful job can be completed.
@@ -25,10 +25,10 @@ Retention loop: Unanswered; define why this is recurring now.
 - Repo evidence: plan, tests, browser proof, docs, scorecard, and handoff report.
 
 ## Pricing
-Unvalidated. Use a paid pilot or narrow entry tier before building high-support automation.
+Free $0, Core $20 per user per month, Pro $30 per user per month. Pricing must stay easy to change before launch.
 
 ## Go-To-Market
-- Identify one reachable first-100-user channel before implementation expansion.
+- Download-first launch from the Layer One website with platform-aware Mac and Windows links and mobile app-store links as builds become available. Pair with founder-led outreach to product teams, AI productivity users, and early customer conversations.
 - Write the landing-page promise from the customer/problem/current-workaround answers.
 - Run 5-10 direct customer conversations before treating the scope as validated.
 
@@ -43,9 +43,9 @@ Testing approach:
 - Cost events for AI Gateway and direct paid APIs.
 
 ## Risks
-- The first customer/problem/workaround is not validated enough to justify broad build scope.
-- Pricing is not validated; support and compute cost may exceed willingness to pay.
-- Distribution is not validated; the first 100 users may be hard to reach.
+- The customer/problem/workaround chain is explicit but still needs real-world evidence.
+- Pricing assumptions still need payment or pilot evidence.
+- Distribution must be measured with a real conversion event.
 - Technical scope is manageable if verification remains strict.
 
 ## Validation Experiment
@@ -53,4 +53,4 @@ Run a landing-page/demo or concierge workflow for the named customer segment bef
 Success threshold: At least 5 qualified conversations, 2 strong follow-ups, or 1 paid/LOI-style signal for the narrow MVP.
 
 ## Next Step
-Run `pnpm product:validate` or mark the validation as bypassed with a reason before large product work.
+Create the feature plan and implement only the MVP slice that proves willingness to pay.

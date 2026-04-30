@@ -1,28 +1,28 @@
 {
   "version": "0.3.0",
-  "updatedAt": "2026-04-30T17:13:37.204Z",
+  "updatedAt": "2026-04-30T17:28:29.670Z",
   "status": "attention-needed",
   "project": {
     "name": "audio-layer",
     "slug": "audio-layer",
-    "description": "AI product app managed by the AI Starter Kit.",
+    "description": "Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
     "appType": "nextjs-ai-app",
     "productType": "unknown"
   },
-  "summary": "audio-layer: AI product app managed by the AI Starter Kit.",
+  "summary": "audio-layer: Record without a meeting bot. Leave with a transcript, live summary, key points, action items, follow-up context, and searchable memory your AI tools can use.",
   "anchors": [
     {
       "id": "product-spec",
       "label": "YC-style product spec",
       "path": ".ai-starter/product-spec/latest.md",
-      "status": "draft",
+      "status": "complete",
       "reminder": "Keeps customer, painful problem, wedge, MVP, metrics, pricing, and distribution in scope."
     },
     {
       "id": "product-validation",
       "label": "Product validation memo",
       "path": ".ai-starter/product-validation/latest.md",
-      "status": "missing-inputs",
+      "status": "complete",
       "reminder": "Justifies whether the product or feature should be built before widening scope."
     },
     {
@@ -55,8 +55,8 @@
     "AGENTS.md"
   ],
   "recurringContext": [
-    "Product: Unvalidated: define the narrow first customer before broad implementation. / Unanswered. Define the painful job before broad implementation.",
-    "Wedge: Start with one workflow for Unvalidated: define the narrow first customer before broad implementation. that proves \"Unanswered. Define the painful job before broad implementation.\" can be solved with visible evidence.",
+    "Product: Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call. / Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools.",
+    "Wedge: Start with one workflow for Founders, product teams, and GTM teams that run frequent planning, customer, and sales meetings and need decisions, owners, follow-ups, and context available immediately after the call. that proves \"Important decisions and action items get scattered across transcripts, manual notes, Slack, email, calendars, and AI chats. Existing meeting bots can feel intrusive, miss context, and rarely produce structured outputs that teams can search, share, or reuse in AI tools.\" can be solved with visible evidence.",
     "Technical: If Unvalidated: define the narrow first customer before broad implementation. get a starter-enforced workflow for AI product app managed by the AI Starter Kit., they will trust agent-built software faster because every surface has plans, docs, tests, browser evidence, and cost visibility.",
     "Design: Project-specific design system defined during setup; preserve existing product visual language when present.",
     "Active plan: Create launch checklist and agent swarm workstream document",
@@ -72,8 +72,6 @@
     "pnpm report"
   ],
   "openGaps": [
-    "Product spec is still draft; fill missing customer/problem/market fields or explicitly bypass.",
-    "Product validation is incomplete; run `pnpm product:validate` or record a bypass reason.",
     "MFDR is not complete; run `pnpm mfdr --complete` after research and decisions are explicit."
   ]
 }

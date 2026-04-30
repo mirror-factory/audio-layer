@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-04-30T17:13:37.211Z",
+  "generatedAt": "2026-04-30T17:28:29.677Z",
   "planId": "2026-04-30T15-26-11-478Z-create-launch-checklist-and-agen",
   "score": 100,
   "blockers": [],
   "recommendations": [
     "Refresh the active plan if scope changed.",
-    "Run `pnpm product:validate` before large product/app work, or mark an explicit bypass reason.",
-    "Run `pnpm product:spec` to fill the YC-style product spec and update `.ai-dev-kit/spec.md` if starter-managed.",
-    "Review .ai-starter/alignment/latest.md; first gap: Product spec is still draft; fill missing customer/problem/market fields or explicitly bypass.",
+    "Product validation memo is present or explicitly bypassed.",
+    "Product spec is present or explicitly bypassed.",
+    "Review .ai-starter/alignment/latest.md; first gap: MFDR is not complete; run `pnpm mfdr --complete` after research and decisions are explicit.",
     "Story coverage looks healthy.",
     "API coverage looks healthy.",
     "Tool eval coverage looks healthy.",
@@ -46,11 +46,11 @@
       "expectProofOk": true
     },
     "evidence": {
-      "total": 822,
-      "screenshots": 192,
-      "videos": 216,
-      "traces": 0,
-      "reports": 68
+      "total": 1250,
+      "screenshots": 494,
+      "videos": 136,
+      "traces": 48,
+      "reports": 168
     },
     "companions": {
       "total": 139,
@@ -59,8 +59,8 @@
     },
     "hooks": {
       "registered": 22,
-      "observed": 4701,
-      "blocked": 40
+      "observed": 4767,
+      "blocked": 41
     }
   }
 }
