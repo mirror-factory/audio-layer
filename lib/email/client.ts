@@ -17,5 +17,5 @@ export function getResend(): Resend | null {
   return instance;
 }
 
-export const FROM_EMAIL = "audio-layer <onboarding@resend.dev>";
-export const APP_NAME = "audio-layer";
+export const FROM_EMAIL = "Layers <onboarding@resend.dev>";
+export const APP_NAME = "Layers";

@@ -66,12 +66,19 @@ function supabaseMock({
 
 describe("checkQuota", () => {
   let originalBypass: string | undefined;
+  let originalLegacyBypass: string | undefined;
   let originalProductionBypass: string | undefined;
+  let originalLegacyProductionBypass: string | undefined;
 
   beforeEach(() => {
-    originalBypass = process.env.LAYER_ONE_BYPASS_QUOTA;
-    originalProductionBypass = process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS;
+    originalBypass = process.env.LAYERS_BYPASS_QUOTA;
+    originalLegacyBypass = process.env.LAYER_ONE_BYPASS_QUOTA;
+    originalProductionBypass = process.env.LAYERS_ALLOW_PROD_QUOTA_BYPASS;
+    originalLegacyProductionBypass =
+      process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS;
+    delete process.env.LAYERS_BYPASS_QUOTA;
     delete process.env.LAYER_ONE_BYPASS_QUOTA;
+    delete process.env.LAYERS_ALLOW_PROD_QUOTA_BYPASS;
     delete process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS;
     mocks.getSupabaseUser.mockReset();
     mocks.getActivePricingConfig.mockReset();
@@ -80,19 +87,30 @@ describe("checkQuota", () => {
 
   afterEach(() => {
     if (originalBypass === undefined) {
+      delete process.env.LAYERS_BYPASS_QUOTA;
+    } else {
+      process.env.LAYERS_BYPASS_QUOTA = originalBypass;
+    }
+    if (originalLegacyBypass === undefined) {
       delete process.env.LAYER_ONE_BYPASS_QUOTA;
     } else {
-      process.env.LAYER_ONE_BYPASS_QUOTA = originalBypass;
+      process.env.LAYER_ONE_BYPASS_QUOTA = originalLegacyBypass;
     }
     if (originalProductionBypass === undefined) {
+      delete process.env.LAYERS_ALLOW_PROD_QUOTA_BYPASS;
+    } else {
+      process.env.LAYERS_ALLOW_PROD_QUOTA_BYPASS = originalProductionBypass;
+    }
+    if (originalLegacyProductionBypass === undefined) {
       delete process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS;
     } else {
-      process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS = originalProductionBypass;
+      process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS =
+        originalLegacyProductionBypass;
     }
   });
 
   it("allows unlimited meetings when local quota bypass is enabled", async () => {
-    process.env.LAYER_ONE_BYPASS_QUOTA = "true";
+    process.env.LAYERS_BYPASS_QUOTA = "true";
 
     const quota = await checkQuota();
 

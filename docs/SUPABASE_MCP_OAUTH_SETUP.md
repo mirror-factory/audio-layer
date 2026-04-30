@@ -4,7 +4,7 @@ This migration is required before Claude-style OAuth MCP connectors can complete
 
 ## What To Apply
 
-Run this SQL file against the Layer One Supabase project:
+Run this SQL file against the Layers Supabase project:
 
 ```text
 supabase/migrations/00003_mcp_oauth.sql
@@ -30,7 +30,7 @@ tests can run, but production connectors should not use the fallback secret.
 
 ## Dashboard Steps
 
-1. Open the Supabase dashboard for the Layer One project.
+1. Open the Supabase dashboard for the Layers project.
 2. Go to `SQL Editor`.
 3. Create a new query.
 4. Paste the full contents of `supabase/migrations/00003_mcp_oauth.sql`.

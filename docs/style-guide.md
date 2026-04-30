@@ -1,4 +1,4 @@
-# Layer One — Style Guide
+# Layers — Style Guide
 
 ## Layout
 

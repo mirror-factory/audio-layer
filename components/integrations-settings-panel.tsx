@@ -232,7 +232,7 @@ export function IntegrationsSettingsPanel() {
                 <input
                   value={webhookUrl}
                   onChange={(event) => setWebhookUrl(event.target.value)}
-                  placeholder="https://example.com/layer-one-webhook"
+                  placeholder="https://example.com/layers-webhook"
                   className="signal-input min-h-[44px] rounded-lg px-3 text-sm text-[var(--text-primary)] focus:outline-none"
                   inputMode="url"
                 />

@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
         parsed.value.redirectUri,
         parsed.value.state,
         "access_denied",
-        "The user denied Layer One MCP access.",
+        "The user denied Layers MCP access.",
       ),
     );
   }

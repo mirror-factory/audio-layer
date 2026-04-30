@@ -1,5 +1,5 @@
 /**
- * MCP tool definitions for Layer One Audio.
+ * MCP tool definitions for Layers.
  *
  * Each tool is defined with a Zod schema for inputs and a handler function
  * that receives the validated input + userId context.
@@ -130,7 +130,7 @@ export async function handleStartRecording(
   // Placeholder -- actual implementation would create a new recording session
   return {
     message:
-      "Recording must be started from the app UI. Navigate to /record/live in the Layer One Audio app.",
+      "Recording must be started from the app UI. Navigate to /record/live in the Layers app.",
   };
 }
 

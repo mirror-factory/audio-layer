@@ -9,6 +9,7 @@ import { ChatMessage } from "@/components/chat-message";
 
 interface MeetingChatProps {
   meetingId: string;
+  variant?: "default" | "workspace";
 }
 
 const templates = [
@@ -44,7 +45,7 @@ const templates = [
   },
 ] as const;
 
-export function MeetingChat({ meetingId }: MeetingChatProps) {
+export function MeetingChat({ meetingId, variant = "default" }: MeetingChatProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const transport = useMemo(
     () =>
@@ -86,22 +87,44 @@ export function MeetingChat({ meetingId }: MeetingChatProps) {
     void regenerate();
   }
 
+  const isWorkspace = variant === "workspace";
+
   return (
     <section
-      className="border border-[var(--border-card)] bg-[var(--bg-card)] rounded-xl overflow-hidden"
+      className={
+        isWorkspace
+          ? "session-panel session-ask-preview session-meeting-chat"
+          : "border border-[var(--border-card)] bg-[var(--bg-card)] rounded-xl overflow-hidden"
+      }
       aria-labelledby="meeting-chat-heading"
     >
-      <div className="p-4 border-b border-[var(--border-subtle)]">
+      <div
+        className={
+          isWorkspace
+            ? "session-meeting-chat-header"
+            : "p-4 border-b border-[var(--border-subtle)]"
+        }
+      >
         <div className="flex items-center gap-2">
           <MessageSquare size={18} className="text-[#14b8a6]" aria-hidden />
           <h3
             id="meeting-chat-heading"
             className="text-sm font-semibold text-[var(--text-primary)]"
           >
-            Ask about this meeting
+            {isWorkspace ? "Ask Layers" : "Ask about this meeting"}
           </h3>
+          {isWorkspace && (
+            <h2 className="sr-only">Ask about this meeting</h2>
+          )}
         </div>
-        <div className="flex flex-wrap gap-2 mt-3" aria-label="Meeting templates">
+        <div
+          className={
+            isWorkspace
+              ? "session-prompt-chips"
+              : "flex flex-wrap gap-2 mt-3"
+          }
+          aria-label="Meeting templates"
+        >
           {templates.map((template) => {
             const Icon = template.icon;
             return (
@@ -110,9 +133,13 @@ export function MeetingChat({ meetingId }: MeetingChatProps) {
                 type="button"
                 onClick={() => sendTemplate(template.prompt)}
                 disabled={isLoading}
-                className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-[var(--border-card)] bg-[var(--bg-secondary)] px-3 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:border-[#14b8a6]/50 hover:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[#14b8a6]/40 disabled:opacity-50"
+                className={
+                  isWorkspace
+                    ? "session-prompt-button"
+                    : "inline-flex min-h-9 items-center gap-2 rounded-lg border border-[var(--border-card)] bg-[var(--bg-secondary)] px-3 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:border-[#14b8a6]/50 hover:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[#14b8a6]/40 disabled:opacity-50"
+                }
               >
-                <Icon size={14} aria-hidden />
+                {!isWorkspace && <Icon size={14} aria-hidden />}
                 {template.label}
               </button>
             );
@@ -122,7 +149,11 @@ export function MeetingChat({ meetingId }: MeetingChatProps) {
 
       <div
         ref={scrollRef}
-        className="max-h-[420px] min-h-[220px] overflow-y-auto p-4"
+        className={
+          isWorkspace
+            ? "session-meeting-chat-messages"
+            : "max-h-[420px] min-h-[220px] overflow-y-auto p-4"
+        }
         data-testid="meeting-chat-messages"
       >
         {error && (
@@ -160,14 +191,16 @@ export function MeetingChat({ meetingId }: MeetingChatProps) {
         )}
       </div>
 
-      <ChatInput
-        onSend={(text) => {
-          clearError();
-          void sendMessage({ text });
-        }}
-        disabled={isLoading}
-        placeholder="Ask about this transcript..."
-      />
+      <div className={isWorkspace ? "session-meeting-chat-input" : undefined}>
+        <ChatInput
+          onSend={(text) => {
+            clearError();
+            void sendMessage({ text });
+          }}
+          disabled={isLoading}
+          placeholder="Ask about this transcript..."
+        />
+      </div>
     </section>
   );
 }

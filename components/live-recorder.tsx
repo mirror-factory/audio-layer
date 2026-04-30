@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import Link from "next/link";
 import {
   AlertTriangle,
@@ -63,6 +70,10 @@ interface LiveRecorderProps {
   onStateChange?: (
     state: "idle" | "connecting" | "recording" | "finalizing",
   ) => void;
+  /** Lets a parent render a custom recording cockpit while this component owns capture. */
+  presentation?: "default" | "managed";
+  /** Small live snapshot for custom shells and transitions. */
+  onSnapshot?: (snapshot: LiveRecorderSnapshot) => void;
 }
 
 type RecorderState = "idle" | "connecting" | "recording" | "finalizing";
@@ -77,6 +88,24 @@ type RecorderConnectionStatus =
   | "finalizing"
   | "provider-issue";
 type SaveStatus = "idle" | "local" | "syncing" | "remote";
+
+export interface LiveRecorderHandle {
+  start: () => Promise<void>;
+  stop: () => Promise<void>;
+}
+
+export interface LiveRecorderSnapshot {
+  state: RecorderState;
+  durationSeconds: number;
+  durationLabel: string;
+  connectionLabel: string;
+  saveLabel: string;
+  turnCount: number;
+  wordCount: number;
+  isActive: boolean;
+  commandStatus: string | null;
+  error: string | null;
+}
 
 interface ReadinessCheck {
   id: string;
@@ -189,13 +218,19 @@ function readinessIcon(id: string): LucideIcon {
   }
 }
 
-export function LiveRecorder({
-  onTranscriptUpdate,
-  onSessionEnd,
-  meetingContext,
-  onAudioLevel,
-  onStateChange,
-}: LiveRecorderProps) {
+export const LiveRecorder = forwardRef<LiveRecorderHandle, LiveRecorderProps>(
+function LiveRecorder(
+  {
+    onTranscriptUpdate,
+    onSessionEnd,
+    meetingContext,
+    onAudioLevel,
+    onStateChange,
+    presentation = "default",
+    onSnapshot,
+  },
+  ref,
+) {
   const [state, setState] = useState<RecorderState>("idle");
   const [duration, setDuration] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -912,6 +947,15 @@ export function LiveRecorder({
     }
   }, [cleanup, meetingContext, onSessionEnd, persistLocalDraft]);
 
+  useImperativeHandle(
+    ref,
+    () => ({
+      start,
+      stop,
+    }),
+    [start, stop],
+  );
+
   useEffect(() => {
     return cleanup;
   }, [cleanup]);
@@ -972,6 +1016,42 @@ export function LiveRecorder({
         : preflightBlocked
           ? "Recording setup needs attention"
         : "Tap to start taking notes";
+
+  useEffect(() => {
+    onSnapshot?.({
+      state,
+      durationSeconds: duration,
+      durationLabel: formatDuration(duration),
+      connectionLabel: connectionStatusLabel(connectionStatus),
+      saveLabel: saveStatusLabel(saveStatus, draftSavedAt),
+      turnCount,
+      wordCount,
+      isActive,
+      commandStatus,
+      error,
+    });
+  }, [
+    commandStatus,
+    connectionStatus,
+    draftSavedAt,
+    duration,
+    error,
+    isActive,
+    onSnapshot,
+    saveStatus,
+    state,
+    turnCount,
+    wordCount,
+  ]);
+
+  if (presentation === "managed" && isActive) {
+    return (
+      <div className="sr-only" aria-live="polite">
+        {formatDuration(duration)} {connectionStatusLabel(connectionStatus)}.{" "}
+        {saveStatusLabel(saveStatus, draftSavedAt)}.
+      </div>
+    );
+  }
 
   return (
     <div className="w-full">
@@ -1158,4 +1238,4 @@ export function LiveRecorder({
       )}
     </div>
   );
-}
+});

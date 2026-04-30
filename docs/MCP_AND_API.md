@@ -24,7 +24,7 @@ Invalid or missing tokens return:
 ```json
 {
   "error": "invalid_token",
-  "error_description": "Bearer token required. Get your API key from the Layer One Audio profile page."
+  "error_description": "Bearer token required. Get your API key from the Layers profile page."
 }
 ```
 
@@ -32,7 +32,7 @@ Tool handlers must close over the validated user for the current request. Do not
 
 ## MCP OAuth Contract
 
-Layer One supports OAuth for polished MCP clients and API keys for manual
+Layers supports OAuth for polished MCP clients and API keys for manual
 developer testing.
 
 OAuth discovery:
@@ -43,10 +43,10 @@ OAuth discovery:
 Authorization code flow:
 
 1. MCP client calls `/api/mcp/mcp`.
-2. Layer One returns `401` with protected-resource metadata.
+2. Layers returns `401` with protected-resource metadata.
 3. Client starts `/api/oauth/authorize` with `response_type=code`,
    `redirect_uri`, `state`, `scope=mcp:tools`, and PKCE `S256` params.
-4. Layer One sends the user to `/oauth/consent`.
+4. Layers sends the user to `/oauth/consent`.
 5. After sign-in and consent, `/api/oauth/consent` stores a one-time,
    five-minute auth code bound to `code_challenge`.
 6. Client exchanges the code at `/api/oauth/token` with `code_verifier`.
@@ -111,10 +111,10 @@ curl -sS https://audio-layer.vercel.app/api/mcp/mcp \
 ## Claude MCP App UI
 
 Claude supports MCP Apps: a tool can point to an HTML resource using MCP UI
-metadata. Layer One uses that path for `show_meeting_dashboard`.
+metadata. Layers uses that path for `show_meeting_dashboard`.
 
 - Tool: `show_meeting_dashboard`
-- UI resource: `ui://layer-one/meeting-dashboard.html`
+- UI resource: `ui://layers/meeting-dashboard.html`
 - MIME type: `text/html;profile=mcp-app`
 - Runtime package: `@modelcontextprotocol/ext-apps`
 - Behavior: returns `structuredContent` for clients and an interactive meeting
@@ -122,12 +122,12 @@ metadata. Layer One uses that path for `show_meeting_dashboard`.
 
 The dashboard is read-only. It lists recent meetings, status counts, and total
 minutes for the bearer token's user only. The iframe refresh button calls the
-same MCP tool through the host, so the UI never receives a Layer One API key.
+same MCP tool through the host, so the UI never receives a Layers API key.
 
 Clients without MCP App support still receive text content:
 
 ```text
-Showing 12 recent Layer One meetings.
+Showing 12 recent Layers meetings.
 ```
 
 ### Local MCP App Preview
@@ -137,7 +137,7 @@ without Claude:
 
 ```bash
 mkdir -p output/playwright
-pnpm exec tsx -e "import { writeFileSync } from 'node:fs'; import { getLayerOneMeetingDashboardHtml } from './lib/mcp/ui'; writeFileSync('output/playwright/mcp-dashboard-preview.html', getLayerOneMeetingDashboardHtml(), 'utf8');"
+pnpm exec tsx -e "import { writeFileSync } from 'node:fs'; import { getLayersMeetingDashboardHtml } from './lib/mcp/ui'; writeFileSync('output/playwright/mcp-dashboard-preview.html', getLayersMeetingDashboardHtml(), 'utf8');"
 PREVIEW_URL="file://$(pwd)/output/playwright/mcp-dashboard-preview.html?preview=1&theme=dark"
 pnpm exec playwright screenshot --viewport-size=760,620 "$PREVIEW_URL" output/playwright/mcp-dashboard-preview.png
 ```
@@ -229,7 +229,7 @@ Recommended shape:
 - Destination: start with MCP-client-pulled payloads, then add explicit
   destinations such as Linear, Notion, Slack, or email after destination auth
   exists.
-- Safety rule: any tool that transmits notes out of Layer One must require a
+- Safety rule: any tool that transmits notes out of Layers must require a
   destination, a meeting ID, and an explicit user action or saved trigger.
 
 Do not add an unauthenticated push endpoint. Meeting notes are private user

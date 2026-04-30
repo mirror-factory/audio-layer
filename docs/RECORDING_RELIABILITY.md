@@ -59,7 +59,7 @@ for browser refreshes, network drops, and provider interruptions.
 ## Recorder Voice Commands
 
 The live recorder listens for private commands that start with "Hey Layers",
-"Hey Layer", "Hey Layer One", "Ok Layers", or "Okay Layers".
+"Hey Layer", "Hey Layers", "Ok Layers", or "Okay Layers".
 
 - Removal commands such as "Hey Layers remove that last thing" and "Okay Layer
   One scratch that" remove the previous finalized transcript segment

@@ -1,4 +1,4 @@
-# Layer One — Brand Guide
+# Layers — Brand Guide
 
 ## Personality
 

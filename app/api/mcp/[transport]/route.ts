@@ -10,9 +10,9 @@ import { searchMeetings } from "@/lib/embeddings/search";
 import { validateMcpBearerToken } from "@/lib/mcp/auth";
 import {
   buildMeetingDashboardPayload,
-  getLayerOneMeetingDashboardHtml,
-  LAYER_ONE_MCP_DASHBOARD_RESOURCE_CONFIG,
-  LAYER_ONE_MCP_DASHBOARD_RESOURCE_URI,
+  getLayersMeetingDashboardHtml,
+  LAYERS_MCP_DASHBOARD_RESOURCE_CONFIG,
+  LAYERS_MCP_DASHBOARD_RESOURCE_URI,
 } from "@/lib/mcp/ui";
 
 // ---------------------------------------------------------------------------
@@ -124,7 +124,7 @@ function buildNotesPushPayload(
 // MCP tools
 // ---------------------------------------------------------------------------
 
-function createLayerOneMcpHandler(userId: string | null) {
+function createLayersMcpHandler(userId: string | null) {
   return createMcpHandler(
     (server) => {
       server.tool(
@@ -236,7 +236,7 @@ function createLayerOneMcpHandler(userId: string | null) {
             content: [
               {
                 type: "text" as const,
-                text: "Recording must be started from the app UI. Navigate to /record/live in the Layer One Audio app.",
+                text: "Recording must be started from the app UI. Navigate to /record/live in the Layers app.",
               },
             ],
           };
@@ -307,20 +307,20 @@ function createLayerOneMcpHandler(userId: string | null) {
 
       registerAppResource(
         server,
-        "Layer One Meeting Dashboard",
-        LAYER_ONE_MCP_DASHBOARD_RESOURCE_URI,
+        "Layers Meeting Dashboard",
+        LAYERS_MCP_DASHBOARD_RESOURCE_URI,
         {
           description:
-            "Interactive Claude MCP App dashboard for recent Layer One meetings.",
-          ...LAYER_ONE_MCP_DASHBOARD_RESOURCE_CONFIG,
+            "Interactive Claude MCP App dashboard for recent Layers meetings.",
+          ...LAYERS_MCP_DASHBOARD_RESOURCE_CONFIG,
         },
         async () => ({
           contents: [
             {
-              uri: LAYER_ONE_MCP_DASHBOARD_RESOURCE_URI,
+              uri: LAYERS_MCP_DASHBOARD_RESOURCE_URI,
               mimeType: RESOURCE_MIME_TYPE,
-              text: getLayerOneMeetingDashboardHtml(),
-              _meta: LAYER_ONE_MCP_DASHBOARD_RESOURCE_CONFIG._meta,
+              text: getLayersMeetingDashboardHtml(),
+              _meta: LAYERS_MCP_DASHBOARD_RESOURCE_CONFIG._meta,
             },
           ],
         }),
@@ -332,7 +332,7 @@ function createLayerOneMcpHandler(userId: string | null) {
         {
           title: "Show Meeting Dashboard",
           description:
-            "Display a compact interactive dashboard of the authenticated user's recent Layer One meetings.",
+            "Display a compact interactive dashboard of the authenticated user's recent Layers meetings.",
           inputSchema: {
             limit: z
               .number()
@@ -349,7 +349,7 @@ function createLayerOneMcpHandler(userId: string | null) {
           },
           _meta: {
             ui: {
-              resourceUri: LAYER_ONE_MCP_DASHBOARD_RESOURCE_URI,
+              resourceUri: LAYERS_MCP_DASHBOARD_RESOURCE_URI,
             },
           },
         },
@@ -369,14 +369,14 @@ function createLayerOneMcpHandler(userId: string | null) {
             content: [
               {
                 type: "text" as const,
-                text: `Showing ${payload.meetings.length} recent Layer One meetings.`,
+                text: `Showing ${payload.meetings.length} recent Layers meetings.`,
               },
             ],
           };
         },
       );
     },
-    { serverInfo: { name: "layer-one-audio", version: "1.0.0" } },
+    { serverInfo: { name: "layers", version: "1.0.0" } },
     { basePath: "/api/mcp", maxDuration: 60 },
   );
 }
@@ -404,7 +404,7 @@ async function handler(req: Request) {
 
   // Allow protocol handshake without auth
   if (isProtocolHandshake || req.method === "DELETE") {
-    return createLayerOneMcpHandler(null)(req);
+    return createLayersMcpHandler(null)(req);
   }
 
   // Everything else (tools/list, tools/call, GET for SSE) requires auth
@@ -412,7 +412,7 @@ async function handler(req: Request) {
   if (!auth?.startsWith("Bearer ")) {
     const origin = new URL(req.url).origin;
     return new Response(
-      JSON.stringify({ error: "invalid_token", error_description: "Bearer token required. Get your API key from the Layer One Audio profile page." }),
+      JSON.stringify({ error: "invalid_token", error_description: "Bearer token required. Get your API key from the Layers profile page." }),
       {
         status: 401,
         headers: {
@@ -432,7 +432,7 @@ async function handler(req: Request) {
     );
   }
 
-  return createLayerOneMcpHandler(result.userId)(req);
+  return createLayersMcpHandler(result.userId)(req);
 }
 
 export { handler as GET, handler as POST, handler as DELETE };

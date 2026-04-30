@@ -1,7 +1,7 @@
-# Layer One Audio — Pricing, Billing & Financial Analysis
+# Layers — Pricing, Billing & Financial Analysis
 
 **Owner:** Billing/Operations team
-**Last updated:** 2026-04-20
+**Last updated:** 2026-04-30
 **Status:** Live (Stripe test mode)
 
 ---
@@ -73,12 +73,15 @@ User clicks "Subscribe" on /pricing
 | Tier | Price | Meetings | Features |
 |------|-------|----------|----------|
 | **Free** | $0 | 25 lifetime | Batch + live transcription, AI summary + intake, cost transparency |
-| **Core** | $15/month | Unlimited | All Free features + priority processing + full model selection |
-| **Pro** | $25/month | Unlimited | All Core features + priority support + future premium features |
+| **Core** | $15/month | Unlimited | 600 transcription minutes, enhanced speech-to-text, AI summaries, decisions, actions |
+| **Pro** | $25/month | Unlimited | 1,500 transcription minutes, everything in Core, advanced model routing, priority support |
 
 ### Quota Enforcement
 
 - Quotas are read from the active version in `/admin/pricing`.
+- The default cost pack models premium STT economics with Deepgram Nova-3
+  streaming plus speaker diarization. Runtime transcription remains
+  AssemblyAI-backed until the Deepgram adapter is implemented.
 - Free default: 25 meetings lifetime plus a 120 minute monthly cap.
 - Core default: 600 minutes/month.
 - Pro default: 1,500 minutes/month.
@@ -288,7 +291,7 @@ so admin can compare plan margins without rewriting the app:
 |----------|----------|-------|
 | AssemblyAI | Default live/batch path | Good API coverage; Universal Streaming Multilingual is the current base live default at $0.15/hr, with diarization optional. |
 | Soniox | Lowest-cost realtime candidate | Public token-equivalent pricing is about $0.12/hr realtime and $0.10/hr async; needs an adapter and meeting benchmark. |
-| Deepgram | Realtime latency fallback | Nova-3 pay-as-you-go is $0.0077/min ($0.462/hr) before speaker diarization. Diarization adds $0.002/min ($0.12/hr), so a meeting-notes default is closer to $0.582/hr. |
+| Deepgram | Realtime latency fallback | Nova-3 pay-as-you-go is $0.0048/min ($0.288/hr) before speaker diarization. Diarization adds $0.002/min ($0.12/hr), so a meeting-notes default is closer to $0.408/hr. |
 | Gladia | Bundled diarization/language detection | Growth realtime starts at $0.25/hr with commitment; Starter realtime is $0.75/hr. |
 | Speechmatics | Accuracy/latency benchmark candidate | Public Pro pricing starts from $0.24/hr; Pipecat summary reports strong pooled semantic WER. |
 | ElevenLabs | Quality benchmark candidate | Scribe v2 is $0.22/hr batch and Scribe v2 Realtime is $0.39/hr. |
@@ -304,7 +307,7 @@ so admin can compare plan margins without rewriting the app:
 | Vendor | Source | Last Verified |
 |--------|--------|---------------|
 | AssemblyAI | [assemblyai.com/pricing](https://www.assemblyai.com/pricing) | 2026-04-27 |
-| Deepgram | [deepgram.com/pricing](https://deepgram.com/pricing) | 2026-04-26 |
+| Deepgram | [deepgram.com/pricing](https://deepgram.com/pricing) | 2026-04-30 |
 | Gladia | [support.gladia.io pricing article](https://support.gladia.io/article/understanding-our-transcription-pricing-pv1atikh8y9c8sw7sudm3rcy) | 2026-04-26 |
 | Speechmatics | [speechmatics.com/pricing](https://www.speechmatics.com/pricing) | 2026-04-26 |
 | Soniox | [soniox.com/pricing](https://soniox.com/pricing) | 2026-04-26 |

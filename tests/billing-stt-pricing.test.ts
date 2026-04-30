@@ -32,12 +32,12 @@ describe("STT pricing catalog", () => {
       addonIds: ["speakerDiarization"],
     });
 
-    expect(sttCostPerMinute(result.option, ["speakerDiarization"])).toBeCloseTo(0.0097, 6);
-    expect(result.totalCostUsd).toBeCloseTo(0.97, 6);
+    expect(sttCostPerMinute(result.option, ["speakerDiarization"])).toBeCloseTo(0.0068, 6);
+    expect(result.totalCostUsd).toBeCloseTo(0.68, 6);
   });
 
   it("keeps every provider option sourced and validated", () => {
-    expect(STT_PRICING_VALIDATED_ON).toBe("2026-04-26");
+    expect(STT_PRICING_VALIDATED_ON).toBe("2026-04-30");
     expect(STT_PRICING_OPTIONS.length).toBeGreaterThanOrEqual(18);
 
     for (const option of STT_PRICING_OPTIONS) {

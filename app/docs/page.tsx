@@ -9,10 +9,10 @@ export default function DocsPage() {
         <article className="space-y-8">
           <section>
             <h2 className="text-xl font-semibold text-[#f5f5f5] mb-3">
-              Layer One Audio
+              Layers
             </h2>
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-              Layer One captures conversations passively -- no meeting bot
+              Layers captures conversations passively -- no meeting bot
               required -- and uses AI to extract structured, actionable data.
               Not just summaries, but budgets, timelines, decision makers,
               requirements, and pain points.
@@ -79,7 +79,7 @@ export default function DocsPage() {
               Platforms
             </h3>
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-              Layer One runs as a web app (Next.js on Vercel), macOS desktop app
+              Layers runs as a web app (Next.js on Vercel), macOS desktop app
               (Tauri 2.x with ScreenCaptureKit for system audio), and iOS mobile
               app (Capacitor 8 WebView) -- all from a single codebase.
             </p>

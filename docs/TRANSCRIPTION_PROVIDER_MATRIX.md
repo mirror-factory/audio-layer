@@ -1,6 +1,6 @@
 # Transcription Provider Matrix
 
-Validated on: 2026-04-26; AssemblyAI default rechecked 2026-04-27
+Validated on: 2026-04-30; AssemblyAI default rechecked 2026-04-27
 
 Source of truth: `lib/billing/stt-pricing.ts`
 
@@ -8,7 +8,7 @@ This file explains the catalog used by `/admin/pricing`. All rates are normalize
 
 ## Current Runtime
 
-Layer One currently records and transcribes through AssemblyAI. Non-AssemblyAI providers in the catalog are pricing and evaluation candidates until a provider adapter is implemented.
+Layers currently records and transcribes through AssemblyAI. Non-AssemblyAI providers in the catalog are pricing and evaluation candidates until a provider adapter is implemented.
 
 The active recorder preflight reads the admin pricing source of truth before
 recording starts, so the UI can show the exact provider/model and cost source
@@ -35,7 +35,7 @@ Runtime-supported settings:
 | Gladia | Growth Realtime | Streaming | from $0.25/hr | Adapter needed | Diarization/language features bundled |
 | Speechmatics | Pro STT | Streaming/batch | from $0.24/hr | Adapter needed | Strong realtime benchmark accuracy |
 | ElevenLabs | Scribe v2 Realtime | Streaming | $0.39/hr | Adapter needed | Strong independent AA-WER result |
-| Deepgram | Nova-3 / Flux | Streaming | $0.462/hr before add-ons | Adapter needed | Low latency and voice-agent ergonomics |
+| Deepgram | Nova-3 / Flux | Streaming | $0.288/hr Nova-3 before add-ons | Adapter needed | Low latency and voice-agent ergonomics |
 | OpenAI | GPT-4o mini transcribe | Batch | $0.18/hr | Adapter needed | Cheap batch fallback |
 | Google Cloud | STT V2 Dynamic Batch | Batch | $0.18/hr | Adapter needed | Cheap batch fallback |
 | Rev AI | Reverb Turbo | Batch | $0.10/hr | Adapter needed | English batch benchmark |
@@ -66,7 +66,7 @@ Interpretation:
 - Artificial Analysis ranks ElevenLabs Scribe v2 first overall in AA-WER v2.0 and reports AssemblyAI Universal-3 Pro as a strong voice-agent subset performer.
 - The Pipecat table favors Speechmatics on pooled semantic WER, Deepgram on median realtime latency, and AssemblyAI on a balanced latency/cost path.
 - The 2026 arXiv voice-agent tutorial reinforces that cascaded STT -> LLM -> TTS remains the practical architecture for realtime systems today.
-- The street-name reliability paper is a reminder that low benchmark WER does not eliminate domain-specific failure, so Layer One still needs its own meeting/intake golden set.
+- The street-name reliability paper is a reminder that low benchmark WER does not eliminate domain-specific failure, so Layers still needs its own meeting/intake golden set.
 
 ## Adapter Order
 

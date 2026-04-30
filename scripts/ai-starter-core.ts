@@ -1083,14 +1083,30 @@ function normalizeKey(input: string): string {
   return input.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
+const surfaceNeedlesCache = new Map<string, string[]>();
+const normalizedContentCache = new Map<string, string>();
+
+function normalizedFileContent(cwd: string, relPath: string): string {
+  const key = resolve(cwd, relPath);
+  const cached = normalizedContentCache.get(key);
+  if (cached !== undefined) return cached;
+  const normalized = normalizeKey(tryRead(cwd, relPath));
+  normalizedContentCache.set(key, normalized);
+  return normalized;
+}
+
 function surfaceNeedles(entryName: string, sourcePath: string): string[] {
+  const cacheKey = `${entryName}\n${sourcePath}`;
+  const cached = surfaceNeedlesCache.get(cacheKey);
+  if (cached) return cached;
+
   const routeSurface = sourcePath
     .replace(/^app\/api\//, '')
     .replace(/^app\//, '')
     .replace(/\/(page|route)\.[^.]+$/, '')
     .replace(/\.[^.]+$/, '');
   const entryWithoutApiPrefix = entryName.replace(/^api[-_]/, '');
-  return Array.from(new Set([
+  const needles = Array.from(new Set([
     normalizeKey(entryName),
     normalizeKey(entryWithoutApiPrefix),
     normalizeKey(slugify(entryName)),
@@ -1100,6 +1116,8 @@ function surfaceNeedles(entryName: string, sourcePath: string): string[] {
     normalizeKey(sourcePath.replace(/\.[^.]+$/, '')),
     normalizeKey(slugify(sourcePath.replace(/\.[^.]+$/, ''))),
   ].filter(Boolean)));
+  surfaceNeedlesCache.set(cacheKey, needles);
+  return needles;
 }
 
 function matchesSurfacePath(relPath: string, entryName: string, sourcePath: string): boolean {
@@ -1109,7 +1127,7 @@ function matchesSurfacePath(relPath: string, entryName: string, sourcePath: stri
 
 function matchesSurfaceDocument(cwd: string, relPath: string, entryName: string, sourcePath: string): boolean {
   if (matchesSurfacePath(relPath, entryName, sourcePath)) return true;
-  const normalizedContent = normalizeKey(tryRead(cwd, relPath));
+  const normalizedContent = normalizedFileContent(cwd, relPath);
   return surfaceNeedles(entryName, sourcePath).some(needle => normalizedContent.includes(needle));
 }
 

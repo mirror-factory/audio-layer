@@ -16,7 +16,7 @@ export interface ModelSettings {
 }
 
 export const DEFAULTS: ModelSettings = {
-  summaryModel: "openai/gpt-5.4-nano",
+  summaryModel: "anthropic/claude-haiku-4-5",
   batchSpeechModel: "universal-2",
   streamingSpeechModel: "universal-streaming-multilingual",
 };

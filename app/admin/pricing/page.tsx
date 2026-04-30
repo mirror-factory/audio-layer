@@ -33,7 +33,7 @@ import type {
   PricingConfigVersion,
 } from "@/lib/billing/pricing-config";
 
-const DEFAULT_STT_OPTION_ID = "assemblyai:universal-streaming-multilingual:streaming";
+const DEFAULT_STT_OPTION_ID = "deepgram:nova-3:streaming";
 
 function defaultAddonsFor(option: SttPricingOption): string[] {
   if (option.provider === "deepgram" && option.diarization === "addon") {
@@ -508,7 +508,7 @@ export default function AdminPricingPage() {
                     value={formatMoney(selectedStt.effectiveRatePerHourUsd / 2)}
                   />
                   <CostTile
-                    label="Core cap"
+                    label="Core enhanced STT cap"
                     value={formatMoney((selectedStt.effectiveRatePerHourUsd / 60) * 600)}
                   />
                   <CostTile

@@ -97,7 +97,7 @@ function SignInForm() {
     <div className="min-h-screen-safe flex items-center justify-center bg-[var(--bg-primary)] px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-semibold text-[var(--text-primary)] tracking-tight">Layer One</h1>
+          <h1 className="text-2xl font-semibold text-[var(--text-primary)] tracking-tight">Layers</h1>
           <p className="text-xs text-[var(--text-muted)] mt-1 tracking-wide uppercase">Audio Intelligence</p>
         </div>
 

@@ -64,7 +64,7 @@ export function MeetingIntelligencePanel({
   const intakeSignals = buildMeetingIntakeSignals(intakeForm);
   const summaryText =
     summary?.summary ??
-    "Layer One did not generate a summary for this recording yet.";
+    "Layers did not generate a summary for this recording yet.";
   const keyPoints = summary?.keyPoints ?? [];
 
   return (

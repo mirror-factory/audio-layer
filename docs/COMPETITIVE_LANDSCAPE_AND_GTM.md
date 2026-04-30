@@ -5,13 +5,13 @@
 
 ## Executive Take
 
-Do not position Layer One as another generic meeting recorder. That market is crowded, subsidized, and already trained to expect either a free tier or a polished prosumer app.
+Do not position Layers as another generic meeting recorder. That market is crowded, subsidized, and already trained to expect either a free tier or a polished prosumer app.
 
 The wedge should be:
 
 > **The meeting intake layer for AI-native teams.**
 
-Layer One should capture a meeting quickly, extract structured decisions/facts/requirements, make the library searchable, and push clean context into the tools where technical teams already work: Claude, ChatGPT, Cursor, Linear, Notion, Slack, GitHub, and CRM systems when relevant.
+Layers should capture a meeting quickly, extract structured decisions/facts/requirements, make the library searchable, and push clean context into the tools where technical teams already work: Claude, ChatGPT, Cursor, Linear, Notion, Slack, GitHub, and CRM systems when relevant.
 
 The first niche should be **technical founders, product/engineering leads, and AI-forward operators at small B2B teams** who already feel meeting notes are not enough. They need meeting context converted into work.
 
@@ -23,11 +23,11 @@ That supports the direction: the winning layer is not transcription alone. It is
 
 Granola is the clearest signal. TechCrunch reported on 2026-03-25 that Granola raised **$125M** at a **$1.5B valuation**, and it is explicitly moving from meeting notetaker toward enterprise AI context and APIs. Granola's pricing page also now advertises MCP and personal API access in Business.
 
-The implication: MCP/API is no longer a hidden feature. It is becoming table stakes for serious AI-native users. Layer One needs to make the workflow more specific and more useful than "your notes are accessible."
+The implication: MCP/API is no longer a hidden feature. It is becoming table stakes for serious AI-native users. Layers needs to make the workflow more specific and more useful than "your notes are accessible."
 
 ## Competitor Map
 
-| Product | Public pricing signal as of 2026-04-26 | Fit | What they own | Opening for Layer One |
+| Product | Public pricing signal as of 2026-04-26 | Fit | What they own | Opening for Layers |
 |---|---:|---|---|---|
 | Granola | Free, Business **$14/user/mo**, Enterprise **$35/user/mo** | AI-native prosumer/team notes | Best perceived UX, botless capture, calm note experience, MCP/API | They are broadening. We can be narrower: structured intake, decision memory, cost-aware routing, explicit agent workflows. |
 | Fathom | Free; Premium annual **$16/mo** or monthly **$20/mo**; Team annual **$15/user/mo**; Business annual **$25/user/mo** | Sales/customer calls, free unlimited capture | Free distribution, call summaries, clips, CRM/team workflow | Hard to beat on free. Do not compete on generic unlimited notes. |
@@ -38,17 +38,17 @@ The implication: MCP/API is no longer a hidden feature. It is becoming table sta
 | Avoma | Startup **$19 annual / $29 monthly** per recorder; Organization **$29 annual / $39 monthly**; Enterprise **$39 annual** | Revenue intelligence | Coaching, call scoring, forecasting, CRM automation | Too sales-heavy for our first wedge. Useful benchmark for later revenue teams. |
 | Sembly | Basic **$17 monthly / $10 annual**; Pro **$29 monthly / $20 annual**; Max **$39 monthly / $30 annual** | Structured meeting intelligence | MCP access, automations, risk/issue detection, compliance | Shows "structured artifacts + MCP" is validated. We need a sharper UX and technical-team workflow. |
 | Fellow | Free; Team **$7 annual / $11 monthly**; Business **$15 annual / $23 monthly** | Meeting management plus notes | Agendas, action items, botless recording, Claude connector, MCP | Very strong for teams that already manage meeting agendas. We can win where users hate agenda-heavy workflow. |
-| Notion AI Meeting Notes | Bundled into Notion workspace/AI plans | Workspace-native notes | Native Notion placement and search | Threat for Notion-heavy users. Layer One should push clean notes into Notion, not fight Notion as a destination. |
+| Notion AI Meeting Notes | Bundled into Notion workspace/AI plans | Workspace-native notes | Native Notion placement and search | Threat for Notion-heavy users. Layers should push clean notes into Notion, not fight Notion as a destination. |
 | Plaud / hardware recorders | Hardware plus subscription/minutes | In-person/mobile capture | Dedicated device, phone calls, wearable capture | Later channel, not first wedge. They own hardware convenience; we own software workflow and agent context. |
 
 ## Transcription Provider Economics
 
-Layer One should keep a provider source of truth in admin pricing and use cost-aware routing. Current public prices show wide differences:
+Layers should keep a provider source of truth in admin pricing and use cost-aware routing. Current public prices show wide differences:
 
 | Provider/model | Current public price | Useful for | Notes |
 |---|---:|---|---|
 | AssemblyAI Universal-Streaming Multilingual | **$0.15/hr**, optional keyterms **+$0.04/hr**, free tier up to 333 streaming hours | Current default streaming path | Admin pricing now uses the base $0.15/hr route by default; speaker diarization remains an explicit add-on. |
-| Deepgram Nova-3 / Flux streaming | **$0.0077/min** = **$0.462/hr** pay-as-you-go | Low-latency, high-scale voice apps | Add-ons like diarization/keyterms/redaction cost extra. Strong but more expensive for simple meeting capture. |
+| Deepgram Nova-3 / Flux streaming | **$0.0048/min** = **$0.288/hr** Nova-3 pay-as-you-go | Low-latency, high-scale voice apps | Add-ons like diarization/keyterms/redaction cost extra. Strong but more expensive for simple meeting capture. |
 | Gladia Starter realtime | **$0.75/hr**; Growth realtime from **$0.25/hr** | Multilingual + included diarization | Attractive if Growth pricing is available; good candidate for provider switcher. |
 | Speechmatics Pro | From **$0.24/hr**, 480 free minutes/month, 55+ languages | Accuracy/language coverage | Strong candidate for a second live provider test. |
 | OpenAI gpt-4o-mini-transcribe | **$0.003/min** = **$0.18/hr** | Batch/transcription fallback | Useful for uploads or post-processing, but product features like diarization/timestamps need validation. |
@@ -57,7 +57,7 @@ Layer One should keep a provider source of truth in admin pricing and use cost-a
 Cost rule of thumb:
 
 - At **500 recording minutes/user/month** (8.33 hours), AssemblyAI streaming at $0.15/hr costs about **$1.25/user/month** before LLMs.
-- Deepgram Nova-3 at $0.462/hr costs about **$3.85/user/month** before add-ons and LLMs.
+- Deepgram Nova-3 at $0.288/hr costs about **$2.40/user/month** before add-ons and LLMs.
 - OpenAI mini-transcribe at $0.18/hr costs about **$1.50/user/month**, but likely better for batch than live meeting UX.
 - If we sell at **$14-19/user/month**, margins are healthy only if LLM summarization/chat is capped, routed, cached, and summarized into compact structured memory.
 
@@ -122,7 +122,7 @@ Avoid:
 **Buyer:** PM, researcher, founder.  
 **Team size:** 5-100.  
 **Pain:** customer calls become scattered notes; insights do not connect across meetings.  
-**Why it fits:** Layer One can become an intake library, not a notes folder.
+**Why it fits:** Layers can become an intake library, not a notes folder.
 
 Do not start with regulated healthcare/legal/finance even though they pay. They create compliance and sales-cycle drag too early.
 
@@ -154,7 +154,7 @@ Goal: prove one painful use case and get people to pay before the product is bro
 
 Offer:
 
-- "Layer One turns your calls into Linear/Notion-ready decisions, requirements, and follow-ups."
+- "Layers turns your calls into Linear/Notion-ready decisions, requirements, and follow-ups."
 - Concierge onboarding.
 - $19/mo founder beta or $99/mo team beta for early teams with direct feedback.
 
@@ -199,8 +199,8 @@ Product requirements:
 Marketing:
 
 - Launch comparison pages:
-  - Layer One vs Granola for AI-native teams.
-  - Layer One vs Fathom for technical/customer discovery calls.
+  - Layers vs Granola for AI-native teams.
+  - Layers vs Fathom for technical/customer discovery calls.
   - Best meeting-to-Linear workflow.
   - Meeting notes with MCP/API access.
 - Publish 5 teardown posts:

@@ -1,4 +1,4 @@
-# Layer One — Roadmap
+# Layers — Roadmap
 
 For the executable V1 sprint plan, testing matrix, optimization plan, and polish checklist, see `docs/V1_PLAN.md`. For MCP/API contracts and test commands, see `docs/MCP_AND_API.md`.
 

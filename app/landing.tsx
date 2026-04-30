@@ -1,671 +1,676 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  AudioLines,
+  CalendarDays,
   CheckCircle2,
-  Mic,
+  ChevronDown,
   FileText,
-  Brain,
-  DollarSign,
-  Shield,
-  Smartphone,
-  Square,
-  Circle,
+  ListChecks,
+  Search,
+  Sparkles,
 } from "lucide-react";
-import { WebGLShader } from "@/components/ui/web-gl-shader";
+import AudioWaveRibbon from "@/components/audio-wave-ribbon";
 
-/* ─────────────────────────── Constants ─────────────────────────── */
-
-const DEMO_TRANSCRIPT_LINES = [
-  {
-    speaker: "Sarah",
-    text: "Alright, let's kick off. Q3 campaign budget is $240K — we need to allocate across paid, organic, and events.",
-  },
-  {
-    speaker: "Marcus",
-    text: "Paid social should get at least 40%. The LinkedIn retargeting campaign from Q2 had a 3.2x ROAS.",
-  },
-  {
-    speaker: "Sarah",
-    text: "Agreed. What about the product launch? We're targeting September 15th for the reveal.",
-  },
-  {
-    speaker: "Priya",
-    text: "I'd recommend $35K for the launch event. That covers venue, streaming, and influencer partnerships.",
-  },
-  {
-    speaker: "Marcus",
-    text: "Let's also carve out $20K for A/B testing on the new landing pages. We need data before scaling.",
-  },
-  {
-    speaker: "Sarah",
-    text: "Good call. Priya, can you own the event timeline? Deliverables by end of next week.",
-  },
-  {
-    speaker: "Priya",
-    text: "On it. I'll loop in the design team for the campaign assets too.",
-  },
+const TRUST_ITEMS = [
+  "25 meetings free",
+  "No meeting bot",
+  "Google Calendar + Outlook",
+  "ChatGPT, Claude, MCP ready",
+  "Transparent usage",
 ];
 
-const DEMO_SUMMARY = {
-  title: "Q3 Marketing Campaign Planning",
-  decisions: [
-    "40% of $240K budget allocated to paid social",
-    "Product launch date set for September 15th",
-    "$35K approved for launch event",
-    "$20K reserved for A/B testing",
-  ],
-  actionItems: [
-    { owner: "Priya", task: "Event timeline deliverables by EOW" },
-    { owner: "Priya", task: "Coordinate with design team on assets" },
-    { owner: "Marcus", task: "Prepare LinkedIn retargeting brief" },
-  ],
-};
-
-const FEATURES = [
+const FLOW_STEPS = [
   {
-    icon: Brain,
-    title: "Structured extraction",
-    desc: "Budgets, timelines, decision makers, action items — not just summaries. Every conversation becomes structured, actionable data.",
+    eyebrow: "Calendar event",
+    title: "Product planning",
+    meta: "Tue, Apr 28 - 10:00 AM",
+    icon: CalendarDays,
+    tone: "mint",
+    details: ["Focus area", "45 min"],
   },
   {
-    icon: Mic,
-    title: "Live transcription",
-    desc: "Real-time streaming with speaker diarization. No bot in your meeting.",
+    eyebrow: "Live capture",
+    title: "No meeting bot",
+    meta: "00:13",
+    icon: AudioLines,
+    tone: "violet",
+    details: ["Live", "Writing notes"],
   },
   {
+    eyebrow: "Transcript",
+    title: "Speaker-aware notes",
+    meta: "0:18 Calendar context should appear first.",
     icon: FileText,
-    title: "Intake forms",
-    desc: "Every conversation auto-generates CRM-ready structured data.",
+    tone: "blue",
+    details: ["0:04 Decisions", "0:35 Follow-up"],
   },
   {
-    icon: DollarSign,
-    title: "Cost transparency",
-    desc: "See exactly what each meeting costs. Pick your own AI model.",
+    eyebrow: "Decisions / Actions / Intake",
+    title: "Structured outputs",
+    meta: "Owners, due dates, and clean next steps.",
+    icon: ListChecks,
+    tone: "mint",
+    details: ["2 decisions", "4 actions"],
   },
   {
-    icon: Shield,
-    title: "Your data, your models",
-    desc: "Choose from 9 LLMs and 5 speech models. Zero vendor lock-in.",
+    eyebrow: "Searchable memory",
+    title: "Find every answer",
+    meta: "onboarding - pricing - Q2 roadmap",
+    icon: Search,
+    tone: "slate",
+    details: ["4 matches", "All meetings"],
   },
   {
-    icon: Smartphone,
-    title: "Multi-platform",
-    desc: "Web, macOS desktop, and iOS — one codebase, instant updates.",
+    eyebrow: "Connected AI tools",
+    title: "Ask from anywhere",
+    meta: "ChatGPT, Claude, Gemini, and MCP clients.",
+    icon: Sparkles,
+    tone: "violet",
+    details: ["AI ready", "Tool context"],
   },
 ];
 
-/* ─────────────────────────── Demo Hook ─────────────────────────── */
+const TOOL_CARDS = [
+  {
+    id: "chatgpt",
+    name: "ChatGPT",
+    mark: "GPT",
+    question: "What did we decide about the onboarding flow?",
+    answer:
+      "You decided to ship the onboarding flow first, with a focus on reducing activation steps and improving clarity in the first 60 seconds.",
+    tone: "mint",
+  },
+  {
+    id: "claude",
+    name: "Claude",
+    mark: "Cl",
+    question: "Who owns the pricing deck and when is it due?",
+    answer:
+      "Alex owns the pricing deck and will share a draft by May 6. Final review is scheduled for May 9.",
+    tone: "amber",
+  },
+  {
+    id: "gemini",
+    name: "Gemini",
+    mark: "G",
+    question: "Summarize risks we flagged for Q2.",
+    answer:
+      "Key risks for Q2: integration dependencies, resource constraints in design, and unclear enterprise positioning.",
+    tone: "blue",
+  },
+];
 
-type DemoPhase = "waiting" | "recording" | "summarizing" | "summary";
+const SEARCH_MATCHES = [
+  {
+    title: "Product planning session",
+    meta: "Apr 28, 10:00 AM - 45 min",
+    excerpt: "...focus on reducing activation steps and improving clarity of value...",
+    active: true,
+  },
+  {
+    title: "Design sync",
+    meta: "Apr 21, 2:00 PM",
+    excerpt: "...onboarding flow v2 wireframes...",
+    active: false,
+  },
+  {
+    title: "Customer feedback review",
+    meta: "Apr 15, 11:00 AM",
+    excerpt: "...users want a simpler onboarding flow...",
+    active: false,
+  },
+  {
+    title: "Marketing alignment",
+    meta: "Apr 9, 9:30 AM",
+    excerpt: "...positioning the onboarding flow update...",
+    active: false,
+  },
+];
 
-function useRecordingDemo() {
-  const [phase, setPhase] = useState<DemoPhase>("waiting");
-  const [visibleLines, setVisibleLines] = useState<number>(0);
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
-  const [demoAudioLevel, setDemoAudioLevel] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const audioTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+const OUTPUT_COLUMNS = [
+  {
+    title: "Decisions",
+    count: 2,
+    items: [
+      "Ship the onboarding flow first to improve activation.",
+      "Measure success with activation rate and time-to-value.",
+    ],
+  },
+  {
+    title: "Actions",
+    count: 4,
+    items: [
+      "Alex to share pricing deck draft by May 6.",
+      "Jamie to review onboarding copy.",
+      "Taylor to set up analytics dashboard.",
+      "Sam to schedule customer interviews.",
+    ],
+  },
+  {
+    title: "Intake",
+    count: 3,
+    items: [
+      "Pricing deck feedback",
+      "Customer interview themes",
+      "Analytics event taxonomy",
+    ],
+  },
+];
 
-  const startDemo = useCallback(() => {
-    setPhase("recording");
-    setVisibleLines(0);
-    setElapsedSeconds(0);
+const PRICING_TIERS = [
+  {
+    name: "Free",
+    price: "$0",
+    cadence: "25 meetings included",
+    cta: "Start for free",
+    href: "/sign-up",
+    features: [
+      "25 meetings lifetime",
+      "Transcripts and summaries",
+      "Search across meetings",
+      "Export and share",
+    ],
+  },
+  {
+    name: "Core",
+    price: "$15",
+    cadence: "per user / month",
+    cta: "Start Core trial",
+    href: "/pricing",
+    featured: true,
+    features: [
+      "Unlimited meetings",
+      "Enhanced speech-to-text",
+      "Actions, decisions, and intake",
+      "Calendar context",
+      "Connect AI tools",
+    ],
+  },
+  {
+    name: "Pro",
+    price: "$25",
+    cadence: "per user / month",
+    cta: "Start Pro trial",
+    href: "/pricing",
+    features: [
+      "Everything in Core",
+      "Team library and sharing",
+      "Advanced model routing",
+      "Admin controls",
+      "Priority support",
+    ],
+  },
+];
 
-    // Simulate audio levels with sinusoidal cycling
-    let audioT = 0;
-    audioTimerRef.current = setInterval(() => {
-      audioT += 0.15;
-      setDemoAudioLevel(
-        0.3 + 0.4 * Math.abs(Math.sin(audioT)) + 0.2 * Math.random(),
-      );
-    }, 80);
+function useLandingAudioLevel() {
+  const [level, setLevel] = useState(0.3);
 
-    // Timer
-    timerRef.current = setInterval(() => {
-      setElapsedSeconds((prev) => prev + 1);
-    }, 1000);
-
-    // Stream transcript lines
-    DEMO_TRANSCRIPT_LINES.forEach((_, i) => {
-      setTimeout(
-        () => {
-          setVisibleLines(i + 1);
-        },
-        1200 * (i + 1),
-      );
-    });
-
-    // After all lines, transition to summarizing then summary
-    const totalTime = 1200 * (DEMO_TRANSCRIPT_LINES.length + 1);
-    setTimeout(() => {
-      setPhase("summarizing");
-      setDemoAudioLevel(0);
-      if (timerRef.current) clearInterval(timerRef.current);
-      if (audioTimerRef.current) clearInterval(audioTimerRef.current);
-    }, totalTime);
-
-    setTimeout(() => {
-      setPhase("summary");
-    }, totalTime + 2500);
-  }, []);
-
-  // Auto-start and loop
   useEffect(() => {
-    const startTimeout = setTimeout(startDemo, 1500);
-    return () => {
-      clearTimeout(startTimeout);
-      if (timerRef.current) clearInterval(timerRef.current);
-      if (audioTimerRef.current) clearInterval(audioTimerRef.current);
-    };
-  }, [startDemo]);
-
-  // Loop: restart after summary is shown
-  useEffect(() => {
-    if (phase !== "summary") return;
-    const restartTimeout = setTimeout(() => {
-      startDemo();
-    }, 6000);
-    return () => clearTimeout(restartTimeout);
-  }, [phase, startDemo]);
-
-  return { phase, visibleLines, elapsedSeconds, demoAudioLevel };
-}
-
-/* ─────────────────────────── Hero Shader Cycling ─────────────────────────── */
-
-function useHeroShaderCycle() {
-  const [heroAudio, setHeroAudio] = useState(0);
-
-  useEffect(() => {
-    // Always show the 3 colored lines with gentle organic movement
     let t = 0;
-    const timer = setInterval(() => {
+    const timer = window.setInterval(() => {
       t += 0.08;
-      setHeroAudio(
-        0.25 + 0.35 * Math.abs(Math.sin(t)) + 0.1 * Math.sin(t * 2.3),
-      );
-    }, 60);
+      const broad = Math.sin(t * 0.7) * 0.16;
+      const detail = Math.sin(t * 1.8 + 0.7) * 0.08;
+      const pulse = Math.abs(Math.sin(t * 0.43)) * 0.12;
+      setLevel(0.34 + broad + detail + pulse);
+    }, 70);
 
-    return () => clearInterval(timer);
+    return () => window.clearInterval(timer);
   }, []);
 
-  // Always "recording" state so all 3 lines show with color
-  return { heroState: "recording" as const, heroAudio };
+  return level;
 }
 
-/* ─────────────────────────── Helpers ─────────────────────────── */
-
-function formatTime(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  return `${m}:${s.toString().padStart(2, "0")}`;
+function BrandMark() {
+  return (
+    <span className="memory-brand-mark" aria-hidden="true">
+      <span />
+    </span>
+  );
 }
 
-/* ─────────────────────────── Component ─────────────────────────── */
+function IntegrationMark({
+  label,
+  tone,
+}: {
+  label: string;
+  tone: string;
+}) {
+  return <span className={`memory-integration-mark is-${tone}`}>{label}</span>;
+}
 
-export function LandingPage() {
-  const { heroState, heroAudio } = useHeroShaderCycle();
-  const { phase, visibleLines, elapsedSeconds, demoAudioLevel } =
-    useRecordingDemo();
-
-  const demoShaderState =
-    phase === "recording"
-      ? "recording"
-      : phase === "summarizing"
-        ? "summarizing"
-        : "idle";
+function FlowCard({ step }: { step: (typeof FLOW_STEPS)[number] }) {
+  const Icon = step.icon;
+  const waveformBars = Array.from({ length: 24 }, (_, index) => index);
 
   return (
-    <div className="landing-shell min-h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)]">
-      {/* ───── Top Navigation ───── */}
-      <nav
-        className="landing-nav fixed left-0 right-0 top-0 z-50"
-        style={{ paddingTop: "var(--safe-top)" }}
-      >
-        <div className="landing-nav-inner mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-6">
-          <Link href="/" className="landing-brand text-[var(--text-primary)]">
-            <span>Layer One</span>
-          </Link>
-          <div className="landing-nav-actions flex items-center gap-2">
-            <Link
-              href="/sign-in"
-              className="landing-nav-link text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-            >
-              Sign in
-            </Link>
-            <Link
-              href="/sign-up"
-              className="landing-nav-button text-sm font-medium transition-colors"
-            >
-              Get started
-            </Link>
+    <article className={`memory-flow-card is-${step.tone}`}>
+      <div className="memory-flow-card-top">
+        <span className="memory-flow-icon">
+          <Icon size={16} aria-hidden="true" />
+        </span>
+        <span>{step.eyebrow}</span>
+      </div>
+      {step.eyebrow === "Calendar event" && (
+        <div className="memory-flow-body memory-flow-calendar">
+          <div className="memory-flow-event">
+            <strong>{step.title}</strong>
+            <span>Tue, Apr 28 - 10:00 AM</span>
+            <small>45 min</small>
           </div>
+          <div className="memory-flow-apps" aria-label="Calendar providers">
+            <Image
+              src="/layersdesign-assets/google-calendar-card.png"
+              width={28}
+              height={28}
+              alt="Google Calendar"
+            />
+            <Image
+              src="/layersdesign-assets/outlook-card.png"
+              width={28}
+              height={28}
+              alt="Outlook Calendar"
+            />
+          </div>
+        </div>
+      )}
+      {step.eyebrow === "Live capture" && (
+        <div className="memory-flow-body memory-flow-live">
+          <div className="memory-flow-mini-wave" aria-hidden="true">
+            {waveformBars.map((bar) => (
+              <span key={bar} />
+            ))}
+          </div>
+          <div className="memory-flow-live-row">
+            <span>Live</span>
+            <time>00:13</time>
+          </div>
+        </div>
+      )}
+      {step.eyebrow === "Transcript" && (
+        <div className="memory-flow-body memory-flow-transcript">
+          {[
+            ["00:04", "Let's review Q2 priorities."],
+            ["00:18", "Focus on onboarding."],
+            ["00:35", "Agreed, ship this first."],
+          ].map(([time, text]) => (
+            <p key={time}>
+              <time>{time}</time>
+              <span>{text}</span>
+            </p>
+          ))}
+        </div>
+      )}
+      {step.eyebrow === "Decisions / Actions / Intake" && (
+        <div className="memory-flow-body memory-flow-outputs">
+          {[
+            ["Decisions", "2"],
+            ["Actions", "4"],
+            ["Intake", "3"],
+          ].map(([label, count]) => (
+            <p key={label}>
+              <CheckCircle2 size={13} aria-hidden="true" />
+              <span>{label}</span>
+              <strong>{count}</strong>
+            </p>
+          ))}
+        </div>
+      )}
+      {step.eyebrow === "Searchable memory" && (
+        <div className="memory-flow-body memory-flow-search">
+          <div>
+            <Search size={12} aria-hidden="true" />
+            <span>Search your meetings...</span>
+          </div>
+          <p>
+            {["onboarding", "pricing", "Q2 roadmap", "activation"].map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </p>
+        </div>
+      )}
+      {step.eyebrow === "Connected AI tools" && (
+        <div className="memory-flow-body memory-flow-connected">
+          <span className="memory-flow-ai-mark">◎</span>
+          <strong>AI</strong>
+          <Sparkles size={18} aria-hidden="true" />
+          <span>+</span>
+        </div>
+      )}
+    </article>
+  );
+}
+
+function HeroFlow({ audioLevel }: { audioLevel: number }) {
+  return (
+    <div className="memory-flow-stage" aria-label="Meeting memory pipeline signal">
+      <div className="memory-flow-wave" aria-hidden="true">
+        <AudioWaveRibbon
+          active
+          audioLevel={audioLevel}
+          height={170}
+          motion={1.32}
+          sensitivity={1.05}
+          texture="clean"
+          className="memory-flow-ribbon"
+        />
+      </div>
+      <div className="memory-flow-track">
+        {FLOW_STEPS.map((step, index) => (
+          <div className="memory-flow-item" key={step.eyebrow}>
+            <FlowCard step={step} />
+            {index < FLOW_STEPS.length - 1 && (
+              <span className="memory-flow-arrow" aria-hidden="true">
+                <span />
+                <ArrowRight size={15} />
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ToolCard({
+  card,
+  active,
+  onSelect,
+}: {
+  card: (typeof TOOL_CARDS)[number];
+  active: boolean;
+  onSelect: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className={`memory-tool-card ${active ? "is-active" : ""}`}
+      onClick={onSelect}
+      aria-pressed={active}
+    >
+      <span className="memory-tool-card-head">
+        <IntegrationMark label={card.mark} tone={card.tone} />
+        <strong>{card.name}</strong>
+      </span>
+      <span className="memory-tool-question">{card.question}</span>
+      <span className="memory-tool-answer">{card.answer}</span>
+      <span className="memory-tool-source">
+        Sourced from Layers memory
+        <CheckCircle2 size={13} aria-hidden="true" />
+      </span>
+    </button>
+  );
+}
+
+function SearchMemoryPanel() {
+  return (
+    <section className="memory-section memory-search-section">
+      <div className="memory-section-copy">
+        <h2>Search across every meeting.</h2>
+        <p>
+          Find decisions, owners, and context across your entire meeting
+          library without reopening every transcript.
+        </p>
+      </div>
+      <div className="memory-search-panel">
+        <div className="memory-search-bar">
+          <Search size={16} aria-hidden="true" />
+          <span>onboarding flow</span>
+          <kbd>Cmd K</kbd>
+          <button type="button">Filters</button>
+        </div>
+        <div className="memory-search-grid">
+          <div className="memory-search-list">
+            {SEARCH_MATCHES.map((match) => (
+              <article
+                className={`memory-search-result ${match.active ? "is-active" : ""}`}
+                key={match.title}
+              >
+                <span aria-hidden="true" />
+                <div>
+                  <strong>{match.title}</strong>
+                  <p>{match.meta}</p>
+                  <small>{match.excerpt}</small>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="memory-search-detail">
+            <div className="memory-search-detail-head">
+              <span>Product planning session</span>
+              <Link href="/meetings">View transcript</Link>
+            </div>
+            {[
+              ["00:18", "Focus on onboarding and activation."],
+              ["00:35", "Agreed, ship the onboarding flow first."],
+              ["00:52", "Reduce activation steps in the onboarding flow."],
+              ["01:07", "Define success metrics for the onboarding flow update."],
+            ].map(([time, text]) => (
+              <p key={time}>
+                <span>{time}</span>
+                {text}
+              </p>
+            ))}
+            <small>4 of 18 matches</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function StructuredOutputsPanel() {
+  return (
+    <section className="memory-section memory-outputs-section">
+      <div className="memory-section-copy">
+        <h2>Structured outputs you can act on.</h2>
+        <p>
+          Every meeting becomes clear, organized outputs ready for your team
+          and tools.
+        </p>
+      </div>
+      <div className="memory-output-panel">
+        <div className="memory-output-tabs" aria-label="Output types">
+          {["Decisions", "Actions", "Intake", "Summary", "Follow-up email"].map(
+            (tab, index) => (
+              <span className={index === 0 ? "is-active" : ""} key={tab}>
+                {tab}
+              </span>
+            ),
+          )}
+        </div>
+        <div className="memory-output-columns">
+          {OUTPUT_COLUMNS.map((column) => (
+            <article className="memory-output-column" key={column.title}>
+              <h3>
+                {column.title}
+                <span>{column.count}</span>
+              </h3>
+              <ul>
+                {column.items.map((item) => (
+                  <li key={item}>
+                    <CheckCircle2 size={14} aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/meetings">View all</Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function LandingPage() {
+  const audioLevel = useLandingAudioLevel();
+  const [activeTool, setActiveTool] = useState(0);
+  const featuredTool = useMemo(() => TOOL_CARDS[activeTool], [activeTool]);
+
+  return (
+    <main className="memory-landing min-h-screen-safe">
+      <nav className="memory-nav" aria-label="Primary navigation">
+        <Link href="/" className="memory-brand" aria-label="Layers">
+          <BrandMark />
+          <span>Layers</span>
+          <small>by Mirror Factory</small>
+        </Link>
+        <div className="memory-nav-links">
+          <button type="button" className="memory-nav-link">
+            Product <ChevronDown size={13} aria-hidden="true" />
+          </button>
+          <Link href="/download" className="memory-nav-download">
+            Download
+          </Link>
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/docs">Docs</Link>
+          <Link href="/sign-in">Sign in</Link>
+          <Link href="/sign-up" className="memory-nav-cta">
+            Start free
+          </Link>
         </div>
       </nav>
 
-      {/* ───── SECTION 1: Hero ───── */}
-      <section className="landing-hero relative overflow-hidden px-4">
-        <div className="landing-hero-wave" aria-hidden="true">
-          <WebGLShader
-            state={heroState}
-            audioLevel={heroAudio}
-            className="w-full h-full"
-          />
-        </div>
-        <div className="landing-hero-content relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
-          <p className="landing-hero-kicker">Layer One by Mirror Factory</p>
-          <h1 className="landing-hero-title text-[var(--text-primary)]">
-            Meeting intake, instantly.
-          </h1>
-          <p className="landing-hero-copy text-[var(--text-secondary)]">
-            Record once. Leave with clean notes, decisions, next steps, and the
-            context your team needs to act.
+      <section className="memory-hero">
+        <div className="memory-hero-copy">
+          <h1>Turn meetings into structured team memory.</h1>
+          <p>
+            Record without a meeting bot. Leave with decisions, owners,
+            follow-ups, searchable context, and notes your AI tools can use.
           </p>
-
-          <div className="landing-hero-actions">
-            <Link
-              href="/sign-up"
-              className="landing-button landing-button-primary"
-            >
-              <span>Start free</span>
+          <div className="memory-hero-actions">
+            <Link href="/sign-up" className="memory-button memory-button-primary">
+              Start free
               <ArrowRight size={16} aria-hidden="true" />
             </Link>
             <Link
-              href="/sign-in"
-              className="landing-button landing-button-secondary"
+              href="/pricing"
+              className="memory-button memory-button-secondary"
             >
-              Sign in
+              View pricing
             </Link>
           </div>
-
-          <div className="landing-trust-row" aria-label="Product highlights">
-            {["25 meetings free", "No meeting bot", "Action-ready notes"].map(
-              (item) => (
-                <span key={item}>
-                  <CheckCircle2 size={14} aria-hidden="true" />
-                  {item}
-                </span>
-              ),
-            )}
-          </div>
-
-          <div
-            className="landing-capture-dock"
-            aria-label="Live meeting capture preview"
-          >
-            <div className="landing-capture-top">
-              <span>Live capture</span>
-              <span>Ready in seconds</span>
-            </div>
-            <div className="landing-capture-main">
-              <span className="landing-record-button" aria-hidden="true">
-                <Mic size={22} />
-              </span>
-              <div className="landing-capture-text">
-                <strong>Start meeting</strong>
-                <span>Capture notes without inviting a bot.</span>
-              </div>
-              <span className="landing-capture-time">00:00</span>
-            </div>
-            <div className="landing-capture-lanes">
-              <span>Notes</span>
-              <span>Decisions</span>
-              <span>Intake</span>
-            </div>
-          </div>
         </div>
+
+        <div className="memory-trust-row" aria-label="Product highlights">
+          {TRUST_ITEMS.map((item) => (
+            <span key={item}>
+              <CheckCircle2 size={14} aria-hidden="true" />
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <HeroFlow audioLevel={audioLevel} />
       </section>
 
-      {/* ───── SECTION 2: Features (Bento Grid) ───── */}
-      <section className="px-4 py-24 max-w-5xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 text-[var(--text-primary)]">
-          Built for real conversations
-        </h2>
-        <p className="text-sm text-[var(--text-muted)] text-center mb-14 max-w-md mx-auto">
-          Everything you need to capture, understand, and act on meetings.
-        </p>
-
-        {/* Bento grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {FEATURES.map((f) => (
-            <div
-              key={f.title}
-              className="group p-7 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--border-subtle)] transition-all duration-300 hover:bg-[var(--bg-card-hover)]"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#14b8a6]/10 flex items-center justify-center mb-5 group-hover:bg-[#14b8a6]/20 transition-colors duration-300">
-                <f.icon
-                  size={22}
-                  className="text-[#14b8a6]"
-                  strokeWidth={1.5}
-                />
-              </div>
-              <h3 className="text-base font-semibold mb-2 text-[var(--text-primary)]">
-                {f.title}
-              </h3>
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                {f.desc}
-              </p>
-            </div>
+      <section className="memory-panel memory-tools-panel" aria-labelledby="real-conversations-heading">
+        <div className="memory-panel-heading">
+          <div>
+            <h2 id="real-conversations-heading">
+              Connect once. Your meeting memory lives in every AI tool.
+            </h2>
+            <p>
+              Ask questions in tools you already use. Answers come from your
+              Layers memory.
+            </p>
+          </div>
+          <span className="memory-selected-tool">
+            <IntegrationMark label={featuredTool.mark} tone={featuredTool.tone} />
+            {featuredTool.name} is selected
+          </span>
+        </div>
+        <div className="memory-tool-grid">
+          {TOOL_CARDS.map((card, index) => (
+            <ToolCard
+              card={card}
+              key={card.id}
+              active={index === activeTool}
+              onSelect={() => setActiveTool(index)}
+            />
           ))}
         </div>
       </section>
 
-      {/* ───── SECTION 3: Interactive Demo ───── */}
-      <section className="px-4 py-24 max-w-3xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 text-[var(--text-primary)]">
-          See it in action
-        </h2>
-        <p className="text-sm text-[var(--text-muted)] text-center mb-12">
-          Watch Layer One capture and analyze a real meeting in seconds.
-        </p>
+      <SearchMemoryPanel />
+      <StructuredOutputsPanel />
 
-        {/* Demo container — glass card */}
-        <div className="rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] backdrop-blur-sm overflow-hidden">
-          {/* Recorder chrome */}
-          {(phase === "recording" || phase === "waiting") && (
-            <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--border-card)]">
-              {/* Left: stop button */}
-              <div className="flex items-center gap-3">
-                <button
-                  className="w-8 h-8 rounded-lg bg-[var(--bg-card-hover)] flex items-center justify-center"
-                  aria-label="Stop"
-                >
-                  <Square
-                    size={12}
-                    className="text-[var(--text-primary)]"
-                    fill="currentColor"
-                  />
-                </button>
-              </div>
-              {/* Center: timer + RECORDING */}
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-mono text-[var(--text-primary)]">
-                  {formatTime(elapsedSeconds)}
-                </span>
-                {phase === "recording" && (
-                  <span className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wider font-medium">
-                    Recording
-                  </span>
-                )}
-              </div>
-              {/* Right: LIVE indicator */}
-              <div className="flex items-center gap-1.5">
-                {phase === "recording" && (
-                  <>
-                    <Circle
-                      size={7}
-                      className="text-red-500 animate-pulse"
-                      fill="currentColor"
-                    />
-                    <span className="text-[10px] text-red-400 uppercase tracking-wider font-medium">
-                      Live
-                    </span>
-                  </>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Shader in demo */}
-          {(phase === "recording" || phase === "waiting") && (
-            <div className="w-full" style={{ height: 80 }}>
-              <WebGLShader
-                state={demoShaderState}
-                audioLevel={demoAudioLevel}
-                className="w-full h-full"
-              />
-            </div>
-          )}
-
-          {/* Transcript streaming */}
-          {phase === "recording" && visibleLines > 0 && (
-            <div
-              className="px-5 py-4 space-y-3 overflow-y-auto"
-              style={{ scrollbarWidth: "none" }}
+      <section className="memory-section memory-pricing-section" id="pricing">
+        <div className="memory-section-copy">
+          <h2>Simple pricing. Start free, scale when you are ready.</h2>
+          <p>
+            Pricing stays tied to meeting minutes, model cost, and transparent
+            usage so the product can scale cleanly.
+          </p>
+        </div>
+        <div className="memory-pricing-grid">
+          {PRICING_TIERS.map((tier) => (
+            <article
+              className={`memory-price-card ${tier.featured ? "is-featured" : ""}`}
+              key={tier.name}
             >
-              {DEMO_TRANSCRIPT_LINES.slice(0, visibleLines).map((line, i) => (
-                <div
-                  key={i}
-                  className="animate-[fadeSlideIn_0.4s_ease-out_both]"
-                >
-                  <span className="text-xs font-semibold text-[#14b8a6] mr-2">
-                    {line.speaker}
-                  </span>
-                  <span className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    {line.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Summarizing transition */}
-          {phase === "summarizing" && (
-            <div className="flex flex-col items-center justify-center py-12 gap-3 animate-[fadeSlideIn_0.4s_ease-out_both]">
-              <div className="flex items-center gap-2">
-                <span
-                  className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
-                  style={{ animationDelay: "0ms" }}
-                />
-                <span
-                  className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
-                  style={{ animationDelay: "200ms" }}
-                />
-                <span
-                  className="w-1.5 h-1.5 rounded-full bg-[#14b8a6] animate-pulse"
-                  style={{ animationDelay: "400ms" }}
-                />
-              </div>
-              <p className="text-sm text-white/50">Summarizing your notes...</p>
-            </div>
-          )}
-
-          {/* Summary result */}
-          {phase === "summary" && (
-            <div className="px-5 py-5 space-y-5 animate-[fadeSlideIn_0.5s_ease-out_both]">
               <div>
-                <h3 className="text-base font-semibold mb-1 text-[var(--text-primary)]">
-                  {DEMO_SUMMARY.title}
-                </h3>
-                <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">
-                  7 transcript lines &middot; 3 speakers &middot; 0:08 duration
-                </p>
+                <span className="memory-price-name">
+                  {tier.name}
+                  {tier.featured && <small>Most popular</small>}
+                </span>
+                <strong>{tier.price}</strong>
+                <p>{tier.cadence}</p>
               </div>
-
-              <div>
-                <h4 className="text-xs font-semibold text-[#14b8a6] uppercase tracking-wider mb-2">
-                  Key Decisions
-                </h4>
-                <ul className="space-y-1.5">
-                  {DEMO_SUMMARY.decisions.map((d, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-[var(--text-secondary)] flex items-start gap-2"
-                    >
-                      <span className="text-[#14b8a6] mt-1 shrink-0">
-                        &bull;
-                      </span>
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-xs font-semibold text-[#14b8a6] uppercase tracking-wider mb-2">
-                  Action Items
-                </h4>
-                <ul className="space-y-1.5">
-                  {DEMO_SUMMARY.actionItems.map((a, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-[var(--text-secondary)] flex items-start gap-2"
-                    >
-                      <span className="text-[#14b8a6] mt-1 shrink-0">
-                        &bull;
-                      </span>
-                      <span>
-                        <span className="font-medium text-[var(--text-primary)]">
-                          {a.owner}:
-                        </span>{" "}
-                        {a.task}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
+              <ul>
+                {tier.features.map((feature) => (
+                  <li key={feature}>
+                    <CheckCircle2 size={14} aria-hidden="true" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link href={tier.href}>{tier.cta}</Link>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* ───── SECTION 4: Pricing ───── */}
-      <section
-        id="pricing"
-        className="px-4 py-24 max-w-4xl mx-auto text-center"
-      >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-[var(--text-primary)]">
-          Simple pricing
-        </h2>
-        <p className="text-sm text-[var(--text-muted)] mb-14 max-w-sm mx-auto">
-          Start free. Upgrade when you need more.
+      <section className="memory-next-section">
+        <div className="memory-next-wave" aria-hidden="true">
+          <AudioWaveRibbon
+            active
+            audioLevel={audioLevel * 0.75}
+            height={118}
+            motion={1.15}
+            sensitivity={0.95}
+            texture="clean"
+          />
+        </div>
+        <span>Coming next</span>
+        <h2>Automate your follow-ups.</h2>
+        <p>
+          Turn insights into email drafts, updates, reminders, and next steps
+          automatically.
         </p>
-        <div className="grid sm:grid-cols-3 gap-6">
-          {/* Free */}
-          <div className="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--border-subtle)] transition-all duration-300">
-            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-3 font-medium">
-              Free
-            </div>
-            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">
-              $0
-            </div>
-            <div className="text-xs text-[var(--text-muted)] mb-6">/month</div>
-            <div className="text-sm text-[var(--text-secondary)] font-medium">
-              25 meetings
-            </div>
-            <div className="text-xs text-[var(--text-muted)] mt-2">
-              All features included
-            </div>
-          </div>
-
-          {/* Core — highlighted */}
-          <div className="p-8 rounded-2xl bg-[var(--bg-card)] border border-[#14b8a6]/30 hover:border-[#14b8a6]/50 transition-all duration-300 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#14b8a6] text-white text-[10px] font-semibold uppercase tracking-wider rounded-full">
-              Popular
-            </div>
-            <div className="text-xs text-[#14b8a6] uppercase tracking-wider mb-3 font-medium">
-              Core
-            </div>
-            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">
-              $15
-              <span className="text-sm font-normal text-[var(--text-muted)] ml-1">
-                /mo
-              </span>
-            </div>
-            <div className="text-xs text-[var(--text-muted)] mb-6">
-              billed monthly
-            </div>
-            <div className="text-sm text-[var(--text-secondary)] font-medium">
-              Unlimited meetings
-            </div>
-            <div className="text-xs text-[var(--text-muted)] mt-2">
-              Priority processing
-            </div>
-          </div>
-
-          {/* Pro */}
-          <div className="p-8 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--border-subtle)] transition-all duration-300">
-            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-3 font-medium">
-              Pro
-            </div>
-            <div className="text-4xl font-bold mb-1 text-[var(--text-primary)]">
-              $25
-              <span className="text-sm font-normal text-[var(--text-muted)] ml-1">
-                /mo
-              </span>
-            </div>
-            <div className="text-xs text-[var(--text-muted)] mb-6">
-              billed monthly
-            </div>
-            <div className="text-sm text-[var(--text-secondary)] font-medium">
-              Unlimited + priority
-            </div>
-            <div className="text-xs text-[var(--text-muted)] mt-2">
-              Team features &amp; API access
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* ───── SECTION 5: Footer ───── */}
-      <footer className="px-4 py-16 border-t border-[var(--border-subtle)]">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="flex flex-col items-center sm:items-start gap-2">
-              <span className="text-sm font-semibold text-[var(--text-primary)]">
-                Layer One Audio
-              </span>
-              <p className="text-xs text-[var(--text-muted)]">
-                A{" "}
-                <a
-                  href="https://mirrorfactory.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors underline underline-offset-2"
-                >
-                  Mirror Factory
-                </a>{" "}
-                product
-              </p>
-            </div>
-            <div className="flex items-center gap-8">
-              <Link
-                href="/sign-up"
-                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
-              >
-                Sign up
-              </Link>
-              <Link
-                href="/sign-in"
-                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
-              >
-                Sign in
-              </Link>
-              <a
-                href="#pricing"
-                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
-              >
-                Pricing
-              </a>
-              <a
-                href="https://mirrorfactory.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
-              >
-                mirrorfactory.ai
-              </a>
-            </div>
-          </div>
+      <footer className="memory-footer">
+        <div>
+          <BrandMark />
+          <span>Layers</span>
         </div>
+        <nav aria-label="Footer">
+          <Link href="/download">Download</Link>
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/docs">Docs</Link>
+          <Link href="/sign-in">Sign in</Link>
+          <Link href="/sign-up">Start free</Link>
+        </nav>
       </footer>
-
-      {/* Keyframe animation for transcript lines */}
-      <style jsx>{`
-        @keyframes fadeSlideIn {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-    </div>
+    </main>
   );
 }
+
+export default LandingPage;

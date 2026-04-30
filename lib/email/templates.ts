@@ -20,7 +20,7 @@ function layout(body: string): string {
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#171717;border-radius:12px;padding:32px;">
           <tr>
             <td style="padding-bottom:24px;text-align:center;">
-              <span style="font-size:18px;font-weight:600;color:#f5f5f5;font-family:${FONT_FAMILY};">audio-layer</span>
+              <span style="font-size:18px;font-weight:600;color:#f5f5f5;font-family:${FONT_FAMILY};">Layers</span>
             </td>
           </tr>
           <tr>
@@ -30,7 +30,7 @@ function layout(body: string): string {
           </tr>
           <tr>
             <td style="padding-top:32px;text-align:center;font-size:11px;color:#737373;">
-              audio-layer &mdash; capture conversations, extract insights
+              Layers &mdash; capture conversations, extract insights
             </td>
           </tr>
         </table>
@@ -60,7 +60,7 @@ export function magicLinkEmail(magicLink: string): {
   html: string;
 } {
   return {
-    subject: "Sign in to audio-layer",
+    subject: "Sign in to Layers",
     html: layout(`
       <p style="font-size:14px;line-height:1.6;color:#d4d4d4;margin:0 0 8px;">
         Click the button below to sign in to your account.
@@ -79,7 +79,7 @@ export function otpEmail(otp: string): {
   html: string;
 } {
   return {
-    subject: "Your audio-layer verification code",
+    subject: "Your Layers verification code",
     html: layout(`
       <p style="font-size:14px;line-height:1.6;color:#d4d4d4;margin:0 0 16px;">
         Enter this code to verify your account:
@@ -99,7 +99,7 @@ export function welcomeEmail(appUrl: string): {
   html: string;
 } {
   return {
-    subject: "Welcome to audio-layer",
+    subject: "Welcome to Layers",
     html: layout(`
       <p style="font-size:14px;line-height:1.6;color:#d4d4d4;margin:0 0 8px;">
         Welcome! You're all set to start capturing and analyzing conversations.

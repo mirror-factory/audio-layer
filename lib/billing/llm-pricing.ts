@@ -33,7 +33,7 @@ export const LLM_PRICING_OPTIONS: LlmPricingOption[] = [
     sourceUrl: "https://developers.openai.com/api/docs/pricing",
     validatedOn: LLM_PRICING_VALIDATED_ON,
     settingsVisible: true,
-    notes: "Default low-cost intake model.",
+    notes: "Lowest-cost OpenAI intake option.",
   },
   {
     modelId: "openai/gpt-5.4-mini",
@@ -94,6 +94,7 @@ export const LLM_PRICING_OPTIONS: LlmPricingOption[] = [
     sourceUrl: "https://platform.claude.com/docs/en/about-claude/pricing",
     validatedOn: LLM_PRICING_VALIDATED_ON,
     settingsVisible: true,
+    notes: "Default summary and intake model.",
   },
   {
     modelId: "anthropic/claude-sonnet-4-6",

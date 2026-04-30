@@ -10,9 +10,14 @@ import { ThemeToggle } from "./theme-toggle";
 interface TopBarProps {
   title: string;
   showBack?: boolean;
+  avatarInitials?: string;
 }
 
-export function TopBar({ title, showBack = false }: TopBarProps) {
+export function TopBar({
+  title,
+  showBack = false,
+  avatarInitials = "AM",
+}: TopBarProps) {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -67,7 +72,7 @@ export function TopBar({ title, showBack = false }: TopBarProps) {
             aria-label="Open account menu"
           >
             <span className="account-avatar" aria-hidden="true">
-              <span>AM</span>
+              <span>{avatarInitials}</span>
             </span>
             <span className="account-avatar-status" aria-hidden="true" />
           </button>

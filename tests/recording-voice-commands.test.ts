@@ -13,8 +13,8 @@ describe("recording voice commands", () => {
     });
   });
 
-  it("recognizes layer one and scratch-that phrasing", () => {
-    expect(parseRecordingVoiceCommand("Okay Layer One scratch that")).toMatchObject({
+  it("recognizes layers and scratch-that phrasing", () => {
+    expect(parseRecordingVoiceCommand("Okay Layers scratch that")).toMatchObject({
       type: "remove_last",
       instruction: "scratch that",
     });
@@ -37,7 +37,7 @@ describe("recording voice commands", () => {
   });
 
   it("ignores normal transcript speech", () => {
-    expect(parseRecordingVoiceCommand("The layer one design needs more polish")).toBeNull();
+    expect(parseRecordingVoiceCommand("The Layers design needs more polish")).toBeNull();
   });
 
   it("formats non-destructive directives for summarization prompts", () => {

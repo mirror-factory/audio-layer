@@ -36,8 +36,8 @@
     "primary": true,
     "trusted": true,
     "hookCount": 8,
-    "hooksObserved": 1661,
-    "lastEventAt": "2026-04-28T17:25:27.300494Z"
+    "hooksObserved": 4392,
+    "lastEventAt": "2026-04-30T13:57:14.260684Z"
   },
   {
     "id": "claude-code",

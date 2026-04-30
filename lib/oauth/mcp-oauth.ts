@@ -2,8 +2,8 @@ import { createHash, randomBytes } from "node:crypto";
 import { SignJWT } from "jose";
 
 export const MCP_OAUTH_SCOPE = "mcp:tools";
-export const MCP_OAUTH_ISSUER = "layer-one-audio";
-export const MCP_OAUTH_AUDIENCE = "layer-one-mcp";
+export const MCP_OAUTH_ISSUER = "layers";
+export const MCP_OAUTH_AUDIENCE = "layers-mcp";
 export const MCP_ACCESS_TOKEN_TTL_SECONDS = 60 * 60;
 export const MCP_REFRESH_TOKEN_TTL_SECONDS = 60 * 60 * 24 * 30;
 

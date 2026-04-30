@@ -1,5 +1,5 @@
 /**
- * Electron main process — Layer One Audio desktop shell.
+ * Electron main process — Layers desktop shell.
  *
  * Strategy: loads the live Vercel deployment in production, localhost
  * in dev. Same pattern as the Capacitor shell — single codebase serves

@@ -1,10 +1,10 @@
 {
-  "planId": "2026-04-27T13-51-52-125Z-polish-meeting-chat-resilience-w",
-  "actionKey": "2026-04-27T13-51-52-125Z-polish-meeting-chat-resilience-w:missing-evidence-export:pnpm evidence:export",
-  "reason": "missing-evidence-export",
-  "command": "pnpm evidence:export",
+  "planId": "2026-04-30T00-42-19-454Z-align-the-public-homepage-with-t",
+  "actionKey": "2026-04-30T00-42-19-454Z-align-the-public-homepage-with-t:stale-scorecard:pnpm sync && pnpm score",
+  "reason": "stale-scorecard",
+  "command": "pnpm sync && pnpm score",
   "count": 1,
   "maxIterations": 5,
-  "telemetryLineCount": 132,
-  "stopHookActive": true
+  "telemetryLineCount": 3955,
+  "stopHookActive": false
 }

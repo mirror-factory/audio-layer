@@ -1,4 +1,4 @@
-# Layer One Audio — Embeddings & Semantic Search
+# Layers — Embeddings & Semantic Search
 
 **Last updated:** 2026-04-22
 **Status:** Live
@@ -200,7 +200,7 @@ fts tsvector GENERATED ALWAYS AS (to_tsvector('english', chunk_text)) STORED
 ## 5. MCP Server
 
 ### What It Is
-A Model Context Protocol server that lets any AI assistant (Claude, Cursor, etc.) access your Layer One meetings.
+A Model Context Protocol server that lets any AI assistant (Claude, Cursor, etc.) access your Layers meetings.
 
 ### Tools Available
 
@@ -221,7 +221,7 @@ Connection config for Claude Desktop / `.mcp.json`:
 ```json
 {
   "mcpServers": {
-    "layer-one": {
+    "layers": {
       "url": "https://audio-layer.vercel.app/api/mcp/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_KEY"

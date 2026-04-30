@@ -13,7 +13,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-28T17:28:44.063Z"
+    "lastCheckedAt": "2026-04-30T13:57:26.393Z"
   },
   {
     "id": "docs-apis-api-ai-logs-errors-md",
@@ -804,7 +804,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T14:23:28.786Z"
+    "lastCheckedAt": "2026-04-29T20:07:55.860Z"
   },
   {
     "id": "docs-apis-app-api-meetings-id-notes-package-route-md",
@@ -822,7 +822,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T14:23:28.786Z"
+    "lastCheckedAt": "2026-04-29T20:55:42.777Z"
   },
   {
     "id": "docs-apis-app-api-meetings-id-route-md",
@@ -1205,6 +1205,42 @@
     "lastCheckedAt": "2026-04-27T14:23:28.791Z"
   },
   {
+    "id": "docs-apis-meetings-i-export-md",
+    "title": "meetings-i-export",
+    "localPath": "docs/apis/meetings-i-export.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "meetings-i-export.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-29T20:22:37.274Z"
+  },
+  {
+    "id": "docs-apis-meetings-i-notes-package-md",
+    "title": "meetings-i-notes-package",
+    "localPath": "docs/apis/meetings-i-notes-package.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "apis",
+      "meetings-i-notes-package.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-29T21:00:35.686Z"
+  },
+  {
     "id": "docs-app-store-screenshots-md",
     "title": "APP_STORE_SCREENSHOTS",
     "localPath": "docs/APP_STORE_SCREENSHOTS.md",
@@ -1219,7 +1255,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-28T16:54:28.472Z"
+    "lastCheckedAt": "2026-04-29T23:33:41.055Z"
   },
   {
     "id": "docs-brand-guide-md",
@@ -1236,7 +1272,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-23T03:54:30.814Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.543Z"
   },
   {
     "id": "docs-build-spec-md",
@@ -1253,7 +1289,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-26T17:18:02.890Z"
+    "lastCheckedAt": "2026-04-29T23:38:12.654Z"
   },
   {
     "id": "docs-calendar-integration-md",
@@ -1270,7 +1306,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T03:46:53.153Z"
+    "lastCheckedAt": "2026-04-29T23:33:41.052Z"
   },
   {
     "id": "docs-claude-mcp-testing-md",
@@ -1287,7 +1323,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-28T17:11:23.201Z"
+    "lastCheckedAt": "2026-04-30T00:00:51.156Z"
   },
   {
     "id": "docs-competitive-landscape-and-gtm-md",
@@ -1304,7 +1340,25 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T17:02:35.971Z"
+    "lastCheckedAt": "2026-04-30T13:07:44.847Z"
+  },
+  {
+    "id": "docs-components-agent-builder-md",
+    "title": "agent-builder",
+    "localPath": "docs/components/agent-builder.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "components",
+      "agent-builder.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-28T22:21:23.583Z"
   },
   {
     "id": "docs-components-audio-wave-ribbon-md",
@@ -1322,7 +1376,25 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T18:42:22.826Z"
+    "lastCheckedAt": "2026-04-29T23:33:41.058Z"
+  },
+  {
+    "id": "docs-components-session-workspace-md",
+    "title": "session-workspace",
+    "localPath": "docs/components/session-workspace.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "components",
+      "session-workspace.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-29T19:40:09.539Z"
   },
   {
     "id": "docs-embeddings-and-search-md",
@@ -1339,7 +1411,24 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-26T15:01:17.704Z"
+    "lastCheckedAt": "2026-04-29T23:40:48.658Z"
+  },
+  {
+    "id": "docs-feature-test-marketing-matrix-md",
+    "title": "FEATURE_TEST_MARKETING_MATRIX",
+    "localPath": "docs/FEATURE_TEST_MARKETING_MATRIX.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "FEATURE_TEST_MARKETING_MATRIX.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-29T14:47:06.856Z"
   },
   {
     "id": "docs-feature-test-plan-md",
@@ -1375,6 +1464,24 @@
       "lib/"
     ],
     "lastCheckedAt": "2026-04-27T14:23:28.797Z"
+  },
+  {
+    "id": "docs-features-app-agent-builder-page-md",
+    "title": "app-agent-builder-page",
+    "localPath": "docs/features/app-agent-builder-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-agent-builder-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-29T14:47:29.341Z"
   },
   {
     "id": "docs-features-app-ai-starter-page-md",
@@ -1898,6 +2005,24 @@
     "lastCheckedAt": "2026-04-27T14:23:28.804Z"
   },
   {
+    "id": "docs-features-app-download-page-md",
+    "title": "app-download-page",
+    "localPath": "docs/features/app-download-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-download-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T13:04:53.399Z"
+  },
+  {
     "id": "docs-features-app-meetings-id-page-md",
     "title": "app-meetings-id-page",
     "localPath": "docs/features/app-meetings-id-page.md",
@@ -1985,7 +2110,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T14:23:28.811Z"
+    "lastCheckedAt": "2026-04-29T23:48:44.536Z"
   },
   {
     "id": "docs-features-app-pricing-page-md",
@@ -2218,7 +2343,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T00:05:11.758Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.541Z"
   },
   {
     "id": "docs-guides-ai-starter-hub-md",
@@ -2253,7 +2378,24 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-28T12:26:24.845Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.542Z"
+  },
+  {
+    "id": "docs-launch-checklist-md",
+    "title": "LAUNCH_CHECKLIST",
+    "localPath": "docs/LAUNCH_CHECKLIST.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "LAUNCH_CHECKLIST.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T13:54:04.146Z"
   },
   {
     "id": "docs-mcp-and-api-md",
@@ -2270,7 +2412,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T04:28:14.656Z"
+    "lastCheckedAt": "2026-04-30T00:00:51.156Z"
   },
   {
     "id": "docs-mfdr-mfdr-001-md",
@@ -2288,7 +2430,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-20T02:43:09.698Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.539Z"
   },
   {
     "id": "docs-notes-push-workflow-md",
@@ -2305,7 +2447,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T04:27:48.965Z"
+    "lastCheckedAt": "2026-04-29T23:33:41.052Z"
   },
   {
     "id": "docs-pricing-admin-md",
@@ -2322,7 +2464,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T17:01:12.610Z"
+    "lastCheckedAt": "2026-04-30T13:04:53.400Z"
   },
   {
     "id": "docs-pricing-and-billing-md",
@@ -2339,7 +2481,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T17:03:09.011Z"
+    "lastCheckedAt": "2026-04-30T13:07:20.103Z"
   },
   {
     "id": "docs-recording-reliability-md",
@@ -2356,7 +2498,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T21:17:44.515Z"
+    "lastCheckedAt": "2026-04-29T23:33:41.057Z"
   },
   {
     "id": "docs-recording-reminders-md",
@@ -2409,7 +2551,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-24T23:08:08.475Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.538Z"
   },
   {
     "id": "docs-schemas-and-registries-md",
@@ -2443,7 +2585,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T13:38:07.312Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.538Z"
   },
   {
     "id": "docs-style-guide-md",
@@ -2460,7 +2602,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T13:38:02.694Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.540Z"
   },
   {
     "id": "docs-supabase-mcp-oauth-setup-md",
@@ -2477,7 +2619,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-28T17:11:23.200Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.538Z"
   },
   {
     "id": "docs-transcription-provider-matrix-md",
@@ -2494,7 +2636,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T17:03:09.042Z"
+    "lastCheckedAt": "2026-04-30T13:07:44.847Z"
   },
   {
     "id": "docs-ui-style-variations-md",
@@ -2528,7 +2670,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T13:37:57.905Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.540Z"
   },
   {
     "id": "openai-codex-agents-md",
@@ -2544,7 +2686,7 @@
     "triggerPaths": [
       "AGENTS.md"
     ],
-    "lastCheckedAt": "2026-04-28T17:29:04.512Z"
+    "lastCheckedAt": "2026-04-30T13:57:28.539Z"
   },
   {
     "id": "openai-codex-hooks",
@@ -2562,7 +2704,7 @@
       ".codex/config.toml",
       ".codex/hooks/"
     ],
-    "lastCheckedAt": "2026-04-28T17:29:04.512Z"
+    "lastCheckedAt": "2026-04-30T13:57:28.539Z"
   },
   {
     "id": "openai-docs-mcp",
@@ -2579,7 +2721,7 @@
       ".codex/config.toml",
       "AGENTS.md"
     ],
-    "lastCheckedAt": "2026-04-28T17:29:04.512Z"
+    "lastCheckedAt": "2026-04-30T13:57:28.539Z"
   },
   {
     "id": "readme-md",
@@ -2595,6 +2737,6 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-23T03:54:30.783Z"
+    "lastCheckedAt": "2026-04-29T23:36:18.536Z"
   }
 ]

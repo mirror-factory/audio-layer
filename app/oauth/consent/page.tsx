@@ -35,7 +35,7 @@ function ConsentForm() {
         return;
       }
 
-      setEmail(user.email ?? "Signed-in Layer One user");
+      setEmail(user.email ?? "Signed-in Layers user");
       setLoading(false);
     });
   }, [params]);
@@ -76,7 +76,7 @@ function ConsentForm() {
           </div>
           <div>
             <h1 className="text-lg font-semibold text-[var(--text-primary)]">
-              Connect Layer One
+              Connect Layers
             </h1>
             <p className="text-sm text-[var(--text-muted)]">{email}</p>
           </div>
@@ -84,7 +84,7 @@ function ConsentForm() {
 
         <div className="rounded-lg border border-[var(--border-card)] bg-[var(--bg-card-hover)] p-3">
           <p className="text-sm text-[var(--text-primary)]">
-            Allow {clientId} to use Layer One MCP tools.
+            Allow {clientId} to use Layers MCP tools.
           </p>
           <p className="mt-2 text-xs text-[var(--text-muted)]">
             Scope: {scope}

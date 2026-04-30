@@ -16,7 +16,7 @@ import {
   handleSearchMeetings,
   handleShowMeetingDashboard,
 } from "@/lib/mcp/tools";
-import { getLayerOneMeetingDashboardHtml } from "@/lib/mcp/ui";
+import { getLayersMeetingDashboardHtml } from "@/lib/mcp/ui";
 import { searchMeetings } from "@/lib/embeddings/search";
 import { getMeetingsStore } from "@/lib/meetings/store";
 
@@ -65,10 +65,10 @@ describe("MCP tool schemas", () => {
 });
 
 describe("MCP App UI", () => {
-  it("renders the Layer One meeting dashboard shell", () => {
-    const html = getLayerOneMeetingDashboardHtml();
+  it("renders the Layers meeting dashboard shell", () => {
+    const html = getLayersMeetingDashboardHtml();
 
-    expect(html).toContain("Layer One meetings");
+    expect(html).toContain("Layers meetings");
     expect(html).toContain("MCP app");
     expect(html).toContain('aria-label="Refresh meetings"');
     expect(html).toContain("show_meeting_dashboard");

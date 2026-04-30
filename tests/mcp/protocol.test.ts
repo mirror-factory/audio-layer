@@ -99,8 +99,8 @@ describe("MCP route protocol auth", () => {
 
     expect(mocks.registeredResources).toEqual([
       {
-        name: "Layer One Meeting Dashboard",
-        uri: "ui://layer-one/meeting-dashboard.html",
+        name: "Layers Meeting Dashboard",
+        uri: "ui://layers/meeting-dashboard.html",
       },
     ]);
   });

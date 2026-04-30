@@ -1,5 +1,5 @@
 appId: com.mirrorfactory.audiolayer
-productName: Layer One
+productName: Layers
 directories:
   output: dist-electron
 files:

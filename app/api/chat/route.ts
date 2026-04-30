@@ -26,7 +26,7 @@ import {
   extractLastUserText,
 } from "@/lib/meeting-chat-fallback";
 
-const SYSTEM_PROMPT = `You are a helpful meeting assistant for Layer One Audio. You can search across all of the user's past meetings, retrieve meeting details, and answer questions about their conversations.
+const SYSTEM_PROMPT = `You are a helpful meeting assistant for Layers. You can search across all of the user's past meetings, retrieve meeting details, and answer questions about their conversations.
 
 You have 3 tools available:
 - searchMeetings: Search across all meeting transcripts, summaries, and data using semantic search. Use this proactively when the user asks about past discussions.
@@ -134,7 +134,7 @@ function localChatResponse(answer: string): Response {
   return createUIMessageStreamResponse({
     stream,
     headers: {
-      "x-layer-one-chat-mode": "local",
+      "x-layers-chat-mode": "local",
     },
   });
 }

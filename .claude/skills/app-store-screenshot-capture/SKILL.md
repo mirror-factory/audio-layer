@@ -1,6 +1,6 @@
 ---
 name: app-store-screenshot-capture
-description: Use when generating Layer One App Store screenshots from the live app, especially polished iPhone/iPad captures with repeatable demo data.
+description: Use when generating Layers App Store screenshots from the live app, especially polished iPhone/iPad captures with repeatable demo data.
 ---
 
 # App Store Screenshot Capture

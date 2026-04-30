@@ -58,6 +58,13 @@ entries:
     owner: null
     status: stable
     created_on: "2026-04-21T03:08:52.788Z"
+  - name: session-workspace
+    path: components/session-workspace.tsx
+    stories_path: null
+    visual_path: tests/visual/session-workspace.spec.ts
+    owner: null
+    status: stable
+    created_on: "2026-04-29T19:40:00.000Z"
   - name: live-transcript-view
     path: components/live-transcript-view.tsx
     stories_path: null

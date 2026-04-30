@@ -1,6 +1,6 @@
 # App Store Screenshot Set
 
-This set is an editable App Store concept deck for Layer One. It uses static
+This set is an editable App Store concept deck for Layers. It uses static
 HTML/CSS so the screenshots can be regenerated without a design tool.
 
 Source:

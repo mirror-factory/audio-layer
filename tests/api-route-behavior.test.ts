@@ -322,7 +322,7 @@ describe("high-risk API route behavior", () => {
     const body = await res.text();
 
     expect(res.status).toBe(200);
-    expect(res.headers.get("x-layer-one-chat-mode")).toBe("local");
+    expect(res.headers.get("x-layers-chat-mode")).toBe("local");
     expect(body).toContain("Action Items");
     expect(body).toContain("Send the launch timeline");
     expect(mocks.resolveModel).not.toHaveBeenCalled();
@@ -575,7 +575,7 @@ describe("high-risk API route behavior", () => {
       single: vi.fn().mockResolvedValue({
         data: {
           id: "hook_1",
-          url: "https://example.com/layer-one-webhook",
+          url: "https://example.com/layers-webhook",
           events: ["meeting.completed"],
           active: true,
           created_at: "2026-04-27T00:00:00.000Z",
@@ -589,7 +589,7 @@ describe("high-risk API route behavior", () => {
 
     const res = await webhooksRoute.POST(
       jsonRequest("/api/webhooks", "POST", {
-        url: "https://example.com/layer-one-webhook",
+        url: "https://example.com/layers-webhook",
         events: ["meeting.completed"],
         secret: "secret_123",
       }),
@@ -598,7 +598,7 @@ describe("high-risk API route behavior", () => {
     expect(res.status).toBe(201);
     expect(query.insert).toHaveBeenCalledWith({
       user_id: "user_a",
-      url: "https://example.com/layer-one-webhook",
+      url: "https://example.com/layers-webhook",
       events: ["meeting.completed"],
       secret: "secret_123",
       active: true,

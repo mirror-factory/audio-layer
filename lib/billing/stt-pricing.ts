@@ -123,7 +123,7 @@ export interface PortfolioEconomics {
   planRows: PortfolioPlanEconomics[];
 }
 
-export const STT_PRICING_VALIDATED_ON = "2026-04-26";
+export const STT_PRICING_VALIDATED_ON = "2026-04-30";
 
 export const STT_PRICING_OPTIONS: SttPricingOption[] = [
   {
@@ -293,14 +293,14 @@ export const STT_PRICING_OPTIONS: SttPricingOption[] = [
     model: "nova-3",
     label: "Nova-3 Monolingual",
     mode: "streaming",
-    ratePerHourUsd: 0.462,
+    ratePerHourUsd: 0.288,
     diarization: "addon",
     languageCoverage: "monolingual",
     latencyProfile: "realtime",
     qualityProfile: "premium",
     sourceUrl: "https://deepgram.com/pricing",
     validatedOn: STT_PRICING_VALIDATED_ON,
-    notes: "Strong realtime alternative; $0.0077/min pay-as-you-go before diarization.",
+    notes: "Strong realtime alternative; $0.0048/min promotional pay-as-you-go before diarization.",
     billingUnit: "audio-minute",
     runtimeStatus: "adapter-needed",
     benchmark: {
@@ -326,14 +326,14 @@ export const STT_PRICING_OPTIONS: SttPricingOption[] = [
     model: "flux",
     label: "Flux",
     mode: "streaming",
-    ratePerHourUsd: 0.462,
+    ratePerHourUsd: 0.39,
     diarization: "addon",
     languageCoverage: "voice-agent model",
     latencyProfile: "realtime",
     qualityProfile: "premium",
     sourceUrl: "https://deepgram.com/pricing",
     validatedOn: STT_PRICING_VALIDATED_ON,
-    notes: "Conversational realtime model with turn-detection focus; $0.0077/min before add-ons.",
+    notes: "Conversational realtime model with turn-detection focus; $0.0065/min before add-ons.",
     billingUnit: "audio-minute",
     runtimeStatus: "adapter-needed",
     freeCreditUsd: 200,
@@ -352,14 +352,14 @@ export const STT_PRICING_OPTIONS: SttPricingOption[] = [
     model: "nova-3-multilingual",
     label: "Nova-3 Multilingual",
     mode: "streaming",
-    ratePerHourUsd: 0.552,
+    ratePerHourUsd: 0.348,
     diarization: "addon",
     languageCoverage: "multilingual",
     latencyProfile: "realtime",
     qualityProfile: "premium",
     sourceUrl: "https://deepgram.com/pricing",
     validatedOn: STT_PRICING_VALIDATED_ON,
-    notes: "$0.0092/min pay-as-you-go before diarization; use for multilingual realtime pilots.",
+    notes: "$0.0058/min promotional pay-as-you-go before diarization; use for multilingual realtime pilots.",
     billingUnit: "audio-minute",
     runtimeStatus: "adapter-needed",
     freeCreditUsd: 200,

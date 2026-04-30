@@ -17,7 +17,7 @@ export interface RecordingVoiceDirective {
 }
 
 const WAKE_PHRASE_PATTERN =
-  /^(?:hey|ok|okay)\s+(?:layer\s+one|layers?)\b[\s,.:;!?-]*(.*)$/i;
+  /^(?:hey|ok|okay)\s+layers?\b[\s,.:;!?-]*(.*)$/i;
 
 const REMOVE_LAST_PATTERN =
   /\b(?:remove|delete|erase|drop|undo|cut|take\s+out)\b.*\b(?:that|the|my|last|previous)\b|\b(?:scratch|undo)\s+that\b|\btake\s+that\s+out\b/;

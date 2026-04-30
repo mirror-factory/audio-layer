@@ -1,4 +1,4 @@
-# Layer One Audio -- Complete Build Specification
+# Layers -- Complete Build Specification
 
 **Version:** 0.0.1
 **Generated:** 2026-04-17
@@ -8,7 +8,7 @@
 
 ## 1. Product Overview
 
-Layer One Audio captures conversations passively (no meeting bot) and uses AI to extract structured, actionable data -- not just summaries, but budgets, timelines, decision makers, requirements, and pain points. It ships as web (Next.js on Vercel), macOS desktop (Tauri 2.x with Rust for ScreenCaptureKit system audio), and iOS mobile (Capacitor 8 WebView) from a single codebase. Users pick their own LLM and see per-meeting costs transparently.
+Layers captures conversations passively (no meeting bot) and uses AI to extract structured, actionable data -- not just summaries, but budgets, timelines, decision makers, requirements, and pain points. It ships as web (Next.js on Vercel), macOS desktop (Tauri 2.x with Rust for ScreenCaptureKit system audio), and iOS mobile (Capacitor 8 WebView) from a single codebase. Users pick their own LLM and see per-meeting costs transparently.
 
 ### The 5 Core Integrations
 
@@ -393,7 +393,7 @@ Supabase "Send Email" auth hook. When configured in Supabase dashboard (Authenti
 - `signup` / `email`: OTP code email
 - `recovery`: Password reset (magic link style)
 
-**Email sender:** `"audio-layer <onboarding@resend.dev>"` (update after custom domain verification)
+**Email sender:** `"Layers <onboarding@resend.dev>"` (update after custom domain verification)
 
 ### 3.11 Observability Routes
 
@@ -838,7 +838,7 @@ After streaming responses, flush Langfuse with `after(flushLangfuse)` to prevent
 ```typescript
 const config: CapacitorConfig = {
   appId: "com.mirrorfactory.audiolayer",
-  appName: "audio-layer",
+  appName: "Layers",
   webDir: "public",           // fallback bundle for offline
   backgroundColor: "#0a0a0a",
   server: {
@@ -872,7 +872,7 @@ const config: CapacitorConfig = {
 ```json
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Layer One",
+  "productName": "Layers",
   "version": "0.1.0",
   "identifier": "com.mirrorfactory.audiolayer",
   "build": {
@@ -883,7 +883,7 @@ const config: CapacitorConfig = {
   },
   "app": {
     "windows": [{
-      "title": "Layer One",
+      "title": "Layers",
       "titleBarStyle": "Overlay",
       "hiddenTitle": true,
       "backgroundColor": "#0a0a0a",
@@ -1502,11 +1502,11 @@ All templates use the monospace font stack matching the app aesthetic. Dark back
 
 | Template | Trigger | Subject |
 |---|---|---|
-| Magic Link | Supabase auth (login/magiclink) | "Sign in to audio-layer" |
-| OTP Code | Supabase auth (signup/email) | "Your audio-layer verification code" |
-| Welcome | After first sign-in | "Welcome to audio-layer" |
+| Magic Link | Supabase auth (login/magiclink) | "Sign in to Layers" |
+| OTP Code | Supabase auth (signup/email) | "Your Layers verification code" |
+| Welcome | After first sign-in | "Welcome to Layers" |
 | Meeting Ready | After meeting processing completes | "Meeting ready: {title}" |
 
 ---
 
-_This document contains everything needed to rebuild Layer One Audio from scratch. All code snippets are exact copies from the source. All configurations are complete. An agent reading this document should be able to produce a functionally equivalent application without referencing any other file._
+_This document contains everything needed to rebuild Layers from scratch. All code snippets are exact copies from the source. All configurations are complete. An agent reading this document should be able to produce a functionally equivalent application without referencing any other file._

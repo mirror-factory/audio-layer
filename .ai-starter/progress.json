@@ -1,8 +1,9 @@
 {
-  "currentPlanId": "2026-04-28T17-14-35-003Z-prepare-main-release-push-device",
-  "openTasks": [],
+  "currentPlanId": "2026-04-30T13-52-45-473Z-create-launch-checklist-and-agen",
+  "openTasks": [
+    "Add companions for app/page.tsx: playwright-smoke, screenshot, documentation"
+  ],
   "closedTasks": [
-    "Companions satisfied for app/dev-kit/registries/page.tsx",
     "Companions satisfied for app/dev-kit/regressions/page.tsx",
     "Companions satisfied for app/dev-kit/runs/page.tsx",
     "Companions satisfied for app/dev-kit/runs/[run_id]/page.tsx",
@@ -11,6 +12,7 @@
     "Companions satisfied for app/dev-kit/status/page.tsx",
     "Companions satisfied for app/dev-kit/tools/page.tsx",
     "Companions satisfied for app/docs/page.tsx",
+    "Companions satisfied for app/download/page.tsx",
     "Companions satisfied for app/meetings/page.tsx",
     "Companions satisfied for app/meetings/[id]/page.tsx",
     "Companions satisfied for app/oauth/consent/page.tsx",
@@ -26,17 +28,11 @@
     "Companions satisfied for app/sign-up/page.tsx",
     "Companions satisfied for app/usage/page.tsx",
     "Companions satisfied for app/.well-known/oauth-authorization-server/route.ts",
-    "Companions satisfied for app/.well-known/oauth-protected-resource/route.ts",
-    "Add companions for app/api/meetings/[id]/export/route.ts: integration-test, contract-check, documentation",
-    "Add companions for app/api/meetings/[id]/notes-package/route.ts: integration-test, contract-check, documentation",
-    "Add companions for app/page.tsx: playwright-smoke, screenshot, documentation",
-    "The new behavior is described in a machine-readable plan.",
-    "The affected surface has verification assets and updated manifests.",
-    "Typecheck and required tests pass."
+    "Companions satisfied for app/.well-known/oauth-protected-resource/route.ts"
   ],
   "filesInFlight": [],
   "evidenceStatus": [
-    "companions: 3 pending / 132 satisfied"
+    "companions: 1 pending / 138 satisfied"
   ],
-  "updatedAt": "2026-04-28T17:32:45.170248Z"
+  "updatedAt": "2026-04-30T14:13:10.040033Z"
 }

@@ -105,7 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Webhook delivery visibility** — added recent delivery listing for user webhooks plus a Supabase migration for webhook destinations and delivery logs.
 - **Local meeting chat fallback** — completed meeting chat can now answer from saved notes, actions, decisions, intake fields, and transcript segments when no AI model is configured.
 - **Recorder voice commands** — live recording now recognizes "Hey Layers" commands, removes the last transcript segment on scratch/remove requests, and passes action-style commands as private note-generation directives.
-- **MCP App visual polish** — updated the Claude MCP dashboard preview to use the current Layer One pastel/glass visual language.
+- **MCP App visual polish** — updated the Claude MCP dashboard preview to use the current Layers pastel/glass visual language.
 
 ### Fixed
 
@@ -137,8 +137,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Paper Calm UI direction** — moved the default capture experience toward the selected light, soft-green direction with a simpler mobile recorder, warmer desktop backdrop, and calmer foreground cards.
 - **Live desktop recording workspace** — active recording now shifts into a left capture panel with timer/details and a right live transcript panel, while shared app pages inherit the Paper Calm shell and transparent navigation.
 - **Signed-in home copy** — replaced the oversized "Capture without ceremony" headline with a compact date/time treatment above the recorder.
-- **Layer One reference UI match** — refreshed the signed-in home shell to follow the supplied desktop/mobile screens with a rounded app frame, reference-style three-column desktop layout, calendar connect art, quieter recent recordings, and a procedural audio ribbon.
-- **Layer One reference detail polish** — softened the audio ribbon with larger edge fades and subtle dot/star texture, added animated dotted calendar orbit details, removed noisy recent-row play/readiness pills, flattened the recorder nav chrome, and matched desktop frame heights across the three-column home layout.
+- **Layers reference UI match** — refreshed the signed-in home shell to follow the supplied desktop/mobile screens with a rounded app frame, reference-style three-column desktop layout, calendar connect art, quieter recent recordings, and a procedural audio ribbon.
+- **Layers reference detail polish** — softened the audio ribbon with larger edge fades and subtle dot/star texture, added animated dotted calendar orbit details, removed noisy recent-row play/readiness pills, flattened the recorder nav chrome, and matched desktop frame heights across the three-column home layout.
 - **Home clock polish** — balanced the recorder card spacing and changed the primary clock to lighter typography with smaller live seconds.
 - **Recorder ribbon motion** — increased the home ribbon's idle drift, ridge pulse, and breathing motion while keeping reduced-motion support.
 - **Calendar event date tiles** — upcoming meetings on the home screen now show compact calendar-style date tiles beside each connected event.

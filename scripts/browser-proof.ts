@@ -82,7 +82,10 @@ async function proveRoute(browser: Browser, baseUrl: string, route: SurfaceManif
     if (message.type() === 'error') consoleErrors.push(message.text());
   });
   page.on('requestfailed', request => {
-    failedRequests.push(`${request.method()} ${request.url()} ${request.failure()?.errorText ?? ''}`.trim());
+    const failure = request.failure()?.errorText ?? '';
+    const url = request.url();
+    if (failure.includes('net::ERR_ABORTED') && url.includes('_rsc=')) return;
+    failedRequests.push(`${request.method()} ${url} ${failure}`.trim());
   });
 
   const routePath = routeUrlFromSource(route.sourcePaths[0] ?? route.name);

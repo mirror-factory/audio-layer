@@ -22,6 +22,7 @@
     "evals": [],
     "docs": [
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/PRICING_ADMIN.md",
@@ -313,7 +314,8 @@
       "docs/APP_STORE_SCREENSHOTS.md",
       "docs/CALENDAR_INTEGRATION.md",
       "docs/apis/app-api-calendar-upcoming-route.md",
-      "docs/app-store/device-screenshots/2026-04-28/metadata.json"
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/app-store/device-screenshots/2026-04-29-release/metadata.json"
     ],
     "coverage": {
       "hasUnit": true,
@@ -356,6 +358,8 @@
       "tests/e2e/navigation.spec.ts",
       "tests/e2e/smoke.spec.ts",
       "tests/e2e/visual-regression.spec.ts",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-tablet-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-tablet-light-darwin.png",
       "tests/visual/chat-input.spec.ts",
       "tests/visual/chat-message.spec.ts",
       "tests/visual/meeting-chat.spec.ts"
@@ -366,15 +370,16 @@
       "docs/BUILD_SPEC.md",
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
       "docs/apis/api-ai-logs.md",
       "docs/apis/app-api-chat-route.md",
-      "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
       "docs/features/app-chat-page.md",
@@ -414,6 +419,7 @@
     "evals": [],
     "docs": [
       "docs/CLAUDE_MCP_TESTING.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/apis/api-ai-logs-errors.md",
       "docs/apis/api-ai-logs-stats.md",
       "docs/apis/api-ai-logs.md",
@@ -1058,6 +1064,7 @@
     ],
     "evals": [],
     "docs": [
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/apis/app-api-dev-kit-status-route.md",
       "docs/features/app-dev-kit-status-page.md"
@@ -1145,6 +1152,7 @@
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/MCP_AND_API.md",
       "docs/apis/app-api-health-route.md",
@@ -1194,6 +1202,7 @@
       "app/api/meetings/route.ts"
     ],
     "tests": [
+      "tests/agent-builder.test.ts",
       "tests/api-route-behavior.test.ts",
       "tests/assemblyai-schema.test.ts",
       "tests/billing-quota.test.ts",
@@ -1201,6 +1210,8 @@
       "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
       "tests/contracts/app-api-meetings-id-route.contract.test.ts",
       "tests/contracts/app-api-meetings-route.contract.test.ts",
+      "tests/contracts/meetings-i-export.contract.test.ts",
+      "tests/contracts/meetings-i-notes-package.contract.test.ts",
       "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
@@ -1209,6 +1220,8 @@
       "tests/integration/app-api-meetings-id-route.test.ts",
       "tests/integration/app-api-meetings-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-route.test.ts",
+      "tests/integration/meetings-i-export.test.ts",
+      "tests/integration/meetings-i-notes-package.test.ts",
       "tests/live-meeting-signals.test.ts",
       "tests/mcp/protocol.test.ts",
       "tests/mcp/tools.test.ts",
@@ -1218,6 +1231,8 @@
       "tests/notes-push.test.ts",
       "tests/recording-calendar-context.test.ts",
       "tests/tools/ai-tools.test.ts",
+      "tests/unit/listRecentMeetings.test.ts",
+      "tests/unit/searchMeetings.test.ts",
       "components/meeting-search.test.tsx"
     ],
     "stories": [
@@ -1232,7 +1247,13 @@
       "tests/e2e/meetings.spec.ts",
       "tests/e2e/navigation.spec.ts",
       "tests/e2e/smoke.spec.ts",
-      "tests/visual/meeting-search.spec.ts"
+      "tests/visual/meeting-search.spec.ts",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-light-desktop-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-light-mobile-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -1242,9 +1263,11 @@
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/HOME_UI_POLISH.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_AND_BILLING.md",
@@ -1256,7 +1279,11 @@
       "docs/apis/app-api-meetings-id-notes-package-route.md",
       "docs/apis/app-api-meetings-id-route.md",
       "docs/apis/app-api-meetings-route.md",
+      "docs/apis/meetings-i-export.md",
+      "docs/apis/meetings-i-notes-package.md",
       "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/app-store/device-screenshots/2026-04-29-release/metadata.json",
+      "docs/components/session-workspace.md",
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
@@ -1286,12 +1313,16 @@
       "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
       "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
       "tests/contracts/app-api-meetings-id-route.contract.test.ts",
+      "tests/contracts/meetings-i-export.contract.test.ts",
+      "tests/contracts/meetings-i-notes-package.contract.test.ts",
       "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/integration/app-api-meetings-id-route.failure-modes.test.ts",
-      "tests/integration/app-api-meetings-id-route.test.ts"
+      "tests/integration/app-api-meetings-id-route.test.ts",
+      "tests/integration/meetings-i-export.test.ts",
+      "tests/integration/meetings-i-notes-package.test.ts"
     ],
     "stories": [],
     "visualSpecs": [
@@ -1309,6 +1340,9 @@
       "docs/apis/app-api-meetings-id-export-route.md",
       "docs/apis/app-api-meetings-id-notes-package-route.md",
       "docs/apis/app-api-meetings-id-route.md",
+      "docs/apis/meetings-i-export.md",
+      "docs/apis/meetings-i-notes-package.md",
+      "docs/components/session-workspace.md",
       "docs/features/app-meetings-id-page.md"
     ],
     "coverage": {
@@ -1327,14 +1361,17 @@
     ],
     "tests": [
       "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
+      "tests/contracts/meetings-i-export.contract.test.ts",
       "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
-      "tests/integration/app-api-meetings-id-export-route.test.ts"
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/meetings-i-export.test.ts"
     ],
     "stories": [],
     "visualSpecs": [],
     "evals": [],
     "docs": [
-      "docs/apis/app-api-meetings-id-export-route.md"
+      "docs/apis/app-api-meetings-id-export-route.md",
+      "docs/apis/meetings-i-export.md"
     ],
     "coverage": {
       "hasUnit": true,
@@ -1353,8 +1390,10 @@
     "tests": [
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/contracts/meetings-i-notes-package.contract.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
-      "tests/integration/app-api-meetings-id-notes-package-route.test.ts"
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
+      "tests/integration/meetings-i-notes-package.test.ts"
     ],
     "stories": [],
     "visualSpecs": [],
@@ -1362,7 +1401,8 @@
     "docs": [
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
-      "docs/apis/app-api-meetings-id-notes-package-route.md"
+      "docs/apis/app-api-meetings-id-notes-package-route.md",
+      "docs/apis/meetings-i-notes-package.md"
     ],
     "coverage": {
       "hasUnit": true,
@@ -1396,8 +1436,10 @@
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
@@ -1434,6 +1476,7 @@
     "visualSpecs": [],
     "evals": [],
     "docs": [
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/MCP_AND_API.md",
       "docs/apis/app-api-oauth-authorize-route.md"
     ],
@@ -1487,6 +1530,7 @@
     ],
     "evals": [],
     "docs": [
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/MCP_AND_API.md",
       "docs/apis/app-api-oauth-consent-route.md",
       "docs/features/app-oauth-consent-page.md"
@@ -1590,9 +1634,12 @@
       "app/api/search/route.ts"
     ],
     "tests": [
+      "tests/agent-builder.test.ts",
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-search-route.contract.test.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/integration/app-api-search-route.failure-modes.test.ts",
       "tests/integration/app-api-search-route.test.ts",
       "tests/mcp/protocol.test.ts",
@@ -1601,11 +1648,13 @@
       "tests/tools/ai-tools.test.ts",
       "tests/unit/components/ai-debug-panel.test.tsx",
       "tests/unit/search-docs.test.ts",
+      "tests/unit/searchMeetings.test.ts",
       "components/meeting-search.test.tsx"
     ],
     "stories": [
       "components/ai-debug-panel.stories.tsx",
-      "components/meeting-search.stories.tsx"
+      "components/meeting-search.stories.tsx",
+      "components/session-workspace.stories.tsx"
     ],
     "visualSpecs": [
       "tests/e2e/ai-debug-panel.visual.test.ts",
@@ -1613,7 +1662,13 @@
       "tests/e2e/feature-checklist.spec.ts",
       "tests/e2e/meeting-search.visual.spec.ts",
       "tests/e2e/navigation.spec.ts",
-      "tests/visual/meeting-search.spec.ts"
+      "tests/visual/meeting-search.spec.ts",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-light-desktop-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-light-mobile-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -1622,8 +1677,10 @@
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
@@ -1631,6 +1688,7 @@
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
+      "docs/features/app-page.md",
       "docs/features/app-search-page.md",
       "docs/guides/AI-STARTER-HUB.md",
       "docs/mfdr/MFDR-001.md",
@@ -1674,15 +1732,23 @@
       "tests/e2e/navigation.spec.ts",
       "tests/e2e/smoke.spec.ts",
       "tests/e2e/visual-regression.spec.ts",
-      "tests/visual/integrations-settings-panel.spec.ts"
+      "tests/visual/integrations-settings-panel.spec.ts",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-desktop-light-desktop-light-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-mobile-light-mobile-light-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/CALENDAR_INTEGRATION.md",
       "docs/CLAUDE_MCP_TESTING.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_ADMIN.md",
@@ -1726,6 +1792,8 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/V1_PLAN.md",
@@ -1755,6 +1823,7 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/apis/app-api-stripe-webhook-route.md"
@@ -1802,7 +1871,9 @@
       "docs/BUILD_SPEC.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
@@ -1817,6 +1888,7 @@
       "docs/apis/app-api-transcribe-stream-preflight-route.md",
       "docs/apis/app-api-transcribe-stream-token-route.md",
       "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/app-store/device-screenshots/2026-04-29-release/metadata.json",
       "docs/mfdr/MFDR-001.md"
     ],
     "coverage": {
@@ -1928,7 +2000,8 @@
       "docs/PRICING_ADMIN.md",
       "docs/RECORDING_RELIABILITY.md",
       "docs/apis/app-api-transcribe-stream-preflight-route.md",
-      "docs/app-store/device-screenshots/2026-04-28/metadata.json"
+      "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/app-store/device-screenshots/2026-04-29-release/metadata.json"
     ],
     "coverage": {
       "hasUnit": true,
@@ -1989,6 +2062,7 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_AND_BILLING.md",
@@ -2033,6 +2107,36 @@
     }
   },
   {
+    "id": "component:agent-builder",
+    "kind": "component",
+    "name": "agent-builder",
+    "sourcePaths": [
+      "components/agent-builder.tsx"
+    ],
+    "tests": [
+      "tests/agent-builder.test.ts",
+      "components/agent-builder.test.tsx"
+    ],
+    "stories": [
+      "components/agent-builder.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/agent-builder.visual.spec.ts",
+      "tests/e2e/app-agent-builder-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/components/agent-builder.md",
+      "docs/features/app-agent-builder-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
     "id": "component:ai-debug-panel",
     "kind": "component",
     "name": "ai-debug-panel",
@@ -2050,7 +2154,13 @@
     "visualSpecs": [
       "tests/e2e/ai-debug-panel.visual.spec.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
-      "tests/visual/ai-debug-panel.spec.ts"
+      "tests/visual/ai-debug-panel.spec.ts",
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-desktop-light-desktop-light-darwin.png",
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-mobile-light-mobile-light-darwin.png",
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -2128,7 +2238,8 @@
       "components/audio-wave-ribbon.test.tsx"
     ],
     "stories": [
-      "components/audio-wave-ribbon.stories.tsx"
+      "components/audio-wave-ribbon.stories.tsx",
+      "components/session-workspace.stories.tsx"
     ],
     "visualSpecs": [
       "tests/e2e/audio-wave-ribbon.visual.spec.ts"
@@ -2158,7 +2269,8 @@
     ],
     "stories": [
       "components/button.stories.tsx",
-      "components/liquid-glass-button.stories.tsx"
+      "components/liquid-glass-button.stories.tsx",
+      "components/session-workspace.stories.tsx"
     ],
     "visualSpecs": [
       "tests/e2e/button.visual.spec.ts",
@@ -2174,10 +2286,12 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/MCP_AND_API.md",
       "docs/RECORDING_RELIABILITY.md",
-      "docs/design/app-store-screenshots.html",
+      "docs/components/agent-builder.md",
+      "docs/components/session-workspace.md",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
       "docs/mfdr/MFDR-001.md",
@@ -2293,7 +2407,13 @@
     ],
     "visualSpecs": [
       "tests/e2e/integrations-settings-panel.visual.spec.ts",
-      "tests/visual/integrations-settings-panel.spec.ts"
+      "tests/visual/integrations-settings-panel.spec.ts",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-desktop-light-desktop-light-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-mobile-light-mobile-light-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -2352,6 +2472,7 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/RECORDING_RELIABILITY.md",
       "docs/V1_PLAN.md",
@@ -2414,6 +2535,7 @@
     "docs": [
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/FEATURE_TEST_PLAN.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
       "docs/style-guide.md"
@@ -2496,7 +2618,13 @@
     ],
     "visualSpecs": [
       "tests/e2e/meeting-intelligence-panel.visual.spec.ts",
-      "tests/visual/meeting-intelligence-panel.spec.ts"
+      "tests/visual/meeting-intelligence-panel.spec.ts",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-desktop-light-desktop-light-darwin.png",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-mobile-light-mobile-light-darwin.png",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [],
@@ -2522,7 +2650,13 @@
     ],
     "visualSpecs": [
       "tests/e2e/meeting-notes-push-panel.visual.spec.ts",
-      "tests/visual/meeting-notes-push-panel.spec.ts"
+      "tests/visual/meeting-notes-push-panel.spec.ts",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-desktop-light-desktop-light-darwin.png",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-mobile-light-mobile-light-darwin.png",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -2543,6 +2677,7 @@
       "components/meeting-search.tsx"
     ],
     "tests": [
+      "tests/agent-builder.test.ts",
       "components/meeting-search.test.tsx"
     ],
     "stories": [
@@ -2551,7 +2686,13 @@
     "visualSpecs": [
       "tests/e2e/feature-checklist.spec.ts",
       "tests/e2e/meeting-search.visual.spec.ts",
-      "tests/visual/meeting-search.spec.ts"
+      "tests/visual/meeting-search.spec.ts",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-light-desktop-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-light-mobile-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -2581,7 +2722,13 @@
     ],
     "visualSpecs": [
       "tests/e2e/mobile-primary-nav.visual.spec.ts",
-      "tests/visual/mobile-primary-nav.spec.ts"
+      "tests/visual/mobile-primary-nav.spec.ts",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-desktop-light-desktop-light-darwin.png",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-mobile-light-mobile-light-darwin.png",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [],
@@ -2608,13 +2755,47 @@
     ],
     "visualSpecs": [
       "tests/e2e/recording-reminder.visual.spec.ts",
-      "tests/visual/recording-reminder.spec.ts"
+      "tests/visual/recording-reminder.spec.ts",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-desktop-light-desktop-light-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-mobile-light-mobile-light-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
       "docs/CALENDAR_INTEGRATION.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/RECORDING_REMINDERS.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "component:session-workspace",
+    "kind": "component",
+    "name": "session-workspace",
+    "sourcePaths": [
+      "components/session-workspace.tsx"
+    ],
+    "tests": [
+      "components/session-workspace.test.tsx"
+    ],
+    "stories": [
+      "components/session-workspace.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/session-workspace.visual.spec.ts",
+      "tests/visual/session-workspace.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/components/session-workspace.md"
     ],
     "coverage": {
       "hasUnit": true,
@@ -2826,6 +3007,7 @@
     "evals": [],
     "docs": [
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/PRICING_ADMIN.md",
@@ -2838,6 +3020,36 @@
     "coverage": {
       "hasUnit": true,
       "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:agent-builder",
+    "kind": "route",
+    "name": "agent-builder",
+    "sourcePaths": [
+      "app/agent-builder/page.tsx"
+    ],
+    "tests": [
+      "tests/agent-builder.test.ts",
+      "components/agent-builder.test.tsx"
+    ],
+    "stories": [
+      "components/agent-builder.stories.tsx"
+    ],
+    "visualSpecs": [
+      "tests/e2e/agent-builder.visual.spec.ts",
+      "tests/e2e/app-agent-builder-page.smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/components/agent-builder.md",
+      "docs/features/app-agent-builder-page.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": true,
       "hasVisual": true,
       "hasEval": false
     }
@@ -2879,6 +3091,9 @@
     "tests": [
       "tests/api-route-behavior.test.ts",
       "tests/assemblyai-schema.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/mcp/tools.test.ts",
       "tests/meeting-chat-fallback.test.ts",
       "tests/meeting-export.test.ts",
@@ -2889,9 +3104,42 @@
     "stories": [],
     "visualSpecs": [
       "tests/e2e/app-ask-page.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts",
       "tests/e2e/meetings.spec.ts",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-desktop-mobile-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-desktop-mobile-light-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-desktop-tablet-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-desktop-tablet-light-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-desktop-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-desktop-light-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-mobile-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-mobile-light-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-tablet-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-tablet-light-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-tablet-mobile-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-tablet-mobile-light-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-tablet-tablet-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-tablet-tablet-light-darwin.png",
       "tests/visual/README.md",
-      "tests/visual/visual.sample.spec.ts"
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/ai-debug-panel.spec.ts-snapshots/ai-debug-panel-tablet-light-tablet-light-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-light-tablet-light-darwin.png",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-intelligence-panel.spec.ts-snapshots/meeting-intelligence-panel-tablet-light-tablet-light-darwin.png",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-notes-push-panel.spec.ts-snapshots/meeting-notes-push-panel-tablet-light-tablet-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-light-tablet-light-darwin.png",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/mobile-primary-nav.spec.ts-snapshots/mobile-primary-nav-tablet-light-tablet-light-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-tablet-light-tablet-light-darwin.png",
+      "tests/visual/visual.sample.spec.ts",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-mobile-light-mobile-light-darwin.png",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -2899,13 +3147,27 @@
       "docs/BUILD_SPEC.md",
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
+      "docs/apis/app-api-meetings-id-notes-package-route.md",
       "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-dark.png",
       "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-light.png",
       "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-dark.png",
       "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-light.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/ipad-pro-12-9-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/ipad-pro-12-9-home-light.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/iphone-15-pro-max-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/iphone-15-pro-max-home-light.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/01-fast-record.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/02-bot-free.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/03-structured-intake.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/04-ask-library.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/05-cost-control.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/metadata.json",
+      "docs/components/session-workspace.md",
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
@@ -3027,6 +3289,8 @@
       "tests/e2e/navigation.spec.ts",
       "tests/e2e/smoke.spec.ts",
       "tests/e2e/visual-regression.spec.ts",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-tablet-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-mobile-tablet-light-darwin.png",
       "tests/visual/chat-input.spec.ts",
       "tests/visual/chat-message.spec.ts",
       "tests/visual/meeting-chat.spec.ts"
@@ -3037,15 +3301,16 @@
       "docs/BUILD_SPEC.md",
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
       "docs/apis/api-ai-logs.md",
       "docs/apis/app-api-chat-route.md",
-      "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
       "docs/features/app-chat-page.md",
@@ -3085,6 +3350,7 @@
     "evals": [],
     "docs": [
       "docs/CLAUDE_MCP_TESTING.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/apis/api-ai-logs-errors.md",
       "docs/apis/api-ai-logs-stats.md",
       "docs/apis/api-ai-logs.md",
@@ -3208,8 +3474,10 @@
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
@@ -3821,6 +4089,7 @@
     ],
     "evals": [],
     "docs": [
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/apis/app-api-dev-kit-status-route.md",
       "docs/features/app-dev-kit-status-page.md"
@@ -3874,7 +4143,9 @@
     "stories": [],
     "visualSpecs": [
       "tests/e2e/app-docs-page.smoke.spec.ts",
-      "tests/e2e/smoke.spec.ts"
+      "tests/e2e/smoke.spec.ts",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-desktop-light-desktop-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -3885,9 +4156,11 @@
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/HOME_UI_POLISH.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_ADMIN.md",
@@ -3966,18 +4239,34 @@
       "docs/apis/app-api-transcribe-stream-token-route.md",
       "docs/apis/app-api-webhooks-deliveries-route.md",
       "docs/apis/app-api-webhooks-route.md",
+      "docs/apis/meetings-i-export.md",
+      "docs/apis/meetings-i-notes-package.md",
       "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-dark.png",
       "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-light.png",
       "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-dark.png",
       "docs/app-store/device-screenshots/2026-04-28/iphone-15-pro-max-home-light.png",
       "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/app-store/device-screenshots/2026-04-29-release/ipad-pro-12-9-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/ipad-pro-12-9-home-light.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/iphone-15-pro-max-home-dark.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/iphone-15-pro-max-home-light.png",
+      "docs/app-store/device-screenshots/2026-04-29-release/metadata.json",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/01-fast-record.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/02-bot-free.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/03-structured-intake.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/04-ask-library.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/05-cost-control.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/metadata.json",
       "docs/brand-guide.md",
       "docs/brand-guide.md.template",
+      "docs/components/agent-builder.md",
       "docs/components/audio-wave-ribbon.md",
+      "docs/components/session-workspace.md",
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
       "docs/features/app-admin-pricing-page.md",
+      "docs/features/app-agent-builder-page.md",
       "docs/features/app-ai-starter-page.md",
       "docs/features/app-ask-page.md",
       "docs/features/app-auth-callback-route.md",
@@ -4007,6 +4296,7 @@
       "docs/features/app-dev-kit-status-page.md",
       "docs/features/app-dev-kit-tools-page.md",
       "docs/features/app-docs-page.md",
+      "docs/features/app-download-page.md",
       "docs/features/app-meetings-id-page.md",
       "docs/features/app-meetings-page.md",
       "docs/features/app-oauth-consent-page.md",
@@ -4039,6 +4329,39 @@
     }
   },
   {
+    "id": "route:download",
+    "kind": "route",
+    "name": "download",
+    "sourcePaths": [
+      "app/download/page.tsx"
+    ],
+    "tests": [
+      "tests/e2e/api-control-plane.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts"
+    ],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-download-page.smoke.spec.ts",
+      "tests/e2e/mobile.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/LAUNCH_CHECKLIST.md",
+      "docs/apis/api-control-plane.md",
+      "docs/apis/app-api-meetings-id-export-route.md",
+      "docs/features/app-download-page.md",
+      "docs/features/app-page.md",
+      "docs/mfdr/MFDR-001.md"
+    ],
+    "coverage": {
+      "hasUnit": true,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
     "id": "route:meetings",
     "kind": "route",
     "name": "meetings",
@@ -4046,6 +4369,7 @@
       "app/meetings/page.tsx"
     ],
     "tests": [
+      "tests/agent-builder.test.ts",
       "tests/api-route-behavior.test.ts",
       "tests/assemblyai-schema.test.ts",
       "tests/billing-quota.test.ts",
@@ -4053,6 +4377,8 @@
       "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
       "tests/contracts/app-api-meetings-id-route.contract.test.ts",
       "tests/contracts/app-api-meetings-route.contract.test.ts",
+      "tests/contracts/meetings-i-export.contract.test.ts",
+      "tests/contracts/meetings-i-notes-package.contract.test.ts",
       "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
@@ -4061,6 +4387,8 @@
       "tests/integration/app-api-meetings-id-route.test.ts",
       "tests/integration/app-api-meetings-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-route.test.ts",
+      "tests/integration/meetings-i-export.test.ts",
+      "tests/integration/meetings-i-notes-package.test.ts",
       "tests/live-meeting-signals.test.ts",
       "tests/mcp/protocol.test.ts",
       "tests/mcp/tools.test.ts",
@@ -4070,6 +4398,8 @@
       "tests/notes-push.test.ts",
       "tests/recording-calendar-context.test.ts",
       "tests/tools/ai-tools.test.ts",
+      "tests/unit/listRecentMeetings.test.ts",
+      "tests/unit/searchMeetings.test.ts",
       "components/meeting-search.test.tsx"
     ],
     "stories": [
@@ -4084,7 +4414,13 @@
       "tests/e2e/meetings.spec.ts",
       "tests/e2e/navigation.spec.ts",
       "tests/e2e/smoke.spec.ts",
-      "tests/visual/meeting-search.spec.ts"
+      "tests/visual/meeting-search.spec.ts",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-light-desktop-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-light-mobile-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -4094,9 +4430,11 @@
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/HOME_UI_POLISH.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_AND_BILLING.md",
@@ -4108,7 +4446,11 @@
       "docs/apis/app-api-meetings-id-notes-package-route.md",
       "docs/apis/app-api-meetings-id-route.md",
       "docs/apis/app-api-meetings-route.md",
+      "docs/apis/meetings-i-export.md",
+      "docs/apis/meetings-i-notes-package.md",
       "docs/app-store/device-screenshots/2026-04-28/metadata.json",
+      "docs/app-store/device-screenshots/2026-04-29-release/metadata.json",
+      "docs/components/session-workspace.md",
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
@@ -4138,12 +4480,16 @@
       "tests/contracts/app-api-meetings-id-export-route.contract.test.ts",
       "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
       "tests/contracts/app-api-meetings-id-route.contract.test.ts",
+      "tests/contracts/meetings-i-export.contract.test.ts",
+      "tests/contracts/meetings-i-notes-package.contract.test.ts",
       "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/integration/app-api-meetings-id-route.failure-modes.test.ts",
-      "tests/integration/app-api-meetings-id-route.test.ts"
+      "tests/integration/app-api-meetings-id-route.test.ts",
+      "tests/integration/meetings-i-export.test.ts",
+      "tests/integration/meetings-i-notes-package.test.ts"
     ],
     "stories": [],
     "visualSpecs": [
@@ -4161,6 +4507,9 @@
       "docs/apis/app-api-meetings-id-export-route.md",
       "docs/apis/app-api-meetings-id-notes-package-route.md",
       "docs/apis/app-api-meetings-id-route.md",
+      "docs/apis/meetings-i-export.md",
+      "docs/apis/meetings-i-notes-package.md",
+      "docs/components/session-workspace.md",
       "docs/features/app-meetings-id-page.md"
     ],
     "coverage": {
@@ -4188,6 +4537,7 @@
     ],
     "evals": [],
     "docs": [
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/MCP_AND_API.md",
       "docs/apis/app-api-oauth-consent-route.md",
       "docs/features/app-oauth-consent-page.md"
@@ -4223,6 +4573,7 @@
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/SIMPLE_UI_DIRECTION.md",
@@ -4254,11 +4605,16 @@
       "tests/e2e/ai-debug-panel.visual.test.ts",
       "tests/theme-css.test.ts"
     ],
-    "stories": [],
+    "stories": [
+      "components/agent-builder.stories.tsx",
+      "components/session-workspace.stories.tsx"
+    ],
     "visualSpecs": [
+      "tests/e2e/agent-builder.visual.spec.ts",
       "tests/e2e/ai-debug-panel.visual.spec.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
       "tests/e2e/app-admin-pricing-page.smoke.spec.ts",
+      "tests/e2e/app-agent-builder-page.smoke.spec.ts",
       "tests/e2e/app-ai-starter-page.smoke.spec.ts",
       "tests/e2e/app-ask-page.smoke.spec.ts",
       "tests/e2e/app-auth-callback-route.smoke.spec.ts",
@@ -4288,6 +4644,7 @@
       "tests/e2e/app-dev-kit-status-page.smoke.spec.ts",
       "tests/e2e/app-dev-kit-tools-page.smoke.spec.ts",
       "tests/e2e/app-docs-page.smoke.spec.ts",
+      "tests/e2e/app-download-page.smoke.spec.ts",
       "tests/e2e/app-meetings-id-page.smoke.spec.ts",
       "tests/e2e/app-meetings-page.smoke.spec.ts",
       "tests/e2e/app-oauth-consent-page.smoke.spec.ts",
@@ -4329,6 +4686,7 @@
       "tests/e2e/mobile.spec.ts",
       "tests/e2e/navigation.spec.ts",
       "tests/e2e/recording-reminder.visual.spec.ts",
+      "tests/e2e/session-workspace.visual.spec.ts",
       "tests/e2e/slide-menu.visual.spec.ts",
       "tests/e2e/smoke.spec.ts",
       "tests/e2e/theme-toggle.visual.spec.ts",
@@ -4336,6 +4694,8 @@
       "tests/e2e/top-bar.visual.spec.ts",
       "tests/e2e/transcript-view.visual.spec.ts",
       "tests/e2e/visual-regression.spec.ts",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-desktop-mobile-dark-darwin.png",
+      "tests/e2e/visual-regression.spec.ts-snapshots/home-desktop-mobile-light-darwin.png",
       "tests/e2e/web-gl-shader.visual.spec.ts",
       "tests/visual/README.md",
       "tests/visual/ai-debug-panel.spec.ts",
@@ -4357,12 +4717,17 @@
       "tests/visual/meeting-search.spec.ts",
       "tests/visual/mobile-primary-nav.spec.ts",
       "tests/visual/recording-reminder.spec.ts",
+      "tests/visual/session-workspace.spec.ts",
       "tests/visual/slide-menu.spec.ts",
       "tests/visual/theme-toggle.spec.ts",
       "tests/visual/tool-card.spec.ts",
       "tests/visual/top-bar.spec.ts",
       "tests/visual/transcript-view.spec.ts",
       "tests/visual/visual.sample.spec.ts",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-desktop-light-desktop-light-darwin.png",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/visual.sample.spec.ts-snapshots/home-tablet-light-tablet-light-darwin.png",
       "tests/visual/web-gl-shader.spec.ts"
     ],
     "evals": [],
@@ -4370,8 +4735,10 @@
       "docs/BUILD_SPEC.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_ADMIN.md",
@@ -4386,10 +4753,13 @@
       "docs/apis/api-ai-logs.md",
       "docs/apis/api-control-plane.md",
       "docs/app-store/device-screenshots/2026-04-28/ipad-pro-12-9-home-light.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/02-bot-free.png",
       "docs/brand-guide.md",
       "docs/brand-guide.md.template",
+      "docs/components/session-workspace.md",
       "docs/design/simple-ui-concepts.html",
       "docs/features/app-admin-pricing-page.md",
+      "docs/features/app-agent-builder-page.md",
       "docs/features/app-ai-starter-page.md",
       "docs/features/app-ask-page.md",
       "docs/features/app-auth-confirm-page.md",
@@ -4417,6 +4787,7 @@
       "docs/features/app-dev-kit-status-page.md",
       "docs/features/app-dev-kit-tools-page.md",
       "docs/features/app-docs-page.md",
+      "docs/features/app-download-page.md",
       "docs/features/app-meetings-id-page.md",
       "docs/features/app-meetings-page.md",
       "docs/features/app-oauth-consent-page.md",
@@ -4439,7 +4810,7 @@
     ],
     "coverage": {
       "hasUnit": true,
-      "hasStory": false,
+      "hasStory": true,
       "hasVisual": true,
       "hasEval": false
     }
@@ -4486,8 +4857,10 @@
       "docs/BUILD_SPEC.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
@@ -4499,8 +4872,10 @@
       "docs/V1_PLAN.md",
       "docs/apis/app-api-admin-pricing-activate-route.md",
       "docs/apis/app-api-admin-pricing-route.md",
+      "docs/design/app-store-screenshots.html",
       "docs/design/ui-style-variations.html",
       "docs/features/app-admin-pricing-page.md",
+      "docs/features/app-page.md",
       "docs/features/app-pricing-page.md",
       "docs/mfdr/MFDR-001.md"
     ],
@@ -4534,7 +4909,9 @@
       "docs/BUILD_SPEC.md",
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
@@ -4561,6 +4938,8 @@
       "tests/api-route-behavior.test.ts",
       "tests/billing-quota.test.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/live-meeting-signals.test.ts",
       "tests/mcp/auth.test.ts",
       "tests/mcp/protocol.test.ts",
@@ -4581,7 +4960,8 @@
     "stories": [
       "components/audio-recorder.stories.tsx",
       "components/live-recorder.stories.tsx",
-      "components/recording-reminder.stories.tsx"
+      "components/recording-reminder.stories.tsx",
+      "components/session-workspace.stories.tsx"
     ],
     "visualSpecs": [
       "tests/e2e/ai-debug-panel.visual.test.ts",
@@ -4598,7 +4978,14 @@
       "tests/e2e/smoke.spec.ts",
       "tests/visual/audio-recorder.spec.ts",
       "tests/visual/live-recorder.spec.ts",
-      "tests/visual/recording-reminder.spec.ts"
+      "tests/visual/recording-reminder.spec.ts",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-desktop-light-desktop-light-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-mobile-light-mobile-light-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/recording-reminder.spec.ts-snapshots/recording-reminder-tablet-light-tablet-light-darwin.png",
+      "tests/visual/session-workspace.spec.ts"
     ],
     "evals": [],
     "docs": [
@@ -4608,9 +4995,11 @@
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/HOME_UI_POLISH.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_ADMIN.md",
@@ -4624,8 +5013,11 @@
       "docs/V1_PLAN.md",
       "docs/apis/api-ai-logs-errors.md",
       "docs/apis/api-ai-logs.md",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/01-fast-record.png",
+      "docs/app-store/marketing-screenshots/2026-04-29-release/metadata.json",
       "docs/brand-guide.md",
       "docs/components/audio-wave-ribbon.md",
+      "docs/components/session-workspace.md",
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
@@ -4657,16 +5049,19 @@
       "tests/e2e/feature-checklist.spec.ts",
       "tests/e2e/meetings.spec.ts",
       "tests/e2e/mobile-polish.spec.ts",
-      "tests/e2e/smoke.spec.ts"
+      "tests/e2e/smoke.spec.ts",
+      "tests/visual/session-workspace.spec.ts"
     ],
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/MCP_AND_API.md",
       "docs/RECORDING_RELIABILITY.md",
       "docs/RECORDING_REMINDERS.md",
       "docs/V1_PLAN.md",
+      "docs/components/session-workspace.md",
       "docs/features/app-record-live-page.md"
     ],
     "coverage": {
@@ -4684,9 +5079,13 @@
       "app/roadmap/page.tsx"
     ],
     "tests": [
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/mcp/tools.test.ts"
     ],
-    "stories": [],
+    "stories": [
+      "components/session-workspace.stories.tsx"
+    ],
     "visualSpecs": [
       "tests/e2e/app-roadmap-page.smoke.spec.ts",
       "tests/e2e/navigation.spec.ts"
@@ -4700,7 +5099,7 @@
     ],
     "coverage": {
       "hasUnit": true,
-      "hasStory": false,
+      "hasStory": true,
       "hasVisual": true,
       "hasEval": false
     }
@@ -4713,9 +5112,12 @@
       "app/search/page.tsx"
     ],
     "tests": [
+      "tests/agent-builder.test.ts",
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-search-route.contract.test.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/integration/app-api-search-route.failure-modes.test.ts",
       "tests/integration/app-api-search-route.test.ts",
       "tests/mcp/protocol.test.ts",
@@ -4724,11 +5126,13 @@
       "tests/tools/ai-tools.test.ts",
       "tests/unit/components/ai-debug-panel.test.tsx",
       "tests/unit/search-docs.test.ts",
+      "tests/unit/searchMeetings.test.ts",
       "components/meeting-search.test.tsx"
     ],
     "stories": [
       "components/ai-debug-panel.stories.tsx",
-      "components/meeting-search.stories.tsx"
+      "components/meeting-search.stories.tsx",
+      "components/session-workspace.stories.tsx"
     ],
     "visualSpecs": [
       "tests/e2e/ai-debug-panel.visual.test.ts",
@@ -4736,7 +5140,13 @@
       "tests/e2e/feature-checklist.spec.ts",
       "tests/e2e/meeting-search.visual.spec.ts",
       "tests/e2e/navigation.spec.ts",
-      "tests/visual/meeting-search.spec.ts"
+      "tests/visual/meeting-search.spec.ts",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-desktop-light-desktop-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-mobile-light-mobile-light-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/meeting-search.spec.ts-snapshots/meeting-search-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
@@ -4745,8 +5155,10 @@
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
@@ -4754,6 +5166,7 @@
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
+      "docs/features/app-page.md",
       "docs/features/app-search-page.md",
       "docs/guides/AI-STARTER-HUB.md",
       "docs/mfdr/MFDR-001.md",
@@ -4797,15 +5210,23 @@
       "tests/e2e/navigation.spec.ts",
       "tests/e2e/smoke.spec.ts",
       "tests/e2e/visual-regression.spec.ts",
-      "tests/visual/integrations-settings-panel.spec.ts"
+      "tests/visual/integrations-settings-panel.spec.ts",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-desktop-dark-desktop-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-desktop-light-desktop-light-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-mobile-dark-mobile-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-mobile-light-mobile-light-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-dark-tablet-dark-darwin.png",
+      "tests/visual/integrations-settings-panel.spec.ts-snapshots/integrations-settings-panel-tablet-light-tablet-light-darwin.png"
     ],
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/CALENDAR_INTEGRATION.md",
       "docs/CLAUDE_MCP_TESTING.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_ADMIN.md",
@@ -4850,7 +5271,9 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/SUPABASE_MCP_OAUTH_SETUP.md",
@@ -4884,7 +5307,9 @@
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/features/app-sign-up-page.md"
     ],
     "coverage": {
@@ -4918,7 +5343,9 @@
       "docs/BUILD_SPEC.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/LAUNCH_CHECKLIST.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
@@ -4950,6 +5377,9 @@
     "tests": [
       "tests/api-route-behavior.test.ts",
       "tests/assemblyai-schema.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/mcp/tools.test.ts",
       "tests/meeting-chat-fallback.test.ts",
       "tests/meeting-export.test.ts",
@@ -4959,18 +5389,21 @@
     ],
     "stories": [],
     "visualSpecs": [
-      "tests/e2e/app-well-known-oauth-authorization-server-route.smoke.spec.ts"
+      "tests/e2e/app-well-known-oauth-authorization-server-route.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts"
     ],
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/MCP_AND_API.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SUPABASE_MCP_OAUTH_SETUP.md",
       "docs/V1_PLAN.md",
-      "docs/design/app-store-screenshots.html",
+      "docs/app-store/device-screenshots/2026-04-29-release/ipad-pro-12-9-home-dark.png",
+      "docs/components/session-workspace.md",
       "docs/features/app-well-known-oauth-authorization-server-route.md"
     ],
     "coverage": {
@@ -4990,6 +5423,9 @@
     "tests": [
       "tests/api-route-behavior.test.ts",
       "tests/assemblyai-schema.test.ts",
+      "tests/contracts/app-api-meetings-id-notes-package-route.contract.test.ts",
+      "tests/integration/app-api-meetings-id-export-route.test.ts",
+      "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
       "tests/mcp/protocol.test.ts",
       "tests/mcp/tools.test.ts",
       "tests/meeting-chat-fallback.test.ts",
@@ -5000,18 +5436,21 @@
     ],
     "stories": [],
     "visualSpecs": [
-      "tests/e2e/app-well-known-oauth-protected-resource-route.smoke.spec.ts"
+      "tests/e2e/app-well-known-oauth-protected-resource-route.smoke.spec.ts",
+      "tests/e2e/feature-checklist.spec.ts"
     ],
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/CLAUDE_MCP_TESTING.md",
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/MCP_AND_API.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SUPABASE_MCP_OAUTH_SETUP.md",
       "docs/V1_PLAN.md",
-      "docs/design/app-store-screenshots.html",
+      "docs/app-store/device-screenshots/2026-04-29-release/ipad-pro-12-9-home-dark.png",
+      "docs/components/session-workspace.md",
       "docs/features/app-well-known-oauth-protected-resource-route.md"
     ],
     "coverage": {

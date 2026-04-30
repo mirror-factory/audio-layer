@@ -36,8 +36,8 @@ export interface PricingConfigStore {
   versions: PricingConfigVersion[];
 }
 
-const DEFAULT_STT_OPTION_ID = "assemblyai:universal-streaming-multilingual:streaming";
-const DEFAULT_ADDONS: string[] = [];
+const DEFAULT_STT_OPTION_ID = "deepgram:nova-3:streaming";
+const DEFAULT_ADDONS: string[] = ["speakerDiarization"];
 
 const PlanSchema = z.object({
   id: z.string().min(1),

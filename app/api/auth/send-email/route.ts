@@ -94,7 +94,7 @@ export const POST = withRoute(async (req, ctx) => {
       const appUrlR = process.env.NEXT_PUBLIC_APP_URL ?? email_data.site_url ?? "http://localhost:3000";
       const link = `${appUrlR}/sign-in?token_hash=${email_data.token_hash}&type=recovery`;
       const template = magicLinkEmail(link);
-      subject = "Reset your audio-layer password";
+      subject = "Reset your Layers password";
       html = template.html;
       break;
     }

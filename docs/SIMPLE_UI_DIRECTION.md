@@ -4,7 +4,7 @@ Date: 2026-04-27
 
 ## Goal
 
-Layer One should feel like a recorder first and a workspace second. The user opens the app to start a meeting quickly, then returns later to search, ask, organize, export, or automate.
+Layers should feel like a recorder first and a workspace second. The user opens the app to start a meeting quickly, then returns later to search, ask, organize, export, or automate.
 
 ## Research Notes
 

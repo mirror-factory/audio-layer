@@ -3,7 +3,7 @@ import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
   appId: "com.mirrorfactory.audiolayer",
-  appName: "audio-layer",
+  appName: "Layers",
   webDir: "public",
   backgroundColor: "#0a0a0a",
   server: {

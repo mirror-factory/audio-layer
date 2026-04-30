@@ -1,6 +1,6 @@
 # Calendar Integration
 
-Layer One has a calendar connection flow for showing upcoming meetings before
+Layers has a calendar connection flow for showing upcoming meetings before
 recording starts.
 
 ## API Contract

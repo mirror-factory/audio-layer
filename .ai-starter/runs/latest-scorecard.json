@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-28T17:30:07.147Z",
-  "planId": "2026-04-28T17-14-35-003Z-prepare-main-release-push-device",
+  "generatedAt": "2026-04-30T13:57:32.035Z",
+  "planId": "2026-04-30T13-52-45-473Z-create-launch-checklist-and-agen",
   "score": 100,
   "blockers": [],
   "recommendations": [
@@ -14,14 +14,14 @@
   ],
   "summary": {
     "components": {
-      "total": 26,
-      "withUnit": 26,
-      "withStory": 26,
-      "withVisual": 26
+      "total": 28,
+      "withUnit": 28,
+      "withStory": 28,
+      "withVisual": 28
     },
     "routes": {
-      "total": 47,
-      "withVisual": 47
+      "total": 49,
+      "withVisual": 49
     },
     "apis": {
       "total": 62,
@@ -34,26 +34,26 @@
       "withEval": 0
     },
     "browserProof": {
-      "expectFlows": 51,
-      "replays": 10,
-      "screenshots": 157
+      "expectFlows": 53,
+      "replays": 15,
+      "screenshots": 163
     },
     "evidence": {
-      "total": 618,
-      "screenshots": 177,
-      "videos": 202,
+      "total": 772,
+      "screenshots": 192,
+      "videos": 216,
       "traces": 0,
-      "reports": 42
+      "reports": 58
     },
     "companions": {
-      "total": 135,
+      "total": 139,
       "pending": 0,
-      "satisfied": 135
+      "satisfied": 139
     },
     "hooks": {
       "registered": 24,
-      "observed": 1661,
-      "blocked": 2
+      "observed": 4392,
+      "blocked": 39
     }
   }
 }

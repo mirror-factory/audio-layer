@@ -1,4 +1,4 @@
-# Layer One Audio V1 Execution Plan
+# Layers V1 Execution Plan
 
 **Date:** 2026-04-24
 **Branch baseline:** `v2/clean-rebuild`
@@ -10,7 +10,7 @@ This plan is branch-accurate for the current checkout. Unlike the external hando
 
 ## 1. Product Direction
 
-Layer One should not compete as another generic meeting notetaker. V1 should ship as the meeting-to-agent layer for technical teams already living in Claude, ChatGPT, Cursor, Linear, Notion, and similar tools.
+Layers should not compete as another generic meeting notetaker. V1 should ship as the meeting-to-agent layer for technical teams already living in Claude, ChatGPT, Cursor, Linear, Notion, and similar tools.
 
 The product promise for V1:
 

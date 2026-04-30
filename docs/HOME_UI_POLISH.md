@@ -26,7 +26,7 @@ title.
 
 The "Capture everything" card uses a horizontal CSS illustration that represents
 conversation context becoming structured notes. It intentionally avoids emoji or
-mixed icon styles so the right rail matches the rest of the Layer One visual
+mixed icon styles so the right rail matches the rest of the Layers visual
 system.
 
 ## Accessibility And Performance

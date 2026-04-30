@@ -1,6 +1,6 @@
 # Audio Wave Ribbon
 
-`components/audio-wave-ribbon.tsx` renders the Layer One recorder ribbon with a procedural canvas animation.
+`components/audio-wave-ribbon.tsx` renders the Layers recorder ribbon with a procedural canvas animation.
 
 ## Purpose
 
@@ -16,6 +16,6 @@
 
 ## Visual Contract
 
-- Uses the Layer One periwinkle, lilac, mint, and ink palette.
+- Uses the Layers periwinkle, lilac, mint, and ink palette.
 - Keeps the ribbon thin, misted, and premium rather than a conventional vertical bar waveform.
 - Desktop home uses `height={118}` and `sensitivity={1.08}`; mobile inherits the CSS-constrained height.

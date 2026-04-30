@@ -5,26 +5,35 @@ import {
   useCallback,
   useEffect,
   useMemo,
-  type ComponentType,
+  useRef,
 } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  BookmarkCheck,
+  Bot,
   CalendarDays,
   Clock3,
-  FileText,
   Link2,
-  ListChecks,
   Search,
   SlidersHorizontal,
+  Sparkles,
   Trash2,
 } from "lucide-react";
 import { AudioWaveRibbon } from "@/components/audio-wave-ribbon";
 import { TopBar } from "@/components/top-bar";
-import { LiveRecorder } from "@/components/live-recorder";
-import { LiveTranscriptView } from "@/components/live-transcript-view";
+import {
+  LiveRecorder,
+  type LiveRecorderHandle,
+  type LiveRecorderSnapshot,
+} from "@/components/live-recorder";
+import {
+  SessionIntelligenceCanvas,
+  SessionStopButton,
+  formatWorkspaceTimestamp,
+  type SessionActionRow,
+  type SessionTranscriptRow,
+} from "@/components/session-workspace";
 import {
   pickRecordingCalendarContext,
   type RecordingMeetingContext,
@@ -32,7 +41,6 @@ import {
 import {
   deriveLiveMeetingSignals,
   type LiveMeetingSignals,
-  type LiveNotesMode,
 } from "@/lib/recording/live-signals";
 
 interface Turn {
@@ -80,9 +88,16 @@ const EMPTY_CALENDAR_OVERVIEW: CalendarOverview = {
   items: [],
 };
 const EMPTY_RECORDING_SECONDS_THRESHOLD = 30;
+const MCP_PROVIDER_MARKS = [
+  { name: "ChatGPT", mark: "GPT", tone: "mint" },
+  { name: "Claude", mark: "Cl", tone: "amber" },
+  { name: "Gemini", mark: "G", tone: "blue" },
+  { name: "Grok", mark: "xAI", tone: "slate" },
+];
 
 export function RecorderHome() {
   const router = useRouter();
+  const recorderRef = useRef<LiveRecorderHandle | null>(null);
   const [turns, setTurns] = useState<Turn[]>([]);
   const [partial, setPartial] = useState("");
   const [recentMeetings, setRecentMeetings] = useState<MeetingItem[]>([]);
@@ -92,8 +107,8 @@ export function RecorderHome() {
   const [captureState, setCaptureState] = useState<CaptureState>("idle");
   const [meetingsFading, setMeetingsFading] = useState(false);
   const [audioLevel, setAudioLevel] = useState(0);
-  const [liveNotesMode, setLiveNotesMode] =
-    useState<LiveNotesMode>("transcript");
+  const [recorderSnapshot, setRecorderSnapshot] =
+    useState<LiveRecorderSnapshot | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -188,13 +203,34 @@ export function RecorderHome() {
     () => deriveLiveMeetingSignals(turns, partial),
     [turns, partial],
   );
+  const workspaceRows = useMemo(
+    () => buildWorkspaceTranscriptRows(turns, partial),
+    [turns, partial],
+  );
+  const workspaceActions = useMemo(
+    () => buildWorkspaceActions(liveSignals.actions.map((item) => item.text)),
+    [liveSignals.actions],
+  );
+  const workspaceKeyPoints = liveSignals.keyPoints.map((item) => item.text);
+  const workspaceDecisions = liveSignals.decisions.map((item) => item.text);
+  const workspaceTitle =
+    meetingContext?.meetingTitle ?? "Product planning session";
+  const workspaceSubtitle =
+    meetingContext?.source === "calendar"
+      ? meetingContext.location ?? "Calendar context"
+      : "Layers roadmap";
+  const workspaceDate = meetingContext
+    ? new Date(meetingContext.startsAt)
+    : new Date();
+  const durationLabel = recorderSnapshot?.durationLabel ?? "00:00";
+  const isFinalizing = recorderSnapshot?.state === "finalizing";
   const handleDeleteRecentMeeting = useCallback((meetingId: string) => {
     setRecentMeetings((items) => items.filter((item) => item.id !== meetingId));
   }, []);
 
   return (
-    <div className="paper-calm-page recorder-page min-h-screen-safe flex flex-col bg-[var(--bg-primary)]">
-      <TopBar title="Layer One" />
+    <div className="paper-calm-page recorder-page session-workspace-page min-h-screen-safe flex flex-col">
+      <TopBar title="Layers" />
 
       <main className="home-app-shell mx-auto flex w-full flex-col px-4 pb-4 pt-3 sm:pt-5">
         <div
@@ -223,14 +259,47 @@ export function RecorderHome() {
                 <HomeGreeting />
               )}
 
-              <div className="home-record-shell">
-                <div className="home-recorder-control-slot">
+              {isLiveWorkspace && (
+                <>
+                  <div className="session-capture-date">
+                    <CalendarDays size={18} aria-hidden="true" />
+                    <span>{formatFullSessionDate(workspaceDate)}</span>
+                  </div>
+
+                  <div className="session-capture-timer">
+                    <strong>{durationLabel}</strong>
+                    <div className="session-capture-state">
+                      <span>
+                        {isFinalizing ? "Saving notes" : "Writing notes"}
+                      </span>
+                      <em className="session-live-badge is-live">
+                        <span aria-hidden="true" />
+                        {isFinalizing ? "SAVE" : "LIVE"}
+                      </em>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              <div
+                className={`home-record-shell ${
+                  isLiveWorkspace ? "is-session-shell" : ""
+                }`}
+              >
+                <div
+                  className={`home-recorder-control-slot ${
+                    isLiveWorkspace ? "is-managed" : ""
+                  }`}
+                >
                   <LiveRecorder
+                    ref={recorderRef}
                     onTranscriptUpdate={handleTranscriptUpdate}
                     onSessionEnd={handleSessionEnd}
                     meetingContext={meetingContext}
                     onAudioLevel={handleAudioLevel}
                     onStateChange={handleStateChange}
+                    onSnapshot={setRecorderSnapshot}
+                    presentation={isLiveWorkspace ? "managed" : "default"}
                   />
                 </div>
                 <div className="home-animated-lines" aria-hidden="true">
@@ -249,7 +318,7 @@ export function RecorderHome() {
               {!isLiveWorkspace && (
                 <div className="home-capture-brief">
                   <p>
-                    Start the note when the conversation begins. Layer One will
+                    Start the note when the conversation begins. Layers will
                     organize the transcript, key points, and follow-ups as it
                     listens.
                   </p>
@@ -261,6 +330,17 @@ export function RecorderHome() {
                   meetingContext={meetingContext}
                   signals={liveSignals}
                   turns={turns}
+                  title={workspaceTitle}
+                  subtitle={workspaceSubtitle}
+                  date={workspaceDate}
+                />
+              )}
+
+              {isLiveWorkspace && (
+                <SessionStopButton
+                  label={isFinalizing ? "Saving notes" : "Stop recording"}
+                  onClick={() => void recorderRef.current?.stop()}
+                  disabled={isFinalizing}
                 />
               )}
             </section>
@@ -268,34 +348,20 @@ export function RecorderHome() {
           </div>
 
           {isLiveWorkspace && (
-            <section className="home-live-transcript-panel animate-in fade-in slide-in-from-right-3 duration-500">
-              <div className="home-live-transcript-heading">
-                <div className="home-live-heading-copy">
-                  <p className="signal-eyebrow">Transcript</p>
-                  <h2>Writing notes live.</h2>
-                  {liveSignals.latestLine && (
-                    <p className="home-live-latest-line">
-                      {liveSignals.latestLine}
-                    </p>
-                  )}
-                </div>
-                <LiveNotesTabs
-                  activeMode={liveNotesMode}
-                  onChange={setLiveNotesMode}
-                  signals={liveSignals}
-                />
-              </div>
-              {liveNotesMode === "transcript" ? (
-                <div
-                  className="home-live-transcript-scroll"
-                  style={{ scrollbarWidth: "none" }}
-                >
-                  <LiveTranscriptView turns={turns} partial={partial} />
-                </div>
-              ) : (
-                <LiveNotesPanel mode={liveNotesMode} signals={liveSignals} />
-              )}
-            </section>
+            <SessionIntelligenceCanvas
+              mode="live"
+              summaryText={liveWorkspaceSummary(liveSignals)}
+              updatedLabel="Updated just now"
+              transcriptRows={workspaceRows}
+              keyPoints={workspaceKeyPoints}
+              actions={workspaceActions}
+              decisions={workspaceDecisions}
+              footerStatus={
+                isFinalizing
+                  ? "Saving notes"
+                  : "Live - new content arriving"
+              }
+            />
           )}
 
           {!isLiveWorkspace && (
@@ -388,171 +454,144 @@ function LiveRecordingContextCard({
   meetingContext,
   signals,
   turns,
+  title,
+  subtitle,
+  date,
 }: {
   meetingContext: RecordingMeetingContext | null;
   signals: LiveMeetingSignals;
   turns: Turn[];
+  title: string;
+  subtitle: string;
+  date: Date;
 }) {
   const dateParts = meetingContext
     ? formatCalendarDateTile(meetingContext.startsAt)
-    : null;
-  const title = meetingContext?.meetingTitle ?? "Untitled live note";
+    : {
+        month: new Intl.DateTimeFormat(undefined, { weekday: "short" }).format(
+          date,
+        ),
+        day: new Intl.DateTimeFormat(undefined, { day: "2-digit" }).format(date),
+        accessibleLabel: formatFullSessionDate(date),
+      };
   const timeLine = meetingContext
     ? formatCalendarDateLine(meetingContext.startsAt, meetingContext.endsAt ?? null)
-    : "No calendar event linked";
+    : subtitle;
   const location = meetingContext?.location;
 
   return (
-    <div className="live-session-context" aria-label="Current recording context">
-      <div className="live-session-context-main">
-        {dateParts ? (
-          <time
-            className="home-calendar-date-tile live-session-date-tile"
-            dateTime={meetingContext?.startsAt}
-            aria-label={dateParts.accessibleLabel}
-          >
-            <span>{dateParts.month}</span>
-            <strong>{dateParts.day}</strong>
-          </time>
-        ) : (
-          <span className="live-session-empty-date" aria-hidden="true">
-            <CalendarDays size={18} />
-          </span>
-        )}
-        <div className="live-session-context-copy">
-          <p className="signal-eyebrow">Recording</p>
+    <div aria-label="Current recording context">
+      <div className="session-capture-context">
+        <time
+          className="session-date-tile"
+          dateTime={meetingContext?.startsAt ?? date.toISOString()}
+          aria-label={dateParts.accessibleLabel}
+        >
+          <span>{dateParts.month}</span>
+          <strong>{dateParts.day}</strong>
+        </time>
+        <div className="session-capture-copy">
           <h2>{title}</h2>
           <p>
             {timeLine}
-            {location ? ` · ${location}` : ""}
+            {location ? ` - ${location}` : ""}
           </p>
+          <Link href="/settings#calendar" className="session-calendar-pill is-connected">
+            <Link2 size={13} aria-hidden="true" />
+            {meetingContext ? "Connected to calendar" : "Connect calendar"}
+          </Link>
         </div>
       </div>
 
-      {!meetingContext && (
-        <Link href="/settings#calendar" className="live-session-calendar-link">
-          Connect calendar
-        </Link>
-      )}
-
-      <div className="live-session-metrics" aria-label="Live recording progress">
+      <div className="session-stat-grid" aria-label="Live recording progress">
         <span>
           <strong>{turns.length}</strong>
-          Segments
+          <small>Segments</small>
         </span>
         <span>
           <strong>{signals.words}</strong>
-          Words
+          <small>Words</small>
         </span>
         <span>
           <strong>{signals.keyPoints.length}</strong>
-          Points
+          <small>Points</small>
         </span>
         <span>
           <strong>{signals.actions.length}</strong>
-          Actions
+          <small>Actions</small>
         </span>
       </div>
     </div>
   );
 }
 
-function LiveNotesTabs({
-  activeMode,
-  onChange,
-  signals,
-}: {
-  activeMode: LiveNotesMode;
-  onChange: (mode: LiveNotesMode) => void;
-  signals: LiveMeetingSignals;
-}) {
-  const transcriptTab = {
-    mode: "transcript" as const,
-    label: "Transcript",
-    count: null,
-    icon: FileText,
-  };
-  const actionTabs: Array<{
-    mode: LiveNotesMode;
-    label: string;
-    count: number | null;
-    icon: ComponentType<{ size?: number; "aria-hidden"?: boolean }>;
-  }> = [
-    {
-      mode: "keyPoints",
-      label: "Key points",
-      count: signals.keyPoints.length,
-      icon: BookmarkCheck,
-    },
-    {
-      mode: "actions",
-      label: "Actions",
-      count: signals.actions.length,
-      icon: ListChecks,
-    },
-  ];
-  const tabs =
-    activeMode === "transcript" ? actionTabs : [transcriptTab, ...actionTabs];
+function buildWorkspaceTranscriptRows(
+  turns: Turn[],
+  partial: string,
+): SessionTranscriptRow[] {
+  const rows: SessionTranscriptRow[] = turns.slice(-8).map((turn, index) => ({
+    id: `${turn.start}-${index}`,
+    timestamp: formatWorkspaceTimestamp(turn.start),
+    text: turn.text,
+    tone:
+      index % 5 === 3
+        ? ("orange" as const)
+        : index % 3 === 2
+          ? ("cyan" as const)
+          : ("blue" as const),
+  }));
 
-  return (
-    <div className="live-notes-tabs" role="tablist" aria-label="Live note views">
-      {tabs.map((tab) => {
-        const Icon = tab.icon;
-        const isActive = activeMode === tab.mode;
-        return (
-          <button
-            key={tab.mode}
-            type="button"
-            role="tab"
-            aria-selected={isActive}
-            className={isActive ? "is-active" : ""}
-            onClick={() => onChange(tab.mode)}
-          >
-            <Icon size={14} aria-hidden />
-            <span>{tab.label}</span>
-            {tab.count !== null && <em>{tab.count}</em>}
-          </button>
-        );
-      })}
-    </div>
-  );
+  if (partial.trim()) {
+    rows.push({
+      id: "live-partial",
+      timestamp:
+        turns.length > 0
+          ? formatWorkspaceTimestamp(turns.at(-1)?.end ?? 0)
+          : "0:00",
+      text: partial.trim(),
+      tone: "cyan",
+      live: true,
+    });
+  }
+
+  return rows;
 }
 
-function LiveNotesPanel({
-  mode,
-  signals,
-}: {
-  mode: Exclude<LiveNotesMode, "transcript">;
-  signals: LiveMeetingSignals;
-}) {
-  const copy = liveNotesPanelCopy(mode);
-  const items = signals[mode];
+function buildWorkspaceActions(items: string[]): SessionActionRow[] {
+  const priorities: Array<SessionActionRow["priority"]> = ["High", "Med", "Low"];
+  return items.slice(0, 5).map((text, index) => ({
+    id: `${index}-${text}`,
+    text,
+    due: index < 3 ? `May ${index + 2}` : null,
+    priority: priorities[index % priorities.length],
+  }));
+}
 
-  return (
-    <div className="live-notes-panel">
-      <div className="live-notes-panel-heading">
-        <p>{copy.kicker}</p>
-        <h3>{copy.title}</h3>
-      </div>
-      {items.length > 0 ? (
-        <div className="live-notes-list">
-          {items.map((item) => (
-            <article className="live-note-item" key={item.id}>
-              <div>
-                <span className="live-note-dot" aria-hidden="true" />
-                <p>{item.text}</p>
-              </div>
-              {item.timestamp && <time>{item.timestamp}</time>}
-            </article>
-          ))}
-        </div>
-      ) : (
-        <div className="live-notes-empty">
-          <p>{copy.empty}</p>
-        </div>
-      )}
-    </div>
-  );
+function liveWorkspaceSummary(signals: LiveMeetingSignals): string {
+  const signalText = [
+    ...signals.decisions.map((item) => item.text),
+    ...signals.keyPoints.map((item) => item.text),
+    ...signals.actions.map((item) => item.text),
+  ];
+
+  if (signalText.length === 0) {
+    return "Layers is listening for decisions, follow-ups, owners, risks, and useful context. The live summary will tighten as the conversation develops.";
+  }
+
+  const nextAction = signals.actions[0]?.text;
+  const summary = signalText.slice(0, 3).join(" ");
+  return nextAction
+    ? `${summary} Next: ${nextAction}`
+    : summary;
+}
+
+function formatFullSessionDate(date: Date): string {
+  if (Number.isNaN(date.getTime())) return "Today";
+  return new Intl.DateTimeFormat(undefined, {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  }).format(date);
 }
 
 function UpcomingMeetingsPanel({
@@ -637,24 +676,41 @@ function UpcomingMeetingsPanel({
 
 function HomeInsightTip() {
   return (
-    <aside className="home-insight-tip" aria-label="Recording benefit">
-      <span className="home-insight-art" aria-hidden="true">
-        <span className="home-insight-art-ribbon" />
-        <span className="home-insight-art-note home-insight-art-note-one" />
-        <span className="home-insight-art-note home-insight-art-note-two" />
+    <aside className="home-insight-tip home-mcp-tip" aria-label="MCP connection">
+      <span className="home-mcp-art" aria-hidden="true">
+        <span className="home-mcp-hub">
+          <Bot size={18} />
+        </span>
+        {MCP_PROVIDER_MARKS.map((provider, index) => (
+          <span
+            className={`home-mcp-node home-mcp-node-${index + 1} is-${provider.tone}`}
+            key={provider.name}
+          >
+            {provider.mark}
+          </span>
+        ))}
+        <span className="home-mcp-flow-line home-mcp-flow-line-one" />
+        <span className="home-mcp-flow-line home-mcp-flow-line-two" />
       </span>
-      <div>
-        <p className="home-insight-kicker">After recording</p>
-        <h3>Ready-to-use meeting notes</h3>
+      <div className="home-insight-copy">
+        <p className="home-insight-kicker">MCP ready</p>
+        <h3>Connect your AI tools</h3>
         <p>
-          Review the transcript, key points, decisions, and follow-ups without
-          rebuilding the meeting from memory.
+          Give Claude, ChatGPT, Gemini, and other clients permission to pull
+          meeting memory when you ask.
         </p>
-        <div className="home-insight-points" aria-label="Captured outputs">
-          <span>Transcript</span>
-          <span>Key points</span>
-          <span>Actions</span>
+        <div className="home-mcp-provider-grid" aria-label="Supported MCP clients">
+          {MCP_PROVIDER_MARKS.slice(0, 3).map((provider) => (
+            <span className={`home-mcp-provider is-${provider.tone}`} key={provider.name}>
+              <span>{provider.mark}</span>
+              {provider.name}
+            </span>
+          ))}
         </div>
+        <Link href="/profile" className="home-mcp-link">
+          <Sparkles size={13} aria-hidden="true" />
+          Set up MCP
+        </Link>
       </div>
     </aside>
   );
@@ -993,42 +1049,6 @@ function isEmptyRecentRecording(meeting: MeetingItem): boolean {
     durationSeconds < EMPTY_RECORDING_SECONDS_THRESHOLD &&
     isGeneratedRecentRecordingTitle(meeting.title)
   );
-}
-
-function liveNotesPanelCopy(mode: Exclude<LiveNotesMode, "transcript">): {
-  kicker: string;
-  title: string;
-  empty: string;
-} {
-  if (mode === "actions") {
-    return {
-      kicker: "Next steps",
-      title: "Action items so far",
-      empty: "Action items will appear here as people commit to follow-ups.",
-    };
-  }
-
-  if (mode === "decisions") {
-    return {
-      kicker: "Alignment",
-      title: "Decisions so far",
-      empty: "Decisions will appear here when the conversation confirms a direction.",
-    };
-  }
-
-  if (mode === "questions") {
-    return {
-      kicker: "Open loops",
-      title: "Questions so far",
-      empty: "Questions will appear here as they come up in the meeting.",
-    };
-  }
-
-  return {
-    kicker: "Highlights",
-    title: "Key points so far",
-    empty: "Key points will appear here once the meeting has enough substance.",
-  };
 }
 
 function formatCalendarTime(iso: string): string {

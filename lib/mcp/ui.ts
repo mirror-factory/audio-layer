@@ -1,7 +1,7 @@
 import { RESOURCE_MIME_TYPE } from "@modelcontextprotocol/ext-apps/server";
 
-export const LAYER_ONE_MCP_DASHBOARD_RESOURCE_URI =
-  "ui://layer-one/meeting-dashboard.html";
+export const LAYERS_MCP_DASHBOARD_RESOURCE_URI =
+  "ui://layers/meeting-dashboard.html";
 
 export interface MeetingDashboardMeeting {
   id: string;
@@ -103,14 +103,14 @@ export function buildMeetingDashboardPayload(
   };
 }
 
-export function getLayerOneMeetingDashboardHtml(): string {
+export function getLayersMeetingDashboardHtml(): string {
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Layer One Meetings</title>
+  <title>Layers Meetings</title>
   <style>
     :root {
       color-scheme: dark;
@@ -373,7 +373,7 @@ export function getLayerOneMeetingDashboardHtml(): string {
     <header>
       <div>
         <div class="eyebrow">MCP app</div>
-        <h1>Layer One meetings</h1>
+        <h1>Layers meetings</h1>
         <div class="subtitle" id="generated">Waiting for meeting data</div>
       </div>
       <button id="refresh" type="button" aria-label="Refresh meetings">Sync</button>
@@ -581,7 +581,7 @@ export function getLayerOneMeetingDashboardHtml(): string {
       try {
         const { App } = await import("https://esm.sh/@modelcontextprotocol/ext-apps@1.7.0/app-with-deps?bundle");
         app = new App(
-          { name: "Layer One Meeting Dashboard", version: "1.0.0" },
+          { name: "Layers Meeting Dashboard", version: "1.0.0" },
           {},
           { autoResize: true }
         );
@@ -608,7 +608,7 @@ export function getLayerOneMeetingDashboardHtml(): string {
 </html>`;
 }
 
-export const LAYER_ONE_MCP_DASHBOARD_RESOURCE_CONFIG = {
+export const LAYERS_MCP_DASHBOARD_RESOURCE_CONFIG = {
   mimeType: RESOURCE_MIME_TYPE,
   _meta: {
     ui: {

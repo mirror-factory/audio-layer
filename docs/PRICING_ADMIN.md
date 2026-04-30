@@ -51,20 +51,20 @@ The current provider matrix and benchmark interpretation live in
 - If the STT provider changes, update `lib/billing/stt-pricing.ts`,
   `lib/billing/assemblyai-pricing.ts` or the new provider estimator, and the
   vendor registry source URLs together.
-- The default live pricing config intentionally keeps `addonIds` empty so the
-  default recorder economics match the $0.15/hr Universal Streaming
-  Multilingual base rate. Add realtime speaker diarization explicitly only when
-  the margin plan can absorb the extra $0.12/hr.
+- The default live pricing config uses the higher-quality Deepgram Nova-3
+  pricing lane with speaker diarization as the margin assumption. Runtime
+  recording still exposes only implemented AssemblyAI models until the
+  Deepgram adapter is wired end to end.
 - Runtime settings intentionally expose only implemented AssemblyAI models.
   Candidate providers stay in `/admin/pricing` until their auth, streaming,
   finalization, diarization, and cost tests pass.
 - `/api/transcribe/stream/preflight` reads the active pricing config to show
   the recorder which provider/model/cost source is active before creating a
   meeting or paid STT token.
-- Local unlimited mode is controlled by `LAYER_ONE_BYPASS_QUOTA=true` in
+- Local unlimited mode is controlled by `LAYERS_BYPASS_QUOTA=true` in
   `.env.local`. It bypasses meeting and minute limits without changing Stripe
   subscription state. Production ignores this flag unless
-  `LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS=true` is also set.
+  `LAYERS_ALLOW_PROD_QUOTA_BYPASS=true` is also set.
 - `/api/admin/pricing` and `/api/admin/pricing/activate` are guarded by the
   same `DEV_KIT_DASHBOARD_SECRET` middleware path as `/admin` and `/dev-kit`
   in production.

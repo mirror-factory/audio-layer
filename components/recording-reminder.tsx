@@ -127,7 +127,7 @@ export function RecordingReminderPanel({
         ? feedback
         : reminder
           ? `Reminder set for ${formatReminderTime(reminder)}.`
-          : feedback || "Choose when Layer One should remind you to record.";
+          : feedback || "Choose when Layers should remind you to record.";
 
   const schedule = async (minutes: number) => {
     setStatus("saving");

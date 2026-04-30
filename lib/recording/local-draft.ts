@@ -15,8 +15,8 @@ export interface RecordingDraftStorage {
   removeItem(key: string): void;
 }
 
-const DRAFT_PREFIX = "layer-one-recording-draft:";
-const LATEST_KEY = "layer-one-recording-draft:latest";
+const DRAFT_PREFIX = "layers-recording-draft:";
+const LATEST_KEY = "layers-recording-draft:latest";
 
 export function recordingDraftKey(meetingId: string): string {
   return `${DRAFT_PREFIX}${meetingId}`;

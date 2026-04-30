@@ -21,7 +21,7 @@ const {
 let tempDir: string;
 
 beforeEach(() => {
-  tempDir = mkdtempSync(join(tmpdir(), "layer-one-pricing-"));
+  tempDir = mkdtempSync(join(tmpdir(), "layers-pricing-"));
   process.env.PRICING_CONFIG_FILE = join(tempDir, "pricing-config.json");
 });
 
@@ -36,8 +36,8 @@ describe("pricing config store", () => {
 
     expect(store.source).toBe("file");
     expect(store.active.status).toBe("active");
-    expect(store.active.sttOptionId).toBe("assemblyai:universal-streaming-multilingual:streaming");
-    expect(store.active.addonIds).toEqual([]);
+    expect(store.active.sttOptionId).toBe("deepgram:nova-3:streaming");
+    expect(store.active.addonIds).toEqual(["speakerDiarization"]);
     expect(store.active.plans.find((plan) => plan.id === "free")?.meetingLimit).toBe(25);
   });
 

@@ -261,7 +261,7 @@ export default function ProfilePage() {
                   <pre className="text-xs text-[#d4d4d4] font-mono whitespace-pre-wrap overflow-x-auto">
 {`{
   "mcpServers": {
-    "layer-one": {
+    "layers": {
       "url": "https://audio-layer.vercel.app/api/mcp/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_API_KEY"

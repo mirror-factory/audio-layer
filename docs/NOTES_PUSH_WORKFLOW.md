@@ -1,6 +1,6 @@
 # Notes Push Workflow
 
-Layer One now has a first-step handoff workflow for getting meeting notes into
+Layers now has a first-step handoff workflow for getting meeting notes into
 AI tools without silently sending private data away from the app.
 
 ## Product Shape

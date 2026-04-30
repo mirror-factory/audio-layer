@@ -83,7 +83,7 @@ The signed-in home page should not repeat a meeting-title hero above the recorde
 
 Granola's obvious strengths are bot-free capture, blending user notes with transcripts, templates by meeting type, and turning notes into actions. Recent public reporting says Granola raised $125M at a $1.5B valuation and is expanding into Spaces, MCP, personal APIs, and enterprise APIs.
 
-Layer One should not try to win by being another generic meeting notetaker. The stronger wedge is intake:
+Layers should not try to win by being another generic meeting notetaker. The stronger wedge is intake:
 
 - Capture fast with nearly zero launch friction.
 - Convert raw audio into structured library records.

@@ -4,7 +4,7 @@ import { Capacitor } from "@capacitor/core";
 import { LocalNotifications } from "@capacitor/local-notifications";
 
 export const RECORDING_REMINDER_ID = 10013;
-export const RECORDING_REMINDER_STORAGE_KEY = "layer-one-recording-reminder";
+export const RECORDING_REMINDER_STORAGE_KEY = "layers-recording-reminder";
 
 export interface RecordingReminder {
   id: number;
@@ -92,7 +92,7 @@ async function scheduleRecordingReminderForDate(
         {
           id: RECORDING_REMINDER_ID,
           title: "Record this meeting",
-          body: "Layer One is ready. Tap to start a live recording.",
+          body: "Layers is ready. Tap to start a live recording.",
           schedule: { at, allowWhileIdle: true },
           actionTypeId: "recording-reminder",
           extra: { href: "/record/live" },
@@ -166,8 +166,8 @@ export function fireBrowserRecordingReminder(onOpen: () => void): void {
   }
 
   const notification = new Notification("Record this meeting", {
-    body: "Layer One is ready. Tap to start a live recording.",
-    tag: "layer-one-recording-reminder",
+    body: "Layers is ready. Tap to start a live recording.",
+    tag: "layers-recording-reminder",
   });
   notification.onclick = () => {
     onOpen();

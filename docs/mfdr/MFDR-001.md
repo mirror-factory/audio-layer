@@ -1,4 +1,4 @@
-# MFDR-001: Layer One Audio — Product Architecture
+# MFDR-001: Layers — Product Architecture
 
 **Status:** Accepted
 **Date:** 2026-04-18
@@ -9,7 +9,7 @@
 
 ## Context
 
-Mirror Factory is building Layer One Audio, a tool that captures conversations and extracts structured, actionable context from them. The AI meeting assistant market is valued at $1.42B in 2026, growing to $6.28B by 2035 (18% CAGR, Precedence Research). The AI note-taking market is $740M, growing to $3.5B by 2035 (18.75% CAGR). The transcription segment specifically is the fastest-growing at 25.62% CAGR.
+Mirror Factory is building Layers, a tool that captures conversations and extracts structured, actionable context from them. The AI meeting assistant market is valued at $1.42B in 2026, growing to $6.28B by 2035 (18% CAGR, Precedence Research). The AI note-taking market is $740M, growing to $3.5B by 2035 (18.75% CAGR). The transcription segment specifically is the fastest-growing at 25.62% CAGR.
 
 Current solutions either put a visible bot in the meeting (Otter, Fireflies, Fathom) or are limited to a single platform (Granola — Mac only until late 2025). None of them extract structured CRM-ready data (budgets, timelines, decision makers) — they stop at summaries and action items.
 
@@ -295,7 +295,7 @@ Users select their model in settings. The app shows real-time pricing for each o
 
 ### Market Comparison (April 2026)
 
-| Feature | Layer One Audio | Granola | Otter.ai | Fireflies | Fathom |
+| Feature | Layers | Granola | Otter.ai | Fireflies | Fathom |
 |---|---|---|---|---|---|
 | **Pricing** | Free (25) / $15 / $25 | Free / $14/mo | Free / $16.99/mo | Free / $19/mo | Free (5 AI/mo) |
 | **Bot in meeting** | No | No | Yes | Yes/Optional | Yes |
@@ -372,7 +372,7 @@ Users select their model in settings. The app shows real-time pricing for each o
 
 ## Connection to Direction
 
-**Mission alignment:** Layer One Audio enables human agency by capturing conversational context that would otherwise be lost. Users focus on the conversation; the AI extracts what they need to take action.
+**Mission alignment:** Layers enables human agency by capturing conversational context that would otherwise be lost. Users focus on the conversation; the AI extracts what they need to take action.
 
 **KPI impact:**
 - Time saved: 15 min post-meeting note consolidation → 0
@@ -395,4 +395,4 @@ Users select their model in settings. The app shows real-time pricing for each o
 
 ---
 
-*Mirror Factory Decision Record • Layer One Audio v1.0*
+*Mirror Factory Decision Record • Layers v1.0*

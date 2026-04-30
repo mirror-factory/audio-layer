@@ -1,6 +1,6 @@
 # Claude MCP Testing
 
-Layer One exposes a remote MCP endpoint at:
+Layers exposes a remote MCP endpoint at:
 
 ```text
 /api/mcp/mcp
@@ -70,11 +70,11 @@ Use this path for Claude web and Claude Desktop remote connector testing.
    https://YOUR_DOMAIN/api/mcp/mcp
    ```
 
-6. Connect/authenticate with your Layer One account.
+6. Connect/authenticate with your Layers account.
 7. In a Claude chat, enable the connector and ask:
 
    ```text
-   Show my Layer One meeting dashboard.
+   Show my Layers meeting dashboard.
    ```
 
 Expected result: Claude calls `show_meeting_dashboard`. Claude clients that
@@ -85,7 +85,7 @@ support MCP Apps render the dashboard UI; other clients receive a text fallback.
 For Claude Code, add the remote HTTP server:
 
 ```bash
-claude mcp add --transport http layer-one https://YOUR_DOMAIN/api/mcp/mcp
+claude mcp add --transport http layers https://YOUR_DOMAIN/api/mcp/mcp
 ```
 
 Then run this inside Claude Code:
@@ -97,13 +97,13 @@ Then run this inside Claude Code:
 Follow the OAuth browser flow. After authentication, test:
 
 ```text
-Use the Layer One MCP server to list my recent meetings.
+Use the Layers MCP server to list my recent meetings.
 ```
 
 For local API-key testing with Claude Code, you can use a bearer header:
 
 ```bash
-claude mcp add --transport http layer-one-local http://localhost:3001/api/mcp/mcp \
+claude mcp add --transport http layers-local http://localhost:3001/api/mcp/mcp \
   --header "Authorization: Bearer lo1_YOUR_PROFILE_API_KEY"
 ```
 
@@ -145,7 +145,7 @@ Preview the MCP App HTML outside Claude:
 
 ```bash
 mkdir -p output/playwright
-pnpm exec tsx -e "import { writeFileSync } from 'node:fs'; import { getLayerOneMeetingDashboardHtml } from './lib/mcp/ui'; writeFileSync('output/playwright/mcp-dashboard-preview.html', getLayerOneMeetingDashboardHtml(), 'utf8');"
+pnpm exec tsx -e "import { writeFileSync } from 'node:fs'; import { getLayersMeetingDashboardHtml } from './lib/mcp/ui'; writeFileSync('output/playwright/mcp-dashboard-preview.html', getLayersMeetingDashboardHtml(), 'utf8');"
 PREVIEW_URL="file://$(pwd)/output/playwright/mcp-dashboard-preview.html?preview=1&theme=dark"
 pnpm exec playwright screenshot --viewport-size=760,620 "$PREVIEW_URL" output/playwright/mcp-dashboard-preview.png
 ```

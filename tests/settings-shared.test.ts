@@ -3,7 +3,7 @@ import { DEFAULTS, MODEL_OPTIONS } from "@/lib/settings-shared";
 
 describe("DEFAULTS", () => {
   it("has correct summaryModel", () => {
-    expect(DEFAULTS.summaryModel).toBe("openai/gpt-5.4-nano");
+    expect(DEFAULTS.summaryModel).toBe("anthropic/claude-haiku-4-5");
   });
 
   it("has correct batchSpeechModel", () => {

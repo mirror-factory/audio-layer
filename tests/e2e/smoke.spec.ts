@@ -12,6 +12,7 @@ const PAGES = [
   { path: "/meetings", name: "Meetings" },
   { path: "/chat", name: "Chat" },
   { path: "/settings", name: "Settings" },
+  { path: "/download", name: "Download" },
   { path: "/pricing", name: "Pricing" },
   { path: "/usage", name: "Usage" },
   { path: "/profile", name: "Profile" },

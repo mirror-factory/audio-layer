@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Layer One Audio",
+  title: "Layers",
   description:
     "Capture conversations passively and extract structured, actionable data.",
 };

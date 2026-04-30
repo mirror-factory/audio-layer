@@ -31,12 +31,16 @@ function truthyEnv(value: string | undefined): boolean {
 
 export function quotaBypassEnabled(): boolean {
   const requested = truthyEnv(
-    process.env.LAYER_ONE_BYPASS_QUOTA?.toLowerCase() ??
+    process.env.LAYERS_BYPASS_QUOTA?.toLowerCase() ??
+      process.env.LAYER_ONE_BYPASS_QUOTA?.toLowerCase() ??
       process.env.BYPASS_MEETING_LIMITS?.toLowerCase(),
   );
   if (!requested) return false;
   if (process.env.NODE_ENV !== "production") return true;
-  return truthyEnv(process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS?.toLowerCase());
+  return truthyEnv(
+    process.env.LAYERS_ALLOW_PROD_QUOTA_BYPASS?.toLowerCase() ??
+      process.env.LAYER_ONE_ALLOW_PROD_QUOTA_BYPASS?.toLowerCase(),
+  );
 }
 
 export async function checkQuota(): Promise<QuotaResult> {
