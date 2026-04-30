@@ -26,5 +26,5 @@
     ".env.example",
     "app/api/stripe/webhook/route.ts"
   ],
-  "updatedAt": "2026-04-30T23:17:23.555959Z"
+  "updatedAt": "2026-04-30T23:18:01.106245Z"
 }
