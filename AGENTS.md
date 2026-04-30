@@ -23,6 +23,31 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ---
 
+## Codex Cloud Environment
+
+If you are running as **Codex Cloud** (OpenAI's cloud agent through Linear), use the following setup command in your environment configuration:
+
+```bash
+bash scripts/codex-setup.sh
+```
+
+This script handles the quirks of the Codex sandbox:
+- wipes any stale `node_modules` / `.next` from previous template runs
+- enables `corepack` and activates `pnpm`
+- installs dependencies with `--no-frozen-lockfile` so phantom `file:` references from Codex's environment template don't fail the install
+
+If you must inline the setup script in the OpenAI Codex dashboard instead of pointing at this file, use the same logic:
+
+```bash
+rm -rf node_modules .next
+corepack enable
+pnpm install --no-frozen-lockfile
+```
+
+After install, your **test command** should be `pnpm test` (or the narrower variant from `package.json` matching the issue scope).
+
+---
+
 ## AI Interaction Mode
 
 Mode: **Autonomous (thorough)**

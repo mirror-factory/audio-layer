@@ -26,7 +26,9 @@
     ".env.example",
     "app/api/stripe/webhook/route.ts",
     "app/profile/page.tsx",
-    "docs/BUILD_SPEC.md"
+    "docs/BUILD_SPEC.md",
+    "scripts/codex-setup.sh",
+    "AGENTS.md"
   ],
-  "updatedAt": "2026-04-30T23:55:44.854980Z"
+  "updatedAt": "2026-04-30T23:59:19.669475Z"
 }
