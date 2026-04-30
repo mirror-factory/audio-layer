@@ -32,12 +32,16 @@
   ],
   "filesInFlight": [
     ".claude/skills/wire-telemetry/SKILL.md",
-    "scripts/ai-starter-core.ts"
+    "scripts/ai-starter-core.ts",
+    "docs/LAUNCH_CHECKLIST.md",
+    "docs/V1_PLAN.md"
   ],
   "evidenceStatus": [
     "companions: 1 pending / 138 satisfied",
     "observed-change:.claude/skills/wire-telemetry/SKILL.md",
-    "observed-change:scripts/ai-starter-core.ts"
+    "observed-change:scripts/ai-starter-core.ts",
+    "observed-change:docs/LAUNCH_CHECKLIST.md",
+    "observed-change:docs/V1_PLAN.md"
   ],
-  "updatedAt": "2026-04-30T19:09:02.023129Z"
+  "updatedAt": "2026-04-30T19:16:38.250730Z"
 }

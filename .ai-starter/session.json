@@ -7,7 +7,9 @@
   ],
   "modifiedFiles": [
     ".claude/skills/wire-telemetry/SKILL.md",
-    "scripts/ai-starter-core.ts"
+    "scripts/ai-starter-core.ts",
+    "docs/LAUNCH_CHECKLIST.md",
+    "docs/V1_PLAN.md"
   ],
-  "updatedAt": "2026-04-30T19:09:02.022599Z"
+  "updatedAt": "2026-04-30T19:16:38.250127Z"
 }
