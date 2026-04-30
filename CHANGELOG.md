@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.15] — 2026-04-30
+
+### Testing
+- test: refresh launch visual baselines (`f5f73fd`)
+
+
 ## [0.1.14] — 2026-04-30
 
 ### Added
