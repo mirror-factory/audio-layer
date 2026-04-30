@@ -80,5 +80,5 @@
     "observed-change:.env.example",
     "observed-change:app/api/stripe/webhook/route.ts"
   ],
-  "updatedAt": "2026-04-30T23:22:07.413666Z"
+  "updatedAt": "2026-04-30T23:24:21.684024Z"
 }
