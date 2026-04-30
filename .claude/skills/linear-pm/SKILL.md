@@ -118,6 +118,8 @@ These are non-negotiable. The skill should refuse to violate them.
 6. **Confirm writes.** Reads are autonomous. `save_*` operations require user confirmation, except trivial comments on issues the user explicitly named.
 7. **Vertical slices only.** Every story must touch end-to-end behavior. No "backend for X" / "frontend for X" splits.
 8. **Owner-type required.** Every issue must have `owner:human` or `owner:agent` before it leaves the backlog.
+9. **Status discipline.** Transition to `started` *before* doing the work, and to `completed`/`canceled` (or release) when done. Never leave a started issue stale. See `conventions.md` → "Multi-Agent Coordination" for the full claim protocol.
+10. **Multi-agent claim protocol.** Multiple agents share the same Linear board. Before acting on an issue, re-fetch it and check three signals (state, delegate, assignee). If any says it's claimed by another agent, skip it. See `conventions.md` for the full decision flow.
 
 ## Human vs Agent Ownership
 

@@ -68,6 +68,74 @@ These are reproduced from `SKILL.md` for emphasis.
 6. **Confirm writes.** Reads autonomous. `save_*` operations require explicit confirmation, except trivial comments on issues the user named.
 7. **Vertical slices only.** Every story touches end-to-end behavior.
 8. **Owner-type required.** Every issue must have `owner:human` or `owner:agent` before it leaves the backlog.
+9. **Status discipline.** When an agent begins work on an issue, transition it to `started` (In Progress) **before writing any code**. When done or abandoned, transition it forward (`completed`/`canceled`) or release it (back to `backlog`, clear delegate/assignee). Never leave a started issue stale.
+10. **Multi-agent claim protocol.** Multiple agents (Claude, Codex, Cursor, the user, etc.) may share this Linear board. Before acting on an issue, every agent must check three signals — and skip the issue if any one says it's claimed.
+
+## Multi-Agent Coordination
+
+Multiple agents (Claude via this skill, Codex via `Codex for Linear`, Cursor, Notion AI, the user themselves) may all be reading and writing to the same Linear workspace. The skill operates under these rules to avoid stepping on other agents' work.
+
+### The three claim signals
+
+Before picking up an issue, check **all three** in order. If any one says it's claimed, skip and pick the next candidate.
+
+| Signal | What says "claimed" | Tool |
+|---|---|---|
+| **State** | `statusType` is `started` (In Progress / In Review) | `get_issue` |
+| **Delegate** | `delegate` is set to a non-null agent | `get_issue` |
+| **Assignee** | `assignee` is set to another agent (Codex, Cursor, etc. — not a human) | `get_issue` |
+
+A human assignee is **not** a claim against an agent — humans set themselves as assignee on virtually all issues to track ownership; that's compatible with delegating the work to an agent.
+
+### Claiming an issue (this skill, when starting work)
+
+1. `get_issue` — re-fetch right before claiming; another agent might have grabbed it since the last orient pass.
+2. Check the three signals. If any says claimed, abort and pick another.
+3. `save_issue` with `state: started` (use the team's `started` state ID, not "In Progress" by name).
+4. `save_comment` — post: `Starting work — <agent name> at <ISO timestamp>.`
+5. Begin work.
+
+### Releasing an issue
+
+When done, blocked, or abandoning:
+
+| Outcome | Transition | Comment |
+|---|---|---|
+| Finished, ready for review | `state: started` ("In Review" if the team has it) or `state: completed` | "Done — <next step or PR link>." |
+| Blocked | `state: started` (stay), add a `blocked` label if the team uses one | "Blocked on <X>. Releasing claim. Pinging <person/agent>." Then clear the delegate. |
+| Abandoning | back to `state: backlog` | "Abandoning — <reason>. Free for another agent to pick up." Then clear `delegate`/`assignee` if you set them. |
+
+**Never silently drop an issue.** Always leave a comment explaining what happened.
+
+### Coordination with Codex specifically
+
+Codex (when delegated) **transitions state itself** when it picks up the cloud task — typically from `Backlog` to `In Progress`. The skill should:
+
+- **Not pre-transition** an issue when delegating to Codex. Setting `delegate: Codex` is itself the claim. Let Codex update state.
+- **Watch for Codex's "Started" comment** to confirm pickup; if it doesn't post within a few minutes, either the env isn't set up (see PROD-320 example) or the task is queued.
+- **Treat any issue with `delegate: Codex` as locked**, regardless of state. Other agents (including the user's local Codex CLI sessions) must not touch it.
+
+### Coordination with the user's own work
+
+The user may directly edit issues in the Linear UI or work on them via Codex CLI / Cursor / Claude Code locally. To stay out of their way:
+
+- If the user has assignee set to themselves AND no delegate, the work is human-led — agents should not act unless explicitly told.
+- If the user is mid-conversation about an issue (saying "let me work on this"), the skill should not re-claim it.
+- The user's intent in chat always trumps the heuristics above.
+
+### Decision flow when picking the next issue
+
+```
+candidates = list_issues(project, state=backlog or todo)
+for issue in candidates by priority:
+  refresh = get_issue(issue.id)
+  if refresh.statusType == 'started': skip
+  if refresh.delegate is set: skip
+  if refresh.assignee is an agent (not human): skip
+  return issue
+```
+
+The `get_issue` re-check is critical — between `list_issues` returning a candidate and the moment we claim, another agent may have grabbed it. The atomic "check then write" is the closest we can get to a lock with Linear's API.
 
 ## Agent-Readiness Checklist
 
