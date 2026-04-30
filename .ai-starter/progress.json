@@ -71,10 +71,12 @@
     ".claude/skills/linear-pm/templates/project-audit.md",
     ".claude/skills/linear-pm/bootstrap/_template.md",
     ".claude/skills/linear-pm/bootstrap/layers-bootstrap.md",
-    ".claude/skills/linear-pm/README.md"
+    ".claude/skills/linear-pm/README.md",
+    ".env.example"
   ],
   "evidenceStatus": [
-    "companions: 48 pending / 90 satisfied"
+    "companions: 48 pending / 90 satisfied",
+    "observed-change:.env.example"
   ],
-  "updatedAt": "2026-04-30T22:08:19.535211Z"
+  "updatedAt": "2026-04-30T22:18:50.678454Z"
 }

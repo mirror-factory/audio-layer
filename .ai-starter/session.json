@@ -22,7 +22,8 @@
     ".claude/skills/linear-pm/templates/project-audit.md",
     ".claude/skills/linear-pm/bootstrap/_template.md",
     ".claude/skills/linear-pm/bootstrap/layers-bootstrap.md",
-    ".claude/skills/linear-pm/README.md"
+    ".claude/skills/linear-pm/README.md",
+    ".env.example"
   ],
-  "updatedAt": "2026-04-30T22:08:19.309804Z"
+  "updatedAt": "2026-04-30T22:18:50.677528Z"
 }
