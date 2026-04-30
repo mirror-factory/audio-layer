@@ -9,7 +9,20 @@
     ".claude/skills/wire-telemetry/SKILL.md",
     "scripts/ai-starter-core.ts",
     "docs/LAUNCH_CHECKLIST.md",
-    "docs/V1_PLAN.md"
+    "docs/V1_PLAN.md",
+    ".claude/skills/linear-pm/SKILL.md",
+    ".claude/skills/linear-pm/lexicon.md",
+    ".claude/skills/linear-pm/conventions.md",
+    ".claude/skills/linear-pm/templates/epic-status-board.md",
+    ".claude/skills/linear-pm/templates/theme-rollup.md",
+    ".claude/skills/linear-pm/templates/kanban.md",
+    ".claude/skills/linear-pm/templates/tree.md",
+    ".claude/skills/linear-pm/templates/triage.md",
+    ".claude/skills/linear-pm/templates/epic-breakdown.md",
+    ".claude/skills/linear-pm/templates/project-audit.md",
+    ".claude/skills/linear-pm/bootstrap/_template.md",
+    ".claude/skills/linear-pm/bootstrap/layers-bootstrap.md",
+    ".claude/skills/linear-pm/README.md"
   ],
-  "updatedAt": "2026-04-30T19:16:38.250127Z"
+  "updatedAt": "2026-04-30T19:43:44.563080Z"
 }
