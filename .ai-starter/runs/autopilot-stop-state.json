@@ -5,6 +5,6 @@
   "command": "pnpm companions",
   "count": 1,
   "maxIterations": 5,
-  "telemetryLineCount": 12,
-  "stopHookActive": true
+  "telemetryLineCount": 41,
+  "stopHookActive": false
 }
