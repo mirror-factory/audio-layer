@@ -31,18 +31,17 @@ const test = base.extend<{
   deviceName: string;
 }>({
   deviceName: ['iPhone 12', { option: true }],
-  mobileContext: async ({ browser, deviceName }, continueWith) => {
+  mobileContext: async ({ browser, deviceName }, use) => {
     const descriptor = devices[deviceName];
     if (!descriptor) throw new Error(`Unknown device: ${deviceName}`);
-    const { defaultBrowserType, ...contextOptions } = descriptor as typeof descriptor & { defaultBrowserType?: string };
-    void defaultBrowserType;
+    const { defaultBrowserType: _drop, ...contextOptions } = descriptor as typeof descriptor & { defaultBrowserType?: string };
     const ctx = await (browser as Browser).newContext(contextOptions);
-    await continueWith(ctx);
+    await use(ctx);
     await ctx.close();
   },
-  mobilePage: async ({ mobileContext }, continueWith) => {
+  mobilePage: async ({ mobileContext }, use) => {
     const p = await mobileContext.newPage();
-    await continueWith(p);
+    await use(p);
   },
 });
 

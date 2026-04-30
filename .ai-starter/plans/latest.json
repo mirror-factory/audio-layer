@@ -1,9 +1,9 @@
 {
-  "id": "2026-04-30T13-52-45-473Z-create-launch-checklist-and-agen",
-  "createdAt": "2026-04-30T13:52:45.474Z",
-  "updatedAt": "2026-04-30T13:52:45.474Z",
-  "title": "Create launch checklist and agent swarm workstream document --type docs --evidence docs-registry",
-  "prompt": "Create launch checklist and agent swarm workstream document --type docs --evidence docs-registry",
+  "id": "2026-04-30T15-26-11-478Z-create-launch-checklist-and-agen",
+  "createdAt": "2026-04-30T15:26:11.479Z",
+  "updatedAt": "2026-04-30T15:26:11.479Z",
+  "title": "Create launch checklist and agent swarm workstream document",
+  "prompt": "Create launch checklist and agent swarm workstream document",
   "classification": "feature",
   "acceptanceCriteria": [
     "The new behavior is described in a machine-readable plan.",

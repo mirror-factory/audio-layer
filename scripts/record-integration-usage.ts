@@ -65,6 +65,17 @@ function inferIntegrationId(input: { id: string | null; route: string | null; op
     ['gateway.ai.vercel.com', 'vercel-ai-gateway'],
     ['ai-gateway', 'vercel-ai-gateway'],
     ['weather', 'weather-api'],
+    ['browserbase', 'browserbase'],
+    ['stagehand', 'stagehand'],
+    ['agent-browser', 'agent-browser'],
+    ['expect', 'expect-browser'],
+    ['firecrawl', 'firecrawl'],
+    ['replicate', 'replicate'],
+    ['fal.ai', 'fal'],
+    ['openai', 'openai'],
+    ['anthropic', 'anthropic'],
+    ['gemini', 'google-gemini'],
+    ['imagen', 'google-imagen'],
   ];
   for (const [needle, id] of known) {
     if (haystack.includes(needle)) return id;

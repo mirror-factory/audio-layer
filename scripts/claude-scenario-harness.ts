@@ -117,6 +117,93 @@ function createFixture(options: {
     commands: ['plan', 'score', 'report', 'iterate'],
   });
   writeJson(join(root, '.ai-starter/manifests/docs.json'), []);
+  writeJson(join(root, '.ai-starter/config.json'), {
+    productValidation: {
+      mode: 'recommended',
+      customer: 'Ops teams shipping verified AI workflows',
+      problem: 'Long-running agent work loses product and technical alignment',
+      currentWorkaround: 'Manual handoff docs and repeated prompts',
+      proposedSolution: 'Starter hooks and manifests preserve alignment and proof state',
+      pricing: 'Paid internal tool budget or package adoption',
+      distribution: 'Existing AI app teams installing the starter',
+      timing: 'Agent workflows need durable proof and context now',
+      constraints: 'Keep secrets local and require evidence before handoff',
+    },
+  });
+  writeJson(join(root, '.ai-starter/manifests/product-spec.json'), {
+    status: 'complete',
+    source: 'agent-generated',
+    customer: 'Ops teams shipping verified AI workflows',
+    painfulProblem: 'Long-running agent work loses product and technical alignment',
+    wedge: 'Start with one verified API workflow that preserves proof and cost evidence.',
+    openQuestions: [],
+    nextStep: 'Use this product spec to create the next feature plan.',
+  });
+  writeJson(join(root, '.ai-starter/product-spec/latest.json'), {
+    status: 'complete',
+    source: 'agent-generated',
+    customer: 'Ops teams shipping verified AI workflows',
+    painfulProblem: 'Long-running agent work loses product and technical alignment',
+    wedge: 'Start with one verified API workflow that preserves proof and cost evidence.',
+    openQuestions: [],
+    nextStep: 'Use this product spec to create the next feature plan.',
+  });
+  writeJson(join(root, '.ai-starter/manifests/product-validation.json'), {
+    status: 'complete',
+    mode: 'recommended',
+    verdict: 'test-first',
+    bestCustomer: 'Ops teams shipping verified AI workflows',
+    unanswered: [],
+    nextStep: 'Create a feature plan and prove it.',
+  });
+  writeJson(join(root, '.ai-starter/product-validation/latest.json'), {
+    status: 'complete',
+    mode: 'recommended',
+    verdict: 'test-first',
+    bestCustomer: 'Ops teams shipping verified AI workflows',
+    unanswered: [],
+    nextStep: 'Create a feature plan and prove it.',
+  });
+  writeJson(join(root, '.ai-starter/manifests/mfdr.json'), {
+    status: 'complete',
+    source: 'generated',
+    title: 'Scenario Harness MFDR',
+    hypothesis: 'Verified starter hooks preserve alignment and proof state.',
+    decisions: [{ area: 'verification', choice: 'Run hook scenarios', alternatives: ['manual testing'], why: 'Lifecycle hooks need fixture proof.', tradeoffs: [], evidence: [], verification: [] }],
+    openQuestions: [],
+    nextStep: 'Run the scenario harness.',
+  });
+  writeJson(join(root, '.ai-starter/mfdr/latest.json'), {
+    status: 'complete',
+    source: 'generated',
+    title: 'Scenario Harness MFDR',
+    hypothesis: 'Verified starter hooks preserve alignment and proof state.',
+    decisions: [{ area: 'verification', choice: 'Run hook scenarios', alternatives: ['manual testing'], why: 'Lifecycle hooks need fixture proof.', tradeoffs: [], evidence: [], verification: [] }],
+    openQuestions: [],
+    nextStep: 'Run the scenario harness.',
+  });
+  writeJson(join(root, '.ai-starter/manifests/alignment.json'), {
+    status: 'ready',
+    summary: 'Scenario harness alignment',
+    anchors: [
+      { id: 'product-spec', path: '.ai-starter/product-spec/latest.md', status: 'complete' },
+      { id: 'product-validation', path: '.ai-starter/product-validation/latest.md', status: 'complete' },
+      { id: 'mfdr', path: '.ai-starter/mfdr/latest.md', status: 'complete' },
+    ],
+    requiredReads: ['.ai-starter/product-spec/latest.md', '.ai-starter/mfdr/latest.md'],
+    openGaps: [],
+  });
+  writeJson(join(root, '.ai-starter/alignment/latest.json'), {
+    status: 'ready',
+    summary: 'Scenario harness alignment',
+    anchors: [
+      { id: 'product-spec', path: '.ai-starter/product-spec/latest.md', status: 'complete' },
+      { id: 'product-validation', path: '.ai-starter/product-validation/latest.md', status: 'complete' },
+      { id: 'mfdr', path: '.ai-starter/mfdr/latest.md', status: 'complete' },
+    ],
+    requiredReads: ['.ai-starter/product-spec/latest.md', '.ai-starter/mfdr/latest.md'],
+    openGaps: [],
+  });
   writeJson(join(root, '.ai-starter/manifests/companions.json'), { updatedAt: nowIso(), tasks: [] });
   writeJson(join(root, '.ai-starter/manifests/evidence.json'), []);
   writeJson(join(root, '.ai-starter/manifests/features.json'), []);

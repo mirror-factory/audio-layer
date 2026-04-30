@@ -91,13 +91,32 @@ function readJson<T>(path: string, fallback: T): T {
   }
 }
 
-function runCommand(cmd: string, cwd: string, timeoutMs = 120_000): { exitCode: number; stdout: string; stderr: string } {
+interface BrowserProofGateManifest {
+  required?: boolean;
+  expectRequired?: boolean;
+  replayPaths?: string[];
+  flowPaths?: string[];
+  screenshotPaths?: string[];
+  expectCommandCount?: number;
+  expectFailedCommandCount?: number;
+  expectBlockingFailedCommandCount?: number;
+  expectOpenOk?: boolean;
+  expectProofOk?: boolean;
+  lastReplayPath?: string | null;
+}
+
+interface FeatureGateEntry {
+  kind?: string;
+  name?: string;
+}
+
+function runCommand(cmd: string, cwd: string): { exitCode: number; stdout: string; stderr: string } {
   try {
     const stdout = execSync(cmd, {
       cwd,
       encoding: 'utf-8',
       stdio: ['pipe', 'pipe', 'pipe'],
-      timeout: timeoutMs,
+      timeout: 120_000,
     });
     return { exitCode: 0, stdout, stderr: '' };
   } catch (err: unknown) {
@@ -413,7 +432,7 @@ const gates: Gate[] = [
   // ─── f. Telemetry Presence ─────────────────────────────────────────
   {
     name: 'telemetry-presence',
-    description: 'Every streamText/generateText call has telemetry wired',
+    description: 'Every text/object AI SDK call has telemetry wired',
     required: true,
     artifact: '.evidence/telemetry-scan.txt',
     run: async (): Promise<GateResult> => {
@@ -437,7 +456,11 @@ const gates: Gate[] = [
         const relPath = file.replace(ROOT + '/', '');
 
         // Check if file has any AI calls at all
-        const hasAICall = scanContent.includes('streamText(') || scanContent.includes('generateText(');
+        const hasAICall =
+          scanContent.includes('streamText(') ||
+          scanContent.includes('generateText(') ||
+          scanContent.includes('streamObject(') ||
+          scanContent.includes('generateObject(');
         if (!hasAICall) continue;
 
         scannedFiles.push(relPath);
@@ -455,9 +478,9 @@ const gates: Gate[] = [
             if (line.includes('streamText(')) {
               violations.push({ file: relPath, line: i + 1, call: 'streamText' });
             }
-            if (line.includes('generateText(')) {
-              violations.push({ file: relPath, line: i + 1, call: 'generateText' });
-            }
+            if (line.includes('generateText(')) violations.push({ file: relPath, line: i + 1, call: 'generateText' });
+            if (line.includes('streamObject(')) violations.push({ file: relPath, line: i + 1, call: 'streamObject' });
+            if (line.includes('generateObject(')) violations.push({ file: relPath, line: i + 1, call: 'generateObject' });
           }
         }
       }
@@ -501,7 +524,54 @@ const gates: Gate[] = [
     },
   },
 
-  // ─── g. Hook Tests ────────────────────────────────────────────────
+  // ─── g. Integration Usage Tracking ────────────────────────────────
+  {
+    name: 'integration-usage-tracking',
+    description: 'External provider, image, render, and browser integrations record usage/cost events',
+    required: true,
+    artifact: '.evidence/integration-usage-scan.json',
+    run: async (): Promise<GateResult> => {
+      const appScript = join(APP_DIR, 'scripts', 'check-integration-usage.ts');
+      const packageScript = join(ROOT, 'scripts', 'check-integration-usage.ts');
+      const script = existsSync(appScript) ? appScript : packageScript;
+      if (!existsSync(script)) {
+        const artifact = writeEvidence(
+          'integration-usage-scan.txt',
+          'scripts/check-integration-usage.ts not found. Run `ai-starter-kit update`.',
+        );
+        return {
+          pass: false,
+          message: 'integration usage checker missing',
+          artifact,
+          details: ['Expected scripts/check-integration-usage.ts'],
+        };
+      }
+
+      const { exitCode, stdout, stderr } = runCommand(`pnpm exec tsx ${JSON.stringify(script)}`, APP_DIR);
+      const combined = `${stdout}\n${stderr}`.trim();
+      const jsonArtifact = join(APP_DIR, '.evidence', 'integration-usage-scan.json');
+      const artifact = existsSync(jsonArtifact)
+        ? `${APP_DIR.replace(ROOT + '/', '')}/.evidence/integration-usage-scan.json`
+        : writeEvidence('integration-usage-scan.txt', combined || 'integration usage checker produced no output');
+
+      if (exitCode !== 0) {
+        return {
+          pass: false,
+          message: 'Untracked external integration usage detected',
+          artifact,
+          details: combined.split('\n').filter(Boolean).slice(0, 12),
+        };
+      }
+
+      return {
+        pass: true,
+        message: 'External integration usage tracking is enforced',
+        artifact,
+      };
+    },
+  },
+
+  // ─── h. Hook Tests ────────────────────────────────────────────────
   {
     name: 'hook-tests',
     description: 'Installed agent runtime hooks pass fixture-driven behavior tests',
@@ -519,7 +589,7 @@ const gates: Gate[] = [
         };
       }
 
-      const { exitCode, stdout, stderr } = runCommand('pnpm test:hooks', APP_DIR, 480_000);
+      const { exitCode, stdout, stderr } = runCommand('pnpm test:hooks', APP_DIR);
       const log = `$ pnpm test:hooks\n\n${stdout}\n${stderr}`.trim();
       const artifact = writeEvidence('hook-tests.log', log);
 
@@ -856,6 +926,103 @@ const gates: Gate[] = [
       }
 
       return { pass: true, message: 'Visual regression test file exists', artifact };
+    },
+  },
+
+  // ─── l2. Expect Browser Proof ───────────────────────────────────────
+  {
+    name: 'expect-browser-proof',
+    description: 'User-visible routes have successful Expect browser-control proof, not just Playwright screenshots',
+    required: true,
+    artifact: '.evidence/expect-browser-proof.txt',
+    run: async (): Promise<GateResult> => {
+      const features = readJson<FeatureGateEntry[]>(
+        join(APP_DIR, '.ai-starter', 'manifests', 'features.json'),
+        [],
+      );
+      const routeCount = features.filter(feature => feature.kind === 'route').length;
+      const manifest = readJson<BrowserProofGateManifest | null>(
+        join(APP_DIR, '.ai-starter', 'manifests', 'browser-proof.json'),
+        null,
+      );
+
+      const reportLines = [
+        'Expect Browser Proof',
+        '====================',
+        '',
+        `Routes: ${routeCount}`,
+        `Manifest: ${manifest ? 'present' : 'missing'}`,
+        `Expect required: ${manifest?.expectRequired !== false ? 'yes' : 'no'}`,
+        `Flows: ${manifest?.flowPaths?.length ?? 0}`,
+        `Replays: ${manifest?.replayPaths?.length ?? 0}`,
+        `Screenshots: ${manifest?.screenshotPaths?.length ?? 0}`,
+        `Expect commands: ${manifest?.expectCommandCount ?? 0}`,
+        `Expect open ok: ${manifest?.expectOpenOk === true ? 'yes' : 'no'}`,
+        `Blocking failures: ${manifest?.expectBlockingFailedCommandCount ?? 0}`,
+        `Proof ok: ${manifest?.expectProofOk === true ? 'yes' : 'no'}`,
+        `Last replay: ${manifest?.lastReplayPath ?? 'none'}`,
+        '',
+        'Fix: start the dev server, run `AI_STARTER_BASE_URL=http://localhost:<port> pnpm browser:proof`, then `pnpm sync && pnpm gates`.',
+      ];
+      const artifact = writeEvidence('expect-browser-proof.txt', reportLines.join('\n'));
+
+      if (routeCount === 0) {
+        return {
+          pass: true,
+          message: 'No user-visible route surfaces found; Expect proof gate skipped',
+          artifact,
+        };
+      }
+
+      if (!manifest) {
+        return {
+          pass: false,
+          message: 'browser-proof manifest missing',
+          artifact,
+          details: ['Run `pnpm sync` before gates, then `pnpm browser:proof` for routes.'],
+        };
+      }
+
+      if (manifest.expectRequired === false) {
+        return {
+          pass: true,
+          message: 'Expect proof disabled by policy',
+          artifact,
+          details: ['This project is not strict for Expect browser-control proof.'],
+        };
+      }
+
+      const details = reportLines.filter(line => /^(Flows|Replays|Expect|Blocking|Last replay)/.test(line));
+      if ((manifest.flowPaths?.length ?? 0) === 0) {
+        return {
+          pass: false,
+          message: 'No Expect flow files found for route proof',
+          artifact,
+          details: ['Add tests/expect/*.md flow coverage for user-visible routes.', ...details],
+        };
+      }
+      if ((manifest.replayPaths?.length ?? 0) === 0) {
+        return {
+          pass: false,
+          message: 'No Expect replay evidence found',
+          artifact,
+          details: ['Run `pnpm browser:proof` against a live local server.', ...details],
+        };
+      }
+      if (manifest.expectProofOk !== true) {
+        return {
+          pass: false,
+          message: 'Expect replay exists but did not prove browser control',
+          artifact,
+          details,
+        };
+      }
+
+      return {
+        pass: true,
+        message: `Expect browser proof verified (${manifest.expectCommandCount ?? 0} command(s))`,
+        artifact,
+      };
     },
   },
 

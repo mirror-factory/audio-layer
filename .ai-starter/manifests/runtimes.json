@@ -8,7 +8,7 @@
       "command": "pnpm test:codex-runtime",
       "evidenceDir": ".evidence/codex-runtime",
       "reportPath": ".evidence/codex-runtime/report.json",
-      "lastPass": null
+      "lastPass": true
     },
     "capabilities": [
       "AGENTS.md project instructions",
@@ -35,9 +35,9 @@
     "status": "configured",
     "primary": true,
     "trusted": true,
-    "hookCount": 8,
-    "hooksObserved": 4392,
-    "lastEventAt": "2026-04-30T13:57:14.260684Z"
+    "hookCount": 7,
+    "hooksObserved": 4701,
+    "lastEventAt": "2026-04-30T17:12:08.409768Z"
   },
   {
     "id": "claude-code",
@@ -70,7 +70,7 @@
     "status": "configured",
     "primary": false,
     "trusted": true,
-    "hookCount": 16,
+    "hookCount": 15,
     "hooksObserved": 0,
     "lastEventAt": null
   }

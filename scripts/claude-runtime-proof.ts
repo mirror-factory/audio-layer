@@ -47,7 +47,7 @@ const EXPECTED_HOOKS: Record<string, string[]> = {
   InstructionsLoaded: ['instructions-loaded.py'],
   SessionStart: ['session-startup.py'],
   PreToolUse: ['pretool-install-research.py', 'pretool-plan-gate.py'],
-  PostToolUse: ['periodic-reground.py', 'posttool-telemetry.py', 'posttool-scaffold.py', 'postuse-format.py'],
+  PostToolUse: ['posttool-telemetry.py', 'posttool-scaffold.py', 'postuse-format.py'],
   PostToolUseFailure: ['posttool-failure-telemetry.py'],
   Stop: ['stop-check.py'],
 };

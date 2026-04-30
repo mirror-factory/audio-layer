@@ -50,7 +50,7 @@ const EXPECTED_HOOKS: Record<string, string[]> = {
   SessionStart: ['session-startup.py'],
   UserPromptSubmit: ['user-prompt-submit.py'],
   PreToolUse: ['pretool-install-research.py', 'pretool-plan-gate.py'],
-  PostToolUse: ['periodic-reground.py', 'posttool-telemetry.py', 'posttool-scaffold.py'],
+  PostToolUse: ['posttool-telemetry.py', 'posttool-scaffold.py'],
   Stop: ['stop-check.py'],
 };
 
@@ -184,6 +184,15 @@ function createCodexFixture(options: { activePlan?: boolean; scorecard?: 'clean'
     replayPaths: [],
     flowPaths: [],
     screenshotPaths: [],
+    expectProbeCount: 0,
+    expectCommandCount: 0,
+    expectFailedCommandCount: 0,
+    expectBlockingFailedCommandCount: 0,
+    expectOpenOk: false,
+    expectProofOk: false,
+    expectScreenshotCount: 0,
+    expectVideoCount: 0,
+    lastReplayPath: null,
   });
   mkdirSync(join(root, '.ai-starter/runs'), { recursive: true });
   writeFileSync(join(root, '.ai-starter/runs/telemetry.jsonl'), '', 'utf-8');

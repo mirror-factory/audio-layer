@@ -297,6 +297,15 @@ export interface BrowserProofState {
   replayPaths: string[];
   flowPaths: string[];
   screenshotPaths: string[];
+  expectProbeCount?: number;
+  expectCommandCount?: number;
+  expectFailedCommandCount?: number;
+  expectBlockingFailedCommandCount?: number;
+  expectOpenOk?: boolean;
+  expectProofOk?: boolean;
+  expectScreenshotCount?: number;
+  expectVideoCount?: number;
+  lastReplayPath?: string | null;
 }
 
 export interface DesignRegistryState {
@@ -387,6 +396,13 @@ export interface SetupState {
     accessibility?: string;
     designInputSource?: string;
   };
+  productValidation?: {
+    mode?: string;
+    status?: string;
+    unanswered?: string[];
+    bypassReason?: string | null;
+    artifactPath?: string;
+  };
   requiredGroups: number;
   satisfiedGroups: number;
   missingGroups: Array<{
@@ -427,6 +443,46 @@ export interface StarterControlPlaneData {
     requiredEvidence: string[];
     verificationCommands: string[];
     status: string;
+  };
+  productSpec: {
+    status: string;
+    source: string;
+    customer: string;
+    painfulProblem: string;
+    wedge: string;
+    openQuestions: string[];
+    artifactPath: string;
+    compatibilityPath: string;
+    nextStep: string;
+  };
+  productValidation: {
+    status: string;
+    mode: string;
+    verdict: string;
+    bestCustomer: string;
+    unanswered: string[];
+    artifactPath: string;
+    bypassReason: string | null;
+    nextStep: string;
+  };
+  mfdr: {
+    status: string;
+    title: string;
+    hypothesis: string;
+    source: string;
+    decisions: number;
+    openQuestions: string[];
+    artifactPath: string;
+    nextStep: string;
+  };
+  alignment: {
+    status: string;
+    summary: string;
+    anchors: Array<{ id?: string; label?: string; path?: string; status?: string }>;
+    requiredReads: string[];
+    openGaps: string[];
+    artifactPath: string;
+    nextStep: string;
   };
   latestScorecard: {
     score: number | null;
@@ -884,6 +940,26 @@ const ACTION_SPECS: Array<{
     timeoutMs: 60_000,
   },
   {
+    id: "product-validate-defaults",
+    label: "Refresh validation memo",
+    kind: "registry",
+    description: "Regenerate the product/spec validation memo from the current setup answers.",
+    script: "product:validate",
+    args: ["--", "--yes"],
+    risk: "safe",
+    timeoutMs: 60_000,
+  },
+  {
+    id: "mfdr-refresh",
+    label: "Refresh MFDR",
+    kind: "registry",
+    description: "Regenerate the technical decision/spec record from current setup, validation, docs, integrations, and feature manifests.",
+    script: "mfdr",
+    args: ["--", "--yes"],
+    risk: "safe",
+    timeoutMs: 60_000,
+  },
+  {
     id: "score",
     label: "Score repo",
     kind: "registry",
@@ -1191,6 +1267,13 @@ export async function loadStarterControlPlaneData(): Promise<StarterControlPlane
       accessibility: "WCAG AA contrast, keyboard reachability, visible focus, and reduced-motion support.",
       designInputSource: "defaults",
     },
+    productValidation: {
+      mode: "recommended",
+      status: "not-run",
+      unanswered: [],
+      bypassReason: null,
+      artifactPath: ".ai-starter/product-validation/latest.md",
+    },
     requiredGroups: 0,
     satisfiedGroups: 0,
     missingGroups: [],
@@ -1216,6 +1299,15 @@ export async function loadStarterControlPlaneData(): Promise<StarterControlPlane
     replayPaths: [],
     flowPaths: [],
     screenshotPaths: [],
+    expectProbeCount: 0,
+    expectCommandCount: 0,
+    expectFailedCommandCount: 0,
+    expectBlockingFailedCommandCount: 0,
+    expectOpenOk: false,
+    expectProofOk: false,
+    expectScreenshotCount: 0,
+    expectVideoCount: 0,
+    lastReplayPath: null,
   });
   const design = readJson<DesignRegistryState>(".ai-starter/manifests/design.json", {
     version: "missing",
@@ -1237,6 +1329,41 @@ export async function loadStarterControlPlaneData(): Promise<StarterControlPlane
     createdAt?: string;
     updatedAt?: string;
   } | null>(".ai-starter/plans/latest.json", null);
+  const productSpec = readJson<{
+    status?: string;
+    source?: string;
+    customer?: string;
+    painfulProblem?: string;
+    wedge?: string;
+    openQuestions?: string[];
+    nextStep?: string;
+  } | null>(".ai-starter/manifests/product-spec.json", null);
+  const productValidation = readJson<{
+    status?: string;
+    mode?: string;
+    verdict?: string;
+    bestCustomer?: string;
+    unanswered?: string[];
+    bypassReason?: string | null;
+    nextStep?: string;
+  } | null>(".ai-starter/manifests/product-validation.json", null);
+  const mfdr = readJson<{
+    status?: string;
+    title?: string;
+    hypothesis?: string;
+    source?: string;
+    decisions?: unknown[];
+    openQuestions?: string[];
+    nextStep?: string;
+  } | null>(".ai-starter/manifests/mfdr.json", null);
+  const alignment = readJson<{
+    status?: string;
+    summary?: string;
+    anchors?: Array<{ id?: string; label?: string; path?: string; status?: string }>;
+    requiredReads?: string[];
+    openGaps?: string[];
+    nextStep?: string;
+  } | null>(".ai-starter/manifests/alignment.json", null);
   const latestScorecard = readJson<{
     generatedAt?: string;
     score?: number | null;
@@ -1375,6 +1502,46 @@ export async function loadStarterControlPlaneData(): Promise<StarterControlPlane
       requiredEvidence: latestPlan?.requiredEvidence ?? [],
       verificationCommands: latestPlan?.verificationCommands ?? [],
       status: latestPlan?.status ?? "missing",
+    },
+    productSpec: {
+      status: productSpec?.status ?? "missing",
+      source: productSpec?.source ?? "missing",
+      customer: productSpec?.customer ?? "No product spec yet.",
+      painfulProblem: productSpec?.painfulProblem ?? "Run `pnpm product:spec` to define the painful problem.",
+      wedge: productSpec?.wedge ?? "No wedge defined yet.",
+      openQuestions: productSpec?.openQuestions ?? [],
+      artifactPath: ".ai-starter/product-spec/latest.md",
+      compatibilityPath: ".ai-dev-kit/spec.md",
+      nextStep: productSpec?.nextStep ?? "Run `pnpm product:spec` or `pnpm product:spec --agent-fill` before broad product work.",
+    },
+    productValidation: {
+      status: productValidation?.status ?? setup.productValidation?.status ?? "missing",
+      mode: productValidation?.mode ?? setup.productValidation?.mode ?? "recommended",
+      verdict: productValidation?.verdict ?? "unknown",
+      bestCustomer: productValidation?.bestCustomer ?? "No validation memo yet.",
+      unanswered: productValidation?.unanswered ?? setup.productValidation?.unanswered ?? [],
+      artifactPath: setup.productValidation?.artifactPath ?? ".ai-starter/product-validation/latest.md",
+      bypassReason: productValidation?.bypassReason ?? setup.productValidation?.bypassReason ?? null,
+      nextStep: productValidation?.nextStep ?? "Run `pnpm product:validate` before large product work.",
+    },
+    mfdr: {
+      status: mfdr?.status ?? "missing",
+      title: mfdr?.title ?? "No MFDR yet",
+      hypothesis: mfdr?.hypothesis ?? "Run `pnpm mfdr` to record product/API/tool/UI decisions.",
+      source: mfdr?.source ?? "missing",
+      decisions: mfdr?.decisions?.length ?? 0,
+      openQuestions: mfdr?.openQuestions ?? [],
+      artifactPath: ".ai-starter/mfdr/latest.md",
+      nextStep: mfdr?.nextStep ?? "Run `pnpm mfdr` before broad implementation or integration work.",
+    },
+    alignment: {
+      status: alignment?.status ?? "missing",
+      summary: alignment?.summary ?? "Run `pnpm sync` to generate compressed alignment anchors.",
+      anchors: alignment?.anchors ?? [],
+      requiredReads: alignment?.requiredReads ?? [],
+      openGaps: alignment?.openGaps ?? [],
+      artifactPath: ".ai-starter/alignment/latest.md",
+      nextStep: alignment?.nextStep ?? "Review the alignment file when context feels stale; hooks reintroduce it during long sessions.",
     },
     latestScorecard: {
       score: latestScorecard?.score ?? null,

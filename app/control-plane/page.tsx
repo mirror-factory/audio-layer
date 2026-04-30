@@ -473,16 +473,11 @@ export default function ControlPlanePage() {
   );
 
   useEffect(() => {
-    const initialLoad = window.setTimeout(() => {
-      void refresh();
-    }, 0);
+    void refresh();
     const timer = window.setInterval(() => {
       void refresh();
     }, 5000);
-    return () => {
-      window.clearTimeout(initialLoad);
-      window.clearInterval(timer);
-    };
+    return () => window.clearInterval(timer);
   }, [refresh]);
 
   if (!data) {
@@ -529,6 +524,30 @@ export default function ControlPlanePage() {
     },
     {
       index: "02",
+      label: "Product Spec",
+      status: ["complete", "bypassed"].includes(data.productSpec.status)
+        ? "ready"
+        : "warn",
+      statusLabel: data.productSpec.status,
+      check: "The narrow customer, painful problem, current workaround, wedge, MVP, pricing, distribution, and research basis are explicit.",
+      evidence: `${data.productSpec.customer} · ${data.productSpec.painfulProblem}`,
+      command: "pnpm product:spec",
+    },
+    {
+      index: "03",
+      label: "Validation",
+      status: ["complete", "bypassed"].includes(data.productValidation.status)
+        ? "ready"
+        : data.productValidation.mode === "required"
+          ? "blocked"
+          : "warn",
+      statusLabel: data.productValidation.status,
+      check: "Customer, problem, workaround, MVP, pricing, GTM, and technical feasibility are justified before broad product work.",
+      evidence: data.productValidation.bestCustomer,
+      command: "pnpm product:validate",
+    },
+    {
+      index: "04",
       label: "Plan",
       status: data.latestPlan.id ? "ready" : "warn",
       statusLabel: data.latestPlan.id ? data.latestPlan.status : "Needed",
@@ -537,7 +556,7 @@ export default function ControlPlanePage() {
       command: 'pnpm plan -- "..."',
     },
     {
-      index: "03",
+      index: "05",
       label: "Research",
       status: data.registries.docs.length > 0 ? "ready" : "warn",
       statusLabel: `${data.registries.docs.length} docs`,
@@ -546,7 +565,7 @@ export default function ControlPlanePage() {
       command: "pnpm research:refresh --all",
     },
     {
-      index: "04",
+      index: "06",
       label: "Build",
       status: pendingCompanions.length === 0 ? "ready" : "warn",
       statusLabel: pendingCompanions.length === 0 ? "Covered" : `${pendingCompanions.length} gaps`,
@@ -555,16 +574,16 @@ export default function ControlPlanePage() {
       command: "pnpm companions",
     },
     {
-      index: "05",
+      index: "07",
       label: "Visual Proof",
-      status: data.browserProof.screenshotPaths.length > 0 ? "ready" : "warn",
-      statusLabel: `${data.browserProof.screenshotPaths.length} shots`,
+      status: data.browserProof.expectProofOk ? "ready" : "warn",
+      statusLabel: data.browserProof.expectProofOk ? "Expect ok" : "Needs Expect",
       check: "User-visible routes are opened in a browser and captured with Playwright/Expect evidence.",
-      evidence: `${data.browserProof.flowPaths.length} flows · ${data.browserProof.replayPaths.length} replays`,
+      evidence: `${data.browserProof.flowPaths.length} flows · ${data.browserProof.replayPaths.length} replays · ${data.browserProof.expectCommandCount ?? 0} commands`,
       command: "Dashboard: Browser proof",
     },
     {
-      index: "06",
+      index: "08",
       label: "Gates",
       status: data.latestScorecard.blockers.length === 0 ? "ready" : "blocked",
       statusLabel: data.latestScorecard.blockers.length === 0 ? "Clear" : `${data.latestScorecard.blockers.length} blockers`,
@@ -573,7 +592,16 @@ export default function ControlPlanePage() {
       command: "Dashboard: Gates",
     },
     {
-      index: "07",
+      index: "09",
+      label: "Alignment",
+      status: data.alignment.status === "ready" ? "ready" : "warn",
+      statusLabel: data.alignment.status,
+      check: "The compressed alignment file links product spec, validation, MFDR, DESIGN.md, AGENTS.md, plan, and scorecard.",
+      evidence: `${data.alignment.anchors.length} anchors · ${data.alignment.openGaps.length} gaps`,
+      command: "pnpm sync",
+    },
+    {
+      index: "10",
       label: "Review Export",
       status: data.evidenceExport.archivePath ? "ready" : "warn",
       statusLabel: data.evidenceExport.archivePath ? "Exported" : "Not yet",
@@ -629,8 +657,8 @@ export default function ControlPlanePage() {
     {
       id: "proof",
       label: "Proof",
-      short: `${data.browserProof.screenshotPaths.length} shots`,
-      metric: `${data.browserProof.flowPaths.length} flows`,
+      short: data.browserProof.expectProofOk ? "Expect ok" : "Needs proof",
+      metric: `${data.browserProof.expectCommandCount ?? 0} cmds`,
       description: "Browser, visual, design, and activity evidence.",
     },
     {
@@ -1614,21 +1642,21 @@ export default function ControlPlanePage() {
           <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="grid gap-4 sm:grid-cols-3">
               <Metric
-                label="Expect flows"
-                value={String(data.browserProof.flowPaths.length)}
-                hint="Natural-language browser flows checked into tests/expect."
+                label="Expect proof"
+                value={data.browserProof.expectProofOk ? "OK" : "Missing"}
+                hint={`${data.browserProof.expectCommandCount ?? 0} command(s), ${data.browserProof.expectBlockingFailedCommandCount ?? 0} blocking failure(s).`}
                 accent="text-cyan-300"
               />
               <Metric
                 label="Replays"
                 value={String(data.browserProof.replayPaths.length)}
-                hint="Recorded Expect/browser proof artifacts."
+                hint={`Last replay: ${data.browserProof.lastReplayPath ?? "none"}.`}
                 accent="text-emerald-300"
               />
               <Metric
                 label="Screenshots"
                 value={String(data.browserProof.screenshotPaths.length)}
-                hint="Visual evidence files discovered by the registry."
+                hint={`${data.browserProof.expectScreenshotCount ?? 0} copied from Expect; Playwright screenshots also count here.`}
                 accent="text-amber-300"
               />
             </div>
@@ -2009,8 +2037,120 @@ export default function ControlPlanePage() {
             subtitle="This is the work contract the repo thinks it is under right now."
           >
             <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="space-y-4">
               <div className="rounded-[24px] border border-white/8 bg-[#0d1721]/90 p-5">
-                <p className="text-sm font-semibold text-white">Active plan</p>
+                <p className="text-sm font-semibold text-white">Product spec</p>
+                <p className="mt-3 text-xl font-semibold text-white">
+                  {data.productSpec.customer}
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
+                  {data.productSpec.status} · {data.productSpec.source}
+                </p>
+                <p className="mt-4 text-sm leading-6 text-slate-300">
+                  {data.productSpec.painfulProblem}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  Wedge: {data.productSpec.wedge}
+                </p>
+                <p className="mt-3 text-xs text-slate-500">
+                  {data.productSpec.nextStep}
+                </p>
+                {data.productSpec.openQuestions.length > 0 ? (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {data.productSpec.openQuestions.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs text-amber-200"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+              <div className="rounded-[24px] border border-white/8 bg-[#0d1721]/90 p-5">
+                <p className="text-sm font-semibold text-white">Product validation</p>
+                <p className="mt-3 text-xl font-semibold text-white">
+                  {data.productValidation.verdict}
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
+                  {data.productValidation.status} · {data.productValidation.mode}
+                </p>
+                <p className="mt-4 text-sm leading-6 text-slate-300">
+                  {data.productValidation.bestCustomer}
+                </p>
+                <p className="mt-3 text-xs text-slate-500">
+                  {data.productValidation.nextStep}
+                </p>
+                {data.productValidation.unanswered.length > 0 ? (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {data.productValidation.unanswered.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs text-amber-200"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+	              </div>
+	              <div className="rounded-[24px] border border-white/8 bg-[#0d1721]/90 p-5">
+	                <p className="text-sm font-semibold text-white">MFDR technical spec</p>
+	                <p className="mt-3 text-xl font-semibold text-white">
+	                  {data.mfdr.title}
+	                </p>
+	                <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
+	                  {data.mfdr.status} · {data.mfdr.source} · {data.mfdr.decisions} decisions
+	                </p>
+	                <p className="mt-4 text-sm leading-6 text-slate-300">
+	                  {data.mfdr.hypothesis}
+	                </p>
+	                <p className="mt-3 text-xs text-slate-500">
+	                  {data.mfdr.nextStep}
+	                </p>
+	                {data.mfdr.openQuestions.length > 0 ? (
+	                  <div className="mt-5 flex flex-wrap gap-2">
+	                    {data.mfdr.openQuestions.map((item) => (
+	                      <span
+	                        key={item}
+	                        className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200"
+	                      >
+	                        {item}
+	                      </span>
+	                    ))}
+	                  </div>
+	                ) : null}
+	              </div>
+              <div className="rounded-[24px] border border-white/8 bg-[#0d1721]/90 p-5">
+                <p className="text-sm font-semibold text-white">Alignment anchors</p>
+                <p className="mt-3 text-xl font-semibold text-white">
+                  {data.alignment.status}
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-[0.16em] text-slate-500">
+                  {data.alignment.anchors.length} anchors · {data.alignment.openGaps.length} gaps
+                </p>
+                <p className="mt-4 text-sm leading-6 text-slate-300">
+                  {data.alignment.summary}
+                </p>
+                <p className="mt-3 text-xs text-slate-500">
+                  {data.alignment.nextStep}
+                </p>
+                {data.alignment.requiredReads.length > 0 ? (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {data.alignment.requiredReads.slice(0, 6).map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+	              <div className="rounded-[24px] border border-white/8 bg-[#0d1721]/90 p-5">
+	                <p className="text-sm font-semibold text-white">Active plan</p>
                 <p className="mt-3 text-xl font-semibold text-white">
                   {data.latestPlan.title}
                 </p>
@@ -2036,6 +2176,7 @@ export default function ControlPlanePage() {
                     </span>
                   ))}
                 </div>
+              </div>
               </div>
               <div className="space-y-4">
                 <div className="rounded-[24px] border border-white/8 bg-[#0d1721]/90 p-5">

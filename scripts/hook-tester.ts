@@ -70,6 +70,7 @@ function createFixture(options: {
   research?: 'fresh' | 'missing';
   handoff?: boolean;
   pendingCompanion?: boolean;
+  productValidation?: 'complete' | 'required-missing';
 } = {}): string {
   const root = mkdtempSync(join(fixtureRoot, 'case-'));
   const hooksDir = findHooksDir();
@@ -88,6 +89,33 @@ function createFixture(options: {
     commands: ['plan', 'score'],
   });
   writeJson(join(root, '.ai-starter/manifests/docs.json'), []);
+  writeJson(join(root, '.ai-starter/manifests/product-spec.json'), {
+    status: 'complete',
+    source: 'agent-generated',
+    customer: 'Hook test users',
+    painfulProblem: 'Need hooks to preserve alignment',
+    openQuestions: [],
+  });
+  writeJson(join(root, '.ai-starter/product-spec/latest.json'), {
+    status: 'complete',
+    source: 'agent-generated',
+    customer: 'Hook test users',
+    painfulProblem: 'Need hooks to preserve alignment',
+    openQuestions: [],
+  });
+  writeJson(join(root, '.ai-starter/config.json'), {
+    productValidation: {
+      mode: options.productValidation === 'required-missing' ? 'required' : 'recommended',
+    },
+  });
+  writeJson(join(root, '.ai-starter/manifests/product-validation.json'), {
+    status: options.productValidation === 'required-missing' ? 'missing-inputs' : 'complete',
+    mode: options.productValidation === 'required-missing' ? 'required' : 'recommended',
+  });
+  writeJson(join(root, '.ai-starter/product-validation/latest.json'), {
+    status: options.productValidation === 'required-missing' ? 'missing-inputs' : 'complete',
+    mode: options.productValidation === 'required-missing' ? 'required' : 'recommended',
+  });
   writeJson(join(root, '.ai-starter/manifests/companions.json'), {
     updatedAt: nowIso(),
     tasks: options.pendingCompanion
@@ -100,6 +128,18 @@ function createFixture(options: {
           },
         ]
       : [],
+  });
+  writeJson(join(root, '.ai-starter/manifests/alignment.json'), {
+    status: 'ready',
+    summary: 'Hook test alignment',
+    anchors: [{ id: 'product-spec', path: '.ai-starter/product-spec/latest.md' }],
+    openGaps: [],
+  });
+  writeJson(join(root, '.ai-starter/alignment/latest.json'), {
+    status: 'ready',
+    summary: 'Hook test alignment',
+    anchors: [{ id: 'product-spec', path: '.ai-starter/product-spec/latest.md' }],
+    openGaps: [],
   });
   mkdirSync(join(root, '.ai-starter/runs'), { recursive: true });
   writeFileSync(join(root, '.ai-starter/runs/telemetry.jsonl'), '', 'utf-8');
@@ -283,6 +323,21 @@ const tests: HookTestResult[] = [
     },
   ),
   expectTest(
+    'plan gate blocks implementation writes when required product validation is missing',
+    'pretool-plan-gate.py',
+    () => createFixture({ activePlan: true, productValidation: 'required-missing' }),
+    writePayload,
+    (root, run) => {
+      const events = telemetry(root);
+      const blocked = events.some(event => event.hook === 'pretool-plan-gate.py' && event.reason === 'product-validation-required');
+      return {
+        pass: run.exitCode !== 0 && blocked && run.stderr.includes('product validation'),
+        expected: 'non-zero exit and product validation blocked telemetry',
+        actual: `exit=${run.exitCode}, blocked=${blocked}`,
+      };
+    },
+  ),
+  expectTest(
     'research gate blocks dependency installs when research is missing',
     'pretool-install-research.py',
     () => createFixture({ research: 'missing' }),
@@ -356,6 +411,17 @@ const tests: HookTestResult[] = [
     (_root, run) => ({
       pass: run.exitCode !== 0 && run.stderr.includes('Stop denied by AI Starter Autopilot') && run.stderr.includes('pnpm score'),
       expected: 'non-zero exit with autopilot scorecard continuation packet',
+      actual: `exit=${run.exitCode}`,
+    }),
+  ),
+  expectTest(
+    'stop gate blocks required product validation before weak completion',
+    'stop-check.py',
+    () => createFixture({ activePlan: true, productValidation: 'required-missing' }),
+    {},
+    (_root, run) => ({
+      pass: run.exitCode !== 0 && run.stderr.includes('product validation') && run.stderr.includes('pnpm product:validate'),
+      expected: 'non-zero exit with product validation continuation packet',
       actual: `exit=${run.exitCode}`,
     }),
   ),

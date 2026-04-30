@@ -81,12 +81,8 @@
         ]
       },
       {
-        "matcher": "*",
+        "matcher": "Bash|Write|Edit|MultiEdit",
         "hooks": [
-          {
-            "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/periodic-reground.py\""
-          },
           {
             "type": "command",
             "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-telemetry.py\""

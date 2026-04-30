@@ -114,6 +114,90 @@
     ]
   },
   {
+    "id": "product-spec",
+    "label": "YC-style product spec",
+    "status": "enabled",
+    "core": true,
+    "required": false,
+    "doctorChecks": [
+      "product spec artifact",
+      ".ai-dev-kit/spec.md compatibility copy",
+      "customer/problem/wedge/open questions"
+    ],
+    "dashboardPanels": [
+      "control-plane",
+      "handoff"
+    ],
+    "verificationCommands": [
+      "pnpm product:spec",
+      "pnpm sync",
+      "pnpm score"
+    ]
+  },
+  {
+    "id": "product-validation",
+    "label": "Product validation and spec fit",
+    "status": "enabled",
+    "core": true,
+    "required": false,
+    "doctorChecks": [
+      "product validation memo",
+      "customer/problem/workaround inputs",
+      "technical feasibility notes"
+    ],
+    "dashboardPanels": [
+      "control-plane",
+      "handoff"
+    ],
+    "verificationCommands": [
+      "pnpm product:validate",
+      "pnpm sync",
+      "pnpm score"
+    ]
+  },
+  {
+    "id": "mfdr",
+    "label": "MFDR technical decision record",
+    "status": "enabled",
+    "core": true,
+    "required": false,
+    "doctorChecks": [
+      "MFDR memo",
+      "API/tool/UI decisions",
+      "hypothesis and verification plan"
+    ],
+    "dashboardPanels": [
+      "control-plane",
+      "handoff"
+    ],
+    "verificationCommands": [
+      "pnpm mfdr",
+      "pnpm sync",
+      "pnpm score"
+    ]
+  },
+  {
+    "id": "alignment",
+    "label": "Agent alignment anchors",
+    "status": "enabled",
+    "core": true,
+    "required": true,
+    "doctorChecks": [
+      "alignment manifest",
+      "alignment markdown",
+      "AGENTS.md alignment references"
+    ],
+    "dashboardPanels": [
+      "control-plane",
+      "handoff"
+    ],
+    "verificationCommands": [
+      "pnpm sync",
+      "pnpm score",
+      "pnpm report"
+    ]
+  },
+  {
     "id": "browser-use-adapter",
     "label": "Browser Use adapter",
     "status": "planned",

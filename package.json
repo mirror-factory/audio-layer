@@ -38,9 +38,9 @@
     "postinstall": "node scripts/doctor-first-run.mjs || true",
     "dev-kit:doctor:strict": "npx ai-dev-kit doctor --strict",
     "starter:setup": "tsx scripts/setup-starter.ts",
-    "starter:doctor": "ai-dev-kit doctor",
-    "starter:update": "ai-dev-kit update",
-    "starter:repair": "ai-dev-kit repair",
+    "starter:doctor": "ai-starter-kit doctor",
+    "starter:update": "ai-starter-kit update",
+    "starter:repair": "ai-starter-kit repair",
     "gates": "tsx scripts/gates.ts",
     "test:e2e": "playwright test",
     "browser:proof": "tsx scripts/browser-proof.ts",
@@ -73,7 +73,11 @@
     "evidence:export": "tsx scripts/export-evidence.ts",
     "companions": "tsx scripts/generate-companions.ts",
     "supervisor:status": "tsx scripts/supervisor-status.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "product:spec": "tsx scripts/product-spec.ts",
+    "product:validate": "tsx scripts/product-validation.ts",
+    "mfdr": "tsx scripts/mfdr.ts",
+    "usage:check": "tsx scripts/check-integration-usage.ts"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^3.0.104",
@@ -117,6 +121,7 @@
     "@ai-sdk/devtools": "^0.0.15",
     "@ai-sdk/react": "^3.0.170",
     "@capacitor/cli": "^8.3.1",
+    "@hustle-together/ai-starter-kit": "file:/Users/alfonso/Desktop/Projects/vercel-ai-starter-kit/.evidence/package-proof/hustle-together-ai-starter-kit-0.3.0.tgz",
     "@mirror-factory/ai-dev-kit": "^0.2.22",
     "@playwright/test": "^1.59.1",
     "@storybook/addon-a11y": "^10.3.5",

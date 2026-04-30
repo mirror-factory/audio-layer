@@ -61,12 +61,29 @@ def main() -> None:
             score_summary = f"{scorecard.get('score', '?')}/100 with {len(scorecard.get('blockers', []))} blocker(s)"
         except json.JSONDecodeError:
             pass
+    alignment_summary = '(no alignment yet)'
+    if (REPO_ROOT / '.ai-starter/manifests/alignment.json').exists():
+        try:
+            alignment = json.loads((REPO_ROOT / '.ai-starter/manifests/alignment.json').read_text())
+            gaps = alignment.get('openGaps') or []
+            alignment_summary = f"{alignment.get('status', 'missing')}: {alignment.get('summary', 'no summary')} | gaps {len(gaps)}"
+        except json.JSONDecodeError:
+            pass
+    product_summary = '(no product spec yet)'
+    if (REPO_ROOT / '.ai-starter/manifests/product-spec.json').exists():
+        try:
+            product_spec = json.loads((REPO_ROOT / '.ai-starter/manifests/product-spec.json').read_text())
+            product_summary = f"{product_spec.get('status', 'missing')}: {product_spec.get('customer', 'no customer')} / {product_spec.get('painfulProblem', 'no problem')}"
+        except json.JSONDecodeError:
+            pass
 
     lines = [
         f'<reground turn="{state["turn_count"]}">',
         f'Branch: {branch} | Uncommitted: {status_count} files | Last commit: {recent}',
         f'Plan: {plan_summary} | Scorecard: {score_summary}',
-        'Reminder: Follow project patterns. Run `pnpm score` before finishing significant work.',
+        f'Alignment: {alignment_summary}',
+        f'Product spec: {product_summary}',
+        'Reminder: read `.ai-starter/alignment/latest.md`, keep product spec/MFDR/DESIGN.md in scope, and run `pnpm score` before finishing significant work.',
         '</reground>',
     ]
     print('\n'.join(lines))

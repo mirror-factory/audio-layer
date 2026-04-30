@@ -1,10 +1,10 @@
 {
-  "planId": "2026-04-30T00-42-19-454Z-align-the-public-homepage-with-t",
-  "actionKey": "2026-04-30T00-42-19-454Z-align-the-public-homepage-with-t:stale-scorecard:pnpm sync && pnpm score",
-  "reason": "stale-scorecard",
-  "command": "pnpm sync && pnpm score",
+  "planId": "2026-04-30T13-52-45-473Z-create-launch-checklist-and-agen",
+  "actionKey": "2026-04-30T13-52-45-473Z-create-launch-checklist-and-agen:pending-companions:pnpm companions",
+  "reason": "pending-companions",
+  "command": "pnpm companions",
   "count": 1,
   "maxIterations": 5,
-  "telemetryLineCount": 3955,
+  "telemetryLineCount": 4516,
   "stopHookActive": false
 }

@@ -1,0 +1,104 @@
+{
+  "version": "0.3.0",
+  "updatedAt": "2026-04-30T17:13:36.031Z",
+  "status": "draft",
+  "source": "agent-generated",
+  "project": {
+    "name": "audio-layer",
+    "slug": "audio-layer",
+    "description": "AI product app managed by the AI Starter Kit.",
+    "appType": "nextjs-ai-app",
+    "productType": "unknown"
+  },
+  "canonicalPath": ".ai-starter/product-spec/latest.md",
+  "compatibilityPath": ".ai-dev-kit/spec.md",
+  "oneLiner": "AI product app managed by the AI Starter Kit.",
+  "customer": "Unvalidated: define the narrow first customer before broad implementation.",
+  "painfulProblem": "Unanswered. Define the painful job before broad implementation.",
+  "currentAlternatives": "Unanswered. Record the current workaround or competitor behavior.",
+  "insight": "The product should be pulled by a specific painful customer workflow, not by broad feature ambition.",
+  "productPromise": "AI product app managed by the AI Starter Kit.",
+  "wedge": "Start with one workflow for Unvalidated: define the narrow first customer before broad implementation. that proves \"Unanswered. Define the painful job before broad implementation.\" can be solved with visible evidence.",
+  "whyNow": "AI agents, browser proof, repo-level context, and usage telemetry make verified workflows practical now.",
+  "mvpScope": [
+    "One primary workflow that proves the painful job can be completed.",
+    "One measurable activation moment and one retention reason.",
+    "One priced offer or concierge/manual validation path before broad automation.",
+    "Repo evidence: plan, tests, browser proof, docs, scorecard, and handoff report."
+  ],
+  "nonGoals": [
+    "Do not scale scope before the narrow customer/problem/workaround chain is explicit.",
+    "Do not add paid providers without docs, env contract, cost tracking, and contract tests.",
+    "Do not accept UI work that violates DESIGN.md, the design manifest, or visual proof requirements."
+  ],
+  "successMetrics": [
+    "At least 5 qualified conversations, 2 strong follow-ups, or 1 paid/LOI-style signal for the narrow MVP.",
+    "Product type is classified before significant implementation.",
+    "Scorecard has no blockers before handoff.",
+    "The first user journey has browser proof and an evidence bundle."
+  ],
+  "pricing": "Unvalidated. Use a paid pilot or narrow entry tier before building high-support automation.",
+  "distribution": "Identify one reachable first-100-user channel before implementation expansion. Write the landing-page promise from the customer/problem/current-workaround answers. Run 5-10 direct customer conversations before treating the scope as validated.",
+  "researchBasis": [
+    "YC: launch quickly, talk to customers, and iterate from a real problem rather than a perfect plan.",
+    "YC: product-market fit is demand pulling product from the team, not internal confidence.",
+    "Starter docs: local docs registry, product validation memo, MFDR, DESIGN.md, and evidence manifests."
+  ],
+  "validationPlan": [
+    "Run a landing-page/demo or concierge workflow for the named customer segment before broad build-out.",
+    "Success threshold: At least 5 qualified conversations, 2 strong follow-ups, or 1 paid/LOI-style signal for the narrow MVP.",
+    "Capture objections, current workaround details, and willingness-to-pay evidence in the product spec before widening scope."
+  ],
+  "milestones": [
+    {
+      "id": "m0",
+      "name": "Spec approved or explicitly bypassed",
+      "due": null
+    },
+    {
+      "id": "m1",
+      "name": "Narrow MVP slice planned with evidence requirements",
+      "due": null
+    },
+    {
+      "id": "m2",
+      "name": "First user journey verified with browser proof",
+      "due": null
+    },
+    {
+      "id": "m3",
+      "name": "Pricing/distribution signal recorded",
+      "due": null
+    }
+  ],
+  "openQuestions": [
+    "Who is the narrow first customer with urgent pain?",
+    "What painful job, cost, delay, or risk is severe enough to justify switching?",
+    "What current workaround proves the problem already exists?",
+    "What concrete payment, pilot, or budget signal validates willingness to pay?",
+    "Which reachable channel creates the first 100 qualified users?"
+  ],
+  "links": [
+    {
+      "label": "Product validation memo",
+      "path": ".ai-starter/product-validation/latest.md"
+    },
+    {
+      "label": "MFDR technical decision record",
+      "path": ".ai-starter/mfdr/latest.md"
+    },
+    {
+      "label": "Design contract",
+      "path": "DESIGN.md"
+    },
+    {
+      "label": "Alignment file",
+      "path": ".ai-starter/alignment/latest.md"
+    },
+    {
+      "label": "Agent context",
+      "path": "AGENTS.md"
+    }
+  ],
+  "nextStep": "Run `pnpm product:spec` or `pnpm product:validate` to fill customer/problem/workaround/pricing/distribution gaps."
+}

@@ -1,0 +1,277 @@
+{
+  "version": "0.3.0",
+  "updatedAt": "2026-04-30T17:13:37.203Z",
+  "status": "draft",
+  "source": "generated",
+  "title": "audio-layer MFDR",
+  "project": {
+    "name": "audio-layer",
+    "slug": "audio-layer",
+    "description": "AI product app managed by the AI Starter Kit.",
+    "appType": "nextjs-ai-app",
+    "productType": "unknown"
+  },
+  "hypothesis": "If Unvalidated: define the narrow first customer before broad implementation. get a starter-enforced workflow for AI product app managed by the AI Starter Kit., they will trust agent-built software faster because every surface has plans, docs, tests, browser evidence, and cost visibility.",
+  "productThesis": "AI product app managed by the AI Starter Kit.",
+  "researchBasis": [
+    "design-md: DESIGN.md",
+    "docs-apis-api-ai-logs-errors-md: docs/apis/api-ai-logs-errors.md",
+    "docs-apis-api-ai-logs-md: docs/apis/api-ai-logs.md",
+    "docs-apis-api-ai-logs-stats-md: docs/apis/api-ai-logs-stats.md",
+    "docs-apis-api-control-plane-md: docs/apis/api-control-plane.md",
+    "docs-apis-app-api-admin-pricing-activate-route-md: docs/apis/app-api-admin-pricing-activate-route.md",
+    "docs-apis-app-api-admin-pricing-route-md: docs/apis/app-api-admin-pricing-route.md",
+    "docs-apis-app-api-ai-logs-errors-route-md: docs/apis/app-api-ai-logs-errors-route.md"
+  ],
+  "decisions": [
+    {
+      "area": "product",
+      "choice": "Validate or narrow before broad implementation",
+      "why": "Unvalidated: define the narrow first customer before broad implementation.",
+      "alternatives": [
+        "Build broad feature set immediately",
+        "Stay in research only",
+        "Ship a concierge/manual prototype first"
+      ],
+      "tradeoffs": [
+        "Faster build momentum",
+        "Less premature surface area",
+        "Requires explicit follow-up validation evidence"
+      ],
+      "evidence": [
+        ".ai-starter/product-validation/latest.md"
+      ],
+      "verification": [
+        "pnpm product:validate",
+        "pnpm plan -- \"<feature>\""
+      ]
+    },
+    {
+      "area": "architecture",
+      "choice": ".ai-starter remains the source of truth for repo state",
+      "why": "Plans, manifests, evidence, costs, docs, and scorecards survive chat compaction and runtime changes.",
+      "alternatives": [
+        "Keep state only in chat transcripts",
+        "Use only CI artifacts",
+        "Use an external project tracker as the canonical source"
+      ],
+      "tradeoffs": [
+        "More generated files",
+        "Better handoff and auditability"
+      ],
+      "evidence": [
+        ".ai-starter/manifests/starter.json",
+        ".ai-starter/manifests/setup.json"
+      ],
+      "verification": [
+        "pnpm sync",
+        "pnpm score"
+      ]
+    },
+    {
+      "area": "api",
+      "choice": "Track configured providers: assemblyai, custom-api-routes, resend, stripe, supabase, vercel-ai-gateway",
+      "why": "External APIs need docs, env requirements, cost events, failure modes, and contract tests.",
+      "alternatives": [
+        "Call providers directly without local registry",
+        "Rely only on provider dashboards",
+        "Block all custom providers"
+      ],
+      "tradeoffs": [
+        "More upfront specification",
+        "Fewer silent runtime/provider failures"
+      ],
+      "evidence": [
+        ".ai-starter/manifests/integrations.json"
+      ],
+      "verification": [
+        "pnpm usage:record -- --integration=<id> --cost=<usd>",
+        "pnpm test"
+      ]
+    },
+    {
+      "area": "ui",
+      "choice": "Use DESIGN.md and token registry as the UI contract",
+      "why": "Project-specific design system defined during setup; preserve existing product visual language when present.",
+      "alternatives": [
+        "Let each agent invent visual direction",
+        "Use only component library defaults",
+        "Require manual design review without local tokens"
+      ],
+      "tradeoffs": [
+        "Design drift can block strict projects",
+        "Visual consistency improves across agent sessions"
+      ],
+      "evidence": [
+        "DESIGN.md",
+        ".ai-starter/manifests/design.json"
+      ],
+      "verification": [
+        "pnpm design:check",
+        "pnpm browser:proof"
+      ]
+    },
+    {
+      "area": "verification",
+      "choice": "Require Playwright plus Expect browser-control proof for user-visible routes",
+      "why": "Playwright gives deterministic browser checks; Expect records agent-style browser command evidence.",
+      "alternatives": [
+        "Unit tests only",
+        "Manual screenshot inspection only",
+        "No browser proof for fast iterations"
+      ],
+      "tradeoffs": [
+        "Needs a running local server",
+        "Catches more real user-experience failures"
+      ],
+      "evidence": [
+        ".ai-starter/manifests/browser-proof.json",
+        ".expect/replays/"
+      ],
+      "verification": [
+        "pnpm browser:proof",
+        "pnpm gates"
+      ]
+    }
+  ],
+  "apiAndServicePlan": [
+    {
+      "id": "assemblyai",
+      "label": "AssemblyAI transcription",
+      "kind": "external-api",
+      "status": "configured",
+      "why": "Use official docs and local registry entry before touching AssemblyAI transcription.",
+      "envVars": [
+        "ASSEMBLYAI_API_KEY"
+      ],
+      "costTracking": "manual-estimate",
+      "tests": [
+        "Record dashboard evidence after a successful assemblyai run."
+      ]
+    },
+    {
+      "id": "custom-api-routes",
+      "label": "Custom API routes",
+      "kind": "custom-api",
+      "status": "configured",
+      "why": "Document Custom API routes behavior, pricing, failure modes, and test contract locally.",
+      "envVars": [],
+      "costTracking": "not-tracked",
+      "tests": [
+        "Record dashboard evidence after a successful custom-api-routes run."
+      ]
+    },
+    {
+      "id": "resend",
+      "label": "Resend email",
+      "kind": "email",
+      "status": "configured",
+      "why": "Use official docs and local registry entry before touching Resend email.",
+      "envVars": [
+        "RESEND_API_KEY"
+      ],
+      "costTracking": "provider-dashboard",
+      "tests": [
+        "Record dashboard evidence after a successful resend run."
+      ]
+    },
+    {
+      "id": "stripe",
+      "label": "Stripe payments",
+      "kind": "payments",
+      "status": "configured",
+      "why": "Use official docs and local registry entry before touching Stripe payments.",
+      "envVars": [
+        "STRIPE_SECRET_KEY",
+        "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"
+      ],
+      "costTracking": "provider-dashboard",
+      "tests": [
+        "Record dashboard evidence after a successful stripe run."
+      ]
+    },
+    {
+      "id": "supabase",
+      "label": "Supabase",
+      "kind": "database",
+      "status": "configured",
+      "why": "Use official docs and local registry entry before touching Supabase.",
+      "envVars": [
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "SUPABASE_SERVICE_ROLE_KEY"
+      ],
+      "costTracking": "provider-dashboard",
+      "tests": [
+        "Record dashboard evidence after a successful supabase run."
+      ]
+    },
+    {
+      "id": "vercel-ai-gateway",
+      "label": "Vercel AI Gateway",
+      "kind": "ai-provider",
+      "status": "configured",
+      "why": "Use official docs and local registry entry before touching Vercel AI Gateway.",
+      "envVars": [
+        "AI_GATEWAY_API_KEY"
+      ],
+      "costTracking": "ai-telemetry",
+      "tests": [
+        "Record dashboard evidence after a successful vercel-ai-gateway run."
+      ]
+    }
+  ],
+  "toolPlan": [
+    "api:api-admin-pricing",
+    "api:api-admin-pricing-activate",
+    "api:api-ai-logs",
+    "api:api-ai-logs-errors",
+    "api:api-ai-logs-stats",
+    "api:api-auth-api-key",
+    "api:api-auth-send-email",
+    "api:api-calendar-callback-[provider]",
+    "api:api-calendar-connect-[provider]",
+    "api:api-calendar-disconnect-[provider]",
+    "api:api-calendar-upcoming",
+    "api:api-chat"
+  ],
+  "uiPlan": {
+    "designContract": "Project-specific design system defined during setup; preserve existing product visual language when present.",
+    "designTokens": "Use DESIGN.md tokens and generated design registry before hardcoding visual values.",
+    "interactionModel": "Clear task-first flows with visible feedback and recoverable states.",
+    "visualProof": "Capture screenshots and Expect replays after visual route/component changes."
+  },
+  "verificationPlan": {
+    "commands": [
+      "pnpm sync",
+      "pnpm typecheck",
+      "pnpm test",
+      "pnpm browser:proof",
+      "pnpm gates",
+      "pnpm score",
+      "pnpm report"
+    ],
+    "browserProof": "Run against the local dev server with AI_STARTER_BASE_URL or PLAYWRIGHT_BASE_URL set.",
+    "expectRequired": true,
+    "storybookRequired": true,
+    "designDriftPolicy": "warn"
+  },
+  "successMetrics": [
+    "Product validation is complete or explicitly bypassed with a reason.",
+    "Feature plan has acceptance criteria and required evidence.",
+    "Scorecard has no blockers.",
+    "Expect proof reports successful browser-control commands for user-visible routes.",
+    "External APIs/services have cost events or an explicit provider-dashboard/manual tracking reason."
+  ],
+  "risks": [
+    "The first customer/problem/workaround is not validated enough to justify broad build scope.",
+    "Pricing is not validated; support and compute cost may exceed willingness to pay.",
+    "Distribution is not validated; the first 100 users may be hard to reach.",
+    "MFDR can become stale if API/tool/UI decisions change without rerunning `pnpm mfdr`.",
+    "Browser proof requires a live local server and installed Expect CLI."
+  ],
+  "openQuestions": [
+    "Complete product validation or record why it is bypassed."
+  ],
+  "nextStep": "Before broad implementation, run `pnpm mfdr`, then `pnpm plan -- \"<first feature>\"`, then implement only the next verified slice."
+}

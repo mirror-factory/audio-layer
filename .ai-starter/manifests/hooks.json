@@ -9,29 +9,20 @@
     "blocks": false
   },
   {
-    "id": "claude-code:PostToolUse:*:python3-claude-project-dir-claude-hooks-periodic-reground-py",
-    "runtime": "claude-code",
-    "event": "PostToolUse",
-    "matcher": "*",
-    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/periodic-reground.py\"",
-    "classification": "observer",
-    "blocks": false
-  },
-  {
-    "id": "claude-code:PostToolUse:*:python3-claude-project-dir-claude-hooks-posttool-telemetry-py",
-    "runtime": "claude-code",
-    "event": "PostToolUse",
-    "matcher": "*",
-    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-telemetry.py\"",
-    "classification": "observer",
-    "blocks": false
-  },
-  {
     "id": "claude-code:PostToolUse:Bash:python3-claude-hooks-verify-claims-py",
     "runtime": "claude-code",
     "event": "PostToolUse",
     "matcher": "Bash",
     "command": "python3 .claude/hooks/verify-claims.py",
+    "classification": "observer",
+    "blocks": false
+  },
+  {
+    "id": "claude-code:PostToolUse:Bash|Write|Edit|MultiEdit:python3-claude-project-dir-claude-hooks-posttool-telemetry-py",
+    "runtime": "claude-code",
+    "event": "PostToolUse",
+    "matcher": "Bash|Write|Edit|MultiEdit",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-telemetry.py\"",
     "classification": "observer",
     "blocks": false
   },
@@ -144,19 +135,10 @@
     "blocks": true
   },
   {
-    "id": "codex:PostToolUse:.*:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-periodic-reground-py",
+    "id": "codex:PostToolUse:Bash|functions.exec_command|Write|Edit|MultiEdit|apply_patch|functions.apply_patch:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-posttool-telemetry-py",
     "runtime": "codex",
     "event": "PostToolUse",
-    "matcher": ".*",
-    "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/periodic-reground.py\"",
-    "classification": "observer",
-    "blocks": false
-  },
-  {
-    "id": "codex:PostToolUse:.*:usr-bin-python3-git-rev-parse-show-toplevel-codex-hooks-posttool-telemetry-py",
-    "runtime": "codex",
-    "event": "PostToolUse",
-    "matcher": ".*",
+    "matcher": "Bash|functions.exec_command|Write|Edit|MultiEdit|apply_patch|functions.apply_patch",
     "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/posttool-telemetry.py\"",
     "classification": "observer",
     "blocks": false

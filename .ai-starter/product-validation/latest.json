@@ -1,0 +1,94 @@
+{
+  "version": "0.3.0",
+  "updatedAt": "2026-04-30T17:13:36.031Z",
+  "mode": "recommended",
+  "status": "missing-inputs",
+  "bypassReason": null,
+  "project": {
+    "name": "audio-layer",
+    "slug": "audio-layer",
+    "description": "AI product app managed by the AI Starter Kit.",
+    "appType": "nextjs-ai-app",
+    "productType": "unknown"
+  },
+  "ai": {
+    "provider": "vercel-ai-gateway",
+    "defaultModel": "anthropic/claude-sonnet-4.6",
+    "testModel": "google/gemini-3.1-flash-lite",
+    "evalModel": "google/gemini-3.1-flash-lite"
+  },
+  "inputs": {
+    "customer": "",
+    "problem": "",
+    "currentWorkaround": "",
+    "proposedSolution": "AI product app managed by the AI Starter Kit.",
+    "pricing": "",
+    "distribution": "",
+    "timing": "",
+    "constraints": ""
+  },
+  "unanswered": [
+    "customer",
+    "problem",
+    "currentWorkaround",
+    "pricing",
+    "distribution",
+    "timing",
+    "constraints"
+  ],
+  "verdict": "test-first",
+  "bestCustomer": "Unvalidated: define the narrow first customer before broad implementation.",
+  "mvpScope": [
+    "One primary workflow that proves the painful job can be completed.",
+    "One measurable activation moment and one retention reason.",
+    "One priced offer or concierge/manual validation path before broad automation.",
+    "Repo evidence: plan, tests, browser proof, docs, scorecard, and handoff report."
+  ],
+  "pricingRecommendation": "Unvalidated. Use a paid pilot or narrow entry tier before building high-support automation.",
+  "gtmPlan": [
+    "Identify one reachable first-100-user channel before implementation expansion.",
+    "Write the landing-page promise from the customer/problem/current-workaround answers.",
+    "Run 5-10 direct customer conversations before treating the scope as validated."
+  ],
+  "technicalFeasibility": {
+    "buildComplexity": "medium",
+    "dependencies": [
+      "Vercel AI Gateway"
+    ],
+    "dataAndApiRisks": [
+      "AI Gateway model availability and spend must be observed in telemetry."
+    ],
+    "securityRisks": [
+      "Do not commit secrets; setup writes .env.example only.",
+      "Validate inputs and tool schemas for every API/tool surface.",
+      "Record failure modes for paid or user-data integrations."
+    ],
+    "reliabilityNeeds": [
+      "Fallback shapes for dashboards/APIs when optional services are absent.",
+      "Contract tests for APIs and external adapters.",
+      "Browser proof for user-visible workflows."
+    ],
+    "testingApproach": [
+      "Unit/contract coverage for deterministic APIs and adapters.",
+      "Playwright/Expect proof for user journeys.",
+      "Rubric/eval coverage for AI/tool behavior.",
+      "Cost events for AI Gateway and direct paid APIs."
+    ],
+    "mvpArchitecture": [
+      "Keep starter state in .ai-starter as source of truth.",
+      "Add one feature plan before implementation.",
+      "Use manifests to connect features, tests, docs, costs, and evidence."
+    ]
+  },
+  "risks": [
+    "The first customer/problem/workaround is not validated enough to justify broad build scope.",
+    "Pricing is not validated; support and compute cost may exceed willingness to pay.",
+    "Distribution is not validated; the first 100 users may be hard to reach.",
+    "Technical scope is manageable if verification remains strict."
+  ],
+  "validationExperiment": {
+    "experiment": "Run a landing-page/demo or concierge workflow for the named customer segment before broad build-out.",
+    "successThreshold": "At least 5 qualified conversations, 2 strong follow-ups, or 1 paid/LOI-style signal for the narrow MVP."
+  },
+  "nextStep": "Run `pnpm product:validate` or mark the validation as bypassed with a reason before large product work."
+}

@@ -47,7 +47,6 @@ async function ensureBaseline(page: Page, testInfo: TestInfo, name: string): Pro
   await page.screenshot({
     path: snapshotPath,
     animations: 'disabled',
-    scale: 'css',
   });
   testInfo.annotations.push({
     type: 'visual-baseline',

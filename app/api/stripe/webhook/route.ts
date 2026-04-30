@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
 import { withRoute } from "@/lib/with-route";
+import { withExternalCall } from "@/lib/with-external";
 import { getStripe, tierForPriceId } from "@/lib/stripe/client";
 import { setSubscriptionState } from "@/lib/stripe/profiles";
 import type Stripe from "stripe";
@@ -48,8 +49,17 @@ export const POST = withRoute(async (req, ctx) => {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
       if (session.subscription && session.customer) {
-        const sub = await stripe.subscriptions.retrieve(
-          session.subscription as string,
+        const subscriptionId = session.subscription as string;
+        const sub = await withExternalCall(
+          { vendor: "stripe", operation: "subscriptions.retrieve", requestId: ctx.requestId },
+          () => stripe.subscriptions.retrieve(subscriptionId),
+          {
+            inputSummary: { subscriptionId },
+            summarizeResult: (subscription) => ({
+              id: subscription.id,
+              status: subscription.status,
+            }),
+          },
         );
         await syncSubscription(sub);
       }

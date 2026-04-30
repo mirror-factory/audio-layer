@@ -13,6 +13,7 @@ import {
   writeSetupConfig,
   type IntegrationKind,
   type PolicyProfile,
+  type ProductValidationMode,
   type SetupMode,
   type StarterContext,
   type StarterSetupConfig,
@@ -50,6 +51,16 @@ interface SetupArgs {
   designDrift?: 'warn' | 'block';
   runtimes: Array<'claude-code' | 'codex'>;
   primaryRuntime?: 'claude-code' | 'codex';
+  validationMode?: ProductValidationMode;
+  validationCustomer?: string;
+  validationProblem?: string;
+  validationWorkaround?: string;
+  validationSolution?: string;
+  validationPricing?: string;
+  validationDistribution?: string;
+  validationTiming?: string;
+  validationConstraints?: string;
+  validationBypassReason?: string;
 }
 
 export class SetupCancelled extends Error {
@@ -106,6 +117,12 @@ const MOTION_OPTIONS: Array<Choice<StarterSetupConfig['design']['motionLevel']>>
   { value: 'expressive', label: 'Expressive', description: 'Visible motion moments for product personality.' },
   { value: 'high', label: 'High', description: 'Motion-first experience with strong choreography.' },
   { value: 'custom', label: 'Custom', description: 'Document the custom motion level in the design summary.' },
+];
+
+const PRODUCT_VALIDATION_MODE_OPTIONS: Array<Choice<ProductValidationMode>> = [
+  { value: 'recommended', label: 'Recommended', description: 'Ask the product/spec questions and warn if incomplete.' },
+  { value: 'required', label: 'Required', description: 'Block implementation writes until validated or explicitly bypassed.' },
+  { value: 'bypassed', label: 'Bypassed', description: 'Skip product spec/validation now, but record a reason in repo state.' },
 ];
 
 function log(message: string) {
@@ -249,6 +266,51 @@ function parseArgs(argv: string[]): SetupArgs {
         break;
       case '--primary-runtime':
         args.primaryRuntime = value === 'claude' ? 'claude-code' : value as SetupArgs['primaryRuntime'];
+        if (consume) index += 1;
+        break;
+      case '--validation-mode':
+      case '--product-validation':
+        args.validationMode = value as ProductValidationMode;
+        if (consume) index += 1;
+        break;
+      case '--skip-validation':
+        args.validationMode = 'bypassed';
+        args.validationBypassReason = args.validationBypassReason ?? 'Skipped during setup by --skip-validation.';
+        break;
+      case '--validation-customer':
+        args.validationCustomer = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-problem':
+        args.validationProblem = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-workaround':
+        args.validationWorkaround = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-solution':
+        args.validationSolution = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-pricing':
+        args.validationPricing = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-distribution':
+        args.validationDistribution = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-timing':
+        args.validationTiming = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-constraints':
+        args.validationConstraints = value;
+        if (consume) index += 1;
+        break;
+      case '--validation-bypass-reason':
+        args.validationBypassReason = value;
         if (consume) index += 1;
         break;
       default:
@@ -443,6 +505,7 @@ function printFinalSummary(config: StarterSetupConfig): void {
   log(`  Runtimes:      ${formatList(enabledRuntimeIds(config))} (primary ${config.runtimes.primary})`);
   log(`  Env groups:    ${config.env.requirements.length} required group(s)`);
   log(`  Policy:        ${config.policy.profile}, design drift ${config.policy.designDrift}`);
+  log(`  Validation:    ${config.productValidation.mode}${config.productValidation.bypassReason ? ` (${config.productValidation.bypassReason})` : ''}`);
   log(`  Design:        ${config.design.visualStyle}; density ${config.design.density}; motion ${config.design.motionLevel}`);
   log(`  Colors:        ${formatList(config.design.brandColors)}`);
   log(`  References:    ${formatList(config.design.referenceSystems)}`);
@@ -452,6 +515,10 @@ function printFinalSummary(config: StarterSetupConfig): void {
   log(`    ${CYAN}.ai-starter/manifests/setup.json${NC}`);
   log(`    ${CYAN}.env.example${NC} (placeholders only, no secrets)`);
   log(`    ${CYAN}DESIGN.md${NC} (starter-managed design contract section)`);
+  log(`    ${CYAN}.ai-starter/product-spec/latest.md${NC} (YC-style product spec)`);
+  log(`    ${CYAN}.ai-dev-kit/spec.md${NC} (starter-managed compatibility copy when safe)`);
+  log(`    ${CYAN}.ai-starter/product-validation/latest.md${NC} (validation memo)`);
+  log(`    ${CYAN}.ai-starter/alignment/latest.md${NC} (agent alignment anchors)`);
 }
 
 function applyArgsToConfig(config: StarterSetupConfig, args: SetupArgs): StarterSetupConfig {
@@ -527,6 +594,19 @@ function applyArgsToConfig(config: StarterSetupConfig, args: SetupArgs): Starter
       accessibility: args.accessibility ?? config.design.accessibility,
       designInputSource: hasDesignArgs ? 'interview' : config.design.designInputSource,
     },
+    productValidation: {
+      ...config.productValidation,
+      mode: args.validationMode ?? config.productValidation.mode,
+      customer: args.validationCustomer ?? config.productValidation.customer,
+      problem: args.validationProblem ?? config.productValidation.problem,
+      currentWorkaround: args.validationWorkaround ?? config.productValidation.currentWorkaround,
+      proposedSolution: args.validationSolution ?? args.description ?? config.productValidation.proposedSolution,
+      pricing: args.validationPricing ?? config.productValidation.pricing,
+      distribution: args.validationDistribution ?? config.productValidation.distribution,
+      timing: args.validationTiming ?? config.productValidation.timing,
+      constraints: args.validationConstraints ?? config.productValidation.constraints,
+      bypassReason: args.validationBypassReason ?? config.productValidation.bypassReason,
+    },
     integrations: config.integrations.map(integration => ({
       ...integration,
       enabled:
@@ -553,6 +633,39 @@ async function interactiveConfig(config: StarterSetupConfig, context: StarterCon
       config.project.productType === 'unknown' ? 'creative-tool' : config.project.productType,
     );
     const description = await ask(rl, 'One-sentence product description?', config.project.description);
+    const validationMode = await askChoice(
+      rl,
+      'YC-style product spec and validation interview?',
+      PRODUCT_VALIDATION_MODE_OPTIONS,
+      config.productValidation.mode,
+    );
+    let validationCustomer = config.productValidation.customer;
+    let validationProblem = config.productValidation.problem;
+    let validationWorkaround = config.productValidation.currentWorkaround;
+    let validationSolution = config.productValidation.proposedSolution || description;
+    let validationPricing = config.productValidation.pricing;
+    let validationDistribution = config.productValidation.distribution;
+    let validationTiming = config.productValidation.timing;
+    let validationConstraints = config.productValidation.constraints;
+    let validationBypassReason = config.productValidation.bypassReason ?? null;
+    if (validationMode === 'bypassed') {
+      validationBypassReason = await ask(
+        rl,
+        'Why bypass product spec/validation now?',
+        validationBypassReason ?? 'Exploration/prototype; product risk accepted for this session.',
+      );
+    } else {
+      log('');
+      log(`${BOLD}  Product spec + validation${NC}`);
+      validationCustomer = await ask(rl, 'Who has the pain most urgently?', validationCustomer || 'Narrow first customer segment');
+      validationProblem = await ask(rl, 'What painful job/cost/risk exists?', validationProblem || description);
+      validationWorkaround = await ask(rl, 'What do they use now instead?', validationWorkaround || 'Manual workflow or existing tools');
+      validationSolution = await ask(rl, 'What does the product do?', validationSolution || description);
+      validationPricing = await ask(rl, 'What would make someone pay?', validationPricing || 'Paid pilot or usage-based/team tier');
+      validationDistribution = await ask(rl, 'Where do the first 100 users come from?', validationDistribution || 'Direct outreach to the narrow segment');
+      validationTiming = await ask(rl, 'Why now?', validationTiming || 'AI automation and verified browser/tooling workflows are now practical');
+      validationConstraints = await ask(rl, 'Technical/security/legal/support constraints?', validationConstraints || 'Secrets stay local; APIs need schemas, tests, docs, and cost tracking');
+    }
     const provider = await askChoice(
       rl,
       'AI provider?',
@@ -644,6 +757,16 @@ async function interactiveConfig(config: StarterSetupConfig, context: StarterCon
       accessibility,
       designDrift: drift,
       integrations,
+      validationMode,
+      validationCustomer,
+      validationProblem,
+      validationWorkaround,
+      validationSolution,
+      validationPricing,
+      validationDistribution,
+      validationTiming,
+      validationConstraints,
+      validationBypassReason: validationBypassReason ?? undefined,
     }));
 
     printEnvPreview(context.cwd, nextConfig);
@@ -689,6 +812,10 @@ export async function runSetup(argv: string[], context: StarterContext): Promise
   log(`\n${CYAN}${BOLD}  AI Starter Kit — Setup${NC}\n`);
   log(`  ${GREEN}✓${NC} Wrote .ai-starter/config.json`);
   log(`  ${GREEN}✓${NC} Wrote .ai-starter/manifests/setup.json`);
+  log(`  ${GREEN}✓${NC} Wrote .ai-starter/product-spec/latest.md`);
+  log(`  ${GREEN}✓${NC} Wrote .ai-starter/product-validation/latest.md`);
+  log(`  ${GREEN}✓${NC} Wrote .ai-starter/mfdr/latest.md`);
+  log(`  ${GREEN}✓${NC} Wrote .ai-starter/alignment/latest.md`);
   log(`  ${GREEN}✓${NC} Updated ${written.env.examplePath} without secrets`);
   log(`  ${GREEN}✓${NC} Updated DESIGN.md setup contract`);
   log(`  ${GREEN}✓${NC} Synced manifests (${sync.docs} docs, ${sync.features} features, ${sync.companions} companions)`);

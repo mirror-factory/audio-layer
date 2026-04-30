@@ -7,8 +7,11 @@ import json
 import subprocess
 
 from starter_hook_utils import (
+    ALIGNMENT_MANIFEST_FILE,
     GATES_FILE,
+    MFDR_MANIFEST_FILE,
     PLAN_FILE,
+    PRODUCT_SPEC_MANIFEST_FILE,
     PROGRESS_FILE,
     REPO_ROOT,
     RESEARCH_INDEX_FILE,
@@ -61,6 +64,9 @@ def main() -> None:
     ) or {}
     plan = read_json(PLAN_FILE, {}) or {}
     scorecard = read_json(SCORECARD_FILE, None)
+    product_spec = read_json(PRODUCT_SPEC_MANIFEST_FILE, {}) or {}
+    mfdr = read_json(MFDR_MANIFEST_FILE, {}) or {}
+    alignment = read_json(ALIGNMENT_MANIFEST_FILE, {}) or {}
 
     active_plan_id = current_plan_id()
     current_task = session.get("currentTask") or "(no active task)"
@@ -154,6 +160,18 @@ def main() -> None:
     lines.append(f"Scorecard: {score_summary}")
     if research_status:
         lines.append(f"Research: {research_status}")
+    if alignment:
+        lines.append(
+            f"Alignment: {alignment.get('status', 'missing')} | {alignment.get('summary', 'no summary')}"
+        )
+    if product_spec:
+        lines.append(
+            f"Product spec: {product_spec.get('status', 'missing')} | {product_spec.get('customer', 'no customer')} / {product_spec.get('painfulProblem', 'no problem')}"
+        )
+    if mfdr:
+        lines.append(
+            f"MFDR: {mfdr.get('status', 'missing')} | {mfdr.get('title', 'no title')} | open questions {len(mfdr.get('openQuestions', []))}"
+        )
     lines.append(f"Uncommitted files: {status_count}")
     if open_gaps:
         lines.append(f"Open gaps: {'; '.join(open_gaps)}")

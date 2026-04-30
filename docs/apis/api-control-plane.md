@@ -18,7 +18,7 @@ The response includes:
 - dev-only dashboard actions and recent action runs
 - latest evidence export state and download path
 
-Current allowlisted actions cover registry sync, score generation, gates, browser proof, tool rubrics, design drift, the control-plane API contract, direct API usage proof, and evidence export.
+Current allowlisted actions cover registry sync, setup refresh, product validation refresh, score generation, gates, browser proof, tool rubrics, design drift, the control-plane API contract, direct API usage proof, and evidence export.
 
 The route must work without Supabase, hosted telemetry, or external services.
 Dashboard actions are disabled in production and when `AI_STARTER_DISABLE_DASHBOARD_ACTIONS=1`.

@@ -13,7 +13,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-30T13:57:26.393Z"
+    "lastCheckedAt": "2026-04-30T17:13:26.534Z"
   },
   {
     "id": "docs-apis-api-ai-logs-errors-md",
@@ -85,7 +85,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-26T22:08:36.883Z"
+    "lastCheckedAt": "2026-04-30T16:43:20.114Z"
   },
   {
     "id": "docs-apis-app-api-admin-pricing-activate-route-md",
@@ -2364,6 +2364,60 @@
     "lastCheckedAt": "2026-04-26T22:08:36.880Z"
   },
   {
+    "id": "docs-guides-mfdr-md",
+    "title": "MFDR",
+    "localPath": "docs/guides/MFDR.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "guides",
+      "MFDR.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T16:43:20.147Z"
+  },
+  {
+    "id": "docs-guides-product-spec-md",
+    "title": "PRODUCT_SPEC",
+    "localPath": "docs/guides/PRODUCT_SPEC.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "guides",
+      "PRODUCT_SPEC.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T16:43:20.147Z"
+  },
+  {
+    "id": "docs-guides-product-validation-md",
+    "title": "PRODUCT_VALIDATION",
+    "localPath": "docs/guides/PRODUCT_VALIDATION.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "guides",
+      "PRODUCT_VALIDATION.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T16:43:20.147Z"
+  },
+  {
     "id": "docs-home-ui-polish-md",
     "title": "HOME_UI_POLISH",
     "localPath": "docs/HOME_UI_POLISH.md",
@@ -2395,7 +2449,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-30T13:54:04.146Z"
+    "lastCheckedAt": "2026-04-30T14:12:59.107Z"
   },
   {
     "id": "docs-mcp-and-api-md",
@@ -2686,7 +2740,7 @@
     "triggerPaths": [
       "AGENTS.md"
     ],
-    "lastCheckedAt": "2026-04-30T13:57:28.539Z"
+    "lastCheckedAt": "2026-04-30T17:13:30.223Z"
   },
   {
     "id": "openai-codex-hooks",
@@ -2704,7 +2758,7 @@
       ".codex/config.toml",
       ".codex/hooks/"
     ],
-    "lastCheckedAt": "2026-04-30T13:57:28.539Z"
+    "lastCheckedAt": "2026-04-30T17:13:30.223Z"
   },
   {
     "id": "openai-docs-mcp",
@@ -2721,7 +2775,7 @@
       ".codex/config.toml",
       "AGENTS.md"
     ],
-    "lastCheckedAt": "2026-04-30T13:57:28.539Z"
+    "lastCheckedAt": "2026-04-30T17:13:30.223Z"
   },
   {
     "id": "readme-md",

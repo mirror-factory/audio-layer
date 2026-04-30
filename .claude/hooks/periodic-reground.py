@@ -1,18 +1,11 @@
 #!/usr/bin/env python3
-"""
-PostToolUse hook -- re-injects working state every 7 turns.
-Prevents context drift in long sessions.
-
-Install to: .claude/hooks/periodic-reground.py
-Wire in: .claude/settings.json -> hooks.PostToolUse[matcher="*"]
-
-Copied from vercel-ai-starter-kit. Customize for your project.
-"""
+"""PostToolUse hook -- re-inject starter state every 7 turns."""
 import json
 import subprocess
 from pathlib import Path
 
-STATE_FILE = Path('.claude/hooks/state.json')
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+STATE_FILE = Path(__file__).resolve().parent / 'state.json'
 REGROUND_INTERVAL = 7
 
 
@@ -32,7 +25,12 @@ def save_state(state: dict) -> None:
 
 def run(cmd: list[str]) -> str:
     try:
-        return subprocess.check_output(cmd, text=True, stderr=subprocess.DEVNULL).strip()
+        return subprocess.check_output(
+            cmd,
+            text=True,
+            stderr=subprocess.DEVNULL,
+            cwd=REPO_ROOT,
+        ).strip()
     except (subprocess.CalledProcessError, FileNotFoundError):
         return ''
 
@@ -49,11 +47,43 @@ def main() -> None:
     status = run(['git', 'status', '--short'])
     status_count = len(status.splitlines()) if status else 0
     recent = run(['git', 'log', '--oneline', '-1']) or '(none)'
+    plan_summary = '(no active plan)'
+    if (REPO_ROOT / '.ai-starter/plans/latest.json').exists():
+        try:
+            plan = json.loads((REPO_ROOT / '.ai-starter/plans/latest.json').read_text())
+            plan_summary = f"{plan.get('classification', 'task')}: {plan.get('title', '(untitled)')}"
+        except json.JSONDecodeError:
+            pass
+    score_summary = '(no scorecard yet)'
+    if (REPO_ROOT / '.ai-starter/runs/latest-scorecard.json').exists():
+        try:
+            scorecard = json.loads((REPO_ROOT / '.ai-starter/runs/latest-scorecard.json').read_text())
+            score_summary = f"{scorecard.get('score', '?')}/100 with {len(scorecard.get('blockers', []))} blocker(s)"
+        except json.JSONDecodeError:
+            pass
+    alignment_summary = '(no alignment yet)'
+    if (REPO_ROOT / '.ai-starter/manifests/alignment.json').exists():
+        try:
+            alignment = json.loads((REPO_ROOT / '.ai-starter/manifests/alignment.json').read_text())
+            gaps = alignment.get('openGaps') or []
+            alignment_summary = f"{alignment.get('status', 'missing')}: {alignment.get('summary', 'no summary')} | gaps {len(gaps)}"
+        except json.JSONDecodeError:
+            pass
+    product_summary = '(no product spec yet)'
+    if (REPO_ROOT / '.ai-starter/manifests/product-spec.json').exists():
+        try:
+            product_spec = json.loads((REPO_ROOT / '.ai-starter/manifests/product-spec.json').read_text())
+            product_summary = f"{product_spec.get('status', 'missing')}: {product_spec.get('customer', 'no customer')} / {product_spec.get('painfulProblem', 'no problem')}"
+        except json.JSONDecodeError:
+            pass
 
     lines = [
         f'<reground turn="{state["turn_count"]}">',
         f'Branch: {branch} | Uncommitted: {status_count} files | Last commit: {recent}',
-        'Reminder: Follow project patterns. Run `pnpm typecheck && pnpm test` before commit.',
+        f'Plan: {plan_summary} | Scorecard: {score_summary}',
+        f'Alignment: {alignment_summary}',
+        f'Product spec: {product_summary}',
+        'Reminder: read `.ai-starter/alignment/latest.md`, keep product spec/MFDR/DESIGN.md in scope, and run `pnpm score` before finishing significant work.',
         '</reground>',
     ]
     print('\n'.join(lines))

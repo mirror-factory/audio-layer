@@ -15,6 +15,7 @@
 
 import { NextResponse } from 'next/server';
 import { withRoute } from '@/lib/with-route';
+import { trackedFetch } from '@/lib/integration-usage';
 
 type DepStatus = 'ok' | 'degraded' | 'down' | 'not-configured';
 
@@ -31,10 +32,19 @@ async function checkSupabase(): Promise<DepResult> {
 
   const started = Date.now();
   try {
-    const res = await fetch(`${url}/rest/v1/`, {
-      headers: { apikey: key, Authorization: `Bearer ${key}` },
-      signal: AbortSignal.timeout(3_000),
-    });
+    const res = await trackedFetch(
+      `${url}/rest/v1/`,
+      {
+        headers: { apikey: key, Authorization: `Bearer ${key}` },
+        signal: AbortSignal.timeout(3_000),
+      },
+      {
+        integrationId: 'supabase',
+        label: 'Supabase',
+        route: '/api/health',
+        operation: 'health.rest-root',
+      },
+    );
     const latencyMs = Date.now() - started;
     return res.ok
       ? { status: 'ok', latencyMs }
@@ -52,9 +62,16 @@ async function checkLangfuse(): Promise<DepResult> {
 
   const started = Date.now();
   try {
-    const res = await fetch(`${base}/api/public/health`, {
-      signal: AbortSignal.timeout(3_000),
-    });
+    const res = await trackedFetch(
+      `${base}/api/public/health`,
+      { signal: AbortSignal.timeout(3_000) },
+      {
+        integrationId: 'langfuse',
+        label: 'Langfuse',
+        route: '/api/health',
+        operation: 'health.public',
+      },
+    );
     return res.ok
       ? { status: 'ok', latencyMs: Date.now() - started }
       : { status: 'degraded', detail: `HTTP ${res.status}` };
@@ -72,10 +89,19 @@ async function checkAssemblyAI(): Promise<DepResult> {
   if (!process.env.ASSEMBLYAI_API_KEY) return { status: 'not-configured' };
   const started = Date.now();
   try {
-    const res = await fetch('https://api.assemblyai.com/v2/account', {
-      headers: { Authorization: process.env.ASSEMBLYAI_API_KEY },
-      signal: AbortSignal.timeout(3_000),
-    });
+    const res = await trackedFetch(
+      'https://api.assemblyai.com/v2/account',
+      {
+        headers: { Authorization: process.env.ASSEMBLYAI_API_KEY },
+        signal: AbortSignal.timeout(3_000),
+      },
+      {
+        integrationId: 'assemblyai',
+        label: 'AssemblyAI',
+        route: '/api/health',
+        operation: 'health.account',
+      },
+    );
     return res.ok
       ? { status: 'ok', latencyMs: Date.now() - started }
       : { status: 'degraded', detail: `HTTP ${res.status}` };

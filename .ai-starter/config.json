@@ -1,7 +1,7 @@
 {
-  "version": "0.0.11",
+  "version": "0.3.0",
   "createdAt": "2026-04-26T22:08:37.511Z",
-  "updatedAt": "2026-04-30T13:57:30.834Z",
+  "updatedAt": "2026-04-30T17:13:33.702Z",
   "mode": "detected",
   "status": "configured",
   "project": {
@@ -54,6 +54,18 @@
     "referenceSystems": [],
     "accessibility": "WCAG AA contrast, keyboard reachability, visible focus, and reduced-motion support.",
     "designInputSource": "defaults"
+  },
+  "productValidation": {
+    "mode": "recommended",
+    "customer": "",
+    "problem": "",
+    "currentWorkaround": "",
+    "proposedSolution": "AI product app managed by the AI Starter Kit.",
+    "pricing": "",
+    "distribution": "",
+    "timing": "",
+    "constraints": "",
+    "bypassReason": null
   },
   "integrations": [
     {

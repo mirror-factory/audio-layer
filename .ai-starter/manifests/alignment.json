@@ -1,0 +1,79 @@
+{
+  "version": "0.3.0",
+  "updatedAt": "2026-04-30T17:13:37.204Z",
+  "status": "attention-needed",
+  "project": {
+    "name": "audio-layer",
+    "slug": "audio-layer",
+    "description": "AI product app managed by the AI Starter Kit.",
+    "appType": "nextjs-ai-app",
+    "productType": "unknown"
+  },
+  "summary": "audio-layer: AI product app managed by the AI Starter Kit.",
+  "anchors": [
+    {
+      "id": "product-spec",
+      "label": "YC-style product spec",
+      "path": ".ai-starter/product-spec/latest.md",
+      "status": "draft",
+      "reminder": "Keeps customer, painful problem, wedge, MVP, metrics, pricing, and distribution in scope."
+    },
+    {
+      "id": "product-validation",
+      "label": "Product validation memo",
+      "path": ".ai-starter/product-validation/latest.md",
+      "status": "missing-inputs",
+      "reminder": "Justifies whether the product or feature should be built before widening scope."
+    },
+    {
+      "id": "mfdr",
+      "label": "MFDR technical decision record",
+      "path": ".ai-starter/mfdr/latest.md",
+      "status": "draft",
+      "reminder": "Justifies architecture, APIs, tools, UI, costs, risks, alternatives, and verification choices."
+    },
+    {
+      "id": "design",
+      "label": "Design contract",
+      "path": "DESIGN.md",
+      "status": "defaults",
+      "reminder": "Preserves product visual direction, interaction density, accessibility, tokens, and drift policy."
+    },
+    {
+      "id": "agent-context",
+      "label": "Agent context",
+      "path": "AGENTS.md",
+      "status": "present",
+      "reminder": "Portable compressed contract for Codex, Claude, and other coding agents."
+    }
+  ],
+  "requiredReads": [
+    ".ai-starter/product-spec/latest.md",
+    ".ai-starter/product-validation/latest.md",
+    ".ai-starter/mfdr/latest.md",
+    "DESIGN.md",
+    "AGENTS.md"
+  ],
+  "recurringContext": [
+    "Product: Unvalidated: define the narrow first customer before broad implementation. / Unanswered. Define the painful job before broad implementation.",
+    "Wedge: Start with one workflow for Unvalidated: define the narrow first customer before broad implementation. that proves \"Unanswered. Define the painful job before broad implementation.\" can be solved with visible evidence.",
+    "Technical: If Unvalidated: define the narrow first customer before broad implementation. get a starter-enforced workflow for AI product app managed by the AI Starter Kit., they will trust agent-built software faster because every surface has plans, docs, tests, browser evidence, and cost visibility.",
+    "Design: Project-specific design system defined during setup; preserve existing product visual language when present.",
+    "Active plan: Create launch checklist and agent swarm workstream document",
+    "Scorecard: 100/100 with 0 blocker(s)"
+  ],
+  "commands": [
+    "pnpm product:spec",
+    "pnpm product:validate",
+    "pnpm mfdr",
+    "pnpm plan -- \"<task>\"",
+    "pnpm sync",
+    "pnpm score",
+    "pnpm report"
+  ],
+  "openGaps": [
+    "Product spec is still draft; fill missing customer/problem/market fields or explicitly bypass.",
+    "Product validation is incomplete; run `pnpm product:validate` or record a bypass reason.",
+    "MFDR is not complete; run `pnpm mfdr --complete` after research and decisions are explicit."
+  ]
+}

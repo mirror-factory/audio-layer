@@ -205,7 +205,17 @@ function main(): void {
     '--yes',
     '--integration=supabase,assemblyai',
     '--design=Meta harness black and white pixel command center',
+    '--validation-customer=AI product teams',
+    '--validation-problem=They need trustworthy agent-built app changes with proof',
+    '--validation-workaround=Manual review and ad hoc prompts',
+    '--validation-pricing=Paid team plan for verified agent workflows',
+    '--validation-distribution=Direct founder-led outreach to AI product builders',
+    '--validation-timing=Agent runtimes now support hooks, browser proof, and repo state',
+    '--validation-constraints=Secrets, cost tracking, browser evidence, and runtime portability',
   ]);
+  runFixtureScript('product-spec', 'scripts/product-spec.ts', ['--agent-fill']);
+  runFixtureScript('product-validation', 'scripts/product-validation.ts', ['--yes']);
+  runFixtureScript('mfdr', 'scripts/mfdr.ts', ['--yes', '--complete']);
   runFixtureScript('sync', 'scripts/sync-starter.ts');
   runFixtureScript('plan', 'scripts/plan-task.ts', ['Meta harness fixture feature']);
   runFixtureScript('companions', 'scripts/generate-companions.ts');
@@ -233,6 +243,26 @@ function main(): void {
     '--cost=0.01',
     '--operation=meta-harness-smoke',
   ]);
+  mkdirSync(fixturePath('lib/integrations'), { recursive: true });
+  writeFileSync(
+    fixturePath('lib/integrations/tracked-weather.ts'),
+    `import { trackedFetch } from "../integration-usage";
+
+export async function getTrackedWeather() {
+  return trackedFetch("https://api.weather.example/v1/current", undefined, {
+    integrationId: "weather-api",
+    label: "Weather API",
+    route: "/api/weather",
+    operation: "current-weather",
+    quantity: 1,
+    unit: "request",
+    costUsd: 0.002,
+  });
+}
+`,
+    'utf-8',
+  );
+  runFixtureScript('integration-usage-check', 'scripts/check-integration-usage.ts');
   runCli('doctor', ['doctor']);
 
   const starterManifest = readJson<{ enabledModules?: string[] }>(
@@ -246,6 +276,22 @@ function main(): void {
     configuredIntegrations?: string[];
   }>(
     fixturePath('.ai-starter/manifests/setup.json'),
+    {},
+  );
+  const productValidationManifest = readJson<{ status?: string; verdict?: string }>(
+    fixturePath('.ai-starter/manifests/product-validation.json'),
+    {},
+  );
+  const productSpecManifest = readJson<{ status?: string; source?: string; openQuestions?: unknown[] }>(
+    fixturePath('.ai-starter/manifests/product-spec.json'),
+    {},
+  );
+  const mfdrManifest = readJson<{ decisions?: unknown[] }>(
+    fixturePath('.ai-starter/manifests/mfdr.json'),
+    {},
+  );
+  const alignmentManifest = readJson<{ status?: string; anchors?: unknown[] }>(
+    fixturePath('.ai-starter/manifests/alignment.json'),
     {},
   );
   const companionManifest = readJson<{ tasks?: unknown[] }>(
@@ -273,6 +319,9 @@ function main(): void {
     commandPassed(commands, 'init:first'),
     commandPassed(commands, 'init:second-idempotent'),
     commandPassed(commands, 'setup:defaults'),
+    commandPassed(commands, 'product-spec'),
+    commandPassed(commands, 'product-validation'),
+    commandPassed(commands, 'mfdr'),
     commandPassed(commands, 'sync'),
     commandPassed(commands, 'plan'),
     commandPassed(commands, 'companions'),
@@ -285,10 +334,22 @@ function main(): void {
     commandPassed(commands, 'sync:pre-iterate-mutation'),
     commandPassed(commands, 'iterate-mutation'),
     commandPassed(commands, 'usage-record'),
+    commandPassed(commands, 'integration-usage-check'),
     commandPassed(commands, 'doctor'),
     assertFile(fixturePath('.ai-starter-kit.json')),
     assertFile(fixturePath('.ai-starter/config.json')),
     assertFile(fixturePath('.ai-starter/manifests/setup.json')),
+    assertFile(fixturePath('.ai-starter/manifests/product-spec.json')),
+    assertFile(fixturePath('.ai-starter/product-spec/latest.md')),
+    assertFile(fixturePath('.ai-dev-kit/spec.md')),
+    assertFile(fixturePath('.ai-starter/manifests/product-validation.json')),
+    assertFile(fixturePath('.ai-starter/product-validation/latest.md')),
+    assertFile(fixturePath('.ai-starter/skills/product-validation/SKILL.md')),
+    assertFile(fixturePath('.ai-starter/manifests/mfdr.json')),
+    assertFile(fixturePath('.ai-starter/mfdr/latest.md')),
+    assertFile(fixturePath('.ai-starter/skills/mfdr/SKILL.md')),
+    assertFile(fixturePath('.ai-starter/manifests/alignment.json')),
+    assertFile(fixturePath('.ai-starter/alignment/latest.md')),
     assertFile(fixturePath('.ai-starter/manifests/runtimes.json')),
     assertFile(fixturePath('.env.example')),
     assertFile(fixturePath('.claude/settings.json')),
@@ -300,13 +361,18 @@ function main(): void {
     assertFile(fixturePath('docs/reference/openai-codex-runtime.md')),
     assertFile(fixturePath('scripts/hook-tester.ts')),
     assertFile(fixturePath('scripts/setup-starter.ts')),
+    assertFile(fixturePath('scripts/product-spec.ts')),
+    assertFile(fixturePath('scripts/product-validation.ts')),
+    assertFile(fixturePath('scripts/mfdr.ts')),
     assertFile(fixturePath('scripts/browser-proof.ts')),
     assertFile(fixturePath('scripts/claude-runtime-proof.ts')),
     assertFile(fixturePath('scripts/claude-scenario-harness.ts')),
     assertFile(fixturePath('scripts/codex-runtime-proof.ts')),
     assertFile(fixturePath('scripts/record-integration-usage.ts')),
+    assertFile(fixturePath('scripts/check-integration-usage.ts')),
     assertFile(fixturePath('lib/starter-control-plane.ts')),
     assertFile(fixturePath('lib/integration-usage.ts')),
+    assertFile(fixturePath('.evidence/integration-usage-scan.json')),
     assertFile(fixturePath('app/control-plane/page.tsx')),
     assertFile(fixturePath('app/api/control-plane/route.ts')),
     assertFile(fixturePath('.ai-starter/manifests/starter.json')),
@@ -322,10 +388,14 @@ function main(): void {
     assertScript('starter:doctor'),
     assertScript('starter:update'),
     assertScript('starter:repair'),
+    assertScript('product:spec'),
+    assertScript('product:validate'),
+    assertScript('mfdr'),
     assertScript('sync'),
     assertScript('plan'),
     assertScript('score'),
     assertScript('usage:record'),
+    assertScript('usage:check'),
     assertScript('companions'),
     assertScript('browser:proof'),
     assertScript('test:claude-runtime'),
@@ -338,6 +408,26 @@ function main(): void {
       name: 'manifest:enabled-modules',
       pass: Boolean(starterManifest.enabledModules?.includes('setup') && starterManifest.enabledModules?.includes('hooks') && starterManifest.enabledModules?.includes('browser-proof')),
       details: `${starterManifest.enabledModules?.length ?? 0} enabled module(s)`,
+    },
+    {
+      name: 'product-spec:complete',
+      pass: productSpecManifest.status === 'complete' && productSpecManifest.source === 'agent-generated',
+      details: JSON.stringify(productSpecManifest),
+    },
+    {
+      name: 'product-validation:complete',
+      pass: productValidationManifest.status === 'complete' && productValidationManifest.verdict === 'build',
+      details: JSON.stringify(productValidationManifest),
+    },
+    {
+      name: 'mfdr:decisions-present',
+      pass: Boolean(mfdrManifest.decisions?.length),
+      details: JSON.stringify(mfdrManifest),
+    },
+    {
+      name: 'alignment:anchors-present',
+      pass: Boolean(alignmentManifest.anchors && alignmentManifest.anchors.length >= 4),
+      details: JSON.stringify(alignmentManifest),
     },
     {
       name: 'setup:configured-integrations',

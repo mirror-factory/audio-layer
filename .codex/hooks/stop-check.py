@@ -16,7 +16,14 @@ from pathlib import Path
 
 from starter_hook_utils import (
     GATES_FILE,
+    ALIGNMENT_FILE,
+    ALIGNMENT_MANIFEST_FILE,
     PLAN_FILE,
+    PRODUCT_SPEC_FILE,
+    PRODUCT_SPEC_MANIFEST_FILE,
+    PRODUCT_VALIDATION_FILE,
+    PRODUCT_VALIDATION_MANIFEST_FILE,
+    SETUP_CONFIG_FILE,
     PROGRESS_FILE,
     SCORECARD_FILE,
     SESSION_FILE,
@@ -189,6 +196,84 @@ def latest_export_ready() -> bool:
     return isinstance(export, dict) and bool(export.get("archivePath"))
 
 
+def product_validation_action() -> dict | None:
+    setup = read_json(SETUP_CONFIG_FILE, {}) or {}
+    setup_validation = setup.get("productValidation") if isinstance(setup, dict) else {}
+    mode = setup_validation.get("mode") if isinstance(setup_validation, dict) else "recommended"
+    artifact = read_json(PRODUCT_VALIDATION_MANIFEST_FILE, None) or read_json(PRODUCT_VALIDATION_FILE, {}) or {}
+    status = artifact.get("status") if isinstance(artifact, dict) else None
+    if status in {"complete", "bypassed"}:
+        return None
+    if mode == "required":
+        return {
+            "reason": "missing-product-validation",
+            "summary": "Product validation is required but incomplete.",
+            "command": "pnpm product:validate",
+            "action": "Run the product validation interview or explicitly bypass it with a reason, then rerun `pnpm sync` and `pnpm score`.",
+            "details": {"status": status or "missing", "mode": mode},
+        }
+    return None
+
+
+def product_spec_action(plan: dict) -> dict | None:
+    artifact = read_json(PRODUCT_SPEC_MANIFEST_FILE, None) or read_json(PRODUCT_SPEC_FILE, {}) or {}
+    if not isinstance(artifact, dict):
+        return {
+            "reason": "missing-product-spec",
+            "summary": "The YC-style product spec is missing.",
+            "command": "pnpm product:spec --agent-fill && pnpm sync && pnpm score",
+            "action": "Generate or explicitly bypass the product spec, then refresh alignment and score.",
+            "details": {"status": "missing"},
+        }
+    status = artifact.get("status")
+    open_questions = artifact.get("openQuestions") if isinstance(artifact.get("openQuestions"), list) else []
+    plan_text = " ".join(
+        str(item)
+        for item in (
+            plan.get("title"),
+            plan.get("classification"),
+            " ".join(str(value) for value in plan.get("acceptanceCriteria", []) if isinstance(value, str)),
+        )
+        if item
+    ).lower()
+    featureish = any(
+        needle in plan_text
+        for needle in ("feature", "product", "app", "build", "design", "workflow", "agent", "dashboard")
+    )
+    if status == "draft" and featureish:
+        return {
+            "reason": "draft-product-spec",
+            "summary": "The product spec is still draft while product/app work is active.",
+            "command": "pnpm product:spec --agent-fill && pnpm sync && pnpm score",
+            "action": "Fill the product spec from the install interview or agent context, or explicitly bypass it with a reason, then refresh alignment and score.",
+            "details": {"status": status, "openQuestions": open_questions[:5]},
+        }
+    return None
+
+
+def alignment_action() -> dict | None:
+    artifact = read_json(ALIGNMENT_MANIFEST_FILE, None) or read_json(ALIGNMENT_FILE, {}) or {}
+    if not isinstance(artifact, dict) or not artifact:
+        return {
+            "reason": "missing-alignment",
+            "summary": "The compressed alignment artifact is missing.",
+            "command": "pnpm sync && pnpm score",
+            "action": "Regenerate starter manifests so `.ai-starter/alignment/latest.md` links product spec, validation, MFDR, DESIGN.md, AGENTS.md, plan, and scorecard.",
+            "details": {"status": "missing"},
+        }
+    if artifact.get("status") == "attention-needed":
+        gaps = artifact.get("openGaps") if isinstance(artifact.get("openGaps"), list) else []
+        first_gap = str(gaps[0]) if gaps else "alignment needs review"
+        return {
+            "reason": "alignment-attention-needed",
+            "summary": f"Alignment still needs attention. First gap: {first_gap}",
+            "command": "pnpm product:spec --agent-fill && pnpm mfdr --yes --complete && pnpm sync && pnpm score",
+            "action": "Resolve or explicitly accept the first alignment gap, then refresh the product spec/MFDR/alignment manifests and score.",
+            "details": {"openGaps": gaps[:5]},
+        }
+    return None
+
+
 def next_action(
     *,
     plan: dict,
@@ -198,6 +283,18 @@ def next_action(
     progress: dict,
     active_plan_id: str,
 ) -> dict | None:
+    spec_action = product_spec_action(plan)
+    if spec_action:
+        return spec_action
+
+    validation_action = product_validation_action()
+    if validation_action:
+        return validation_action
+
+    anchor_action = alignment_action()
+    if anchor_action:
+        return anchor_action
+
     if not scorecard:
         return {
             "reason": "missing-scorecard",
@@ -321,9 +418,12 @@ def continuation_packet(
             "",
             "Available starter harness:",
             "- pnpm sync: refresh docs/features/evidence/hook manifests",
+            "- pnpm product:spec: update or bypass the YC-style product spec and alignment anchors",
+            "- pnpm product:validate: validate or explicitly bypass product/spec fit",
+            "- pnpm mfdr: update product/API/tool/UI/setup/verification decisions",
             "- pnpm score: update readiness score and blockers",
-            "- pnpm gates: run typecheck/tests/storybook/drift/research gates",
-            "- pnpm browser:proof: Playwright + Expect screenshots/replays",
+            "- pnpm gates: run typecheck/tests/storybook/drift/research/Expect proof gates",
+            "- pnpm browser:proof: Playwright + Expect screenshots/replays and browser-control command proof",
             "- pnpm design:check: detect hardcoded design drift",
             "- pnpm companions: generate or inspect missing tests/docs/stories/specs",
             "- pnpm report: write handoff report",

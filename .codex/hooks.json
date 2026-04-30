@@ -51,19 +51,13 @@
     ],
     "PostToolUse": [
       {
-        "matcher": ".*",
+        "matcher": "Bash|functions.exec_command|Write|Edit|MultiEdit|apply_patch|functions.apply_patch",
         "hooks": [
-          {
-            "type": "command",
-            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/periodic-reground.py\"",
-            "timeout": 30,
-            "statusMessage": "Refreshing starter context"
-          },
           {
             "type": "command",
             "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/posttool-telemetry.py\"",
             "timeout": 30,
-            "statusMessage": "Recording starter telemetry"
+            "statusMessage": "Recording starter activity"
           }
         ]
       },

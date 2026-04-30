@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-04-30T13:57:30.832Z",
+  "updatedAt": "2026-04-30T17:13:32.567Z",
   "required": true,
   "playwrightRequired": true,
   "expectRequired": true,
   "browserUseAdapter": "planned",
   "replayPaths": [
-    ".expect/logs.md",
-    ".expect/replays/07a9b03d-0f4f-498c-bb82-e0467a2a3fc9.html",
     ".expect/replays/2df44164-5f7f-49fb-ac82-af189a90c44d.html",
     ".expect/replays/b0665345-5f61-4bc1-867e-c184082dcb1d.html",
+    ".expect/replays/07a9b03d-0f4f-498c-bb82-e0467a2a3fc9.html",
+    ".expect/replays/f0dae8db-05cf-4e64-98c5-d91583d3e183.html",
     ".expect/replays/browser-proof-2026-04-28T02-53-38-668Z.json",
     ".expect/replays/browser-proof-2026-04-28T03-01-23-041Z.json",
     ".expect/replays/browser-proof-2026-04-28T03-24-31-469Z.json",
@@ -19,7 +19,9 @@
     ".expect/replays/browser-proof-2026-04-29T23-36-42-678Z.json",
     ".expect/replays/browser-proof-2026-04-29T23-59-41-982Z.json",
     ".expect/replays/browser-proof-2026-04-30T13-24-29-475Z.json",
-    ".expect/replays/f0dae8db-05cf-4e64-98c5-d91583d3e183.html"
+    ".expect/replays/browser-proof-2026-04-30T17-08-35-226Z.json",
+    ".expect/logs.md",
+    ".expect/replays/browser-proof-2026-04-30T17-10-16-253Z.json"
   ],
   "flowPaths": [
     "tests/expect/ai-starter.md",
@@ -240,5 +242,14 @@
     ".evidence/screenshots/target-home-voice-command-status-copy-desktop.png",
     ".evidence/screenshots/target-home-voice-command-status-copy-mobile-auth.png",
     ".evidence/screenshots/target-home-voice-command-status-copy-mobile.png"
-  ]
+  ],
+  "expectProbeCount": 1,
+  "expectCommandCount": 6,
+  "expectFailedCommandCount": 0,
+  "expectBlockingFailedCommandCount": 0,
+  "expectOpenOk": true,
+  "expectProofOk": true,
+  "expectScreenshotCount": 2,
+  "expectVideoCount": 2,
+  "lastReplayPath": ".expect/replays/browser-proof-2026-04-30T17-10-16-253Z.json"
 }

@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import {
+  appendFileSync,
   copyFileSync,
   existsSync,
   mkdirSync,
@@ -36,6 +37,23 @@ interface CommandResult {
   output: string;
 }
 
+interface BrowserUsageEvent {
+  id: string;
+  timestamp: string;
+  integrationId: string;
+  label: string;
+  quantity: number;
+  unit: string;
+  unitCostUsd: number | null;
+  costUsd: number;
+  status: 'success' | 'error' | 'skipped';
+  route: string | null;
+  operation: string | null;
+  error: string | null;
+  url: string | null;
+  metadata: Record<string, string | number | boolean | null>;
+}
+
 function slugify(input: string): string {
   return input
     .toLowerCase()
@@ -57,8 +75,6 @@ function readJson<T>(relPath: string, fallback: T): T {
 function routeUrlFromSource(sourcePath: string): string {
   let route = sourcePath
     .replace(/^app\/?/, '')
-    .replace(/\/route\.[^.]+$/, '')
-    .replace(/^route\.[^.]+$/, '')
     .replace(/\/page\.[^.]+$/, '')
     .replace(/^page\.[^.]+$/, '')
     .replace(/\([^/]+\)\//g, '')
@@ -74,6 +90,49 @@ function compactOutput(output: string): string {
   return `${trimmed.slice(0, limit)}\n...[truncated ${trimmed.length - limit} chars]`;
 }
 
+function numberEnv(name: string): number | null {
+  const raw = process.env[name];
+  if (!raw) return null;
+  const value = Number(raw);
+  return Number.isFinite(value) ? value : null;
+}
+
+function appendBrowserUsageEvent(input: {
+  quantity: number;
+  status: BrowserUsageEvent['status'];
+  routeCount: number;
+  screenshotCount: number;
+  replayPath: string;
+  error: string | null;
+}): void {
+  const unitCostUsd = numberEnv('AI_STARTER_EXPECT_BROWSER_COMMAND_COST_USD');
+  const explicitCostUsd = numberEnv('AI_STARTER_EXPECT_BROWSER_COST_USD');
+  const costUsd = explicitCostUsd ?? (unitCostUsd === null ? 0 : unitCostUsd * input.quantity);
+  const event: BrowserUsageEvent = {
+    id: `iu-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    timestamp: new Date().toISOString(),
+    integrationId: 'expect-browser',
+    label: 'Expect Browser CLI',
+    quantity: input.quantity,
+    unit: 'command',
+    unitCostUsd,
+    costUsd,
+    status: input.status,
+    route: null,
+    operation: 'browser-proof',
+    error: input.error,
+    url: null,
+    metadata: {
+      routeCount: input.routeCount,
+      screenshotCount: input.screenshotCount,
+      replayPath: input.replayPath,
+    },
+  };
+  const logPath = resolve(process.cwd(), '.ai-starter/runs/integration-usage.jsonl');
+  mkdirSync(dirname(logPath), { recursive: true });
+  appendFileSync(logPath, `${JSON.stringify(event)}\n`, 'utf-8');
+}
+
 async function proveRoute(browser: Browser, baseUrl: string, route: SurfaceManifestEntry): Promise<RouteProof> {
   const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
   const consoleErrors: string[] = [];
@@ -82,10 +141,7 @@ async function proveRoute(browser: Browser, baseUrl: string, route: SurfaceManif
     if (message.type() === 'error') consoleErrors.push(message.text());
   });
   page.on('requestfailed', request => {
-    const failure = request.failure()?.errorText ?? '';
-    const url = request.url();
-    if (failure.includes('net::ERR_ABORTED') && url.includes('_rsc=')) return;
-    failedRequests.push(`${request.method()} ${url} ${failure}`.trim());
+    failedRequests.push(`${request.method()} ${request.url()} ${request.failure()?.errorText ?? ''}`.trim());
   });
 
   const routePath = routeUrlFromSource(route.sourcePaths[0] ?? route.name);
@@ -180,11 +236,12 @@ async function main() {
   const baseUrl = process.env.AI_STARTER_BASE_URL ?? process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000';
   syncStarterSystem({ cwd });
   const features = readJson<SurfaceManifestEntry[]>(FEATURE_MANIFEST_FILE, []);
-  const routes = features.filter(feature =>
-    feature.kind === 'route' &&
-    !(feature.sourcePaths[0] ?? feature.name).includes('[') &&
-    !(feature.sourcePaths[0] ?? feature.name).includes('/route.'),
-  );
+  const routes = features.filter(feature => {
+    const sourcePath = feature.sourcePaths[0] ?? '';
+    return feature.kind === 'route' &&
+      /\/page\.[tj]sx?$/.test(sourcePath) &&
+      !sourcePath.includes('[');
+  });
   if (routes.length === 0) {
     throw new Error('No route surfaces found in feature manifest. Run `pnpm sync` first.');
   }
@@ -199,7 +256,9 @@ async function main() {
     await browser.close();
   }
 
-  const expectProbes = routes.map(route => {
+  const expectRouteLimit = Number(process.env.AI_STARTER_EXPECT_ROUTE_LIMIT ?? '1');
+  const expectRoutes = routes.slice(0, Number.isFinite(expectRouteLimit) ? Math.max(1, expectRouteLimit) : 1);
+  const expectProbes = expectRoutes.map(route => {
     const sourcePath = route.sourcePaths[0] ?? route.name;
     const routePath = routeUrlFromSource(sourcePath);
     return {
@@ -245,6 +304,14 @@ async function main() {
       })
       .map(command => ({ route: probe.route, ...command })),
   );
+  appendBrowserUsageEvent({
+    quantity: expectProbes.flatMap(probe => probe.commands).length,
+    status: failedExpectCommands.length > 0 ? 'error' : 'success',
+    routeCount: routeProofs.length,
+    screenshotCount: routeProofs.length + expectProbes.filter(probe => probe.copiedScreenshotPath).length,
+    replayPath,
+    error: failedExpectCommands[0]?.output ?? null,
+  });
   syncStarterSystem({ cwd });
   const scorecard = generateScorecard({ cwd });
 
