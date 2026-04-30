@@ -39,6 +39,11 @@ describe("pricing config store", () => {
     expect(store.active.sttOptionId).toBe("deepgram:nova-3:streaming");
     expect(store.active.addonIds).toEqual(["speakerDiarization"]);
     expect(store.active.plans.find((plan) => plan.id === "free")?.meetingLimit).toBe(25);
+    expect(store.active.plans.map((plan) => [plan.id, plan.monthlyPriceUsd])).toEqual([
+      ["free", 0],
+      ["core", 20],
+      ["pro", 30],
+    ]);
   });
 
   it("saves a draft and activates it", async () => {

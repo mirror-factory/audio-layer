@@ -67,6 +67,52 @@ describe("buildRecordingPreflight", () => {
     ]);
   });
 
+  it("keeps AssemblyAI as the runtime default when pricing defaults to Deepgram", () => {
+    const preflight = buildRecordingPreflight({
+      quota: quota(),
+      providerConfigured: {
+        assemblyai: true,
+        deepgram: false,
+      },
+      pricing: pricing({ sttOptionId: "deepgram:nova-3:streaming" }),
+      settings: {
+        summaryModel: "openai/gpt-5.4-nano",
+        batchSpeechModel: "universal-2",
+        streamingSpeechModel: "universal-streaming-multilingual",
+      },
+    });
+
+    expect(preflight.status).toBe("ready");
+    expect(preflight.provider).toMatchObject({
+      id: "assemblyai:universal-streaming-multilingual:streaming",
+      label: "AssemblyAI",
+      model: "universal-streaming-multilingual",
+      runtimeStatus: "implemented",
+    });
+  });
+
+  it("diagnoses the selected Deepgram key when Deepgram is selected", () => {
+    const preflight = buildRecordingPreflight({
+      quota: quota(),
+      providerConfigured: {
+        assemblyai: true,
+        deepgram: false,
+      },
+      pricing: pricing(),
+      settings: {
+        summaryModel: "openai/gpt-5.4-nano",
+        batchSpeechModel: "universal-2",
+        streamingSpeechModel: "nova-3",
+      },
+    });
+
+    expect(preflight.status).toBe("blocked");
+    expect(preflight.checks.find((check) => check.id === "provider")).toMatchObject({
+      status: "blocked",
+      detail: "DEEPGRAM_API_KEY is missing for Deepgram",
+    });
+  });
+
   it("blocks recording when provider credentials are missing", () => {
     const preflight = buildRecordingPreflight({
       quota: quota(),

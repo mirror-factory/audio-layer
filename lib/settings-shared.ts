@@ -28,6 +28,9 @@ export interface ModelOption {
   price: string;
   sourceUrl?: string;
   sourceLabel?: string;
+  provider?: string;
+  providerLabel?: string;
+  optionId?: string;
 }
 
 function formatTokenPrice(input: number, output: number): string {
@@ -39,9 +42,30 @@ function speechPrice(option: SttPricingOption): string {
   return `$${option.ratePerHourUsd.toFixed(option.ratePerHourUsd < 1 ? 2 : 0)}/hr${suffix}`;
 }
 
-const runtimeAssemblyAiSpeech = STT_PRICING_OPTIONS.filter(
-  (option) => option.provider === "assemblyai" && option.runtimeStatus === "implemented",
+const runtimeSpeech = STT_PRICING_OPTIONS.filter(
+  (option) => option.runtimeStatus === "implemented",
 );
+
+const runtimeBatchSpeech = runtimeSpeech.filter(
+  (option) => option.provider === "assemblyai" && option.mode === "batch",
+);
+
+const runtimeStreamingSpeech = runtimeSpeech.filter(
+  (option) => option.mode === "streaming",
+);
+
+function speechOption(option: SttPricingOption): ModelOption {
+  return {
+    value: option.model,
+    label: `${option.label} (${option.providerLabel})`,
+    price: speechPrice(option),
+    sourceUrl: option.sourceUrl,
+    sourceLabel: option.providerLabel,
+    provider: option.provider,
+    providerLabel: option.providerLabel,
+    optionId: option.id,
+  };
+}
 
 export const MODEL_OPTIONS = {
   summary: LLM_PRICING_OPTIONS
@@ -53,22 +77,6 @@ export const MODEL_OPTIONS = {
       sourceUrl: option.sourceUrl,
       sourceLabel: option.providerLabel,
     })) as ModelOption[],
-  batchSpeech: runtimeAssemblyAiSpeech
-    .filter((option) => option.mode === "batch")
-    .map((option) => ({
-      value: option.model,
-      label: `${option.label} (${option.providerLabel})`,
-      price: speechPrice(option),
-      sourceUrl: option.sourceUrl,
-      sourceLabel: option.providerLabel,
-    })) as ModelOption[],
-  streamingSpeech: runtimeAssemblyAiSpeech
-    .filter((option) => option.mode === "streaming")
-    .map((option) => ({
-      value: option.model,
-      label: `${option.label} (${option.providerLabel})`,
-      price: speechPrice(option),
-      sourceUrl: option.sourceUrl,
-      sourceLabel: option.providerLabel,
-    })) as ModelOption[],
+  batchSpeech: runtimeBatchSpeech.map(speechOption),
+  streamingSpeech: runtimeStreamingSpeech.map(speechOption),
 } as const;

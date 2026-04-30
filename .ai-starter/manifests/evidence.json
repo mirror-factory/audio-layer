@@ -32,168 +32,168 @@
     "kind": "json",
     "path": ".ai-starter/alignment/latest.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.194Z"
+    "createdAt": "2026-04-30T22:59:58.936Z"
   },
   {
     "id": "ai-starter-alignment-latest-md",
     "kind": "report",
     "path": ".ai-starter/alignment/latest.md",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.194Z"
+    "createdAt": "2026-04-30T22:59:58.936Z"
   },
   {
     "id": "ai-starter-config-json",
     "kind": "json",
     "path": ".ai-starter/config.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:26.533Z"
+    "createdAt": "2026-04-30T22:59:54.853Z"
   },
   {
     "id": "ai-starter-exports-latest-json",
     "kind": "json",
     "path": ".ai-starter/exports/latest.json",
     "source": "starter-system",
-    "createdAt": "2026-04-28T17:30:09.998Z"
+    "createdAt": "2026-04-30T22:57:23.599Z"
   },
   {
     "id": "ai-starter-manifests-adapters-json",
     "kind": "json",
     "path": ".ai-starter/manifests/adapters.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:27.799Z"
+    "createdAt": "2026-04-30T22:59:56.283Z"
   },
   {
     "id": "ai-starter-manifests-alignment-json",
     "kind": "json",
     "path": ".ai-starter/manifests/alignment.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.194Z"
+    "createdAt": "2026-04-30T22:59:58.936Z"
   },
   {
     "id": "ai-starter-manifests-browser-proof-json",
     "kind": "json",
     "path": ".ai-starter/manifests/browser-proof.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:22.713Z"
+    "createdAt": "2026-04-30T22:59:50.668Z"
   },
   {
     "id": "ai-starter-manifests-companions-json",
     "kind": "json",
     "path": ".ai-starter/manifests/companions.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.194Z"
+    "createdAt": "2026-04-30T22:59:58.936Z"
   },
   {
     "id": "ai-starter-manifests-design-json",
     "kind": "json",
     "path": ".ai-starter/manifests/design.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.007Z"
+    "createdAt": "2026-04-30T22:59:57.644Z"
   },
   {
     "id": "ai-starter-manifests-docs-json",
     "kind": "json",
     "path": ".ai-starter/manifests/docs.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:22.711Z"
+    "createdAt": "2026-04-30T22:59:50.666Z"
   },
   {
     "id": "ai-starter-manifests-evidence-json",
     "kind": "json",
     "path": ".ai-starter/manifests/evidence.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:22.712Z"
+    "createdAt": "2026-04-30T22:59:50.667Z"
   },
   {
     "id": "ai-starter-manifests-features-json",
     "kind": "json",
     "path": ".ai-starter/manifests/features.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:22.712Z"
+    "createdAt": "2026-04-30T22:59:50.667Z"
   },
   {
     "id": "ai-starter-manifests-hooks-json",
     "kind": "json",
     "path": ".ai-starter/manifests/hooks.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:22.711Z"
+    "createdAt": "2026-04-30T22:59:50.666Z"
   },
   {
     "id": "ai-starter-manifests-integrations-json",
     "kind": "json",
     "path": ".ai-starter/manifests/integrations.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:28.993Z"
+    "createdAt": "2026-04-30T22:59:57.632Z"
   },
   {
     "id": "ai-starter-manifests-mfdr-json",
     "kind": "json",
     "path": ".ai-starter/manifests/mfdr.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.193Z"
+    "createdAt": "2026-04-30T22:59:58.936Z"
   },
   {
     "id": "ai-starter-manifests-modules-json",
     "kind": "json",
     "path": ".ai-starter/manifests/modules.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:27.795Z"
+    "createdAt": "2026-04-30T22:59:56.278Z"
   },
   {
     "id": "ai-starter-manifests-product-spec-json",
     "kind": "json",
     "path": ".ai-starter/manifests/product-spec.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.007Z"
+    "createdAt": "2026-04-30T22:59:57.645Z"
   },
   {
     "id": "ai-starter-manifests-product-validation-json",
     "kind": "json",
     "path": ".ai-starter/manifests/product-validation.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.007Z"
+    "createdAt": "2026-04-30T22:59:57.644Z"
   },
   {
     "id": "ai-starter-manifests-runtimes-json",
     "kind": "json",
     "path": ".ai-starter/manifests/runtimes.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:27.821Z"
+    "createdAt": "2026-04-30T22:59:56.311Z"
   },
   {
     "id": "ai-starter-manifests-setup-json",
     "kind": "json",
     "path": ".ai-starter/manifests/setup.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:27.795Z"
+    "createdAt": "2026-04-30T22:59:56.278Z"
   },
   {
     "id": "ai-starter-manifests-starter-json",
     "kind": "json",
     "path": ".ai-starter/manifests/starter.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:26.533Z"
+    "createdAt": "2026-04-30T22:59:54.852Z"
   },
   {
     "id": "ai-starter-manifests-supervisor-json",
     "kind": "json",
     "path": ".ai-starter/manifests/supervisor.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.006Z"
+    "createdAt": "2026-04-30T22:59:57.644Z"
   },
   {
     "id": "ai-starter-mfdr-latest-json",
     "kind": "json",
     "path": ".ai-starter/mfdr/latest.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.193Z"
+    "createdAt": "2026-04-30T22:59:58.935Z"
   },
   {
     "id": "ai-starter-mfdr-latest-md",
     "kind": "report",
     "path": ".ai-starter/mfdr/latest.md",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.193Z"
+    "createdAt": "2026-04-30T22:59:58.936Z"
   },
   {
     "id": "ai-starter-plans-2026-04-26t22-15-33-273z-install-the-latest-ai-starter-ki-json",
@@ -417,42 +417,42 @@
     "kind": "json",
     "path": ".ai-starter/product-spec/latest.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.007Z"
+    "createdAt": "2026-04-30T22:59:57.644Z"
   },
   {
     "id": "ai-starter-product-spec-latest-md",
     "kind": "report",
     "path": ".ai-starter/product-spec/latest.md",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.007Z"
+    "createdAt": "2026-04-30T22:59:57.645Z"
   },
   {
     "id": "ai-starter-product-validation-latest-json",
     "kind": "json",
     "path": ".ai-starter/product-validation/latest.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.007Z"
+    "createdAt": "2026-04-30T22:59:57.644Z"
   },
   {
     "id": "ai-starter-product-validation-latest-md",
     "kind": "report",
     "path": ".ai-starter/product-validation/latest.md",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:29.007Z"
+    "createdAt": "2026-04-30T22:59:57.644Z"
   },
   {
     "id": "ai-starter-progress-json",
     "kind": "json",
     "path": ".ai-starter/progress.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.195Z"
+    "createdAt": "2026-04-30T22:59:58.937Z"
   },
   {
     "id": "ai-starter-reports-latest-md",
     "kind": "report",
     "path": ".ai-starter/reports/latest.md",
     "source": "starter-system",
-    "createdAt": "2026-04-30T15:27:48.777Z"
+    "createdAt": "2026-04-30T22:57:19.127Z"
   },
   {
     "id": "ai-starter-reports-report-2026-04-27t13-49-27-082z-md",
@@ -812,6 +812,20 @@
     "createdAt": "2026-04-30T15:27:48.777Z"
   },
   {
+    "id": "ai-starter-reports-report-2026-04-30t17-13-37-218z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-30T17-13-37-218Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:13:37.218Z"
+  },
+  {
+    "id": "ai-starter-reports-report-2026-04-30t22-57-19-127z-md",
+    "kind": "report",
+    "path": ".ai-starter/reports/report-2026-04-30T22-57-19-127Z.md",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:57:19.127Z"
+  },
+  {
     "id": "ai-starter-research-index-json",
     "kind": "json",
     "path": ".ai-starter/research/index.json",
@@ -865,14 +879,14 @@
     "kind": "log",
     "path": ".ai-starter/runs/autopilot-stop-ledger.jsonl",
     "source": "starter-system",
-    "createdAt": "2026-04-30T15:06:55.441Z"
+    "createdAt": "2026-04-30T22:39:45.209Z"
   },
   {
     "id": "ai-starter-runs-autopilot-stop-state-json",
     "kind": "json",
     "path": ".ai-starter/runs/autopilot-stop-state.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T15:06:55.440Z"
+    "createdAt": "2026-04-30T22:39:45.209Z"
   },
   {
     "id": "ai-starter-runs-control-plane-actions-jsonl",
@@ -886,7 +900,7 @@
     "kind": "log",
     "path": ".ai-starter/runs/integration-usage.jsonl",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:10:16.255Z"
+    "createdAt": "2026-04-30T22:56:23.096Z"
   },
   {
     "id": "ai-starter-runs-latest-control-plane-action-json",
@@ -900,14 +914,14 @@
     "kind": "json",
     "path": ".ai-starter/runs/latest-evidence-export.json",
     "source": "starter-system",
-    "createdAt": "2026-04-28T17:30:09.998Z"
+    "createdAt": "2026-04-30T22:57:23.599Z"
   },
   {
     "id": "ai-starter-runs-latest-scorecard-json",
     "kind": "json",
     "path": ".ai-starter/runs/latest-scorecard.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:12:37.122Z"
+    "createdAt": "2026-04-30T22:59:54.523Z"
   },
   {
     "id": "ai-starter-runs-scorecard-2026-04-26t22-13-28-611z-json",
@@ -2450,18 +2464,284 @@
     "createdAt": "2026-04-30T17:12:37.122Z"
   },
   {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-13-37-211z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-13-37-211Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:13:37.212Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-20-40-983z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-20-40-983Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:20:40.984Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-20-51-786z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-20-51-786Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:20:51.786Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-23-59-594z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-23-59-594Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:23:59.595Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-24-10-468z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-24-10-468Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:24:10.468Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-25-44-044z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-25-44-044Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:25:44.044Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-25-54-622z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-25-54-622Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:25:54.623Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-27-16-882z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-27-16-882Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:27:16.883Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-27-27-441z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-27-27-441Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:27:27.442Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-28-18-816z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-28-18-816Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:28:18.816Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-28-29-678z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-28-29-678Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:28:29.678Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-30-44-248z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-30-44-248Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:30:44.249Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t17-30-55-049z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T17-30-55-049Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T17:30:55.049Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t18-01-07-503z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T18-01-07-503Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T18:01:07.504Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t18-01-17-444z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T18-01-17-444Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T18:01:17.445Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t18-02-18-495z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T18-02-18-495Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T18:02:18.495Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-32-39-281z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-32-39-281Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:32:39.282Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-34-00-039z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-34-00-039Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:34:00.040Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-34-48-631z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-34-48-631Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:34:48.632Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-34-54-076z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-34-54-076Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:34:54.077Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-35-00-507z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-35-00-507Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:35:00.508Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-36-04-831z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-36-04-831Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:36:04.831Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-37-45-544z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-37-45-544Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:37:45.545Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-37-47-668z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-37-47-668Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:37:47.668Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-38-04-361z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-38-04-361Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:38:04.362Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-38-16-319z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-38-16-319Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:38:16.319Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-39-19-529z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-39-19-529Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:39:19.530Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-40-52-089z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-40-52-089Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:40:52.090Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-41-03-781z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-41-03-781Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:41:03.781Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-41-15-406z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-41-15-406Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:41:15.407Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-41-43-743z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-41-43-743Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:41:43.743Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-41-55-497z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-41-55-497Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:41:55.497Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-56-34-523z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-56-34-523Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:56:34.523Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-56-55-594z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-56-55-594Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:56:55.594Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-57-07-537z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-57-07-537Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:57:07.538Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-57-19-119z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-57-19-119Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:57:19.119Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-59-42-699z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-59-42-699Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:59:42.699Z"
+  },
+  {
+    "id": "ai-starter-runs-scorecard-2026-04-30t22-59-54-522z-json",
+    "kind": "json",
+    "path": ".ai-starter/runs/scorecard-2026-04-30T22-59-54-522Z.json",
+    "source": "starter-system",
+    "createdAt": "2026-04-30T22:59:54.523Z"
+  },
+  {
     "id": "ai-starter-runs-telemetry-jsonl",
     "kind": "log",
     "path": ".ai-starter/runs/telemetry.jsonl",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:12:08.410Z"
+    "createdAt": "2026-04-30T22:59:22.579Z"
   },
   {
     "id": "ai-starter-session-json",
     "kind": "json",
     "path": ".ai-starter/session.json",
     "source": "starter-system",
-    "createdAt": "2026-04-30T17:13:30.195Z"
+    "createdAt": "2026-04-30T22:59:58.937Z"
   },
   {
     "id": "ai-starter-skills-mfdr-skill-md",
@@ -2562,6 +2842,20 @@
     "createdAt": "2026-04-30T17:10:16.254Z"
   },
   {
+    "id": "evidence-browser-proof-2026-04-30t22-37-34-718z-json",
+    "kind": "json",
+    "path": ".evidence/browser-proof/2026-04-30T22-37-34-718Z.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:37:34.720Z"
+  },
+  {
+    "id": "evidence-browser-proof-2026-04-30t22-56-23-093z-json",
+    "kind": "json",
+    "path": ".evidence/browser-proof/2026-04-30T22-56-23-093Z.json",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:56:23.095Z"
+  },
+  {
     "id": "evidence-codex-runtime-report-json",
     "kind": "json",
     "path": ".evidence/codex-runtime/report.json",
@@ -2580,14 +2874,14 @@
     "kind": "json",
     "path": ".evidence/design-drift/latest.json",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:26.200Z"
+    "createdAt": "2026-04-30T22:54:54.508Z"
   },
   {
     "id": "evidence-design-drift-latest-md",
     "kind": "report",
     "path": ".evidence/design-drift/latest.md",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:26.200Z"
+    "createdAt": "2026-04-30T22:54:54.508Z"
   },
   {
     "id": "evidence-design-match-auth-state-json",
@@ -2741,63 +3035,63 @@
     "kind": "log",
     "path": ".evidence/docs-freshness.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:22.766Z"
+    "createdAt": "2026-04-30T22:54:51.059Z"
   },
   {
     "id": "evidence-drift-report-txt",
     "kind": "log",
     "path": ".evidence/drift-report.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:12:48.967Z"
+    "createdAt": "2026-04-30T22:54:03.596Z"
   },
   {
     "id": "evidence-expect-browser-proof-txt",
     "kind": "log",
     "path": ".evidence/expect-browser-proof.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:22.784Z"
+    "createdAt": "2026-04-30T22:54:51.079Z"
   },
   {
     "id": "evidence-hook-tests-log",
     "kind": "log",
     "path": ".evidence/hook-tests.log",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:22.765Z"
+    "createdAt": "2026-04-30T22:54:51.058Z"
   },
   {
     "id": "evidence-hooks-hook-test-report-json",
     "kind": "json",
     "path": ".evidence/hooks/hook-test-report.json",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:15.693Z"
+    "createdAt": "2026-04-30T22:54:43.357Z"
   },
   {
     "id": "evidence-hooks-hook-test-report-md",
     "kind": "report",
     "path": ".evidence/hooks/hook-test-report.md",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:15.694Z"
+    "createdAt": "2026-04-30T22:54:43.357Z"
   },
   {
     "id": "evidence-install-log",
     "kind": "log",
     "path": ".evidence/install.log",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:12:40.232Z"
+    "createdAt": "2026-04-30T22:53:52.079Z"
   },
   {
     "id": "evidence-integration-usage-scan-json",
     "kind": "json",
     "path": ".evidence/integration-usage-scan.json",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:14.981Z"
+    "createdAt": "2026-04-30T22:54:42.558Z"
   },
   {
     "id": "evidence-integration-usage-scan-txt",
     "kind": "log",
     "path": ".evidence/integration-usage-scan.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:14.981Z"
+    "createdAt": "2026-04-30T22:54:42.558Z"
   },
   {
     "id": "evidence-mobile-ipad-pro-app-layout-png",
@@ -2867,28 +3161,28 @@
     "kind": "log",
     "path": ".evidence/no-drift-detected.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:26.214Z"
+    "createdAt": "2026-04-30T22:54:54.523Z"
   },
   {
     "id": "evidence-no-ts-nocheck-txt",
     "kind": "log",
     "path": ".evidence/no-ts-nocheck.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:22.774Z"
+    "createdAt": "2026-04-30T22:54:51.068Z"
   },
   {
     "id": "evidence-research-freshness-txt",
     "kind": "log",
     "path": ".evidence/research-freshness.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:26.236Z"
+    "createdAt": "2026-04-30T22:54:54.552Z"
   },
   {
     "id": "evidence-rubric-coverage-txt",
     "kind": "log",
     "path": ".evidence/rubric-coverage.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:25.896Z"
+    "createdAt": "2026-04-30T22:54:54.200Z"
   },
   {
     "id": "evidence-rubrics-summary-json",
@@ -2905,11 +3199,25 @@
     "createdAt": "2026-04-29T16:03:58.482Z"
   },
   {
+    "id": "evidence-screenshots-app-account-deletion-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-account-deletion-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:55:11.586Z"
+  },
+  {
+    "id": "evidence-screenshots-app-account-deletion-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-account-deletion-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:35:42.926Z"
+  },
+  {
     "id": "evidence-screenshots-app-admin-pricing-page-tsx-png",
     "kind": "image",
     "path": ".evidence/screenshots/app-admin-pricing-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:18.334Z"
+    "createdAt": "2026-04-30T22:55:13.400Z"
   },
   {
     "id": "evidence-screenshots-app-admin-pricing-page-png",
@@ -2923,7 +3231,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-agent-builder-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:19.295Z"
+    "createdAt": "2026-04-30T22:55:14.473Z"
   },
   {
     "id": "evidence-screenshots-app-agent-builder-page-png",
@@ -2937,7 +3245,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-ai-starter-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:20.190Z"
+    "createdAt": "2026-04-30T22:55:15.418Z"
   },
   {
     "id": "evidence-screenshots-app-ai-starter-page-png",
@@ -2951,7 +3259,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-ask-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:21.185Z"
+    "createdAt": "2026-04-30T22:55:16.429Z"
   },
   {
     "id": "evidence-screenshots-app-ask-page-png",
@@ -2979,7 +3287,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-auth-confirm-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:22.115Z"
+    "createdAt": "2026-04-30T22:55:17.286Z"
   },
   {
     "id": "evidence-screenshots-app-auth-confirm-page-png",
@@ -3007,7 +3315,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-chat-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:23.062Z"
+    "createdAt": "2026-04-30T22:55:18.298Z"
   },
   {
     "id": "evidence-screenshots-app-chat-page-png",
@@ -3021,7 +3329,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-control-plane-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:24.457Z"
+    "createdAt": "2026-04-30T22:55:19.846Z"
   },
   {
     "id": "evidence-screenshots-app-control-plane-page-png",
@@ -3035,7 +3343,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-config-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:27.699Z"
+    "createdAt": "2026-04-30T22:55:23.421Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-config-page-png",
@@ -3049,7 +3357,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-connectors-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:29.091Z"
+    "createdAt": "2026-04-30T22:55:24.713Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-connectors-page-png",
@@ -3063,7 +3371,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-cost-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:30.445Z"
+    "createdAt": "2026-04-30T22:55:26.021Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-cost-page-png",
@@ -3077,7 +3385,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-coverage-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:31.918Z"
+    "createdAt": "2026-04-30T22:55:27.319Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-coverage-page-png",
@@ -3091,7 +3399,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-dependencies-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:32.755Z"
+    "createdAt": "2026-04-30T22:55:28.160Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-dependencies-page-png",
@@ -3105,7 +3413,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-deployments-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:34.073Z"
+    "createdAt": "2026-04-30T22:55:29.394Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-deployments-page-png",
@@ -3119,7 +3427,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-design-system-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:34.921Z"
+    "createdAt": "2026-04-30T22:55:30.269Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-design-system-page-png",
@@ -3147,7 +3455,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-evals-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:36.251Z"
+    "createdAt": "2026-04-30T22:55:31.510Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-evals-page-png",
@@ -3175,7 +3483,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-features-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:37.392Z"
+    "createdAt": "2026-04-30T22:55:32.762Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-features-page-png",
@@ -3189,7 +3497,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-index-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:39.735Z"
+    "createdAt": "2026-04-30T22:55:35.384Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-index-page-png",
@@ -3203,7 +3511,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:26.637Z"
+    "createdAt": "2026-04-30T22:55:22.458Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-page-png",
@@ -3217,7 +3525,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-registries-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:40.995Z"
+    "createdAt": "2026-04-30T22:55:36.587Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-registries-page-png",
@@ -3231,7 +3539,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-regressions-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:42.369Z"
+    "createdAt": "2026-04-30T22:55:37.846Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-regressions-page-png",
@@ -3245,7 +3553,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-runs-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:43.614Z"
+    "createdAt": "2026-04-30T22:55:39.010Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-runs-page-png",
@@ -3287,7 +3595,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-sessions-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:45.825Z"
+    "createdAt": "2026-04-30T22:55:40.942Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-sessions-page-png",
@@ -3301,7 +3609,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-status-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:47.121Z"
+    "createdAt": "2026-04-30T22:55:42.181Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-status-page-png",
@@ -3315,7 +3623,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-dev-kit-tools-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:48.613Z"
+    "createdAt": "2026-04-30T22:55:43.462Z"
   },
   {
     "id": "evidence-screenshots-app-dev-kit-tools-page-png",
@@ -3329,7 +3637,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-docs-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:49.559Z"
+    "createdAt": "2026-04-30T22:55:44.426Z"
   },
   {
     "id": "evidence-screenshots-app-docs-page-png",
@@ -3343,7 +3651,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-download-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:50.670Z"
+    "createdAt": "2026-04-30T22:55:45.769Z"
   },
   {
     "id": "evidence-screenshots-app-download-page-png",
@@ -3371,7 +3679,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-meetings-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:51.675Z"
+    "createdAt": "2026-04-30T22:55:46.856Z"
   },
   {
     "id": "evidence-screenshots-app-meetings-page-png",
@@ -3385,7 +3693,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-oauth-consent-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:52.697Z"
+    "createdAt": "2026-04-30T22:55:47.907Z"
   },
   {
     "id": "evidence-screenshots-app-oauth-consent-page-png",
@@ -3399,7 +3707,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-observability-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:54.206Z"
+    "createdAt": "2026-04-30T22:55:49.188Z"
   },
   {
     "id": "evidence-screenshots-app-observability-page-png",
@@ -3413,7 +3721,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:55.934Z"
+    "createdAt": "2026-04-30T22:55:50.779Z"
   },
   {
     "id": "evidence-screenshots-app-page-png",
@@ -3427,7 +3735,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-pricing-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:56.889Z"
+    "createdAt": "2026-04-30T22:55:51.696Z"
   },
   {
     "id": "evidence-screenshots-app-pricing-page-png",
@@ -3437,11 +3745,25 @@
     "createdAt": "2026-04-27T16:05:27.630Z"
   },
   {
+    "id": "evidence-screenshots-app-privacy-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-privacy-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:55:52.847Z"
+  },
+  {
+    "id": "evidence-screenshots-app-privacy-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-privacy-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:35:42.955Z"
+  },
+  {
     "id": "evidence-screenshots-app-profile-page-tsx-png",
     "kind": "image",
     "path": ".evidence/screenshots/app-profile-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:58.264Z"
+    "createdAt": "2026-04-30T22:55:54.175Z"
   },
   {
     "id": "evidence-screenshots-app-profile-page-png",
@@ -3455,7 +3777,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-record-live-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:10:00.823Z"
+    "createdAt": "2026-04-30T22:55:56.672Z"
   },
   {
     "id": "evidence-screenshots-app-record-live-page-png",
@@ -3469,7 +3791,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-record-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:09:59.199Z"
+    "createdAt": "2026-04-30T22:55:55.120Z"
   },
   {
     "id": "evidence-screenshots-app-record-page-png",
@@ -3483,7 +3805,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-roadmap-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:10:01.757Z"
+    "createdAt": "2026-04-30T22:55:57.597Z"
   },
   {
     "id": "evidence-screenshots-app-roadmap-page-png",
@@ -3497,7 +3819,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-search-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:10:02.824Z"
+    "createdAt": "2026-04-30T22:55:58.531Z"
   },
   {
     "id": "evidence-screenshots-app-search-page-png",
@@ -3511,7 +3833,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-settings-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:10:04.577Z"
+    "createdAt": "2026-04-30T22:56:00.245Z"
   },
   {
     "id": "evidence-screenshots-app-settings-page-png",
@@ -3525,7 +3847,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-sign-in-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:10:05.418Z"
+    "createdAt": "2026-04-30T22:56:01.141Z"
   },
   {
     "id": "evidence-screenshots-app-sign-in-page-png",
@@ -3539,7 +3861,7 @@
     "kind": "image",
     "path": ".evidence/screenshots/app-sign-up-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:10:06.252Z"
+    "createdAt": "2026-04-30T22:56:03.695Z"
   },
   {
     "id": "evidence-screenshots-app-sign-up-page-png",
@@ -3549,11 +3871,25 @@
     "createdAt": "2026-04-27T16:05:32.678Z"
   },
   {
+    "id": "evidence-screenshots-app-terms-page-tsx-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-terms-page-tsx.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:56:07.058Z"
+  },
+  {
+    "id": "evidence-screenshots-app-terms-page-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/app-terms-page.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:35:42.943Z"
+  },
+  {
     "id": "evidence-screenshots-app-usage-page-tsx-png",
     "kind": "image",
     "path": ".evidence/screenshots/app-usage-page-tsx.png",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:10:07.405Z"
+    "createdAt": "2026-04-30T22:56:12.464Z"
   },
   {
     "id": "evidence-screenshots-app-usage-page-png",
@@ -3589,6 +3925,13 @@
     "path": ".evidence/screenshots/app-well-known-oauth-protected-resource-route.png",
     "source": ".evidence",
     "createdAt": "2026-04-27T16:05:35.061Z"
+  },
+  {
+    "id": "evidence-screenshots-expect-account-deletion-png",
+    "kind": "image",
+    "path": ".evidence/screenshots/expect-account-deletion.png",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:56:18.580Z"
   },
   {
     "id": "evidence-screenshots-expect-admin-pricing-png",
@@ -4043,56 +4386,63 @@
     "kind": "log",
     "path": ".evidence/smoke-test-exists.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:22.783Z"
+    "createdAt": "2026-04-30T22:54:51.078Z"
   },
   {
     "id": "evidence-smoke-validation-log",
     "kind": "log",
     "path": ".evidence/smoke-validation.log",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:14.685Z"
+    "createdAt": "2026-04-30T22:54:42.223Z"
   },
   {
     "id": "evidence-storybook-builds-txt",
     "kind": "log",
     "path": ".evidence/storybook-builds.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:25.895Z"
+    "createdAt": "2026-04-30T22:54:54.200Z"
   },
   {
     "id": "evidence-summary-json",
     "kind": "json",
     "path": ".evidence/summary.json",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:26.237Z"
+    "createdAt": "2026-04-30T22:54:54.553Z"
   },
   {
     "id": "evidence-telemetry-scan-txt",
     "kind": "log",
     "path": ".evidence/telemetry-scan.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:14.698Z"
+    "createdAt": "2026-04-30T22:54:42.237Z"
   },
   {
     "id": "evidence-test-results-json",
     "kind": "json",
     "path": ".evidence/test-results.json",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:12:45.782Z"
+    "createdAt": "2026-04-30T22:53:58.570Z"
   },
   {
     "id": "evidence-tool-renderer-coverage-txt",
     "kind": "log",
     "path": ".evidence/tool-renderer-coverage.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:22.783Z"
+    "createdAt": "2026-04-30T22:54:51.078Z"
   },
   {
     "id": "evidence-typecheck-log",
     "kind": "log",
     "path": ".evidence/typecheck.log",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:12:42.547Z"
+    "createdAt": "2026-04-30T22:53:54.334Z"
+  },
+  {
+    "id": "evidence-videos-expect-account-deletion-webm",
+    "kind": "video",
+    "path": ".evidence/videos/expect-account-deletion.webm",
+    "source": ".evidence",
+    "createdAt": "2026-04-30T22:56:23.093Z"
   },
   {
     "id": "evidence-videos-expect-admin-pricing-webm",
@@ -4435,14 +4785,14 @@
     "kind": "log",
     "path": ".evidence/visual-test-exists.txt",
     "source": ".evidence",
-    "createdAt": "2026-04-30T17:13:22.783Z"
+    "createdAt": "2026-04-30T22:54:51.078Z"
   },
   {
     "id": "expect-logs-md",
     "kind": "replay",
     "path": ".expect/logs.md",
     "source": ".expect",
-    "createdAt": "2026-04-30T17:10:09.683Z"
+    "createdAt": "2026-04-30T22:56:16.112Z"
   },
   {
     "id": "expect-replays-07a9b03d-0f4f-498c-bb82-e0467a2a3fc9-html",
@@ -4550,6 +4900,20 @@
     "createdAt": "2026-04-30T17:10:16.254Z"
   },
   {
+    "id": "expect-replays-browser-proof-2026-04-30t22-37-34-718z-json",
+    "kind": "replay",
+    "path": ".expect/replays/browser-proof-2026-04-30T22-37-34-718Z.json",
+    "source": ".expect",
+    "createdAt": "2026-04-30T22:37:34.719Z"
+  },
+  {
+    "id": "expect-replays-browser-proof-2026-04-30t22-56-23-093z-json",
+    "kind": "replay",
+    "path": ".expect/replays/browser-proof-2026-04-30T22-56-23-093Z.json",
+    "source": ".expect",
+    "createdAt": "2026-04-30T22:56:23.094Z"
+  },
+  {
     "id": "expect-replays-f0dae8db-05cf-4e64-98c5-d91583d3e183-html",
     "kind": "replay",
     "path": ".expect/replays/f0dae8db-05cf-4e64-98c5-d91583d3e183.html",
@@ -4557,1200 +4921,1452 @@
     "createdAt": "2026-04-25T00:26:36.579Z"
   },
   {
-    "id": "playwright-report-data-0278998de67dbea58586c4b4e3f5cc99172a6655-webm",
+    "id": "playwright-report-data-01c1341ec5bcc116b83ea3c899e93f7f42fd9f92-webm",
     "kind": "video",
-    "path": "playwright-report/data/0278998de67dbea58586c4b4e3f5cc99172a6655.webm",
+    "path": "playwright-report/data/01c1341ec5bcc116b83ea3c899e93f7f42fd9f92.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.646Z"
+    "createdAt": "2026-04-30T22:54:42.194Z"
   },
   {
-    "id": "playwright-report-data-0856090511731a5789dbd30861b04647823d400a-webm",
+    "id": "playwright-report-data-062431073017c64f277ec9936e1e4ffccbcfd6a1-webm",
     "kind": "video",
-    "path": "playwright-report/data/0856090511731a5789dbd30861b04647823d400a.webm",
+    "path": "playwright-report/data/062431073017c64f277ec9936e1e4ffccbcfd6a1.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.646Z"
+    "createdAt": "2026-04-30T22:54:42.145Z"
   },
   {
-    "id": "playwright-report-data-093368f2ab921acf9b2cf2f1405cb3ed0016abfd-webm",
+    "id": "playwright-report-data-065be7394e606ecf5fe5b9c2175d8e10e1f8a409-webm",
     "kind": "video",
-    "path": "playwright-report/data/093368f2ab921acf9b2cf2f1405cb3ed0016abfd.webm",
+    "path": "playwright-report/data/065be7394e606ecf5fe5b9c2175d8e10e1f8a409.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.654Z"
+    "createdAt": "2026-04-30T22:54:42.142Z"
   },
   {
-    "id": "playwright-report-data-0a0f8574a33c5f81ecf305849c7e249b8c8ac9a3-webm",
+    "id": "playwright-report-data-06969b5669aa8d93406a85c93e0d9dd91190e5e9-webm",
     "kind": "video",
-    "path": "playwright-report/data/0a0f8574a33c5f81ecf305849c7e249b8c8ac9a3.webm",
+    "path": "playwright-report/data/06969b5669aa8d93406a85c93e0d9dd91190e5e9.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.643Z"
+    "createdAt": "2026-04-30T22:54:42.192Z"
   },
   {
-    "id": "playwright-report-data-0e3dd12d44a767480100ebe6f02f85b39759753b-webm",
+    "id": "playwright-report-data-0bdcb67a500e893f09c8604530021c0067bc973d-webm",
     "kind": "video",
-    "path": "playwright-report/data/0e3dd12d44a767480100ebe6f02f85b39759753b.webm",
+    "path": "playwright-report/data/0bdcb67a500e893f09c8604530021c0067bc973d.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.660Z"
+    "createdAt": "2026-04-30T22:54:42.194Z"
   },
   {
-    "id": "playwright-report-data-114ff7ba4d62f19bc71a9e908f2bfd29ea50f836-webm",
+    "id": "playwright-report-data-0d5deaae61c06d7e5541424f4b413bc659686c3e-webm",
     "kind": "video",
-    "path": "playwright-report/data/114ff7ba4d62f19bc71a9e908f2bfd29ea50f836.webm",
+    "path": "playwright-report/data/0d5deaae61c06d7e5541424f4b413bc659686c3e.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.651Z"
+    "createdAt": "2026-04-30T22:54:42.135Z"
   },
   {
-    "id": "playwright-report-data-16272024943ce42c45e1c9f77b4f4aef76ee95b6-webm",
+    "id": "playwright-report-data-0fcde6485f9d445875167981a29a0a5a0f547a44-webm",
     "kind": "video",
-    "path": "playwright-report/data/16272024943ce42c45e1c9f77b4f4aef76ee95b6.webm",
+    "path": "playwright-report/data/0fcde6485f9d445875167981a29a0a5a0f547a44.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.160Z"
   },
   {
-    "id": "playwright-report-data-19119bc30108101da4e5c428cd1d924abdfa5935-webm",
+    "id": "playwright-report-data-1003cafcbd0bc2966c12beaafbfcf34ae992f53b-webm",
     "kind": "video",
-    "path": "playwright-report/data/19119bc30108101da4e5c428cd1d924abdfa5935.webm",
+    "path": "playwright-report/data/1003cafcbd0bc2966c12beaafbfcf34ae992f53b.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.656Z"
+    "createdAt": "2026-04-30T22:54:42.188Z"
   },
   {
-    "id": "playwright-report-data-194df0375cfae28b68fd95e84958b57cc62b6f8d-webm",
+    "id": "playwright-report-data-11b78f5dffde4f140ba57c3903c7ac0a820d2c5f-webm",
     "kind": "video",
-    "path": "playwright-report/data/194df0375cfae28b68fd95e84958b57cc62b6f8d.webm",
+    "path": "playwright-report/data/11b78f5dffde4f140ba57c3903c7ac0a820d2c5f.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.644Z"
+    "createdAt": "2026-04-30T22:54:42.156Z"
   },
   {
-    "id": "playwright-report-data-1ac2815ae4d3da0ab12c9d60fa2576aaa9818ffa-webm",
+    "id": "playwright-report-data-14e28aa7630dd7d715ee15270b8927ddc4619f6c-webm",
     "kind": "video",
-    "path": "playwright-report/data/1ac2815ae4d3da0ab12c9d60fa2576aaa9818ffa.webm",
+    "path": "playwright-report/data/14e28aa7630dd7d715ee15270b8927ddc4619f6c.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.658Z"
+    "createdAt": "2026-04-30T22:54:42.185Z"
   },
   {
-    "id": "playwright-report-data-1d4c64366c3c3ca8107bbc16f02f153506c2aa84-webm",
+    "id": "playwright-report-data-1bede2fa92ebf1cf940cabfebe5be66776258635-webm",
     "kind": "video",
-    "path": "playwright-report/data/1d4c64366c3c3ca8107bbc16f02f153506c2aa84.webm",
+    "path": "playwright-report/data/1bede2fa92ebf1cf940cabfebe5be66776258635.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.653Z"
+    "createdAt": "2026-04-30T22:54:42.186Z"
   },
   {
-    "id": "playwright-report-data-1ea7f20d1733c993aef7edc4684140bd77231304-webm",
+    "id": "playwright-report-data-1c318cf1df6694c59c5896d2a99168d82e16c951-webm",
     "kind": "video",
-    "path": "playwright-report/data/1ea7f20d1733c993aef7edc4684140bd77231304.webm",
+    "path": "playwright-report/data/1c318cf1df6694c59c5896d2a99168d82e16c951.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.133Z"
   },
   {
-    "id": "playwright-report-data-1ffeb316055e739e3bf77d25283a3f26a23249c0-webm",
+    "id": "playwright-report-data-1d13f112b3b6ba241b6a5f7dfebc4050df9cb34f-webm",
     "kind": "video",
-    "path": "playwright-report/data/1ffeb316055e739e3bf77d25283a3f26a23249c0.webm",
+    "path": "playwright-report/data/1d13f112b3b6ba241b6a5f7dfebc4050df9cb34f.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.651Z"
+    "createdAt": "2026-04-30T22:54:42.177Z"
   },
   {
-    "id": "playwright-report-data-22d1aa39aa76b787a5241c4d31a0248c6f5c9914-webm",
+    "id": "playwright-report-data-220cafa66005953b3b0d42e8282fea9ae906d3c0-webm",
     "kind": "video",
-    "path": "playwright-report/data/22d1aa39aa76b787a5241c4d31a0248c6f5c9914.webm",
+    "path": "playwright-report/data/220cafa66005953b3b0d42e8282fea9ae906d3c0.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.645Z"
+    "createdAt": "2026-04-30T22:54:42.191Z"
   },
   {
-    "id": "playwright-report-data-2375c6fe2362c9b0ef68e679e7756cd9634d3328-webm",
+    "id": "playwright-report-data-223b27eb03eb42b3bc356fd417db7e65854a85e6-webm",
     "kind": "video",
-    "path": "playwright-report/data/2375c6fe2362c9b0ef68e679e7756cd9634d3328.webm",
+    "path": "playwright-report/data/223b27eb03eb42b3bc356fd417db7e65854a85e6.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.651Z"
+    "createdAt": "2026-04-30T22:54:42.192Z"
   },
   {
-    "id": "playwright-report-data-23c9590d2df1d25e97693f5df468fd2505159f00-webm",
+    "id": "playwright-report-data-228b8bb0672e9bace4097ca485feafe7f8f5c579-webm",
     "kind": "video",
-    "path": "playwright-report/data/23c9590d2df1d25e97693f5df468fd2505159f00.webm",
+    "path": "playwright-report/data/228b8bb0672e9bace4097ca485feafe7f8f5c579.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.650Z"
+    "createdAt": "2026-04-30T22:54:42.163Z"
   },
   {
-    "id": "playwright-report-data-245f1cd7358fe963611d1cd0b244480ca7be7235-webm",
+    "id": "playwright-report-data-27d97a35d0d4ad6239dccdcd2e866cf77ae2cc60-webm",
     "kind": "video",
-    "path": "playwright-report/data/245f1cd7358fe963611d1cd0b244480ca7be7235.webm",
+    "path": "playwright-report/data/27d97a35d0d4ad6239dccdcd2e866cf77ae2cc60.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.658Z"
+    "createdAt": "2026-04-30T22:54:42.184Z"
   },
   {
-    "id": "playwright-report-data-279c32b51e008e01217b9c5c087a732da710b388-webm",
+    "id": "playwright-report-data-2a1f427fb816bf9c863cfc5a189d0b9fbcbff654-webm",
     "kind": "video",
-    "path": "playwright-report/data/279c32b51e008e01217b9c5c087a732da710b388.webm",
+    "path": "playwright-report/data/2a1f427fb816bf9c863cfc5a189d0b9fbcbff654.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.649Z"
+    "createdAt": "2026-04-30T22:54:42.151Z"
   },
   {
-    "id": "playwright-report-data-2a44fa4a2a86f19bc22b7bce10de4eb419dd02c2-webm",
+    "id": "playwright-report-data-2e830e84a65c54e95967e104eb1809864c3cf37f-webm",
     "kind": "video",
-    "path": "playwright-report/data/2a44fa4a2a86f19bc22b7bce10de4eb419dd02c2.webm",
+    "path": "playwright-report/data/2e830e84a65c54e95967e104eb1809864c3cf37f.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.655Z"
+    "createdAt": "2026-04-30T22:54:42.191Z"
   },
   {
-    "id": "playwright-report-data-2b744bc62cc045218cb41096660feac01bd61f6c-webm",
+    "id": "playwright-report-data-33398b0d81e280d96d247452cd9c47e8bebdc11a-webm",
     "kind": "video",
-    "path": "playwright-report/data/2b744bc62cc045218cb41096660feac01bd61f6c.webm",
+    "path": "playwright-report/data/33398b0d81e280d96d247452cd9c47e8bebdc11a.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.660Z"
+    "createdAt": "2026-04-30T22:54:42.193Z"
   },
   {
-    "id": "playwright-report-data-2e68b239ce420f1c4a933d39c38340511589864b-webm",
+    "id": "playwright-report-data-347b2c10986f0515ab04ce6c0f541c6487c80ee7-webm",
     "kind": "video",
-    "path": "playwright-report/data/2e68b239ce420f1c4a933d39c38340511589864b.webm",
+    "path": "playwright-report/data/347b2c10986f0515ab04ce6c0f541c6487c80ee7.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.652Z"
+    "createdAt": "2026-04-30T22:54:42.187Z"
   },
   {
-    "id": "playwright-report-data-2f083eaef7533799fb7771151ecdaa9c7b919c01-webm",
+    "id": "playwright-report-data-35362ebf8ede74e1a23f7d5a1c332f870556e592-webm",
     "kind": "video",
-    "path": "playwright-report/data/2f083eaef7533799fb7771151ecdaa9c7b919c01.webm",
+    "path": "playwright-report/data/35362ebf8ede74e1a23f7d5a1c332f870556e592.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.658Z"
+    "createdAt": "2026-04-30T22:54:42.168Z"
   },
   {
-    "id": "playwright-report-data-303307e3166ab032b582099ed45938daa6332d25-webm",
+    "id": "playwright-report-data-36f576870567a5f3864c434736869d06639df74f-webm",
     "kind": "video",
-    "path": "playwright-report/data/303307e3166ab032b582099ed45938daa6332d25.webm",
+    "path": "playwright-report/data/36f576870567a5f3864c434736869d06639df74f.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.641Z"
+    "createdAt": "2026-04-30T22:54:42.190Z"
   },
   {
-    "id": "playwright-report-data-322f2cbab6ffbb65dc2b140fd4ba57818571742d-webm",
+    "id": "playwright-report-data-375f788e794cb75b41d40854bce426f13911093e-webm",
     "kind": "video",
-    "path": "playwright-report/data/322f2cbab6ffbb65dc2b140fd4ba57818571742d.webm",
+    "path": "playwright-report/data/375f788e794cb75b41d40854bce426f13911093e.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.654Z"
+    "createdAt": "2026-04-30T22:54:42.193Z"
   },
   {
-    "id": "playwright-report-data-3331464f32d94b715cd77731925cffa983c360cd-webm",
+    "id": "playwright-report-data-37af4ea54c7945db28071e92a0b7463c283a04cf-webm",
     "kind": "video",
-    "path": "playwright-report/data/3331464f32d94b715cd77731925cffa983c360cd.webm",
+    "path": "playwright-report/data/37af4ea54c7945db28071e92a0b7463c283a04cf.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.189Z"
   },
   {
-    "id": "playwright-report-data-3421ef21006907508151773d1a6c6ab8b1955e9b-webm",
+    "id": "playwright-report-data-388eb2fd61fe494c7eb841cad34747f6925eb906-webm",
     "kind": "video",
-    "path": "playwright-report/data/3421ef21006907508151773d1a6c6ab8b1955e9b.webm",
+    "path": "playwright-report/data/388eb2fd61fe494c7eb841cad34747f6925eb906.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.191Z"
   },
   {
-    "id": "playwright-report-data-3463ba8944771418aa6978391f3857de09f5a02d-webm",
+    "id": "playwright-report-data-3c05dda2dea58b0854908ea7fdba982d2fb64115-webm",
     "kind": "video",
-    "path": "playwright-report/data/3463ba8944771418aa6978391f3857de09f5a02d.webm",
+    "path": "playwright-report/data/3c05dda2dea58b0854908ea7fdba982d2fb64115.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.652Z"
+    "createdAt": "2026-04-30T22:54:42.155Z"
   },
   {
-    "id": "playwright-report-data-3a62856e8f964b2b431c217392485640989e12e6-webm",
+    "id": "playwright-report-data-3f2fef3464349a4be479a3c159d84c0cab1aff74-webm",
     "kind": "video",
-    "path": "playwright-report/data/3a62856e8f964b2b431c217392485640989e12e6.webm",
+    "path": "playwright-report/data/3f2fef3464349a4be479a3c159d84c0cab1aff74.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.192Z"
   },
   {
-    "id": "playwright-report-data-3fd78922431c4f940a2768d2672599638d48d40b-webm",
+    "id": "playwright-report-data-3f5414696c7c139e223149660919c1b26836cce4-webm",
     "kind": "video",
-    "path": "playwright-report/data/3fd78922431c4f940a2768d2672599638d48d40b.webm",
+    "path": "playwright-report/data/3f5414696c7c139e223149660919c1b26836cce4.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.646Z"
+    "createdAt": "2026-04-30T22:54:42.186Z"
   },
   {
-    "id": "playwright-report-data-423641e13fb40a10615022d1edcd7b60e46c058e-webm",
+    "id": "playwright-report-data-3f9583f39ab7159ba4397f60116721f0c0cebeb9-webm",
     "kind": "video",
-    "path": "playwright-report/data/423641e13fb40a10615022d1edcd7b60e46c058e.webm",
+    "path": "playwright-report/data/3f9583f39ab7159ba4397f60116721f0c0cebeb9.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.653Z"
+    "createdAt": "2026-04-30T22:54:42.191Z"
   },
   {
-    "id": "playwright-report-data-49bd0b20c419bdd89145edc7646a29f4e80e152d-webm",
+    "id": "playwright-report-data-3fb78fa58a7968262a5c993cfca8b21f43cf4d0b-webm",
     "kind": "video",
-    "path": "playwright-report/data/49bd0b20c419bdd89145edc7646a29f4e80e152d.webm",
+    "path": "playwright-report/data/3fb78fa58a7968262a5c993cfca8b21f43cf4d0b.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.656Z"
+    "createdAt": "2026-04-30T22:54:42.188Z"
   },
   {
-    "id": "playwright-report-data-4d79f85da55485608a7e2dcfcf5c16523673a311-webm",
+    "id": "playwright-report-data-41a94ad792c635ad81a889b63abe752ce039299b-webm",
     "kind": "video",
-    "path": "playwright-report/data/4d79f85da55485608a7e2dcfcf5c16523673a311.webm",
+    "path": "playwright-report/data/41a94ad792c635ad81a889b63abe752ce039299b.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.655Z"
+    "createdAt": "2026-04-30T22:54:42.194Z"
   },
   {
-    "id": "playwright-report-data-50953d3288730bc0e24545155e33514c6478dd76-webm",
+    "id": "playwright-report-data-45eac8dd2506ff629b30fa0719d7c14c3ab15e5f-webm",
     "kind": "video",
-    "path": "playwright-report/data/50953d3288730bc0e24545155e33514c6478dd76.webm",
+    "path": "playwright-report/data/45eac8dd2506ff629b30fa0719d7c14c3ab15e5f.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.645Z"
+    "createdAt": "2026-04-30T22:54:42.149Z"
   },
   {
-    "id": "playwright-report-data-5185288268dfd5ae5a8a4cad587deae810de6781-webm",
+    "id": "playwright-report-data-47ebe14a8f554079fab8b82ab751a22c680c009e-webm",
     "kind": "video",
-    "path": "playwright-report/data/5185288268dfd5ae5a8a4cad587deae810de6781.webm",
+    "path": "playwright-report/data/47ebe14a8f554079fab8b82ab751a22c680c009e.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.641Z"
+    "createdAt": "2026-04-30T22:54:42.195Z"
   },
   {
-    "id": "playwright-report-data-5a8d6ddaf672d1a85f578c802b7c2195d3be6a2a-webm",
+    "id": "playwright-report-data-4e5ff5cf1f16018413bf59c8442a4b6585d00841-webm",
     "kind": "video",
-    "path": "playwright-report/data/5a8d6ddaf672d1a85f578c802b7c2195d3be6a2a.webm",
+    "path": "playwright-report/data/4e5ff5cf1f16018413bf59c8442a4b6585d00841.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.657Z"
+    "createdAt": "2026-04-30T22:54:42.140Z"
   },
   {
-    "id": "playwright-report-data-5cd381ad51d8edc40340969b9f4b041235ba68c5-webm",
+    "id": "playwright-report-data-50b90fcf5763157d24e4ae0830a2ee8118ba3659-webm",
     "kind": "video",
-    "path": "playwright-report/data/5cd381ad51d8edc40340969b9f4b041235ba68c5.webm",
+    "path": "playwright-report/data/50b90fcf5763157d24e4ae0830a2ee8118ba3659.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.652Z"
+    "createdAt": "2026-04-30T22:54:42.180Z"
   },
   {
-    "id": "playwright-report-data-633f10b8e6f18fe6a54dfba5d414bb766c18da83-webm",
+    "id": "playwright-report-data-520409525ee8f160cc14bf2f52df3e5765826cc2-webm",
     "kind": "video",
-    "path": "playwright-report/data/633f10b8e6f18fe6a54dfba5d414bb766c18da83.webm",
+    "path": "playwright-report/data/520409525ee8f160cc14bf2f52df3e5765826cc2.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.655Z"
+    "createdAt": "2026-04-30T22:54:42.185Z"
   },
   {
-    "id": "playwright-report-data-63eb2006f6cd62f092e949a4de1d78b4f0466b29-webm",
+    "id": "playwright-report-data-556fff6f789ebec1545ac9f92b16ecbf175d6764-webm",
     "kind": "video",
-    "path": "playwright-report/data/63eb2006f6cd62f092e949a4de1d78b4f0466b29.webm",
+    "path": "playwright-report/data/556fff6f789ebec1545ac9f92b16ecbf175d6764.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.652Z"
+    "createdAt": "2026-04-30T22:54:42.153Z"
   },
   {
-    "id": "playwright-report-data-6d4995bd4cd44b2bb36df9b0b9e9c71a5d9bb8e7-webm",
+    "id": "playwright-report-data-55985c444d1bd5cb133e6c93db35b574fbab6f9a-webm",
     "kind": "video",
-    "path": "playwright-report/data/6d4995bd4cd44b2bb36df9b0b9e9c71a5d9bb8e7.webm",
+    "path": "playwright-report/data/55985c444d1bd5cb133e6c93db35b574fbab6f9a.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.657Z"
+    "createdAt": "2026-04-30T22:54:42.189Z"
   },
   {
-    "id": "playwright-report-data-70ac8f7267689d31c8e13d78901bcc2b53e69d98-webm",
+    "id": "playwright-report-data-57f8c5ff81af90c02dc1bc61abb287ad2f631e7e-webm",
     "kind": "video",
-    "path": "playwright-report/data/70ac8f7267689d31c8e13d78901bcc2b53e69d98.webm",
+    "path": "playwright-report/data/57f8c5ff81af90c02dc1bc61abb287ad2f631e7e.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.640Z"
+    "createdAt": "2026-04-30T22:54:42.186Z"
   },
   {
-    "id": "playwright-report-data-797d403f5b6d3a736e5c5c38615ed769d70858a7-webm",
+    "id": "playwright-report-data-5aa3cd4d451105aab24234a3f92003f3cabb6071-webm",
     "kind": "video",
-    "path": "playwright-report/data/797d403f5b6d3a736e5c5c38615ed769d70858a7.webm",
+    "path": "playwright-report/data/5aa3cd4d451105aab24234a3f92003f3cabb6071.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.658Z"
+    "createdAt": "2026-04-30T22:54:42.194Z"
   },
   {
-    "id": "playwright-report-data-7a6176f229692b42670cb48f4dc4972be670fd70-webm",
+    "id": "playwright-report-data-62d0e1a137b314fa0485734ddfc5131ca3f71b9b-webm",
     "kind": "video",
-    "path": "playwright-report/data/7a6176f229692b42670cb48f4dc4972be670fd70.webm",
+    "path": "playwright-report/data/62d0e1a137b314fa0485734ddfc5131ca3f71b9b.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.653Z"
+    "createdAt": "2026-04-30T22:54:42.148Z"
   },
   {
-    "id": "playwright-report-data-7ecc7811051a74b8fb4189213e4c08b7d33b2de7-webm",
+    "id": "playwright-report-data-6347d65e069454f505959e20c3013986d568ca8f-webm",
     "kind": "video",
-    "path": "playwright-report/data/7ecc7811051a74b8fb4189213e4c08b7d33b2de7.webm",
+    "path": "playwright-report/data/6347d65e069454f505959e20c3013986d568ca8f.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.642Z"
+    "createdAt": "2026-04-30T22:54:42.154Z"
   },
   {
-    "id": "playwright-report-data-82df3ecd4d46a736d9691d119852d20441bf3a63-webm",
+    "id": "playwright-report-data-6829d1d51aec80f4b8d80588b21cc0d3df034f30-webm",
     "kind": "video",
-    "path": "playwright-report/data/82df3ecd4d46a736d9691d119852d20441bf3a63.webm",
+    "path": "playwright-report/data/6829d1d51aec80f4b8d80588b21cc0d3df034f30.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.642Z"
+    "createdAt": "2026-04-30T22:54:42.194Z"
   },
   {
-    "id": "playwright-report-data-8b29c84f18c0eff3c6f1b82a410ee27150b4c375-webm",
+    "id": "playwright-report-data-68a6cfbc014420722201bb7419c25da2663b7335-webm",
     "kind": "video",
-    "path": "playwright-report/data/8b29c84f18c0eff3c6f1b82a410ee27150b4c375.webm",
+    "path": "playwright-report/data/68a6cfbc014420722201bb7419c25da2663b7335.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.654Z"
+    "createdAt": "2026-04-30T22:54:42.193Z"
   },
   {
-    "id": "playwright-report-data-9057a34d05fc2a55af7fbca2561851baac371cbf-webm",
+    "id": "playwright-report-data-6bf6df94801ef938adb3863310b4b7fb181ad25c-webm",
     "kind": "video",
-    "path": "playwright-report/data/9057a34d05fc2a55af7fbca2561851baac371cbf.webm",
+    "path": "playwright-report/data/6bf6df94801ef938adb3863310b4b7fb181ad25c.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.644Z"
+    "createdAt": "2026-04-30T22:54:42.176Z"
   },
   {
-    "id": "playwright-report-data-91a4b9186f5d32ad59ae10a01a2413f7cfd3fc54-webm",
+    "id": "playwright-report-data-6db5ec78be9ce8e56c329f820a894958c97b45b3-webm",
     "kind": "video",
-    "path": "playwright-report/data/91a4b9186f5d32ad59ae10a01a2413f7cfd3fc54.webm",
+    "path": "playwright-report/data/6db5ec78be9ce8e56c329f820a894958c97b45b3.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.651Z"
+    "createdAt": "2026-04-30T22:54:42.185Z"
   },
   {
-    "id": "playwright-report-data-97042effc2d0d48117448e84a0cac4cbb882bc3c-webm",
+    "id": "playwright-report-data-713c287953d83f5c2fadc58893266a020832af07-webm",
     "kind": "video",
-    "path": "playwright-report/data/97042effc2d0d48117448e84a0cac4cbb882bc3c.webm",
+    "path": "playwright-report/data/713c287953d83f5c2fadc58893266a020832af07.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.649Z"
+    "createdAt": "2026-04-30T22:54:42.195Z"
   },
   {
-    "id": "playwright-report-data-996fe1a310b044112247186b74adfccc15979a9a-webm",
+    "id": "playwright-report-data-81e2bf55b55ec0e0464478f6503c48af7d9fda60-webm",
     "kind": "video",
-    "path": "playwright-report/data/996fe1a310b044112247186b74adfccc15979a9a.webm",
+    "path": "playwright-report/data/81e2bf55b55ec0e0464478f6503c48af7d9fda60.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.195Z"
   },
   {
-    "id": "playwright-report-data-9ec2a9e20bc83f361a55370dc4a6d4b03f4ca401-webm",
+    "id": "playwright-report-data-82d050c3b0454aa5ffd78a48fb0779e646546e00-webm",
     "kind": "video",
-    "path": "playwright-report/data/9ec2a9e20bc83f361a55370dc4a6d4b03f4ca401.webm",
+    "path": "playwright-report/data/82d050c3b0454aa5ffd78a48fb0779e646546e00.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.655Z"
+    "createdAt": "2026-04-30T22:54:42.182Z"
   },
   {
-    "id": "playwright-report-data-a01189096aea2390b993f16e83864eeb2c8e69a2-webm",
+    "id": "playwright-report-data-85f61613cfc54f2bb90b3fc0779f0070049b3e91-webm",
     "kind": "video",
-    "path": "playwright-report/data/a01189096aea2390b993f16e83864eeb2c8e69a2.webm",
+    "path": "playwright-report/data/85f61613cfc54f2bb90b3fc0779f0070049b3e91.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.655Z"
+    "createdAt": "2026-04-30T22:54:42.178Z"
   },
   {
-    "id": "playwright-report-data-a15e1303ff605df12d6f7cd029552d5cf276e555-webm",
+    "id": "playwright-report-data-915e093c03c51ef8c878916c5d2eb8cb8388b9f8-webm",
     "kind": "video",
-    "path": "playwright-report/data/a15e1303ff605df12d6f7cd029552d5cf276e555.webm",
+    "path": "playwright-report/data/915e093c03c51ef8c878916c5d2eb8cb8388b9f8.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.649Z"
+    "createdAt": "2026-04-30T22:54:42.150Z"
   },
   {
-    "id": "playwright-report-data-a2d3d0a9591474c2c5577505d5768bb7b15ee3d5-webm",
+    "id": "playwright-report-data-9252bccdcc846e2b28e9566e5b3c73b2083f20a9-webm",
     "kind": "video",
-    "path": "playwright-report/data/a2d3d0a9591474c2c5577505d5768bb7b15ee3d5.webm",
+    "path": "playwright-report/data/9252bccdcc846e2b28e9566e5b3c73b2083f20a9.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.131Z"
   },
   {
-    "id": "playwright-report-data-a2f6c9eee7ceb624faa926db465203fbf0750dda-webm",
+    "id": "playwright-report-data-92d267cf99b64ecce54f4990e427f76f882b791d-webm",
     "kind": "video",
-    "path": "playwright-report/data/a2f6c9eee7ceb624faa926db465203fbf0750dda.webm",
+    "path": "playwright-report/data/92d267cf99b64ecce54f4990e427f76f882b791d.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.653Z"
+    "createdAt": "2026-04-30T22:54:42.174Z"
   },
   {
-    "id": "playwright-report-data-a4830f51b001bef0e5b2854180c0409b41c6b06d-webm",
+    "id": "playwright-report-data-95710cd1e5e568d9614c5dc6b7b51101f5b68c32-webm",
     "kind": "video",
-    "path": "playwright-report/data/a4830f51b001bef0e5b2854180c0409b41c6b06d.webm",
+    "path": "playwright-report/data/95710cd1e5e568d9614c5dc6b7b51101f5b68c32.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.656Z"
+    "createdAt": "2026-04-30T22:54:42.157Z"
   },
   {
-    "id": "playwright-report-data-a6bdd99416324d14d2630fdc38370443f9128025-webm",
+    "id": "playwright-report-data-979242c93887ab89d800ebcfacc420261d01b214-webm",
     "kind": "video",
-    "path": "playwright-report/data/a6bdd99416324d14d2630fdc38370443f9128025.webm",
+    "path": "playwright-report/data/979242c93887ab89d800ebcfacc420261d01b214.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.641Z"
+    "createdAt": "2026-04-30T22:54:42.187Z"
   },
   {
-    "id": "playwright-report-data-aa9cbf8f43a57fe272e6e17104333308cc286043-webm",
+    "id": "playwright-report-data-992adc396c9e2bdf91b5135b0d396698c960a685-webm",
     "kind": "video",
-    "path": "playwright-report/data/aa9cbf8f43a57fe272e6e17104333308cc286043.webm",
+    "path": "playwright-report/data/992adc396c9e2bdf91b5135b0d396698c960a685.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.652Z"
+    "createdAt": "2026-04-30T22:54:42.134Z"
   },
   {
-    "id": "playwright-report-data-ae507b4cbac820af4bf3a16d0809bd4d42bb1a68-webm",
+    "id": "playwright-report-data-9a8d30ee69eed8ec69bc8ff04c277ae51fc379a4-webm",
     "kind": "video",
-    "path": "playwright-report/data/ae507b4cbac820af4bf3a16d0809bd4d42bb1a68.webm",
+    "path": "playwright-report/data/9a8d30ee69eed8ec69bc8ff04c277ae51fc379a4.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.649Z"
+    "createdAt": "2026-04-30T22:54:42.189Z"
   },
   {
-    "id": "playwright-report-data-b32dba72f7deb85e89abb35bc4bbf27274056b93-webm",
+    "id": "playwright-report-data-9dead50e7f868a9b8dfbebde7d26dad9c7a5c119-webm",
     "kind": "video",
-    "path": "playwright-report/data/b32dba72f7deb85e89abb35bc4bbf27274056b93.webm",
+    "path": "playwright-report/data/9dead50e7f868a9b8dfbebde7d26dad9c7a5c119.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.648Z"
+    "createdAt": "2026-04-30T22:54:42.192Z"
   },
   {
-    "id": "playwright-report-data-b7abde8764a74487feb962d9258a2f8714c386cc-webm",
+    "id": "playwright-report-data-9fcfc6ace55a2436cbf09e6e53456999b5bd7234-webm",
     "kind": "video",
-    "path": "playwright-report/data/b7abde8764a74487feb962d9258a2f8714c386cc.webm",
+    "path": "playwright-report/data/9fcfc6ace55a2436cbf09e6e53456999b5bd7234.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.647Z"
+    "createdAt": "2026-04-30T22:54:42.190Z"
   },
   {
-    "id": "playwright-report-data-bb66b0b84199d57ac5a6cfab2abd47eb4bd2d30a-webm",
+    "id": "playwright-report-data-9fd112067530c2025de9463d5df1d5677aa1a899-webm",
     "kind": "video",
-    "path": "playwright-report/data/bb66b0b84199d57ac5a6cfab2abd47eb4bd2d30a.webm",
+    "path": "playwright-report/data/9fd112067530c2025de9463d5df1d5677aa1a899.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.647Z"
+    "createdAt": "2026-04-30T22:54:42.158Z"
   },
   {
-    "id": "playwright-report-data-c1d5f621f9b9210e2e5267515580b0f6c51f6347-webm",
+    "id": "playwright-report-data-a1ba9513cf4eb48729dd1e88f761e04e5f11291e-webm",
     "kind": "video",
-    "path": "playwright-report/data/c1d5f621f9b9210e2e5267515580b0f6c51f6347.webm",
+    "path": "playwright-report/data/a1ba9513cf4eb48729dd1e88f761e04e5f11291e.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.653Z"
+    "createdAt": "2026-04-30T22:54:42.186Z"
   },
   {
-    "id": "playwright-report-data-c6eb8eb8728cdecd6d082233df968719d2f600a7-webm",
+    "id": "playwright-report-data-a22cf52cb59a9f059c4814c369c78e756d3c323a-webm",
     "kind": "video",
-    "path": "playwright-report/data/c6eb8eb8728cdecd6d082233df968719d2f600a7.webm",
+    "path": "playwright-report/data/a22cf52cb59a9f059c4814c369c78e756d3c323a.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.655Z"
+    "createdAt": "2026-04-30T22:54:42.179Z"
   },
   {
-    "id": "playwright-report-data-c72059494967ca471446cddad78437fdc4f03100-webm",
+    "id": "playwright-report-data-a2ca1eba7fa844d8114cd564d9f5bff91681f757-webm",
     "kind": "video",
-    "path": "playwright-report/data/c72059494967ca471446cddad78437fdc4f03100.webm",
+    "path": "playwright-report/data/a2ca1eba7fa844d8114cd564d9f5bff91681f757.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.652Z"
+    "createdAt": "2026-04-30T22:54:42.186Z"
   },
   {
-    "id": "playwright-report-data-c7bd1141f61116ae30ceaae6d94a5fd6232ab674-webm",
+    "id": "playwright-report-data-a32695b9abc417181fb8468d86d6a2ca34006856-webm",
     "kind": "video",
-    "path": "playwright-report/data/c7bd1141f61116ae30ceaae6d94a5fd6232ab674.webm",
+    "path": "playwright-report/data/a32695b9abc417181fb8468d86d6a2ca34006856.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.648Z"
+    "createdAt": "2026-04-30T22:54:42.195Z"
   },
   {
-    "id": "playwright-report-data-cae5ec847321bb3ab70e2ad39edace9d3cfdf3f8-webm",
+    "id": "playwright-report-data-a7fc9538dee8480cde9fe0b8191a92571b5c151f-webm",
     "kind": "video",
-    "path": "playwright-report/data/cae5ec847321bb3ab70e2ad39edace9d3cfdf3f8.webm",
+    "path": "playwright-report/data/a7fc9538dee8480cde9fe0b8191a92571b5c151f.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.654Z"
+    "createdAt": "2026-04-30T22:54:42.192Z"
   },
   {
-    "id": "playwright-report-data-cafa1be216e14e377ab7a6df7d7d08011f1c44d4-webm",
+    "id": "playwright-report-data-a9ecade65cc22e99ae2bef7a682011f2abca13ea-webm",
     "kind": "video",
-    "path": "playwright-report/data/cafa1be216e14e377ab7a6df7d7d08011f1c44d4.webm",
+    "path": "playwright-report/data/a9ecade65cc22e99ae2bef7a682011f2abca13ea.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.652Z"
+    "createdAt": "2026-04-30T22:54:42.186Z"
   },
   {
-    "id": "playwright-report-data-cb1b664f30f6804a893a80ea01b56879741f8c5b-webm",
+    "id": "playwright-report-data-aebe14a69e8d9a31913f6909e828f377a8bb08e6-webm",
     "kind": "video",
-    "path": "playwright-report/data/cb1b664f30f6804a893a80ea01b56879741f8c5b.webm",
+    "path": "playwright-report/data/aebe14a69e8d9a31913f6909e828f377a8bb08e6.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.644Z"
+    "createdAt": "2026-04-30T22:54:42.138Z"
   },
   {
-    "id": "playwright-report-data-cb7a911d23289ed13b373fe27cb8bffa3a1e40fc-webm",
+    "id": "playwright-report-data-afaec3a4ffa3412917243e7a460c82e4af8ac507-webm",
     "kind": "video",
-    "path": "playwright-report/data/cb7a911d23289ed13b373fe27cb8bffa3a1e40fc.webm",
+    "path": "playwright-report/data/afaec3a4ffa3412917243e7a460c82e4af8ac507.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.653Z"
+    "createdAt": "2026-04-30T22:54:42.161Z"
   },
   {
-    "id": "playwright-report-data-ccf76eb275e829d6945fd50b8022427d2eacd77e-webm",
+    "id": "playwright-report-data-b154d86f4d355a1d8432bdb9a5031a6af3cb1421-webm",
     "kind": "video",
-    "path": "playwright-report/data/ccf76eb275e829d6945fd50b8022427d2eacd77e.webm",
+    "path": "playwright-report/data/b154d86f4d355a1d8432bdb9a5031a6af3cb1421.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.657Z"
+    "createdAt": "2026-04-30T22:54:42.189Z"
   },
   {
-    "id": "playwright-report-data-cfd3082efc18e0f92d6a5c0d340c32d46babfe88-webm",
+    "id": "playwright-report-data-b384409e1631ff3a76a244f31433b618e6549c09-webm",
     "kind": "video",
-    "path": "playwright-report/data/cfd3082efc18e0f92d6a5c0d340c32d46babfe88.webm",
+    "path": "playwright-report/data/b384409e1631ff3a76a244f31433b618e6549c09.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.654Z"
+    "createdAt": "2026-04-30T22:54:42.188Z"
   },
   {
-    "id": "playwright-report-data-d0982be6b83b346f9411ef98c93917be58e0c7f9-webm",
+    "id": "playwright-report-data-b51e520cf78c65dc8d698215cb275d7c1e58fdfa-webm",
     "kind": "video",
-    "path": "playwright-report/data/d0982be6b83b346f9411ef98c93917be58e0c7f9.webm",
+    "path": "playwright-report/data/b51e520cf78c65dc8d698215cb275d7c1e58fdfa.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.657Z"
+    "createdAt": "2026-04-30T22:54:42.192Z"
   },
   {
-    "id": "playwright-report-data-d34a56894e8ae97b3c363ff68876dab90f780cd9-webm",
+    "id": "playwright-report-data-b6b5e4041cf52546f9c72ae96bde82b2bded310e-webm",
     "kind": "video",
-    "path": "playwright-report/data/d34a56894e8ae97b3c363ff68876dab90f780cd9.webm",
+    "path": "playwright-report/data/b6b5e4041cf52546f9c72ae96bde82b2bded310e.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.657Z"
+    "createdAt": "2026-04-30T22:54:42.190Z"
   },
   {
-    "id": "playwright-report-data-d38661469f685d4c74be8a0c183d351a5ee31af4-webm",
+    "id": "playwright-report-data-bb2ab4f56cd28b7202883b7de13850eaa90d1ce5-webm",
     "kind": "video",
-    "path": "playwright-report/data/d38661469f685d4c74be8a0c183d351a5ee31af4.webm",
+    "path": "playwright-report/data/bb2ab4f56cd28b7202883b7de13850eaa90d1ce5.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.643Z"
+    "createdAt": "2026-04-30T22:54:42.130Z"
   },
   {
-    "id": "playwright-report-data-d77c9cfce175005fe0688253dd83f8ee44c8c99e-webm",
+    "id": "playwright-report-data-be6312829b49fedd062b7f6e21c1d2ee0df3b51b-webm",
     "kind": "video",
-    "path": "playwright-report/data/d77c9cfce175005fe0688253dd83f8ee44c8c99e.webm",
+    "path": "playwright-report/data/be6312829b49fedd062b7f6e21c1d2ee0df3b51b.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.650Z"
+    "createdAt": "2026-04-30T22:54:42.187Z"
   },
   {
-    "id": "playwright-report-data-e3be096bf80228b5afbe7d900453eadb9e8a62ef-webm",
+    "id": "playwright-report-data-c05fab3f7501023f134fe3c75cad3a91f9a7440c-webm",
     "kind": "video",
-    "path": "playwright-report/data/e3be096bf80228b5afbe7d900453eadb9e8a62ef.webm",
+    "path": "playwright-report/data/c05fab3f7501023f134fe3c75cad3a91f9a7440c.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.658Z"
+    "createdAt": "2026-04-30T22:54:42.143Z"
   },
   {
-    "id": "playwright-report-data-e3d5b774f59d7cbc25eebfb9c3710a56e12815bb-webm",
+    "id": "playwright-report-data-c67857dd69947a95ef9b5d0617ff98f6e7a2ea94-webm",
     "kind": "video",
-    "path": "playwright-report/data/e3d5b774f59d7cbc25eebfb9c3710a56e12815bb.webm",
+    "path": "playwright-report/data/c67857dd69947a95ef9b5d0617ff98f6e7a2ea94.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.648Z"
+    "createdAt": "2026-04-30T22:54:42.146Z"
   },
   {
-    "id": "playwright-report-data-e5dcb54e2ba04257d1259c9ea593293f591b5223-webm",
+    "id": "playwright-report-data-d1ea6a4725609f9a53a52ae36578681f99b4b5a0-webm",
     "kind": "video",
-    "path": "playwright-report/data/e5dcb54e2ba04257d1259c9ea593293f591b5223.webm",
+    "path": "playwright-report/data/d1ea6a4725609f9a53a52ae36578681f99b4b5a0.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.657Z"
+    "createdAt": "2026-04-30T22:54:42.162Z"
   },
   {
-    "id": "playwright-report-data-e741f3bc09512bf795fe449f12fad601db97c3f8-webm",
+    "id": "playwright-report-data-d299aaf37d876c57809aa2ec7374e7ae979ccf10-webm",
     "kind": "video",
-    "path": "playwright-report/data/e741f3bc09512bf795fe449f12fad601db97c3f8.webm",
+    "path": "playwright-report/data/d299aaf37d876c57809aa2ec7374e7ae979ccf10.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.655Z"
+    "createdAt": "2026-04-30T22:54:42.191Z"
   },
   {
-    "id": "playwright-report-data-ed458ae29c58f56593e69d61d9f425b1f53f5642-webm",
+    "id": "playwright-report-data-d2c9f066fc070aa642b30ee6d7a15404eebf2c08-webm",
     "kind": "video",
-    "path": "playwright-report/data/ed458ae29c58f56593e69d61d9f425b1f53f5642.webm",
+    "path": "playwright-report/data/d2c9f066fc070aa642b30ee6d7a15404eebf2c08.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.659Z"
+    "createdAt": "2026-04-30T22:54:42.187Z"
   },
   {
-    "id": "playwright-report-data-f06bdbb836bbebd39f54afe9a7c033bf6c590789-webm",
+    "id": "playwright-report-data-d30c3fdb2e40278503069f1991200bd77a68c9bf-webm",
     "kind": "video",
-    "path": "playwright-report/data/f06bdbb836bbebd39f54afe9a7c033bf6c590789.webm",
+    "path": "playwright-report/data/d30c3fdb2e40278503069f1991200bd77a68c9bf.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.647Z"
+    "createdAt": "2026-04-30T22:54:42.194Z"
   },
   {
-    "id": "playwright-report-data-f7a02b094d56438c6765c77660e4b53a6b7f2c5f-webm",
+    "id": "playwright-report-data-d353b35b1f27d9897ce56a9b1ec26355e86a552d-webm",
     "kind": "video",
-    "path": "playwright-report/data/f7a02b094d56438c6765c77660e4b53a6b7f2c5f.webm",
+    "path": "playwright-report/data/d353b35b1f27d9897ce56a9b1ec26355e86a552d.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.658Z"
+    "createdAt": "2026-04-30T22:54:42.190Z"
   },
   {
-    "id": "playwright-report-data-f8473fb688e6626641b2e2cb154b8b4dd318f95c-webm",
+    "id": "playwright-report-data-d416a54656881246f9e3e1ef752f4a01ca127772-webm",
     "kind": "video",
-    "path": "playwright-report/data/f8473fb688e6626641b2e2cb154b8b4dd318f95c.webm",
+    "path": "playwright-report/data/d416a54656881246f9e3e1ef752f4a01ca127772.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.654Z"
+    "createdAt": "2026-04-30T22:54:42.193Z"
   },
   {
-    "id": "playwright-report-data-fd953aabe253d0fb6cc208b191ca94b1f5cdc7e3-webm",
+    "id": "playwright-report-data-d52e20cf05972bb56ed2a3e0b8b065a49d82e424-webm",
     "kind": "video",
-    "path": "playwright-report/data/fd953aabe253d0fb6cc208b191ca94b1f5cdc7e3.webm",
+    "path": "playwright-report/data/d52e20cf05972bb56ed2a3e0b8b065a49d82e424.webm",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.656Z"
+    "createdAt": "2026-04-30T22:54:42.195Z"
+  },
+  {
+    "id": "playwright-report-data-d76ab556e9821b8d7d8f66ceef17789264642c4f-webm",
+    "kind": "video",
+    "path": "playwright-report/data/d76ab556e9821b8d7d8f66ceef17789264642c4f.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.193Z"
+  },
+  {
+    "id": "playwright-report-data-d78d6cc7195db2fe5f471b853879156563a3079c-webm",
+    "kind": "video",
+    "path": "playwright-report/data/d78d6cc7195db2fe5f471b853879156563a3079c.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.145Z"
+  },
+  {
+    "id": "playwright-report-data-d8134a1fdb22a17479ec6a36751e23f5cc5c5885-webm",
+    "kind": "video",
+    "path": "playwright-report/data/d8134a1fdb22a17479ec6a36751e23f5cc5c5885.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.164Z"
+  },
+  {
+    "id": "playwright-report-data-e4a6decbfe9dd4710061dc20677830f5d0db6065-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e4a6decbfe9dd4710061dc20677830f5d0db6065.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.171Z"
+  },
+  {
+    "id": "playwright-report-data-e510f178a5c8bb42b775955788734045ac6c0314-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e510f178a5c8bb42b775955788734045ac6c0314.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.167Z"
+  },
+  {
+    "id": "playwright-report-data-e5b6606cd87ee91d68e2645b3c97173f4d978a1b-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e5b6606cd87ee91d68e2645b3c97173f4d978a1b.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.165Z"
+  },
+  {
+    "id": "playwright-report-data-e67a43bec39e2d7ccd4372a0695e4ca05cc9e5a1-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e67a43bec39e2d7ccd4372a0695e4ca05cc9e5a1.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.190Z"
+  },
+  {
+    "id": "playwright-report-data-e7eda98dd9697298f051ef07c9b3a02bc866efa0-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e7eda98dd9697298f051ef07c9b3a02bc866efa0.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.189Z"
+  },
+  {
+    "id": "playwright-report-data-e821ee943178c6f01573de3580502a63b91ef580-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e821ee943178c6f01573de3580502a63b91ef580.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.193Z"
+  },
+  {
+    "id": "playwright-report-data-e9923c2b189b1510e668444b00a5d2f8dca43ada-webm",
+    "kind": "video",
+    "path": "playwright-report/data/e9923c2b189b1510e668444b00a5d2f8dca43ada.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.159Z"
+  },
+  {
+    "id": "playwright-report-data-ea3e1a345faab1a862b89c60bf2e14da3aa20e7f-webm",
+    "kind": "video",
+    "path": "playwright-report/data/ea3e1a345faab1a862b89c60bf2e14da3aa20e7f.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.181Z"
+  },
+  {
+    "id": "playwright-report-data-ea4555513cf185c6b9ec5201210fec36bbd66606-webm",
+    "kind": "video",
+    "path": "playwright-report/data/ea4555513cf185c6b9ec5201210fec36bbd66606.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.138Z"
+  },
+  {
+    "id": "playwright-report-data-ecd8088628f3acb241d548047197d51de0d5bc48-webm",
+    "kind": "video",
+    "path": "playwright-report/data/ecd8088628f3acb241d548047197d51de0d5bc48.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.152Z"
+  },
+  {
+    "id": "playwright-report-data-ed7059906614d95c9bd2c78f7d0b4380fba82dbe-webm",
+    "kind": "video",
+    "path": "playwright-report/data/ed7059906614d95c9bd2c78f7d0b4380fba82dbe.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.136Z"
+  },
+  {
+    "id": "playwright-report-data-ee90dfaeff7679117d65e6f0ecb3ca07333d229b-webm",
+    "kind": "video",
+    "path": "playwright-report/data/ee90dfaeff7679117d65e6f0ecb3ca07333d229b.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.185Z"
+  },
+  {
+    "id": "playwright-report-data-f590df6b31640ac1d81e899f6706f2e7f39474ef-webm",
+    "kind": "video",
+    "path": "playwright-report/data/f590df6b31640ac1d81e899f6706f2e7f39474ef.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.187Z"
+  },
+  {
+    "id": "playwright-report-data-f65a631c481ad712a1a888bf693181c13f5cd522-webm",
+    "kind": "video",
+    "path": "playwright-report/data/f65a631c481ad712a1a888bf693181c13f5cd522.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.188Z"
+  },
+  {
+    "id": "playwright-report-data-ff5c285af502d02ad1cede4b5c8b54afff40c8e8-webm",
+    "kind": "video",
+    "path": "playwright-report/data/ff5c285af502d02ad1cede4b5c8b54afff40c8e8.webm",
+    "source": "playwright-report",
+    "createdAt": "2026-04-30T22:54:42.167Z"
   },
   {
     "id": "playwright-report-index-html",
     "kind": "report",
     "path": "playwright-report/index.html",
     "source": "playwright-report",
-    "createdAt": "2026-04-30T17:13:14.668Z"
+    "createdAt": "2026-04-30T22:54:42.205Z"
   },
   {
     "id": "test-results-last-run-json",
     "kind": "json",
     "path": "test-results/.last-run.json",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.670Z"
+    "createdAt": "2026-04-30T22:54:42.207Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-account-deletion-84fc7-loads-with-200-and-renders-desktop",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:41.152Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-account-deletion-84fc7-loads-with-200-and-renders-desktop",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:36.914Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-account-deletion-84fc7-loads-with-200-and-renders-mobile-",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:20.377Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-account-deletion-84fc7-loads-with-200-and-renders-mobile-",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:15.288Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-account-deletion-84fc7-loads-with-200-and-renders-tablet-",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:32.175Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-account-deletion-84fc7-loads-with-200-and-renders-tablet-",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:26.641Z"
   },
   {
     "id": "test-results-e2e-smoke-chat-chat-loads-with-200-and-renders-desktop-dark-video-w",
     "kind": "video",
     "path": "test-results/e2e-smoke-Chat-chat-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:13.324Z"
+    "createdAt": "2026-04-30T22:54:39.638Z"
   },
   {
     "id": "test-results-e2e-smoke-chat-chat-loads-with-200-and-renders-desktop-light-video-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Chat-chat-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:10.244Z"
+    "createdAt": "2026-04-30T22:54:35.554Z"
   },
   {
     "id": "test-results-e2e-smoke-chat-chat-loads-with-200-and-renders-mobile-dark-video-we",
     "kind": "video",
     "path": "test-results/e2e-smoke-Chat-chat-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:01.442Z"
+    "createdAt": "2026-04-30T22:54:18.756Z"
   },
   {
     "id": "test-results-e2e-smoke-chat-chat-loads-with-200-and-renders-mobile-light-video-w",
     "kind": "video",
     "path": "test-results/e2e-smoke-Chat-chat-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:57.896Z"
+    "createdAt": "2026-04-30T22:54:13.977Z"
   },
   {
     "id": "test-results-e2e-smoke-chat-chat-loads-with-200-and-renders-tablet-dark-video-we",
     "kind": "video",
     "path": "test-results/e2e-smoke-Chat-chat-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:07.474Z"
+    "createdAt": "2026-04-30T22:54:30.734Z"
   },
   {
     "id": "test-results-e2e-smoke-chat-chat-loads-with-200-and-renders-tablet-light-video-w",
     "kind": "video",
     "path": "test-results/e2e-smoke-Chat-chat-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:04.376Z"
+    "createdAt": "2026-04-30T22:54:24.829Z"
   },
   {
     "id": "test-results-e2e-smoke-docs-docs-loads-with-200-and-renders-desktop-dark-video-w",
     "kind": "video",
     "path": "test-results/e2e-smoke-Docs-docs-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.537Z"
+    "createdAt": "2026-04-30T22:54:41.961Z"
   },
   {
     "id": "test-results-e2e-smoke-docs-docs-loads-with-200-and-renders-desktop-light-video-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Docs-docs-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.890Z"
+    "createdAt": "2026-04-30T22:54:37.740Z"
   },
   {
     "id": "test-results-e2e-smoke-docs-docs-loads-with-200-and-renders-mobile-dark-video-we",
     "kind": "video",
     "path": "test-results/e2e-smoke-Docs-docs-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:02.448Z"
+    "createdAt": "2026-04-30T22:54:21.215Z"
   },
   {
     "id": "test-results-e2e-smoke-docs-docs-loads-with-200-and-renders-mobile-light-video-w",
     "kind": "video",
     "path": "test-results/e2e-smoke-Docs-docs-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:58.990Z"
+    "createdAt": "2026-04-30T22:54:16.815Z"
   },
   {
     "id": "test-results-e2e-smoke-docs-docs-loads-with-200-and-renders-tablet-dark-video-we",
     "kind": "video",
     "path": "test-results/e2e-smoke-Docs-docs-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.912Z"
+    "createdAt": "2026-04-30T22:54:33.143Z"
   },
   {
     "id": "test-results-e2e-smoke-docs-docs-loads-with-200-and-renders-tablet-light-video-w",
     "kind": "video",
     "path": "test-results/e2e-smoke-Docs-docs-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:05.569Z"
+    "createdAt": "2026-04-30T22:54:28.205Z"
   },
   {
     "id": "test-results-e2e-smoke-download-download-loads-with-200-and-renders-desktop-dark",
     "kind": "video",
     "path": "test-results/e2e-smoke-Download-download-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:13.843Z"
+    "createdAt": "2026-04-30T22:54:39.849Z"
   },
   {
     "id": "test-results-e2e-smoke-download-download-loads-with-200-and-renders-desktop-ligh",
     "kind": "video",
     "path": "test-results/e2e-smoke-Download-download-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.349Z"
+    "createdAt": "2026-04-30T22:54:35.772Z"
   },
   {
     "id": "test-results-e2e-smoke-download-download-loads-with-200-and-renders-mobile-dark-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Download-download-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:01.904Z"
+    "createdAt": "2026-04-30T22:54:19.906Z"
   },
   {
     "id": "test-results-e2e-smoke-download-download-loads-with-200-and-renders-mobile-light",
     "kind": "video",
     "path": "test-results/e2e-smoke-Download-download-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:57.321Z"
+    "createdAt": "2026-04-30T22:54:13.355Z"
   },
   {
     "id": "test-results-e2e-smoke-download-download-loads-with-200-and-renders-tablet-dark-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Download-download-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.115Z"
+    "createdAt": "2026-04-30T22:54:31.450Z"
   },
   {
     "id": "test-results-e2e-smoke-download-download-loads-with-200-and-renders-tablet-light",
     "kind": "video",
     "path": "test-results/e2e-smoke-Download-download-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:04.957Z"
+    "createdAt": "2026-04-30T22:54:25.367Z"
   },
   {
     "id": "test-results-e2e-smoke-home-loads-with-200-and-renders-desktop-dark-video-webm",
     "kind": "video",
     "path": "test-results/e2e-smoke-Home-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:13.066Z"
+    "createdAt": "2026-04-30T22:54:39.021Z"
   },
   {
     "id": "test-results-e2e-smoke-home-loads-with-200-and-renders-desktop-light-video-webm",
     "kind": "video",
     "path": "test-results/e2e-smoke-Home-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:10.841Z"
+    "createdAt": "2026-04-30T22:54:34.940Z"
   },
   {
     "id": "test-results-e2e-smoke-home-loads-with-200-and-renders-mobile-dark-video-webm",
     "kind": "video",
     "path": "test-results/e2e-smoke-Home-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:59.939Z"
+    "createdAt": "2026-04-30T22:54:17.545Z"
   },
   {
     "id": "test-results-e2e-smoke-home-loads-with-200-and-renders-mobile-light-video-webm",
     "kind": "video",
     "path": "test-results/e2e-smoke-Home-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:56.565Z"
+    "createdAt": "2026-04-30T22:54:12.552Z"
   },
   {
     "id": "test-results-e2e-smoke-home-loads-with-200-and-renders-tablet-dark-video-webm",
     "kind": "video",
     "path": "test-results/e2e-smoke-Home-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:07.339Z"
+    "createdAt": "2026-04-30T22:54:29.776Z"
   },
   {
     "id": "test-results-e2e-smoke-home-loads-with-200-and-renders-tablet-light-video-webm",
     "kind": "video",
     "path": "test-results/e2e-smoke-Home-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:03.757Z"
+    "createdAt": "2026-04-30T22:54:23.048Z"
   },
   {
     "id": "test-results-e2e-smoke-live-recording-r-e556a-loads-with-200-and-renders-desktop",
     "kind": "video",
     "path": "test-results/e2e-smoke-Live-Recording-r-e556a--loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:13.111Z"
+    "createdAt": "2026-04-30T22:54:39.050Z"
   },
   {
     "id": "test-results-e2e-smoke-live-recording-r-e556a-loads-with-200-and-renders-desktop",
     "kind": "video",
     "path": "test-results/e2e-smoke-Live-Recording-r-e556a--loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:10.302Z"
+    "createdAt": "2026-04-30T22:54:34.937Z"
   },
   {
     "id": "test-results-e2e-smoke-live-recording-r-e556a-loads-with-200-and-renders-mobile-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Live-Recording-r-e556a--loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:01.136Z"
+    "createdAt": "2026-04-30T22:54:18.105Z"
   },
   {
     "id": "test-results-e2e-smoke-live-recording-r-e556a-loads-with-200-and-renders-mobile-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Live-Recording-r-e556a--loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:57.433Z"
+    "createdAt": "2026-04-30T22:54:13.544Z"
   },
   {
     "id": "test-results-e2e-smoke-live-recording-r-e556a-loads-with-200-and-renders-tablet-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Live-Recording-r-e556a--loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:07.640Z"
+    "createdAt": "2026-04-30T22:54:30.473Z"
   },
   {
     "id": "test-results-e2e-smoke-live-recording-r-e556a-loads-with-200-and-renders-tablet-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Live-Recording-r-e556a--loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:04.068Z"
+    "createdAt": "2026-04-30T22:54:24.010Z"
   },
   {
     "id": "test-results-e2e-smoke-meetings-meetings-loads-with-200-and-renders-desktop-dark",
     "kind": "video",
     "path": "test-results/e2e-smoke-Meetings-meetings-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:13.310Z"
+    "createdAt": "2026-04-30T22:54:39.486Z"
   },
   {
     "id": "test-results-e2e-smoke-meetings-meetings-loads-with-200-and-renders-desktop-ligh",
     "kind": "video",
     "path": "test-results/e2e-smoke-Meetings-meetings-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:10.233Z"
+    "createdAt": "2026-04-30T22:54:35.171Z"
   },
   {
     "id": "test-results-e2e-smoke-meetings-meetings-loads-with-200-and-renders-mobile-dark-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Meetings-meetings-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:01.394Z"
+    "createdAt": "2026-04-30T22:54:18.905Z"
   },
   {
     "id": "test-results-e2e-smoke-meetings-meetings-loads-with-200-and-renders-mobile-light",
     "kind": "video",
     "path": "test-results/e2e-smoke-Meetings-meetings-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:57.356Z"
+    "createdAt": "2026-04-30T22:54:13.583Z"
   },
   {
     "id": "test-results-e2e-smoke-meetings-meetings-loads-with-200-and-renders-tablet-dark-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Meetings-meetings-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:07.690Z"
+    "createdAt": "2026-04-30T22:54:30.402Z"
   },
   {
     "id": "test-results-e2e-smoke-meetings-meetings-loads-with-200-and-renders-tablet-light",
     "kind": "video",
     "path": "test-results/e2e-smoke-Meetings-meetings-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:04.354Z"
+    "createdAt": "2026-04-30T22:54:24.068Z"
   },
   {
     "id": "test-results-e2e-smoke-observability-ob-617d8-loads-with-200-and-renders-desktop",
     "kind": "video",
     "path": "test-results/e2e-smoke-Observability-ob-617d8--loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.454Z"
+    "createdAt": "2026-04-30T22:54:41.911Z"
   },
   {
     "id": "test-results-e2e-smoke-observability-ob-617d8-loads-with-200-and-renders-desktop",
     "kind": "video",
     "path": "test-results/e2e-smoke-Observability-ob-617d8--loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.948Z"
+    "createdAt": "2026-04-30T22:54:37.697Z"
   },
   {
     "id": "test-results-e2e-smoke-observability-ob-617d8-loads-with-200-and-renders-mobile-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Observability-ob-617d8--loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:02.262Z"
+    "createdAt": "2026-04-30T22:54:21.208Z"
   },
   {
     "id": "test-results-e2e-smoke-observability-ob-617d8-loads-with-200-and-renders-mobile-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Observability-ob-617d8--loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:59.373Z"
+    "createdAt": "2026-04-30T22:54:16.463Z"
   },
   {
     "id": "test-results-e2e-smoke-observability-ob-617d8-loads-with-200-and-renders-tablet-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Observability-ob-617d8--loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.945Z"
+    "createdAt": "2026-04-30T22:54:33.255Z"
   },
   {
     "id": "test-results-e2e-smoke-observability-ob-617d8-loads-with-200-and-renders-tablet-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Observability-ob-617d8--loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:05.518Z"
+    "createdAt": "2026-04-30T22:54:28.015Z"
   },
   {
     "id": "test-results-e2e-smoke-pricing-pricing-loads-with-200-and-renders-desktop-dark-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Pricing-pricing-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:13.709Z"
+    "createdAt": "2026-04-30T22:54:40.509Z"
   },
   {
     "id": "test-results-e2e-smoke-pricing-pricing-loads-with-200-and-renders-desktop-light-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Pricing-pricing-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.445Z"
+    "createdAt": "2026-04-30T22:54:36.335Z"
   },
   {
     "id": "test-results-e2e-smoke-pricing-pricing-loads-with-200-and-renders-mobile-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Pricing-pricing-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:00.929Z"
+    "createdAt": "2026-04-30T22:54:19.342Z"
   },
   {
     "id": "test-results-e2e-smoke-pricing-pricing-loads-with-200-and-renders-mobile-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Pricing-pricing-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:58.124Z"
+    "createdAt": "2026-04-30T22:54:14.252Z"
   },
   {
     "id": "test-results-e2e-smoke-pricing-pricing-loads-with-200-and-renders-tablet-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Pricing-pricing-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.324Z"
+    "createdAt": "2026-04-30T22:54:31.103Z"
   },
   {
     "id": "test-results-e2e-smoke-pricing-pricing-loads-with-200-and-renders-tablet-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Pricing-pricing-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:04.876Z"
+    "createdAt": "2026-04-30T22:54:25.697Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-privacy-privacy-loads-with-200-and-renders-desktop-dark-v",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:40.553Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-privacy-privacy-loads-with-200-and-renders-desktop-light-",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:36.595Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-privacy-privacy-loads-with-200-and-renders-mobile-dark-vi",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:19.869Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-privacy-privacy-loads-with-200-and-renders-mobile-light-v",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:15.208Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-privacy-privacy-loads-with-200-and-renders-tablet-dark-vi",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:31.420Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-privacy-privacy-loads-with-200-and-renders-tablet-light-v",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:26.633Z"
   },
   {
     "id": "test-results-e2e-smoke-profile-profile-loads-with-200-and-renders-desktop-dark-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Profile-profile-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.019Z"
+    "createdAt": "2026-04-30T22:54:41.312Z"
   },
   {
     "id": "test-results-e2e-smoke-profile-profile-loads-with-200-and-renders-desktop-light-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Profile-profile-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.432Z"
+    "createdAt": "2026-04-30T22:54:37.197Z"
   },
   {
     "id": "test-results-e2e-smoke-profile-profile-loads-with-200-and-renders-mobile-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Profile-profile-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:01.939Z"
+    "createdAt": "2026-04-30T22:54:20.763Z"
   },
   {
     "id": "test-results-e2e-smoke-profile-profile-loads-with-200-and-renders-mobile-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Profile-profile-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:59.173Z"
+    "createdAt": "2026-04-30T22:54:15.768Z"
   },
   {
     "id": "test-results-e2e-smoke-profile-profile-loads-with-200-and-renders-tablet-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Profile-profile-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.478Z"
+    "createdAt": "2026-04-30T22:54:32.517Z"
   },
   {
     "id": "test-results-e2e-smoke-profile-profile-loads-with-200-and-renders-tablet-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Profile-profile-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:05.057Z"
+    "createdAt": "2026-04-30T22:54:27.515Z"
   },
   {
     "id": "test-results-e2e-smoke-record-record-loads-with-200-and-renders-desktop-dark-vid",
     "kind": "video",
     "path": "test-results/e2e-smoke-Record-record-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:12.732Z"
+    "createdAt": "2026-04-30T22:54:39.114Z"
   },
   {
     "id": "test-results-e2e-smoke-record-record-loads-with-200-and-renders-desktop-light-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Record-record-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:10.243Z"
+    "createdAt": "2026-04-30T22:54:34.893Z"
   },
   {
     "id": "test-results-e2e-smoke-record-record-loads-with-200-and-renders-mobile-dark-vide",
     "kind": "video",
     "path": "test-results/e2e-smoke-Record-record-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:00.662Z"
+    "createdAt": "2026-04-30T22:54:18.050Z"
   },
   {
     "id": "test-results-e2e-smoke-record-record-loads-with-200-and-renders-mobile-light-vid",
     "kind": "video",
     "path": "test-results/e2e-smoke-Record-record-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:57.836Z"
+    "createdAt": "2026-04-30T22:54:13.290Z"
   },
   {
     "id": "test-results-e2e-smoke-record-record-loads-with-200-and-renders-tablet-dark-vide",
     "kind": "video",
     "path": "test-results/e2e-smoke-Record-record-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:07.005Z"
+    "createdAt": "2026-04-30T22:54:29.769Z"
   },
   {
     "id": "test-results-e2e-smoke-record-record-loads-with-200-and-renders-tablet-light-vid",
     "kind": "video",
     "path": "test-results/e2e-smoke-Record-record-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:03.995Z"
+    "createdAt": "2026-04-30T22:54:23.927Z"
   },
   {
     "id": "test-results-e2e-smoke-settings-settings-loads-with-200-and-renders-desktop-dark",
     "kind": "video",
     "path": "test-results/e2e-smoke-Settings-settings-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:13.679Z"
+    "createdAt": "2026-04-30T22:54:39.831Z"
   },
   {
     "id": "test-results-e2e-smoke-settings-settings-loads-with-200-and-renders-desktop-ligh",
     "kind": "video",
     "path": "test-results/e2e-smoke-Settings-settings-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.008Z"
+    "createdAt": "2026-04-30T22:54:35.575Z"
   },
   {
     "id": "test-results-e2e-smoke-settings-settings-loads-with-200-and-renders-mobile-dark-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Settings-settings-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:01.393Z"
+    "createdAt": "2026-04-30T22:54:19.527Z"
   },
   {
     "id": "test-results-e2e-smoke-settings-settings-loads-with-200-and-renders-mobile-light",
     "kind": "video",
     "path": "test-results/e2e-smoke-Settings-settings-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:57.320Z"
+    "createdAt": "2026-04-30T22:54:13.392Z"
   },
   {
     "id": "test-results-e2e-smoke-settings-settings-loads-with-200-and-renders-tablet-dark-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Settings-settings-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:07.710Z"
+    "createdAt": "2026-04-30T22:54:31.130Z"
   },
   {
     "id": "test-results-e2e-smoke-settings-settings-loads-with-200-and-renders-tablet-light",
     "kind": "video",
     "path": "test-results/e2e-smoke-Settings-settings-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:04.394Z"
+    "createdAt": "2026-04-30T22:54:25.147Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-in-sign-in-loads-with-200-and-renders-desktop-dark-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-In-sign-in-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.292Z"
+    "createdAt": "2026-04-30T22:54:41.237Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-in-sign-in-loads-with-200-and-renders-desktop-light-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-In-sign-in-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.393Z"
+    "createdAt": "2026-04-30T22:54:37.138Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-in-sign-in-loads-with-200-and-renders-mobile-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-In-sign-in-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:02.118Z"
+    "createdAt": "2026-04-30T22:54:20.726Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-in-sign-in-loads-with-200-and-renders-mobile-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-In-sign-in-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:59.273Z"
+    "createdAt": "2026-04-30T22:54:15.731Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-in-sign-in-loads-with-200-and-renders-tablet-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-In-sign-in-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.649Z"
+    "createdAt": "2026-04-30T22:54:32.393Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-in-sign-in-loads-with-200-and-renders-tablet-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-In-sign-in-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:05.172Z"
+    "createdAt": "2026-04-30T22:54:27.464Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-up-sign-up-loads-with-200-and-renders-desktop-dark-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-Up-sign-up-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.286Z"
+    "createdAt": "2026-04-30T22:54:41.914Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-up-sign-up-loads-with-200-and-renders-desktop-light-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-Up-sign-up-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.782Z"
+    "createdAt": "2026-04-30T22:54:37.574Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-up-sign-up-loads-with-200-and-renders-mobile-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-Up-sign-up-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:02.298Z"
+    "createdAt": "2026-04-30T22:54:21.026Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-up-sign-up-loads-with-200-and-renders-mobile-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-Up-sign-up-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:59.109Z"
+    "createdAt": "2026-04-30T22:54:15.843Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-up-sign-up-loads-with-200-and-renders-tablet-dark-vi",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-Up-sign-up-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.654Z"
+    "createdAt": "2026-04-30T22:54:32.788Z"
   },
   {
     "id": "test-results-e2e-smoke-sign-up-sign-up-loads-with-200-and-renders-tablet-light-v",
     "kind": "video",
     "path": "test-results/e2e-smoke-Sign-Up-sign-up-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:05.181Z"
+    "createdAt": "2026-04-30T22:54:27.748Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-terms-terms-loads-with-200-and-renders-desktop-dark-video",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-desktop-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:40.577Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-terms-terms-loads-with-200-and-renders-desktop-light-vide",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-desktop-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:36.604Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-terms-terms-loads-with-200-and-renders-mobile-dark-video-",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-mobile-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:20.121Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-terms-terms-loads-with-200-and-renders-mobile-light-video",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-mobile-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:15.170Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-terms-terms-loads-with-200-and-renders-tablet-dark-video-",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-tablet-dark/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:32.153Z"
+  },
+  {
+    "id": "test-results-e2e-smoke-terms-terms-loads-with-200-and-renders-tablet-light-video",
+    "kind": "video",
+    "path": "test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-tablet-light/video.webm",
+    "source": "test-results",
+    "createdAt": "2026-04-30T22:54:26.663Z"
   },
   {
     "id": "test-results-e2e-smoke-usage-usage-loads-with-200-and-renders-desktop-dark-video",
     "kind": "video",
     "path": "test-results/e2e-smoke-Usage-usage-loads-with-200-and-renders-desktop-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.051Z"
+    "createdAt": "2026-04-30T22:54:41.307Z"
   },
   {
     "id": "test-results-e2e-smoke-usage-usage-loads-with-200-and-renders-desktop-light-vide",
     "kind": "video",
     "path": "test-results/e2e-smoke-Usage-usage-loads-with-200-and-renders-desktop-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:11.576Z"
+    "createdAt": "2026-04-30T22:54:37.217Z"
   },
   {
     "id": "test-results-e2e-smoke-usage-usage-loads-with-200-and-renders-mobile-dark-video-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Usage-usage-loads-with-200-and-renders-mobile-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:01.989Z"
+    "createdAt": "2026-04-30T22:54:20.659Z"
   },
   {
     "id": "test-results-e2e-smoke-usage-usage-loads-with-200-and-renders-mobile-light-video",
     "kind": "video",
     "path": "test-results/e2e-smoke-Usage-usage-loads-with-200-and-renders-mobile-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:12:59.563Z"
+    "createdAt": "2026-04-30T22:54:15.769Z"
   },
   {
     "id": "test-results-e2e-smoke-usage-usage-loads-with-200-and-renders-tablet-dark-video-",
     "kind": "video",
     "path": "test-results/e2e-smoke-Usage-usage-loads-with-200-and-renders-tablet-dark/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:08.454Z"
+    "createdAt": "2026-04-30T22:54:32.450Z"
   },
   {
     "id": "test-results-e2e-smoke-usage-usage-loads-with-200-and-renders-tablet-light-video",
     "kind": "video",
     "path": "test-results/e2e-smoke-Usage-usage-loads-with-200-and-renders-tablet-light/video.webm",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:05.302Z"
+    "createdAt": "2026-04-30T22:54:27.170Z"
   },
   {
     "id": "test-results-playwright-no-run-json",
     "kind": "json",
     "path": "test-results/playwright-no-run.json",
     "source": "test-results",
-    "createdAt": "2026-04-30T17:13:14.670Z"
+    "createdAt": "2026-04-30T22:54:42.207Z"
   }
 ]

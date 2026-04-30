@@ -147,7 +147,7 @@ export default function SettingsPage() {
         {/* Streaming Speech Model */}
         <SelectGroup
           label="Streaming Speech Model"
-          description="Runtime model for real-time transcription. Non-AssemblyAI providers are tracked in Pricing Admin."
+          description="Runtime model for real-time transcription. Deepgram requires DEEPGRAM_API_KEY."
           value={settings.streamingSpeechModel}
           options={MODEL_OPTIONS.streamingSpeech}
           onChange={(v) => save({ streamingSpeechModel: v })}

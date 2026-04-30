@@ -1,7 +1,7 @@
 {
-  "version": "0.3.0",
+  "version": "0.1.13",
   "installedAt": "2026-04-27T16:05:51.152Z",
-  "updatedAt": "2026-04-30T17:13:33.702Z",
+  "updatedAt": "2026-04-30T23:00:02.843Z",
   "policyProfile": "strict",
   "projectType": "nextjs-15",
   "packageManager": "pnpm",

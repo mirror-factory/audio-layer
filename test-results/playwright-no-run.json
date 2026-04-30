@@ -148,9 +148,9 @@
     "version": "1.59.1",
     "workers": 7,
     "webServer": {
-      "command": "pnpm exec next dev --turbopack -p 3001",
-      "url": "http://localhost:3001",
-      "reuseExistingServer": true,
+      "command": "pnpm exec next dev --turbopack -p 3101",
+      "url": "http://localhost:3101",
+      "reuseExistingServer": false,
       "timeout": 120000
     }
   },
@@ -177,12 +177,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2099,
+                  "duration": 2667,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:54.216Z",
+                  "startTime": "2026-04-30T22:54:09.599Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -198,7 +198,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-2d730e5932ade849cd9c",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -217,12 +217,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3426,
+                  "duration": 3401,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:54.205Z",
+                  "startTime": "2026-04-30T22:54:09.593Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -238,7 +238,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-9231726b79d58b9263a5",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -257,12 +257,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 2977,
+                  "duration": 3637,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:54.221Z",
+                  "startTime": "2026-04-30T22:54:09.596Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -278,7 +278,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-b785ecfdbdd388a257a9",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -297,12 +297,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 2894,
+                  "duration": 3698,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:54.220Z",
+                  "startTime": "2026-04-30T22:54:09.594Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -318,7 +318,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-7818e39bf0b585886d59",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -337,12 +337,12 @@
                   "workerIndex": 4,
                   "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 3436,
+                  "duration": 4094,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:54.221Z",
+                  "startTime": "2026-04-30T22:54:09.595Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -358,7 +358,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-2d769c121f2b13f239f3",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -377,12 +377,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 2854,
+                  "duration": 3508,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:54.216Z",
+                  "startTime": "2026-04-30T22:54:09.595Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -398,7 +398,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-0988f8dc9325933f9ed5",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -417,12 +417,12 @@
                   "workerIndex": 6,
                   "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 2855,
+                  "duration": 3472,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:54.217Z",
+                  "startTime": "2026-04-30T22:54:09.595Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -438,7 +438,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-1b75fc643ce65cacb1ee",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -457,12 +457,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1551,
+                  "duration": 1694,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:56.570Z",
+                  "startTime": "2026-04-30T22:54:12.555Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -478,7 +478,127 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-4a3736ef7fa844127645",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Privacy (/privacy) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1910,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:13.293Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-6efe2f25ce68af9d7d88",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Terms (/terms) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1799,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:13.366Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-5581b5babe57a0278f6e",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Account Deletion (/account-deletion) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-light",
+              "projectName": "mobile-light",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 1881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:13.399Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-mobile-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-14456467aeaaed7ee778",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
           "column": 7
         },
         {
@@ -494,15 +614,15 @@
               "projectName": "mobile-light",
               "results": [
                 {
-                  "workerIndex": 5,
-                  "parallelIndex": 5,
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 2234,
+                  "duration": 2217,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:57.324Z",
+                  "startTime": "2026-04-30T22:54:13.549Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -518,7 +638,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-bc68300058c345fdf5b5",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -534,15 +654,15 @@
               "projectName": "mobile-light",
               "results": [
                 {
-                  "workerIndex": 6,
-                  "parallelIndex": 6,
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 1845,
+                  "duration": 2175,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:57.324Z",
+                  "startTime": "2026-04-30T22:54:13.587Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -558,7 +678,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-7a106a2b357016754bd9",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -574,15 +694,15 @@
               "projectName": "mobile-light",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 3,
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1897,
+                  "duration": 1747,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:57.371Z",
+                  "startTime": "2026-04-30T22:54:13.980Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -598,7 +718,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-c0453b209031aa87fd4d",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -614,15 +734,15 @@
               "projectName": "mobile-light",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 2,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1648,
+                  "duration": 1585,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:57.455Z",
+                  "startTime": "2026-04-30T22:54:14.254Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -638,7 +758,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-84c8c1e1cbfd6208ad0d",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -654,15 +774,15 @@
               "projectName": "mobile-light",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 6,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 1153,
+                  "duration": 1638,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:57.838Z",
+                  "startTime": "2026-04-30T22:54:15.175Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -678,7 +798,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-c363ee468f0a62223667",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -694,15 +814,15 @@
               "projectName": "mobile-light",
               "results": [
                 {
-                  "workerIndex": 4,
-                  "parallelIndex": 4,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1469,
+                  "duration": 1250,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:57.901Z",
+                  "startTime": "2026-04-30T22:54:15.210Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -718,7 +838,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-73292410f69459f87253",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -735,14 +855,14 @@
               "results": [
                 {
                   "workerIndex": 7,
-                  "parallelIndex": 0,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 1349,
+                  "duration": 1476,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:58.445Z",
+                  "startTime": "2026-04-30T22:54:15.882Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -758,7 +878,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-37d755919027ed6993d9",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -775,14 +895,14 @@
               "results": [
                 {
                   "workerIndex": 8,
-                  "parallelIndex": 1,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1002,
+                  "duration": 1656,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:59.474Z",
+                  "startTime": "2026-04-30T22:54:16.140Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -798,7 +918,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-01fbfbd17ddf0779789c",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -815,14 +935,14 @@
               "results": [
                 {
                   "workerIndex": 9,
-                  "parallelIndex": 2,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 1355,
+                  "duration": 1641,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:59.574Z",
+                  "startTime": "2026-04-30T22:54:16.216Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -838,7 +958,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-f7f940a9e510ded15158",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -855,14 +975,14 @@
               "results": [
                 {
                   "workerIndex": 10,
-                  "parallelIndex": 6,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1512,
+                  "duration": 2393,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:59.628Z",
+                  "startTime": "2026-04-30T22:54:16.224Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -878,7 +998,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-bf17d5e9649971d16514",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -895,14 +1015,14 @@
               "results": [
                 {
                   "workerIndex": 11,
-                  "parallelIndex": 3,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1462,
+                  "duration": 2244,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:59.670Z",
+                  "startTime": "2026-04-30T22:54:16.253Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -918,7 +1038,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-6228305ff9aaeb228732",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -935,14 +1055,14 @@
               "results": [
                 {
                   "workerIndex": 12,
-                  "parallelIndex": 4,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1304,
+                  "duration": 2131,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:59.806Z",
+                  "startTime": "2026-04-30T22:54:17.097Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -958,7 +1078,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-ac9071c972e8d6bf9e69",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -975,14 +1095,14 @@
               "results": [
                 {
                   "workerIndex": 13,
-                  "parallelIndex": 5,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 1556,
+                  "duration": 1860,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:00.119Z",
+                  "startTime": "2026-04-30T22:54:17.527Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -998,7 +1118,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-67476b0e26bdaa605eb5",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1015,14 +1135,14 @@
               "results": [
                 {
                   "workerIndex": 7,
-                  "parallelIndex": 0,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 980,
+                  "duration": 1783,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:12:59.947Z",
+                  "startTime": "2026-04-30T22:54:17.554Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1038,7 +1158,127 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-cb6b57db7f74ac828321",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Privacy (/privacy) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1806,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:18.055Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-70b36765682d9695a6d1",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Terms (/terms) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2005,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:18.110Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-73fc9f7ab7ea2df73241",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Account Deletion (/account-deletion) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-dark",
+              "projectName": "mobile-dark",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:18.760Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-mobile-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-a56033e174f507d34b06",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
           "column": 7
         },
         {
@@ -1054,15 +1294,15 @@
               "projectName": "mobile-dark",
               "results": [
                 {
-                  "workerIndex": 8,
-                  "parallelIndex": 1,
+                  "workerIndex": 10,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1314,
+                  "duration": 1746,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:00.671Z",
+                  "startTime": "2026-04-30T22:54:18.910Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1078,7 +1318,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-4aaef6d97336386e1515",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1095,14 +1335,14 @@
               "results": [
                 {
                   "workerIndex": 7,
-                  "parallelIndex": 0,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 1003,
+                  "duration": 1414,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:00.932Z",
+                  "startTime": "2026-04-30T22:54:19.344Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1118,7 +1358,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-b974508fabaaaa747f98",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1134,15 +1374,15 @@
               "projectName": "mobile-dark",
               "results": [
                 {
-                  "workerIndex": 9,
-                  "parallelIndex": 2,
+                  "workerIndex": 12,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 970,
+                  "duration": 1180,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:01.143Z",
+                  "startTime": "2026-04-30T22:54:19.540Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1158,7 +1398,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-57b74c1798dfa3aeea21",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1174,15 +1414,15 @@
               "projectName": "mobile-dark",
               "results": [
                 {
-                  "workerIndex": 10,
-                  "parallelIndex": 6,
+                  "workerIndex": 8,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 892,
+                  "duration": 1150,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:01.400Z",
+                  "startTime": "2026-04-30T22:54:19.872Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1198,7 +1438,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-13a45222e49603984da3",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1214,15 +1454,15 @@
               "projectName": "mobile-dark",
               "results": [
                 {
-                  "workerIndex": 12,
-                  "parallelIndex": 4,
+                  "workerIndex": 13,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 1041,
+                  "duration": 1295,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:01.398Z",
+                  "startTime": "2026-04-30T22:54:19.918Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1238,7 +1478,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-587294aa019e63343fac",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1254,15 +1494,15 @@
               "projectName": "mobile-dark",
               "results": [
                 {
-                  "workerIndex": 11,
+                  "workerIndex": 9,
                   "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 805,
+                  "duration": 1091,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:01.451Z",
+                  "startTime": "2026-04-30T22:54:20.125Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1278,7 +1518,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-4258ef40de1f20cfc8ed",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1295,14 +1535,14 @@
               "results": [
                 {
                   "workerIndex": 14,
-                  "parallelIndex": 5,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1266,
+                  "duration": 1677,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:02.317Z",
+                  "startTime": "2026-04-30T22:54:21.050Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1318,7 +1558,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-c922f6fbf5ea159285cc",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1335,14 +1575,14 @@
               "results": [
                 {
                   "workerIndex": 15,
-                  "parallelIndex": 0,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1423,
+                  "duration": 2272,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:02.385Z",
+                  "startTime": "2026-04-30T22:54:21.359Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1358,7 +1598,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-536f9f3797589f3d519f",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1377,12 +1617,12 @@
                   "workerIndex": 16,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1490,
+                  "duration": 2314,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:02.414Z",
+                  "startTime": "2026-04-30T22:54:21.446Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1398,7 +1638,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-3c89a56cd98963c4718c",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1415,14 +1655,14 @@
               "results": [
                 {
                   "workerIndex": 17,
-                  "parallelIndex": 2,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 1649,
+                  "duration": 2355,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:02.468Z",
+                  "startTime": "2026-04-30T22:54:21.501Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1438,7 +1678,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-69c2388c648652ef02ab",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1455,14 +1695,14 @@
               "results": [
                 {
                   "workerIndex": 18,
-                  "parallelIndex": 3,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1388,
+                  "duration": 2896,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:02.652Z",
+                  "startTime": "2026-04-30T22:54:21.628Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1478,7 +1718,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-04d63ab264907ac88ff2",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1497,12 +1737,12 @@
                   "workerIndex": 19,
                   "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 1369,
+                  "duration": 2973,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:02.812Z",
+                  "startTime": "2026-04-30T22:54:21.751Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1518,7 +1758,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-2579f250c43c16d4ed0c",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1535,14 +1775,14 @@
               "results": [
                 {
                   "workerIndex": 20,
-                  "parallelIndex": 4,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 1688,
+                  "duration": 3172,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:03.012Z",
+                  "startTime": "2026-04-30T22:54:21.748Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1558,7 +1798,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-a5c23a66c79eefd7e3bc",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1575,14 +1815,14 @@
               "results": [
                 {
                   "workerIndex": 14,
-                  "parallelIndex": 5,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1110,
+                  "duration": 2641,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:03.762Z",
+                  "startTime": "2026-04-30T22:54:23.053Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1598,7 +1838,127 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-a9571762179d5799fa6e",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Privacy (/privacy) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 2683,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:23.936Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-5547dba1ee803ec81e83",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Terms (/terms) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2637,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:24.017Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-d4b584c299edbd662418",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Account Deletion (/account-deletion) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-light",
+              "projectName": "tablet-light",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 5,
+                  "status": "passed",
+                  "duration": 2503,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:24.076Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-tablet-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-ebadb87d130f55eca2e8",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
           "column": 7
         },
         {
@@ -1614,15 +1974,15 @@
               "projectName": "tablet-light",
               "results": [
                 {
-                  "workerIndex": 15,
-                  "parallelIndex": 0,
+                  "workerIndex": 18,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1299,
+                  "duration": 2328,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:03.998Z",
+                  "startTime": "2026-04-30T22:54:24.836Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1638,7 +1998,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-6af2a9a301f6d1520ebb",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1654,15 +2014,15 @@
               "projectName": "tablet-light",
               "results": [
                 {
-                  "workerIndex": 16,
-                  "parallelIndex": 1,
+                  "workerIndex": 19,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 971,
+                  "duration": 2352,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:04.082Z",
+                  "startTime": "2026-04-30T22:54:25.153Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1678,7 +2038,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-0b76e2e927c0bbf712dd",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1694,15 +2054,15 @@
               "projectName": "tablet-light",
               "results": [
                 {
-                  "workerIndex": 17,
-                  "parallelIndex": 2,
+                  "workerIndex": 20,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 812,
+                  "duration": 2084,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:04.356Z",
+                  "startTime": "2026-04-30T22:54:25.376Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1718,7 +2078,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-1bf6b82cd02d326e7a9b",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1734,15 +2094,15 @@
               "projectName": "tablet-light",
               "results": [
                 {
-                  "workerIndex": 18,
-                  "parallelIndex": 3,
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 798,
+                  "duration": 2045,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:04.379Z",
+                  "startTime": "2026-04-30T22:54:25.701Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1758,7 +2118,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-02cb2cb5127697a35a5a",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1774,15 +2134,15 @@
               "projectName": "tablet-light",
               "results": [
                 {
-                  "workerIndex": 19,
-                  "parallelIndex": 6,
+                  "workerIndex": 15,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1168,
+                  "duration": 1562,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:04.397Z",
+                  "startTime": "2026-04-30T22:54:26.638Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1798,7 +2158,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-a2e2694008b6fa3fe743",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1814,15 +2174,15 @@
               "projectName": "tablet-light",
               "results": [
                 {
-                  "workerIndex": 14,
+                  "workerIndex": 17,
                   "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 635,
+                  "duration": 1370,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:04.879Z",
+                  "startTime": "2026-04-30T22:54:26.644Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1838,7 +2198,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-fe8c8330379d416970a2",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1855,14 +2215,14 @@
               "results": [
                 {
                   "workerIndex": 21,
-                  "parallelIndex": 4,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1699,
+                  "duration": 1872,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:05.439Z",
+                  "startTime": "2026-04-30T22:54:27.614Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1878,7 +2238,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-92b4a32607812bdb9ff1",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1895,14 +2255,14 @@
               "results": [
                 {
                   "workerIndex": 22,
-                  "parallelIndex": 1,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1326,
+                  "duration": 1594,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:05.467Z",
+                  "startTime": "2026-04-30T22:54:27.888Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1918,7 +2278,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-7729bc13e16a5f691629",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1935,14 +2295,14 @@
               "results": [
                 {
                   "workerIndex": 23,
-                  "parallelIndex": 2,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 1858,
+                  "duration": 2100,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:05.552Z",
+                  "startTime": "2026-04-30T22:54:28.082Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1958,7 +2318,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-991702952ebc4e78a440",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -1975,14 +2335,14 @@
               "results": [
                 {
                   "workerIndex": 24,
-                  "parallelIndex": 3,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 1882,
+                  "duration": 2024,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:05.578Z",
+                  "startTime": "2026-04-30T22:54:28.121Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1998,7 +2358,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-f0b03c930d86199c65f9",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2017,12 +2377,12 @@
                   "workerIndex": 25,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1458,
+                  "duration": 1923,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:05.663Z",
+                  "startTime": "2026-04-30T22:54:28.524Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2038,7 +2398,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-9542ad4b1a3f31f43431",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2057,12 +2417,12 @@
                   "workerIndex": 26,
                   "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 1468,
+                  "duration": 1932,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:06.060Z",
+                  "startTime": "2026-04-30T22:54:28.844Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2078,7 +2438,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-0a3d4246a35587513425",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2095,14 +2455,14 @@
               "results": [
                 {
                   "workerIndex": 27,
-                  "parallelIndex": 6,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1825,
+                  "duration": 1972,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:06.120Z",
+                  "startTime": "2026-04-30T22:54:29.111Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2118,7 +2478,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-5bec003063cfe90ccfab",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2135,14 +2495,14 @@
               "results": [
                 {
                   "workerIndex": 22,
-                  "parallelIndex": 1,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1309,
+                  "duration": 1266,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:07.011Z",
+                  "startTime": "2026-04-30T22:54:29.792Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2158,7 +2518,127 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-ebf1b922de89dbb91eb6",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Privacy (/privacy) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1598,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:29.811Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-8133c97bad9f1ce789f5",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Terms (/terms) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1744,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:30.404Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-9dc0cd8982aeed8e980f",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Account Deletion (/account-deletion) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-dark",
+              "projectName": "tablet-dark",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1695,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:30.477Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-tablet-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-f5570f29e89e9062cee5",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
           "column": 7
         },
         {
@@ -2174,15 +2654,15 @@
               "projectName": "tablet-dark",
               "results": [
                 {
-                  "workerIndex": 21,
-                  "parallelIndex": 4,
+                  "workerIndex": 25,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1086,
+                  "duration": 1709,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:07.349Z",
+                  "startTime": "2026-04-30T22:54:30.737Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2198,7 +2678,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-5fb60883f587fbd0445a",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2214,15 +2694,15 @@
               "projectName": "tablet-dark",
               "results": [
                 {
-                  "workerIndex": 25,
-                  "parallelIndex": 0,
+                  "workerIndex": 22,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 989,
+                  "duration": 1407,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:07.481Z",
+                  "startTime": "2026-04-30T22:54:31.107Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2238,7 +2718,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-4b42350616be5d9cc40d",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2254,15 +2734,15 @@
               "projectName": "tablet-dark",
               "results": [
                 {
-                  "workerIndex": 23,
-                  "parallelIndex": 2,
+                  "workerIndex": 26,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 992,
+                  "duration": 1259,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:07.653Z",
+                  "startTime": "2026-04-30T22:54:31.132Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2278,7 +2758,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-2c1fcd6ec884cf3929a5",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2294,15 +2774,15 @@
               "projectName": "tablet-dark",
               "results": [
                 {
-                  "workerIndex": 24,
-                  "parallelIndex": 3,
+                  "workerIndex": 21,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 957,
+                  "duration": 1357,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:07.695Z",
+                  "startTime": "2026-04-30T22:54:31.428Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2318,7 +2798,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-b348457941a96ae696b9",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2334,15 +2814,15 @@
               "projectName": "tablet-dark",
               "results": [
                 {
-                  "workerIndex": 26,
-                  "parallelIndex": 5,
+                  "workerIndex": 27,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1194,
+                  "duration": 1677,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:07.712Z",
+                  "startTime": "2026-04-30T22:54:31.455Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2358,7 +2838,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-58f23f3e81a325ba7f90",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2374,15 +2854,15 @@
               "projectName": "tablet-dark",
               "results": [
                 {
-                  "workerIndex": 27,
+                  "workerIndex": 24,
                   "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 823,
+                  "duration": 1092,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:08.119Z",
+                  "startTime": "2026-04-30T22:54:32.159Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2398,7 +2878,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-10ead9c1deb0f022ccea",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2415,14 +2895,14 @@
               "results": [
                 {
                   "workerIndex": 28,
-                  "parallelIndex": 1,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 1728,
+                  "duration": 1588,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:08.817Z",
+                  "startTime": "2026-04-30T22:54:32.958Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2438,7 +2918,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-bd3b791c3a1726f4439d",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2455,14 +2935,14 @@
               "results": [
                 {
                   "workerIndex": 29,
-                  "parallelIndex": 4,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 1130,
+                  "duration": 1498,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:08.921Z",
+                  "startTime": "2026-04-30T22:54:33.168Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2478,7 +2958,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-7ccde9dec39128525bdb",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2497,12 +2977,12 @@
                   "workerIndex": 30,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1183,
+                  "duration": 1538,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:08.915Z",
+                  "startTime": "2026-04-30T22:54:33.198Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2518,7 +2998,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-88fb4aa0fbef705ddc8c",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2535,14 +3015,14 @@
               "results": [
                 {
                   "workerIndex": 31,
-                  "parallelIndex": 2,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1092,
+                  "duration": 1657,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:09.017Z",
+                  "startTime": "2026-04-30T22:54:33.303Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2558,7 +3038,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-811dbcf8257c9cd24adb",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2575,14 +3055,14 @@
               "results": [
                 {
                   "workerIndex": 32,
-                  "parallelIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1111,
+                  "duration": 1933,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:09.022Z",
+                  "startTime": "2026-04-30T22:54:33.479Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2598,7 +3078,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-73ab164f78ea2fb28059",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2615,14 +3095,14 @@
               "results": [
                 {
                   "workerIndex": 33,
-                  "parallelIndex": 5,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1625,
+                  "duration": 1832,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:09.295Z",
+                  "startTime": "2026-04-30T22:54:33.649Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2638,7 +3118,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-3d084e036c7e51a31836",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2657,12 +3137,12 @@
                   "workerIndex": 34,
                   "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 1949,
+                  "duration": 1907,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:09.328Z",
+                  "startTime": "2026-04-30T22:54:33.713Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2678,7 +3158,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-91da558e06abcbdcaa40",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2694,15 +3174,15 @@
               "projectName": "desktop-light",
               "results": [
                 {
-                  "workerIndex": 31,
-                  "parallelIndex": 2,
+                  "workerIndex": 29,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 1197,
+                  "duration": 1434,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:10.243Z",
+                  "startTime": "2026-04-30T22:54:34.897Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2718,7 +3198,127 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-136bb69a0e7018023574",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Privacy (/privacy) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1649,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:34.942Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-4dbfd4644a5fbdb511f7",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Terms (/terms) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 1657,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:34.944Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-999523bfcad2ec0f8162",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Account Deletion (/account-deletion) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-light",
+              "projectName": "desktop-light",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 1727,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:35.180Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-desktop-light/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-6b14e3037d521801c4f8",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
           "column": 7
         },
         {
@@ -2735,14 +3335,14 @@
               "results": [
                 {
                   "workerIndex": 32,
-                  "parallelIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1314,
+                  "duration": 1656,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:10.252Z",
+                  "startTime": "2026-04-30T22:54:35.558Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2758,7 +3358,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-b740609cec95e3d2986a",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2774,15 +3374,15 @@
               "projectName": "desktop-light",
               "results": [
                 {
-                  "workerIndex": 29,
-                  "parallelIndex": 4,
+                  "workerIndex": 33,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1174,
+                  "duration": 1615,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:10.249Z",
+                  "startTime": "2026-04-30T22:54:35.578Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2798,7 +3398,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-54838f7d09341dd0cf59",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2814,15 +3414,15 @@
               "projectName": "desktop-light",
               "results": [
                 {
-                  "workerIndex": 30,
-                  "parallelIndex": 0,
+                  "workerIndex": 34,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 1080,
+                  "duration": 1358,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:10.305Z",
+                  "startTime": "2026-04-30T22:54:35.777Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2838,7 +3438,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-46f843e3c68878d60ecf",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2854,15 +3454,15 @@
               "projectName": "desktop-light",
               "results": [
                 {
-                  "workerIndex": 28,
-                  "parallelIndex": 1,
+                  "workerIndex": 29,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 936,
+                  "duration": 1223,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:10.845Z",
+                  "startTime": "2026-04-30T22:54:36.348Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2878,7 +3478,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-6764623a7b9aa6beb452",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2894,15 +3494,15 @@
               "projectName": "desktop-light",
               "results": [
                 {
-                  "workerIndex": 33,
-                  "parallelIndex": 5,
+                  "workerIndex": 30,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 871,
+                  "duration": 1140,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:11.012Z",
+                  "startTime": "2026-04-30T22:54:36.597Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2918,7 +3518,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-baef19dd699f874d26e1",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2934,15 +3534,15 @@
               "projectName": "desktop-light",
               "results": [
                 {
-                  "workerIndex": 34,
-                  "parallelIndex": 6,
+                  "workerIndex": 28,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 585,
+                  "duration": 1088,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:11.359Z",
+                  "startTime": "2026-04-30T22:54:36.606Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2958,7 +3558,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-627ecb92241633d7e45b",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -2975,14 +3575,14 @@
               "results": [
                 {
                   "workerIndex": 35,
-                  "parallelIndex": 0,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 1059,
+                  "duration": 1218,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:11.901Z",
+                  "startTime": "2026-04-30T22:54:37.690Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -2998,7 +3598,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-35a66a0f6ac5f5f494cc",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3015,14 +3615,14 @@
               "results": [
                 {
                   "workerIndex": 36,
-                  "parallelIndex": 4,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 724,
+                  "duration": 1155,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:11.915Z",
+                  "startTime": "2026-04-30T22:54:37.844Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3038,7 +3638,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-8390c4a0f8479434eb02",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3057,12 +3657,12 @@
                   "workerIndex": 37,
                   "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 1033,
+                  "duration": 1067,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:11.950Z",
+                  "startTime": "2026-04-30T22:54:37.877Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3078,7 +3678,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-e5d700a4adb17a3cb77e",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3095,14 +3695,14 @@
               "results": [
                 {
                   "workerIndex": 38,
-                  "parallelIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 1171,
+                  "duration": 1420,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:12.033Z",
+                  "startTime": "2026-04-30T22:54:37.915Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3118,7 +3718,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-9c6fc801fdd56aaed56e",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3135,14 +3735,14 @@
               "results": [
                 {
                   "workerIndex": 39,
-                  "parallelIndex": 1,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 1093,
+                  "duration": 1472,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:12.157Z",
+                  "startTime": "2026-04-30T22:54:38.022Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3158,7 +3758,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-6ce6a33332707fa71deb",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3175,14 +3775,14 @@
               "results": [
                 {
                   "workerIndex": 40,
-                  "parallelIndex": 5,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 1297,
+                  "duration": 1582,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:12.246Z",
+                  "startTime": "2026-04-30T22:54:38.089Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3198,7 +3798,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-4667950043ba02216fef",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3215,14 +3815,14 @@
               "results": [
                 {
                   "workerIndex": 41,
-                  "parallelIndex": 6,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1357,
+                  "duration": 1561,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:12.371Z",
+                  "startTime": "2026-04-30T22:54:38.172Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3238,7 +3838,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-514b5df874857c148c8f",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3254,15 +3854,15 @@
               "projectName": "desktop-dark",
               "results": [
                 {
-                  "workerIndex": 36,
+                  "workerIndex": 35,
                   "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 969,
+                  "duration": 1480,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:12.736Z",
+                  "startTime": "2026-04-30T22:54:39.024Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3278,7 +3878,127 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-ee2a80d989b12c2e3ba4",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Privacy (/privacy) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:39.058Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Privacy-privacy-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-8a440926364b28131b28",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Terms (/terms) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "parallelIndex": 6,
+                  "status": "passed",
+                  "duration": 1457,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:39.117Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Terms-terms-loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-77d948e1a31506893447",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
+          "column": 7
+        },
+        {
+          "title": "Account Deletion (/account-deletion) loads with 200 and renders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 20000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-dark",
+              "projectName": "desktop-dark",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1639,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-30T22:54:39.496Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/Users/alfonso/Documents/GitHub/audio-layer/test-results/e2e-smoke-Account-Deletion-84fc7--loads-with-200-and-renders-desktop-dark/video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa58ad17b2d44b8d86cc-7a234ca2c947a19ffc0b",
+          "file": "e2e/smoke.spec.ts",
+          "line": 29,
           "column": 7
         },
         {
@@ -3294,15 +4014,15 @@
               "projectName": "desktop-dark",
               "results": [
                 {
-                  "workerIndex": 35,
-                  "parallelIndex": 0,
+                  "workerIndex": 39,
+                  "parallelIndex": 5,
                   "status": "passed",
-                  "duration": 978,
+                  "duration": 1655,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:13.069Z",
+                  "startTime": "2026-04-30T22:54:39.645Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3318,7 +4038,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-43a73a91409de7d9a496",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3334,15 +4054,15 @@
               "projectName": "desktop-dark",
               "results": [
                 {
-                  "workerIndex": 37,
-                  "parallelIndex": 2,
+                  "workerIndex": 40,
+                  "parallelIndex": 3,
                   "status": "passed",
-                  "duration": 903,
+                  "duration": 1474,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:13.113Z",
+                  "startTime": "2026-04-30T22:54:39.833Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3358,7 +4078,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-eb1b8f1f4b758af004d9",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3374,15 +4094,15 @@
               "projectName": "desktop-dark",
               "results": [
                 {
-                  "workerIndex": 38,
-                  "parallelIndex": 3,
+                  "workerIndex": 41,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 972,
+                  "duration": 1371,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:13.315Z",
+                  "startTime": "2026-04-30T22:54:39.852Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3398,7 +4118,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-db107fb01bbd118f5d7e",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3414,15 +4134,15 @@
               "projectName": "desktop-dark",
               "results": [
                 {
-                  "workerIndex": 39,
-                  "parallelIndex": 1,
+                  "workerIndex": 35,
+                  "parallelIndex": 4,
                   "status": "passed",
-                  "duration": 952,
+                  "duration": 1395,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:13.329Z",
+                  "startTime": "2026-04-30T22:54:40.513Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3438,7 +4158,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-fc3d38a4d241952ff919",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3454,15 +4174,15 @@
               "projectName": "desktop-dark",
               "results": [
                 {
-                  "workerIndex": 40,
-                  "parallelIndex": 5,
+                  "workerIndex": 37,
+                  "parallelIndex": 2,
                   "status": "passed",
-                  "duration": 830,
+                  "duration": 1395,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:13.682Z",
+                  "startTime": "2026-04-30T22:54:40.560Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3478,7 +4198,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-3b86e2e2e055f055222b",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         },
         {
@@ -3495,14 +4215,14 @@
               "results": [
                 {
                   "workerIndex": 36,
-                  "parallelIndex": 4,
+                  "parallelIndex": 6,
                   "status": "passed",
-                  "duration": 739,
+                  "duration": 1328,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-04-30T17:13:13.711Z",
+                  "startTime": "2026-04-30T22:54:40.579Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -3518,7 +4238,7 @@
           ],
           "id": "aa58ad17b2d44b8d86cc-976457f79d988e5479b8",
           "file": "e2e/smoke.spec.ts",
-          "line": 26,
+          "line": 29,
           "column": 7
         }
       ]
@@ -3526,9 +4246,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-04-30T17:12:49.569Z",
-    "duration": 25058.045,
-    "expected": 84,
+    "startTime": "2026-04-30T22:54:04.375Z",
+    "duration": 37733.644,
+    "expected": 102,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

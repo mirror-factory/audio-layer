@@ -159,6 +159,19 @@ export default function SignUpPage() {
                 <p className="text-sm text-red-400 text-center mt-3">{error}</p>
               )}
 
+              <p className="text-[11px] leading-5 text-[var(--text-muted)] text-center mt-4">
+                By creating an account or continuing with Google, you agree to
+                the{" "}
+                <Link href="/terms" className="text-[#14b8a6] hover:text-[#2dd4bf]">
+                  Terms
+                </Link>{" "}
+                and acknowledge the{" "}
+                <Link href="/privacy" className="text-[#14b8a6] hover:text-[#2dd4bf]">
+                  Privacy Policy
+                </Link>
+                .
+              </p>
+
               <p className="text-xs text-[var(--text-muted)] text-center mt-4">
                 Already have an account?{" "}
                 <Link href="/sign-in" className="text-[#14b8a6] hover:text-[#2dd4bf]">

@@ -37,6 +37,7 @@ export async function getSettings(): Promise<ModelSettings> {
       DEFAULTS.batchSpeechModel,
     streamingSpeechModel:
       saved.streamingSpeechModel ||
+      process.env.DEEPGRAM_STREAMING_MODEL ||
       process.env.ASSEMBLYAI_STREAMING_MODEL ||
       DEFAULTS.streamingSpeechModel,
   };

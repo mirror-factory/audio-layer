@@ -1,6 +1,6 @@
 # MFDR Technical Decision Record
 
-Updated: 2026-04-30T18:01:17.436Z
+Updated: 2026-04-30T23:00:06.717Z
 Status: complete
 Source: manual
 

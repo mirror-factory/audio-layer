@@ -17,55 +17,105 @@
  * configured + whether events have been sent in the last hour.
  */
 
-import { NextResponse } from 'next/server';
-import { withRoute } from '@/lib/with-route';
-import { recordSinkEvent, getSinkStats } from '@/lib/sink-stats';
+import { NextResponse } from "next/server";
+import { withRoute } from "@/lib/with-route";
+import { recordSinkEvent, getSinkStats } from "@/lib/sink-stats";
+
+const launchWatchlist = {
+  automatedNow: [
+    {
+      id: "observability-sinks",
+      source: "/api/observability/health",
+      signal: "Configured log sinks have recent events and no warnings.",
+    },
+    {
+      id: "dependency-health",
+      source: "/api/health",
+      signal:
+        "Supabase, Langfuse, and AssemblyAI are ok or intentionally not configured.",
+    },
+    {
+      id: "ai-errors-and-cost",
+      source: "/api/ai-logs/errors, /api/ai-logs/stats, /observability",
+      signal:
+        "AI errors, model mix, token cost, and error rate stay within launch expectations.",
+    },
+    {
+      id: "recording-preflight",
+      source: "/api/transcribe/stream/preflight",
+      signal:
+        "Quota, STT provider, pricing, and runtime model checks are ready before recording.",
+    },
+  ],
+  manualAccountDashboard: [
+    "Stripe webhook failures and subscription/profile drift",
+    "Failed recordings reported by users or visible in production logs",
+    "Provider cost spikes in AssemblyAI, Vercel AI Gateway, Supabase, and Stripe dashboards",
+    "Quota false positives for paid or high-intent users",
+    "Supabase and Google OAuth sign-in errors",
+    "Mobile visual regressions on real devices and store screenshots",
+    "App Store Connect and Google Play review feedback",
+    "Funnel requests for integrations, plans, transcription quality, and setup help",
+  ],
+  runbook: "docs/POST_LAUNCH_MONITORING.md",
+};
 
 export const GET = withRoute(async () => {
   // Touch our own sink so `recent-events` is never zero while the server
   // is alive. This is the equivalent of a canary request.
-  recordSinkEvent('stdout');
+  recordSinkEvent("stdout");
 
   const stats = getSinkStats();
-  const langfuseConfigured = Boolean(process.env.LANGFUSE_PUBLIC_KEY && process.env.LANGFUSE_SECRET_KEY);
+  const langfuseConfigured = Boolean(
+    process.env.LANGFUSE_PUBLIC_KEY && process.env.LANGFUSE_SECRET_KEY,
+  );
   const supabaseConfigured = Boolean(
     (process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL) &&
-      (process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_ANON_KEY),
+    (process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_ANON_KEY),
   );
 
   const sinks = {
-    stdout: { configured: true, recentEvents: stats.stdout, status: 'ok' as const },
+    stdout: {
+      configured: true,
+      recentEvents: stats.stdout,
+      status: "ok" as const,
+    },
     langfuse: {
       configured: langfuseConfigured,
       recentEvents: stats.langfuse,
       status: !langfuseConfigured
-        ? 'not-configured'
+        ? "not-configured"
         : stats.langfuse > 0
-          ? 'ok'
-          : 'silent',
+          ? "ok"
+          : "silent",
     },
     supabase: {
       configured: supabaseConfigured,
       recentEvents: stats.supabase,
       status: !supabaseConfigured
-        ? 'not-configured'
+        ? "not-configured"
         : stats.supabase > 0
-          ? 'ok'
-          : 'silent',
+          ? "ok"
+          : "silent",
     },
   };
 
   const warnings: string[] = [];
-  if (sinks.langfuse.status === 'silent') {
-    warnings.push('Langfuse is configured but has received 0 events recently. Logs may not be flowing.');
+  if (sinks.langfuse.status === "silent") {
+    warnings.push(
+      "Langfuse is configured but has received 0 events recently. Logs may not be flowing.",
+    );
   }
-  if (sinks.supabase.status === 'silent') {
-    warnings.push('Supabase is configured but has received 0 events recently. Logs may not be flowing.');
+  if (sinks.supabase.status === "silent") {
+    warnings.push(
+      "Supabase is configured but has received 0 events recently. Logs may not be flowing.",
+    );
   }
 
   return NextResponse.json({
     ts: new Date().toISOString(),
     sinks,
     warnings,
+    launchWatchlist,
   });
 });

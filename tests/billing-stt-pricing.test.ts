@@ -61,6 +61,7 @@ describe("STT pricing catalog", () => {
   it("computes target margin economics for Core", () => {
     const core = DEFAULT_PRICING_PLANS.find((plan) => plan.id === "core");
     expect(core).toBeDefined();
+    expect(core?.monthlyPriceUsd).toBe(20);
 
     const economics = estimatePlanEconomics({
       plan: core!,
@@ -71,9 +72,17 @@ describe("STT pricing catalog", () => {
 
     expect(economics.sttCostUsd).toBeCloseTo(1.5, 6);
     expect(economics.llmCostUsd).toBeCloseTo(0.08, 6);
-    expect(economics.grossMarginPercent).toBeCloseTo(76.23, 2);
+    expect(economics.grossMarginPercent).toBeCloseTo(81.45, 2);
     expect(economics.targetPriceUsd).toBeLessThan(economics.plan.monthlyPriceUsd);
-    expect(economics.breakEvenMinutes).toBeGreaterThan(4000);
+    expect(economics.breakEvenMinutes).toBeGreaterThan(6000);
+  });
+
+  it("keeps launch plan prices aligned", () => {
+    expect(DEFAULT_PRICING_PLANS.map((plan) => [plan.id, plan.monthlyPriceUsd])).toEqual([
+      ["free", 0],
+      ["core", 20],
+      ["pro", 30],
+    ]);
   });
 
   it("models a 1,000-customer portfolio scenario", () => {
@@ -87,9 +96,9 @@ describe("STT pricing catalog", () => {
 
     expect(economics.totalCustomers).toBe(1000);
     expect(economics.payingCustomers).toBe(750);
-    expect(economics.mrrUsd).toBe(12250);
-    expect(economics.arrUsd).toBe(147000);
-    expect(economics.monthlyProfitUsd).toBeGreaterThan(7000);
+    expect(economics.mrrUsd).toBe(16000);
+    expect(economics.arrUsd).toBe(192000);
+    expect(economics.monthlyProfitUsd).toBeGreaterThan(12000);
     expect(economics.grossMarginPercent).toBeGreaterThan(60);
   });
 });

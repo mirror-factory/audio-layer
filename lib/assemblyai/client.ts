@@ -19,9 +19,9 @@ export function getAssemblyAI(): AssemblyAI | null {
 }
 
 const VALID_BATCH_MODELS = MODEL_OPTIONS.batchSpeech.map((m) => m.value);
-const VALID_STREAMING_MODELS = MODEL_OPTIONS.streamingSpeech.map(
-  (m) => m.value,
-);
+const VALID_STREAMING_MODELS = MODEL_OPTIONS.streamingSpeech
+  .filter((m) => m.provider === "assemblyai")
+  .map((m) => m.value);
 
 /**
  * Resolve a batch speech model string to the speech_models array format.

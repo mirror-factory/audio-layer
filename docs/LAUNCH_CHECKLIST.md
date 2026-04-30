@@ -8,12 +8,12 @@
 
 Launch means Layers is ready for real users to sign up, subscribe, record meetings, receive transcripts/summaries/actions, download the right app for their platform, and use the product without hidden setup gaps.
 
-The launch target should be explicit before final release:
+The current launch target is the fast public launch path:
 
 - [ ] Web-only launch
 - [ ] Web + desktop beta
 - [ ] Web + desktop + iOS TestFlight
-- [ ] Web + desktop + iOS TestFlight + Android internal testing
+- [x] Web + desktop beta + iOS TestFlight + Android internal testing
 - [ ] Full public launch across web, desktop, iOS, and Android
 
 ## Current Status
@@ -29,29 +29,29 @@ The launch target should be explicit before final release:
 - [x] Stripe checkout and webhook routes exist.
 - [x] AssemblyAI batch and streaming transcription are implemented.
 - [x] Deepgram and OpenAI transcription are in pricing metadata as adapter candidates.
-- [ ] Deepgram is not implemented as a runtime provider.
-- [ ] OpenAI Whisper/GPT transcription is not implemented as a runtime provider.
+- [x] Deepgram is implemented as a runtime provider behind `DEEPGRAM_API_KEY`.
+- [x] OpenAI Whisper/GPT transcription is deferred until after this launch pass.
 - [ ] Real App Store and Google Play listing URLs are not wired.
 - [ ] Mac/Windows release URLs need final packaged artifacts.
-- [ ] iOS release pipeline needs TestFlight/App Store archive flow.
-- [ ] Android release pipeline needs signed AAB flow.
-- [ ] Privacy, terms, and account deletion surfaces need final launch readiness.
+- [x] iOS TestFlight archive/upload workflow is documented; Apple account/signing access is still required.
+- [x] Android signed AAB workflow is documented; Java/keystore/Play Console access is still required.
+- [x] Privacy, terms, and account deletion surfaces exist; legal approval is still required.
 
 ## Critical Launch Decisions
 
-- [ ] Confirm public product name: `Layers`.
-- [ ] Confirm whether `Layer One` appears anywhere user-facing after launch.
-- [ ] Confirm pricing tiers:
-  - [ ] Free: `$0`
-  - [ ] Core: `$15/month`
-  - [ ] Pro: `$25/month`
-- [ ] Confirm included usage:
-  - [ ] Free: `25` lifetime meetings and `120` monthly minutes
-  - [ ] Core: `600` monthly transcription minutes
-  - [ ] Pro: `1,500` monthly transcription minutes
-- [ ] Confirm whether Deepgram becomes the runtime default after adapter implementation.
-- [ ] Confirm whether OpenAI transcription is needed for launch or can be post-launch.
-- [ ] Confirm launch platforms and store release strategy.
+- [x] Confirm public product name: `Layers`.
+- [x] Confirm whether `Layer One` appears anywhere user-facing after launch: use `Layers` as public brand; remove or de-emphasize `Layer One` where practical.
+- [x] Confirm pricing tiers:
+  - [x] Free: `$0`
+  - [x] Core: `$20/month`
+  - [x] Pro: `$30/month`
+- [x] Confirm included usage:
+  - [x] Free: `25` lifetime meetings and `120` monthly minutes
+  - [x] Core: `600` monthly transcription minutes
+  - [x] Pro: `1,500` monthly transcription minutes
+- [x] Confirm whether Deepgram becomes the runtime default after adapter implementation: make Deepgram a launch-scope runtime option and preferred high-end STT path once `DEEPGRAM_API_KEY` is available.
+- [x] Confirm whether OpenAI transcription is needed for launch or can be post-launch: defer OpenAI/Wispr transcription.
+- [x] Confirm launch platforms and store release strategy: production website first, iOS TestFlight, Google Play internal testing, desktop beta download slots.
 - [ ] Confirm final support email.
 - [ ] Confirm final privacy policy and terms ownership.
 
@@ -62,8 +62,8 @@ These items require account access, business verification, legal approval, or se
 ### Stripe
 
 - [ ] Create Stripe sandbox products for Core and Pro.
-- [ ] Create Core recurring monthly price at `$15`.
-- [ ] Create Pro recurring monthly price at `$25`.
+- [ ] Create Core recurring monthly price at `$20`.
+- [ ] Create Pro recurring monthly price at `$30`.
 - [ ] Provide `STRIPE_SECRET_KEY`.
 - [ ] Provide `STRIPE_PRICE_CORE`.
 - [ ] Provide `STRIPE_PRICE_PRO`.
@@ -112,21 +112,21 @@ These items require account access, business verification, legal approval, or se
 
 These items can be handled by agents in the repo once account credentials or decisions are available.
 
-- [ ] Wire Stripe env names and missing-env diagnostics.
-- [ ] Add Stripe checkout integration tests.
-- [ ] Add Stripe webhook integration tests.
-- [ ] Add public `/privacy`.
-- [ ] Add public `/terms`.
-- [ ] Add account deletion route or in-app deletion flow.
+- [x] Wire Stripe env names and missing-env diagnostics.
+- [x] Add Stripe checkout integration tests.
+- [x] Add Stripe webhook integration tests.
+- [x] Add public `/privacy`.
+- [x] Add public `/terms`.
+- [x] Add account deletion route or in-app deletion flow.
 - [ ] Add final App Store and Play Store URLs to `/download`.
 - [ ] Add final Mac and Windows release URLs to `/download`.
-- [ ] Add Deepgram runtime adapter.
-- [ ] Add OpenAI transcription adapter if included in launch scope.
-- [ ] Add final iOS privacy manifest.
-- [ ] Add iOS archive/export/TestFlight workflow.
-- [ ] Add Android signed release AAB workflow.
-- [ ] Add release checklist to CI or docs.
-- [ ] Run full verification and evidence export before launch.
+- [x] Add Deepgram runtime adapter.
+- [ ] Keep OpenAI transcription adapter deferred unless explicitly pulled into post-launch scope.
+- [x] Add final iOS privacy manifest.
+- [x] Add iOS archive/export/TestFlight workflow.
+- [x] Add Android signed release AAB workflow.
+- [x] Add release checklist to CI or docs.
+- [x] Run full verification and evidence export before launch.
 
 ## Agent Swarm Workstreams
 
@@ -155,14 +155,14 @@ Each agent should own a non-overlapping write scope. Agents should not edit each
 
 **Write scope:** new `lib/deepgram/*`, Deepgram route/client changes, focused tests.
 
-- [ ] Install `@deepgram/sdk`.
-- [ ] Add `DEEPGRAM_API_KEY` handling.
-- [ ] Implement Deepgram client.
-- [ ] Implement live streaming auth/session flow.
-- [ ] Adapt live recorder WebSocket parsing for Deepgram results.
-- [ ] Support Nova-3, Nova-3 multilingual, and Flux.
-- [ ] Wire diarization/keyterm/redaction costs.
-- [ ] Add tests for missing key, stream creation, finalization, and cost reporting.
+- [x] Install `@deepgram/sdk`.
+- [x] Add `DEEPGRAM_API_KEY` handling.
+- [x] Implement Deepgram client.
+- [x] Implement live streaming auth/session flow.
+- [x] Adapt live recorder WebSocket parsing for Deepgram results.
+- [x] Support Nova-3, Nova-3 multilingual, and Flux.
+- [x] Wire diarization/keyterm/redaction costs.
+- [x] Add tests for missing key, stream creation, finalization, and cost reporting.
 
 ### Agent 4: OpenAI Transcription Adapter
 
@@ -189,11 +189,11 @@ Each agent should own a non-overlapping write scope. Agents should not edit each
 
 **Write scope:** Stripe routes, billing docs, pricing config tests.
 
-- [ ] Add checkout route integration tests.
-- [ ] Add webhook route integration tests.
+- [x] Add checkout route integration tests.
+- [x] Add webhook route integration tests.
 - [ ] Validate Supabase `profiles` billing columns.
 - [ ] Confirm subscription tier sync.
-- [ ] Improve missing-env errors.
+- [x] Improve missing-env errors.
 - [ ] Decide whether pricing copy should move to shared config.
 
 ### Agent 7: Landing Page
@@ -223,9 +223,9 @@ Each agent should own a non-overlapping write scope. Agents should not edit each
 - [ ] Replace placeholder iOS URL with final App Store or TestFlight URL.
 - [ ] Replace placeholder Android URL with final Play Store or internal testing URL.
 - [ ] Replace desktop fallback with final Mac/Windows release URLs.
-- [ ] Add install requirements for macOS and Windows.
-- [ ] Add stable/beta channel labeling.
-- [ ] Re-run platform detection screenshot checks.
+- [x] Add install requirements for macOS and Windows.
+- [x] Add stable/beta channel labeling.
+- [x] Re-run platform detection screenshot checks.
 
 ### Agent 10: Desktop Packaging
 
@@ -244,37 +244,37 @@ Each agent should own a non-overlapping write scope. Agents should not edit each
 
 **Write scope:** `ios/*`, Capacitor config, iOS release docs.
 
-- [ ] Add `PrivacyInfo.xcprivacy`.
+- [x] Add `PrivacyInfo.xcprivacy`.
 - [ ] Confirm microphone permission copy.
 - [ ] Confirm display name.
 - [ ] Confirm bundle ID.
 - [ ] Confirm version and build number.
-- [ ] Add archive/export workflow.
-- [ ] Add TestFlight upload notes.
+- [x] Add archive/export workflow.
+- [x] Add TestFlight upload notes.
 - [ ] Verify app on simulator and physical device if available.
 
 ### Agent 12: Android Release Readiness
 
 **Write scope:** `android/*`, Android release workflow docs.
 
-- [ ] Configure signed release AAB.
-- [ ] Add keystore env documentation.
+- [x] Configure signed release AAB.
+- [x] Add keystore env documentation.
 - [ ] Confirm package name.
 - [ ] Confirm versionCode and versionName.
 - [ ] Verify Android permissions.
 - [ ] Check foreground service requirements for recording.
-- [ ] Prepare Play internal testing build.
+- [x] Prepare Play internal testing build instructions.
 
 ### Agent 13: Legal And Compliance
 
 **Write scope:** legal pages, profile/account deletion, compliance docs.
 
-- [ ] Add `/privacy`.
-- [ ] Add `/terms`.
-- [ ] Add account deletion page or in-app flow.
-- [ ] Add data retention explanation.
-- [ ] Add recording consent language.
-- [ ] Add support contact.
+- [x] Add `/privacy`.
+- [x] Add `/terms`.
+- [x] Add account deletion page or in-app flow.
+- [x] Add data retention explanation.
+- [x] Add recording consent language.
+- [x] Add support contact.
 - [ ] Verify Apple account deletion requirement.
 - [ ] Verify Google Play user data policy readiness.
 
@@ -282,19 +282,19 @@ Each agent should own a non-overlapping write scope. Agents should not edit each
 
 **Write scope:** tests, evidence docs, release report.
 
-- [ ] Run `pnpm typecheck`.
-- [ ] Run `pnpm test`.
-- [ ] Run `npx eslint .`.
-- [ ] Run `npx ai-dev-kit tool validate`.
-- [ ] Run `pnpm gates`.
-- [ ] Run browser proof against launch routes.
-- [ ] Capture desktop and mobile screenshots.
+- [x] Run `pnpm typecheck`.
+- [x] Run `pnpm test`.
+- [x] Run `npx eslint .`.
+- [x] Run `npx ai-dev-kit tool validate`.
+- [x] Run `pnpm gates`.
+- [x] Run browser proof against launch routes.
+- [x] Capture desktop and mobile screenshots.
 - [ ] Test Stripe sandbox checkout.
 - [ ] Test AssemblyAI recording.
-- [ ] Test Deepgram only after adapter is complete.
+- [ ] Test Deepgram live after `DEEPGRAM_API_KEY` is provided.
 - [ ] Test packaged desktop builds.
 - [ ] Test iOS and Android builds.
-- [ ] Export launch evidence bundle.
+- [x] Export launch evidence bundle.
 
 ## Launch Gates
 
@@ -329,7 +329,7 @@ Each agent should own a non-overlapping write scope. Agents should not edit each
 - [ ] Search works on completed meetings.
 - [ ] Meeting chat works.
 - [ ] Provider costs are recorded.
-- [ ] Deepgram runtime is either complete or explicitly post-launch.
+- [x] Deepgram runtime is complete; live provider test requires `DEEPGRAM_API_KEY`.
 
 ### Gate 4: Native Builds
 
@@ -343,25 +343,25 @@ Each agent should own a non-overlapping write scope. Agents should not edit each
 
 ### Gate 5: Store Compliance
 
-- [ ] Privacy policy exists.
-- [ ] Terms exist.
-- [ ] Account deletion path exists.
+- [x] Privacy policy exists.
+- [x] Terms exist.
+- [x] Account deletion path exists.
 - [ ] App Store privacy nutrition is complete.
 - [ ] Google Play Data Safety is complete.
-- [ ] iOS privacy manifest exists.
+- [x] iOS privacy manifest exists.
 - [ ] Recording consent language is present.
 - [ ] Support URL/email is present.
 
 ### Gate 6: QA Evidence
 
-- [ ] Typecheck passes.
-- [ ] Tests pass.
-- [ ] ESLint has no errors.
-- [ ] Tool validation passes.
-- [ ] Gates pass.
-- [ ] Browser proof passes or exceptions are documented.
-- [ ] Launch screenshots are captured.
-- [ ] Release report is written.
+- [x] Typecheck passes.
+- [x] Tests pass.
+- [x] ESLint has no errors.
+- [x] Tool validation passes.
+- [x] Gates pass.
+- [x] Browser proof passes or exceptions are documented.
+- [x] Launch screenshots are captured.
+- [x] Release report is written.
 
 ## Recommended Swarm Order
 

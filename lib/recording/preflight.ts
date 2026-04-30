@@ -1,12 +1,17 @@
 import type { QuotaResult } from "@/lib/billing/quota";
 import type { PricingConfigVersion } from "@/lib/billing/pricing-config";
 import {
-  STT_PRICING_OPTIONS,
   formatMoney,
   sttCostPerMinute,
   type SttPricingOption,
 } from "@/lib/billing/stt-pricing";
 import type { ModelSettings } from "@/lib/settings-shared";
+import {
+  providerEnvVarName,
+  resolveRuntimeStreamingOption,
+  runtimeProviderForOption,
+  type RuntimeTranscriptionProvider,
+} from "@/lib/recording/transcription-provider";
 
 export type RecordingPreflightCheckId =
   | "quota"
@@ -49,20 +54,8 @@ export interface RecordingPreflightResponse {
   };
 }
 
-function resolveStreamingOption(
-  pricing: PricingConfigVersion,
-  settings: ModelSettings,
-): SttPricingOption {
-  return (
-    STT_PRICING_OPTIONS.find((option) => option.id === pricing.sttOptionId) ??
-    STT_PRICING_OPTIONS.find(
-      (option) =>
-        option.provider === "assemblyai" &&
-        option.mode === "streaming" &&
-        option.model === settings.streamingSpeechModel,
-    ) ??
-    STT_PRICING_OPTIONS[0]
-  );
+function resolveStreamingOption(settings: ModelSettings): SttPricingOption {
+  return resolveRuntimeStreamingOption(settings);
 }
 
 function quotaDetail(quota: QuotaResult): string {
@@ -85,12 +78,19 @@ function quotaDetail(quota: QuotaResult): string {
 
 export function buildRecordingPreflight(opts: {
   quota: QuotaResult;
-  providerConfigured: boolean;
+  providerConfigured:
+    | boolean
+    | Partial<Record<RuntimeTranscriptionProvider, boolean>>;
   pricing: PricingConfigVersion;
   settings: ModelSettings;
   checkedAt?: string;
 }): RecordingPreflightResponse {
-  const selectedOption = resolveStreamingOption(opts.pricing, opts.settings);
+  const selectedOption = resolveStreamingOption(opts.settings);
+  const provider = runtimeProviderForOption(selectedOption);
+  const providerConfigured =
+    typeof opts.providerConfigured === "boolean"
+      ? opts.providerConfigured
+      : Boolean(opts.providerConfigured[provider]);
   const effectiveRatePerHourUsd = sttCostPerMinute(
     selectedOption,
     opts.pricing.addonIds,
@@ -105,10 +105,10 @@ export function buildRecordingPreflight(opts: {
     {
       id: "provider",
       label: "STT provider",
-      status: opts.providerConfigured ? "ready" : "blocked",
-      detail: opts.providerConfigured
+      status: providerConfigured ? "ready" : "blocked",
+      detail: providerConfigured
         ? `${selectedOption.providerLabel} is configured`
-        : `${selectedOption.providerLabel} API key is missing`,
+        : `${providerEnvVarName(provider)} is missing for ${selectedOption.providerLabel}`,
     },
     {
       id: "pricing",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-30T17:13:33.701Z",
+  "updatedAt": "2026-04-30T23:00:02.841Z",
   "tasks": [
     {
       "id": "api:api-admin-pricing",
@@ -20,7 +20,7 @@
       "sourcePaths": [
         "app/api/admin/pricing/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.154Z",
       "lastObservedAt": null
     },
     {
@@ -42,7 +42,7 @@
       "sourcePaths": [
         "app/api/admin/pricing/activate/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -64,7 +64,7 @@
       "sourcePaths": [
         "app/api/ai-logs/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -86,7 +86,7 @@
       "sourcePaths": [
         "app/api/ai-logs/errors/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -108,7 +108,7 @@
       "sourcePaths": [
         "app/api/ai-logs/stats/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -130,7 +130,7 @@
       "sourcePaths": [
         "app/api/auth/api-key/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -152,7 +152,7 @@
       "sourcePaths": [
         "app/api/auth/send-email/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -174,7 +174,7 @@
       "sourcePaths": [
         "app/api/calendar/callback/[provider]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -196,7 +196,7 @@
       "sourcePaths": [
         "app/api/calendar/connect/[provider]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -218,7 +218,7 @@
       "sourcePaths": [
         "app/api/calendar/disconnect/[provider]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -240,7 +240,7 @@
       "sourcePaths": [
         "app/api/calendar/upcoming/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -262,7 +262,7 @@
       "sourcePaths": [
         "app/api/chat/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -284,7 +284,7 @@
       "sourcePaths": [
         "app/api/control-plane/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -306,7 +306,7 @@
       "sourcePaths": [
         "app/api/control-plane/evidence-export/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -328,7 +328,7 @@
       "sourcePaths": [
         "app/api/dev-kit/config/[name]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -350,7 +350,7 @@
       "sourcePaths": [
         "app/api/dev-kit/connectors/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -372,7 +372,7 @@
       "sourcePaths": [
         "app/api/dev-kit/cost/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -394,7 +394,7 @@
       "sourcePaths": [
         "app/api/dev-kit/coverage/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -416,7 +416,7 @@
       "sourcePaths": [
         "app/api/dev-kit/dependencies/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -438,7 +438,7 @@
       "sourcePaths": [
         "app/api/dev-kit/deployments/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -460,7 +460,7 @@
       "sourcePaths": [
         "app/api/dev-kit/design-system/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -482,7 +482,7 @@
       "sourcePaths": [
         "app/api/dev-kit/evals/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -504,7 +504,7 @@
       "sourcePaths": [
         "app/api/dev-kit/evals/[id]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -526,7 +526,7 @@
       "sourcePaths": [
         "app/api/dev-kit/features/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -548,7 +548,7 @@
       "sourcePaths": [
         "app/api/dev-kit/features/[name]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -570,7 +570,7 @@
       "sourcePaths": [
         "app/api/dev-kit/index/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -592,7 +592,7 @@
       "sourcePaths": [
         "app/api/dev-kit/logs/unified/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -614,7 +614,7 @@
       "sourcePaths": [
         "app/api/dev-kit/overview/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -636,7 +636,7 @@
       "sourcePaths": [
         "app/api/dev-kit/registries/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -658,7 +658,7 @@
       "sourcePaths": [
         "app/api/dev-kit/regressions/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -680,7 +680,7 @@
       "sourcePaths": [
         "app/api/dev-kit/runs/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.321Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -702,7 +702,7 @@
       "sourcePaths": [
         "app/api/dev-kit/runs/[run_id]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -724,7 +724,7 @@
       "sourcePaths": [
         "app/api/dev-kit/sessions/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -746,7 +746,7 @@
       "sourcePaths": [
         "app/api/dev-kit/sessions/[id]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -768,7 +768,7 @@
       "sourcePaths": [
         "app/api/dev-kit/status/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -790,7 +790,7 @@
       "sourcePaths": [
         "app/api/dev-kit/tools/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -812,7 +812,7 @@
       "sourcePaths": [
         "app/api/embeddings/backfill/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -834,7 +834,7 @@
       "sourcePaths": [
         "app/api/health/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -856,7 +856,7 @@
       "sourcePaths": [
         "app/api/mcp/[transport]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -878,7 +878,7 @@
       "sourcePaths": [
         "app/api/meetings/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -900,7 +900,7 @@
       "sourcePaths": [
         "app/api/meetings/[id]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -922,7 +922,7 @@
       "sourcePaths": [
         "app/api/meetings/[id]/export/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -944,7 +944,7 @@
       "sourcePaths": [
         "app/api/meetings/[id]/notes-package/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -966,7 +966,7 @@
       "sourcePaths": [
         "app/api/models/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -988,7 +988,7 @@
       "sourcePaths": [
         "app/api/oauth/authorize/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.155Z",
       "lastObservedAt": null
     },
     {
@@ -1010,7 +1010,7 @@
       "sourcePaths": [
         "app/api/oauth/callback/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1032,7 +1032,7 @@
       "sourcePaths": [
         "app/api/oauth/consent/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1054,7 +1054,7 @@
       "sourcePaths": [
         "app/api/oauth/revoke/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1076,7 +1076,7 @@
       "sourcePaths": [
         "app/api/oauth/token/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1098,7 +1098,7 @@
       "sourcePaths": [
         "app/api/observability/health/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1120,7 +1120,7 @@
       "sourcePaths": [
         "app/api/search/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1142,7 +1142,7 @@
       "sourcePaths": [
         "app/api/settings/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1164,7 +1164,7 @@
       "sourcePaths": [
         "app/api/stripe/checkout/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1186,7 +1186,7 @@
       "sourcePaths": [
         "app/api/stripe/webhook/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1208,7 +1208,7 @@
       "sourcePaths": [
         "app/api/transcribe/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1230,7 +1230,7 @@
       "sourcePaths": [
         "app/api/transcribe/[id]/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1252,7 +1252,7 @@
       "sourcePaths": [
         "app/api/transcribe/stream/autosave/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1274,7 +1274,7 @@
       "sourcePaths": [
         "app/api/transcribe/stream/finalize/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1296,7 +1296,7 @@
       "sourcePaths": [
         "app/api/transcribe/stream/preflight/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1318,7 +1318,7 @@
       "sourcePaths": [
         "app/api/transcribe/stream/token/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1340,7 +1340,7 @@
       "sourcePaths": [
         "app/api/webhooks/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1362,7 +1362,7 @@
       "sourcePaths": [
         "app/api/webhooks/deliveries/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1384,7 +1384,7 @@
       "sourcePaths": [
         "components/agent-builder.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1406,7 +1406,7 @@
       "sourcePaths": [
         "components/ai-debug-panel.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1428,7 +1428,7 @@
       "sourcePaths": [
         "components/audio-lines.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1450,7 +1450,7 @@
       "sourcePaths": [
         "components/audio-recorder.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1472,7 +1472,7 @@
       "sourcePaths": [
         "components/audio-wave-ribbon.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1494,7 +1494,7 @@
       "sourcePaths": [
         "components/ui/button.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1516,7 +1516,7 @@
       "sourcePaths": [
         "components/chat-input.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1538,7 +1538,7 @@
       "sourcePaths": [
         "components/chat-message.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1560,7 +1560,7 @@
       "sourcePaths": [
         "components/intake-form-view.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1582,7 +1582,7 @@
       "sourcePaths": [
         "components/integrations-settings-panel.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1604,7 +1604,7 @@
       "sourcePaths": [
         "components/ui/liquid-glass-button.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1626,7 +1626,7 @@
       "sourcePaths": [
         "components/live-recorder.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1648,7 +1648,7 @@
       "sourcePaths": [
         "components/live-transcript-view.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1670,7 +1670,7 @@
       "sourcePaths": [
         "components/meeting-chat.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1692,7 +1692,7 @@
       "sourcePaths": [
         "components/meeting-cost-panel.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1714,7 +1714,7 @@
       "sourcePaths": [
         "components/meeting-detail-poller.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1736,7 +1736,7 @@
       "sourcePaths": [
         "components/meeting-intelligence-panel.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1758,7 +1758,7 @@
       "sourcePaths": [
         "components/meeting-notes-push-panel.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1780,7 +1780,7 @@
       "sourcePaths": [
         "components/meeting-search.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1802,7 +1802,7 @@
       "sourcePaths": [
         "components/mobile-primary-nav.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1824,7 +1824,7 @@
       "sourcePaths": [
         "components/recording-reminder.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1846,7 +1846,7 @@
       "sourcePaths": [
         "components/session-workspace.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1868,7 +1868,7 @@
       "sourcePaths": [
         "components/slide-menu.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1890,7 +1890,7 @@
       "sourcePaths": [
         "components/theme-toggle.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1912,7 +1912,7 @@
       "sourcePaths": [
         "components/tool-card.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1934,7 +1934,7 @@
       "sourcePaths": [
         "components/top-bar.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1956,7 +1956,7 @@
       "sourcePaths": [
         "components/transcript-view.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
       "lastObservedAt": null
     },
     {
@@ -1978,7 +1978,31 @@
       "sourcePaths": [
         "components/ui/web-gl-shader.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.322Z",
+      "updatedAt": "2026-04-30T23:00:00.156Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:account-deletion",
+      "path": "app/account-deletion/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/account-deletion/page.tsx"
+      ],
+      "updatedAt": "2026-04-30T23:00:00.157Z",
       "lastObservedAt": null
     },
     {
@@ -2002,7 +2026,7 @@
       "sourcePaths": [
         "app/admin/pricing/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.323Z",
+      "updatedAt": "2026-04-30T23:00:00.158Z",
       "lastObservedAt": null
     },
     {
@@ -2026,7 +2050,7 @@
       "sourcePaths": [
         "app/agent-builder/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.324Z",
+      "updatedAt": "2026-04-30T23:00:00.159Z",
       "lastObservedAt": null
     },
     {
@@ -2050,7 +2074,7 @@
       "sourcePaths": [
         "app/ai-starter/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.324Z",
+      "updatedAt": "2026-04-30T23:00:00.160Z",
       "lastObservedAt": null
     },
     {
@@ -2074,7 +2098,7 @@
       "sourcePaths": [
         "app/ask/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.325Z",
+      "updatedAt": "2026-04-30T23:00:00.160Z",
       "lastObservedAt": null
     },
     {
@@ -2098,7 +2122,7 @@
       "sourcePaths": [
         "app/auth/callback/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.326Z",
+      "updatedAt": "2026-04-30T23:00:00.161Z",
       "lastObservedAt": null
     },
     {
@@ -2122,7 +2146,7 @@
       "sourcePaths": [
         "app/auth/confirm/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.326Z",
+      "updatedAt": "2026-04-30T23:00:00.162Z",
       "lastObservedAt": null
     },
     {
@@ -2146,7 +2170,7 @@
       "sourcePaths": [
         "app/auth/sign-out/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.327Z",
+      "updatedAt": "2026-04-30T23:00:00.163Z",
       "lastObservedAt": null
     },
     {
@@ -2170,7 +2194,7 @@
       "sourcePaths": [
         "app/chat/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.328Z",
+      "updatedAt": "2026-04-30T23:00:00.164Z",
       "lastObservedAt": null
     },
     {
@@ -2194,7 +2218,7 @@
       "sourcePaths": [
         "app/control-plane/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.329Z",
+      "updatedAt": "2026-04-30T23:00:00.165Z",
       "lastObservedAt": null
     },
     {
@@ -2218,7 +2242,7 @@
       "sourcePaths": [
         "app/dev-kit/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.329Z",
+      "updatedAt": "2026-04-30T23:00:00.166Z",
       "lastObservedAt": null
     },
     {
@@ -2242,7 +2266,7 @@
       "sourcePaths": [
         "app/dev-kit/config/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.330Z",
+      "updatedAt": "2026-04-30T23:00:00.167Z",
       "lastObservedAt": null
     },
     {
@@ -2266,7 +2290,7 @@
       "sourcePaths": [
         "app/dev-kit/connectors/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.331Z",
+      "updatedAt": "2026-04-30T23:00:00.168Z",
       "lastObservedAt": null
     },
     {
@@ -2290,7 +2314,7 @@
       "sourcePaths": [
         "app/dev-kit/cost/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.332Z",
+      "updatedAt": "2026-04-30T23:00:00.169Z",
       "lastObservedAt": null
     },
     {
@@ -2314,7 +2338,7 @@
       "sourcePaths": [
         "app/dev-kit/coverage/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.333Z",
+      "updatedAt": "2026-04-30T23:00:00.170Z",
       "lastObservedAt": null
     },
     {
@@ -2338,7 +2362,7 @@
       "sourcePaths": [
         "app/dev-kit/dependencies/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.335Z",
+      "updatedAt": "2026-04-30T23:00:00.171Z",
       "lastObservedAt": null
     },
     {
@@ -2362,7 +2386,7 @@
       "sourcePaths": [
         "app/dev-kit/deployments/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.336Z",
+      "updatedAt": "2026-04-30T23:00:00.172Z",
       "lastObservedAt": null
     },
     {
@@ -2386,7 +2410,7 @@
       "sourcePaths": [
         "app/dev-kit/design-system/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.337Z",
+      "updatedAt": "2026-04-30T23:00:00.173Z",
       "lastObservedAt": null
     },
     {
@@ -2410,7 +2434,7 @@
       "sourcePaths": [
         "app/dev-kit/evals/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.338Z",
+      "updatedAt": "2026-04-30T23:00:00.174Z",
       "lastObservedAt": null
     },
     {
@@ -2434,7 +2458,7 @@
       "sourcePaths": [
         "app/dev-kit/evals/[id]/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.339Z",
+      "updatedAt": "2026-04-30T23:00:00.176Z",
       "lastObservedAt": null
     },
     {
@@ -2458,7 +2482,7 @@
       "sourcePaths": [
         "app/dev-kit/features/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.340Z",
+      "updatedAt": "2026-04-30T23:00:00.177Z",
       "lastObservedAt": null
     },
     {
@@ -2482,7 +2506,7 @@
       "sourcePaths": [
         "app/dev-kit/features/[name]/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.341Z",
+      "updatedAt": "2026-04-30T23:00:00.178Z",
       "lastObservedAt": null
     },
     {
@@ -2506,7 +2530,7 @@
       "sourcePaths": [
         "app/dev-kit/index/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.342Z",
+      "updatedAt": "2026-04-30T23:00:00.179Z",
       "lastObservedAt": null
     },
     {
@@ -2530,7 +2554,7 @@
       "sourcePaths": [
         "app/dev-kit/registries/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.343Z",
+      "updatedAt": "2026-04-30T23:00:00.180Z",
       "lastObservedAt": null
     },
     {
@@ -2554,7 +2578,7 @@
       "sourcePaths": [
         "app/dev-kit/regressions/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.344Z",
+      "updatedAt": "2026-04-30T23:00:00.181Z",
       "lastObservedAt": null
     },
     {
@@ -2578,7 +2602,7 @@
       "sourcePaths": [
         "app/dev-kit/runs/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.345Z",
+      "updatedAt": "2026-04-30T23:00:00.182Z",
       "lastObservedAt": null
     },
     {
@@ -2602,7 +2626,7 @@
       "sourcePaths": [
         "app/dev-kit/runs/[run_id]/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.347Z",
+      "updatedAt": "2026-04-30T23:00:00.184Z",
       "lastObservedAt": null
     },
     {
@@ -2626,7 +2650,7 @@
       "sourcePaths": [
         "app/dev-kit/sessions/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.348Z",
+      "updatedAt": "2026-04-30T23:00:00.185Z",
       "lastObservedAt": null
     },
     {
@@ -2650,7 +2674,7 @@
       "sourcePaths": [
         "app/dev-kit/sessions/[id]/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.349Z",
+      "updatedAt": "2026-04-30T23:00:00.186Z",
       "lastObservedAt": null
     },
     {
@@ -2674,7 +2698,7 @@
       "sourcePaths": [
         "app/dev-kit/status/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.350Z",
+      "updatedAt": "2026-04-30T23:00:00.187Z",
       "lastObservedAt": null
     },
     {
@@ -2698,7 +2722,7 @@
       "sourcePaths": [
         "app/dev-kit/tools/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.351Z",
+      "updatedAt": "2026-04-30T23:00:00.188Z",
       "lastObservedAt": null
     },
     {
@@ -2722,7 +2746,7 @@
       "sourcePaths": [
         "app/docs/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.351Z",
+      "updatedAt": "2026-04-30T23:00:00.189Z",
       "lastObservedAt": null
     },
     {
@@ -2746,7 +2770,7 @@
       "sourcePaths": [
         "app/download/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.352Z",
+      "updatedAt": "2026-04-30T23:00:00.189Z",
       "lastObservedAt": null
     },
     {
@@ -2770,7 +2794,7 @@
       "sourcePaths": [
         "app/meetings/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.352Z",
+      "updatedAt": "2026-04-30T23:00:00.190Z",
       "lastObservedAt": null
     },
     {
@@ -2794,7 +2818,7 @@
       "sourcePaths": [
         "app/meetings/[id]/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.353Z",
+      "updatedAt": "2026-04-30T23:00:00.191Z",
       "lastObservedAt": null
     },
     {
@@ -2818,7 +2842,7 @@
       "sourcePaths": [
         "app/oauth/consent/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.354Z",
+      "updatedAt": "2026-04-30T23:00:00.193Z",
       "lastObservedAt": null
     },
     {
@@ -2842,7 +2866,7 @@
       "sourcePaths": [
         "app/observability/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.355Z",
+      "updatedAt": "2026-04-30T23:00:00.194Z",
       "lastObservedAt": null
     },
     {
@@ -2866,7 +2890,7 @@
       "sourcePaths": [
         "app/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.355Z",
+      "updatedAt": "2026-04-30T23:00:00.195Z",
       "lastObservedAt": null
     },
     {
@@ -2890,7 +2914,31 @@
       "sourcePaths": [
         "app/pricing/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.356Z",
+      "updatedAt": "2026-04-30T23:00:00.195Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:privacy",
+      "path": "app/privacy/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/privacy/page.tsx"
+      ],
+      "updatedAt": "2026-04-30T23:00:00.196Z",
       "lastObservedAt": null
     },
     {
@@ -2914,7 +2962,7 @@
       "sourcePaths": [
         "app/profile/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.357Z",
+      "updatedAt": "2026-04-30T23:00:00.196Z",
       "lastObservedAt": null
     },
     {
@@ -2938,7 +2986,7 @@
       "sourcePaths": [
         "app/record/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.357Z",
+      "updatedAt": "2026-04-30T23:00:00.197Z",
       "lastObservedAt": null
     },
     {
@@ -2962,7 +3010,7 @@
       "sourcePaths": [
         "app/record/live/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.358Z",
+      "updatedAt": "2026-04-30T23:00:00.198Z",
       "lastObservedAt": null
     },
     {
@@ -2986,7 +3034,7 @@
       "sourcePaths": [
         "app/roadmap/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.359Z",
+      "updatedAt": "2026-04-30T23:00:00.198Z",
       "lastObservedAt": null
     },
     {
@@ -3010,7 +3058,7 @@
       "sourcePaths": [
         "app/search/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.359Z",
+      "updatedAt": "2026-04-30T23:00:00.200Z",
       "lastObservedAt": null
     },
     {
@@ -3034,7 +3082,7 @@
       "sourcePaths": [
         "app/settings/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.360Z",
+      "updatedAt": "2026-04-30T23:00:00.200Z",
       "lastObservedAt": null
     },
     {
@@ -3058,7 +3106,7 @@
       "sourcePaths": [
         "app/sign-in/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.361Z",
+      "updatedAt": "2026-04-30T23:00:00.201Z",
       "lastObservedAt": null
     },
     {
@@ -3082,7 +3130,31 @@
       "sourcePaths": [
         "app/sign-up/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.362Z",
+      "updatedAt": "2026-04-30T23:00:00.202Z",
+      "lastObservedAt": null
+    },
+    {
+      "id": "route:terms",
+      "path": "app/terms/page.tsx",
+      "kind": "route",
+      "suggested": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "satisfied": [
+        "playwright-smoke",
+        "expect-flow",
+        "screenshot",
+        "documentation"
+      ],
+      "missing": [],
+      "status": "satisfied",
+      "sourcePaths": [
+        "app/terms/page.tsx"
+      ],
+      "updatedAt": "2026-04-30T23:00:00.203Z",
       "lastObservedAt": null
     },
     {
@@ -3106,7 +3178,7 @@
       "sourcePaths": [
         "app/usage/page.tsx"
       ],
-      "updatedAt": "2026-04-30T17:13:31.362Z",
+      "updatedAt": "2026-04-30T23:00:00.203Z",
       "lastObservedAt": null
     },
     {
@@ -3130,7 +3202,7 @@
       "sourcePaths": [
         "app/.well-known/oauth-authorization-server/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.364Z",
+      "updatedAt": "2026-04-30T23:00:00.205Z",
       "lastObservedAt": null
     },
     {
@@ -3154,7 +3226,7 @@
       "sourcePaths": [
         "app/.well-known/oauth-protected-resource/route.ts"
       ],
-      "updatedAt": "2026-04-30T17:13:31.365Z",
+      "updatedAt": "2026-04-30T23:00:00.207Z",
       "lastObservedAt": null
     }
   ]

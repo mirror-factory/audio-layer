@@ -7,9 +7,8 @@ import type { SttCostDetail } from "./types";
 import { DEFAULTS } from "@/lib/settings-shared";
 import { STT_PRICING_OPTIONS } from "@/lib/billing/stt-pricing";
 
-const assemblyAiCatalogRates = Object.fromEntries(
+const sttCatalogRates = Object.fromEntries(
   STT_PRICING_OPTIONS
-    .filter((option) => option.provider === "assemblyai")
     .map((option) => [`${option.model}:${option.mode}`, option.ratePerHourUsd]),
 );
 
@@ -33,7 +32,7 @@ export const BASE_RATES_PER_HOUR: Record<string, number> = {
   "slam-1:streaming": 0.45,
   "whisper-rt:streaming": 0.30,
   "whisper-streaming:streaming": 0.30,
-  ...assemblyAiCatalogRates,
+  ...sttCatalogRates,
 };
 
 export const ADDON_PER_HOUR: Record<string, number> = {

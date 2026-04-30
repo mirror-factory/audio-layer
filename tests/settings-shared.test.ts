@@ -25,7 +25,17 @@ describe("MODEL_OPTIONS", () => {
   });
 
   it("has AssemblyAI streaming speech models that are implemented at runtime", () => {
-    expect(MODEL_OPTIONS.streamingSpeech).toHaveLength(4);
+    expect(
+      MODEL_OPTIONS.streamingSpeech.filter((option) => option.provider === "assemblyai"),
+    ).toHaveLength(4);
+  });
+
+  it("has Deepgram streaming speech models that are implemented at runtime", () => {
+    expect(
+      MODEL_OPTIONS.streamingSpeech
+        .filter((option) => option.provider === "deepgram")
+        .map((option) => option.value),
+    ).toEqual(["nova-3", "flux", "nova-3-multilingual"]);
   });
 
   it("every summary option has value, label, and price", () => {

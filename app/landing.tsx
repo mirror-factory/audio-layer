@@ -178,7 +178,7 @@ const PRICING_TIERS = [
   },
   {
     name: "Core",
-    price: "$15",
+    price: "$20",
     cadence: "per user / month",
     cta: "Start Core trial",
     href: "/pricing",
@@ -193,7 +193,7 @@ const PRICING_TIERS = [
   },
   {
     name: "Pro",
-    price: "$25",
+    price: "$30",
     cadence: "per user / month",
     cta: "Start Pro trial",
     href: "/pricing",
@@ -665,6 +665,9 @@ export function LandingPage() {
           <Link href="/download">Download</Link>
           <Link href="/pricing">Pricing</Link>
           <Link href="/docs">Docs</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+          <Link href="/account-deletion">Delete account</Link>
           <Link href="/sign-in">Sign in</Link>
           <Link href="/sign-up">Start free</Link>
         </nav>

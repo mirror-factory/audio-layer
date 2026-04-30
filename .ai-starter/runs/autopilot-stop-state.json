@@ -1,10 +1,10 @@
 {
-  "planId": "2026-04-30T13-52-45-473Z-create-launch-checklist-and-agen",
-  "actionKey": "2026-04-30T13-52-45-473Z-create-launch-checklist-and-agen:pending-companions:pnpm companions",
+  "planId": "2026-04-30T15-26-11-478Z-create-launch-checklist-and-agen",
+  "actionKey": "2026-04-30T15-26-11-478Z-create-launch-checklist-and-agen:pending-companions:pnpm companions",
   "reason": "pending-companions",
   "command": "pnpm companions",
   "count": 1,
   "maxIterations": 5,
-  "telemetryLineCount": 4516,
-  "stopHookActive": false
+  "telemetryLineCount": 5885,
+  "stopHookActive": true
 }

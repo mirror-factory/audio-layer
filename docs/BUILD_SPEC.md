@@ -17,7 +17,7 @@ Layers captures conversations passively (no meeting bot) and uses AI to extract 
 | **AssemblyAI** | Speech-to-text (batch + real-time streaming with speaker diarization) | `assemblyai` npm package, direct API (NOT through AI Gateway) |
 | **Vercel AI Gateway** | LLM routing to Claude/GPT/Gemini via single API key, `generateObject` with Zod schemas | `ai` (Vercel AI SDK v6), `@ai-sdk/gateway` |
 | **Supabase** | PostgreSQL database with RLS, anonymous + email + Google OAuth auth | `@supabase/supabase-js`, `@supabase/ssr` |
-| **Stripe** | Billing: Free (25 meetings) / Core ($15/mo) / Pro ($25/mo) | `stripe` npm package |
+| **Stripe** | Billing: Free (25 meetings) / Core ($20/mo) / Pro ($30/mo) | `stripe` npm package |
 | **Resend** | Transactional email: magic links, OTP codes, welcome, meeting notifications | `resend` npm package |
 
 ### Tech Stack
@@ -972,8 +972,8 @@ const config: CapacitorConfig = {
 |---|---|---|
 | `STRIPE_SECRET_KEY` | stripe.com -> Developers -> API keys (TEST MODE) | /api/stripe/checkout returns 503 |
 | `STRIPE_WEBHOOK_SECRET` | `stripe listen --forward-to localhost:3000/api/stripe/webhook` (local); Webhooks -> add endpoint (prod) | Webhook rejects every event |
-| `STRIPE_PRICE_CORE` | Products -> create "Core" $15/mo recurring -> copy price_... id | Core subscribe button returns 503 |
-| `STRIPE_PRICE_PRO` | Products -> create "Pro" $25/mo recurring -> copy price_... id | Pro subscribe button returns 503 |
+| `STRIPE_PRICE_CORE` | Products -> create "Core" $20/mo recurring -> copy price_... id | Core subscribe button returns 503 |
+| `STRIPE_PRICE_PRO` | Products -> create "Pro" $30/mo recurring -> copy price_... id | Pro subscribe button returns 503 |
 
 ### Tier 4 -- Observability
 
@@ -1493,8 +1493,8 @@ audio-layer/
 | Tier | Price | Stripe Price ID Env Var | Meetings | Features |
 |---|---|---|---|---|
 | Free | $0 | -- | 25 lifetime | Core pipeline |
-| Core | $15/mo | `STRIPE_PRICE_CORE` | Unlimited | Full features |
-| Pro | $25/mo | `STRIPE_PRICE_PRO` | Unlimited | Priority + future features |
+| Core | $20/mo | `STRIPE_PRICE_CORE` | Unlimited | Full features |
+| Pro | $30/mo | `STRIPE_PRICE_PRO` | Unlimited | Priority + future features |
 
 ## Appendix C: Email Templates
 

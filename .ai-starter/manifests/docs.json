@@ -13,7 +13,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-30T17:13:26.534Z"
+    "lastCheckedAt": "2026-04-30T22:59:54.853Z"
   },
   {
     "id": "docs-apis-api-ai-logs-errors-md",
@@ -984,7 +984,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-27T14:23:28.788Z"
+    "lastCheckedAt": "2026-04-30T22:31:32.647Z"
   },
   {
     "id": "docs-apis-app-api-search-route-md",
@@ -1289,7 +1289,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-29T23:38:12.654Z"
+    "lastCheckedAt": "2026-04-30T22:30:04.137Z"
   },
   {
     "id": "docs-calendar-integration-md",
@@ -1446,6 +1446,24 @@
       "lib/"
     ],
     "lastCheckedAt": "2026-04-27T21:18:05.121Z"
+  },
+  {
+    "id": "docs-features-app-account-deletion-page-md",
+    "title": "app-account-deletion-page",
+    "localPath": "docs/features/app-account-deletion-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-account-deletion-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T22:32:23.932Z"
   },
   {
     "id": "docs-features-app-admin-pricing-page-md",
@@ -2131,6 +2149,24 @@
     "lastCheckedAt": "2026-04-27T14:23:28.812Z"
   },
   {
+    "id": "docs-features-app-privacy-page-md",
+    "title": "app-privacy-page",
+    "localPath": "docs/features/app-privacy-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-privacy-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T22:32:23.932Z"
+  },
+  {
     "id": "docs-features-app-profile-page-md",
     "title": "app-profile-page",
     "localPath": "docs/features/app-profile-page.md",
@@ -2273,6 +2309,24 @@
       "lib/"
     ],
     "lastCheckedAt": "2026-04-27T14:23:28.816Z"
+  },
+  {
+    "id": "docs-features-app-terms-page-md",
+    "title": "app-terms-page",
+    "localPath": "docs/features/app-terms-page.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "features",
+      "app-terms-page.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T22:32:23.933Z"
   },
   {
     "id": "docs-features-app-usage-page-md",
@@ -2449,7 +2503,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-30T14:12:59.107Z"
+    "lastCheckedAt": "2026-04-30T22:59:09.012Z"
   },
   {
     "id": "docs-mcp-and-api-md",
@@ -2487,6 +2541,23 @@
     "lastCheckedAt": "2026-04-29T23:36:18.539Z"
   },
   {
+    "id": "docs-native-release-readiness-md",
+    "title": "NATIVE_RELEASE_READINESS",
+    "localPath": "docs/NATIVE_RELEASE_READINESS.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "NATIVE_RELEASE_READINESS.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T22:32:53.533Z"
+  },
+  {
     "id": "docs-notes-push-workflow-md",
     "title": "NOTES_PUSH_WORKFLOW",
     "localPath": "docs/NOTES_PUSH_WORKFLOW.md",
@@ -2502,6 +2573,23 @@
       "lib/"
     ],
     "lastCheckedAt": "2026-04-29T23:33:41.052Z"
+  },
+  {
+    "id": "docs-post-launch-monitoring-md",
+    "title": "POST_LAUNCH_MONITORING",
+    "localPath": "docs/POST_LAUNCH_MONITORING.md",
+    "sourceUrl": null,
+    "priority": "warm",
+    "tags": [
+      "docs",
+      "POST_LAUNCH_MONITORING.md"
+    ],
+    "triggerPaths": [
+      "app/",
+      "components/",
+      "lib/"
+    ],
+    "lastCheckedAt": "2026-04-30T22:30:42.890Z"
   },
   {
     "id": "docs-pricing-admin-md",
@@ -2535,7 +2623,7 @@
       "components/",
       "lib/"
     ],
-    "lastCheckedAt": "2026-04-30T13:07:20.103Z"
+    "lastCheckedAt": "2026-04-30T22:29:55.338Z"
   },
   {
     "id": "docs-recording-reliability-md",
@@ -2740,7 +2828,7 @@
     "triggerPaths": [
       "AGENTS.md"
     ],
-    "lastCheckedAt": "2026-04-30T17:13:30.223Z"
+    "lastCheckedAt": "2026-04-30T22:59:58.963Z"
   },
   {
     "id": "openai-codex-hooks",
@@ -2758,7 +2846,7 @@
       ".codex/config.toml",
       ".codex/hooks/"
     ],
-    "lastCheckedAt": "2026-04-30T17:13:30.223Z"
+    "lastCheckedAt": "2026-04-30T22:59:58.963Z"
   },
   {
     "id": "openai-docs-mcp",
@@ -2775,7 +2863,7 @@
       ".codex/config.toml",
       "AGENTS.md"
     ],
-    "lastCheckedAt": "2026-04-30T17:13:30.223Z"
+    "lastCheckedAt": "2026-04-30T22:59:58.963Z"
   },
   {
     "id": "readme-md",

@@ -16,14 +16,15 @@
  *   pnpm exec playwright test --project mobile-dark            # one project
  *   VISUAL_UPDATE=1 pnpm exec playwright test tests/visual     # update baselines
  *   TEST_BASE_URL=http://localhost:3999 pnpm exec playwright test
+ *   PLAYWRIGHT_REUSE_EXISTING_SERVER=1 pnpm test:smoke   # opt in only
  */
 
 import { defineConfig, devices } from '@playwright/test';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const baseURL = process.env.TEST_BASE_URL || process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3001';
-const devServerPort = new URL(baseURL).port || '3001';
+const baseURL = process.env.TEST_BASE_URL || process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3101';
+const devServerPort = new URL(baseURL).port || '3101';
 const systemChromeFallback = process.env.PLAYWRIGHT_USE_SYSTEM_CHROME === '1'
   ? { browserName: 'chromium' as const, channel: 'chrome' as const }
   : {};
@@ -106,7 +107,7 @@ export default defineConfig({
   webServer: process.env.TEST_BASE_URL ? undefined : {
     command: `pnpm exec next dev --turbopack -p ${devServerPort}`,
     url: baseURL,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: process.env.PLAYWRIGHT_REUSE_EXISTING_SERVER === '1',
     timeout: 120_000,
   },
 });

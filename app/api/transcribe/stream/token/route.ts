@@ -4,10 +4,26 @@ export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { withRoute } from "@/lib/with-route";
 import { withExternalCall } from "@/lib/with-external";
-import { getAssemblyAI, getStreamingSpeechModel } from "@/lib/assemblyai/client";
+import { getAssemblyAI } from "@/lib/assemblyai/client";
 import { checkQuota } from "@/lib/billing/quota";
+import {
+  buildDeepgramListenUrl,
+  getDeepgramStreamingConfig,
+} from "@/lib/deepgram/options";
+import {
+  createDeepgramStreamingToken,
+  getDeepgramClient,
+} from "@/lib/deepgram/client";
 import { getMeetingsStore } from "@/lib/meetings/store";
 import { cleanRecordingTitle } from "@/lib/recording/meeting-context";
+import {
+  providerEnvVarName,
+  resolveRuntimeStreamingOption,
+  runtimeProviderForOption,
+} from "@/lib/recording/transcription-provider";
+import { getSettings } from "@/lib/settings";
+
+const STREAMING_TOKEN_TTL_SECONDS = 600;
 
 async function readOptionalJson(req: Request): Promise<unknown> {
   try {
@@ -15,6 +31,34 @@ async function readOptionalJson(req: Request): Promise<unknown> {
   } catch {
     return {};
   }
+}
+
+function missingProviderResponse(provider: "assemblyai" | "deepgram") {
+  const envVar = providerEnvVarName(provider);
+  const label = provider === "deepgram" ? "Deepgram" : "AssemblyAI";
+  return NextResponse.json(
+    {
+      error: `${envVar} is required for ${label} streaming transcription`,
+      code: "missing_stt_api_key",
+      provider,
+      envVar,
+    },
+    { status: 502 },
+  );
+}
+
+function buildAssemblyAiListenUrl(opts: {
+  token: string;
+  sampleRate: number;
+  speechModel: string;
+}): string {
+  const url = new URL("wss://streaming.assemblyai.com/v3/ws");
+  url.searchParams.set("sample_rate", String(opts.sampleRate));
+  url.searchParams.set("token", opts.token);
+  url.searchParams.set("speech_model", opts.speechModel);
+  url.searchParams.set("speaker_labels", "true");
+  url.searchParams.set("format_turns", "true");
+  return url.toString();
 }
 
 export const POST = withRoute(async (req, ctx) => {
@@ -41,11 +85,31 @@ export const POST = withRoute(async (req, ctx) => {
     );
   }
 
-  const client = getAssemblyAI();
-  if (!client) {
+  const settings = await getSettings();
+  const speechOption = resolveRuntimeStreamingOption(settings);
+  const provider = runtimeProviderForOption(speechOption);
+  const speechModel = speechOption.model;
+  const sampleRate = 16000;
+
+  const assemblyAiClient = provider === "assemblyai" ? getAssemblyAI() : null;
+  if (provider === "assemblyai" && !assemblyAiClient) {
+    return missingProviderResponse(provider);
+  }
+
+  if (provider === "deepgram" && !getDeepgramClient()) {
+    return missingProviderResponse(provider);
+  }
+
+  const deepgramConfig =
+    provider === "deepgram" ? getDeepgramStreamingConfig(speechModel) : null;
+  if (provider === "deepgram" && !deepgramConfig) {
     return NextResponse.json(
-      { error: "AssemblyAI is not configured" },
-      { status: 502 },
+      {
+        error: `Deepgram streaming model "${speechModel}" is not implemented`,
+        code: "unsupported_stt_model",
+        provider,
+      },
+      { status: 400 },
     );
   }
 
@@ -66,14 +130,51 @@ export const POST = withRoute(async (req, ctx) => {
     );
   }
 
-  let token: string;
+  if (provider === "assemblyai") {
+    let token: string;
+    try {
+      token = await withExternalCall(
+        {
+          vendor: "assemblyai",
+          operation: "streaming.createTemporaryToken",
+          requestId: ctx.requestId,
+        },
+        () =>
+          assemblyAiClient!.streaming.createTemporaryToken({
+            expires_in_seconds: STREAMING_TOKEN_TTL_SECONDS,
+          }),
+      );
+    } catch {
+      await store.update(meetingId, {
+        status: "error",
+        error: "Unable to create streaming token",
+      }).catch(() => null);
+      return NextResponse.json(
+        { error: "Unable to create streaming token" },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({
+      provider,
+      token,
+      meetingId,
+      expiresAt: Date.now() + STREAMING_TOKEN_TTL_SECONDS * 1000,
+      sampleRate,
+      speechModel,
+      wsUrl: buildAssemblyAiListenUrl({ token, sampleRate, speechModel }),
+    });
+  }
+
+  let deepgramToken: { token: string; expiresAt: number };
   try {
-    token = await withExternalCall(
-      { vendor: "assemblyai", operation: "streaming.createTemporaryToken", requestId: ctx.requestId },
-      () =>
-        client.streaming.createTemporaryToken({
-          expires_in_seconds: 600, // 10 min
-        }),
+    deepgramToken = await withExternalCall(
+      {
+        vendor: "deepgram",
+        operation: "auth.tokens.grant",
+        requestId: ctx.requestId,
+      },
+      () => createDeepgramStreamingToken(STREAMING_TOKEN_TTL_SECONDS),
     );
   } catch {
     await store.update(meetingId, {
@@ -86,14 +187,15 @@ export const POST = withRoute(async (req, ctx) => {
     );
   }
 
-  // Read streaming speech model from settings
-  const speechModel = await getStreamingSpeechModel();
-
   return NextResponse.json({
-    token: token,
+    provider,
+    token: deepgramToken.token,
     meetingId,
-    expiresAt: Date.now() + 600_000,
-    sampleRate: 16000,
+    expiresAt: deepgramToken.expiresAt,
+    sampleRate: deepgramConfig!.sampleRate,
     speechModel,
+    listenVersion: deepgramConfig!.listenVersion,
+    wsUrl: buildDeepgramListenUrl(deepgramConfig!),
+    protocols: ["token", deepgramToken.token],
   });
 });

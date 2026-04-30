@@ -1,9 +1,9 @@
 {
-  "id": "ai-starter-evidence-2026-04-28t17-30-07-434z",
-  "createdAt": "2026-04-28T17:30:09.997Z",
-  "archivePath": "/Users/alfonso/Documents/GitHub/audio-layer/.ai-starter/exports/ai-starter-evidence-2026-04-28t17-30-07-434z.tgz",
+  "id": "ai-starter-evidence-2026-04-30t22-57-19-429z",
+  "createdAt": "2026-04-30T22:57:23.598Z",
+  "archivePath": "/Users/alfonso/Documents/GitHub/audio-layer/.ai-starter/exports/ai-starter-evidence-2026-04-30t22-57-19-429z.tgz",
   "downloadPath": "/api/control-plane/evidence-export",
-  "bytes": 70123669,
+  "bytes": 110755982,
   "included": [
     ".ai-starter",
     ".evidence",

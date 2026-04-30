@@ -95,11 +95,11 @@ export default function DocsPage() {
                 <span className="text-[var(--text-primary)]">25 meetings lifetime</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-[var(--text-secondary)]">Core ($15/mo)</span>
+                <span className="text-[var(--text-secondary)]">Core ($20/mo)</span>
                 <span className="text-[var(--text-primary)]">Unlimited meetings</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-[var(--text-secondary)]">Pro ($25/mo)</span>
+                <span className="text-[var(--text-secondary)]">Pro ($30/mo)</span>
                 <span className="text-[var(--text-primary)]">
                   Unlimited + priority features
                 </span>

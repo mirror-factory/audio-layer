@@ -21,6 +21,7 @@ import {
   Square,
 } from "lucide-react";
 import { isElectron } from "@/lib/electron/bridge";
+import { parseDeepgramLiveResultEvent } from "@/lib/deepgram/live-results";
 import {
   clearLocalRecordingDraft,
   saveLocalRecordingDraft,
@@ -44,11 +45,15 @@ import type {
 } from "@/lib/recording/preflight";
 
 interface StreamToken {
+  provider?: "assemblyai" | "deepgram";
   token: string;
   meetingId: string;
   expiresAt: number;
   sampleRate: number;
   speechModel: string;
+  wsUrl?: string;
+  protocols?: string[];
+  listenVersion?: "v1" | "v2";
 }
 
 interface Turn {
@@ -59,6 +64,11 @@ interface Turn {
   confidence: number;
   final: boolean;
 }
+
+type ParsedProviderMessage =
+  | { kind: "final"; turn: Turn }
+  | { kind: "partial"; text: string }
+  | { kind: "ignore" };
 
 interface LiveRecorderProps {
   onTranscriptUpdate: (turns: Turn[], partial: string) => void;
@@ -216,6 +226,78 @@ function readinessIcon(id: string): LucideIcon {
     default:
       return CheckCircle2;
   }
+}
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+  return typeof value === "object" && value !== null
+    ? (value as Record<string, unknown>)
+    : null;
+}
+
+function asString(value: unknown): string | null {
+  return typeof value === "string" ? value : null;
+}
+
+function asNumber(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
+function buildLegacyAssemblyAiWsUrl(token: StreamToken): string {
+  const url = new URL("wss://streaming.assemblyai.com/v3/ws");
+  url.searchParams.set("sample_rate", String(token.sampleRate));
+  url.searchParams.set("token", token.token);
+  url.searchParams.set("speech_model", token.speechModel);
+  url.searchParams.set("speaker_labels", "true");
+  url.searchParams.set("format_turns", "true");
+  return url.toString();
+}
+
+function createStreamingWebSocket(token: StreamToken): WebSocket {
+  const wsUrl = token.wsUrl ?? buildLegacyAssemblyAiWsUrl(token);
+  return token.protocols?.length
+    ? new WebSocket(wsUrl, token.protocols)
+    : new WebSocket(wsUrl);
+}
+
+function parseAssemblyAiLiveMessage(message: unknown): ParsedProviderMessage {
+  const msg = asRecord(message);
+  if (!msg || msg.type !== "Turn") return { kind: "ignore" };
+
+  const transcript =
+    asString(msg.transcript) ?? asString(msg.utterance) ?? "";
+  if (!transcript.trim()) return { kind: "ignore" };
+
+  if (msg.end_of_turn === true) {
+    const words = Array.isArray(msg.words)
+      ? msg.words.map(asRecord).filter(Boolean)
+      : [];
+    const firstWord = words[0] ?? null;
+    const lastWord = words.at(-1) ?? null;
+
+    return {
+      kind: "final",
+      turn: {
+        speaker: asString(msg.speaker),
+        text: transcript,
+        start: asNumber(firstWord?.start) ?? 0,
+        end: asNumber(lastWord?.end) ?? 0,
+        confidence: asNumber(firstWord?.confidence) ?? 0,
+        final: true,
+      },
+    };
+  }
+
+  return { kind: "partial", text: transcript };
+}
+
+function parseProviderLiveMessage(
+  provider: StreamToken["provider"],
+  message: unknown,
+): ParsedProviderMessage {
+  if (provider === "deepgram") {
+    return parseDeepgramLiveResultEvent(message);
+  }
+  return parseAssemblyAiLiveMessage(message);
 }
 
 export const LiveRecorder = forwardRef<LiveRecorderHandle, LiveRecorderProps>(
@@ -406,6 +488,36 @@ function LiveRecorder(
     [onTranscriptUpdate, persistLocalDraft, showCommandStatus],
   );
 
+  const handleProviderSocketMessage = useCallback(
+    (data: unknown) => {
+      if (typeof data !== "string") return;
+
+      let message: unknown;
+      try {
+        message = JSON.parse(data);
+      } catch {
+        return;
+      }
+
+      const parsed = parseProviderLiveMessage(
+        tokenRef.current?.provider ?? "assemblyai",
+        message,
+      );
+
+      if (parsed.kind === "final") {
+        handleFinalTurn(parsed.turn);
+        return;
+      }
+
+      if (parsed.kind === "partial") {
+        partialRef.current = parsed.text;
+        setConnectionStatus(parsed.text ? "transcribing" : "listening");
+        onTranscriptUpdate(turnsRef.current, partialRef.current);
+      }
+    },
+    [handleFinalTurn, onTranscriptUpdate],
+  );
+
   const refreshPreflight = useCallback(async (signal?: AbortSignal) => {
     setPreflightLoading(true);
     try {
@@ -558,8 +670,7 @@ function LiveRecorder(
     setConnectionStatus("reconnecting");
     reconnectAttemptsRef.current++;
 
-    const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}&speech_model=${token.speechModel}&speaker_labels=true&format_turns=true`;
-    const ws = new WebSocket(wsUrl);
+    const ws = createStreamingWebSocket(token);
     wsRef.current = ws;
 
     let receivedMessage = false;
@@ -581,31 +692,7 @@ function LiveRecorder(
 
     ws.onmessage = (event) => {
       receivedMessage = true;
-      try {
-        const msg = JSON.parse(event.data);
-        if (msg.type === "Turn") {
-          const transcript = msg.transcript ?? msg.utterance ?? "";
-          if (msg.end_of_turn) {
-            const firstWord = msg.words?.[0];
-            const lastWord = msg.words?.[msg.words.length - 1];
-            const turn: Turn = {
-              speaker: msg.speaker ?? null,
-              text: transcript,
-              start: firstWord?.start ?? 0,
-              end: lastWord?.end ?? 0,
-              confidence: firstWord?.confidence ?? 0,
-              final: true,
-            };
-            handleFinalTurn(turn);
-          } else {
-            partialRef.current = transcript;
-            setConnectionStatus(transcript ? "transcribing" : "listening");
-            onTranscriptUpdate(turnsRef.current, partialRef.current);
-          }
-        }
-      } catch {
-        // ignore
-      }
+      handleProviderSocketMessage(event.data);
     };
 
     ws.onerror = () => {
@@ -627,7 +714,7 @@ function LiveRecorder(
         }
       };
     }
-  }, [onTranscriptUpdate, autoFinalize, handleFinalTurn]);
+  }, [autoFinalize, handleProviderSocketMessage]);
 
   const start = useCallback(async () => {
     try {
@@ -742,9 +829,8 @@ function LiveRecorder(
       }
       silentGain.connect(audioCtx.destination);
 
-      // 4. Connect WebSocket to AssemblyAI
-      const wsUrl = `wss://streaming.assemblyai.com/v3/ws?sample_rate=${token.sampleRate}&token=${token.token}&speech_model=${token.speechModel}&speaker_labels=true&format_turns=true`;
-      const ws = new WebSocket(wsUrl);
+      // 4. Connect WebSocket to the selected transcription provider.
+      const ws = createStreamingWebSocket(token);
       wsRef.current = ws;
 
       ws.onopen = () => {
@@ -807,35 +893,7 @@ function LiveRecorder(
       };
 
       ws.onmessage = (event) => {
-        try {
-          const msg = JSON.parse(event.data);
-
-          if (msg.type === "Turn") {
-            const transcript = msg.transcript ?? msg.utterance ?? "";
-            if (msg.end_of_turn) {
-              // Finalized turn — add to turns list
-              const firstWord = msg.words?.[0];
-              const lastWord = msg.words?.[msg.words.length - 1];
-              const turn: Turn = {
-                speaker: msg.speaker ?? null,
-                text: transcript,
-                start: firstWord?.start ?? 0,
-                end: lastWord?.end ?? 0,
-                confidence: firstWord?.confidence ?? 0,
-                final: true,
-              };
-              handleFinalTurn(turn);
-            } else {
-              // Partial turn — show as typing indicator
-              partialRef.current = transcript;
-              setConnectionStatus(transcript ? "transcribing" : "listening");
-              onTranscriptUpdate(turnsRef.current, partialRef.current);
-            }
-          }
-          // Begin, SpeechStarted — no action needed
-        } catch {
-          // ignore malformed messages
-        }
+        handleProviderSocketMessage(event.data);
       };
 
       ws.onerror = () => {
@@ -880,9 +938,8 @@ function LiveRecorder(
     cleanup,
     meetingContext,
     onAudioLevel,
-    onTranscriptUpdate,
     browserMic,
-    handleFinalTurn,
+    handleProviderSocketMessage,
     persistLocalDraft,
     preflight,
     reconnectWs,

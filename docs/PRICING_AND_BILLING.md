@@ -24,8 +24,8 @@
 |----------|-------|---------|
 | `STRIPE_SECRET_KEY` | `.env.local` + Vercel | API authentication |
 | `STRIPE_WEBHOOK_SECRET` | `.env.local` + Vercel | Webhook signature verification |
-| `STRIPE_PRICE_CORE` | `.env.local` + Vercel | Price ID for Core tier ($15/mo) |
-| `STRIPE_PRICE_PRO` | `.env.local` + Vercel | Price ID for Pro tier ($25/mo) |
+| `STRIPE_PRICE_CORE` | `.env.local` + Vercel | Price ID for Core tier ($20/mo) |
+| `STRIPE_PRICE_PRO` | `.env.local` + Vercel | Price ID for Pro tier ($30/mo) |
 
 ### How to Change Prices
 
@@ -73,8 +73,8 @@ User clicks "Subscribe" on /pricing
 | Tier | Price | Meetings | Features |
 |------|-------|----------|----------|
 | **Free** | $0 | 25 lifetime | Batch + live transcription, AI summary + intake, cost transparency |
-| **Core** | $15/month | Unlimited | 600 transcription minutes, enhanced speech-to-text, AI summaries, decisions, actions |
-| **Pro** | $25/month | Unlimited | 1,500 transcription minutes, everything in Core, advanced model routing, priority support |
+| **Core** | $20/month | Unlimited | 600 transcription minutes, enhanced speech-to-text, AI summaries, decisions, actions |
+| **Pro** | $30/month | Unlimited | 1,500 transcription minutes, everything in Core, advanced model routing, priority support |
 
 ### Quota Enforcement
 
@@ -187,19 +187,19 @@ Each completed meeting runs 2 LLM calls: `summarizeMeeting()` + `extractIntakeFo
 | Tier | Revenue/mo | Meetings/mo | Cost/mo | Gross Margin | Margin % |
 |------|-----------|-------------|---------|-------------|----------|
 | Free | $0 | 2 (avg) | $0.20 | -$0.20 | N/A |
-| Core ($15) | $15 | 20 (est) | $1.98 | **$13.02** | **87%** |
-| Core ($15) | $15 | 40 (heavy) | $3.96 | **$11.04** | **74%** |
-| Pro ($25) | $25 | 20 (est) | $1.98 | **$23.02** | **92%** |
-| Pro ($25) | $25 | 60 (heavy) | $5.94 | **$19.06** | **76%** |
+| Core ($20) | $20 | 20 (est) | $1.98 | **$18.02** | **90%** |
+| Core ($20) | $20 | 40 (heavy) | $3.96 | **$16.04** | **80%** |
+| Pro ($30) | $30 | 20 (est) | $1.98 | **$28.02** | **93%** |
+| Pro ($30) | $30 | 60 (heavy) | $5.94 | **$24.06** | **80%** |
 
 ### Break-Even Analysis
 
 | Tier | Break-even meetings/mo | Break-even minutes/mo |
 |------|----------------------|---------------------|
-| Core ($15) | 151 meetings | 4,545 minutes (76 hrs) |
-| Pro ($25) | 252 meetings | 7,575 minutes (126 hrs) |
+| Core ($20) | 202 meetings | 6,060 minutes (101 hrs) |
+| Pro ($30) | 303 meetings | 9,090 minutes (152 hrs) |
 
-A user would need to transcribe roughly 76+ hours/month on Core to become unprofitable under the base live-cost model. That's extremely heavy usage for the target customer.
+A user would need to transcribe roughly 101+ hours/month on Core to become unprofitable under the base live-cost model. That's extremely heavy usage for the target customer.
 
 ### 1,000-Customer Scenario
 
@@ -208,10 +208,10 @@ of 250 Free, 650 Core, and 100 Pro accounts, the product clears $10k MRR:
 
 | Scenario | Customers | Paid users | MRR | ARR |
 |----------|-----------|------------|-----|-----|
-| Mixed default | 1,000 | 750 | $12,250 | $147,000 |
-| All Core | 1,000 | 1,000 | $15,000 | $180,000 |
+| Mixed default | 1,000 | 750 | $16,000 | $192,000 |
+| All Core | 1,000 | 1,000 | $20,000 | $240,000 |
 
-This is why the $15 Core plan can work, but only if free usage is capped and
+This is why the $20 Core plan can work, but only if free usage is capped and
 paid usage is modeled in minutes rather than vague "unlimited" language.
 
 ### If User Picks Expensive Models
@@ -226,8 +226,8 @@ Worst case: Claude Opus 4.7 for summaries + u3-rt-pro streaming:
 
 | Tier | Revenue | 40 meetings/mo | Margin |
 |------|---------|----------------|--------|
-| Core | $15 | $11.80 | $3.20 (21%) |
-| Pro | $25 | $11.80 | $13.20 (53%) |
+| Core | $20 | $11.80 | $8.20 (41%) |
+| Pro | $30 | $11.80 | $18.20 (61%) |
 
 Still profitable even with the most expensive models at 40 meetings/month.
 
@@ -242,8 +242,8 @@ The current model is **meetings-based** (25 free, unlimited paid). An alternativ
 | Tier | Price | Minutes/mo | Overage |
 |------|-------|-----------|---------|
 | Free | $0 | 60 min | Blocked |
-| Core | $15 | 600 min (10 hrs) | $0.02/min |
-| Pro | $25 | 1500 min (25 hrs) | $0.015/min |
+| Core | $20 | 600 min (10 hrs) | $0.02/min |
+| Pro | $30 | 1500 min (25 hrs) | $0.015/min |
 
 **Pros:** Fairer — a 5-min standup costs less than a 2-hr strategy session. Prevents abuse. Aligns cost with value.
 
@@ -324,5 +324,5 @@ so admin can compare plan margins without rewriting the app:
 
 | Tier | Revenue | Stripe Fee | Net Revenue | Our Cost (20 mtgs) | True Margin |
 |------|---------|-----------|-------------|--------------------|-----------| 
-| Core | $15.00 | $0.74 | $14.26 | $4.20 | **$10.06 (67%)** |
-| Pro | $25.00 | $1.03 | $23.97 | $4.20 | **$19.77 (79%)** |
+| Core | $20.00 | $0.88 | $19.12 | $4.20 | **$14.92 (75%)** |
+| Pro | $30.00 | $1.17 | $28.83 | $4.20 | **$24.63 (82%)** |

@@ -8,7 +8,7 @@ import {
 const mocks = vi.hoisted(() => ({
   checkQuota: vi.fn(),
   getAssemblyAI: vi.fn(),
-  getStreamingSpeechModel: vi.fn(),
+  getSettings: vi.fn(),
   getMeetingsStore: vi.fn(),
   withExternalCall: vi.fn(),
 }));
@@ -19,7 +19,10 @@ vi.mock("@/lib/billing/quota", () => ({
 
 vi.mock("@/lib/assemblyai/client", () => ({
   getAssemblyAI: mocks.getAssemblyAI,
-  getStreamingSpeechModel: mocks.getStreamingSpeechModel,
+}));
+
+vi.mock("@/lib/settings", () => ({
+  getSettings: mocks.getSettings,
 }));
 
 vi.mock("@/lib/meetings/store", () => ({
@@ -99,7 +102,11 @@ describe("recording calendar context", () => {
       },
     });
     mocks.withExternalCall.mockImplementation(async (_meta, fn) => fn());
-    mocks.getStreamingSpeechModel.mockResolvedValue("universal-streaming-multilingual");
+    mocks.getSettings.mockResolvedValue({
+      summaryModel: "openai/gpt-5.4-nano",
+      batchSpeechModel: "universal-2",
+      streamingSpeechModel: "universal-streaming-multilingual",
+    });
 
     const res = await tokenRoute.POST(request({
       meetingTitle: "  Customer discovery   ",
@@ -109,6 +116,7 @@ describe("recording calendar context", () => {
 
     expect(res.status).toBe(200);
     expect(body).toMatchObject({
+      provider: "assemblyai",
       token: "token_123",
       sampleRate: 16000,
       speechModel: "universal-streaming-multilingual",

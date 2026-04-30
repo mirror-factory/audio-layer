@@ -1,9 +1,13 @@
+"use client";
+
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   Apple,
   ArrowRight,
   CheckCircle2,
+  CircleDashed,
   Download,
   ExternalLink,
   Globe,
@@ -13,181 +17,294 @@ import {
   Smartphone,
   Store,
 } from "lucide-react";
-import {
-  DownloadPlatformRecommendation,
-  type DownloadPlatformLinks,
-} from "@/app/download/platform-recommendation";
 
-const DESKTOP_RELEASE_URL =
-  process.env.NEXT_PUBLIC_DESKTOP_RELEASE_URL ??
-  "https://github.com/mirror-factory/audio-layer/releases/latest";
+type DownloadPlatformKey = "macos" | "windows" | "ios" | "android" | "web";
 
-const DOWNLOAD_LINKS: DownloadPlatformLinks = {
-  macos: process.env.NEXT_PUBLIC_MACOS_DOWNLOAD_URL ?? DESKTOP_RELEASE_URL,
-  windows: process.env.NEXT_PUBLIC_WINDOWS_DOWNLOAD_URL ?? DESKTOP_RELEASE_URL,
-  ios:
-    process.env.NEXT_PUBLIC_IOS_APP_STORE_URL ??
-    "https://apps.apple.com/us/search?term=Layers",
-  android:
-    process.env.NEXT_PUBLIC_ANDROID_PLAY_STORE_URL ??
-    "https://play.google.com/store/search?q=Layers&c=apps",
-  web: "/sign-in",
-};
-
-type DownloadOption = {
+type DownloadChannel = {
+  key: DownloadPlatformKey;
   name: string;
+  channel: "Website live" | "TestFlight" | "Play internal testing" | "Desktop beta";
   platform: string;
   description: string;
-  href: string;
+  recommendation: string;
+  href?: string;
   cta: string;
+  unavailableCta: string;
+  unavailableInstructions: string;
   icon: LucideIcon;
   status: string;
-  external?: boolean;
+  anchorId: string;
   details: string[];
+  requirements?: string[];
+};
+
+type NavigatorWithUAData = Navigator & {
+  userAgentData?: {
+    platform?: string;
+  };
+};
+
+const PUBLIC_DOWNLOAD_URLS = {
+  testFlight: cleanUrl(
+    process.env.NEXT_PUBLIC_TESTFLIGHT_URL ??
+      process.env.NEXT_PUBLIC_IOS_TESTFLIGHT_URL,
+  ),
+  playInternalTesting: cleanUrl(
+    process.env.NEXT_PUBLIC_PLAY_INTERNAL_TESTING_URL ??
+      process.env.NEXT_PUBLIC_ANDROID_INTERNAL_TESTING_URL,
+  ),
+  macArtifact: cleanUrl(
+    process.env.NEXT_PUBLIC_MAC_ARTIFACT_URL ??
+      process.env.NEXT_PUBLIC_MACOS_DOWNLOAD_URL,
+  ),
+  windowsArtifact: cleanUrl(
+    process.env.NEXT_PUBLIC_WINDOWS_ARTIFACT_URL ??
+      process.env.NEXT_PUBLIC_WINDOWS_DOWNLOAD_URL,
+  ),
+  webApp: cleanUrl(process.env.NEXT_PUBLIC_WEB_APP_URL) ?? "/sign-in",
+} as const;
+
+const PLATFORM_ORDER: DownloadPlatformKey[] = [
+  "web",
+  "macos",
+  "windows",
+  "ios",
+  "android",
+];
+
+const DOWNLOAD_CHANNELS: Record<DownloadPlatformKey, DownloadChannel> = {
+  web: {
+    key: "web",
+    name: "Web app",
+    channel: "Website live",
+    platform: "Browser",
+    description:
+      "Open Layers from the website for the launch path that is available now, with no install required.",
+    recommendation:
+      "Use Website live when you need the fastest path into transcripts, summaries, action items, and searchable meeting memory.",
+    href: PUBLIC_DOWNLOAD_URLS.webApp,
+    cta: "Open Website live",
+    unavailableCta: "Website unavailable",
+    unavailableInstructions:
+      "The website launch URL is not configured. Set NEXT_PUBLIC_WEB_APP_URL or use the built-in sign-in route before launch.",
+    icon: Globe,
+    status: "Live now",
+    anchorId: "web",
+    details: [
+      "No installer required",
+      "Works on current Chrome, Safari, Edge, and Firefox",
+      "Best first step while desktop and mobile beta links are finalized",
+    ],
+  },
+  macos: {
+    key: "macos",
+    name: "macOS",
+    channel: "Desktop beta",
+    platform: "Mac artifact",
+    description:
+      "Use the Mac desktop beta for local capture permissions and a native meeting workflow once the launch artifact is published.",
+    recommendation:
+      "This device looks like a Mac. Use Website live today; download the signed Mac beta as soon as the artifact URL is ready.",
+    href: PUBLIC_DOWNLOAD_URLS.macArtifact,
+    cta: "Download Mac beta",
+    unavailableCta: "Mac beta in prep",
+    unavailableInstructions:
+      "The Mac artifact is being packaged. Use Website live now, then publish the signed Mac artifact URL before enabling this CTA.",
+    icon: Apple,
+    status: PUBLIC_DOWNLOAD_URLS.macArtifact
+      ? "Artifact ready"
+      : "Beta artifact prep",
+    anchorId: "macos",
+    details: [
+      "Designed for meeting capture from your Mac",
+      "Uses the same Layers account and meeting library",
+      "Desktop beta channel for launch cohorts",
+    ],
+    requirements: [
+      "macOS 13 Ventura or later",
+      "Apple Silicon or Intel Mac",
+      "Allow microphone and screen or system-audio permissions when prompted",
+    ],
+  },
+  windows: {
+    key: "windows",
+    name: "Windows",
+    channel: "Desktop beta",
+    platform: "Windows artifact",
+    description:
+      "Install the Windows desktop beta when the packaged artifact is published for launch testing.",
+    recommendation:
+      "This device looks like Windows. Use Website live today; download the Windows beta after the signed artifact is published.",
+    href: PUBLIC_DOWNLOAD_URLS.windowsArtifact,
+    cta: "Download Windows beta",
+    unavailableCta: "Windows beta in prep",
+    unavailableInstructions:
+      "The Windows artifact is being packaged. Use Website live now, then publish the Windows artifact URL before enabling this CTA.",
+    icon: MonitorDown,
+    status: PUBLIC_DOWNLOAD_URLS.windowsArtifact
+      ? "Artifact ready"
+      : "Beta artifact prep",
+    anchorId: "windows",
+    details: [
+      "Desktop capture workflow for Windows users",
+      "Same account, workspace, and meeting memory",
+      "Desktop beta channel for launch cohorts",
+    ],
+    requirements: [
+      "64-bit Windows 10 or Windows 11",
+      "Local microphone permission",
+      "Beta installs may show SmartScreen until signing reputation is established",
+    ],
+  },
+  ios: {
+    key: "ios",
+    name: "iPhone and iPad",
+    channel: "TestFlight",
+    platform: "iOS beta",
+    description:
+      "Join the iOS TestFlight when the invite link is ready for mobile reminders, review, and capture testing.",
+    recommendation:
+      "This device looks like iPhone or iPad. Use Website live today; open TestFlight once the invite is available.",
+    href: PUBLIC_DOWNLOAD_URLS.testFlight,
+    cta: "Open TestFlight",
+    unavailableCta: "TestFlight in prep",
+    unavailableInstructions:
+      "The TestFlight invite is not live yet. Install Apple's TestFlight app and use Website live until the beta invite URL is ready.",
+    icon: Smartphone,
+    status: PUBLIC_DOWNLOAD_URLS.testFlight ? "Invite ready" : "Invite prep",
+    anchorId: "iphone-and-ipad",
+    details: [
+      "Requires Apple's TestFlight app",
+      "Uses the same Layers account",
+      "Best for mobile review and follow-through testing",
+    ],
+  },
+  android: {
+    key: "android",
+    name: "Android",
+    channel: "Play internal testing",
+    platform: "Android beta",
+    description:
+      "Join the Google Play internal testing track when the opt-in link and tester list are ready.",
+    recommendation:
+      "This device looks like Android. Use Website live today; open the Play internal testing link once it is ready.",
+    href: PUBLIC_DOWNLOAD_URLS.playInternalTesting,
+    cta: "Open Play internal testing",
+    unavailableCta: "Play testing in prep",
+    unavailableInstructions:
+      "The Play internal testing link is not live yet. Make sure your Google account is on the tester list and use Website live meanwhile.",
+    icon: Store,
+    status: PUBLIC_DOWNLOAD_URLS.playInternalTesting
+      ? "Testing link ready"
+      : "Track prep",
+    anchorId: "android",
+    details: [
+      "Requires a Google account on the internal testing list",
+      "Open the opt-in link on the target device",
+      "Best for Android capture and action-review testing",
+    ],
+  },
 };
 
 const DOWNLOAD_GROUPS: Array<{
-  title: string;
+  title: "Website live" | "Desktop beta" | "Mobile testing";
   description: string;
-  items: DownloadOption[];
+  itemKeys: DownloadPlatformKey[];
 }> = [
   {
-    title: "Desktop",
+    title: "Website live",
     description:
-      "Use the desktop app when you want fast capture, local device permissions, and the most native meeting workflow.",
-    items: [
-      {
-        name: "macOS",
-        platform: "Mac app",
-        description:
-          "Best for recording meetings from your Mac with local audio permissions and the full Layers workspace.",
-        href: DOWNLOAD_LINKS.macos,
-        cta: "Download for Mac",
-        icon: Apple,
-        status: "Current release",
-        external: true,
-        details: [
-          "Apple Silicon + Intel release channel",
-          "DMG installer",
-          "Local capture ready",
-        ],
-      },
-      {
-        name: "Windows",
-        platform: "Windows app",
-        description:
-          "Use the Windows release channel for the desktop installer as soon as the packaged build is published.",
-        href: DOWNLOAD_LINKS.windows,
-        cta: "Download for Windows",
-        icon: MonitorDown,
-        status: "Release channel",
-        external: true,
-        details: [
-          "Installer release channel",
-          "Same account and meeting library",
-          "Built for desktop capture",
-        ],
-      },
-      {
-        name: "Web",
-        platform: "Browser",
-        description:
-          "Open Layers in the browser for quick access from any computer without installing the desktop app.",
-        href: DOWNLOAD_LINKS.web,
-        cta: "Open web app",
-        icon: Globe,
-        status: "No install",
-        details: [
-          "Works on Chrome, Safari, and Edge",
-          "Shared meeting memory",
-          "Fast login",
-        ],
-      },
-    ],
+      "Start with the website-first launch path. It is the stable route while native release links are finalized.",
+    itemKeys: ["web"],
   },
   {
-    title: "Phones and tablets",
+    title: "Desktop beta",
     description:
-      "Use the mobile app for reminders, mobile capture, and reviewing meeting memory when you are away from your desk.",
-    items: [
-      {
-        name: "iPhone and iPad",
-        platform: "App Store",
-        description:
-          "Find the iOS app from the App Store surface and sign in with the same Layers account.",
-        href: DOWNLOAD_LINKS.ios,
-        cta: "Open App Store",
-        icon: Smartphone,
-        status: "iOS / iPadOS",
-        external: true,
-        details: [
-          "Mobile recording reminders",
-          "Review summaries anywhere",
-          "Same workspace",
-        ],
-      },
-      {
-        name: "Android",
-        platform: "Google Play",
-        description:
-          "Find the Android app from Google Play and keep the same meeting memory connected across devices.",
-        href: DOWNLOAD_LINKS.android,
-        cta: "Open Google Play",
-        icon: Store,
-        status: "Android",
-        external: true,
-        details: [
-          "Mobile capture",
-          "Action review",
-          "Connected to your team memory",
-        ],
-      },
-    ],
+      "Publish platform-specific artifacts before turning on download CTAs for local capture workflows.",
+    itemKeys: ["macos", "windows"],
+  },
+  {
+    title: "Mobile testing",
+    description:
+      "Use TestFlight and Play internal testing for invite-only mobile launch cohorts.",
+    itemKeys: ["ios", "android"],
   },
 ];
 
 const USE_CASES = [
   {
-    title: "Install desktop first",
+    title: "Start in the browser",
     description:
-      "Pick Mac or Windows if Layers is part of your daily meeting workflow.",
-    icon: Laptop,
-  },
-  {
-    title: "Use web for quick access",
-    description:
-      "The browser app is the fastest way to sign in, search prior meetings, and review notes.",
+      "Website live is the launch-ready path for signing in, reviewing notes, and searching meeting memory.",
     icon: Globe,
   },
   {
-    title: "Add mobile for follow-through",
+    title: "Add desktop for capture",
     description:
-      "Phones are best for reminders, action checks, and reading summaries between meetings.",
+      "Mac and Windows stay in Desktop beta until signed artifacts are available for each platform.",
+    icon: Laptop,
+  },
+  {
+    title: "Invite mobile testers",
+    description:
+      "TestFlight and Play internal testing stay honest until the invite URLs and tester lists are ready.",
     icon: ShieldCheck,
   },
 ];
 
-function DownloadAction({ item }: { item: DownloadOption }) {
-  const content = (
-    <>
-      {item.cta}
-      {item.external ? (
-        <ExternalLink size={15} aria-hidden="true" />
-      ) : (
-        <ArrowRight size={15} aria-hidden="true" />
-      )}
-    </>
-  );
+function cleanUrl(value: string | undefined): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
+}
 
-  if (item.external) {
-    return (
-      <a href={item.href} target="_blank" rel="noreferrer">
-        {content}
-      </a>
-    );
-  }
+function isExternalHref(href: string): boolean {
+  return /^https?:\/\//i.test(href);
+}
 
-  return <Link href={item.href}>{content}</Link>;
+function isChannelAvailable(channel: DownloadChannel): channel is DownloadChannel & {
+  href: string;
+} {
+  return Boolean(channel.href);
+}
+
+function detectPlatform(): DownloadPlatformKey {
+  const nav = navigator as NavigatorWithUAData;
+  const platform = (
+    nav.userAgentData?.platform ??
+    navigator.platform ??
+    ""
+  ).toLowerCase();
+  const userAgent = navigator.userAgent.toLowerCase();
+  const maxTouchPoints = navigator.maxTouchPoints ?? 0;
+
+  if (/android/.test(userAgent)) return "android";
+  if (/iphone|ipad|ipod/.test(userAgent)) return "ios";
+  if (platform.includes("mac") && maxTouchPoints > 1) return "ios";
+  if (platform.includes("mac") || /mac os x/.test(userAgent)) return "macos";
+  if (platform.includes("win") || /windows/.test(userAgent)) return "windows";
+
+  return "web";
+}
+
+function getPlatformSnapshot(): DownloadPlatformKey {
+  if (typeof navigator === "undefined") return "web";
+  return detectPlatform();
+}
+
+function getServerPlatformSnapshot(): DownloadPlatformKey {
+  return "web";
+}
+
+function subscribeToPlatformChanges(onStoreChange: () => void): () => void {
+  if (typeof window === "undefined") return () => {};
+
+  window.addEventListener("orientationchange", onStoreChange);
+  window.addEventListener("resize", onStoreChange);
+
+  return () => {
+    window.removeEventListener("orientationchange", onStoreChange);
+    window.removeEventListener("resize", onStoreChange);
+  };
 }
 
 function DownloadBrandMark() {
@@ -198,7 +315,124 @@ function DownloadBrandMark() {
   );
 }
 
+function AvailableAction({
+  channel,
+  className,
+}: {
+  channel: DownloadChannel & { href: string };
+  className?: string;
+}) {
+  const content = (
+    <>
+      {channel.cta}
+      {isExternalHref(channel.href) ? (
+        <ExternalLink size={15} aria-hidden="true" />
+      ) : (
+        <ArrowRight size={15} aria-hidden="true" />
+      )}
+    </>
+  );
+
+  if (isExternalHref(channel.href)) {
+    return (
+      <a
+        className={className}
+        href={channel.href}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link className={className} href={channel.href}>
+      {content}
+    </Link>
+  );
+}
+
+function UnavailableAction({ channel }: { channel: DownloadChannel }) {
+  return (
+    <span
+      aria-disabled="true"
+      className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white/70 px-4 text-center text-sm font-extrabold text-slate-600"
+    >
+      <CircleDashed size={15} aria-hidden="true" />
+      {channel.unavailableCta}
+    </span>
+  );
+}
+
+function DownloadAction({ channel }: { channel: DownloadChannel }) {
+  if (isChannelAvailable(channel)) {
+    return <AvailableAction channel={channel} />;
+  }
+
+  return <UnavailableAction channel={channel} />;
+}
+
+function PlatformRecommendation() {
+  const detectedPlatform = useSyncExternalStore(
+    subscribeToPlatformChanges,
+    getPlatformSnapshot,
+    getServerPlatformSnapshot,
+  );
+  const channel = DOWNLOAD_CHANNELS[detectedPlatform];
+  const website = DOWNLOAD_CHANNELS.web;
+  const Icon = channel.icon;
+
+  return (
+    <section className="download-recommendation" aria-live="polite">
+      <div className="download-recommendation-icon">
+        <Icon size={22} aria-hidden="true" />
+      </div>
+      <div className="download-recommendation-copy">
+        <span>
+          {isChannelAvailable(channel)
+            ? `Recommended: ${channel.channel}`
+            : `${channel.channel} status`}
+        </span>
+        <h2>{channel.name}</h2>
+        <p>{channel.recommendation}</p>
+      </div>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        {isChannelAvailable(channel) ? (
+          <AvailableAction
+            channel={channel}
+            className="download-recommendation-action"
+          />
+        ) : (
+          <>
+            <UnavailableAction channel={channel} />
+            {isChannelAvailable(website) ? (
+              <AvailableAction
+                channel={website}
+                className="download-recommendation-action"
+              />
+            ) : null}
+          </>
+        )}
+      </div>
+      <div className="download-recommendation-options" aria-label="All download options">
+        {PLATFORM_ORDER.map((platformKey) => {
+          const platformOption = DOWNLOAD_CHANNELS[platformKey];
+
+          return (
+            <a href={`#${platformOption.anchorId}`} key={platformOption.key}>
+              {platformOption.name}
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 export default function DownloadPage() {
+  const website = DOWNLOAD_CHANNELS.web;
+
   return (
     <main className="download-page min-h-screen-safe">
       <nav className="download-nav" aria-label="Download navigation">
@@ -220,52 +454,45 @@ export default function DownloadPage() {
             <Download size={15} aria-hidden="true" />
             Download Layers
           </span>
-          <h1>Install meeting memory everywhere you work.</h1>
+          <h1>Start with the website. Add native beta builds as they go live.</h1>
           <p>
-            Use Layers on desktop for capture, in the browser for quick
-            access, and on phones for reminders and follow-through.
+            Website live is ready for launch. Desktop beta, TestFlight, and Play
+            internal testing are wired for final URLs without exposing broken
+            download buttons while artifacts are still being prepared.
           </p>
           <div className="download-hero-actions">
-            <a
-              href={DOWNLOAD_LINKS.macos}
-              target="_blank"
-              rel="noreferrer"
-              className="download-primary"
-            >
-              Download for Mac
-              <ExternalLink size={16} aria-hidden="true" />
+            {isChannelAvailable(website) ? (
+              <AvailableAction channel={website} className="download-primary" />
+            ) : (
+              <UnavailableAction channel={website} />
+            )}
+            <a href="#desktop-beta" className="download-secondary">
+              Desktop beta status
             </a>
-            <Link href="/sign-in" className="download-secondary">
-              Open web app
-            </Link>
           </div>
         </div>
 
         <aside className="download-device-stack" aria-label="Available platforms">
           <span>
-            <Apple size={18} aria-hidden="true" />
-            macOS
+            <Globe size={18} aria-hidden="true" />
+            Website live
           </span>
           <span>
             <MonitorDown size={18} aria-hidden="true" />
-            Windows
+            Desktop beta
           </span>
           <span>
             <Smartphone size={18} aria-hidden="true" />
-            iOS
+            TestFlight
           </span>
           <span>
             <Store size={18} aria-hidden="true" />
-            Android
-          </span>
-          <span>
-            <Globe size={18} aria-hidden="true" />
-            Web
+            Play internal testing
           </span>
         </aside>
       </section>
 
-      <DownloadPlatformRecommendation links={DOWNLOAD_LINKS} />
+      <PlatformRecommendation />
 
       <section className="download-guidance" aria-label="Platform guidance">
         {USE_CASES.map((useCase) => {
@@ -282,39 +509,62 @@ export default function DownloadPage() {
       </section>
 
       {DOWNLOAD_GROUPS.map((group) => (
-        <section className="download-group" key={group.title}>
+        <section
+          className="download-group"
+          id={group.title.toLowerCase().replaceAll(" ", "-")}
+          key={group.title}
+        >
           <div className="download-group-copy">
             <h2>{group.title}</h2>
             <p>{group.description}</p>
           </div>
           <div className="download-grid">
-            {group.items.map((item) => {
-              const Icon = item.icon;
+            {group.itemKeys.map((itemKey) => {
+              const channel = DOWNLOAD_CHANNELS[itemKey];
+              const Icon = channel.icon;
 
               return (
                 <article
                   className="download-card"
-                  id={item.name.toLowerCase().replaceAll(" ", "-")}
-                  key={item.name}
+                  id={channel.anchorId}
+                  key={channel.key}
                 >
                   <div className="download-card-head">
                     <span>
                       <Icon size={19} aria-hidden="true" />
                     </span>
-                    <small>{item.status}</small>
+                    <small>{channel.channel}</small>
                   </div>
-                  <p className="download-platform">{item.platform}</p>
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
+                  <p className="download-platform">{channel.status}</p>
+                  <h3>{channel.name}</h3>
+                  <p>{channel.description}</p>
                   <ul>
-                    {item.details.map((detail) => (
+                    {channel.details.map((detail) => (
                       <li key={detail}>
                         <CheckCircle2 size={14} aria-hidden="true" />
                         {detail}
                       </li>
                     ))}
                   </ul>
-                  <DownloadAction item={item} />
+                  {channel.requirements ? (
+                    <div className="grid gap-2">
+                      <p className="download-platform">Install requirements</p>
+                      <ul>
+                        {channel.requirements.map((requirement) => (
+                          <li key={requirement}>
+                            <CheckCircle2 size={14} aria-hidden="true" />
+                            {requirement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                  {!isChannelAvailable(channel) ? (
+                    <p className="text-sm leading-6 text-slate-600">
+                      {channel.unavailableInstructions}
+                    </p>
+                  ) : null}
+                  <DownloadAction channel={channel} />
                 </article>
               );
             })}

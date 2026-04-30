@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-30T17:13:32.567Z",
+  "updatedAt": "2026-04-30T23:00:01.520Z",
   "required": true,
   "playwrightRequired": true,
   "expectRequired": true,
@@ -20,11 +20,14 @@
     ".expect/replays/browser-proof-2026-04-29T23-59-41-982Z.json",
     ".expect/replays/browser-proof-2026-04-30T13-24-29-475Z.json",
     ".expect/replays/browser-proof-2026-04-30T17-08-35-226Z.json",
+    ".expect/replays/browser-proof-2026-04-30T17-10-16-253Z.json",
+    ".expect/replays/browser-proof-2026-04-30T22-37-34-718Z.json",
     ".expect/logs.md",
-    ".expect/replays/browser-proof-2026-04-30T17-10-16-253Z.json"
+    ".expect/replays/browser-proof-2026-04-30T22-56-23-093Z.json"
   ],
   "flowPaths": [
     "tests/expect/ai-starter.md",
+    "tests/expect/app-account-deletion-page.md",
     "tests/expect/app-admin-pricing-page.md",
     "tests/expect/app-agent-builder-page.md",
     "tests/expect/app-ai-starter-page.md",
@@ -63,6 +66,7 @@
     "tests/expect/app-observability-page.md",
     "tests/expect/app-page.md",
     "tests/expect/app-pricing-page.md",
+    "tests/expect/app-privacy-page.md",
     "tests/expect/app-profile-page.md",
     "tests/expect/app-record-live-page.md",
     "tests/expect/app-record-page.md",
@@ -71,6 +75,7 @@
     "tests/expect/app-settings-page.md",
     "tests/expect/app-sign-in-page.md",
     "tests/expect/app-sign-up-page.md",
+    "tests/expect/app-terms-page.md",
     "tests/expect/app-usage-page.md",
     "tests/expect/app-well-known-oauth-authorization-server-route.md",
     "tests/expect/app-well-known-oauth-protected-resource-route.md",
@@ -80,6 +85,8 @@
   ],
   "screenshotPaths": [
     ".evidence/screenshots/ai-debug-panel.png",
+    ".evidence/screenshots/app-account-deletion-page-tsx.png",
+    ".evidence/screenshots/app-account-deletion-page.png",
     ".evidence/screenshots/app-admin-pricing-page-tsx.png",
     ".evidence/screenshots/app-admin-pricing-page.png",
     ".evidence/screenshots/app-agent-builder-page-tsx.png",
@@ -156,6 +163,8 @@
     ".evidence/screenshots/app-page.png",
     ".evidence/screenshots/app-pricing-page-tsx.png",
     ".evidence/screenshots/app-pricing-page.png",
+    ".evidence/screenshots/app-privacy-page-tsx.png",
+    ".evidence/screenshots/app-privacy-page.png",
     ".evidence/screenshots/app-profile-page-tsx.png",
     ".evidence/screenshots/app-profile-page.png",
     ".evidence/screenshots/app-record-live-page-tsx.png",
@@ -172,12 +181,15 @@
     ".evidence/screenshots/app-sign-in-page.png",
     ".evidence/screenshots/app-sign-up-page-tsx.png",
     ".evidence/screenshots/app-sign-up-page.png",
+    ".evidence/screenshots/app-terms-page-tsx.png",
+    ".evidence/screenshots/app-terms-page.png",
     ".evidence/screenshots/app-usage-page-tsx.png",
     ".evidence/screenshots/app-usage-page.png",
     ".evidence/screenshots/app-well-known-oauth-authorization-server-route-ts.png",
     ".evidence/screenshots/app-well-known-oauth-authorization-server-route.png",
     ".evidence/screenshots/app-well-known-oauth-protected-resource-route-ts.png",
     ".evidence/screenshots/app-well-known-oauth-protected-resource-route.png",
+    ".evidence/screenshots/expect-account-deletion.png",
     ".evidence/screenshots/expect-admin-pricing.png",
     ".evidence/screenshots/expect-agent-builder.png",
     ".evidence/screenshots/expect-ai-starter.png",
@@ -251,5 +263,5 @@
   "expectProofOk": true,
   "expectScreenshotCount": 2,
   "expectVideoCount": 2,
-  "lastReplayPath": ".expect/replays/browser-proof-2026-04-30T17-10-16-253Z.json"
+  "lastReplayPath": ".expect/replays/browser-proof-2026-04-30T22-56-23-093Z.json"
 }

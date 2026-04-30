@@ -92,6 +92,7 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/api-ai-logs-errors.md",
       "docs/apis/api-ai-logs-stats.md",
       "docs/apis/api-ai-logs.md",
@@ -124,6 +125,7 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/api-ai-logs-errors.md",
       "docs/apis/app-api-ai-logs-errors-route.md"
     ],
@@ -152,6 +154,7 @@
     "evals": [],
     "docs": [
       "docs/BUILD_SPEC.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/api-ai-logs-stats.md",
       "docs/apis/app-api-ai-logs-stats-route.md"
     ],
@@ -373,6 +376,7 @@
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
@@ -1153,6 +1157,7 @@
       "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/MCP_AND_API.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/app-api-health-route.md",
       "docs/apis/app-api-observability-health-route.md",
       "docs/guides/AI-STARTER-HUB.md"
@@ -1210,6 +1215,7 @@
       "tests/contracts/app-api-meetings-route.contract.test.ts",
       "tests/contracts/meetings-i-export.contract.test.ts",
       "tests/contracts/meetings-i-notes-package.contract.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
@@ -1268,7 +1274,9 @@
       "docs/HOME_UI_POLISH.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_REMINDERS.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
@@ -1423,6 +1431,8 @@
       "tests/billing-llm-pricing.test.ts",
       "tests/billing-stt-pricing.test.ts",
       "tests/contracts/app-api-models-route.contract.test.ts",
+      "tests/deepgram-options.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/integration/app-api-models-route.failure-modes.test.ts",
       "tests/integration/app-api-models-route.test.ts",
       "tests/settings-shared.test.ts"
@@ -1440,6 +1450,7 @@
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_RELIABILITY.md",
@@ -1616,6 +1627,7 @@
     "evals": [],
     "docs": [
       "docs/FEATURE_TEST_PLAN.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/app-api-observability-health-route.md"
     ],
     "coverage": {
@@ -1636,6 +1648,8 @@
       "tests/agent-builder.test.ts",
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-search-route.contract.test.ts",
+      "tests/deepgram-options.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
@@ -1657,6 +1671,7 @@
     ],
     "visualSpecs": [
       "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-download-page.smoke.spec.ts",
       "tests/e2e/app-search-page.smoke.spec.ts",
       "tests/e2e/feature-checklist.spec.ts",
       "tests/e2e/meeting-search.visual.spec.ts",
@@ -1714,8 +1729,10 @@
     "tests": [
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-settings-route.contract.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/integration/app-api-settings-route.failure-modes.test.ts",
       "tests/integration/app-api-settings-route.test.ts",
+      "tests/recording-calendar-context.test.ts",
       "tests/recording-preflight.test.ts",
       "tests/settings-shared.test.ts",
       "tests/unit/update-settings.test.ts",
@@ -1751,6 +1768,7 @@
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
@@ -1786,7 +1804,8 @@
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-stripe-checkout-route.contract.test.ts",
       "tests/integration/app-api-stripe-checkout-route.failure-modes.test.ts",
-      "tests/integration/app-api-stripe-checkout-route.test.ts"
+      "tests/integration/app-api-stripe-checkout-route.test.ts",
+      "tests/stripe-route-diagnostics.test.ts"
     ],
     "stories": [],
     "visualSpecs": [],
@@ -1817,7 +1836,8 @@
     "tests": [
       "tests/contracts/app-api-stripe-webhook-route.contract.test.ts",
       "tests/integration/app-api-stripe-webhook-route.failure-modes.test.ts",
-      "tests/integration/app-api-stripe-webhook-route.test.ts"
+      "tests/integration/app-api-stripe-webhook-route.test.ts",
+      "tests/stripe-route-diagnostics.test.ts"
     ],
     "stories": [],
     "visualSpecs": [],
@@ -1825,6 +1845,7 @@
     "docs": [
       "docs/BUILD_SPEC.md",
       "docs/LAUNCH_CHECKLIST.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/apis/app-api-stripe-webhook-route.md"
@@ -1850,6 +1871,7 @@
       "tests/contracts/app-api-transcribe-stream-finalize-route.contract.test.ts",
       "tests/contracts/app-api-transcribe-stream-preflight-route.contract.test.ts",
       "tests/contracts/app-api-transcribe-stream-token-route.contract.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/integration/app-api-transcribe-id-route.failure-modes.test.ts",
       "tests/integration/app-api-transcribe-id-route.test.ts",
       "tests/integration/app-api-transcribe-route.failure-modes.test.ts",
@@ -1876,6 +1898,8 @@
       "docs/FEATURE_TEST_PLAN.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_RELIABILITY.md",
@@ -1998,6 +2022,7 @@
       "docs/APP_STORE_SCREENSHOTS.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/MCP_AND_API.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/RECORDING_RELIABILITY.md",
       "docs/apis/app-api-transcribe-stream-preflight-route.md",
@@ -2020,6 +2045,7 @@
     ],
     "tests": [
       "tests/contracts/app-api-transcribe-stream-token-route.contract.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/integration/app-api-transcribe-stream-token-route.failure-modes.test.ts",
       "tests/integration/app-api-transcribe-stream-token-route.test.ts",
       "tests/recording-calendar-context.test.ts"
@@ -2056,6 +2082,7 @@
       "tests/integration/app-api-webhooks-deliveries-route.test.ts",
       "tests/integration/app-api-webhooks-route.failure-modes.test.ts",
       "tests/integration/app-api-webhooks-route.test.ts",
+      "tests/stripe-route-diagnostics.test.ts",
       "tests/webhooks-fire.test.ts"
     ],
     "stories": [],
@@ -2066,6 +2093,7 @@
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/V1_PLAN.md",
@@ -2098,6 +2126,7 @@
     "docs": [
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/app-api-webhooks-deliveries-route.md"
     ],
     "coverage": {
@@ -2986,6 +3015,33 @@
     }
   },
   {
+    "id": "route:account-deletion",
+    "kind": "route",
+    "name": "account-deletion",
+    "sourcePaths": [
+      "app/account-deletion/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-account-deletion-page.smoke.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/LAUNCH_CHECKLIST.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
+      "docs/POST_LAUNCH_MONITORING.md",
+      "docs/features/app-account-deletion-page.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
     "id": "route:admin-pricing",
     "kind": "route",
     "name": "admin-pricing",
@@ -3070,6 +3126,7 @@
     ],
     "evals": [],
     "docs": [
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/api-control-plane.md",
       "docs/features/app-ai-starter-page.md",
       "docs/guides/AI-STARTER-HUB.md",
@@ -3121,6 +3178,8 @@
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/LAUNCH_CHECKLIST.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
@@ -3265,6 +3324,7 @@
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
@@ -4098,6 +4158,7 @@
     ],
     "tests": [
       "tests/e2e/api-control-plane.contract.test.ts",
+      "tests/pricing-consistency.test.ts",
       "tests/unit/search-docs.test.ts"
     ],
     "stories": [],
@@ -4120,7 +4181,9 @@
       "docs/HOME_UI_POLISH.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_RELIABILITY.md",
@@ -4223,6 +4286,7 @@
       "docs/design/app-store-screenshots.html",
       "docs/design/simple-ui-concepts.html",
       "docs/design/ui-style-variations.html",
+      "docs/features/app-account-deletion-page.md",
       "docs/features/app-admin-pricing-page.md",
       "docs/features/app-agent-builder-page.md",
       "docs/features/app-ai-starter-page.md",
@@ -4261,6 +4325,7 @@
       "docs/features/app-observability-page.md",
       "docs/features/app-page.md",
       "docs/features/app-pricing-page.md",
+      "docs/features/app-privacy-page.md",
       "docs/features/app-profile-page.md",
       "docs/features/app-record-live-page.md",
       "docs/features/app-record-page.md",
@@ -4269,6 +4334,7 @@
       "docs/features/app-settings-page.md",
       "docs/features/app-sign-in-page.md",
       "docs/features/app-sign-up-page.md",
+      "docs/features/app-terms-page.md",
       "docs/features/app-usage-page.md",
       "docs/features/app-well-known-oauth-authorization-server-route.md",
       "docs/features/app-well-known-oauth-protected-resource-route.md",
@@ -4309,6 +4375,7 @@
     "evals": [],
     "docs": [
       "docs/LAUNCH_CHECKLIST.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/apis/api-control-plane.md",
       "docs/apis/app-api-meetings-id-export-route.md",
       "docs/features/app-download-page.md",
@@ -4340,6 +4407,7 @@
       "tests/contracts/app-api-meetings-route.contract.test.ts",
       "tests/contracts/meetings-i-export.contract.test.ts",
       "tests/contracts/meetings-i-notes-package.contract.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/integration/app-api-meetings-id-export-route.failure-modes.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.failure-modes.test.ts",
@@ -4398,7 +4466,9 @@
       "docs/HOME_UI_POLISH.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_REMINDERS.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
@@ -4538,6 +4608,7 @@
       "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/SIMPLE_UI_DIRECTION.md",
       "docs/V1_PLAN.md",
       "docs/apis/api-ai-logs-errors.md",
@@ -4565,6 +4636,7 @@
     ],
     "tests": [
       "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/pricing-consistency.test.ts",
       "tests/theme-css.test.ts"
     ],
     "stories": [
@@ -4575,6 +4647,7 @@
       "tests/e2e/agent-builder.visual.spec.ts",
       "tests/e2e/ai-debug-panel.visual.spec.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-account-deletion-page.smoke.spec.ts",
       "tests/e2e/app-admin-pricing-page.smoke.spec.ts",
       "tests/e2e/app-agent-builder-page.smoke.spec.ts",
       "tests/e2e/app-ai-starter-page.smoke.spec.ts",
@@ -4613,6 +4686,7 @@
       "tests/e2e/app-observability-page.smoke.spec.ts",
       "tests/e2e/app-page.smoke.spec.ts",
       "tests/e2e/app-pricing-page.smoke.spec.ts",
+      "tests/e2e/app-privacy-page.smoke.spec.ts",
       "tests/e2e/app-profile-page.smoke.spec.ts",
       "tests/e2e/app-record-live-page.smoke.spec.ts",
       "tests/e2e/app-record-page.smoke.spec.ts",
@@ -4621,6 +4695,7 @@
       "tests/e2e/app-settings-page.smoke.spec.ts",
       "tests/e2e/app-sign-in-page.smoke.spec.ts",
       "tests/e2e/app-sign-up-page.smoke.spec.ts",
+      "tests/e2e/app-terms-page.smoke.spec.ts",
       "tests/e2e/app-usage-page.smoke.spec.ts",
       "tests/e2e/app-well-known-oauth-authorization-server-route.smoke.spec.ts",
       "tests/e2e/app-well-known-oauth-protected-resource-route.smoke.spec.ts",
@@ -4697,6 +4772,7 @@
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_RELIABILITY.md",
@@ -4711,6 +4787,7 @@
       "docs/brand-guide.md",
       "docs/components/session-workspace.md",
       "docs/design/simple-ui-concepts.html",
+      "docs/features/app-account-deletion-page.md",
       "docs/features/app-admin-pricing-page.md",
       "docs/features/app-agent-builder-page.md",
       "docs/features/app-ai-starter-page.md",
@@ -4747,6 +4824,7 @@
       "docs/features/app-observability-page.md",
       "docs/features/app-page.md",
       "docs/features/app-pricing-page.md",
+      "docs/features/app-privacy-page.md",
       "docs/features/app-profile-page.md",
       "docs/features/app-record-live-page.md",
       "docs/features/app-record-page.md",
@@ -4755,6 +4833,7 @@
       "docs/features/app-settings-page.md",
       "docs/features/app-sign-in-page.md",
       "docs/features/app-sign-up-page.md",
+      "docs/features/app-terms-page.md",
       "docs/features/app-usage-page.md",
       "docs/guides/AI-STARTER-HUB.md",
       "docs/mfdr/MFDR-001.md",
@@ -4790,6 +4869,7 @@
       "tests/mcp/tools.test.ts",
       "tests/meeting-chat-fallback.test.ts",
       "tests/notes-push.test.ts",
+      "tests/pricing-consistency.test.ts",
       "tests/recording-preflight.test.ts",
       "tests/settings-shared.test.ts",
       "tests/tools/ai-tools.test.ts"
@@ -4814,6 +4894,7 @@
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_RELIABILITY.md",
@@ -4841,6 +4922,35 @@
     }
   },
   {
+    "id": "route:privacy",
+    "kind": "route",
+    "name": "privacy",
+    "sourcePaths": [
+      "app/privacy/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-privacy-page.smoke.spec.ts",
+      "tests/e2e/app-terms-page.smoke.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/LAUNCH_CHECKLIST.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
+      "docs/POST_LAUNCH_MONITORING.md",
+      "docs/features/app-privacy-page.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
     "id": "route:profile",
     "kind": "route",
     "name": "profile",
@@ -4850,7 +4960,8 @@
     "tests": [
       "tests/billing-quota.test.ts",
       "tests/mcp/auth.test.ts",
-      "tests/oauth-mcp.test.ts"
+      "tests/oauth-mcp.test.ts",
+      "tests/stripe-route-diagnostics.test.ts"
     ],
     "stories": [],
     "visualSpecs": [
@@ -4867,6 +4978,7 @@
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
@@ -4906,6 +5018,7 @@
       "tests/recording-preflight.test.ts",
       "tests/recording-reminders.test.ts",
       "tests/recording-voice-commands.test.ts",
+      "tests/stripe-route-diagnostics.test.ts",
       "tests/unit/components/ai-debug-panel.test.tsx",
       "components/audio-recorder.test.tsx",
       "components/live-recorder.test.tsx",
@@ -4956,7 +5069,9 @@
       "docs/HOME_UI_POLISH.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/RECORDING_RELIABILITY.md",
@@ -4968,6 +5083,7 @@
       "docs/V1_PLAN.md",
       "docs/apis/api-ai-logs-errors.md",
       "docs/apis/api-ai-logs.md",
+      "docs/apis/app-api-observability-health-route.md",
       "docs/app-store/marketing-screenshots/2026-04-29-release/01-fast-record.png",
       "docs/app-store/marketing-screenshots/2026-04-29-release/metadata.json",
       "docs/brand-guide.md",
@@ -5071,6 +5187,8 @@
       "tests/agent-builder.test.ts",
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-search-route.contract.test.ts",
+      "tests/deepgram-options.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/e2e/ai-debug-panel.visual.test.ts",
       "tests/integration/app-api-meetings-id-export-route.test.ts",
       "tests/integration/app-api-meetings-id-notes-package-route.test.ts",
@@ -5092,6 +5210,7 @@
     ],
     "visualSpecs": [
       "tests/e2e/ai-debug-panel.visual.test.ts",
+      "tests/e2e/app-download-page.smoke.spec.ts",
       "tests/e2e/app-search-page.smoke.spec.ts",
       "tests/e2e/feature-checklist.spec.ts",
       "tests/e2e/meeting-search.visual.spec.ts",
@@ -5149,8 +5268,10 @@
     "tests": [
       "tests/api-route-behavior.test.ts",
       "tests/contracts/app-api-settings-route.contract.test.ts",
+      "tests/deepgram-token-route.test.ts",
       "tests/integration/app-api-settings-route.failure-modes.test.ts",
       "tests/integration/app-api-settings-route.test.ts",
+      "tests/recording-calendar-context.test.ts",
       "tests/recording-preflight.test.ts",
       "tests/settings-shared.test.ts",
       "tests/unit/update-settings.test.ts",
@@ -5186,6 +5307,7 @@
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
@@ -5233,7 +5355,9 @@
       "docs/FEATURE_TEST_PLAN.md",
       "docs/LAUNCH_CHECKLIST.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/NOTES_PUSH_WORKFLOW.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/SUPABASE_MCP_OAUTH_SETUP.md",
       "docs/V1_PLAN.md",
       "docs/features/app-sign-in-page.md"
@@ -5268,7 +5392,38 @@
       "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FEATURE_TEST_PLAN.md",
       "docs/LAUNCH_CHECKLIST.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/features/app-sign-up-page.md"
+    ],
+    "coverage": {
+      "hasUnit": false,
+      "hasStory": false,
+      "hasVisual": true,
+      "hasEval": false
+    }
+  },
+  {
+    "id": "route:terms",
+    "kind": "route",
+    "name": "terms",
+    "sourcePaths": [
+      "app/terms/page.tsx"
+    ],
+    "tests": [],
+    "stories": [],
+    "visualSpecs": [
+      "tests/e2e/app-terms-page.smoke.spec.ts",
+      "tests/e2e/smoke.spec.ts"
+    ],
+    "evals": [],
+    "docs": [
+      "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
+      "docs/EMBEDDINGS_AND_SEARCH.md",
+      "docs/FEATURE_TEST_MARKETING_MATRIX.md",
+      "docs/LAUNCH_CHECKLIST.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
+      "docs/POST_LAUNCH_MONITORING.md",
+      "docs/features/app-terms-page.md"
     ],
     "coverage": {
       "hasUnit": false,
@@ -5304,6 +5459,7 @@
       "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/FRONTEND_SURFACE_AUDIT.md",
       "docs/LAUNCH_CHECKLIST.md",
+      "docs/POST_LAUNCH_MONITORING.md",
       "docs/PRICING_ADMIN.md",
       "docs/PRICING_AND_BILLING.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
@@ -5357,6 +5513,7 @@
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SUPABASE_MCP_OAUTH_SETUP.md",
       "docs/V1_PLAN.md",
@@ -5403,6 +5560,7 @@
       "docs/COMPETITIVE_LANDSCAPE_AND_GTM.md",
       "docs/FEATURE_TEST_MARKETING_MATRIX.md",
       "docs/MCP_AND_API.md",
+      "docs/NATIVE_RELEASE_READINESS.md",
       "docs/SCHEMAS_AND_REGISTRIES.md",
       "docs/SUPABASE_MCP_OAUTH_SETUP.md",
       "docs/V1_PLAN.md",

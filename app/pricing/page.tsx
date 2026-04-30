@@ -21,7 +21,7 @@ const TIERS = [
   },
   {
     name: "Core",
-    price: "$15",
+    price: "$20",
     period: "/month",
     features: [
       "Unlimited meetings",
@@ -35,7 +35,7 @@ const TIERS = [
   },
   {
     name: "Pro",
-    price: "$25",
+    price: "$30",
     period: "/month",
     features: [
       "1,500 transcription minutes included",

@@ -12,7 +12,11 @@ export const POST = withRoute(async (req, ctx) => {
   const stripe = getStripe();
   if (!stripe) {
     return NextResponse.json(
-      { error: "Stripe is not configured" },
+      {
+        error: "Stripe webhooks are not configured. Missing STRIPE_SECRET_KEY.",
+        code: "stripe_missing_secret_key",
+        missingEnv: ["STRIPE_SECRET_KEY"],
+      },
       { status: 503 },
     );
   }
@@ -20,7 +24,11 @@ export const POST = withRoute(async (req, ctx) => {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!webhookSecret) {
     return NextResponse.json(
-      { error: "Webhook secret not configured" },
+      {
+        error: "Stripe webhooks are not configured. Missing STRIPE_WEBHOOK_SECRET.",
+        code: "stripe_missing_webhook_secret",
+        missingEnv: ["STRIPE_WEBHOOK_SECRET"],
+      },
       { status: 503 },
     );
   }

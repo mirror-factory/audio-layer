@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
 import { getAssemblyAI } from "@/lib/assemblyai/client";
+import { getDeepgramClient } from "@/lib/deepgram/client";
 import { checkQuota } from "@/lib/billing/quota";
 import { getActivePricingConfig } from "@/lib/billing/pricing-config";
 import { buildRecordingPreflight } from "@/lib/recording/preflight";
@@ -21,7 +22,10 @@ export const GET = withRoute(async () => {
       quota,
       pricing,
       settings,
-      providerConfigured: Boolean(getAssemblyAI()),
+      providerConfigured: {
+        assemblyai: Boolean(getAssemblyAI()),
+        deepgram: Boolean(getDeepgramClient()),
+      },
     }),
   );
 });

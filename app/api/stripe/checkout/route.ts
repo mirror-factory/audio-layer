@@ -43,15 +43,26 @@ export const POST = withRoute(async (req, ctx) => {
   const stripe = getStripe();
   if (!stripe) {
     return NextResponse.json(
-      { error: "Stripe is not configured" },
+      {
+        error: "Stripe Checkout is not configured. Missing STRIPE_SECRET_KEY.",
+        code: "stripe_missing_secret_key",
+        missingEnv: ["STRIPE_SECRET_KEY"],
+      },
       { status: 503 },
     );
   }
 
   const priceId = priceIdForTier(tier);
   if (!priceId) {
+    const missingEnv = tier === "core" ? "STRIPE_PRICE_CORE" : "STRIPE_PRICE_PRO";
+    const planLabel = tier === "core" ? "Core ($20/mo)" : "Pro ($30/mo)";
+
     return NextResponse.json(
-      { error: `Price ID not configured for tier "${tier}"` },
+      {
+        error: `Stripe Checkout is missing ${missingEnv} for ${planLabel}. Add the Stripe Price ID, then redeploy.`,
+        code: "stripe_missing_price_id",
+        missingEnv: [missingEnv],
+      },
       { status: 503 },
     );
   }
