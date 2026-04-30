@@ -23,7 +23,8 @@
     ".claude/skills/linear-pm/bootstrap/_template.md",
     ".claude/skills/linear-pm/bootstrap/layers-bootstrap.md",
     ".claude/skills/linear-pm/README.md",
-    ".env.example"
+    ".env.example",
+    "app/api/stripe/webhook/route.ts"
   ],
-  "updatedAt": "2026-04-30T22:24:50.120708Z"
+  "updatedAt": "2026-04-30T22:27:46.998306Z"
 }
