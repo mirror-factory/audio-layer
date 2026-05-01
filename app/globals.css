@@ -5869,18 +5869,36 @@ body.dark:has(.paper-calm-page) {
     height: 100%;
     min-height: 0;
     flex-direction: column;
-    gap: clamp(16px, 1.55vw, 24px);
+    gap: clamp(14px, 1.4vw, 20px);
   }
 
-  .paper-calm-page.recorder-page .home-calendar-panel {
-    flex: 0 0 auto;
-    min-height: 0;
-    overflow: visible;
-  }
-
+  /* Each of the two right-column cards (Calendar context, MCP card)
+     gets an equal share of the column height — they grow/shrink
+     together so the pair never overflows the parent's 100% height,
+     and inner content scrolls instead of pushing past the edge. */
+  .paper-calm-page.recorder-page .home-calendar-panel,
   .paper-calm-page.recorder-page .home-insight-tip {
-    flex: 0 0 auto;
-    min-height: 162px;
+    flex: 1 1 0;
+    min-height: 0;
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .paper-calm-page.recorder-page .home-calendar-panel > * {
+    min-height: 0;
+  }
+
+  .paper-calm-page.recorder-page .home-calendar-panel .home-calendar-list,
+  .paper-calm-page.recorder-page .home-calendar-panel .home-calendar-empty {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .paper-calm-page.recorder-page .home-insight-tip > * {
+    min-height: 0;
   }
 
   .paper-calm-page.recorder-page .home-record-dock {
