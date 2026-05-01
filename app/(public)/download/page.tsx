@@ -733,7 +733,7 @@ export default function DownloadPage() {
           <div className="flex flex-col gap-6">
             <NumberedLabel index="00" label="Download Layers" />
             <h1
-              className="text-balance font-semibold leading-[1.02] tracking-[-0.025em]"
+              className="text-balance font-semibold leading-[1.02] tracking-[-0.022em]"
               style={{
                 color: "var(--fg-default)",
                 fontSize: "clamp(2.4rem, 1.4rem + 3.6vw, 4.4rem)",

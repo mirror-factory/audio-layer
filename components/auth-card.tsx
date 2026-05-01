@@ -212,9 +212,9 @@ export function AuthShell({
           font-family: var(--font-brand-sans);
           font-size: clamp(1.85rem, 3.2vw, 2.4rem);
           line-height: 1.08;
-          letter-spacing: -0.02em;
+          letter-spacing: -0.022em;
           color: var(--layers-ink);
-          font-weight: 620;
+          font-weight: 600;
           margin: 0;
         }
 

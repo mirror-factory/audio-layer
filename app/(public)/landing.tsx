@@ -306,7 +306,8 @@ function Hero() {
               lineHeight: 1.04,
               margin: 0,
               color: "var(--fg-default)",
-              letterSpacing: "-0.028em",
+              fontWeight: 600,
+              letterSpacing: "-0.022em",
               maxWidth: "13ch",
             }}
           >
