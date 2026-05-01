@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent, type ReactNode } from "react";
 import {
+  ArrowDown,
   AudioLines,
   Bookmark,
   CalendarDays,
@@ -13,6 +14,7 @@ import {
   Sparkles,
   Square,
 } from "lucide-react";
+import { useStickToBottom } from "@/lib/hooks/use-stick-to-bottom";
 
 export interface SessionWorkspaceStats {
   segments: number;
@@ -325,7 +327,7 @@ export function SessionIntelligenceCanvas({
                 </div>
                 <span>{mode === "live" ? "Auto-scrolling" : "Export ready"}</span>
               </header>
-              <SessionTranscriptList rows={transcriptRows} />
+              <SessionTranscriptList rows={transcriptRows} isLive={mode === "live"} />
             </article>
           </div>
         )}
@@ -363,7 +365,18 @@ export function SessionIntelligenceCanvas({
   );
 }
 
-function SessionTranscriptList({ rows }: { rows: SessionTranscriptRow[] }) {
+function SessionTranscriptList({
+  rows,
+  isLive = false,
+}: {
+  rows: SessionTranscriptRow[];
+  isLive?: boolean;
+}) {
+  // Key auto-scroll on row count, not streaming partial chunks. The "live"
+  // partial row updates by id="live-partial" so it does not bump the count.
+  const { scrollRef, hasNewContent, isAtBottom, scrollToBottom, onScroll } =
+    useStickToBottom(rows.length);
+
   if (rows.length === 0) {
     return (
       <div className="session-empty-transcript">
@@ -374,19 +387,36 @@ function SessionTranscriptList({ rows }: { rows: SessionTranscriptRow[] }) {
   }
 
   return (
-    <div className="session-transcript-list">
-      {rows.map((row) => (
-        <article className="session-transcript-row" key={row.id}>
-          <time>{row.timestamp}</time>
-          <span
-            className={`session-transcript-dot is-${row.tone ?? "blue"} ${
-              row.live ? "is-live" : ""
-            }`}
-            aria-hidden="true"
-          />
-          <p>{row.text}</p>
-        </article>
-      ))}
+    <div className="session-transcript-scroller">
+      <div
+        ref={scrollRef}
+        onScroll={onScroll}
+        className="session-transcript-list"
+      >
+        {rows.map((row) => (
+          <article className="session-transcript-row" key={row.id}>
+            <time>{row.timestamp}</time>
+            <span
+              className={`session-transcript-dot is-${row.tone ?? "blue"} ${
+                row.live ? "is-live" : ""
+              }`}
+              aria-hidden="true"
+            />
+            <p>{row.text}</p>
+          </article>
+        ))}
+      </div>
+      {isLive && hasNewContent && !isAtBottom && (
+        <button
+          type="button"
+          onClick={() => scrollToBottom()}
+          className="session-transcript-jump"
+          aria-label="Jump to live transcript"
+        >
+          <ArrowDown size={13} aria-hidden="true" />
+          Jump to live
+        </button>
+      )}
     </div>
   );
 }
@@ -451,6 +481,9 @@ function LiveAskChat({
     submitPrompt(draft);
   }
 
+  const { scrollRef, hasNewContent, isAtBottom, scrollToBottom, onScroll } =
+    useStickToBottom(messages.length);
+
   return (
     <article className="session-panel session-ask-preview session-live-chat">
       <header>
@@ -460,19 +493,37 @@ function LiveAskChat({
         </div>
       </header>
 
-      <div className="session-live-chat-messages" aria-live="polite">
-        {messages.map((message) => (
-          <div
-            key={message.id}
-            className={`session-chat-bubble ${
-              message.role === "user" ? "is-user" : ""
-            }`}
+      <div className="session-live-chat-scroller">
+        <div
+          ref={scrollRef}
+          onScroll={onScroll}
+          className="session-live-chat-messages"
+          aria-live="polite"
+        >
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className={`session-chat-bubble ${
+                message.role === "user" ? "is-user" : ""
+              }`}
+            >
+              <strong>{message.role === "user" ? "You" : "Layers"}</strong>
+              <p>{message.text}</p>
+              <span>{message.time}</span>
+            </div>
+          ))}
+        </div>
+        {hasNewContent && !isAtBottom && (
+          <button
+            type="button"
+            onClick={() => scrollToBottom()}
+            className="session-chat-jump"
+            aria-label="Jump to newest message"
           >
-            <strong>{message.role === "user" ? "You" : "Layers"}</strong>
-            <p>{message.text}</p>
-            <span>{message.time}</span>
-          </div>
-        ))}
+            <ArrowDown size={13} aria-hidden="true" />
+            New message
+          </button>
+        )}
       </div>
 
       <div className="session-prompt-chips">

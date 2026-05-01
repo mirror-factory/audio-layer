@@ -78,3 +78,4 @@ supabase/.temp/
 .claude/hooks/__pycache__/
 .codex/hooks/__pycache__/
 **/__pycache__/
+tmp/

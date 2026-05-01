@@ -1,6 +1,8 @@
 "use client";
 
+import { ArrowDown } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
+import { useStickToBottom } from "@/lib/hooks/use-stick-to-bottom";
 
 interface Turn {
   speaker: string | null;
@@ -96,12 +98,11 @@ export function LiveTranscriptView({
   turns,
   partial,
 }: LiveTranscriptViewProps) {
-  const bottomRef = useRef<HTMLDivElement>(null);
   const prevTurnCountRef = useRef(0);
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [turns, partial]);
+  // Key auto-scroll on segment count, not the streaming partial. ResizeObserver
+  // inside the hook keeps sticky users pinned even as the partial line grows.
+  const { scrollRef, isAtBottom, hasNewContent, scrollToBottom, onScroll } =
+    useStickToBottom(turns.length);
 
   const newTurnStart = prevTurnCountRef.current;
   useEffect(() => {
@@ -128,27 +129,47 @@ export function LiveTranscriptView({
   }
 
   return (
-    <div className="space-y-3 py-2" style={{ scrollbarWidth: "none" }}>
-      {turns.map((turn, i) => (
-        <StreamedTurn key={i} turn={turn} isNew={i >= newTurnStart} />
-      ))}
+    <div className="relative flex min-h-0 flex-1 flex-col">
+      <div
+        ref={scrollRef}
+        onScroll={onScroll}
+        className="space-y-3 overflow-y-auto py-2"
+        style={{
+          scrollbarWidth: "none",
+          paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))",
+        }}
+      >
+        {turns.map((turn, i) => (
+          <StreamedTurn key={i} turn={turn} isNew={i >= newTurnStart} />
+        ))}
 
-      {partial && (
-        <article className="live-transcript-line is-current">
-          <div className="live-transcript-line-meta">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-layers-mint" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-layers-mint">
-              Live
-            </span>
-          </div>
-          <p>
-            <span>{partial}</span>
-            <span className="ml-0.5 inline-block h-3.5 w-1 animate-pulse rounded-full bg-layers-mint align-middle" />
-          </p>
-        </article>
+        {partial && (
+          <article className="live-transcript-line is-current">
+            <div className="live-transcript-line-meta">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-layers-mint" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-layers-mint">
+                Live
+              </span>
+            </div>
+            <p>
+              <span>{partial}</span>
+              <span className="ml-0.5 inline-block h-3.5 w-1 animate-pulse rounded-full bg-layers-mint align-middle" />
+            </p>
+          </article>
+        )}
+      </div>
+
+      {hasNewContent && !isAtBottom && (
+        <button
+          type="button"
+          onClick={() => scrollToBottom()}
+          className="session-transcript-jump"
+          aria-label="Jump to live transcript"
+        >
+          <ArrowDown size={13} aria-hidden="true" />
+          Jump to live
+        </button>
       )}
-
-      <div ref={bottomRef} />
     </div>
   );
 }

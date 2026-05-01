@@ -6994,7 +6994,8 @@ body.dark:has(.paper-calm-page) {
 }
 
 .session-intelligence-canvas:has(.session-live-footer) {
-  padding-bottom: calc(clamp(22px, 2vw, 28px) + 2rem);
+  /* Footer is flex-rendered, not floating, so no extra padding needed. */
+  padding-bottom: clamp(22px, 2vw, 28px);
 }
 
 .session-tabs {
@@ -7519,27 +7520,29 @@ body.dark:has(.paper-calm-page) {
 }
 
 .session-live-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0.55rem;
-  left: 0;
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   width: fit-content;
   min-height: 26px;
+  align-self: center;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
+  margin-top: 0.4rem;
   margin-inline: auto;
+  flex-shrink: 0;
   border-radius: 999px;
   background: rgba(114, 103, 255, 0.1);
   padding: 0 0.85rem;
+  /* Account for safe-area on mobile so the pill clears system gestures. */
+  padding-bottom: max(0px, env(safe-area-inset-bottom, 0px));
   color: var(--session-blue);
   font-size: 0.74rem;
   font-weight: 700;
 }
 
 .session-detail-workspace .session-live-footer {
-  position: static;
   margin-top: 0.25rem;
 }
 
@@ -14435,4 +14438,175 @@ body.dark:has(.paper-calm-page) {
     width: 100% !important;
     min-width: 0 !important;
   }
+}
+
+/* ---- Paper Calm radius polish (PROD-398) ----
+   Soften corners across the recording surface to match the rest of the
+   Paper Calm card system (14 / 18 / 20 / 24px scale). */
+.paper-calm-page.recorder-page .home-record-dock,
+.paper-calm-page.recorder-page .home-calendar-panel,
+.paper-calm-page.recorder-page .recent-meetings-panel,
+.paper-calm-page.recorder-page .home-insight-tip {
+  border-radius: 24px;
+}
+
+.paper-calm-page.recorder-page .home-recorder-control-slot,
+.paper-calm-page.recorder-page .home-record-shell {
+  border-radius: 20px;
+}
+
+.paper-calm-page.recorder-page .meeting-row {
+  border-radius: 18px !important;
+}
+
+.paper-calm-page.recorder-page .home-calendar-event {
+  border-radius: 18px;
+}
+
+.paper-calm-page.recorder-page .recent-search-control,
+.paper-calm-page.recorder-page .recent-filter-button {
+  border-radius: 14px;
+}
+
+.session-intelligence-canvas,
+.home-record-dock.is-live,
+.session-capture-card {
+  border-radius: 24px !important;
+}
+
+.session-panel {
+  border-radius: 20px;
+}
+
+.session-tabs {
+  border-radius: 18px;
+}
+
+/* ---- Live transcript / Ask scroller jump pills (PROD-399, PROD-401) ---- */
+.session-transcript-scroller,
+.session-live-chat-scroller {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.session-transcript-jump,
+.session-chat-jump {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateX(-50%);
+  border: 0;
+  border-radius: 999px;
+  background: var(--layers-mint, #3fc4a3);
+  color: var(--layers-ink, #061229);
+  padding: 6px 12px;
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  box-shadow:
+    0 6px 16px rgba(7, 19, 43, 0.18),
+    0 0 0 1px rgba(63, 196, 163, 0.35);
+  cursor: pointer;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.session-transcript-jump:hover,
+.session-chat-jump:hover {
+  transform: translate(-50%, -1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .session-transcript-jump,
+  .session-chat-jump {
+    transition: none;
+  }
+  .session-transcript-jump:hover,
+  .session-chat-jump:hover {
+    transform: translateX(-50%);
+  }
+}
+
+/* The transcript list scroller no longer caps at clamp(...); it stretches
+   inside its column so auto-scroll follows new turns. */
+.session-transcript-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-transcript-panel > .session-transcript-scroller {
+  flex: 1;
+  min-height: 0;
+}
+
+.session-transcript-scroller > .session-transcript-list {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+/* Ask Layers chat: full-height layout with sticky-bottom auto-scroll. */
+.session-meeting-chat,
+.session-live-chat {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.session-meeting-chat-header {
+  flex-shrink: 0;
+}
+
+.session-meeting-chat > .relative,
+.session-live-chat > .session-live-chat-scroller {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.session-meeting-chat-messages {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+  padding-block: 0.65rem;
+  padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
+  scrollbar-width: none;
+}
+
+.session-live-chat-messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-block: 0.25rem 0.35rem;
+  padding-bottom: max(0.35rem, env(safe-area-inset-bottom));
+  scrollbar-width: none;
+}
+
+.session-meeting-chat-input {
+  flex-shrink: 0;
+}
+
+/* Markdown rendering inside chat bubbles (PROD-400). */
+.chat-markdown :where(p, ul, ol, blockquote, pre, table) {
+  margin: 0;
+}
+
+.chat-markdown :where(ul, ol):not(:first-child),
+.chat-markdown :where(p, blockquote, pre, table):not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+.chat-markdown :where(ul ul, ol ol, ul ol, ol ul) {
+  margin-top: 0.25rem;
 }

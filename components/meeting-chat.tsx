@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useMemo } from "react";
+import { ArrowDown, FileText, ListChecks, Mail, MessageSquare, Target, Users } from "lucide-react";
 import { DefaultChatTransport } from "ai";
 import { useChat } from "@ai-sdk/react";
-import { FileText, MessageSquare, ListChecks, Mail, Target, Users } from "lucide-react";
 import { ChatInput } from "@/components/chat-input";
 import { ChatMessage } from "@/components/chat-message";
+import { useStickToBottom } from "@/lib/hooks/use-stick-to-bottom";
 
 interface MeetingChatProps {
   meetingId: string;
   variant?: "default" | "workspace";
+  onCitationClick?: (segmentNumber: number) => void;
 }
 
 const templates = [
@@ -45,8 +47,11 @@ const templates = [
   },
 ] as const;
 
-export function MeetingChat({ meetingId, variant = "default" }: MeetingChatProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+export function MeetingChat({
+  meetingId,
+  variant = "default",
+  onCitationClick,
+}: MeetingChatProps) {
   const transport = useMemo(
     () =>
       new DefaultChatTransport({
@@ -68,12 +73,10 @@ export function MeetingChat({ meetingId, variant = "default" }: MeetingChatProps
   });
   const isLoading = status === "streaming" || status === "submitted";
 
-  useEffect(() => {
-    scrollRef.current?.scrollTo({
-      top: scrollRef.current.scrollHeight,
-      behavior: "smooth",
-    });
-  }, [messages]);
+  // Key auto-scroll on message count, not streaming chunks. Streaming updates
+  // (status === "streaming") still nudge sticky users via ResizeObserver.
+  const { scrollRef, hasNewContent, isAtBottom, scrollToBottom, onScroll } =
+    useStickToBottom(messages.length);
 
   function sendTemplate(prompt: string) {
     if (isLoading) return;
@@ -94,7 +97,7 @@ export function MeetingChat({ meetingId, variant = "default" }: MeetingChatProps
       className={
         isWorkspace
           ? "session-panel session-ask-preview session-meeting-chat"
-          : "border border-[var(--border-card)] bg-[var(--bg-card)] rounded-xl overflow-hidden"
+          : "flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)]"
       }
       aria-labelledby="meeting-chat-heading"
     >
@@ -102,7 +105,7 @@ export function MeetingChat({ meetingId, variant = "default" }: MeetingChatProps
         className={
           isWorkspace
             ? "session-meeting-chat-header"
-            : "p-4 border-b border-[var(--border-subtle)]"
+            : "border-b border-[var(--border-subtle)] p-4"
         }
       >
         <div className="flex items-center gap-2">
@@ -121,7 +124,7 @@ export function MeetingChat({ meetingId, variant = "default" }: MeetingChatProps
           className={
             isWorkspace
               ? "session-prompt-chips"
-              : "flex flex-wrap gap-2 mt-3"
+              : "mt-3 flex flex-wrap gap-2"
           }
           aria-label="Meeting templates"
         >
@@ -147,51 +150,77 @@ export function MeetingChat({ meetingId, variant = "default" }: MeetingChatProps
         </div>
       </div>
 
-      <div
-        ref={scrollRef}
-        className={
-          isWorkspace
-            ? "session-meeting-chat-messages"
-            : "max-h-[420px] min-h-[220px] overflow-y-auto p-4"
-        }
-        data-testid="meeting-chat-messages"
-      >
-        {error && (
-          <div
-            className="mb-4 rounded-lg border border-signal-live/25 bg-signal-live/10 p-3"
-            role="status"
-            aria-live="polite"
-          >
-            <div className="text-xs font-medium text-signal-live">
-              The assistant could not answer.
-            </div>
-            <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-              Check the selected model/provider settings, then retry the last message.
-            </p>
-            <button
-              type="button"
-              onClick={retryLastMessage}
-              disabled={isLoading || messages.length === 0}
-              className="mt-3 min-h-8 rounded-md border border-signal-live/25 px-3 text-xs font-medium text-signal-live transition-colors hover:bg-signal-live/10 disabled:opacity-50"
+      <div className="relative flex min-h-0 flex-1 flex-col">
+        <div
+          ref={scrollRef}
+          onScroll={onScroll}
+          className={
+            isWorkspace
+              ? "session-meeting-chat-messages"
+              : "flex-1 min-h-0 overflow-y-auto p-4"
+          }
+          data-testid="meeting-chat-messages"
+        >
+          {error && (
+            <div
+              className="mb-4 rounded-lg border border-signal-live/25 bg-signal-live/10 p-3"
+              role="status"
+              aria-live="polite"
             >
-              Retry
-            </button>
-          </div>
-        )}
-        {messages.length === 0 ? (
-          <div className="flex min-h-[180px] items-center justify-center text-center">
-            <p className="max-w-sm text-sm text-[var(--text-muted)]">
-              Ask for decisions, follow-ups, risks, or a structured template grounded in this transcript.
-            </p>
-          </div>
-        ) : (
-          messages.map((message) => (
-            <ChatMessage key={message.id} message={message} />
-          ))
+              <div className="text-xs font-medium text-signal-live">
+                The assistant could not answer.
+              </div>
+              <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
+                Check the selected model/provider settings, then retry the last message.
+              </p>
+              <button
+                type="button"
+                onClick={retryLastMessage}
+                disabled={isLoading || messages.length === 0}
+                className="mt-3 min-h-8 rounded-md border border-signal-live/25 px-3 text-xs font-medium text-signal-live transition-colors hover:bg-signal-live/10 disabled:opacity-50"
+              >
+                Retry
+              </button>
+            </div>
+          )}
+          {messages.length === 0 ? (
+            <div className="flex min-h-[180px] items-center justify-center text-center">
+              <p className="max-w-sm text-sm text-[var(--text-muted)]">
+                Ask for decisions, follow-ups, risks, or a structured template grounded in this transcript.
+              </p>
+            </div>
+          ) : (
+            messages.map((message) => (
+              <ChatMessage
+                key={message.id}
+                message={message}
+                onCitationClick={onCitationClick}
+              />
+            ))
+          )}
+        </div>
+
+        {hasNewContent && !isAtBottom && (
+          <button
+            type="button"
+            onClick={() => scrollToBottom()}
+            className="absolute bottom-3 left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-layers-mint px-3 py-1.5 text-xs font-semibold text-layers-ink shadow-lg ring-1 ring-layers-mint/40 transition-transform hover:scale-[1.02]"
+            aria-label="Jump to newest message"
+          >
+            <ArrowDown size={13} aria-hidden />
+            New message
+          </button>
         )}
       </div>
 
-      <div className={isWorkspace ? "session-meeting-chat-input" : undefined}>
+      <div
+        className={isWorkspace ? "session-meeting-chat-input" : undefined}
+        style={
+          isWorkspace
+            ? undefined
+            : { paddingBottom: "env(safe-area-inset-bottom)" }
+        }
+      >
         <ChatInput
           onSend={(text) => {
             clearError();
