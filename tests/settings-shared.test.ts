@@ -11,7 +11,11 @@ describe("DEFAULTS", () => {
   });
 
   it("has correct streamingSpeechModel", () => {
-    expect(DEFAULTS.streamingSpeechModel).toBe("nova-3");
+    // 2026-05-01 — flipped from "nova-3" (Deepgram) to AssemblyAI's
+    // universal-streaming-english per PROD-395. UI promises AssemblyAI
+    // as the system-wide default; the previous Deepgram value made
+    // every cookie-less request silently route through Deepgram.
+    expect(DEFAULTS.streamingSpeechModel).toBe("universal-streaming-english");
   });
 });
 
@@ -80,11 +84,13 @@ describe("MODEL_OPTIONS", () => {
     expect(values).toContain(DEFAULTS.streamingSpeechModel);
   });
 
-  it("default streamingSpeechModel uses Deepgram", () => {
+  it("default streamingSpeechModel uses AssemblyAI", () => {
+    // PROD-395 — system default is AssemblyAI; users can opt into
+    // Deepgram (or any other implemented option) via Settings.
     const defaultStreamingOption = MODEL_OPTIONS.streamingSpeech.find(
       (option) => option.value === DEFAULTS.streamingSpeechModel,
     );
 
-    expect(defaultStreamingOption?.provider).toBe("deepgram");
+    expect(defaultStreamingOption?.provider).toBe("assemblyai");
   });
 });

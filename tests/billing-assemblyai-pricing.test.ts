@@ -49,9 +49,11 @@ describe("estimateStreamingMeetingCost", () => {
   });
 
   it("uses default model when none specified", () => {
+    // PROD-395: default flipped from "nova-3" (Deepgram) to
+    // "universal-streaming-english" (AssemblyAI). 1 hour @ $0.15/hr.
     const result = estimateStreamingMeetingCost(3600);
-    expect(result.model).toBe("nova-3");
-    expect(result.totalCostUsd).toBeCloseTo(0.288, 6);
+    expect(result.model).toBe("universal-streaming-english");
+    expect(result.totalCostUsd).toBeCloseTo(0.15, 6);
   });
 });
 
