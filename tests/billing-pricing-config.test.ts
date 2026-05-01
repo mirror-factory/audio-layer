@@ -46,6 +46,16 @@ describe("pricing config store", () => {
     ]);
   });
 
+  it("falls back to defaults when the file store is read-only", async () => {
+    process.env.PRICING_CONFIG_FILE = tempDir;
+
+    const store = await getPricingConfigStore();
+
+    expect(store.source).toBe("default");
+    expect(store.active.status).toBe("active");
+    expect(store.active.sttOptionId).toBe("deepgram:nova-3:streaming");
+  });
+
   it("saves a draft and activates it", async () => {
     const draftStore = await savePricingConfigDraft({
       name: "Core 900 minute test",

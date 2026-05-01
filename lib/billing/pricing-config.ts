@@ -230,7 +230,12 @@ export async function getPricingConfigStore(): Promise<PricingConfigStore> {
   if (fileStore) return fileStore;
 
   const initial = defaultStore("file");
-  return writeFileStore(initial);
+  try {
+    return writeFileStore(initial);
+  } catch (err) {
+    console.warn("[pricing] Unable to persist default pricing config:", err);
+    return defaultStore("default");
+  }
 }
 
 export async function getActivePricingConfig(): Promise<PricingConfigVersion> {
