@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.39] — 2026-05-01
+
+### Other
+- MCP: implement Dynamic Client Registration (RFC 7591) (`a286d6d`)
+
+
 ## [0.1.38] — 2026-05-01
 
 ### Other
