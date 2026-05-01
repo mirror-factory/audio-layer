@@ -14,6 +14,9 @@ import {
   AndroidLogo,
   WindowsLogo,
 } from "@/components/platform-logos";
+import pkg from "@/package.json";
+
+const APP_VERSION: string = pkg.version;
 
 type PlatformIcon = ComponentType<{
   size?: number;
@@ -802,7 +805,7 @@ export default function DownloadPage() {
               className="inline-flex items-center gap-1.5 text-[0.85rem] font-medium underline-offset-4 hover:underline"
               style={{ color: "var(--layers-blue)" }}
             >
-              See what&rsquo;s new
+              See what&rsquo;s new in v{APP_VERSION}
               <ArrowUpRight size={13} aria-hidden="true" />
             </Link>
           </aside>

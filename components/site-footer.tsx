@@ -4,6 +4,7 @@ import { LayersLogo } from "@/components/layers-logo";
 const NAV_LINKS = [
   { href: "/pricing", label: "Pricing" },
   { href: "/download", label: "Download" },
+  { href: "/changelog", label: "Changelog" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
   { href: "/account-deletion", label: "Account deletion" },
