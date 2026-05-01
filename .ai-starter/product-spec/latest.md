@@ -4,7 +4,7 @@ spec_id: product-spec
 project: audio-layer
 status: complete
 source: agent-generated
-updated_at: 2026-05-01T05:31:26.793Z
+updated_at: 2026-05-01T15:32:22.675Z
 anchors:
   product_validation: .ai-starter/product-validation/latest.md
   mfdr: .ai-starter/mfdr/latest.md
