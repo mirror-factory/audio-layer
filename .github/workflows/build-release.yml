@@ -105,6 +105,11 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: npx cap add ios
-      - run: npx cap sync ios
+      - run: |
+          if [ -d ios/App ]; then
+            npx cap sync ios
+          else
+            npx cap add ios
+            npx cap sync ios
+          fi
       - run: xcodebuild -project ios/App/App.xcodeproj -scheme App -destination 'generic/platform=iOS Simulator' -configuration Debug build
