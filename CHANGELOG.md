@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.36] — 2026-05-01
+
+### Other
+- MCP section: connection cycle animation + Anthropic orange + tagline (`944a102`)
+
+
 ## [0.1.35] — 2026-05-01
 
 ### Other
