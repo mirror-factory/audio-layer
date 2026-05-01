@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.43] — 2026-05-01
+
+### Other
+- Gradient: paint on body root + rebrand MCP dashboard UI to Paper Calm (`6384d7c`)
+
+
 ## [0.1.42] — 2026-05-01
 
 ### Other
