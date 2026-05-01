@@ -23,6 +23,35 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ---
 
+## Strict-Mode Hooks (Lightweight by Default)
+
+The AI Starter Kit's live hooks (autopilot stop-checks, companion enforcement, evidence gating) are powerful but **expensive on every agent turn**. Default mode for this repo is **lightweight**: hooks are parked, agents work normally, and the full gates run only at checkpoints or before a push/handoff.
+
+### Switch modes
+
+```bash
+scripts/strict-mode.sh status     # current state
+scripts/strict-mode.sh off        # PARK hooks (lightweight, default)
+scripts/strict-mode.sh on         # ACTIVATE hooks (before push/handoff)
+```
+
+When parked, `.codex/hooks.json` and `.claude/settings.json` are renamed to `.strict` variants. The starter kit files and `pnpm sync`/`pnpm score`/`pnpm gates` commands all still work — only the per-action hook noise stops.
+
+### Daily workflow (lightweight)
+
+1. Edit code normally.
+2. `pnpm test`, `pnpm typecheck`, `npx eslint .` as you go.
+3. `pnpm sync && pnpm score` at natural checkpoints.
+4. Before push or handoff: `scripts/strict-mode.sh on && pnpm gates && scripts/strict-mode.sh off`.
+
+### When to use strict mode permanently
+
+- Release branches.
+- CI runs in GitHub Actions (the workflow file in `.github/workflows/ai-dev-kit.yml` runs gates regardless of local mode).
+- One-off audits where you want every action gated.
+
+---
+
 ## Codex Cloud Environment
 
 If you are running as **Codex Cloud** (OpenAI's cloud agent through Linear), use the following setup command in your environment configuration:
