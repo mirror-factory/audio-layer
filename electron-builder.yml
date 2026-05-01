@@ -17,6 +17,19 @@ mac:
   gatekeeperAssess: false
   entitlements: electron/entitlements.mac.plist
   entitlementsInherit: electron/entitlements.mac.plist
+  # Code signing + notarization (PROD-380).
+  # Default OFF so local/dev builds don't require certs.
+  # CI flips `notarize` to true via env override (`NOTARIZE=true`) when secrets
+  # are populated. See .github/workflows/build-release.yml + docs/SIGNING.md.
+  # Reference: https://www.electron.build/code-signing-mac.html
+  # Reference: https://www.electron.build/configuration/mac.html
+  notarize: false
+  # Pin identity to the Developer ID Application cert. When CSC_LINK is unset
+  # in CI we explicitly skip signing instead of letting electron-builder
+  # silently produce an unsigned dmg. The literal string below is interpreted
+  # as a prefix match against the cert CN; CI overrides to `null` when no cert
+  # is provided so the unsigned-fallback path stays clean.
+  identity: "Developer ID Application"
 dmg:
   background: null
   contents:
@@ -32,6 +45,18 @@ win:
     - target: nsis
       arch:
         - x64
+  # Windows code signing placeholder (PROD-356 / PROD-366).
+  # We do not yet have an EV (or OV) Authenticode cert. Once acquired, populate
+  # the following GitHub secrets and uncomment the signtoolOptions block:
+  #   WINDOWS_CSC_LINK            -> base64-encoded .pfx
+  #   WINDOWS_CSC_KEY_PASSWORD    -> .pfx password
+  # Reference: https://www.electron.build/configuration/win.html
+  # signtoolOptions:
+  #   sign: ./build/sign-windows.js   # or use built-in signing via env vars
+  #   signingHashAlgorithms:
+  #     - sha256
+  #   publisherName: "Mirror Factory, Inc."
+  #   rfc3161TimeStampServer: http://timestamp.digicert.com
 linux:
   target:
     - target: AppImage

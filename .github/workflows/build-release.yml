@@ -33,6 +33,17 @@ jobs:
     name: Electron (macOS)
     if: github.event_name == 'workflow_dispatch' && inputs.include_apple_builds == true
     runs-on: macos-latest
+    env:
+      # PROD-380: signing+notarization wired through env. When CSC_LINK is empty
+      # the workflow skips signing/notarize and ships an unsigned dmg + warning.
+      CSC_LINK: ${{ secrets.CSC_LINK }}
+      CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+      APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+      APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      # Optional fallback: app-specific password (used only if API key absent).
+      APPLE_ID: ${{ secrets.APPLE_ID }}
+      APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -40,8 +51,61 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+
+      - name: Detect signing readiness
+        id: signing
+        run: |
+          if [ -n "${CSC_LINK:-}" ] && [ -n "${CSC_KEY_PASSWORD:-}" ]; then
+            echo "signing_enabled=true" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Code signing::CSC_LINK present — DMG will be signed."
+          else
+            echo "signing_enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Code signing skipped::CSC_LINK is empty. DMG will be UNSIGNED. macOS Gatekeeper will block first launch (PROD-380). Populate CSC_LINK + CSC_KEY_PASSWORD secrets to enable signing."
+          fi
+
+      - name: Decode notarytool API key (.p8)
+        if: steps.signing.outputs.signing_enabled == 'true' && env.APPLE_API_KEY_ID != ''
+        env:
+          APPLE_API_KEY_BASE64: ${{ secrets.APPLE_API_KEY }}
+        run: |
+          if [ -z "${APPLE_API_KEY_BASE64:-}" ]; then
+            echo "::warning::APPLE_API_KEY secret is empty — falling back to APPLE_ID/APPLE_APP_SPECIFIC_PASSWORD if provided."
+            exit 0
+          fi
+          mkdir -p "$RUNNER_TEMP/private_keys"
+          KEY_PATH="$RUNNER_TEMP/private_keys/AuthKey_${APPLE_API_KEY_ID}.p8"
+          echo "$APPLE_API_KEY_BASE64" | base64 --decode > "$KEY_PATH"
+          chmod 600 "$KEY_PATH"
+          echo "APPLE_API_KEY=$KEY_PATH" >> "$GITHUB_ENV"
+          echo "::notice::Decoded notarytool API key to $KEY_PATH"
+
       - run: pnpm install --frozen-lockfile
-      - run: npx electron-builder --config electron-builder.yml --mac --publish never
+
+      - name: Build (signed + notarized)
+        if: steps.signing.outputs.signing_enabled == 'true'
+        env:
+          # electron-builder reads NOTARIZE-aware config via this override.
+          # We rewrite the yml in-place so `notarize: true` is honored only
+          # when secrets are populated. (electron-builder yml does not support
+          # ${{ }} interpolation natively.)
+          NOTARIZE: 'true'
+        run: |
+          # Flip notarize flag on for this run.
+          sed -i.bak 's/^  notarize: false$/  notarize: true/' electron-builder.yml
+          npx electron-builder --config electron-builder.yml --mac --publish never
+
+      - name: Build (unsigned fallback)
+        if: steps.signing.outputs.signing_enabled != 'true'
+        env:
+          # Force-disable signing so electron-builder doesn't try to use the
+          # pinned `identity` and fail on a missing keychain entry.
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+        run: |
+          # Strip the pinned identity for this unsigned run.
+          sed -i.bak '/^  identity: /d' electron-builder.yml
+          npx electron-builder --config electron-builder.yml --mac --publish never
+          echo "::warning title=Unsigned DMG::Built without code signing. Users will see a Gatekeeper warning. See docs/SIGNING.md."
+
       - uses: actions/upload-artifact@v4
         with:
           name: electron-mac
