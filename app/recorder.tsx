@@ -713,9 +713,15 @@ function UpcomingMeetingsPanel({
       aria-label="Upcoming meetings"
     >
       <div className="home-calendar-heading">
-        <div>
+        <div className="flex items-center gap-2 flex-wrap">
           <p className="signal-eyebrow">Coming up</p>
-          <h2>Calendar context</h2>
+          <span
+            aria-label="Coming soon"
+            className="inline-flex items-center rounded-full bg-[color-mix(in_oklch,var(--layers-mint)_18%,transparent)] px-2 py-[2px] text-[9px] font-semibold uppercase tracking-[0.08em] text-[var(--layers-mint)]"
+          >
+            Coming soon
+          </span>
+          <h2 className="basis-full">Calendar context</h2>
         </div>
         <span className="home-calendar-icon" aria-hidden="true">
           <CalendarDays size={17} />

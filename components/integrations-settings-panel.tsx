@@ -2,7 +2,16 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { Check, Link2, Loader2, PlugZap, Trash2, Webhook } from "lucide-react";
+import {
+  CalendarDays,
+  Check,
+  Link2,
+  Loader2,
+  PlugZap,
+  Settings,
+  Trash2,
+  Webhook,
+} from "lucide-react";
 
 type WebhookEvent = "meeting.completed" | "meeting.started" | "meeting.error";
 
@@ -175,6 +184,7 @@ export function IntegrationsSettingsPanel() {
       </div>
 
       <div className="mt-4 grid gap-3">
+        {/* Agent access (MCP) — fully functional */}
         <div className="settings-integration-card rounded-lg border border-[var(--border-card)] bg-[var(--surface-control)] p-3">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -197,6 +207,20 @@ export function IntegrationsSettingsPanel() {
             </div>
           </div>
         </div>
+
+        {/* Calendar connector — Coming soon */}
+        <ComingSoonConnectorCard
+          icon={<CalendarDays size={15} aria-hidden="true" />}
+          title="Calendar"
+          body="Sync upcoming meetings from Google Calendar and Outlook so Layers can pre-fill titles, attendees, and start recording on schedule."
+        />
+
+        {/* Settings / preferences sync — Coming soon */}
+        <ComingSoonConnectorCard
+          icon={<Settings size={15} aria-hidden="true" />}
+          title="Settings sync"
+          body="Carry your Layers preferences (default model, recording mode, summary template) across devices and the desktop apps."
+        />
 
         <div className="settings-integration-card rounded-lg border border-[var(--border-card)] bg-[var(--surface-control)] p-3">
           <div className="mb-3 flex items-center gap-2">
@@ -355,5 +379,56 @@ export function IntegrationsSettingsPanel() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ComingSoonConnectorCard({
+  icon,
+  title,
+  body,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+}) {
+  return (
+    <div
+      className="settings-integration-card relative rounded-lg border border-[var(--border-card)] bg-[var(--surface-control)] p-3 opacity-80"
+      aria-disabled="true"
+    >
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-start gap-2.5">
+          <span
+            className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-md border border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-muted)]"
+            aria-hidden="true"
+          >
+            {icon}
+          </span>
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="text-sm font-semibold text-[var(--text-primary)]">
+                {title}
+              </p>
+              <span className="inline-flex items-center rounded-full bg-[color-mix(in_oklch,var(--layers-mint)_18%,transparent)] px-2 py-[2px] text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--layers-mint)]">
+                Coming soon
+              </span>
+            </div>
+            <p className="mt-1 text-xs leading-5 text-[var(--text-muted)]">
+              {body}
+            </p>
+          </div>
+        </div>
+        <button
+          type="button"
+          disabled
+          aria-disabled="true"
+          title="Coming soon — invite-only alpha"
+          className="inline-flex min-h-[36px] cursor-not-allowed items-center gap-1.5 rounded-md border border-[var(--border-card)] bg-[var(--bg-card)] px-3 text-xs font-semibold text-[var(--text-muted)] opacity-70"
+        >
+          <Link2 size={12} aria-hidden="true" />
+          Connect
+        </button>
+      </div>
+    </div>
   );
 }
