@@ -1627,23 +1627,30 @@ body {
   );
 }
 
-/* Paint the paper-calm gradient on the document root too, so when the
-   .paper-calm-page element is shorter than the viewport (or sits inside
-   a containing block that breaks background-attachment: fixed) the page
-   never reveals a hard edge / white area below the gradient. */
-html:has(.paper-calm-page),
+/* Paint the paper-calm gradient on the document root so it covers the
+   full page height regardless of how tall the inner .paper-calm-page
+   container ends up. The gradient is fixed to the viewport so scrolling
+   never reveals a hard edge or white area below the content. */
+html:has(.paper-calm-page) {
+  background-color: #eaf8f1 !important;
+}
+
 body:has(.paper-calm-page) {
-  background:
+  background-color: #eaf8f1 !important;
+  background-image:
     radial-gradient(circle at 7% 4%, rgba(196, 181, 253, 0.28), transparent 29%),
     radial-gradient(circle at 94% 9%, rgba(52, 211, 153, 0.16), transparent 25%),
-    linear-gradient(145deg, #fbf7fb 0%, #f8fbff 43%, #eaf8f1 100%);
-  background-attachment: fixed;
-  background-color: #eaf8f1;
+    linear-gradient(145deg, #fbf7fb 0%, #f8fbff 43%, #eaf8f1 100%) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  min-height: 100vh;
 }
 
 html.dark:has(.paper-calm-page),
 body.dark:has(.paper-calm-page) {
-  background: oklch(0.18 0.025 246);
+  background-color: oklch(0.18 0.025 246) !important;
+  background-image: none !important;
 }
 
 .paper-calm-page {

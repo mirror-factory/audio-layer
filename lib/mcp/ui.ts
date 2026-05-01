@@ -112,45 +112,56 @@ export function getLayersMeetingDashboardHtml(): string {
   <meta name="color-scheme" content="light dark">
   <title>Layers Meetings</title>
   <style>
+    /* Layers Design System v1 — Paper Calm. Mint primary, violet+blue
+       supports. Mirrors app/globals.css token values. */
     :root {
       color-scheme: dark;
-      --bg: #091324;
-      --panel: rgba(255, 255, 255, 0.08);
-      --panel-strong: rgba(255, 255, 255, 0.12);
-      --surface: rgba(255, 255, 255, 0.06);
-      --text: #f7fbff;
-      --muted: rgba(247, 251, 255, 0.66);
-      --border: rgba(255, 255, 255, 0.14);
-      --accent: #48d8bb;
-      --accent-strong: #6ff5dd;
-      --accent-soft: rgba(72, 216, 187, 0.14);
-      --violet-soft: rgba(114, 103, 255, 0.2);
-      --danger: #ff7b88;
-      --danger-soft: rgba(255, 123, 136, 0.14);
-      --warning: #ffd27a;
-      --warning-soft: rgba(255, 210, 122, 0.14);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --bg: #0d1d35;
+      --panel: rgba(252, 253, 255, 0.06);
+      --panel-strong: rgba(252, 253, 255, 0.10);
+      --surface: rgba(252, 253, 255, 0.04);
+      --text: #f3f5fa;
+      --muted: rgba(243, 245, 250, 0.66);
+      --border: rgba(252, 253, 255, 0.12);
+      --layers-mint: #3fc4a3;
+      --layers-violet: #9b6ee0;
+      --layers-blue: #5b9bd6;
+      --accent: var(--layers-mint);
+      --accent-strong: #74e0c2;
+      --accent-soft: rgba(63, 196, 163, 0.16);
+      --violet-soft: rgba(155, 110, 224, 0.20);
+      --blue-soft: rgba(91, 155, 214, 0.20);
+      --danger: #f08d92;
+      --danger-soft: rgba(240, 141, 146, 0.14);
+      --warning: #f0c98a;
+      --warning-soft: rgba(240, 201, 138, 0.14);
+      --shadow: 0 28px 80px rgba(8, 12, 24, 0.32);
+      font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif);
     }
 
     [data-theme="light"] {
       color-scheme: light;
-      --bg: #f6fbfb;
-      --panel: rgba(255, 255, 255, 0.84);
-      --panel-strong: rgba(255, 255, 255, 0.94);
-      --surface: rgba(246, 250, 252, 0.92);
-      --text: #071123;
-      --muted: #697587;
-      --border: rgba(9, 25, 55, 0.12);
-      --accent: #48d8bb;
-      --accent-strong: #128a7f;
-      --accent-soft: rgba(72, 216, 187, 0.16);
-      --violet-soft: rgba(114, 103, 255, 0.12);
-      --danger: #d85d65;
-      --danger-soft: rgba(216, 93, 101, 0.11);
-      --warning: #986b10;
-      --warning-soft: rgba(255, 210, 122, 0.22);
-      --shadow: 0 20px 70px rgba(36, 54, 94, 0.12);
+      --bg: #fafdfb;
+      --panel: rgba(255, 255, 255, 0.86);
+      --panel-strong: rgba(255, 255, 255, 0.96);
+      --surface: rgba(250, 253, 251, 0.94);
+      --text: #1c2436;
+      --muted: #5e6a7d;
+      --border: rgba(28, 36, 54, 0.10);
+      --layers-mint: #3fc4a3;
+      --layers-violet: #9b6ee0;
+      --layers-blue: #5b9bd6;
+      --accent: var(--layers-mint);
+      --accent-strong: #1d8870;
+      --accent-soft: rgba(63, 196, 163, 0.14);
+      --violet-soft: rgba(155, 110, 224, 0.14);
+      --blue-soft: rgba(91, 155, 214, 0.14);
+      --danger: #c75a64;
+      --danger-soft: rgba(199, 90, 100, 0.10);
+      --warning: #8a6712;
+      --warning-soft: rgba(240, 201, 138, 0.20);
+      --shadow: 0 24px 60px rgba(36, 54, 94, 0.10);
     }
 
     * {
@@ -160,12 +171,35 @@ export function getLayersMeetingDashboardHtml(): string {
     body {
       margin: 0;
       background:
-        radial-gradient(circle at 0% 0%, var(--violet-soft), transparent 38%),
-        radial-gradient(circle at 100% 8%, var(--accent-soft), transparent 42%),
+        radial-gradient(circle at 6% 4%, var(--violet-soft), transparent 38%),
+        radial-gradient(circle at 96% 10%, var(--accent-soft), transparent 42%),
+        radial-gradient(circle at 100% 100%, var(--blue-soft), transparent 50%),
         var(--bg);
+      background-attachment: fixed;
       color: var(--text);
       font-size: 13px;
-      line-height: 1.4;
+      line-height: 1.45;
+      letter-spacing: -0.005em;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .brand-mark {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+      color: var(--text);
     }
 
     main {
@@ -372,8 +406,17 @@ export function getLayersMeetingDashboardHtml(): string {
   <main>
     <header>
       <div>
-        <div class="eyebrow">MCP app</div>
-        <h1>Layers meetings</h1>
+        <div class="brand" aria-hidden="true">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4 a12 12 0 1 1 0 24" stroke="var(--layers-blue)" stroke-linecap="round" stroke-width="2.6" fill="none"/>
+            <path d="M16 8.5 a7.5 7.5 0 1 1 0 15" stroke="var(--layers-violet)" stroke-linecap="round" stroke-width="2.6" fill="none"/>
+            <circle cx="16" cy="16" r="4" fill="var(--layers-mint)" opacity="0.22"/>
+            <circle cx="16" cy="16" r="2" fill="var(--layers-mint)"/>
+          </svg>
+          <span class="brand-name">Layers</span>
+        </div>
+        <div class="eyebrow">Meeting memory</div>
+        <h1>Your recent meetings</h1>
         <div class="subtitle" id="generated">Waiting for meeting data</div>
       </div>
       <button id="refresh" type="button" aria-label="Refresh meetings">Sync</button>

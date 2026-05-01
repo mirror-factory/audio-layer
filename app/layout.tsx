@@ -38,7 +38,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full bg-[var(--bg-primary)] text-[var(--text-primary)]">
+      <body className="min-h-full text-[var(--text-primary)]">
         {children}
       </body>
     </html>

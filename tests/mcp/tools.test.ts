@@ -68,8 +68,12 @@ describe("MCP App UI", () => {
   it("renders the Layers meeting dashboard shell", () => {
     const html = getLayersMeetingDashboardHtml();
 
-    expect(html).toContain("Layers meetings");
-    expect(html).toContain("MCP app");
+    // Reflects the Paper Calm rebrand 2026-05-01: title is now
+    // "Your recent meetings" with a "Meeting memory" eyebrow + an
+    // inline Layers brand mark.
+    expect(html).toContain("Your recent meetings");
+    expect(html).toContain("Meeting memory");
+    expect(html).toContain('class="brand"');
     expect(html).toContain('aria-label="Refresh meetings"');
     expect(html).toContain("show_meeting_dashboard");
   });
