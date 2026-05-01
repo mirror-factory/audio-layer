@@ -23,6 +23,22 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ---
 
+## Branching & Promotion
+
+This repo uses **`main` (production) + `staging` (integration) + agent-prefixed feature branches**. All PRs target `staging`; promotion to `main` happens in batches.
+
+**Branch naming:**
+- `codex/PROD-XXX-<slug>` — Codex (cloud or local CLI)
+- `claude/PROD-XXX-<slug>` — Claude (this skill via MCP)
+- `feature/<slug>` — human work
+- `hotfix/<slug>` — production-only fixes (PR target = `main`, then merge `main` back into `staging`)
+
+**Never push directly to `main` or `staging`.** Open a PR.
+
+Full workflow including review cadence, smoke-test checklist, and Vercel deploy mapping: see [`docs/BRANCHING.md`](docs/BRANCHING.md).
+
+---
+
 ## Strict-Mode Hooks (Lightweight by Default)
 
 The AI Starter Kit's live hooks (autopilot stop-checks, companion enforcement, evidence gating) are powerful but **expensive on every agent turn**. Default mode for this repo is **lightweight**: hooks are parked, agents work normally, and the full gates run only at checkpoints or before a push/handoff.

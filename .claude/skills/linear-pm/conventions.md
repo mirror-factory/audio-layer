@@ -44,6 +44,17 @@ A regular story does **not** get a `kind:*` label.
 
 Every issue must have exactly one `owner:*` label before it leaves the backlog.
 
+### `agent:*` — which agent is currently on it (claim signal)
+
+| Label | Use when |
+|---|---|
+| `agent:claude` | Claude (via Linear PM skill / MCP) is claiming or working on this issue |
+| `agent:codex` | Codex (cloud or local CLI) is claiming or working on this issue |
+
+When an agent picks up an issue, it **must add the matching `agent:*` label** in addition to transitioning state to `started`. When done or releasing, the label comes off (or stays as a record if the issue is `Done`).
+
+This is a complement to the native `delegate` field, not a replacement. The label gives a visible at-a-glance signal in the kanban view ("oh, Claude has that one"). The delegate field is the authoritative claim.
+
 ## Naming Rules
 
 | Item | Rule | Example |
@@ -91,9 +102,12 @@ A human assignee is **not** a claim against an agent — humans set themselves a
 
 1. `get_issue` — re-fetch right before claiming; another agent might have grabbed it since the last orient pass.
 2. Check the three signals. If any says claimed, abort and pick another.
-3. `save_issue` with `state: started` (use the team's `started` state ID, not "In Progress" by name).
+3. `save_issue` with:
+   - `state: started` (use the team's `started` state ID, not "In Progress" by name)
+   - `labels: [...existing, "agent:<self>"]` (e.g., `agent:claude`)
 4. `save_comment` — post: `Starting work — <agent name> at <ISO timestamp>.`
-5. Begin work.
+5. Branch from `staging` using the convention `<agent>/<PROD-id>-<slug>` (see `docs/BRANCHING.md`).
+6. Begin work.
 
 ### Releasing an issue
 
