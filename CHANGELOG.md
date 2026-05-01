@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.45] — 2026-05-01
+
+### Other
+- Fix(PROD-395): Settings → AssemblyAI default not honored at runtime (`35fd6ac`)
+
+
 ## [0.1.44] — 2026-05-01
 
 ### Other
