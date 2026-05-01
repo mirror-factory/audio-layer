@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.58] — 2026-05-01
+
+### Other
+- M2(PROD-402): MCP per-request auth hardening tests (`600fc66`)
+
+
 ## [0.1.57] — 2026-05-01
 
 ### Other
