@@ -53,12 +53,15 @@ export function PublicSiteNav() {
             );
           })}
           <ThemeToggle />
-          <Link
-            href="/sign-up"
-            className="rounded-[10px] bg-[var(--layers-mint,oklch(0.68_0.13_166))] px-4 py-2 text-[14px] font-medium text-[var(--layers-ink,oklch(0.22_0.035_256))] shadow-[0_1px_0_oklch(0.22_0.035_256/0.08),0_8px_18px_oklch(0.68_0.13_166/0.18)] transition-transform hover:-translate-y-px"
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            title="Public sign-ups coming soon — invite-only alpha"
+            className="cursor-not-allowed rounded-[10px] bg-[var(--layers-mint-soft,oklch(0.82_0.10_168))] px-4 py-2 text-[14px] font-medium text-[var(--layers-ink,oklch(0.22_0.035_256))] opacity-80 shadow-[0_1px_0_oklch(0.22_0.035_256/0.06)]"
           >
             Coming soon
-          </Link>
+          </button>
         </div>
 
         <div className="flex items-center gap-1 md:hidden">
@@ -101,13 +104,15 @@ export function PublicSiteNav() {
                 </Link>
               );
             })}
-            <Link
-              href="/sign-up"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-[10px] bg-[var(--layers-mint,oklch(0.68_0.13_166))] px-4 py-3 text-[15px] font-medium text-[var(--layers-ink,oklch(0.22_0.035_256))]"
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              title="Public sign-ups coming soon — invite-only alpha"
+              className="mt-2 inline-flex cursor-not-allowed items-center justify-center rounded-[10px] bg-[var(--layers-mint-soft,oklch(0.82_0.10_168))] px-4 py-3 text-[15px] font-medium text-[var(--layers-ink,oklch(0.22_0.035_256))] opacity-80"
             >
               Coming soon
-            </Link>
+            </button>
           </div>
         </div>
       ) : null}

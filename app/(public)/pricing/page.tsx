@@ -597,64 +597,36 @@ function TierCard({
       </ul>
 
       <div style={{ marginTop: "auto" }}>
-        {tier.tier ? (
-          <button
-            type="button"
-            onClick={() => onCheckout(tier.tier as PaidTierId)}
-            disabled={anyBusy}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "var(--space-2)",
-              width: "100%",
-              padding: "14px 18px",
-              borderRadius: "var(--radius-pill)",
-              border: "1px solid transparent",
-              fontSize: "var(--text-sm)",
-              fontWeight: 600,
-              letterSpacing: "0.005em",
-              cursor: anyBusy ? "not-allowed" : "pointer",
-              background: isFeatured ? "var(--layers-ink)" : "var(--bg-surface)",
-              color: isFeatured ? "var(--bg-surface)" : "var(--layers-ink)",
-              borderColor: isFeatured ? "var(--layers-ink)" : "var(--border-default)",
-              transition:
-                "transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out)",
-              opacity: anyBusy && !isBusy ? 0.55 : 1,
-            }}
-          >
-            {isBusy ? (
-              <Loader2 size={16} className="animate-spin" aria-hidden />
-            ) : (
-              <>
-                {tier.cta}
-                <ArrowRight size={15} aria-hidden />
-              </>
-            )}
-          </button>
-        ) : (
-          <Link
-            href={tier.href ?? "/sign-up"}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "var(--space-2)",
-              width: "100%",
-              padding: "14px 18px",
-              borderRadius: "var(--radius-pill)",
-              border: "1px solid var(--border-default)",
-              fontSize: "var(--text-sm)",
-              fontWeight: 600,
-              background: "var(--bg-surface)",
-              color: "var(--layers-ink)",
-              textDecoration: "none",
-            }}
-          >
-            {tier.cta}
-            <ArrowRight size={15} aria-hidden />
-          </Link>
-        )}
+        <button
+          type="button"
+          disabled
+          aria-disabled="true"
+          title="Public sign-ups coming soon — invite-only alpha"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "var(--space-2)",
+            width: "100%",
+            padding: "14px 18px",
+            borderRadius: "var(--radius-pill)",
+            border: isFeatured
+              ? "1px solid color-mix(in oklch, var(--layers-mint) 60%, var(--layers-ink) 14%)"
+              : "1px solid var(--border-default)",
+            fontSize: "var(--text-sm)",
+            fontWeight: 600,
+            letterSpacing: "0.005em",
+            cursor: "not-allowed",
+            background: isFeatured
+              ? "var(--layers-mint-soft)"
+              : "var(--bg-surface)",
+            color: "var(--layers-ink)",
+            opacity: 0.7,
+          }}
+        >
+          {tier.cta}
+          <ArrowRight size={15} aria-hidden />
+        </button>
       </div>
     </article>
   );
@@ -1023,8 +995,11 @@ function FinalCta() {
             alignItems: "stretch",
           }}
         >
-          <Link
-            href="/sign-up"
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            title="Public sign-ups coming soon — invite-only alpha"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -1032,17 +1007,19 @@ function FinalCta() {
               gap: "var(--space-2)",
               padding: "16px 22px",
               borderRadius: "var(--radius-pill)",
-              background: "var(--layers-ink)",
-              color: "var(--bg-surface)",
+              border: "1px solid color-mix(in oklch, var(--layers-mint) 50%, var(--layers-ink) 14%)",
+              background: "var(--layers-mint-soft)",
+              color: "var(--layers-ink)",
               fontSize: "var(--text-md)",
               fontWeight: 600,
-              textDecoration: "none",
               letterSpacing: "-0.005em",
+              cursor: "not-allowed",
+              opacity: 0.78,
             }}
           >
             Coming soon
             <ArrowRight size={17} aria-hidden />
-          </Link>
+          </button>
           <Link
             href="/download"
             style={{

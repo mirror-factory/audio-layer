@@ -153,28 +153,38 @@ export function LandingPage() {
           gap: 8px;
           padding: 13px 22px;
           border-radius: var(--radius-pill);
-          background: var(--layers-mint);
-          color: var(--ink, var(--fg-default));
+          background: var(--layers-mint-soft);
+          color: var(--layers-ink);
           font-weight: 600;
           font-size: 0.95rem;
           letter-spacing: -0.005em;
           text-decoration: none;
           border: 1px solid
-            color-mix(in oklch, var(--layers-mint) 70%, var(--fg-default) 30%);
+            color-mix(in oklch, var(--layers-mint) 60%, var(--layers-ink) 12%);
           transition:
             transform var(--duration-fast) var(--ease-out),
             background var(--duration-normal) var(--ease-out),
             box-shadow var(--duration-fast) var(--ease-out);
           box-shadow: 0 1px 0
-            color-mix(in oklch, var(--layers-mint) 40%, transparent);
+            color-mix(in oklch, var(--layers-mint) 28%, transparent);
         }
         .layers-home :global(.btn-primary:hover) {
           background: color-mix(
             in oklch,
-            var(--layers-mint) 86%,
-            var(--fg-default) 14%
+            var(--layers-mint-soft) 86%,
+            var(--layers-mint) 14%
           );
           transform: translateY(-1px);
+        }
+        .layers-home :global(.btn-primary[disabled]),
+        .layers-home :global(.btn-primary:disabled) {
+          opacity: 0.66;
+          cursor: not-allowed;
+          transform: none;
+        }
+        .layers-home :global(.btn-primary[disabled]:hover) {
+          transform: none;
+          background: var(--layers-mint-soft);
         }
 
         .layers-home :global(.btn-ghost) {
@@ -284,9 +294,15 @@ function Hero() {
               marginTop: 4,
             }}
           >
-            <Link href="/sign-up" className="btn-primary">
+            <button
+              type="button"
+              className="btn-primary"
+              disabled
+              aria-disabled="true"
+              title="Public sign-ups coming soon — invite-only alpha"
+            >
               Coming soon
-            </Link>
+            </button>
             <Link href="/download" className="btn-ghost">
               See how it works
             </Link>
@@ -350,7 +366,7 @@ function HeroComposition() {
       aria-hidden
       style={{
         position: "relative",
-        minHeight: "clamp(420px, 50vw, 560px)",
+        minHeight: "clamp(380px, 44vw, 480px)",
         isolation: "isolate",
       }}
     >
@@ -553,7 +569,7 @@ function HeroComposition() {
             Live transcript
           </span>
           <span style={{ fontSize: "0.66rem", color: "var(--fg-muted)" }}>
-            · Speaker aware
+            · Captured live
           </span>
         </div>
         <ul
@@ -567,17 +583,17 @@ function HeroComposition() {
           }}
         >
           {[
-            ["00:11", "Maya", "We commit to ship onboarding first."],
-            ["00:14", "Owen", "Agreed. Jamie owns first-run copy."],
-          ].map(([t, who, line]) => (
+            ["00:11", "Commit to ship onboarding first."],
+            ["00:14", "Jamie owns first-run copy by Friday."],
+          ].map(([t, line]) => (
             <li
               key={t as string}
               style={{
                 display: "grid",
-                gridTemplateColumns: "auto auto 1fr",
-                gap: 8,
+                gridTemplateColumns: "auto 1fr",
+                gap: 10,
                 alignItems: "baseline",
-                color: "var(--fg-muted)",
+                color: "var(--fg-default)",
               }}
             >
               <span
@@ -587,9 +603,6 @@ function HeroComposition() {
                 }}
               >
                 {t}
-              </span>
-              <span style={{ color: "var(--fg-default)", fontWeight: 600 }}>
-                {who}
               </span>
               <span>{line}</span>
             </li>
@@ -677,7 +690,7 @@ function HeroComposition() {
 
       {/* Floating: Actions 4 Assigned */}
       <FloatingStat
-        style={{ bottom: "2%", left: "10%", zIndex: 5 }}
+        style={{ bottom: "10%", left: "10%", zIndex: 5 }}
         value="4"
         label="Actions"
         sub="Assigned"
@@ -686,7 +699,7 @@ function HeroComposition() {
 
       {/* Floating: Follow-ups 2 Planned */}
       <FloatingStat
-        style={{ bottom: "0%", right: "8%", zIndex: 5 }}
+        style={{ bottom: "8%", right: "8%", zIndex: 5 }}
         value="2"
         label="Follow-ups"
         sub="Planned"
@@ -1708,13 +1721,26 @@ function SectionPricing() {
                 ))}
               </ul>
 
-              <Link
-                href={tier.href}
-                className={tier.highlight ? "btn-primary" : "btn-ghost"}
-                style={{ marginTop: 4 }}
-              >
-                {tier.cta}
-              </Link>
+              {tier.cta === "Coming soon" ? (
+                <button
+                  type="button"
+                  className={tier.highlight ? "btn-primary" : "btn-ghost"}
+                  disabled
+                  aria-disabled="true"
+                  title="Public sign-ups coming soon — invite-only alpha"
+                  style={{ marginTop: 4 }}
+                >
+                  {tier.cta}
+                </button>
+              ) : (
+                <Link
+                  href={tier.href}
+                  className={tier.highlight ? "btn-primary" : "btn-ghost"}
+                  style={{ marginTop: 4 }}
+                >
+                  {tier.cta}
+                </Link>
+              )}
             </article>
           ))}
         </div>
@@ -1802,9 +1828,15 @@ function FinalCta() {
             minWidth: 220,
           }}
         >
-          <Link href="/sign-up" className="btn-primary">
+          <button
+            type="button"
+            className="btn-primary"
+            disabled
+            aria-disabled="true"
+            title="Public sign-ups coming soon — invite-only alpha"
+          >
             Coming soon
-          </Link>
+          </button>
           <Link
             href="mailto:support@mirrorfactory.ai?subject=Demo%20request"
             className="btn-ghost"

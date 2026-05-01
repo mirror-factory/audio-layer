@@ -25,55 +25,18 @@ export default function SignUpPage() {
   const [success, setSuccess] = useState(false);
   const canSubmit = email.trim().length > 0 && password.length >= 6;
 
+  // Public sign-ups paused while we run an invite-only alpha.
+  // Restore the Supabase signUp / Google OAuth handlers from git when re-opening.
+  const ALPHA_INVITE_MESSAGE =
+    "Public sign-ups are paused — we're in invite-only alpha. Email support@mirrorfactory.ai for access.";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim() || !password) return;
-
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters");
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const supabase = getSupabaseBrowser();
-      if (!supabase) throw new Error("Auth not configured");
-
-      const { error: authError } = await supabase.auth.signUp({
-        email: email.trim(),
-        password,
-      });
-
-      if (authError) throw authError;
-
-      setSuccess(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Sign up failed");
-    } finally {
-      setLoading(false);
-    }
+    setError(ALPHA_INVITE_MESSAGE);
   };
 
   const handleGoogle = async () => {
-    setGoogleLoading(true);
-    setError(null);
-    try {
-      const supabase = getSupabaseBrowser();
-      if (!supabase) throw new Error("Auth not configured");
-      const { error: authError } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          scopes: GOOGLE_SIGN_IN_AUTH_SCOPES,
-          redirectTo: `${window.location.origin}/auth/callback`,
-        },
-      });
-      if (authError) throw authError;
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Google sign up failed");
-      setGoogleLoading(false);
-    }
+    setError(ALPHA_INVITE_MESSAGE);
   };
 
   if (success) {
@@ -242,11 +205,7 @@ export default function SignUpPage() {
           minLength={6}
           hint="Use 6+ characters. Mix it up — we never see it in plain text."
         />
-        <AuthPrimaryButton
-          type="submit"
-          loading={loading}
-          disabled={!canSubmit}
-        >
+        <AuthPrimaryButton type="button" disabled>
           Coming soon
         </AuthPrimaryButton>
       </form>

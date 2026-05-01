@@ -916,17 +916,23 @@ export default function DownloadPage() {
               When you&rsquo;re ready, your meeting memory is one install away.
             </h2>
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/sign-up"
-                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[0.95rem] font-medium tracking-tight transition-transform duration-150 hover:-translate-y-px"
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Public sign-ups coming soon — invite-only alpha"
+                className="inline-flex cursor-not-allowed items-center gap-2 rounded-xl px-5 py-3 text-[0.95rem] font-medium tracking-tight"
                 style={{
-                  backgroundColor: "var(--layers-ink)",
-                  color: "var(--bg-page)",
+                  backgroundColor: "var(--layers-mint-soft)",
+                  color: "var(--layers-ink)",
+                  border:
+                    "1px solid color-mix(in oklch, var(--layers-mint) 50%, var(--layers-ink) 14%)",
+                  opacity: 0.78,
                 }}
               >
                 Coming soon
                 <ArrowUpRight size={15} aria-hidden="true" />
-              </Link>
+              </button>
               <Link
                 href="/pricing"
                 className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[0.95rem] font-medium tracking-tight transition-colors duration-150"
