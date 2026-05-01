@@ -5,19 +5,17 @@ import { usePathname } from "next/navigation";
 import { Library, MessageCircle, Mic2 } from "lucide-react";
 
 const PRIMARY_NAV = [
-  { href: "/", label: "Record", icon: Mic2 },
+  { href: "/record", label: "Record", icon: Mic2 },
   { href: "/meetings", label: "Library", icon: Library },
   { href: "/ask", label: "Ask", icon: MessageCircle },
 ];
 
 function isActivePath(pathname: string, href: string): boolean {
-  if (href === "/") return pathname === "/" || pathname.startsWith("/record");
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 function shouldHide(pathname: string): boolean {
   const isPrimarySurface =
-    pathname === "/" ||
     pathname.startsWith("/record") ||
     pathname === "/meetings" ||
     pathname === "/ask";

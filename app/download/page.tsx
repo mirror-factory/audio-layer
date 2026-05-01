@@ -83,7 +83,7 @@ const PUBLIC_DOWNLOAD_URLS = {
   webApp: cleanUrl(process.env.NEXT_PUBLIC_WEB_APP_URL) ?? "/sign-in",
 } as const;
 
-const PLATFORM_ORDER: DownloadPlatformKey[] = ["web", "macos", "windows", "ios", "android"];
+const PLATFORM_ORDER: DownloadPlatformKey[] = ["web", "macos", "windows", "android", "ios"];
 
 const DOWNLOAD_CHANNELS: Record<DownloadPlatformKey, DownloadChannel> = {
   web: {
@@ -257,13 +257,14 @@ function PlatformRecommendation() {
   const channel = DOWNLOAD_CHANNELS[detectedPlatform];
   const website = DOWNLOAD_CHANNELS.web;
   const Icon = channel.icon;
+  const recommendedChannel = isChannelAvailable(channel) ? channel : website;
 
   return (
-    <section className="download-recommendation-v2" aria-live="polite">
-      <span className="download-recommendation-icon">
+    <section className="download-recommendation-panel" aria-live="polite">
+      <span className="download-recommendation-icon-v3">
         <Icon size={22} aria-hidden="true" />
       </span>
-      <div>
+      <div className="download-recommendation-copy-v3">
         <p>Recommended for this device</p>
         <h2>{isChannelAvailable(channel) ? channel.cta : website.cta}</h2>
         <span>
@@ -272,44 +273,44 @@ function PlatformRecommendation() {
             : `${channel.name} is still in prep, so use the web app today.`}
         </span>
       </div>
-      <ChannelAction channel={isChannelAvailable(channel) ? channel : website} />
+      <ChannelAction channel={recommendedChannel} />
     </section>
   );
 }
 
 function DownloadAppPreview() {
   return (
-    <div className="download-app-preview" aria-label="Layers app preview">
-      <div className="download-preview-top">
-        <span>Layers</span>
-        <small>Meeting ready</small>
+    <div className="download-app-preview-v3" aria-label="Layers app preview">
+      <div className="download-preview-chrome-v3">
+        <span />
+        <span />
+        <span />
+        <strong>Layers</strong>
+        <small>Private capture</small>
       </div>
-      <div className="download-preview-grid">
-        <div className="download-preview-recording">
-          <strong>Product planning</strong>
-          <span>00:13 live capture</span>
-          <div aria-hidden="true">
+      <div className="download-preview-body-v3">
+        <div className="download-preview-recorder-v3">
+          <small>Product planning</small>
+          <strong>00:13</strong>
+          <div className="download-preview-wave-v3" aria-hidden="true">
             {Array.from({ length: 22 }, (_, index) => (
               <i key={index} />
             ))}
           </div>
         </div>
-        <div className="download-preview-memory">
-          <p>
-            <CheckCircle2 size={13} aria-hidden="true" />
-            2 decisions
-          </p>
-          <p>
-            <CheckCircle2 size={13} aria-hidden="true" />
-            4 actions
-          </p>
-          <p>
-            <CheckCircle2 size={13} aria-hidden="true" />
-            Searchable
-          </p>
+        <div className="download-preview-summary-v3">
+          <span>Meeting memory</span>
+          <p>Decision: ship activation flow before team sharing.</p>
+          <p>Action: Jamie to draft first-run copy by Friday.</p>
+          <div>
+            <strong>2</strong>
+            <small>Decisions</small>
+            <strong>4</strong>
+            <small>Actions</small>
+          </div>
         </div>
       </div>
-      <div className="download-preview-tools">
+      <div className="download-preview-tools-v3">
         <ProductLogo id="chatgpt" />
         <ProductLogo id="claude" />
         <ProductLogo id="gemini" />
@@ -322,54 +323,56 @@ function DownloadCard({ channel }: { channel: DownloadChannel }) {
   const Icon = channel.icon;
 
   return (
-    <article className={`download-card-v2 is-${channel.key}`}>
-      <div className="download-card-head">
-        <span>
-          <Icon size={18} aria-hidden="true" />
-        </span>
-        <small>{channel.label}</small>
+    <article className={`download-platform-row is-${channel.key}`} id={channel.key}>
+      <span className="download-platform-icon-v3">
+        <Icon size={19} aria-hidden="true" />
+      </span>
+      <div className="download-platform-main-v3">
+        <div className="download-platform-heading-v3">
+          <h3>{channel.name}</h3>
+          <small>{channel.label}</small>
+        </div>
+        <p>{channel.description}</p>
+        <ul>
+          {channel.details.map((detail) => (
+            <li key={detail}>
+              <CheckCircle2 size={14} aria-hidden="true" />
+              {detail}
+            </li>
+          ))}
+        </ul>
+        {channel.links?.length ? (
+          <div className="download-card-links-v3" aria-label={`${channel.name} alternate downloads`}>
+            {channel.links.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+                <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        ) : null}
       </div>
-      <h3>{channel.name}</h3>
-      <p>{channel.description}</p>
-      <ul>
-        {channel.details.map((detail) => (
-          <li key={detail}>
-            <CheckCircle2 size={14} aria-hidden="true" />
-            {detail}
-          </li>
-        ))}
-      </ul>
-      <div className="download-card-footer">
+      <div className="download-platform-action-v3">
         <span>{channel.status}</span>
         <ChannelAction channel={channel} />
       </div>
-      {channel.links?.length ? (
-        <div className="download-card-links" aria-label={`${channel.name} alternate downloads`}>
-          {channel.links.map((link) => (
-            <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
-              {link.label}
-              <ExternalLink size={13} aria-hidden="true" />
-            </a>
-          ))}
-        </div>
-      ) : null}
     </article>
   );
 }
 
 export default function DownloadPage() {
   return (
-    <main className="download-page download-page-v2 min-h-screen-safe">
+    <main className="download-page-v3 min-h-screen-safe">
       <PublicSiteNav active="download" />
 
-      <section className="download-hero download-hero-v2">
-        <div>
+      <section className="download-hero-v3">
+        <div className="download-hero-copy-v3">
           <span className="download-kicker">Download Layers</span>
-          <h1>Use the web app now. Install native betas from release builds.</h1>
+          <h1>Get Layers wherever meetings happen.</h1>
           <p>
-            Layers is launch-ready in the browser. Desktop and Android betas are
-            linked from GitHub release assets produced by Actions, and iOS is
-            routed through the proper TestFlight path.
+            Start in the web app today. Install Mac, Windows, and Android beta
+            builds from the latest release when you need native capture. iPhone
+            and iPad access will run through TestFlight.
           </p>
           <div className="download-hero-actions">
             <ChannelAction channel={DOWNLOAD_CHANNELS.web} />
@@ -377,16 +380,42 @@ export default function DownloadPage() {
               Create account
             </Link>
           </div>
+          <div className="download-release-note-v3">
+            <CheckCircle2 size={15} aria-hidden="true" />
+            Release links point to the latest published build assets.
+          </div>
         </div>
-        <DownloadAppPreview />
+
+        <div className="download-hero-visual-v3">
+          <DownloadAppPreview />
+          <PlatformRecommendation />
+        </div>
       </section>
 
-      <PlatformRecommendation />
+      <section className="download-section-heading-v3">
+        <span>Release channels</span>
+        <h2>Choose the path for your device.</h2>
+        <p>
+          Use the web app first for the fastest start. Install a native build
+          when you need OS-level capture, permissions, or mobile testing.
+        </p>
+      </section>
 
-      <section className="download-channel-grid" aria-label="Download channels">
+      <section className="download-platform-list-v3" aria-label="Download channels">
         {PLATFORM_ORDER.map((key) => (
           <DownloadCard key={key} channel={DOWNLOAD_CHANNELS[key]} />
         ))}
+      </section>
+
+      <section className="download-ios-note-v3" aria-label="iOS beta note">
+        <div>
+          <span>iOS beta distribution</span>
+          <h2>TestFlight is the right path for iPhone and iPad.</h2>
+        </div>
+        <p>
+          Direct iOS installs require signing and device registration. TestFlight
+          keeps the beta cleaner once the App Store Connect app record is ready.
+        </p>
       </section>
     </main>
   );

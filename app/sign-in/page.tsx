@@ -38,7 +38,7 @@ function SignInForm() {
 
   // After sign-in, redirect to OAuth callback if this is an MCP OAuth flow
   const getPostLoginRedirect = () => {
-    if (!isOAuthFlow) return "/";
+    if (!isOAuthFlow) return "/record";
     const params = new URLSearchParams();
     for (const [key, value] of searchParams.entries()) {
       if (key !== "oauth") params.append(key, value);

@@ -27,7 +27,7 @@ export default function AuthConfirmPage() {
       }
       if (data.session) {
         setStatus("Signed in!");
-        router.push("/");
+        router.push("/record");
       } else {
         setStatus("No session found");
         setTimeout(() => router.push("/sign-in"), 2000);

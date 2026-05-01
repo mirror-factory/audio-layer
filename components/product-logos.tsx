@@ -31,7 +31,7 @@ export function ProductLogo({
   return (
     <span className={cn("product-logo", `is-${id}`, className)}>
       <span className="product-logo-mark" aria-hidden="true">
-        <img src={product.src} alt="" loading="lazy" />
+        <img src={product.src} alt="" loading="eager" decoding="sync" referrerPolicy="no-referrer" />
       </span>
       {showName ? <span>{product.label}</span> : null}
     </span>
