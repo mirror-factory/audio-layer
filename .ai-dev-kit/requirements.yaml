@@ -31,8 +31,8 @@ react_scan:
 # next.config imports `million/next` AND compiled markers appear in .next/.
 # Catches "plugin removed after merge" regressions.
 #
-# Bypass: remove `million: required` below to opt out per project.
-million: required
+# Opted out for this app: the compiler was causing production React tree
+# insertion errors on the live site.
 
 # ── Doctor cross-reference strictness ──────────────────────────────────
 # When `strict`, doctor fails (not warns) when components.yaml has

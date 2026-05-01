@@ -1,4 +1,3 @@
-import million from "million/compiler";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -37,7 +36,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default million.next(nextConfig as Parameters<typeof million.next>[0], {
-  auto: true,
-  telemetry: false,
-});
+export default nextConfig;
