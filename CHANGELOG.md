@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.31] — 2026-05-01
+
+### Other
+- chore: sync ai-starter manifests and test report outputs (`2044002`)
+
+
 ## [0.1.30] — 2026-05-01
 
 ### Documentation
