@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.40] — 2026-05-01
+
+### Other
+- /record polish: clean MCP card + fix page gradient cutoff at scroll (`4522dd4`)
+
+
 ## [0.1.39] — 2026-05-01
 
 ### Other
