@@ -109,6 +109,27 @@ Available runtime skills. Claude Code skills live in `.claude/skills/`; Codex sh
 
 ---
 
+## Release Flow (READ BEFORE PUSHING)
+
+**Never push directly to `main`.** Every change reaches `main` via a PR from `staging`, which itself received the change via a PR from `development` (or a feature branch). Single exception: a tagged hotfix from a `hotfix/*` branch with an explicit incident write-up linked in the PR.
+
+Order of promotion:
+
+```
+feature/* → development → staging → main
+```
+
+| Branch        | Domain                            | Vercel env       | Stripe    |
+| ------------- | --------------------------------- | ---------------- | --------- |
+| `main`        | `layers.mirrorfactory.ai`         | Production       | Live      |
+| `staging`     | `staging.layers.mirrorfactory.ai` | Preview (pinned) | Test      |
+| `development` | `dev.layers.mirrorfactory.ai`     | Preview (pinned) | Test      |
+| feature/\*    | per-PR Vercel preview             | Preview          | Test      |
+
+Full setup, env-var checklist, GitHub branch protection, Vercel domain pinning, and the OAuth/webhook allow-lists live in [`docs/RELEASE.md`](./docs/RELEASE.md). When `staging` and `development` aren't wired up yet, follow [PROD-383](https://linear.app/mirror-factory/issue/PROD-383).
+
+---
+
 ## Active Research Cache
 
 Last updated: 2026-04-26T22:15:31.822Z
