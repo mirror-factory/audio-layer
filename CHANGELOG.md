@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.51] — 2026-05-01
+
+### Other
+- Polish: home hero accent uses Geist italic mint, matching pricing (`7d759cf`)
+
+
 ## [0.1.50] — 2026-05-01
 
 ### Other
