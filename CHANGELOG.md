@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.16] — 2026-05-01
+
+### Other
+- [PROD-331] Add vendor mock harness + live canary plan (`5d8cbfd`)
+
+
 ## [0.1.15] — 2026-04-30
 
 ### Testing
