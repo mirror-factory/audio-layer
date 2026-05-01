@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.18] — 2026-05-01
+
+### Fixed
+- fix: handle read-only pricing config in serverless (`e07bfa6`)
+
+
 ## [0.1.17] — 2026-05-01
 
 ### Fixed
