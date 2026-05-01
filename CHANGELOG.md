@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.33] — 2026-05-01
+
+### Other
+- Fix(PROD-379): pass `next` to /auth/callback so Google OAuth lands on /record (`97d128b`)
+
+
 ## [0.1.32] — 2026-05-01
 
 ### Other
