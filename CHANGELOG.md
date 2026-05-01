@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.16] — 2026-05-01
+
+### Other
+- [PROD-321] Add API behavior tests for /api/transcribe (`88424b4`)
+
+
 ## [0.1.15] — 2026-04-30
 
 ### Testing
