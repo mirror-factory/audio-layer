@@ -17,6 +17,7 @@
     "test:eval": "vitest --config vitest.eval.config.ts run",
     "test:contracts": "vitest run tests/route-contracts.test.ts",
     "test:mcp": "vitest run tests/mcp",
+    "test:mcp-auth": "vitest run tests/integration/app-api-mcp-auth.test.ts",
     "test:tools": "vitest run tests/tools",
     "test:all": "pnpm typecheck && vitest run --reporter=json --outputFile=test-results/unit.json && pnpm test:eval && pnpm compliance && node scripts/ingest-run-results.mjs",
     "compliance": "tsx scripts/check-compliance.ts",
