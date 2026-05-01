@@ -75,13 +75,23 @@ function SignInForm() {
       const supabase = getSupabaseBrowser();
       if (!supabase) throw new Error("Auth not configured");
 
+      // For Google OAuth (PKCE flow), Supabase redirects back to redirectTo
+      // with `?code=...`. Our /auth/callback route exchanges the code, then
+      // forwards to the `next` query param. We must pass `next` ourselves —
+      // it does not survive the OAuth round-trip otherwise. Without this the
+      // user lands on `/` instead of `/record` (PROD-379).
+      const callbackUrl = new URL(
+        `${window.location.origin}/auth/callback`,
+      );
+      callbackUrl.searchParams.set("next", getPostLoginRedirect());
+
       const { error: authError } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
           scopes: GOOGLE_SIGN_IN_AUTH_SCOPES,
           redirectTo: isOAuthFlow
             ? `${window.location.origin}${getPostLoginRedirect()}`
-            : `${window.location.origin}/auth/callback`,
+            : callbackUrl.toString(),
         },
       });
 
