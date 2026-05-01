@@ -126,7 +126,7 @@ const DOWNLOAD_CHANNELS: Record<DownloadPlatformKey, DownloadChannel> = {
     name: "macOS",
     tagline:
       "Native capture with system audio routing, menu-bar capture controls, and a local meeting library.",
-    channelLabel: "Stable beta",
+    channelLabel: "Stable alpha",
     status: "beta",
     icon: Apple,
     whatYouGet:
@@ -152,7 +152,7 @@ const DOWNLOAD_CHANNELS: Record<DownloadPlatformKey, DownloadChannel> = {
     name: "Windows",
     tagline:
       "Same capture, transcription, and library — built for Windows desktop and laptop workflows.",
-    channelLabel: "Stable beta",
+    channelLabel: "Stable alpha",
     status: "beta",
     icon: MonitorDown,
     whatYouGet:
@@ -180,7 +180,7 @@ const DOWNLOAD_CHANNELS: Record<DownloadPlatformKey, DownloadChannel> = {
     name: "Web app",
     tagline:
       "The browser experience for upload, review, search, and AI-ready meeting memory.",
-    channelLabel: "Live",
+    channelLabel: "Stable alpha",
     status: "live",
     icon: Globe,
     whatYouGet:
@@ -202,7 +202,7 @@ const DOWNLOAD_CHANNELS: Record<DownloadPlatformKey, DownloadChannel> = {
     name: "iPhone & iPad",
     tagline:
       "Capture in-person conversations and review your library on the move.",
-    channelLabel: "TestFlight",
+    channelLabel: "Stable alpha",
     status: PUBLIC_DOWNLOAD_URLS.testFlight ? "beta" : "preflight",
     icon: Smartphone,
     whatYouGet:
@@ -229,7 +229,7 @@ const DOWNLOAD_CHANNELS: Record<DownloadPlatformKey, DownloadChannel> = {
     name: "Android",
     tagline:
       "Sideload the APK today, or join Play internal testing once it opens.",
-    channelLabel: "Beta APK",
+    channelLabel: "Stable alpha",
     status: "beta",
     icon: Tablet,
     whatYouGet:
@@ -787,8 +787,8 @@ export default function DownloadPage() {
               className="text-[0.92rem]"
               style={{ color: "var(--fg-default)", lineHeight: 1.5 }}
             >
-              Web is live. Mac &amp; Windows are stable beta. iPhone, iPad, and
-              Android ship through dedicated beta channels.
+              Web, Mac, Windows, iPhone, iPad, and Android are all in stable
+              alpha. We&rsquo;re shipping fixes daily — see what changed.
             </p>
             <Link
               href="/changelog"
