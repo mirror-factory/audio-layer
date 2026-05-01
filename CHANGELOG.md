@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.54] — 2026-05-01
+
+### Other
+- M1(PROD-320,322,321): API behavior + cross-tenant probe tests (`8fd8d27`)
+
+
 ## [0.1.53] — 2026-05-01
 
 ### Other
