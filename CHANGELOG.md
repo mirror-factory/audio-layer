@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.59] — 2026-05-01
+
+### Other
+- PROD-371: in-process health + alert dispatcher for alpha visibility (`84e355c`)
+
+
 ## [0.1.58] — 2026-05-01
 
 ### Other
