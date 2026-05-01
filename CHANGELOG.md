@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.26] — 2026-05-01
+
+### Other
+- Homepage: add MCP section with real brand logos, drop chip row + book a demo (`8f7abc4`)
+
+
 ## [0.1.25] — 2026-05-01
 
 ### Other
